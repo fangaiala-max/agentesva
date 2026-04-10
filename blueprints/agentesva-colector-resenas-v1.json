@@ -1,0 +1,117 @@
+{
+  "name": "AgentesVA - Colector de Reseñas Google v1",
+  "flow": [
+    {
+      "id": 1,
+      "module": "google-sheets:filterRows",
+      "version": 2,
+      "parameters": {
+        "account": {
+          "__IMTCONN__": null
+        },
+        "spreadsheetId": {
+          "__IMTCONN__": null
+        },
+        "sheetId": ""
+      },
+      "mapper": {
+        "from": "1",
+        "to": ""
+      },
+      "filter": null,
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0,
+          "name": "01 | Leer hoja de clientes"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "module": "google-email:sendAnEmail",
+      "version": 4,
+      "parameters": {
+        "account": {
+          "__IMTCONN__": null
+        }
+      },
+      "mapper": {
+        "to": "{{1.Email}}",
+        "subject": "{{1.Nombre}}, ¿cómo te fue con tu {{1.Servicio}}?",
+        "content": "<p>Hola {{1.Nombre}},</p>\n\n<p>Hace unos días tuve el gusto de atenderte con <strong>{{1.Servicio}}</strong> y me encantaría saber cómo fue tu experiencia.</p>\n\n<p>Si tienes 2 minutos, dejar una reseña en Google hace una diferencia enorme para mi negocio — y me ayuda a seguir mejorando para clientes como tú.</p>\n\n<p style=\"margin: 24px 0;\">\n  <a href=\"[PEGAR_AQUÍ_TU_LINK_DE_GOOGLE_REVIEWS]\" style=\"background:#4285F4; color:white; padding:12px 24px; border-radius:6px; text-decoration:none; font-weight:bold;\">⭐ Dejar mi reseña en Google</a>\n</p>\n\n<p>Solo toma 2 minutos y lo agradezco mucho.</p>\n\n<p>Un saludo,<br>\n<strong>[TU_NOMBRE]</strong><br>\n[TU_NEGOCIO]<br>\n[TU_TELÉFONO_O_WEB]</p>",
+        "type": "html"
+      },
+      "filter": {
+        "name": "Clientes listos para solicitud de reseña",
+        "conditions": [
+          [
+            {
+              "a": "{{1.Reseña_Enviada}}",
+              "b": "NO",
+              "o": "text:equal:ci"
+            },
+            {
+              "a": "{{1.Fecha_Servicio}}",
+              "b": "{{formatDate(addDays(now; -7); \"YYYY-MM-DD\")}}",
+              "o": "text:equal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0,
+          "name": "02 | Enviar solicitud de reseña"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "module": "google-sheets:updateRow",
+      "version": 2,
+      "parameters": {
+        "account": {
+          "__IMTCONN__": null
+        },
+        "spreadsheetId": {
+          "__IMTCONN__": null
+        },
+        "sheetId": ""
+      },
+      "mapper": {
+        "rowNumber": "{{1.__ROW_NUMBER__}}",
+        "values": {
+          "Reseña_Enviada": "SI"
+        }
+      },
+      "filter": null,
+      "metadata": {
+        "designer": {
+          "x": 600,
+          "y": 0,
+          "name": "03 | Marcar reseña como enviada"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "confidential": false,
+      "dl": false,
+      "dataloss": false
+    },
+    "designer": {
+      "orphans": []
+    },
+    "zone": "eu1.make.com"
+  }
+}

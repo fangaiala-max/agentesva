@@ -1,0 +1,156 @@
+{
+  "name": "AgentesVA - Clasificador de Leads Inmobiliarios v1",
+  "flow": [
+    {
+      "id": 1,
+      "module": "google-email:triggerWatchNewEmails",
+      "version": 4,
+      "parameters": {
+        "account": {
+          "__IMTCONN__": null
+        },
+        "label": "INBOX",
+        "criteria": "ALL",
+        "maxResults": 2,
+        "markSeen": false,
+        "includeAttachments": false
+      },
+      "filter": null,
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0,
+          "name": "01 | Detectar nuevo lead inmobiliario"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "module": "openai-gpt-3:CreateCompletion",
+      "version": 1,
+      "parameters": {
+        "account": {
+          "__IMTCONN__": null
+        }
+      },
+      "mapper": {
+        "model": "gpt-4o",
+        "messages": [
+          {
+            "role": "system",
+            "content": "Eres un calificador de leads para una agencia inmobiliaria latinoamericana. Analiza el email de un prospecto y extrae la información clave en formato JSON.\n\nDevuelve SOLO este JSON sin markdown:\n{\n  \"temperatura\": \"CALIENTE | TIBIO | FRIO\",\n  \"tipo_operacion\": \"Compra | Renta | Inversión | No especificado\",\n  \"presupuesto\": \"rango estimado o 'No especificado'\",\n  \"zona_interes\": \"zona o ciudad mencionada o 'No especificado'\",\n  \"tipo_propiedad\": \"Casa | Departamento | Local | Terreno | No especificado\",\n  \"urgencia\": \"Inmediata | 1-3 meses | 3-6 meses | Explorando\",\n  \"nombre_prospecto\": \"nombre si se puede inferir o 'Desconocido'\",\n  \"resumen\": \"1 oración describiendo qué busca el prospecto\",\n  \"accion_recomendada\": \"Llamar hoy | Agendar visita | Enviar opciones | Nurturing\"\n}\n\nCriterios de temperatura:\n- CALIENTE: tiene presupuesto claro, urgencia inmediata o menciona 'ya'\n- TIBIO: interesado pero explorando, sin urgencia inmediata\n- FRIO: muy vago, solo pregunta precios generales, sin detalles"
+          },
+          {
+            "role": "user",
+            "content": "De: {{1.from}}\nAsunto: {{1.subject}}\nMensaje: {{1.snippet}}"
+          }
+        ],
+        "max_tokens": 300,
+        "temperature": 0
+      },
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0,
+          "name": "02 | Calificar lead con IA"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "module": "json:ParseJSON",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "data": "{{2.choices[1].message.content}}"
+      },
+      "metadata": {
+        "designer": {
+          "x": 600,
+          "y": 0,
+          "name": "03 | Parsear datos del lead"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "module": "google-sheets:addRow",
+      "version": 2,
+      "parameters": {
+        "account": {
+          "__IMTCONN__": null
+        },
+        "spreadsheetId": {
+          "__IMTCONN__": null
+        },
+        "sheetId": ""
+      },
+      "mapper": {
+        "values": {
+          "Fecha": "{{formatDate(now; 'DD/MM/YYYY HH:mm')}}",
+          "Email": "{{1.from}}",
+          "Nombre": "{{3.nombre_prospecto}}",
+          "Temperatura": "{{3.temperatura}}",
+          "Operacion": "{{3.tipo_operacion}}",
+          "Presupuesto": "{{3.presupuesto}}",
+          "Zona": "{{3.zona_interes}}",
+          "Propiedad": "{{3.tipo_propiedad}}",
+          "Urgencia": "{{3.urgencia}}",
+          "Resumen": "{{3.resumen}}",
+          "Accion": "{{3.accion_recomendada}}",
+          "Estado": "Nuevo"
+        }
+      },
+      "filter": null,
+      "metadata": {
+        "designer": {
+          "x": 900,
+          "y": 0,
+          "name": "04 | Registrar lead en Google Sheets"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "module": "google-email:sendAnEmail",
+      "version": 4,
+      "parameters": {
+        "account": {
+          "__IMTCONN__": null
+        }
+      },
+      "mapper": {
+        "to": "[EMAIL_AGENTE_INMOBILIARIO]",
+        "subject": "🏠 Nuevo lead {{3.temperatura}}: {{3.nombre_prospecto}} — {{3.tipo_operacion}} en {{3.zona_interes}}",
+        "content": "<h3>Nuevo lead calificado por IA</h3>\n<table style='border-collapse:collapse; width:100%;'>\n  <tr><td style='padding:6px; background:#f0f0f0;'><b>Temperatura</b></td><td style='padding:6px;'><b style='color:{{if(3.temperatura = \"CALIENTE\"; \"#e53e3e\"; if(3.temperatura = \"TIBIO\"; \"#d69e2e\"; \"#3182ce\"))}}'>{{3.temperatura}}</b></td></tr>\n  <tr><td style='padding:6px; background:#f0f0f0;'><b>Nombre</b></td><td style='padding:6px;'>{{3.nombre_prospecto}}</td></tr>\n  <tr><td style='padding:6px; background:#f0f0f0;'><b>Email</b></td><td style='padding:6px;'>{{1.from}}</td></tr>\n  <tr><td style='padding:6px; background:#f0f0f0;'><b>Busca</b></td><td style='padding:6px;'>{{3.tipo_operacion}} — {{3.tipo_propiedad}}</td></tr>\n  <tr><td style='padding:6px; background:#f0f0f0;'><b>Zona</b></td><td style='padding:6px;'>{{3.zona_interes}}</td></tr>\n  <tr><td style='padding:6px; background:#f0f0f0;'><b>Presupuesto</b></td><td style='padding:6px;'>{{3.presupuesto}}</td></tr>\n  <tr><td style='padding:6px; background:#f0f0f0;'><b>Urgencia</b></td><td style='padding:6px;'>{{3.urgencia}}</td></tr>\n  <tr><td style='padding:6px; background:#f0f0f0;'><b>Acción recomendada</b></td><td style='padding:6px;'><b>{{3.accion_recomendada}}</b></td></tr>\n  <tr><td style='padding:6px; background:#f0f0f0;'><b>Resumen</b></td><td style='padding:6px;'>{{3.resumen}}</td></tr>\n</table>\n<p style='margin-top:12px; color:#666;'>Mensaje original: {{1.snippet}}</p>",
+        "type": "html"
+      },
+      "filter": null,
+      "metadata": {
+        "designer": {
+          "x": 1200,
+          "y": 0,
+          "name": "05 | Notificar al agente inmobiliario"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": true,
+      "confidential": false,
+      "dl": false,
+      "dataloss": false
+    },
+    "designer": {
+      "orphans": []
+    },
+    "zone": "eu1.make.com"
+  }
+}

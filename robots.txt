@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /_archive/
+Disallow: /gracias/
+Disallow: /gracias
+Disallow: /gracias-gratis/
+Disallow: /gracias-gratis
+
+# Sitemap
+Sitemap: https://agentesva.com/sitemap.xml

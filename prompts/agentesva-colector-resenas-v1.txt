@@ -1,0 +1,60 @@
+AGENTE: Colector de Reseñas Google v1
+MÓDULO: 02 | Enviar solicitud de reseña (Gmail)
+ÚLTIMA ACTUALIZACIÓN: 2026-04-02
+NOTA: Este agente no usa OpenAI. El email es un template HTML con variables de Make.
+
+════════════════════════════════════════
+SUBJECT DEL EMAIL
+════════════════════════════════════════
+{{1.Nombre}}, ¿cómo te fue con tu {{1.Servicio}}?
+
+════════════════════════════════════════
+BODY DEL EMAIL (HTML)
+════════════════════════════════════════
+<p>Hola {{1.Nombre}},</p>
+
+<p>Hace unos días tuve el gusto de atenderte con <strong>{{1.Servicio}}</strong>
+y me encantaría saber cómo fue tu experiencia.</p>
+
+<p>Si tienes 2 minutos, dejar una reseña en Google hace una diferencia enorme
+para mi negocio — y me ayuda a seguir mejorando para clientes como tú.</p>
+
+<p style="margin: 24px 0;">
+  <a href="[PEGAR_AQUÍ_TU_LINK_DE_GOOGLE_REVIEWS]"
+     style="background:#4285F4; color:white; padding:12px 24px;
+            border-radius:6px; text-decoration:none; font-weight:bold;">
+    ⭐ Dejar mi reseña en Google
+  </a>
+</p>
+
+<p>Solo toma 2 minutos y lo agradezco mucho.</p>
+
+<p>Un saludo,<br>
+<strong>[TU_NOMBRE]</strong><br>
+[TU_NEGOCIO]<br>
+[TU_TELÉFONO_O_WEB]</p>
+
+════════════════════════════════════════
+VARIABLES QUE EL CLIENTE DEBE REEMPLAZAR
+════════════════════════════════════════
+[PEGAR_AQUÍ_TU_LINK_DE_GOOGLE_REVIEWS]  → Link de Google Business Profile
+[TU_NOMBRE]                              → Nombre del dueño del negocio
+[TU_NEGOCIO]                             → Nombre del negocio
+[TU_TELÉFONO_O_WEB]                      → Contacto adicional
+
+════════════════════════════════════════
+CONDICIÓN DEL FILTRO (entre módulo 1 y 2)
+════════════════════════════════════════
+Condición 1: {{1.Reseña_Enviada}} igual a "NO" (case insensitive)
+Condición 2: {{1.Fecha_Servicio}} igual a {{formatDate(addDays(now; -7); "YYYY-MM-DD")}}
+
+Para cambiar los días de espera: reemplazar el -7 por el número deseado (ej: -5, -10)
+
+════════════════════════════════════════
+ESTRUCTURA REQUERIDA DEL GOOGLE SHEET
+════════════════════════════════════════
+Columna A: Nombre
+Columna B: Email
+Columna C: Servicio
+Columna D: Fecha_Servicio   (formato: YYYY-MM-DD)
+Columna E: Reseña_Enviada   (valor inicial: NO)

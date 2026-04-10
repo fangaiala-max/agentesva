@@ -1,0 +1,45 @@
+name,description,price_usd,type,category,stripe_id
+DIY Setup — Blueprint + Guía,"El cliente recibe blueprint .json + guía paso a paso y configura solo",19,one_time,setup,
+Setup Asistido — Sesión en vivo 30 min,"Sesión en vivo de 30 min con experto por videollamada. La opción más popular",49,one_time,setup,
+Full Service — Done-for-you,"Nosotros configuramos todo. Zero esfuerzo del cliente. Entrega 24-48h",97,one_time,setup,
+Implementación Premium — Agente Simple,"Configuración en Make.com. 1 integración, flujo estándar. 30 min capacitación",97,one_time,servicio_premium,
+Implementación Premium — Agente Avanzado,"Configuración en Make.com. 3+ integraciones, lógica condicional. 30 min capacitación",197,one_time,servicio_premium,
+Llave en Mano — Simple,"Implementación completa. 1-2 agentes, proceso definido. Monitoreo 30 días",297,one_time,servicio_premium,
+Llave en Mano — Avanzado,"Implementación completa. 3+ agentes, procesos personalizados. Monitoreo 30 días",497,one_time,servicio_premium,
+Auditoría IA — Simple,"Análisis de hasta 5 procesos en 1 área. Reporte + roadmap de automatización",147,one_time,servicio_premium,
+Auditoría IA — Avanzado,"Análisis de 10+ procesos en múltiples áreas. Reporte + roadmap + presentación",297,one_time,servicio_premium,
+Recordatorio de Citas,"Envía recordatorios por email 24h antes de cada cita. Reduce no-shows 40%",29,one_time,agente_basico,price_agent_008
+Agente de Bienvenida,"Email de bienvenida personalizado con GPT-4o para cada cliente nuevo",29,one_time,agente_basico,price_agent_009
+Newsletter Automática,"Genera y envía newsletters semanales con contenido automático",29,one_time,agente_basico,price_agent_010
+Recordador de Pagos,"Recordatorios automáticos de pagos vencidos. Tono profesional",29,one_time,agente_basico,price_agent_011
+Generador de Propuestas,"Crea propuestas profesionales en Google Docs desde un email",29,one_time,agente_basico,price_agent_012
+Detector de Churn,"Identifica clientes en riesgo de cancelar según actividad",29,one_time,agente_basico,price_agent_013
+Rastreador de Competidores,"Monitorea precios y actividad de competidores. Reportes en Sheets",29,one_time,agente_basico,price_agent_014
+Segmentador de Email,"Segmenta contactos por comportamiento y tipo de cliente",29,one_time,agente_basico,price_agent_015
+Inicializador de Proyectos,"Crea carpetas, documentos y tablas de seguimiento automáticamente",29,one_time,agente_basico,price_agent_016
+Monitor de Menciones Web,"Detecta menciones de tu marca en redes y web. Alertas en tiempo real",29,one_time,agente_basico,price_agent_017
+Asignador de Tareas Inteligente,"Asigna tareas según disponibilidad y expertise del equipo",29,one_time,agente_basico,price_agent_018
+Detector de Leads Instagram,"Detecta leads en comentarios de Instagram. Registra en Sheets",47,one_time,agente_estandar,price_agent_019
+Responder Comentarios Automático,"Respuestas automáticas a comentarios con GPT-4o. Tono natural",47,one_time,agente_estandar,price_agent_020
+Conversor WhatsApp a Leads,"Convierte mensajes WhatsApp en leads clasificados automáticamente",47,one_time,agente_estandar,price_agent_021
+Asistente de Cotizaciones,"Genera cotizaciones profesionales en Google Docs desde emails",47,one_time,agente_estandar,price_agent_022
+Analizador de Ventas Semanal,"Analiza ventas semanales con insights de GPT-4o. Recomendaciones",47,one_time,agente_estandar,price_agent_023
+Clasificador Inmobiliario,"Clasifica leads inmobiliarios por intención. Score automático",47,one_time,agente_estandar,price_agent_024
+Generador de Reseñas en Video,"Solicita reseñas en video automáticamente. Social proof potente",47,one_time,agente_estandar,price_agent_025
+Agente de Reactivación,"Detecta clientes inactivos y envía mensajes de reactivación",47,one_time,agente_estandar,price_agent_026
+Recomendador de Productos,"Recomienda productos según historial de compras. Aumenta AOV",47,one_time,agente_estandar,price_agent_027
+Generador de Contenido Semanal,"7 posts semanales para redes. Variados y enfocados en conversión",47,one_time,agente_estandar,price_agent_028
+Gestor de Propuestas de Valor,"Personaliza propuestas según industria y tamaño del cliente",47,one_time,agente_estandar,price_agent_029
+Automatizador de Follow-ups,"Secuencia de follow-ups inteligente. 5 emails con lógica condicional",47,one_time,agente_estandar,price_agent_030
+Asistente de Onboarding Cliente,"Plan de onboarding personalizado. Docs, timeline y tareas con GPT-4o",47,one_time,agente_estandar,price_agent_031
+Monitor de KPIs Comerciales,"Dashboard KPIs en tiempo real: conversión, CAC, LTV, MRR. Alertas",47,one_time,agente_estandar,price_agent_032
+Agente de Soporte Inteligente,"Responde soporte automáticamente con tu base de conocimiento + GPT-4o",97,one_time,agente_avanzado,price_agent_033
+Generador de Contenido Estratégico,"Plan de contenido estratégico mensual. Blogs, social, emails integrados",97,one_time,agente_avanzado,price_agent_034
+Integrador CRM Universal,"Unifica leads de Gmail, WhatsApp, formularios, Instagram en un CRM",97,one_time,agente_avanzado,price_agent_035
+Creador de Automatizaciones Complejas,"Workflows avanzados: condicionales, loops, transformaciones de datos",97,one_time,agente_avanzado,price_agent_036
+Analista de Cohortes Automático,"Análisis de cohortes mensual. Retención, LTV, churn por cohorte",97,one_time,agente_avanzado,price_agent_037
+Ranker de Leads por Probabilidad,"Califica leads con probabilidad de conversión. Score ML-like",97,one_time,agente_avanzado,price_agent_038
+Guardián de Datos y Compliance,"Monitorea datos sensibles. Cifrado, backups, reportes GDPR",97,one_time,agente_avanzado,price_agent_039
+Gestor de Proyectos Automatizado,"Gestión automática: tareas, timelines, dependencias, alertas",97,one_time,agente_avanzado,price_agent_040
+Constructor de Pipelines de Ventas,"Pipeline automático. Fases, movimiento de leads, forecast",97,one_time,agente_avanzado,price_agent_041
+Orquestador Multi-Canal Global,"Orquesta email, WhatsApp, SMS, social. Una conversación coherente",97,one_time,agente_avanzado,price_agent_042

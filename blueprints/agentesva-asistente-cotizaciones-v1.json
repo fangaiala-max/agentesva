@@ -1,0 +1,129 @@
+{
+  "name": "AgentesVA - Asistente de Cotizaciones v1",
+  "flow": [
+    {
+      "id": 1,
+      "module": "google-email:triggerWatchNewEmails",
+      "version": 4,
+      "parameters": {
+        "account": {
+          "__IMTCONN__": null
+        },
+        "label": "VA/Pago",
+        "criteria": "ALL",
+        "maxResults": 2,
+        "markSeen": true,
+        "includeAttachments": false
+      },
+      "filter": null,
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0,
+          "name": "01 | Detectar solicitud de cotización"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "module": "openai-gpt-3:CreateCompletion",
+      "version": 1,
+      "parameters": {
+        "account": {
+          "__IMTCONN__": null
+        }
+      },
+      "mapper": {
+        "model": "gpt-4o",
+        "messages": [
+          {
+            "role": "system",
+            "content": "Eres el asistente de cotizaciones de un negocio latinoamericano. Tu tarea es redactar una propuesta comercial profesional y persuasiva basada en la solicitud del cliente.\n\nLa propuesta debe incluir:\n1. Saludo personalizado con el nombre del cliente (si se puede inferir)\n2. Resumen de lo que entendiste que necesita\n3. Propuesta de servicio con 2-3 opciones o paquetes (usa [PRECIO_1], [PRECIO_2], [PRECIO_3] como placeholders)\n4. Qué incluye cada opción brevemente\n5. Tiempo de entrega estimado\n6. Llamado a la acción claro (agendar llamada, confirmar por email, etc.)\n7. Firma con [TU_NOMBRE] y [TU_NEGOCIO]\n\nTono: profesional pero cercano, como lo haría un consultor latinoamericano de confianza.\nFormato: HTML limpio con estructura visual clara usando tablas o secciones simples.\nDevuelve SOLO el HTML del cuerpo del email, sin explicaciones adicionales."
+          },
+          {
+            "role": "user",
+            "content": "Solicitud de cotización recibida:\nDe: {{1.from}}\nAsunto: {{1.subject}}\nDetalle: {{1.snippet}}\n\nRedacta la propuesta comercial."
+          }
+        ],
+        "max_tokens": 1000,
+        "temperature": 0.6
+      },
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0,
+          "name": "02 | Generar propuesta comercial con IA"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "module": "google-docs:createADocumentFromTemplate",
+      "version": 1,
+      "parameters": {
+        "account": {
+          "__IMTCONN__": null
+        }
+      },
+      "mapper": {
+        "templateDocumentId": "[ID_TEMPLATE_PROPUESTA]",
+        "title": "Propuesta - {{1.from}} - {{formatDate(now; 'DD-MM-YYYY')}}",
+        "values": {
+          "{{CONTENIDO_PROPUESTA}}": "{{2.choices[1].message.content}}",
+          "{{CLIENTE}}": "{{1.from}}",
+          "{{FECHA}}": "{{formatDate(now; 'DD/MM/YYYY')}}"
+        }
+      },
+      "metadata": {
+        "designer": {
+          "x": 600,
+          "y": 0,
+          "name": "03 | Crear documento de propuesta en Google Docs"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "module": "google-email:sendAnEmail",
+      "version": 4,
+      "parameters": {
+        "account": {
+          "__IMTCONN__": null
+        }
+      },
+      "mapper": {
+        "to": "{{1.from}}",
+        "subject": "Tu propuesta personalizada — {{1.subject}}",
+        "content": "{{2.choices[1].message.content}}<br><br><hr><p style='color:#888; font-size:12px;'>📄 También te enviamos esta propuesta como documento: <a href='{{3.webViewLink}}'>Ver en Google Docs</a></p>",
+        "type": "html",
+        "threadId": "{{1.threadId}}"
+      },
+      "filter": null,
+      "metadata": {
+        "designer": {
+          "x": 900,
+          "y": 0,
+          "name": "04 | Enviar propuesta al cliente"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": true,
+      "confidential": false,
+      "dl": false,
+      "dataloss": false
+    },
+    "designer": {
+      "orphans": []
+    },
+    "zone": "eu1.make.com"
+  }
+}

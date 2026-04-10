@@ -1,0 +1,36 @@
+# Archivo histórico / Next.js app
+_archive/
+
+# Claude Code (memoria local, no va al repo)
+.claude/
+
+# Backups
+*.bak
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Archivos de sistema Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (por si se agrega algo en el futuro)
+node_modules/
+npm-debug.log*
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log

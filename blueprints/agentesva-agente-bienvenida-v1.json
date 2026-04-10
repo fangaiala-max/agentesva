@@ -1,0 +1,103 @@
+{
+  "name": "AgentesVA - Agente de Bienvenida v1",
+  "flow": [
+    {
+      "id": 1,
+      "module": "google-email:triggerWatchNewEmails",
+      "version": 4,
+      "parameters": {
+        "account": {
+          "__IMTCONN__": null
+        },
+        "label": "VA/Pedido",
+        "criteria": "ALL",
+        "maxResults": 2,
+        "markSeen": true,
+        "includeAttachments": false
+      },
+      "filter": null,
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0,
+          "name": "01 | Detectar nuevo cliente potencial"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "module": "openai-gpt-3:CreateCompletion",
+      "version": 1,
+      "parameters": {
+        "account": {
+          "__IMTCONN__": null
+        }
+      },
+      "mapper": {
+        "model": "gpt-4o",
+        "messages": [
+          {
+            "role": "system",
+            "content": "Eres el asistente de bienvenida de un negocio latinoamericano. Tu tarea es redactar un email de bienvenida cálido, profesional y personalizado para un nuevo cliente potencial que acaba de escribir.\n\nEl email debe:\n- Ser cordial y humano, no robótico\n- Agradecer el contacto de forma genuina\n- Confirmar que recibiste su mensaje y que le responderás pronto\n- Establecer una expectativa de tiempo de respuesta (ej: 'en las próximas 24 horas')\n- Mencionar brevemente 1-2 beneficios clave del negocio según el contexto del mensaje\n- Terminar con una firma profesional usando [TU_NOMBRE] y [TU_NEGOCIO] como placeholders\n\nDevuelve SOLO el cuerpo del email en HTML limpio, sin subject, sin explicaciones."
+          },
+          {
+            "role": "user",
+            "content": "Nuevo mensaje recibido:\nDe: {{1.from}}\nAsunto: {{1.subject}}\nMensaje: {{1.snippet}}\n\nRedacta el email de bienvenida personalizado."
+          }
+        ],
+        "max_tokens": 500,
+        "temperature": 0.7
+      },
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0,
+          "name": "02 | Generar bienvenida personalizada con IA"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "module": "google-email:sendAnEmail",
+      "version": 4,
+      "parameters": {
+        "account": {
+          "__IMTCONN__": null
+        }
+      },
+      "mapper": {
+        "to": "{{1.from}}",
+        "subject": "Re: {{1.subject}}",
+        "content": "{{2.choices[1].message.content}}",
+        "type": "html",
+        "threadId": "{{1.threadId}}"
+      },
+      "filter": null,
+      "metadata": {
+        "designer": {
+          "x": 600,
+          "y": 0,
+          "name": "03 | Enviar bienvenida al nuevo cliente"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "confidential": false,
+      "dl": false,
+      "dataloss": false
+    },
+    "designer": {
+      "orphans": []
+    },
+    "zone": "eu1.make.com"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "name": "AgentesVA - Agente de Soporte FAQ v1",
+  "flow": [
+    {
+      "id": 1,
+      "module": "google-email:triggerWatchNewEmails",
+      "version": 4,
+      "parameters": {
+        "account": {
+          "__IMTCONN__": null
+        },
+        "label": "INBOX",
+        "criteria": "ALL",
+        "maxResults": 2,
+        "markSeen": true,
+        "includeAttachments": false
+      },
+      "filter": null,
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0,
+          "name": "01 | Detectar email de soporte"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "module": "openai-gpt-3:CreateCompletion",
+      "version": 1,
+      "parameters": {
+        "account": {
+          "__IMTCONN__": null
+        }
+      },
+      "mapper": {
+        "model": "gpt-4o",
+        "messages": [
+          {
+            "role": "system",
+            "content": "Eres el agente de soporte de un pequeño negocio latinoamericano. Tu tarea es responder preguntas frecuentes de clientes de forma clara, cálida y profesional.\n\nFAQ del negocio (el dueño debe completar esta sección):\n---\n[PREGUNTA_1]: [RESPUESTA_1]\n[PREGUNTA_2]: [RESPUESTA_2]\n[PREGUNTA_3]: [RESPUESTA_3]\n[PREGUNTA_4]: [RESPUESTA_4]\n[PREGUNTA_5]: [RESPUESTA_5]\n---\n\nReglas:\n1. Si la pregunta está cubierta por el FAQ, responde directamente con confianza.\n2. Si NO está cubierta, devuelve exactamente esta palabra: ESCALAR\n3. Cuando respondas, usa este formato JSON:\n{\n  \"accion\": \"RESPONDER\" o \"ESCALAR\",\n  \"respuesta_html\": \"HTML del email de respuesta (solo si accion=RESPONDER)\",\n  \"razon_escalado\": \"breve razón (solo si accion=ESCALAR)\"\n}\n\nDevuelve SOLO el JSON, sin markdown, sin texto adicional."
+          },
+          {
+            "role": "user",
+            "content": "Email recibido:\nDe: {{1.from}}\nAsunto: {{1.subject}}\nContenido: {{1.snippet}}\n\nAnaliza y responde según el FAQ."
+          }
+        ],
+        "max_tokens": 600,
+        "temperature": 0.3
+      },
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0,
+          "name": "02 | Analizar pregunta contra FAQ con IA"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "module": "json:ParseJSON",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "data": "{{2.choices[1].message.content}}"
+      },
+      "metadata": {
+        "designer": {
+          "x": 600,
+          "y": 0,
+          "name": "03 | Parsear decisión de la IA"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "module": "builtin:BasicRouter",
+      "version": 1,
+      "parameters": {},
+      "filter": null,
+      "metadata": {
+        "designer": {
+          "x": 750,
+          "y": 0,
+          "name": "04 | Enrutar: ¿responder o escalar?"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": true,
+      "confidential": false,
+      "dl": false,
+      "dataloss": false
+    },
+    "designer": {
+      "orphans": []
+    },
+    "zone": "eu1.make.com"
+  }
+}
