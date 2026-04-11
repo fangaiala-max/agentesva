@@ -4,6 +4,9 @@ _archive/
 # Claude Code (memoria local, no va al repo)
 .claude/
 
+# Superpowers brainstorm sessions
+.superpowers/
+
 # Backups
 *.bak
 
