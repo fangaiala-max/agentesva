@@ -3260,7 +3260,7 @@ function showSolution(type) {
       <div class="agente-mini-icon">${a.icon}</div>
       <div class="agente-mini-name">${a.name}</div>
       <div class="agente-mini-hook">${a.hook || a.sub || ''}</div>
-      <div class="agente-mini-price">${a.free ? 'GRATIS' : '$' + a.price}</div>
+      <div class="agente-mini-price" style="font-size:0.72rem;color:${a.free ? 'var(--primary)' : 'var(--muted2)'};font-weight:600;">${a.free ? 'DEMO GRATIS' : 'Incluido en tu plan'}</div>
     </div>
   `).join('');
 
@@ -3502,6 +3502,14 @@ function closeModal() {
     document.body.style.overflow = '';
 }
 
+function scrollToSetup() {
+    closeModal();
+    setTimeout(function() {
+        const el = document.getElementById('setup');
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 300);
+}
+
 function buildAgentModal(a) {
     const inc = a.includes.map(i=>`<li>${i}</li>`).join('');
     const tags = a.tags.map(t=>`<span class="modal-tag">${t}</span>`).join('');
@@ -3511,17 +3519,16 @@ function buildAgentModal(a) {
                <button type="submit" class="btn-submit">Obtener gratis →</button>
            </form>
            <p class="action-note">Sin spam. Solo el archivo que pediste.</p>`
-        : stripeLinks[a.id]
-            ? `<div class="paid-action">
-                   <div><div class="price-big">\$${a.price}</div><div class="price-note-sm">Pago único · Tuyo para siempre · Actualizaciones incluidas</div></div>
-                   <a href="${stripeLinks[a.id]}" class="btn-buy" target="_blank" rel="noopener" onclick="mixpanel.track('purchase_initiated', {agent_id: a.id, agent_name: a.name, price: a.price});">Comprar ahora →</a>
+        : `<div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:4px 0;">
+               <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(84,233,138,0.1);border:1px solid rgba(84,233,138,0.25);border-radius:var(--r-full);padding:6px 16px;font-size:0.82rem;color:var(--primary);font-weight:600;">
+                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                   Incluido en tu plan
                </div>
-               <p class="action-note">Pago seguro con Stripe · Recibes el flujo automatizado por email en &lt;5 min</p>
-               <p style="font-size:0.75rem;color:var(--muted2);text-align:center;margin-top:6px;">🛡️ Garantía 7 días. Si no funciona para tu negocio, te devolvemos el 100%.</p>`
-            : `<div class="paid-action">
-                   <div><div class="price-big">\$${a.price}</div><div class="price-note-sm">Pago único · Tuyo para siempre · Actualizaciones incluidas</div></div>
-                   <span class="btn-buy-soon">Próximamente</span>
-               </div>`;
+               <button onclick="scrollToSetup()" style="width:100%;padding:13px;background:var(--primary);border:none;border-radius:var(--r-md);color:#003919;font-weight:700;font-size:0.95rem;cursor:pointer;box-shadow:var(--shadow-cta);transition:opacity 0.2s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+                   Elegir mi setup ↓
+               </button>
+               <p style="font-size:0.75rem;color:var(--muted2);text-align:center;">Desde $19 · Pago único · Garantía 7 días</p>
+           </div>`;
     return `
     <div class="modal-img-head" style="background:${a.gradient}">
         <span class="modal-emoji">${a.icon}</span>
@@ -3555,17 +3562,16 @@ function buildPromptModal(p) {
                <button type="submit" class="btn-submit">Obtener gratis →</button>
            </form>
            <p class="action-note">Sin spam. Solo el archivo que pediste.</p>`
-        : stripeLinks[p.id]
-            ? `<div class="paid-action">
-                   <div><div class="price-big">\$${p.price}</div><div class="price-note-sm">Pago único · Tuyo para siempre · Actualizaciones incluidas</div></div>
-                   <a href="${stripeLinks[p.id]}" class="btn-buy" target="_blank" rel="noopener">Comprar ahora →</a>
+        : `<div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:4px 0;">
+               <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(84,233,138,0.1);border:1px solid rgba(84,233,138,0.25);border-radius:var(--r-full);padding:6px 16px;font-size:0.82rem;color:var(--primary);font-weight:600;">
+                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                   Incluido en tu plan
                </div>
-               <p class="action-note">Pago seguro con Stripe · Recibes acceso por email en &lt;5 min</p>
-               <p style="font-size:0.75rem;color:var(--muted2);text-align:center;margin-top:6px;">🛡️ Garantía 7 días. Si no funciona para tu negocio, te devolvemos el 100%.</p>`
-            : `<div class="paid-action">
-                   <div><div class="price-big">\$${p.price}</div><div class="price-note-sm">Pago único · Tuyo para siempre · Actualizaciones incluidas</div></div>
-                   <span class="btn-buy-soon">Próximamente</span>
-               </div>`;
+               <button onclick="scrollToSetup()" style="width:100%;padding:13px;background:var(--primary);border:none;border-radius:var(--r-md);color:#003919;font-weight:700;font-size:0.95rem;cursor:pointer;box-shadow:var(--shadow-cta);transition:opacity 0.2s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+                   Elegir mi setup ↓
+               </button>
+               <p style="font-size:0.75rem;color:var(--muted2);text-align:center;">Desde $19 · Pago único · Garantía 7 días</p>
+           </div>`;
     const upsell = related
         ? `<div class="modal-upsell">
                <span class="upsell-text">¿Quieres automatizarlo?</span>
