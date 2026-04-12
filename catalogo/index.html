@@ -2756,12 +2756,17 @@
             <p style="font-size:1rem;color:var(--muted);max-width:520px;margin:0 auto;">Elige tu nivel. Todos los caminos terminan con tu agente funcionando.</p>
         </div>
 
+        <div style="background:rgba(45,106,79,0.06);border:1px solid rgba(45,106,79,0.15);border-radius:var(--r-lg);padding:14px 20px;text-align:center;margin-bottom:24px;font-size:0.88rem;color:var(--text);">
+            <strong>Tu inversi&oacute;n completa:</strong> setup &uacute;nico (abajo) + agente incluido + <a href="https://make.com" target="_blank" rel="noopener" style="color:var(--primary);font-weight:600;">Make.com</a> desde $9/mes para ejecutarlo
+        </div>
+
         <div class="setup-grid">
 
             <!-- Lo hago yo -->
             <div class="setup-card">
                 <div style="font-size:2rem;" aria-hidden="true">🛠️</div>
                 <div class="display setup-card__price">$19</div>
+                <div style="font-size:0.72rem;color:var(--muted2);margin-top:-4px;">+ Make.com desde $9/mes</div>
                 <div class="display setup-card__name">Lo hago yo</div>
                 <p class="setup-card__desc">Blueprint listo para importar + guía visual paso a paso + video tutorial (3 min) + soporte por email.</p>
                 <div class="setup-card__meta">
@@ -2777,6 +2782,7 @@
                 <div class="setup-card__badge">MÁS POPULAR</div>
                 <div style="font-size:2rem;" aria-hidden="true">🤝</div>
                 <div class="display setup-card__price">$49</div>
+                <div style="font-size:0.72rem;color:var(--muted2);margin-top:-4px;">+ Make.com desde $9/mes</div>
                 <div class="display setup-card__name">Con ayuda</div>
                 <p class="setup-card__desc">Sesión 1:1 de 60 min para configurarlo juntos. Salimos con el agente activo en tu cuenta.</p>
                 <div class="setup-card__meta">
@@ -2791,6 +2797,7 @@
             <div class="setup-card">
                 <div style="font-size:2rem;" aria-hidden="true">🚀</div>
                 <div class="display setup-card__price">$97</div>
+                <div style="font-size:0.72rem;color:var(--muted2);margin-top:-4px;">+ Make.com desde $9/mes</div>
                 <div class="display setup-card__name">Full Service</div>
                 <p class="setup-card__desc">Nosotros lo instalamos y configuramos todo por ti. Listo en 24 horas, sin que toques nada.</p>
                 <div class="setup-card__meta">
@@ -3349,6 +3356,20 @@ function showSolution(type) {
     </div>
   `).join('');
 
+  // CTA to skip modal and go straight to setup
+  let ctaEl = document.getElementById('solucionCtaSetup');
+  if (!ctaEl) {
+    ctaEl = document.createElement('div');
+    ctaEl.id = 'solucionCtaSetup';
+    agentesEl.parentNode.insertBefore(ctaEl, agentesEl.nextSibling);
+  }
+  ctaEl.innerHTML = `
+    <div style="text-align:center;margin:32px 0 8px;">
+      <button onclick="scrollToSetup()" style="padding:16px 40px;background:var(--primary);border:none;border-radius:var(--r-full);color:#FFFFFF;font-family:var(--display);font-weight:700;font-size:1rem;cursor:pointer;box-shadow:var(--shadow-cta);transition:transform 0.2s,opacity 0.2s;" onmouseover="this.style.transform='scale(1.03)';this.style.opacity='0.9'" onmouseout="this.style.transform='scale(1)';this.style.opacity='1'">Elegir mi plan de setup &darr;</button>
+      <p style="font-size:0.8rem;color:var(--muted2);margin-top:10px;">o haz click en cualquier agente para ver detalles</p>
+    </div>
+  `;
+
   // Switch views
   document.getElementById('vista-selector').style.display = 'none';
   document.getElementById('vista-todos').style.display = 'none';
@@ -3768,6 +3789,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const el = document.getElementById('setup');
             if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 100);
+    } else {
+        showSelector();
     }
 
     ['agents-grid','prompts-grid'].forEach(gridId => {
