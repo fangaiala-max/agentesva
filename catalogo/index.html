@@ -2079,6 +2079,141 @@
 
         /* ── Vista Todos ── */
         .todos-wrap { max-width: 1400px; margin: 0 auto; padding: 2rem 5% 6rem; }
+
+        /* ── Focus states (a11y) ── */
+        :focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        /* ── Setup section ── */
+        .setup-section {
+            position: relative;
+            background: var(--bg2);
+            padding: 72px 32px;
+            overflow: hidden;
+        }
+        .setup-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(84,233,138,0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .setup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-bottom: 28px;
+        }
+        .setup-card {
+            background: var(--bg);
+            border: 1.5px solid var(--border);
+            border-radius: var(--r-xl);
+            padding: 28px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .setup-card--popular {
+            border: 2px solid var(--primary);
+            position: relative;
+        }
+        .setup-card__badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: #003919;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 3px 14px;
+            border-radius: var(--r-full);
+            white-space: nowrap;
+            letter-spacing: 0.06em;
+        }
+        .setup-card__price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        .setup-card__name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+        .setup-card__desc {
+            font-size: 0.85rem;
+            color: var(--muted);
+            line-height: 1.5;
+            flex: 1;
+        }
+        .setup-card__meta {
+            display: flex;
+            gap: 8px;
+            font-size: 0.78rem;
+            color: var(--muted2);
+        }
+        .setup-cta {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            background: transparent;
+            border: 1.5px solid rgba(84,233,138,0.4);
+            border-radius: var(--r-md);
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .setup-cta:hover, .setup-cta:focus-visible {
+            background: rgba(84,233,138,0.08);
+            border-color: var(--primary);
+        }
+        .setup-cta--primary {
+            background: var(--primary);
+            border: 2px solid var(--primary);
+            color: #003919;
+            font-weight: 700;
+            box-shadow: var(--shadow-cta);
+        }
+        .setup-cta--primary:hover, .setup-cta--primary:focus-visible {
+            opacity: 0.9;
+            background: var(--primary);
+        }
+
+        /* ── Mobile sticky CTA ── */
+        .mobile-sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 90;
+            padding: 12px 20px;
+            background: rgba(17,20,21,0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        .mobile-sticky-cta a {
+            display: block;
+            padding: 14px;
+            background: var(--primary);
+            color: #003919;
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: 0.95rem;
+            border-radius: var(--r-md);
+            box-shadow: var(--shadow-cta);
+        }
+        @media (max-width: 960px) {
+            .mobile-sticky-cta { display: block; }
+            body { padding-bottom: 72px; }
+        }
     </style>
 
     <!-- ── JSON-LD: ItemList ── -->
@@ -2611,57 +2746,57 @@
 </div><!-- end layout-wrapper -->
 
 <!-- ==================== PASO 3: SETUP (siempre visible) ==================== -->
-<section id="setup" style="background:var(--bg2);padding:72px 32px;">
-    <div style="max-width:900px;margin:0 auto;">
+<section id="setup" class="setup-section">
+    <div style="max-width:900px;margin:0 auto;position:relative;">
         <div style="text-align:center;margin-bottom:40px;">
             <p style="font-family:var(--mono);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--primary);margin-bottom:10px;">PASO 3</p>
             <h2 class="display" style="font-size:clamp(24px,3.5vw,36px);font-weight:800;color:var(--text);margin-bottom:12px;">¿Cuánta ayuda necesitas para instalarlo?</h2>
             <p style="font-size:1rem;color:var(--muted);max-width:520px;margin:0 auto;">Elige tu nivel. Todos los caminos terminan con tu agente funcionando.</p>
         </div>
 
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-bottom:28px;">
+        <div class="setup-grid">
 
             <!-- Lo hago yo -->
-            <div style="background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r-xl);padding:28px 24px;display:flex;flex-direction:column;gap:12px;">
-                <div style="font-size:2rem;">🛠️</div>
-                <div class="display" style="font-size:1.5rem;font-weight:800;color:var(--primary);">$19</div>
-                <div class="display" style="font-size:1.1rem;font-weight:700;color:var(--text);">Lo hago yo</div>
-                <p style="font-size:0.85rem;color:var(--muted);line-height:1.5;flex:1;">Blueprint listo para importar + guía visual paso a paso + video tutorial (3 min) + soporte por email.</p>
-                <div style="display:flex;gap:8px;font-size:0.78rem;color:var(--muted2);">
-                    <span>⏱️ 15 min setup</span>
+            <div class="setup-card">
+                <div style="font-size:2rem;" aria-hidden="true">🛠️</div>
+                <div class="display setup-card__price">$19</div>
+                <div class="display setup-card__name">Lo hago yo</div>
+                <p class="setup-card__desc">Blueprint listo para importar + guía visual paso a paso + video tutorial (3 min) + soporte por email.</p>
+                <div class="setup-card__meta">
+                    <span><span aria-hidden="true">⏱️</span> 15 min setup</span>
                     <span>·</span>
-                    <span>👤 Tú configuras</span>
+                    <span><span aria-hidden="true">👤</span> Tú configuras</span>
                 </div>
-                <a href="https://buy.stripe.com/cNi14ngtc171gN00TEfn000" target="_blank" rel="noopener" style="display:block;text-align:center;padding:12px;background:transparent;border:1.5px solid rgba(84,233,138,0.4);border-radius:var(--r-md);color:var(--primary);font-weight:600;font-size:0.9rem;transition:background 0.2s,border-color 0.2s;" onmouseover="this.style.background='rgba(84,233,138,0.08)';this.style.borderColor='var(--primary)'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(84,233,138,0.4)'">Empezar &rarr;</a>
+                <a href="https://buy.stripe.com/cNi14ngtc171gN00TEfn000" target="_blank" rel="noopener" class="setup-cta">Empezar &rarr;</a>
             </div>
 
             <!-- Con ayuda -->
-            <div style="background:var(--bg);border:2px solid var(--primary);border-radius:var(--r-xl);padding:28px 24px;display:flex;flex-direction:column;gap:12px;position:relative;">
-                <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--primary);color:#003919;font-size:0.7rem;font-weight:800;padding:3px 14px;border-radius:var(--r-full);white-space:nowrap;letter-spacing:0.06em;">MÁS POPULAR</div>
-                <div style="font-size:2rem;">🤝</div>
-                <div class="display" style="font-size:1.5rem;font-weight:800;color:var(--primary);">$49</div>
-                <div class="display" style="font-size:1.1rem;font-weight:700;color:var(--text);">Con ayuda</div>
-                <p style="font-size:0.85rem;color:var(--muted);line-height:1.5;flex:1;">Sesión 1:1 de 60 min para configurarlo juntos. Salimos con el agente activo en tu cuenta.</p>
-                <div style="display:flex;gap:8px;font-size:0.78rem;color:var(--muted2);">
-                    <span>📅 Sesión agendada</span>
+            <div class="setup-card setup-card--popular">
+                <div class="setup-card__badge">MÁS POPULAR</div>
+                <div style="font-size:2rem;" aria-hidden="true">🤝</div>
+                <div class="display setup-card__price">$49</div>
+                <div class="display setup-card__name">Con ayuda</div>
+                <p class="setup-card__desc">Sesión 1:1 de 60 min para configurarlo juntos. Salimos con el agente activo en tu cuenta.</p>
+                <div class="setup-card__meta">
+                    <span><span aria-hidden="true">📅</span> Sesión agendada</span>
                     <span>·</span>
-                    <span>✅ Garantía 7 días</span>
+                    <span><span aria-hidden="true">✅</span> Garantía 7 días</span>
                 </div>
-                <a href="https://buy.stripe.com/5kQbJ1b8S4jd8gu59Ufn001" target="_blank" rel="noopener" style="display:block;text-align:center;padding:12px;background:var(--primary);border:2px solid var(--primary);border-radius:var(--r-md);color:#003919;font-weight:700;font-size:0.9rem;box-shadow:var(--shadow-cta);transition:opacity 0.2s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">Reservar sesi&oacute;n &rarr;</a>
+                <a href="https://buy.stripe.com/5kQbJ1b8S4jd8gu59Ufn001" target="_blank" rel="noopener" class="setup-cta setup-cta--primary">Reservar sesi&oacute;n &rarr;</a>
             </div>
 
             <!-- Full Service -->
-            <div style="background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r-xl);padding:28px 24px;display:flex;flex-direction:column;gap:12px;">
-                <div style="font-size:2rem;">🚀</div>
-                <div class="display" style="font-size:1.5rem;font-weight:800;color:var(--primary);">$97</div>
-                <div class="display" style="font-size:1.1rem;font-weight:700;color:var(--text);">Full Service</div>
-                <p style="font-size:0.85rem;color:var(--muted);line-height:1.5;flex:1;">Nosotros lo instalamos y configuramos todo por ti. Listo en 24 horas, sin que toques nada.</p>
-                <div style="display:flex;gap:8px;font-size:0.78rem;color:var(--muted2);">
-                    <span>⚡ Listo en 24h</span>
+            <div class="setup-card">
+                <div style="font-size:2rem;" aria-hidden="true">🚀</div>
+                <div class="display setup-card__price">$97</div>
+                <div class="display setup-card__name">Full Service</div>
+                <p class="setup-card__desc">Nosotros lo instalamos y configuramos todo por ti. Listo en 24 horas, sin que toques nada.</p>
+                <div class="setup-card__meta">
+                    <span><span aria-hidden="true">⚡</span> Listo en 24h</span>
                     <span>·</span>
-                    <span>🛡️ Garantía total</span>
+                    <span><span aria-hidden="true">🛡️</span> Garantía total</span>
                 </div>
-                <a href="https://buy.stripe.com/8x27sLccW17100231MfnO02" target="_blank" rel="noopener" style="display:block;text-align:center;padding:12px;background:transparent;border:1.5px solid rgba(84,233,138,0.4);border-radius:var(--r-md);color:var(--primary);font-weight:600;font-size:0.9rem;transition:background 0.2s,border-color 0.2s;" onmouseover="this.style.background='rgba(84,233,138,0.08)';this.style.borderColor='var(--primary)'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(84,233,138,0.4)'">Quiero Full Service &rarr;</a>
+                <a href="https://buy.stripe.com/8x27sLccW17100231MfnO02" target="_blank" rel="noopener" class="setup-cta">Quiero Full Service &rarr;</a>
             </div>
 
         </div>
@@ -3831,5 +3966,11 @@ window.addEventListener('popstate', () => {
     });
 })();
 </script>
+
+<!-- ── Mobile sticky CTA ── -->
+<div class="mobile-sticky-cta">
+    <a href="#setup">Elegir mi plan &darr;</a>
+</div>
+
 </body>
 </html>

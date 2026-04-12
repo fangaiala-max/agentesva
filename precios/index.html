@@ -324,6 +324,13 @@
         }
         .skip-link { position: absolute; top: -44px; left: 1rem; background: #54e98a; color: #003919; padding: 8px 16px; border-radius: 0 0 8px 8px; font-weight: 700; font-size: 0.875rem; text-decoration: none; z-index: 9999; transition: top 0.2s; }
         .skip-link:focus { top: 0; }
+
+        /* ── Focus states (a11y) ── */
+        :focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
     </style>
 
     <!-- JSON-LD -->
@@ -393,7 +400,7 @@
             <div class="nav-pill-cursor" id="nav-pill-cursor"></div>
             <a href="/catalogo/" class="nav-pill-tab">Agentes IA</a>
             <a href="/servicios/" class="nav-pill-tab">Servicios</a>
-            <a href="/precios/" class="nav-pill-tab">Setup &amp; Precios</a>
+            <a href="/precios/" class="nav-pill-tab">Blueprints</a>
             <a href="/faq/" class="nav-pill-tab">FAQ</a>
         </div>
         <a href="/catalogo/" class="nav-cta">Empezar ahora &rarr;</a>

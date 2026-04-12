@@ -1748,6 +1748,72 @@
         .proof-stat-l { font-size: 13px; color: var(--muted); text-align: center; margin-top: 4px; }
         .skip-link { position: absolute; top: -44px; left: 1rem; background: #54e98a; color: #003919; padding: 8px 16px; border-radius: 0 0 var(--r-sm) var(--r-sm); font-weight: 700; font-size: 0.875rem; text-decoration: none; z-index: 9999; transition: top 0.2s; }
         .skip-link:focus { top: 0; }
+
+        /* ── Focus states (a11y) ── */
+        :focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+        .btn-primary:focus-visible, .btn-ghost:focus-visible, .nav-cta:focus-visible {
+            outline-offset: 4px;
+        }
+
+        /* ── Industry pills ── */
+        .industry-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 14px;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--r-full);
+            font-size: 0.82rem;
+            color: var(--text);
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .industry-pill:hover, .industry-pill:focus-visible {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .industry-pill--more {
+            background: transparent;
+            color: var(--primary);
+        }
+        .industry-pill--more:hover, .industry-pill--more:focus-visible {
+            border-color: var(--primary);
+        }
+
+        /* ── Mobile sticky CTA ── */
+        .mobile-sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 90;
+            padding: 12px 20px;
+            background: rgba(17,20,21,0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        .mobile-sticky-cta a {
+            display: block;
+            padding: 14px;
+            background: var(--primary);
+            color: #003919;
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: 0.95rem;
+            border-radius: var(--r-md);
+            box-shadow: var(--shadow-cta);
+        }
+        @media (max-width: 960px) {
+            .mobile-sticky-cta { display: block; }
+            body { padding-bottom: 72px; }
+        }
     </style>
 
     <!-- ── JSON-LD: Organization ── -->
@@ -1999,12 +2065,12 @@
 
             <!-- ── Industry pills ── -->
             <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;justify-content:center;">
-                <a href="/catalogo/#clinica"      style="display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-full);font-size:0.82rem;color:var(--text);transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.color='var(--primary)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text)'">🏥 Consultorio</a>
-                <a href="/catalogo/#restaurante"  style="display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-full);font-size:0.82rem;color:var(--text);transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.color='var(--primary)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text)'">🍽️ Restaurante</a>
-                <a href="/catalogo/#ecommerce"    style="display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-full);font-size:0.82rem;color:var(--text);transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.color='var(--primary)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text)'">🛍️ Ecommerce</a>
-                <a href="/catalogo/#salon"        style="display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-full);font-size:0.82rem;color:var(--text);transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.color='var(--primary)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text)'">✂️ Salón</a>
-                <a href="/catalogo/#inmobiliaria" style="display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-full);font-size:0.82rem;color:var(--text);transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.color='var(--primary)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text)'">🏠 Inmobiliaria</a>
-                <a href="/catalogo/" style="display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:transparent;border:1px solid var(--border);border-radius:var(--r-full);font-size:0.82rem;color:var(--primary);transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border)'">+ 7 industrias &rarr;</a>
+                <a href="/catalogo/#clinica" class="industry-pill"><span aria-hidden="true">🏥</span> Consultorio</a>
+                <a href="/catalogo/#restaurante" class="industry-pill"><span aria-hidden="true">🍽️</span> Restaurante</a>
+                <a href="/catalogo/#ecommerce" class="industry-pill"><span aria-hidden="true">🛍️</span> Ecommerce</a>
+                <a href="/catalogo/#salon" class="industry-pill"><span aria-hidden="true">✂️</span> Salón</a>
+                <a href="/catalogo/#inmobiliaria" class="industry-pill"><span aria-hidden="true">🏠</span> Inmobiliaria</a>
+                <a href="/catalogo/" class="industry-pill industry-pill--more">+ 7 industrias &rarr;</a>
             </div>
 
             <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:24px;justify-content:center;">
@@ -3142,6 +3208,11 @@ document.querySelectorAll('.flip-card').forEach(function(card) {
     });
 })();
 </script>
+
+<!-- ── Mobile sticky CTA ── -->
+<div class="mobile-sticky-cta">
+    <a href="/catalogo/">Automatiza tu negocio &rarr;</a>
+</div>
 
 </body>
 </html>
