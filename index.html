@@ -1812,7 +1812,7 @@
         }
         @media (max-width: 960px) {
             .mobile-sticky-cta { display: block; }
-            body { padding-bottom: 72px; }
+            body.has-sticky-cta { padding-bottom: 72px; }
         }
     </style>
 
@@ -3213,6 +3213,11 @@ document.querySelectorAll('.flip-card').forEach(function(card) {
 <div class="mobile-sticky-cta">
     <a href="/catalogo/">Automatiza tu negocio &rarr;</a>
 </div>
+<script>
+(function() {
+    if (window.matchMedia('(max-width:960px)').matches) document.body.classList.add('has-sticky-cta');
+})();
+</script>
 
 </body>
 </html>

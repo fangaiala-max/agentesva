@@ -2212,8 +2212,10 @@
         }
         @media (max-width: 960px) {
             .mobile-sticky-cta { display: block; }
-            body { padding-bottom: 72px; }
+            .mobile-sticky-cta ~ * { /* spacer handled by JS body class */ }
+            body.has-sticky-cta { padding-bottom: 72px; }
         }
+        .mobile-sticky-cta.hidden { display: none !important; }
     </style>
 
     <!-- ── JSON-LD: ItemList ── -->
@@ -2910,64 +2912,12 @@ document.querySelectorAll('.faq-q').forEach(function(q) {
 <script>
 /* ── CONFIG ─────────────────────────────────────────── */
 const stripeLinks = {
-    // ── SETUP TIERS ──
-    'setup-diy':      'https://buy.stripe.com/cNi14ngtc171gN00TEfn000',
-    'setup-asistido': 'https://buy.stripe.com/5kQbJ1b8S4jd8gu59Ufn001',
-    'setup-full':     'https://buy.stripe.com/8x27sLccW17100231MfnO02',
-    // ── SERVICIOS PREMIUM ──
     's1-simple':   'https://buy.stripe.com/3cIeVda4O171dA00TEfn003',
     's1-avanzado': 'https://buy.stripe.com/14A9ATa4ObLFcwKdGqfn004',
     's2-simple':   'https://buy.stripe.com/4gMfZhccW4jd1S659Ufn005',
     's2-avanzado': 'https://buy.stripe.com/fZu7sLdh07vp54i31Mfn006',
     's3-simple':   'https://buy.stripe.com/bJe9AT1yieXR1S6dGqfn007',
-    's3-avanzado': 'https://buy.stripe.com/6oU14n2Cm3f9bsG6dYfn008',
-    // ── AGENTES GRATIS (1-7) ──
-    1: '', 2: '', 3: '', 4: '', 5: '', 6: '', 7: '',
-    // ── AGENTES B&Aacute;SICO $29 (8-18) ──
-    8:  'https://buy.stripe.com/cNi14ngtc171gN00TEfnO00',
-    9:  'https://buy.stripe.com/5kQbJ1b8S4jd8gu59UfnO01',
-    10: 'https://buy.stripe.com/8x27sLccW1710O231MfnO02',
-    11: 'https://buy.stripe.com/3cIeVda4O171dAO0TEfnO03',
-    12: 'https://buy.stripe.com/14A9ATa4ObLFcwKdGqfnO04',
-    13: 'https://buy.stripe.com/4gMfZhccW4jd1S659UfnO05',
-    14: 'https://buy.stripe.com/fZu7sLdh07vp54i31MfnO06',
-    15: 'https://buy.stripe.com/bJe9AT1yieXR1S6dGqfnO07',
-    16: 'https://buy.stripe.com/6oU14n2Cm3f9bsG6dYfnO08',
-    17: 'https://buy.stripe.com/6oU7sLccW2b5bsGauefnO09',
-    18: 'https://buy.stripe.com/14AcN5el44jd0O2cCmfnO0a',
-    // ── AGENTES EST&Aacute;NDAR $47 (19-32) ──
-    19: 'https://buy.stripe.com/00w9AT1yi02X9kycCmfnO0b',
-    20: 'https://buy.stripe.com/28E9AT6SC02XbsGbyifnO0c',
-    21: 'https://buy.stripe.com/3cI7sL90K4jdfIW7i2fnO0d',
-    22: 'https://buy.stripe.com/eVqbJ1ccWg1V54i6dYfnO0e',
-    23: 'https://buy.stripe.com/8x2fZhgtccPJ8gu9qafnO0f',
-    24: 'https://buy.stripe.com/3cI6oHgtc2b57cq7i2fnO0g',
-    25: 'https://buy.stripe.com/6oUfZhfp84jd7cq31MfnO0h',
-    26: 'https://buy.stripe.com/8x228r2Cm9DxaoC31MfnO0i',
-    27: 'https://buy.stripe.com/28E7sLel4eXR0O2cCmfnO0j',
-    28: 'https://buy.stripe.com/8x2eVd3Gq7vpgN08m6fnO0k',
-    29: 'https://buy.stripe.com/7sY6oH6SC7vp7cq1XIfnO0l',
-    30: 'https://buy.stripe.com/14A8wPfp83f92Wa6dYfnO0m',
-    31: 'https://buy.stripe.com/aFa14n2CmcPJ40eauefnO0n',
-    32: 'https://buy.stripe.com/4gM7sL4KucPJ9kybyifnO0o',
-    // ── AGENTES AVANZADO $97 (33-42) ──
-    33: 'https://buy.stripe.com/3cI00jel4dTN2WaauefnO0p',
-    34: 'https://buy.stripe.com/9B6cN52Cm8zt54ieKufnO0q',
-    35: 'https://buy.stripe.com/eVq14nccW4jd68mauefnO0r',
-    36: 'https://buy.stripe.com/eVqaEXb8S6rl1S6fOyfnO0s',
-    37: 'https://buy.stripe.com/4gM28r3Gq3f98gudGqfnO0t',
-    38: 'https://buy.stripe.com/6oU8wPel42b5cwK31MfnO0u',
-    39: 'https://buy.stripe.com/14A28rccWg1VeES9qafnO0v',
-    40: 'https://buy.stripe.com/28EbJ1b8S2b5fIWdGqfnO0w',
-    41: 'https://buy.stripe.com/eVq4gz3Gq8ztbsG6dYfnO0x',
-    42: 'https://buy.stripe.com/4gMcN50ue2b5dA06dYfnO0y',
-    // ── AGENTES N8N ──
-    101: '', 102: '', 103: '', 104: '', 105: '', 106: '',
-    // ── PROMPTS ──
-    'p1': '', 'p2': '', 'p3': '', 'p4': '', 'p5': '',
-    'p6': '', 'p7': '', 'p8': '', 'p9': '', 'p10': '',
-    // ── BUNDLES ──
-    'bundle-starter': '', 'bundle-pro': '', 'bundle-n8n': '', 'bundle-prompts': ''
+    's3-avanzado': 'https://buy.stripe.com/6oU14n2Cm3f9bsG6dYfn008'
 };
 
 /* API key moved server-side — see /api/subscribe.php */
@@ -3619,8 +3569,8 @@ const overlay = document.getElementById('modal-overlay');
 
 function openModal(type, id) {
     const item = type === 'agent' ? agents.find(a=>a.id===+id) : prompts.find(p=>p.id===+id);
-    mixpanel.track('agent_viewed', { agent_id: item.id, agent_name: item.name, agent_price: item.price, agent_tier: item.tier });
     if (!item) return;
+    mixpanel.track('agent_viewed', { agent_id: item.id, agent_name: item.name, agent_price: item.price, agent_tier: item.tier });
     document.getElementById('modal-content').innerHTML =
         type === 'agent' ? buildAgentModal(item) : buildPromptModal(item);
     overlay.classList.add('open');
@@ -3629,12 +3579,28 @@ function openModal(type, id) {
     document.getElementById('modal-close').addEventListener('click', closeModal, { once: true });
     const form = document.getElementById('modal-form');
     if (form) form.addEventListener('submit', handleFreeSubmit);
+    // Focus trap
+    const closeBtn = document.getElementById('modal-close');
+    if (closeBtn) closeBtn.focus();
+    overlay.addEventListener('keydown', trapFocus);
+}
+
+function trapFocus(e) {
+    if (e.key !== 'Tab') return;
+    const box = document.querySelector('.modal-box');
+    if (!box) return;
+    const focusable = box.querySelectorAll('a[href],button,input,textarea,select,[tabindex]:not([tabindex="-1"])');
+    if (!focusable.length) return;
+    const first = focusable[0], last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
 }
 
 function closeModal() {
     overlay.classList.remove('open');
     overlay.setAttribute('aria-hidden','true');
     document.body.style.overflow = '';
+    overlay.removeEventListener('keydown', trapFocus);
 }
 
 function scrollToSetup() {
@@ -3968,9 +3934,21 @@ window.addEventListener('popstate', () => {
 </script>
 
 <!-- ── Mobile sticky CTA ── -->
-<div class="mobile-sticky-cta">
+<div class="mobile-sticky-cta" id="mobile-cta">
     <a href="#setup">Elegir mi plan &darr;</a>
 </div>
+<script>
+(function() {
+    var cta = document.getElementById('mobile-cta');
+    var setup = document.getElementById('setup');
+    if (!cta || !setup || !('IntersectionObserver' in window)) return;
+    document.body.classList.add('has-sticky-cta');
+    new IntersectionObserver(function(entries) {
+        cta.classList.toggle('hidden', entries[0].isIntersecting);
+        document.body.classList.toggle('has-sticky-cta', !entries[0].isIntersecting);
+    }, { threshold: 0.1 }).observe(setup);
+})();
+</script>
 
 </body>
 </html>
