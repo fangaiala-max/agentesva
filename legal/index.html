@@ -23,36 +23,36 @@
 
     <style>
         :root {
-    --bg:           #111415;
-    --bg2:          #191c1d;
-    --bg3:          #1d2021;
-    --bg4:          #272a2b;
-    --surface:      #1d2021;
-    --primary:      #54e98a;
-    --primary-dim:  #2ecc71;
-    --orange:       #4ae183;
+    --bg:           #FAFAF7;
+    --bg2:          #FFFFFF;
+    --bg3:          #F0F0EB;
+    --bg4:          #E8E8E2;
+    --surface:      #F0F0EB;
+    --primary:      #2D6A4F;
+    --primary-dim:  #1B4332;
+    --orange:       #40916C;
     --orange-dim:   #006d37;
     --tertiary:     #ffb4ab;
-    --text:         #e1e3e4;
-    --muted:        #bbcbbb;
-    --muted2:       #869486;
-    --outline:      #869486;
-    --teal:         #54e98a;
-    --border:       rgba(61,74,62,0.28);
-    --border-light: rgba(61,74,62,0.15);
-    --shadow-sm:    0 2px 10px rgba(0,0,0,0.25);
-    --shadow-md:    0 12px 40px rgba(0,0,0,0.35);
-    --shadow-cta:   0 8px 24px rgba(84,233,138,0.25);
+    --text:         #2D3436;
+    --muted:        #6B7280;
+    --muted2:       #9CA3AF;
+    --outline:      #9CA3AF;
+    --teal:         #2D6A4F;
+    --border:       rgba(45,106,79,0.28);
+    --border-light: rgba(45,106,79,0.15);
+    --shadow-sm:    0 2px 10px rgba(0,0,0,0.06);
+    --shadow-md:    0 12px 40px rgba(0,0,0,0.08);
+    --shadow-cta:   0 8px 24px rgba(45,106,79,0.25);
     --mono:         'JetBrains Mono', monospace;
     --sans:         'Manrope', sans-serif;
     --display:      'Space Grotesk', sans-serif;
     --r-xl: 20px; --r-md: 12px; --r-sm: 8px; --r-full: 9999px;
     --bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
-    --lime:         #54e98a;
-    --lime-dim:     rgba(84,233,138,0.1);
-    --border-md:    rgba(61,74,62,0.15);
-    --border-lime:  rgba(84,233,138,0.22);
-    color-scheme: dark;
+    --lime:         #2D6A4F;
+    --lime-dim:     rgba(45,106,79,0.1);
+    --border-md:    rgba(45,106,79,0.15);
+    --border-lime:  rgba(45,106,79,0.22);
+    color-scheme: light;
 }
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -68,7 +68,7 @@
             min-height: 100vh;
         }
 
-        ::selection { background: #54e98a; color: #003919; }
+        ::selection { background: #2D6A4F; color: #FFFFFF; }
 
         a { color: var(--lime); text-decoration: none; }
         a:hover { text-decoration: underline; }
@@ -82,7 +82,7 @@
             display: flex;
             align-items: center;
             padding: 0 32px;
-            background: rgba(17,20,21,0.7);
+            background: rgba(250,250,247,0.7);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             box-shadow: 0 2px 12px rgba(255,255,255,0.05);
@@ -264,7 +264,7 @@
             border-radius: var(--r-md);
             padding: 20px 24px;
             margin: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
             border-left: 3px solid var(--lime);
         }
 
@@ -299,10 +299,10 @@
             font-size: 13px;
             font-weight: 700;
             padding: 9px 20px;
-            background: linear-gradient(135deg, #54e98a 0%, #2ecc71 100%);
-            color: #003919;
+            background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%);
+            color: #FFFFFF;
             border-radius: var(--r-full);
-            box-shadow: 0 4px 12px rgba(84,233,138,0.25);
+            box-shadow: 0 4px 12px rgba(45,106,79,0.25);
             display: inline-block;
             text-decoration: none;
             transition: transform 0.4s var(--bounce), box-shadow 0.3s ease;
@@ -310,7 +310,7 @@
         }
         .contact-link:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(84,233,138,0.2);
+            box-shadow: 0 8px 20px rgba(45,106,79,0.2);
             text-decoration: none;
         }
 
@@ -370,7 +370,7 @@
             padding: 9px 20px;
             border-radius: 9999px;
             background: var(--primary);
-            color: #003919;
+            color: #FFFFFF;
             font-size: 0.85rem;
             font-weight: 700;
             letter-spacing: 0.02em;
@@ -391,8 +391,8 @@
             align-items: center;
             justify-content: center;
             height: 2.75rem;
-            background: #111415;
-            border-bottom: 1px solid rgba(61,74,62,0.22);
+            background: #FAFAF7;
+            border-bottom: 1px solid rgba(45,106,79,0.22);
             font-size: 0.75rem;
             padding: 0 1rem;
         }
@@ -406,7 +406,7 @@
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background: #54e98a;
+            background: #2D6A4F;
             flex-shrink: 0;
             animation: banner-pulse 1.5s ease-in-out infinite;
         }
@@ -419,9 +419,9 @@
             font-weight: 700;
             padding: 2px 8px;
             border-radius: 4px;
-            background: rgba(84,233,138,0.08);
-            color: #54e98a;
-            border: 1px solid rgba(84,233,138,0.2);
+            background: rgba(45,106,79,0.08);
+            color: #2D6A4F;
+            border: 1px solid rgba(45,106,79,0.2);
             letter-spacing: 0.05em;
             white-space: nowrap;
         }
@@ -429,7 +429,7 @@
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            color: #54e98a;
+            color: #2D6A4F;
             font-weight: 700;
             text-decoration: none;
             font-size: 0.75rem;
@@ -448,7 +448,7 @@
             justify-content: center;
             border-radius: 6px;
             cursor: pointer;
-            color: #bbcbbb;
+            color: #6B7280;
             font-size: 14px;
             background: none;
             border: none;
@@ -471,7 +471,7 @@
             border-radius: 9999px;
             padding: 4px;
             border: 2px solid rgba(225,227,228,0.18);
-            background: #111415;
+            background: #FAFAF7;
         }
         .nav-pill-cursor {
             position: absolute;
@@ -479,7 +479,7 @@
             top: 4px;
             height: 32px;
             border-radius: 9999px;
-            background: #e1e3e4;
+            background: #2D3436;
             opacity: 0;
             pointer-events: none;
             left: 0;
@@ -500,8 +500,8 @@
             white-space: nowrap;
             text-decoration: none;
             border-radius: 9999px;
-            mix-blend-mode: difference;
-            color: #fff;
+            
+            color: var(--text);
         }
         @media (max-width: 960px) { .nav-pill-container { display: none; } }
         /* =============================================
@@ -515,8 +515,8 @@
             align-items: center;
             justify-content: center;
             padding: 3.5rem 1.5rem 5rem;
-            background: #111415;
-            border-top: 1px solid rgba(61,74,62,0.25);
+            background: #FAFAF7;
+            border-top: 1px solid rgba(45,106,79,0.25);
         }
         .footer-accent-line {
             position: absolute;
@@ -527,7 +527,7 @@
             width: 33%;
             border-radius: 9999px;
             filter: blur(2px);
-            background: linear-gradient(90deg, transparent, #54e98a, transparent);
+            background: linear-gradient(90deg, transparent, #2D6A4F, transparent);
         }
         .new-footer-content {
             width: 100%;
@@ -543,10 +543,10 @@
         .footer-bot-icon {
             display: flex; align-items: center; justify-content: center;
             width: 36px; height: 36px; border-radius: 10px;
-            background: linear-gradient(135deg, #54e98a, #2ecc71); flex-shrink: 0;
+            background: linear-gradient(135deg, #2D6A4F, #1B4332); flex-shrink: 0;
         }
-        .footer-brand-wordmark { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em; color: #e1e3e4; }
-        .footer-brand-wordmark span { color: #54e98a; }
+        .footer-brand-wordmark { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em; color: #2D3436; }
+        .footer-brand-wordmark span { color: #2D6A4F; }
         .footer-brand-desc { font-size: 0.875rem; line-height: 1.6; max-width: 20rem; color: var(--muted2); }
         .footer-brand-copy { font-size: 0.75rem; color: var(--muted2); }
         .new-footer-links-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 1rem; }
@@ -555,7 +555,7 @@
         .new-footer-col h3 { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted2); margin-bottom: 1rem; }
         .new-footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.625rem; }
         .new-footer-col a { display: inline-flex; align-items: center; gap: 6px; font-size: 0.875rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-        .new-footer-col a:hover { color: #54e98a; }
+        .new-footer-col a:hover { color: #2D6A4F; }
         .footer-social-icon { width: 16px; height: 16px; flex-shrink: 0; }
         .footer-anim { opacity: 0; filter: blur(4px); transform: translateY(-8px); transition: opacity 0.7s ease, filter 0.7s ease, transform 0.7s ease; }
         .footer-anim.footer-anim-in { opacity: 1; filter: blur(0); transform: translateY(0); }
@@ -590,9 +590,9 @@
     <div class="banner-content">
         <span class="banner-dot"></span>
         <span class="banner-text">
-            <span style="color:#e1e3e4;font-weight:700;">PRECIO LANZAMIENTO</span>
+            <span style="color:#2D3436;font-weight:700;">PRECIO LANZAMIENTO</span>
             <span class="banner-text-full"> &middot; Agentes desde $29 &middot; Sin mensualidad &middot; Termina en </span>
-            <span class="banner-text-short" style="color:#869486;"> &middot; Termina en </span>
+            <span class="banner-text-short" style="color:#9CA3AF;"> &middot; Termina en </span>
         </span>
         <span id="flash-timer" class="banner-timer">03:00:00</span>
         <a href="/catalogo/" class="banner-cta-desktop">Empezar ahora &rarr;</a>
@@ -844,7 +844,7 @@
                 <div class="footer-brand-col footer-anim">
                     <a href="/" class="footer-brand-link">
                         <span class="footer-bot-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
                                 <path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/>
                                 <path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/>
                             </svg>
