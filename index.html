@@ -211,36 +211,21 @@
 
 <body class="bg-surface text-on-surface font-body">
 
-<!-- Top App Bar -->
-<header class="fixed top-0 w-full z-50 bg-surface-container-low/80 backdrop-blur-md" role="banner">
-    <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto w-full">
-        <div class="flex items-center gap-3">
-            <button id="nav-hamburger" class="md:hidden" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-mobile-menu">
-                <span class="material-symbols-outlined text-primary-container">menu</span>
-            </button>
-            <a href="/" class="text-xl font-extrabold text-on-surface font-headline tracking-tight">Agentes<span class="text-primary-container">VA</span></a>
-        </div>
-        <nav class="hidden md:flex items-center gap-1">
-            <a href="/catalogo/" class="px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-primary-container hover:bg-surface-container rounded-full transition-colors">Agentes IA</a>
-            <a href="/servicios/" class="px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-primary-container hover:bg-surface-container rounded-full transition-colors">Servicios</a>
-            <a href="/precios/" class="px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-primary-container hover:bg-surface-container rounded-full transition-colors">Setup &amp; Precios</a>
-            <a href="/faq/" class="px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-primary-container hover:bg-surface-container rounded-full transition-colors">FAQ</a>
+<!-- ==================== HEADER ==================== -->
+<header class="sticky top-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10">
+    <div class="max-w-7xl mx-auto flex items-center justify-between h-16 px-6">
+        <a href="/" class="font-headline font-black text-xl text-on-surface">Agentes<span class="text-primary-container">VA</span></a>
+        <nav class="hidden md:flex items-center gap-1 bg-surface-container rounded-full p-1" aria-label="Navegaci&oacute;n principal">
+            <a href="/catalogo/" class="px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-on-surface rounded-full transition-colors">Agentes IA</a>
+            <a href="/servicios/" class="px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-on-surface rounded-full transition-colors">Servicios</a>
+            <a href="/precios/" class="px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-on-surface rounded-full transition-colors">Setup &amp; Precios</a>
+            <a href="/faq/" class="px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-on-surface rounded-full transition-colors">FAQ</a>
         </nav>
         <a href="/catalogo/" class="hidden md:inline-flex px-5 py-2.5 bg-gradient-to-r from-primary to-primary-container text-on-primary text-sm font-bold rounded-full shadow-lg hover:shadow-xl transition-all active:scale-95">Empezar ahora &rarr;</a>
     </div>
-    <div class="h-px w-full bg-gradient-to-r from-transparent via-outline-variant/15 to-transparent"></div>
 </header>
 
-<!-- Mobile Menu Overlay -->
-<div id="nav-mobile-menu" role="navigation" aria-label="Menú móvil" class="fixed inset-0 z-40 bg-surface/95 backdrop-blur-lg hidden flex-col items-center justify-center gap-6 text-lg font-headline font-bold">
-    <a href="/catalogo/" class="text-on-surface hover:text-primary-container transition-colors">Agentes IA</a>
-    <a href="/servicios/" class="text-on-surface hover:text-primary-container transition-colors">Servicios</a>
-    <a href="/precios/" class="text-on-surface hover:text-primary-container transition-colors">Setup &amp; Precios</a>
-    <a href="/faq/" class="text-on-surface hover:text-primary-container transition-colors">FAQ</a>
-    <a href="/catalogo/" class="mt-4 px-8 py-3 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold rounded-full">Empezar ahora &rarr;</a>
-</div>
-
-<main class="pt-20 pb-24">
+<main class="pb-24">
 
     <!-- ==================== HERO ==================== -->
     <section class="px-6 py-8" id="solucion">
@@ -269,11 +254,11 @@
                 </div>
                 <!-- Industry pills -->
                 <div class="flex flex-wrap gap-2 pt-2">
-                    <a href="/catalogo/#clinica" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-colors"><span aria-hidden="true">&#x1F3E5;</span> Consultorio</a>
-                    <a href="/catalogo/#restaurante" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-colors"><span aria-hidden="true">&#x1F37D;&#xFE0F;</span> Restaurante</a>
-                    <a href="/catalogo/#ecommerce" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-colors"><span aria-hidden="true">&#x1F6CD;&#xFE0F;</span> Ecommerce</a>
-                    <a href="/catalogo/#salon" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-colors"><span aria-hidden="true">&#x2702;&#xFE0F;</span> Sal&oacute;n</a>
-                    <a href="/catalogo/#inmobiliaria" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-colors"><span aria-hidden="true">&#x1F3E0;</span> Inmobiliaria</a>
+                    <a href="/catalogo/consultorio/" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-colors"><span aria-hidden="true">&#x1F3E5;</span> Consultorio</a>
+                    <a href="/catalogo/restaurante/" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-colors"><span aria-hidden="true">&#x1F37D;&#xFE0F;</span> Restaurante</a>
+                    <a href="/catalogo/ecommerce/" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-colors"><span aria-hidden="true">&#x1F6CD;&#xFE0F;</span> Ecommerce</a>
+                    <a href="/catalogo/salon/" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-colors"><span aria-hidden="true">&#x2702;&#xFE0F;</span> Sal&oacute;n</a>
+                    <a href="/catalogo/inmobiliaria/" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-colors"><span aria-hidden="true">&#x1F3E0;</span> Inmobiliaria</a>
                     <a href="/catalogo/" class="px-4 py-2 rounded-full bg-primary-container/80 text-on-primary text-sm font-bold hover:bg-primary-container transition-colors">+ 7 industrias &rarr;</a>
                 </div>
             </div>
@@ -827,28 +812,28 @@
     </div>
 </footer>
 
-<!-- Bottom Nav Bar (Mobile) -->
-<nav class="fixed bottom-0 w-full bg-surface-container-low border-t border-outline-variant/10 z-50 md:hidden" aria-label="Navegación móvil">
-    <div class="flex justify-around items-center h-16 px-2">
+<!-- ==================== MOBILE BOTTOM NAV ==================== -->
+<nav class="fixed bottom-0 inset-x-0 z-50 md:hidden bg-surface-container-lowest/95 backdrop-blur-xl border-t border-outline-variant/10 px-2 pt-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]" aria-label="M&oacute;vil">
+    <div class="flex items-center justify-around">
         <a href="/" class="flex flex-col items-center gap-1 text-primary-container font-bold">
-            <span class="material-symbols-outlined">storefront</span>
-            <span class="text-[10px] font-label">Inicio</span>
+            <span class="material-symbols-outlined text-xl">home</span>
+            <span class="text-[10px] font-medium">Inicio</span>
         </a>
         <a href="/catalogo/" class="flex flex-col items-center gap-1 text-on-surface-variant">
-            <span class="material-symbols-outlined">smart_toy</span>
-            <span class="text-[10px] font-label">Agentes</span>
-        </a>
-        <a href="/precios/" class="flex flex-col items-center gap-1 text-on-surface-variant">
-            <span class="material-symbols-outlined">payments</span>
-            <span class="text-[10px] font-label">Precios</span>
+            <span class="material-symbols-outlined text-xl">smart_toy</span>
+            <span class="text-[10px] font-medium">Agentes</span>
         </a>
         <a href="/servicios/" class="flex flex-col items-center gap-1 text-on-surface-variant">
-            <span class="material-symbols-outlined">monitoring</span>
-            <span class="text-[10px] font-label">Servicios</span>
+            <span class="material-symbols-outlined text-xl">build</span>
+            <span class="text-[10px] font-medium">Servicios</span>
+        </a>
+        <a href="/precios/" class="flex flex-col items-center gap-1 text-on-surface-variant">
+            <span class="material-symbols-outlined text-xl">payments</span>
+            <span class="text-[10px] font-medium">Precios</span>
         </a>
         <a href="/faq/" class="flex flex-col items-center gap-1 text-on-surface-variant">
-            <span class="material-symbols-outlined">help</span>
-            <span class="text-[10px] font-label">FAQ</span>
+            <span class="material-symbols-outlined text-xl">help</span>
+            <span class="text-[10px] font-medium">FAQ</span>
         </a>
     </div>
 </nav>
@@ -895,34 +880,6 @@ document.querySelectorAll('.faq-q').forEach(function(q) {
 })();
 </script>
 
-<script>
-// Hamburger menu
-(function(){
-    var btn = document.getElementById('nav-hamburger');
-    var menu = document.getElementById('nav-mobile-menu');
-    if (!btn || !menu) return;
-    function openMenu() {
-        menu.classList.remove('hidden');
-        menu.classList.add('flex');
-        btn.setAttribute('aria-expanded', 'true');
-        btn.setAttribute('aria-label', 'Cerrar menú');
-        document.body.style.overflow = 'hidden';
-    }
-    function closeMenu() {
-        menu.classList.add('hidden');
-        menu.classList.remove('flex');
-        btn.setAttribute('aria-expanded', 'false');
-        btn.setAttribute('aria-label', 'Abrir menú de navegación');
-        document.body.style.overflow = '';
-    }
-    btn.addEventListener('click', function() {
-        menu.classList.contains('hidden') ? openMenu() : closeMenu();
-    });
-    menu.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', closeMenu);
-    });
-})();
-</script>
 
 </body>
 </html>

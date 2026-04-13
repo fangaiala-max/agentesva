@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html class="light" lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://agentesva.com/faq/">
     <meta property="og:title" content="FAQ y Glosario de Agentes IA | AgentesVA">
-    <meta property="og:description" content="Todo lo que necesitas saber sobre agentes IA para PyMEs. FAQ + Glosario de 20 términos esenciales.">
+    <meta property="og:description" content="Todo lo que necesitas saber sobre agentes IA para PyMEs. FAQ + Glosario de 20 t&eacute;rminos esenciales.">
     <meta property="og:image" content="https://agentesva.com/assets/og-home.png">
     <meta property="og:locale" content="es_MX">
     <meta property="og:site_name" content="AgentesVA">
@@ -25,415 +25,37 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="FAQ y Glosario de Agentes IA | AgentesVA">
-    <meta name="twitter:description" content="FAQ completo + glosario de automatización IA para PyMEs de LATAM.">
+    <meta name="twitter:description" content="FAQ completo + glosario de automatizaci&oacute;n IA para PyMEs de LATAM.">
     <meta name="twitter:image" content="https://agentesva.com/assets/og-home.png">
 
     <!-- Hreflang LATAM -->
-    <link rel="alternate" hreflang="es"       href="https://agentesva.com/faq/">
-    <link rel="alternate" hreflang="es-MX"    href="https://agentesva.com/faq/">
-    <link rel="alternate" hreflang="es-CO"    href="https://agentesva.com/faq/">
-    <link rel="alternate" hreflang="es-AR"    href="https://agentesva.com/faq/">
-    <link rel="alternate" hreflang="es-CL"    href="https://agentesva.com/faq/">
-    <link rel="alternate" hreflang="es-PE"    href="https://agentesva.com/faq/">
+    <link rel="alternate" hreflang="es"        href="https://agentesva.com/faq/">
+    <link rel="alternate" hreflang="es-MX"     href="https://agentesva.com/faq/">
+    <link rel="alternate" hreflang="es-CO"     href="https://agentesva.com/faq/">
+    <link rel="alternate" hreflang="es-AR"     href="https://agentesva.com/faq/">
+    <link rel="alternate" hreflang="es-CL"     href="https://agentesva.com/faq/">
+    <link rel="alternate" hreflang="es-PE"     href="https://agentesva.com/faq/">
     <link rel="alternate" hreflang="x-default" href="https://agentesva.com/faq/">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/tailwind.css">
 
     <style>
-        :root {
-    --bg:           #f8fafd;
-    --bg2:          #FFFFFF;
-    --bg3:          #f0f2ff;
-    --bg4:          #e8ebff;
-    --surface:      #f0f2ff;
-    --primary:      #0b28ff;
-    --primary-dim:  #0920cc;
-    --orange:       #3d50ff;
-    --orange-dim:   #0920cc;
-    --tertiary:     #ffb4ab;
-    --text:         #1f1f23;
-    --muted:        #8181a5;
-    --muted2:       #a5a5c0;
-    --outline:      #d4d5e0;
-    --teal:         #0b28ff;
-    --border:       rgba(11,40,255,0.18);
-    --border-light: rgba(11,40,255,0.10);
-    --shadow-sm:    0 2px 10px rgba(0,0,0,0.06);
-    --shadow-md:    0 12px 40px rgba(0,0,0,0.08);
-    --shadow-cta:   0 8px 24px rgba(11,40,255,0.25);
-    --mono:         'JetBrains Mono', monospace;
-    --sans:         'Manrope', sans-serif;
-    --display:      'Space Grotesk', sans-serif;
-    --r-xl: 20px; --r-md: 12px; --r-sm: 8px; --r-full: 9999px;
-    --bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
-    --lime:         #0b28ff;
-    --lime-dim:     rgba(11,40,255,0.1);
-    --border-md:    rgba(11,40,255,0.15);
-    --border-lime:  rgba(11,40,255,0.22);
-    color-scheme: light;
-}
-
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: var(--sans);
-            font-size: 16px;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
-        ::selection { background: #0b28ff; color: #FFFFFF; }
-        a { color: inherit; text-decoration: none; }
-        .display { font-family: var(--display); }
-        .mono    { font-family: var(--mono); }
-
-        /* ── Flash Bar ── */
-        .flash-bar {
-            background: linear-gradient(90deg,#0920cc,#0920cc 50%,#0920cc);
-            background-size:200% 100%;
-            animation:flashSlide 4s linear infinite;
-            color:white;
-            text-align:center;
-            padding:9px 20px;
-            font-family:var(--mono);
-            font-size:12px;
-            letter-spacing:0.05em;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            gap:14px;
-            z-index:102;
-            position:relative;
-        }
-        @keyframes flashSlide{0%{background-position:100% 0}100%{background-position:-100% 0}}
-        .flash-bar-dot{width:8px;height:8px;background:#0b28ff;border-radius:50%;animation:dotPulse 1.5s ease-in-out infinite;box-shadow:0 0 0 0 rgba(11,40,255,.8);flex-shrink:0;}
-        @keyframes dotPulse{0%{box-shadow:0 0 0 0 rgba(11,40,255,.8)}70%{box-shadow:0 0 0 10px rgba(11,40,255,0)}100%{box-shadow:0 0 0 0 rgba(11,40,255,0)}}
-        .flash-bar a{color:white;font-weight:700;text-decoration:underline;text-underline-offset:2px;}
-        #flash-bar-timer{font-weight:700;color:#0b28ff;}
-
-        /* ── Nav ── */
-        nav {
-            position: sticky; top: 0; z-index: 100; height: 64px;
-            display: flex; align-items: center; padding: 0 32px;
-            background: rgba(248,250,253,0.7);
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            box-shadow: 0 2px 12px rgba(255,255,255,0.05);
-        }
-        .nav-inner { max-width: 1160px; margin: 0 auto; width: 100%; display: flex; align-items: center; justify-content: space-between; }
-        .nav-logo { font-family: var(--display); font-size: 20px; font-weight: 800; letter-spacing: -0.025em; color: var(--text); }
-        .nav-logo span { color: var(--lime); }
-        .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
-        .nav-links a { font-size: 15px; color: var(--muted); transition: color 0.2s; }
-        .nav-links a:hover { color: var(--text); }
-        .nav-flash{color:var(--lime)!important;font-weight:600!important;}
-        .nav-right{display:flex;align-items:center;gap:10px;}
-        .nav-search{position:relative;display:flex;align-items:center;}
-        .nav-search-input{width:180px;padding:7px 12px 7px 34px;border:1.5px solid var(--border-md);border-radius:var(--r-full);background:var(--bg2);font-family:var(--sans);font-size:13px;color:var(--text);outline:none;transition:border-color .2s,box-shadow .2s,width .3s;}
-        .nav-search-input::placeholder{color:var(--muted);}
-        .nav-search-input:focus{border-color:var(--lime);box-shadow:0 0 0 3px rgba(11,40,255,.1);width:220px;}
-        .nav-search-icon{position:absolute;left:10px;width:16px;height:16px;color:var(--muted);pointer-events:none;}
-        .nav-cta { font-family: var(--display); font-size: 14px; font-weight: 700; padding: 9px 22px; background: linear-gradient(135deg, #0b28ff 0%, #0920cc 100%); color: #FFFFFF; border-radius: var(--r-full); box-shadow: 0 8px 24px rgba(11,40,255,0.2); transition: transform 0.5s var(--bounce), box-shadow 0.3s ease; }
-        .nav-cta:hover { transform: translateY(-2px) scale(1.04); }
-
-        /* ── Hero ── */
-        .faq-hero { padding: 80px 32px 64px; background: var(--bg); text-align: center; }
-        .faq-hero-inner { max-width: 720px; margin: 0 auto; }
-        .faq-hero-kicker { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; color: var(--lime); background: var(--bg3); padding: 6px 14px; border-radius: var(--r-full); margin-bottom: 28px; letter-spacing: 0.06em; text-transform: uppercase; }
-        .faq-hero-headline { font-family: var(--display); font-size: clamp(36px, 5vw, 68px); font-weight: 800; line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 20px; color: var(--text); }
-        .faq-hero-sub { font-size: clamp(15px, 2vw, 18px); color: var(--muted); line-height: 1.65; font-weight: 300; max-width: 520px; margin: 0 auto; }
-
-        /* ── Section layout ── */
-        .content-section { padding: 80px 0; }
-        .content-section.alt { background: var(--bg2); }
-        .content-section.dark { background: var(--bg4); }
-        .content-wrap { max-width: 900px; margin: 0 auto; padding: 0 32px; }
-
-        .section-kicker {
-            display: inline-flex; align-items: center; gap: 8px;
-            font-family: var(--mono); font-size: 11px; color: var(--lime);
-            letter-spacing: 0.10em; text-transform: uppercase; margin-bottom: 14px;
-        }
-        .section-kicker::before { content: ''; width: 20px; height: 2px; background: var(--lime); border-radius: 2px; }
-        .section-kicker.light { color: var(--orange); }
-        .section-kicker.light::before { background: var(--orange); }
-        .section-title { font-family: var(--display); font-size: clamp(28px, 4vw, 44px); font-weight: 800; letter-spacing: -0.028em; line-height: 1.06; margin-bottom: 16px; color: var(--text); }
-        .section-title.light { color: white; }
-
-        /* ── FAQ Categories ── */
-        .faq-category { margin-bottom: 48px; }
-        .faq-category-title {
-            font-family: var(--mono); font-size: 11px; font-weight: 700;
-            letter-spacing: 0.12em; text-transform: uppercase;
-            color: var(--lime); margin-bottom: 16px;
-            padding-bottom: 12px; border-bottom: 2px solid var(--border);
-        }
-        .faq-list { display: flex; flex-direction: column; gap: 0; }
-        .faq-item { border-bottom: 1px solid var(--border); }
-        .faq-item:first-child { border-top: 1px solid var(--border); }
-        .faq-q { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0; font-family: var(--display); font-size: 16px; font-weight: 700; color: var(--text); cursor: pointer; list-style: none; user-select: none; }
-        .faq-q::after { content: '+'; font-family: var(--sans); font-size: 22px; font-weight: 300; color: var(--lime); flex-shrink: 0; transition: transform 0.3s var(--bounce); }
-        .faq-item.open .faq-q::after { transform: rotate(45deg); }
-        .faq-a { display: none; padding: 0 0 18px; font-size: 15px; line-height: 1.75; color: var(--muted); }
-        .faq-item.open .faq-a { display: block; }
-
-        /* ── Glosario ── */
-        .glossary-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 40px; }
-        .glossary-card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: var(--r-xl);
-            padding: 24px 28px;
-        }
-        .glossary-term {
-            font-family: var(--display);
-            font-size: 17px;
-            font-weight: 800;
-            color: white;
-            letter-spacing: -0.015em;
-            margin-bottom: 6px;
-        }
-        .glossary-tag {
-            display: inline-block;
-            font-family: var(--mono);
-            font-size: 9px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--orange);
-            background: rgba(11,40,255,0.15);
-            padding: 3px 8px;
-            border-radius: var(--r-chip);
-            margin-bottom: 10px;
-        }
-        .glossary-def {
-            font-size: 14px;
-            color: rgba(255,255,255,0.65);
-            line-height: 1.65;
-        }
-
-        /* ── CTA ── */
-        .cta-section { background: var(--bg); padding: 80px 32px; }
-        .cta-banner { max-width: 1160px; margin: 0 auto; background: linear-gradient(135deg, #0b28ff 0%, #0920cc 100%); border-radius: var(--r-xl); padding: 72px 64px; text-align: center; box-shadow: 0 20px 60px rgba(11,40,255,0.28); }
-        .cta-title { font-family: var(--display); font-size: clamp(28px, 4vw, 52px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.0; color: #FFFFFF; margin-bottom: 18px; }
-        .cta-sub { font-size: 17px; color: rgba(255,255,255,0.78); max-width: 400px; margin: 0 auto 40px; }
-        .btn-cta-white { display: inline-block; font-family: var(--display); font-size: 15px; font-weight: 700; padding: 14px 36px; background: #f8fafd; color: #0b28ff; border-radius: var(--r-full); box-shadow: 0 8px 24px rgba(0,0,0,0.08); transition: transform 0.5s var(--bounce); }
-        .btn-cta-white:hover { transform: translateY(-3px) scale(1.05); }
-
-        /* ── Footer ── */
-        footer { background: var(--bg2); }
-        .footer-inner { max-width: 1160px; margin: 0 auto; padding: 44px 32px; display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; }
-        .footer-logo { font-family: var(--display); font-size: 17px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 5px; color: var(--text); }
-        .footer-logo span { color: var(--lime); }
-        .footer-copy { font-size: 12px; color: var(--muted); }
-        .footer-links { display: flex; gap: 28px; list-style: none; flex-wrap: wrap; }
-        .footer-links a { font-size: 13px; color: var(--muted); transition: color 0.2s; }
-        .footer-links a:hover { color: var(--text); }
-
-        /* ── Responsive ── */
-        @media(max-width:900px){
-            .glossary-grid { grid-template-columns: 1fr; }
-            .nav-search { display: none; }
-        }
-        @media(max-width:600px){
-            .nav-links { display: none; }
-            .faq-hero { padding: 56px 20px 48px; }
-            .content-wrap { padding: 0 20px; }
-            .content-section { padding: 60px 0; }
-            .cta-banner { padding: 48px 24px; }
-            .footer-inner { flex-direction: column; gap: 20px; }
-            .faq-q { font-size: 15px; }
-        }
-        /* =============================================
-           FLASH BANNER
-        ============================================= */
-        #flash-banner {
-            position: sticky;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 60;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 2.75rem;
-            background: #f8fafd;
-            border-bottom: 1px solid rgba(11,40,255,0.22);
-            font-size: 0.75rem;
-            padding: 0 1rem;
-        }
-        .banner-content {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            flex-wrap: nowrap;
-        }
-        .banner-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #0b28ff;
-            flex-shrink: 0;
-            animation: banner-pulse 1.5s ease-in-out infinite;
-        }
-        @keyframes banner-pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-        .banner-text { color: rgba(225,227,228,0.6); white-space: nowrap; }
-        #flash-timer {
-            font-weight: 700;
-            padding: 2px 8px;
-            border-radius: 4px;
-            background: rgba(11,40,255,0.08);
-            color: #0b28ff;
-            border: 1px solid rgba(11,40,255,0.2);
-            letter-spacing: 0.05em;
-            white-space: nowrap;
-        }
-        .banner-cta-desktop {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            color: #0b28ff;
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 0.75rem;
-            white-space: nowrap;
-        }
-        .banner-cta-desktop:hover { text-decoration: underline; }
-        .banner-close {
-            position: absolute;
-            right: 0.5rem;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 6px;
-            cursor: pointer;
-            color: #a5a5c0;
-            font-size: 14px;
-            background: none;
-            border: none;
-            transition: background 0.2s;
-            line-height: 1;
-        }
-        .banner-close:hover { background: rgba(225,227,228,0.1); }
-        body.banner-visible nav { top: 44px; }
-        @media (max-width: 640px) {
-            .banner-text-full { display: none; }
-            .banner-cta-desktop { display: none !important; }
-        }
-        /* =============================================
-           NAV PILL
-        ============================================= */
-        .nav-pill-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-            border-radius: 9999px;
-            padding: 4px;
-            border: 2px solid rgba(11,40,255,0.28);
-            background: #FFFFFF;
-        }
-        .nav-pill-cursor {
-            position: absolute;
-            z-index: 0;
-            top: 4px;
-            height: 32px;
-            border-radius: 9999px;
-            background: #0b28ff;
-            opacity: 0;
-            pointer-events: none;
-            left: 0;
-            width: 0;
-            transition: left 0.3s cubic-bezier(0.34,1.56,0.64,1),
-                        width 0.3s cubic-bezier(0.34,1.56,0.64,1),
-                        opacity 0.2s ease;
-        }
-        .nav-pill-tab {
-            position: relative;
-            z-index: 10;
-            display: block;
-            padding: 6px 16px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            white-space: nowrap;
-            text-decoration: none;
-            border-radius: 9999px;
-            
-            color: var(--text);
-        }
-        @media (max-width: 960px) { .nav-pill-container { display: none; } }
-        /* =============================================
-           NEW FOOTER
-        ============================================= */
-        .new-footer {
-            position: relative;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 3.5rem 1.5rem 5rem;
-            background: #f8fafd;
-            border-top: 1px solid rgba(11,40,255,0.25);
-        }
-        .footer-accent-line {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%) translateY(-1px);
-            height: 1px;
-            width: 33%;
-            border-radius: 9999px;
-            filter: blur(2px);
-            background: linear-gradient(90deg, transparent, #0b28ff, transparent);
-        }
-        .new-footer-content {
-            width: 100%;
-            max-width: 1160px;
-            display: grid;
-            gap: 2.5rem;
-        }
-        @media (min-width: 1280px) {
-            .new-footer-content { grid-template-columns: 1fr 2fr; gap: 3rem; }
-        }
-        .footer-brand-col { display: flex; flex-direction: column; gap: 1rem; }
-        .footer-brand-link { display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; }
-        .footer-bot-icon {
-            display: flex; align-items: center; justify-content: center;
-            width: 36px; height: 36px; border-radius: 10px;
-            background: linear-gradient(135deg, #0b28ff, #0920cc); flex-shrink: 0;
-        }
-        .footer-brand-wordmark { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em; color: #1f1f23; }
-        .footer-brand-wordmark span { color: #0b28ff; }
-        .footer-brand-desc { font-size: 0.875rem; line-height: 1.6; max-width: 20rem; color: var(--muted2); }
-        .footer-brand-copy { font-size: 0.75rem; color: var(--muted2); }
-        .new-footer-links-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 1rem; }
-        @media (min-width: 768px) { .new-footer-links-grid { grid-template-columns: repeat(4, 1fr); } }
-        @media (min-width: 1280px) { .new-footer-links-grid { margin-top: 0; } }
-        .new-footer-col h3 { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted2); margin-bottom: 1rem; }
-        .new-footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.625rem; }
-        .new-footer-col a { display: inline-flex; align-items: center; gap: 6px; font-size: 0.875rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-        .new-footer-col a:hover { color: #0b28ff; }
-        .footer-social-icon { width: 16px; height: 16px; flex-shrink: 0; }
-        .footer-anim { opacity: 0; filter: blur(4px); transform: translateY(-8px); transition: opacity 0.7s ease, filter 0.7s ease, transform 0.7s ease; }
-        .footer-anim.footer-anim-in { opacity: 1; filter: blur(0); transform: translateY(0); }
-        .footer-anim:nth-child(1) { transition-delay: 0.05s; }
-        .footer-anim:nth-child(2) { transition-delay: 0.13s; }
-        .footer-anim:nth-child(3) { transition-delay: 0.21s; }
-        .footer-anim:nth-child(4) { transition-delay: 0.29s; }
-        .footer-anim:nth-child(5) { transition-delay: 0.37s; }
-        .skip-link { position: absolute; top: -44px; left: 1rem; background: #0b28ff; color: #FFFFFF; padding: 8px 16px; border-radius: 0 0 8px 8px; font-weight: 700; font-size: 0.875rem; text-decoration: none; z-index: 9999; transition: top 0.2s; }
-        .skip-link:focus { top: 0; }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        font-family: 'Material Symbols Outlined';
+        font-style: normal;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+      }
     </style>
 
     <!-- JSON-LD: FAQPage -->
@@ -444,38 +66,28 @@
       "mainEntity": [
         {
           "@type": "Question",
+          "name": "¿Qué es exactamente un agente de IA?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un agente de IA es un sistema de automatización que ejecuta procesos completos de negocio de forma autónoma, sin intervención humana. No es un chatbot que responde preguntas predefinidas. Es un sistema que conecta tus herramientas actuales (Gmail, WhatsApp, Google Sheets, tu CRM), lee información, toma decisiones y actúa: envía emails, crea registros, genera documentos, agenda citas. Los agentes de AgentesVA corren en Make.com." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Necesito saber programar?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Los agentes de AgentesVA son flujos visuales en Make.com. No hay código que escribir, no hay servidores que configurar. Si sabes usar Gmail y Google Sheets, puedes activar un agente." }
+        },
+        {
+          "@type": "Question",
           "name": "¿Qué es AgentesVA?",
           "acceptedAnswer": { "@type": "Answer", "text": "AgentesVA es el primer marketplace de agentes virtuales de automatización IA para PyMEs hispanohablantes en Latinoamérica. Ofrecemos blueprints listos para importar en Make.com que automatizan tareas como clasificación de correos, generación de cotizaciones y publicación de contenido, sin necesidad de programar." }
         },
         {
           "@type": "Question",
           "name": "¿Es seguro usar los agentes de AgentesVA?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los blueprints corren en tu propia cuenta de Make.com y solo acceden a las cuentas que tú autorices explícitamente (Gmail, Google Sheets, etc.). AgentesVA no almacena ni accede a tus datos. Toda la lógica de automatización vive en tu ecosistema de herramientas." }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Para quién es AgentesVA?",
-          "acceptedAnswer": { "@type": "Answer", "text": "AgentesVA está diseñado para dueños de PyMEs, emprendedores y profesionales independientes de México, Colombia, Argentina, Chile y Perú que quieren automatizar procesos repetitivos sin contratar desarrolladores ni pagar suscripciones costosas." }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Necesito saber programar para usar los agentes?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. Los agentes de AgentesVA son blueprints visuales que se importan con un clic en Make.com. No hay código que escribir. Si sabes usar Gmail y Google Sheets, puedes configurar un agente en menos de 5 minutos." }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Qué es Make.com?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Make.com (antes Integromat) es una plataforma visual de automatización que conecta apps y servicios sin código. Es la plataforma en la que corren todos los agentes de AgentesVA. Ofrece un plan gratuito con 1,000 operaciones al mes y planes de pago desde $9/mes." }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Qué es un blueprint de automatización?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Un blueprint es un archivo JSON que contiene el flujo completo de automatización. Cuando lo importas en Make.com, el escenario completo, con todos sus módulos, conexiones y lógica, aparece listo en tu cuenta para que solo tengas que conectar tus credenciales y activarlo." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los blueprints corren en tu propia cuenta de Make.com y solo acceden a las cuentas que tú autorices explícitamente. AgentesVA no almacena ni accede a tus datos." }
         },
         {
           "@type": "Question",
           "name": "¿Los precios tienen mensualidad?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. Cada opción de setup (DIY $19, Asistido $49, Full Service $97) es un pago único por agente. No hay cuotas mensuales ni renovaciones. La única suscripción separada es Make.com (desde $9/mes), que no es de AgentesVA." }
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Cada opción de setup (DIY $19, Asistido $49, Full Service $97) es un pago único por agente. No hay cuotas mensuales ni renovaciones." }
         },
         {
           "@type": "Question",
@@ -485,22 +97,22 @@
         {
           "@type": "Question",
           "name": "¿Cuánto tiempo tarda el setup inicial?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Depende de la opción que elijas. DIY Setup: 15-30 minutos siguiendo la guía paso a paso. Setup Asistido: 30 minutos en una sesión en vivo con un experto, sales con todo funcionando. Full Service: 0 minutos de tu parte, nosotros lo hacemos todo y te lo entregamos listo en 24-48 horas." }
+          "acceptedAnswer": { "@type": "Answer", "text": "DIY Setup: 15-30 minutos. Setup Asistido: 30 minutos en sesión en vivo. Full Service: 0 minutos de tu parte, entrega en 24-48 horas." }
         },
         {
           "@type": "Question",
           "name": "¿Puedo personalizar los agentes?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Sí. Todos los blueprints son totalmente editables en Make.com. Puedes modificar los prompts de IA, cambiar las condiciones de los filtros, agregar pasos adicionales o conectar más herramientas según las necesidades de tu negocio." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí. Todos los blueprints son totalmente editables en Make.com. Puedes modificar los prompts de IA, cambiar las condiciones de los filtros, agregar pasos adicionales o conectar más herramientas." }
         },
         {
           "@type": "Question",
           "name": "¿Los agentes soportan WhatsApp?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Sí. Algunos agentes de AgentesVA están diseñados para integrarse con WhatsApp Business API a través de Make.com. Esto permite automatizar respuestas, enviar recordatorios y confirmar citas directamente por WhatsApp." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí. Algunos agentes de AgentesVA están diseñados para integrarse con WhatsApp Business API a través de Make.com." }
         },
         {
           "@type": "Question",
           "name": "¿Cuál es la diferencia entre las opciones de setup?",
-          "acceptedAnswer": { "@type": "Answer", "text": "AgentesVA ofrece 3 opciones de setup por agente. DIY Setup ($19 USD): recibes el blueprint + guía paso a paso y tú lo configuras. Setup Asistido ($49 USD): sesión en vivo de 30 minutos donde un experto te guía por videollamada. Full Service ($97 USD): nosotros lo configuramos todo por ti, zero esfuerzo de tu parte. Todos son pagos únicos, sin mensualidades." }
+          "acceptedAnswer": { "@type": "Answer", "text": "DIY Setup ($19 USD): recibes el blueprint + guía paso a paso. Setup Asistido ($49 USD): sesión en vivo de 30 minutos con un experto. Full Service ($97 USD): nosotros lo configuramos todo por ti. Todos son pagos únicos, sin mensualidades." }
         }
       ]
     }
@@ -511,308 +123,403 @@
     {
       "@context": "https://schema.org",
       "@type": "DefinedTermSet",
-      "name": "Glosario de Automatización IA para PyMEs",
-      "description": "Definiciones de términos clave de automatización con inteligencia artificial, agentes virtuales y herramientas no-code para pequeñas y medianas empresas en Latinoamérica.",
+      "name": "Glosario de Automatizaci&oacute;n IA para PyMEs",
+      "description": "Definiciones de t&eacute;rminos clave de automatizaci&oacute;n con inteligencia artificial, agentes virtuales y herramientas no-code para peque&ntilde;as y medianas empresas en Latinoam&eacute;rica.",
       "url": "https://agentesva.com/faq/#glosario",
       "hasDefinedTerm": [
-        { "@type": "DefinedTerm", "name": "Agente Virtual IA", "description": "Programa de inteligencia artificial que ejecuta tareas de negocio de forma autónoma, tomando decisiones basadas en el contexto sin intervención humana constante." },
-        { "@type": "DefinedTerm", "name": "Blueprint de automatización", "description": "Archivo JSON que contiene el flujo completo de un escenario de automatización, listo para importar en Make.com con un clic." },
-        { "@type": "DefinedTerm", "name": "Make.com", "description": "Plataforma visual no-code de automatización que conecta apps y servicios. Base tecnológica donde corren todos los agentes de AgentesVA." },
-        { "@type": "DefinedTerm", "name": "GPT-4o", "description": "Modelo multimodal de inteligencia artificial de OpenAI, capaz de procesar texto, imágenes y audio. El motor de razonamiento principal de los agentes de AgentesVA." },
-        { "@type": "DefinedTerm", "name": "Automatización de procesos (RPA)", "description": "Tecnología que automatiza tareas repetitivas basadas en reglas, imitando acciones humanas en sistemas de software." }
+        { "@type": "DefinedTerm", "name": "Agente Virtual IA", "description": "Programa de inteligencia artificial que ejecuta tareas de negocio de forma aut&oacute;noma, tomando decisiones basadas en el contexto sin intervenci&oacute;n humana constante." },
+        { "@type": "DefinedTerm", "name": "Blueprint de automatizaci&oacute;n", "description": "Archivo JSON que contiene el flujo completo de un escenario de automatizaci&oacute;n, listo para importar en Make.com con un clic." },
+        { "@type": "DefinedTerm", "name": "Make.com", "description": "Plataforma visual no-code de automatizaci&oacute;n que conecta apps y servicios. Base tecnol&oacute;gica donde corren todos los agentes de AgentesVA." },
+        { "@type": "DefinedTerm", "name": "GPT-4o", "description": "Modelo multimodal de inteligencia artificial de OpenAI, capaz de procesar texto, im&aacute;genes y audio. El motor de razonamiento principal de los agentes de AgentesVA." },
+        { "@type": "DefinedTerm", "name": "Automatizaci&oacute;n de procesos (RPA)", "description": "Tecnolog&iacute;a que automatiza tareas repetitivas basadas en reglas, imitando acciones humanas en sistemas de software." }
       ]
     }
     </script>
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-87SBNWCTWZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-87SBNWCTWZ');
-</script>
-<!-- Mixpanel -->
-<script type="text/javascript">
-(function(f,b){if(!b.__SV){var e,g,i,h;window.mixpanel=b;b._i=[];b.init=function(e,f,c){function g(a,d){var b=d.split(".");2==b.length&&(a=a[b[0]],d=b[1]);a[d]=function(){a.push([d].concat(Array.prototype.slice.call(arguments,0)))}}var a=b;"undefined"!==typeof c?a=b[c]=[]:c="mixpanel";a.people=a.people||[];a.toString=function(a){var d="mixpanel";"mixpanel"!==c&&(d+="."+c);a||(d+=" (stub)");return d};a.people.toString=function(){return a.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");for(h=0;h<i.length;h++)g(a,i[h]);var j="set set_once union unset remove delete".split(" ");a.get_group=function(){function b(c){d[c]=function(){call2_args=arguments;call2=[c].concat(Array.prototype.slice.call(call2_args,0));a.push([e].concat([call2]))}}for(var d={},e=["get_group"].concat(Array.prototype.slice.call(arguments,0)),c=0;c<j.length;c++)b(j[c]);return d};b._i.push([e,f,c])};b.__SV=1.2;e=f.createElement("script");e.type="text/javascript";e.async=!0;e.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===f.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";g=f.getElementsByTagName("script")[0];g.parentNode.insertBefore(e,g)}})(document,window.mixpanel||[]);
-</script>
-<script>
-  mixpanel.init('8fa5118db89d01d0316661d3b0adcc39', {api_host: 'https://api-eu.mixpanel.com'});
-  mixpanel.track('page_viewed', { page: window.location.pathname });
-</script>
 
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-87SBNWCTWZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-87SBNWCTWZ');
+    </script>
+    <!-- Mixpanel -->
+    <script type="text/javascript">
+    (function(f,b){if(!b.__SV){var e,g,i,h;window.mixpanel=b;b._i=[];b.init=function(e,f,c){function g(a,d){var b=d.split(".");2==b.length&&(a=a[b[0]],d=b[1]);a[d]=function(){a.push([d].concat(Array.prototype.slice.call(arguments,0)))}}var a=b;"undefined"!==typeof c?a=b[c]=[]:c="mixpanel";a.people=a.people||[];a.toString=function(a){var d="mixpanel";"mixpanel"!==c&&(d+="."+c);a||(d+=" (stub)");return d};a.people.toString=function(){return a.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");for(h=0;h<i.length;h++)g(a,i[h]);var j="set set_once union unset remove delete".split(" ");a.get_group=function(){function b(c){d[c]=function(){call2_args=arguments;call2=[c].concat(Array.prototype.slice.call(call2_args,0));a.push([e].concat([call2]))}}for(var d={},e=["get_group"].concat(Array.prototype.slice.call(arguments,0)),c=0;c<j.length;c++)b(j[c]);return d};b._i.push([e,f,c])};b.__SV=1.2;e=f.createElement("script");e.type="text/javascript";e.async=!0;e.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===f.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";g=f.getElementsByTagName("script")[0];g.parentNode.insertBefore(e,g)}})(document,window.mixpanel||[]);
+    </script>
+    <script>
+      mixpanel.init('8fa5118db89d01d0316661d3b0adcc39', {api_host: 'https://api-eu.mixpanel.com'});
+      mixpanel.track('page_viewed', { page: window.location.pathname });
+    </script>
 </head>
-<body class="banner-visible">
-<a href="#main-content" class="skip-link">Saltar al contenido</a>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed">
 
-<!-- ===================== FLASH BANNER ===================== -->
-<div id="flash-banner">
-    <div class="banner-content">
-        <span class="banner-dot"></span>
-        <span class="banner-text">
-            <span style="color:#1f1f23;font-weight:700;">PRECIO LANZAMIENTO</span>
-            <span class="banner-text-full"> &middot; Agentes desde $29 &middot; Sin mensualidad &middot; Termina en </span>
-            <span class="banner-text-short" style="color:rgba(225,227,228,0.6);"> &middot; Termina en </span>
-        </span>
-        <span id="flash-timer" class="banner-timer">03:00:00</span>
-        <a href="/catalogo/" class="banner-cta-desktop">Empezar ahora &rarr;</a>
+<!-- ==================== HEADER ==================== -->
+<header class="sticky top-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10">
+    <div class="max-w-7xl mx-auto flex items-center justify-between h-16 px-6">
+        <a href="/" class="font-headline font-black text-xl text-on-surface">Agentes<span class="text-primary-container">VA</span></a>
+        <nav class="hidden md:flex items-center gap-1 bg-surface-container rounded-full p-1" aria-label="Navegaci&oacute;n principal">
+            <a href="/catalogo/" class="px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-on-surface rounded-full transition-colors">Agentes IA</a>
+            <a href="/servicios/" class="px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-on-surface rounded-full transition-colors">Servicios</a>
+            <a href="/precios/" class="px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-on-surface rounded-full transition-colors">Setup &amp; Precios</a>
+            <a href="/faq/" class="px-4 py-2 text-sm font-medium text-primary-container bg-surface-container-high rounded-full transition-colors font-bold">FAQ</a>
+        </nav>
+        <a href="/catalogo/" class="hidden md:inline-flex px-5 py-2.5 bg-gradient-to-r from-primary to-primary-container text-on-primary text-sm font-bold rounded-full shadow-lg hover:shadow-xl transition-all active:scale-95">Empezar ahora &rarr;</a>
     </div>
-    <button id="banner-close" class="banner-close" aria-label="Cerrar banner">&times;</button>
-</div>
+</header>
 
-    <!-- ==================== NAV ==================== -->
-    <nav>
-        <div class="nav-inner">
-            <a href="/" class="nav-logo display">Agentes<span>VA</span></a>
-            <div class="nav-pill-container" id="nav-pill">
-                <div class="nav-pill-cursor" id="nav-pill-cursor"></div>
-                <a href="/catalogo/" class="nav-pill-tab">Agentes IA</a>
-                <a href="/servicios/" class="nav-pill-tab">Servicios</a>
-                <a href="/precios/" class="nav-pill-tab">Setup &amp; Precios</a>
-                <a href="/faq/" class="nav-pill-tab">FAQ</a>
-            </div>
-            <a href="/catalogo/" class="nav-cta">Empezar ahora &rarr;</a>
-        </div>
-    </nav>
+<main id="main-content">
 
     <!-- ==================== HERO ==================== -->
-    <div class="faq-hero">
-        <div class="faq-hero-inner">
-            <div class="faq-hero-kicker">FAQ &middot; Soporte &middot; Conocimiento</div>
-            <h1 class="faq-hero-headline display">Todo lo que necesitas saber antes de elegir tu primer agente.</h1>
-            <p class="faq-hero-sub">15 preguntas frecuentes organizadas en 4 bloques. Desde qu&eacute; es un agente hasta c&oacute;mo empezar hoy.</p>
+    <section class="px-6 pt-16 pb-12 text-center">
+        <div class="max-w-3xl mx-auto">
+            <span class="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+                <span class="material-symbols-outlined text-sm">help</span> FAQ &middot; Soporte &middot; Conocimiento
+            </span>
+            <h1 class="font-headline text-4xl md:text-6xl font-black text-on-surface leading-[0.95] tracking-tight mb-6">
+                Todo lo que necesitas saber antes de elegir tu primer <span class="text-primary">agente.</span>
+            </h1>
+            <p class="text-on-surface-variant text-lg leading-relaxed max-w-xl mx-auto mb-8">
+                18 preguntas frecuentes organizadas en 4 bloques. Desde qu&eacute; es un agente hasta c&oacute;mo empezar hoy.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#faq" class="px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold rounded-full shadow-lg hover:shadow-xl transition-all active:scale-95">Ver preguntas &darr;</a>
+                <a href="#glosario" class="px-8 py-4 border border-outline-variant/30 text-on-surface-variant font-semibold rounded-full hover:bg-surface-container transition-all">Ver glosario</a>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <!-- ==================== FAQ BLOQUES ==================== -->
-    <section class="content-section alt" aria-label="Preguntas frecuentes">
-        <div class="content-wrap">
+    <!-- ==================== FAQ ACCORDION ==================== -->
+    <section class="px-6 py-16" id="faq" aria-label="Preguntas frecuentes">
+        <div class="max-w-3xl mx-auto">
 
             <!-- BLOQUE 1: Sobre los agentes -->
-            <div class="faq-category">
-                <div class="faq-category-title">Bloque 1: Sobre los agentes</div>
-                <dl class="faq-list">
-                    <div class="faq-item">
-                        <dt class="faq-q" tabindex="0">&iquest;Qu&eacute; es exactamente un agente de IA?</dt>
-                        <dd class="faq-a">Un agente de IA es un sistema de automatizaci&oacute;n que ejecuta procesos completos de negocio de forma aut&oacute;noma, sin intervenci&oacute;n humana. No es un chatbot que responde preguntas predefinidas. Es un sistema que conecta tus herramientas actuales (Gmail, WhatsApp, Google Sheets, tu CRM), lee informaci&oacute;n, toma decisiones y act&uacute;a: env&iacute;a emails, crea registros, genera documentos, agenda citas. Los agentes de AgentesVA corren en Make.com, la plataforma de automatizaci&oacute;n m&aacute;s flexible del mercado.</dd>
+            <p class="text-xs font-bold uppercase tracking-widest text-primary mb-4">Bloque 1 &mdash; Sobre los agentes</p>
+            <div class="divide-y divide-outline-variant/20 mb-12">
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-headline font-bold text-on-surface text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Qu&eacute; es exactamente un agente de IA?</span>
+                        <span class="material-symbols-outlined text-primary flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-on-surface-variant text-sm leading-relaxed">
+                        Un agente de IA es un sistema de automatizaci&oacute;n que ejecuta procesos completos de negocio de forma aut&oacute;noma, sin intervenci&oacute;n humana. No es un chatbot que responde preguntas predefinidas. Es un sistema que conecta tus herramientas actuales (Gmail, WhatsApp, Google Sheets, tu CRM), lee informaci&oacute;n, toma decisiones y act&uacute;a: env&iacute;a emails, crea registros, genera documentos, agenda citas. Los agentes de AgentesVA corren en Make.com, la plataforma de automatizaci&oacute;n m&aacute;s flexible del mercado.
                     </div>
-                    <div class="faq-item">
-                        <dt class="faq-q" tabindex="0">&iquest;Necesito saber programar?</dt>
-                        <dd class="faq-a">No. Absolutamente no. Los agentes de AgentesVA son flujos visuales en Make.com. No hay c&oacute;digo que escribir, no hay servidores que configurar, no hay APIs que integrar manualmente. Si sabes usar Gmail y Google Sheets, puedes activar un agente. Con el Setup Asistido o Full Service, ni siquiera necesitas entender el funcionamiento t&eacute;cnico . Nosotros lo configuramos todo.</dd>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-headline font-bold text-on-surface text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Necesito saber programar?</span>
+                        <span class="material-symbols-outlined text-primary flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-on-surface-variant text-sm leading-relaxed">
+                        No. Absolutamente no. Los agentes de AgentesVA son flujos visuales en Make.com. No hay c&oacute;digo que escribir, no hay servidores que configurar, no hay APIs que integrar manualmente. Si sabes usar Gmail y Google Sheets, puedes activar un agente. Con el Setup Asistido o Full Service, ni siquiera necesitas entender el funcionamiento t&eacute;cnico. Nosotros lo configuramos todo.
                     </div>
-                    <div class="faq-item">
-                        <dt class="faq-q" tabindex="0">&iquest;C&oacute;mo se conecta el agente a mis herramientas?</dt>
-                        <dd class="faq-a">A trav&eacute;s de OAuth (el mismo sistema que usas cuando autorizas una app con "Iniciar sesi&oacute;n con Google"). Conectas tu Gmail, Google Sheets, WhatsApp Business, o cualquier otra herramienta compatible con Make.com con 1-2 clics. El agente solo accede a lo que t&uacute; explicitamente autorices. No compartimos ni almacenamos tus credenciales.</dd>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-headline font-bold text-on-surface text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;C&oacute;mo se conecta el agente a mis herramientas?</span>
+                        <span class="material-symbols-outlined text-primary flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-on-surface-variant text-sm leading-relaxed">
+                        A trav&eacute;s de OAuth (el mismo sistema que usas cuando autorizas una app con &ldquo;Iniciar sesi&oacute;n con Google&rdquo;). Conectas tu Gmail, Google Sheets, WhatsApp Business, o cualquier otra herramienta compatible con Make.com con 1&ndash;2 clics. El agente solo accede a lo que t&uacute; expl&iacute;citamente autorices. No compartimos ni almacenamos tus credenciales.
                     </div>
-                    <div class="faq-item">
-                        <dt class="faq-q" tabindex="0">&iquest;El agente funciona solo?</dt>
-                        <dd class="faq-a">S&iacute;. Una vez configurado, el agente funciona 24/7 sin supervisi&oacute;n. Se activa autom&aacute;ticamente cuando ocurre el evento que lo dispara (llega un email, se agrega una fila a tu hoja, recibes un mensaje de WhatsApp) y ejecuta el proceso completo. T&uacute; solo ves los resultados. Si algo sale mal (error de conexi&oacute;n, herramienta ca&iacute;da), Make.com te notifica por email.</dd>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-headline font-bold text-on-surface text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;El agente funciona solo?</span>
+                        <span class="material-symbols-outlined text-primary flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-on-surface-variant text-sm leading-relaxed">
+                        S&iacute;. Una vez configurado, el agente funciona 24/7 sin supervisi&oacute;n. Se activa autom&aacute;ticamente cuando ocurre el evento que lo dispara (llega un email, se agrega una fila a tu hoja, recibes un mensaje de WhatsApp) y ejecuta el proceso completo. T&uacute; solo ves los resultados. Si algo sale mal, Make.com te notifica por email.
                     </div>
-                    <div class="faq-item">
-                        <dt class="faq-q" tabindex="0">&iquest;Los agentes funcionan con WhatsApp?</dt>
-                        <dd class="faq-a">S&iacute;. Varios agentes de AgentesVA est&aacute;n dise&ntilde;ados para funcionar con WhatsApp Business API a trav&eacute;s de Make.com. Esto incluye enviar recordatorios de citas, responder mensajes de clientes, calificar leads que escriben por WhatsApp, y confirmar reservas. Requiere una cuenta de WhatsApp Business API (360Dialog, Twilio, o similar).</dd>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-headline font-bold text-on-surface text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Los agentes funcionan con WhatsApp?</span>
+                        <span class="material-symbols-outlined text-primary flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-on-surface-variant text-sm leading-relaxed">
+                        S&iacute;. Varios agentes de AgentesVA est&aacute;n dise&ntilde;ados para funcionar con WhatsApp Business API a trav&eacute;s de Make.com. Esto incluye enviar recordatorios de citas, responder mensajes de clientes, calificar leads que escriben por WhatsApp, y confirmar reservas. Requiere una cuenta de WhatsApp Business API (360Dialog, Twilio, o similar).
                     </div>
-                </dl>
+                </div>
+
             </div>
 
             <!-- BLOQUE 2: Sobre el costo y el valor -->
-            <div class="faq-category">
-                <div class="faq-category-title">Bloque 2: Sobre el costo y el valor</div>
-                <dl class="faq-list">
-                    <div class="faq-item">
-                        <dt class="faq-q" tabindex="0">&iquest;De verdad es un solo pago?</dt>
-                        <dd class="faq-a">S&iacute;. El precio del agente (desde $29) y el setup ($19&ndash;$97) son pagos &uacute;nicos, sin mensualidades ni renovaciones. Lo que s&iacute; tiene costo mensual separado son las herramientas que usas: Make.com (desde $9/mes), OpenAI (pay-per-use, generalmente menos de $5/mes para una PyME t&iacute;pica), y WhatsApp Business API si la usas. Estas son herramientas externas que no son de AgentesVA.</dd>
+            <p class="text-xs font-bold uppercase tracking-widest text-primary mb-4">Bloque 2 &mdash; Sobre el costo y el valor</p>
+            <div class="divide-y divide-outline-variant/20 mb-12">
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-headline font-bold text-on-surface text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;De verdad es un solo pago?</span>
+                        <span class="material-symbols-outlined text-primary flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-on-surface-variant text-sm leading-relaxed">
+                        S&iacute;. El precio del agente (desde $29) y el setup ($19&ndash;$97) son pagos &uacute;nicos, sin mensualidades ni renovaciones. Lo que s&iacute; tiene costo mensual separado son las herramientas que usas: Make.com (desde $9/mes), OpenAI (pay-per-use, generalmente menos de $5/mes para una PyME t&iacute;pica), y WhatsApp Business API si la usas. Estas son herramientas externas que no son de AgentesVA.
                     </div>
-                    <div class="faq-item">
-                        <dt class="faq-q" tabindex="0">&iquest;Por qu&eacute; es tan barato?</dt>
-                        <dd class="faq-a">Porque nuestro modelo es de marketplace, no de agencia. Creamos el agente una vez y lo vendemos muchas veces. Eso nos permite ofrecer precios de producto en lugar de precios de servicio custom. Un desarrollador te cobrar&iacute;a $500&ndash;$2,000 por crear lo que t&uacute; compras por $29&ndash;$97. La diferencia es que nuestros agentes est&aacute;n dise&ntilde;ados para los procesos m&aacute;s comunes y repetidos, no para casos ultra-espec&iacute;ficos.</dd>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-headline font-bold text-on-surface text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Por qu&eacute; es tan barato?</span>
+                        <span class="material-symbols-outlined text-primary flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-on-surface-variant text-sm leading-relaxed">
+                        Porque nuestro modelo es de marketplace, no de agencia. Creamos el agente una vez y lo vendemos muchas veces. Eso nos permite ofrecer precios de producto en lugar de precios de servicio custom. Un desarrollador te cobrar&iacute;a $500&ndash;$2,000 por crear lo que t&uacute; compras por $29&ndash;$97. La diferencia es que nuestros agentes est&aacute;n dise&ntilde;ados para los procesos m&aacute;s comunes y repetidos.
                     </div>
-                    <div class="faq-item">
-                        <dt class="faq-q" tabindex="0">&iquest;Cu&aacute;l es el ROI real?</dt>
-                        <dd class="faq-a">Depende del agente y tu negocio, pero un ejemplo concreto: el Agente de Recordatorio de Citas ($29 + $19 setup = $48 total) recupera en promedio 2-3 citas por semana que de otro modo ser&iacute;an no-shows. Si una cita vale $50, recuperas $100&ndash;$150 por semana. El agente se paga en menos de un d&iacute;a. El ROI del Automatizador de Follow-ups es similar: si cierra 1 venta adicional al mes que antes se enfriar&iacute;a, el ROI es inmediato y permanente.</dd>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-headline font-bold text-on-surface text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Cu&aacute;l es el ROI real?</span>
+                        <span class="material-symbols-outlined text-primary flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-on-surface-variant text-sm leading-relaxed">
+                        Depende del agente y tu negocio. Un ejemplo concreto: el Agente de Recordatorio de Citas ($29 + $19 setup = $48 total) recupera en promedio 2&ndash;3 citas por semana que de otro modo ser&iacute;an no-shows. Si una cita vale $50, recuperas $100&ndash;$150 por semana. El agente se paga en menos de un d&iacute;a. El ROI del Automatizador de Follow-ups es similar: si cierra 1 venta adicional al mes que antes se enfriar&iacute;a, el retorno es inmediato y permanente.
                     </div>
-                    <div class="faq-item">
-                        <dt class="faq-q" tabindex="0">&iquest;Qu&eacute; pasa si quiero un agente que no est&aacute; en el cat&aacute;logo?</dt>
-                        <dd class="faq-a">Tenemos dos opciones: el servicio de Implementaci&oacute;n a Medida (desde $297) donde dise&ntilde;amos e implementamos el flujo espec&iacute;fico que necesitas, o la Auditor&iacute;a IA ($147&ndash;$297) donde primero identificamos tus 5&ndash;10 mejores oportunidades de automatizaci&oacute;n y te entregamos un roadmap antes de invertir en implementaci&oacute;n. Escr&iacute;benos a <a href="mailto:info@agentesva.com" style="color:var(--primary);text-decoration:underline;">info@agentesva.com</a>.</dd>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-headline font-bold text-on-surface text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Qu&eacute; pasa si quiero un agente que no est&aacute; en el cat&aacute;logo?</span>
+                        <span class="material-symbols-outlined text-primary flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-on-surface-variant text-sm leading-relaxed">
+                        Tenemos dos opciones: el servicio de Implementaci&oacute;n a Medida (desde $297) donde dise&ntilde;amos e implementamos el flujo espec&iacute;fico que necesitas, o la Auditor&iacute;a IA ($147&ndash;$297) donde primero identificamos tus 5&ndash;10 mejores oportunidades de automatizaci&oacute;n y te entregamos un roadmap antes de invertir en implementaci&oacute;n. Esc&iacute;benos a <a href="mailto:info@agentesva.com" class="text-primary underline underline-offset-2">info@agentesva.com</a>.
                     </div>
-                </dl>
+                </div>
+
             </div>
 
             <!-- BLOQUE 3: Sobre el soporte y la seguridad -->
-            <div class="faq-category">
-                <div class="faq-category-title">Bloque 3: Sobre el soporte y la seguridad</div>
-                <dl class="faq-list">
-                    <div class="faq-item">
-                        <dt class="faq-q" tabindex="0">&iquest;Qu&eacute; pasa si el agente deja de funcionar?</dt>
-                        <dd class="faq-a">Todos los agentes incluyen soporte por email. Los setups Asistido y Full Service incluyen soporte activo 7 y 30 d&iacute;as respectivamente. La mayor&iacute;a de los problemas son de conexi&oacute;n (token expirado, permisos revocados) y se resuelven en minutos. Make.com tambi&eacute;n tiene historial de ejecuciones que nos permite diagnosticar exactamente qu&eacute; fall&oacute;.</dd>
+            <p class="text-xs font-bold uppercase tracking-widest text-primary mb-4">Bloque 3 &mdash; Sobre el soporte y la seguridad</p>
+            <div class="divide-y divide-outline-variant/20 mb-12">
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-headline font-bold text-on-surface text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Qu&eacute; pasa si el agente deja de funcionar?</span>
+                        <span class="material-symbols-outlined text-primary flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-on-surface-variant text-sm leading-relaxed">
+                        Todos los agentes incluyen soporte por email. Los setups Asistido y Full Service incluyen soporte activo 7 y 30 d&iacute;as respectivamente. La mayor&iacute;a de los problemas son de conexi&oacute;n (token expirado, permisos revocados) y se resuelven en minutos. Make.com tambi&eacute;n tiene historial de ejecuciones que nos permite diagnosticar exactamente qu&eacute; fall&oacute;.
                     </div>
-                    <div class="faq-item">
-                        <dt class="faq-q" tabindex="0">&iquest;Es seguro?</dt>
-                        <dd class="faq-a">S&iacute;. El agente corre en tu propia cuenta de Make.com , no en nuestros servidores. Nosotros nunca vemos tus emails, tus datos de clientes, ni tu informaci&oacute;n de negocio. Lo &uacute;nico que entregamos es el flujo de automatizaci&oacute;n (el "c&oacute;digo visual" del agente). Tus datos siempre est&aacute;n en tu ecosistema: tu Gmail, tu Sheets, tu CRM.</dd>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-headline font-bold text-on-surface text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Es seguro?</span>
+                        <span class="material-symbols-outlined text-primary flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-on-surface-variant text-sm leading-relaxed">
+                        S&iacute;. El agente corre en tu propia cuenta de Make.com, no en nuestros servidores. Nosotros nunca vemos tus emails, tus datos de clientes, ni tu informaci&oacute;n de negocio. Lo &uacute;nico que entregamos es el flujo de automatizaci&oacute;n. Tus datos siempre est&aacute;n en tu ecosistema: tu Gmail, tu Sheets, tu CRM.
                     </div>
-                    <div class="faq-item">
-                        <dt class="faq-q" tabindex="0">&iquest;Qu&eacute; nivel de acceso tiene?</dt>
-                        <dd class="faq-a">Solo el que t&uacute; le otorgues expl&iacute;citamente. Por ejemplo, el Clasificador de Correos necesita acceso de lectura a Gmail. El Agente de Cobros necesita acceso para enviar emails desde tu cuenta. Puedes revisar y revocar estos permisos en cualquier momento desde la configuraci&oacute;n de tu cuenta de Google o de la herramienta correspondiente.</dd>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-headline font-bold text-on-surface text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Qu&eacute; nivel de acceso tiene?</span>
+                        <span class="material-symbols-outlined text-primary flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-on-surface-variant text-sm leading-relaxed">
+                        Solo el que t&uacute; le otorgues expl&iacute;citamente. Por ejemplo, el Clasificador de Correos necesita acceso de lectura a Gmail. El Agente de Cobros necesita acceso para enviar emails desde tu cuenta. Puedes revisar y revocar estos permisos en cualquier momento desde la configuraci&oacute;n de tu cuenta de Google o de la herramienta correspondiente.
                     </div>
-                    <div class="faq-item">
-                        <dt class="faq-q" tabindex="0">&iquest;Puedo desconectar el agente?</dt>
-                        <dd class="faq-a">S&iacute;, en cualquier momento. En Make.com puedes desactivar un escenario con un clic (toggle on/off). Tambi&eacute;n puedes eliminar el escenario completamente si decides no usarlo m&aacute;s. Revocar los permisos de OAuth en tu cuenta de Google desconecta el agente de esa herramienta de inmediato.</dd>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-headline font-bold text-on-surface text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Puedo desconectar el agente?</span>
+                        <span class="material-symbols-outlined text-primary flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-on-surface-variant text-sm leading-relaxed">
+                        S&iacute;, en cualquier momento. En Make.com puedes desactivar un escenario con un clic (toggle on/off). Tambi&eacute;n puedes eliminar el escenario completamente si decides no usarlo m&aacute;s. Revocar los permisos de OAuth en tu cuenta de Google desconecta el agente de esa herramienta de inmediato.
                     </div>
-                    <div class="faq-item">
-                        <dt class="faq-q" tabindex="0">&iquest;Puedo usar los agentes con datos sensibles?</dt>
-                        <dd class="faq-a">Depende del tipo de datos. Para datos de negocio est&aacute;ndar (emails de clientes, citas, leads, facturas) s&iacute;, sin problema. Para datos m&eacute;dicos (HIPAA), legales, o financieros regulados, recomendamos revisar los t&eacute;rminos de Make.com y OpenAI para tu jurisdicci&oacute;n. Si tienes dudas espec&iacute;ficas sobre tu caso, esc&iacute;benos y te orientamos.</dd>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-headline font-bold text-on-surface text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Puedo usar los agentes con datos sensibles?</span>
+                        <span class="material-symbols-outlined text-primary flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-on-surface-variant text-sm leading-relaxed">
+                        Depende del tipo de datos. Para datos de negocio est&aacute;ndar (emails de clientes, citas, leads, facturas) s&iacute;, sin problema. Para datos m&eacute;dicos (HIPAA), legales, o financieros regulados, recomendamos revisar los t&eacute;rminos de Make.com y OpenAI para tu jurisdicci&oacute;n. Si tienes dudas espec&iacute;ficas, esc&iacute;benos y te orientamos.
                     </div>
-                </dl>
+                </div>
+
             </div>
 
             <!-- BLOQUE 4: Cómo empezar -->
-            <div class="faq-category">
-                <div class="faq-category-title">Bloque 4: C&oacute;mo empezar</div>
-                <dl class="faq-list">
-                    <div class="faq-item">
-                        <dt class="faq-q" tabindex="0">&iquest;C&oacute;mo s&eacute; cu&aacute;l agente elegir?</dt>
-                        <dd class="faq-a">Empieza pregunt&aacute;ndote: &iquest;cu&aacute;l proceso repetitivo me quita m&aacute;s tiempo o me hace perder m&aacute;s dinero? Si tienes citas, empieza con el Recordatorio de Citas. Si vendes con seguimiento, con el Automatizador de Follow-ups. Si procesas facturas a mano, con el Extractor de Facturas (gratis). Si a&uacute;n no sabes, nuestra Auditor&iacute;a IA ($147) identifica tus 5 mejores oportunidades con ROI estimado.</dd>
+            <p class="text-xs font-bold uppercase tracking-widest text-primary mb-4">Bloque 4 &mdash; C&oacute;mo empezar</p>
+            <div class="divide-y divide-outline-variant/20 mb-12">
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-headline font-bold text-on-surface text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;C&oacute;mo s&eacute; cu&aacute;l agente elegir?</span>
+                        <span class="material-symbols-outlined text-primary flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-on-surface-variant text-sm leading-relaxed">
+                        Empieza pregunt&aacute;ndote: &iquest;cu&aacute;l proceso repetitivo me quita m&aacute;s tiempo o me hace perder m&aacute;s dinero? Si tienes citas, empieza con el Recordatorio de Citas. Si vendes con seguimiento, con el Automatizador de Follow-ups. Si procesas facturas a mano, con el Extractor de Facturas (gratis). Si a&uacute;n no sabes, nuestra Auditor&iacute;a IA ($147) identifica tus 5 mejores oportunidades con ROI estimado.
                     </div>
-                    <div class="faq-item">
-                        <dt class="faq-q" tabindex="0">&iquest;Cu&aacute;nto tiempo tarda en estar funcionando?</dt>
-                        <dd class="faq-a">Con Hazlo tú mismo: 15&ndash;30 minutos desde la compra hasta el agente activo. Con Setup Asistido: agendas una sesi&oacute;n (disponibilidad en 24&ndash;48h), y en 30 minutos de llamada sales con todo funcionando. Con Full Service: nosotros lo configuramos en 24 horas y te entregamos el agente listo. En todos los casos, el mismo d&iacute;a o al d&iacute;a siguiente.</dd>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-headline font-bold text-on-surface text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Cu&aacute;nto tiempo tarda en estar funcionando?</span>
+                        <span class="material-symbols-outlined text-primary flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-on-surface-variant text-sm leading-relaxed">
+                        Con Hazlo t&uacute; mismo: 15&ndash;30 minutos desde la compra hasta el agente activo. Con Setup Asistido: agendas una sesi&oacute;n (disponibilidad en 24&ndash;48h), y en 30 minutos de llamada sales con todo funcionando. Con Full Service: nosotros lo configuramos en 24 horas y te entregamos el agente listo.
                     </div>
-                    <div class="faq-item">
-                        <dt class="faq-q" tabindex="0">&iquest;Puedo comprar el agente y el setup al mismo tiempo?</dt>
-                        <dd class="faq-a">S&iacute;. En el cat&aacute;logo, cada agente muestra las 3 opciones de setup directamente. Compras el agente + el nivel de setup que prefieras en una sola transacci&oacute;n. Recibes el email de confirmaci&oacute;n con los pr&oacute;ximos pasos en menos de 5 minutos. Si elegiste Setup Asistido, incluye el link para agendar tu sesi&oacute;n.</dd>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-headline font-bold text-on-surface text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Puedo comprar el agente y el setup al mismo tiempo?</span>
+                        <span class="material-symbols-outlined text-primary flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-on-surface-variant text-sm leading-relaxed">
+                        S&iacute;. En el cat&aacute;logo, cada agente muestra las 3 opciones de setup directamente. Compras el agente + el nivel de setup que prefieras en una sola transacci&oacute;n. Recibes el email de confirmaci&oacute;n con los pr&oacute;ximos pasos en menos de 5 minutos. Si elegiste Setup Asistido, incluye el link para agendar tu sesi&oacute;n.
                     </div>
-                </dl>
+                </div>
+
             </div>
 
         </div>
     </section>
 
     <!-- ==================== GLOSARIO ==================== -->
-    <section class="content-section dark" id="glosario" aria-label="Glosario de términos de automatización IA">
-        <div class="content-wrap">
-            <div class="section-kicker light">Glosario</div>
-            <h2 class="section-title light display">Diccionario de la<br>Automatización IA.</h2>
-            <p style="font-size:16px;color:rgba(225,227,228,.55);line-height:1.65;margin-bottom:4px;">Definiciones claras para que hables el idioma de la automatización con seguridad.</p>
+    <section class="px-6 py-16 bg-surface-container-low" id="glosario" aria-label="Glosario de t&eacute;rminos de automatizaci&oacute;n IA">
+        <div class="max-w-5xl mx-auto">
+            <span class="inline-flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest mb-4">
+                <span class="material-symbols-outlined text-sm">menu_book</span> Glosario
+            </span>
+            <h2 class="font-headline text-3xl md:text-4xl font-bold text-on-surface mb-3 leading-tight">Diccionario de la<br><span class="text-primary">Automatizaci&oacute;n IA.</span></h2>
+            <p class="text-on-surface-variant text-base max-w-xl mb-10">Definiciones claras para que hables el idioma de la automatizaci&oacute;n con seguridad.</p>
 
-            <dl class="glossary-grid">
+            <dl class="grid sm:grid-cols-2 gap-4">
 
-                <div class="glossary-card">
-                    <dt class="glossary-term">Agente Virtual IA</dt>
-                    <span class="glossary-tag">Concepto core</span>
-                    <dd class="glossary-def">Programa de inteligencia artificial que ejecuta tareas de negocio de forma autónoma: responder correos, calificar leads, generar documentos, tomando decisiones basadas en el contexto sin intervención humana constante. Los agentes de AgentesVA son agentes virtuales listos para usar en Make.com.</dd>
+                <div class="bg-surface rounded-2xl border border-outline-variant/15 p-6">
+                    <dt class="font-headline font-bold text-on-surface text-base mb-1">Agente Virtual IA</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full mb-2">Concepto core</span>
+                    <dd class="text-on-surface-variant text-sm leading-relaxed">Programa de inteligencia artificial que ejecuta tareas de negocio de forma aut&oacute;noma: responder correos, calificar leads, generar documentos, tomando decisiones basadas en el contexto sin intervenci&oacute;n humana constante.</dd>
                 </div>
 
-                <div class="glossary-card">
-                    <dt class="glossary-term">Flujo automatizado de automatización</dt>
-                    <span class="glossary-tag">Make.com</span>
-                    <dd class="glossary-def">Archivo JSON exportable que contiene el flujo completo de un escenario de Make.com. Importarlo reproduce el escenario íntegro en cualquier cuenta, con todos sus módulos y conexiones. Es la unidad de producto de AgentesVA.</dd>
+                <div class="bg-surface rounded-2xl border border-outline-variant/15 p-6">
+                    <dt class="font-headline font-bold text-on-surface text-base mb-1">Flujo automatizado (Blueprint)</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full mb-2">Make.com</span>
+                    <dd class="text-on-surface-variant text-sm leading-relaxed">Archivo JSON exportable que contiene el flujo completo de un escenario de Make.com. Importarlo reproduce el escenario &iacute;ntegro en cualquier cuenta, con todos sus m&oacute;dulos y conexiones. Es la unidad de producto de AgentesVA.</dd>
                 </div>
 
-                <div class="glossary-card">
-                    <dt class="glossary-term">Make.com</dt>
-                    <span class="glossary-tag">Plataforma</span>
-                    <dd class="glossary-def">Plataforma visual no-code de automatización que conecta más de 1,000 aplicaciones. Permite crear flujos de trabajo complejos mediante módulos arrastrables. Es la plataforma base donde corren todos los agentes de AgentesVA.</dd>
+                <div class="bg-surface rounded-2xl border border-outline-variant/15 p-6">
+                    <dt class="font-headline font-bold text-on-surface text-base mb-1">Make.com</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full mb-2">Plataforma</span>
+                    <dd class="text-on-surface-variant text-sm leading-relaxed">Plataforma visual no-code de automatizaci&oacute;n que conecta m&aacute;s de 1,000 aplicaciones. Permite crear flujos de trabajo complejos mediante m&oacute;dulos arrastrables. Es la plataforma base donde corren todos los agentes de AgentesVA.</dd>
                 </div>
 
-                <div class="glossary-card">
-                    <dt class="glossary-term">GPT-4o</dt>
-                    <span class="glossary-tag">IA generativa</span>
-                    <dd class="glossary-def">Modelo multimodal de inteligencia artificial de OpenAI, capaz de procesar texto, imágenes y audio. Es el motor de razonamiento que permite a los agentes de AgentesVA clasificar correos, generar contenido y tomar decisiones contextuales.</dd>
+                <div class="bg-surface rounded-2xl border border-outline-variant/15 p-6">
+                    <dt class="font-headline font-bold text-on-surface text-base mb-1">GPT-4o</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full mb-2">IA generativa</span>
+                    <dd class="text-on-surface-variant text-sm leading-relaxed">Modelo multimodal de inteligencia artificial de OpenAI, capaz de procesar texto, im&aacute;genes y audio. Es el motor de razonamiento que permite a los agentes clasificar correos, generar contenido y tomar decisiones contextuales.</dd>
                 </div>
 
-                <div class="glossary-card">
-                    <dt class="glossary-term">Automatización de Procesos (RPA)</dt>
-                    <span class="glossary-tag">Tecnología</span>
-                    <dd class="glossary-def">Robotic Process Automation: tecnología que automatiza tareas repetitivas basadas en reglas, imitando acciones humanas en software. En PyMEs se aplica para tareas como clasificar correos, enviar recordatorios o actualizar hojas de cálculo.</dd>
+                <div class="bg-surface rounded-2xl border border-outline-variant/15 p-6">
+                    <dt class="font-headline font-bold text-on-surface text-base mb-1">Automatizaci&oacute;n de Procesos (RPA)</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full mb-2">Tecnolog&iacute;a</span>
+                    <dd class="text-on-surface-variant text-sm leading-relaxed">Robotic Process Automation: tecnolog&iacute;a que automatiza tareas repetitivas basadas en reglas, imitando acciones humanas en software. En PyMEs se aplica para clasificar correos, enviar recordatorios o actualizar hojas de c&aacute;lculo.</dd>
                 </div>
 
-                <div class="glossary-card">
-                    <dt class="glossary-term">PyME</dt>
-                    <span class="glossary-tag">Contexto</span>
-                    <dd class="glossary-def">Pequeña y Mediana Empresa. En LATAM, generalmente empresas de 1 a 250 empleados. Son el cliente principal de AgentesVA: negocios con operaciones repetitivas que se benefician enormemente de la automatización sin necesitar equipos técnicos grandes.</dd>
+                <div class="bg-surface rounded-2xl border border-outline-variant/15 p-6">
+                    <dt class="font-headline font-bold text-on-surface text-base mb-1">PyME</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full mb-2">Contexto</span>
+                    <dd class="text-on-surface-variant text-sm leading-relaxed">Peque&ntilde;a y Mediana Empresa. En LATAM, generalmente empresas de 1 a 250 empleados. Son el cliente principal de AgentesVA: negocios con operaciones repetitivas que se benefician enormemente de la automatizaci&oacute;n sin necesitar equipos t&eacute;cnicos grandes.</dd>
                 </div>
 
-                <div class="glossary-card">
-                    <dt class="glossary-term">Flujo de trabajo (Workflow)</dt>
-                    <span class="glossary-tag">Operaciones</span>
-                    <dd class="glossary-def">Secuencia de pasos automatizados que se ejecutan en respuesta a un evento. En Make.com, un flujo (escenario) puede incluir decenas de módulos conectados que procesan datos, toman decisiones y actúan sobre múltiples aplicaciones simultáneamente.</dd>
+                <div class="bg-surface rounded-2xl border border-outline-variant/15 p-6">
+                    <dt class="font-headline font-bold text-on-surface text-base mb-1">Flujo de trabajo (Workflow)</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full mb-2">Operaciones</span>
+                    <dd class="text-on-surface-variant text-sm leading-relaxed">Secuencia de pasos automatizados que se ejecutan en respuesta a un evento. En Make.com, un flujo puede incluir decenas de m&oacute;dulos conectados que procesan datos, toman decisiones y act&uacute;an sobre m&uacute;ltiples aplicaciones simult&aacute;neamente.</dd>
                 </div>
 
-                <div class="glossary-card">
-                    <dt class="glossary-term">Trigger (Disparador)</dt>
-                    <span class="glossary-tag">Make.com</span>
-                    <dd class="glossary-def">Evento que inicia la ejecución de un escenario de automatización. Puede ser la llegada de un nuevo correo a Gmail, un nuevo registro en Google Sheets, un activador automático entrante o un horario programado. Todo agente de AgentesVA tiene al menos un trigger configurado.</dd>
+                <div class="bg-surface rounded-2xl border border-outline-variant/15 p-6">
+                    <dt class="font-headline font-bold text-on-surface text-base mb-1">Trigger (Disparador)</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full mb-2">Make.com</span>
+                    <dd class="text-on-surface-variant text-sm leading-relaxed">Evento que inicia la ejecuci&oacute;n de un escenario de automatizaci&oacute;n. Puede ser la llegada de un nuevo correo a Gmail, un nuevo registro en Google Sheets, o un horario programado. Todo agente de AgentesVA tiene al menos un trigger configurado.</dd>
                 </div>
 
-                <div class="glossary-card">
-                    <dt class="glossary-term">API (Interfaz de Programación)</dt>
-                    <span class="glossary-tag">Técnico</span>
-                    <dd class="glossary-def">Conjunto de protocolos que permite que dos aplicaciones se comuniquen entre sí. Make.com actúa como intermediario de APIs, lo que permite a los agentes de AgentesVA hablar con Gmail, OpenAI, Google Sheets y WhatsApp sin que el usuario tenga que manejar código.</dd>
+                <div class="bg-surface rounded-2xl border border-outline-variant/15 p-6">
+                    <dt class="font-headline font-bold text-on-surface text-base mb-1">API (Interfaz de Programaci&oacute;n)</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full mb-2">T&eacute;cnico</span>
+                    <dd class="text-on-surface-variant text-sm leading-relaxed">Conjunto de protocolos que permite que dos aplicaciones se comuniquen entre s&iacute;. Make.com act&uacute;a como intermediario de APIs, lo que permite a los agentes hablar con Gmail, OpenAI, Google Sheets y WhatsApp sin que el usuario maneje c&oacute;digo.</dd>
                 </div>
 
-                <div class="glossary-card">
-                    <dt class="glossary-term">Activador automático</dt>
-                    <span class="glossary-tag">Técnico</span>
-                    <dd class="glossary-def">URL especial que recibe notificaciones HTTP en tiempo real cuando ocurre un evento en otra aplicación. En Make.com los activadores automáticos permiten que aplicaciones externas (como WhatsApp o formularios web) disparen automáticamente un escenario de AgentesVA.</dd>
+                <div class="bg-surface rounded-2xl border border-outline-variant/15 p-6">
+                    <dt class="font-headline font-bold text-on-surface text-base mb-1">Activador autom&aacute;tico (Webhook)</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full mb-2">T&eacute;cnico</span>
+                    <dd class="text-on-surface-variant text-sm leading-relaxed">URL especial que recibe notificaciones HTTP en tiempo real cuando ocurre un evento en otra aplicaci&oacute;n. Permite que aplicaciones externas (como WhatsApp o formularios web) disparen autom&aacute;ticamente un escenario de AgentesVA.</dd>
                 </div>
 
-                <div class="glossary-card">
-                    <dt class="glossary-term">Módulo de Make.com</dt>
-                    <span class="glossary-tag">Make.com</span>
-                    <dd class="glossary-def">Bloque visual en Make.com que representa una acción específica: enviar un correo, leer una hoja de cálculo, llamar a GPT-4o. Los flujos automatizados de AgentesVA son colecciones de módulos preconfigurados listos para activar.</dd>
+                <div class="bg-surface rounded-2xl border border-outline-variant/15 p-6">
+                    <dt class="font-headline font-bold text-on-surface text-base mb-1">M&oacute;dulo de Make.com</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full mb-2">Make.com</span>
+                    <dd class="text-on-surface-variant text-sm leading-relaxed">Bloque visual en Make.com que representa una acci&oacute;n espec&iacute;fica: enviar un correo, leer una hoja de c&aacute;lculo, llamar a GPT-4o. Los flujos automatizados de AgentesVA son colecciones de m&oacute;dulos preconfigurados listos para activar.</dd>
                 </div>
 
-                <div class="glossary-card">
-                    <dt class="glossary-term">Escenario (Make.com Scenario)</dt>
-                    <span class="glossary-tag">Make.com</span>
-                    <dd class="glossary-def">El equivalente de Make.com a un flujo de automatización. Un escenario conecta un trigger con una serie de módulos que procesan y actúan sobre datos. Cada agente de AgentesVA se importa como un escenario en tu cuenta de Make.com.</dd>
+                <div class="bg-surface rounded-2xl border border-outline-variant/15 p-6">
+                    <dt class="font-headline font-bold text-on-surface text-base mb-1">Escenario (Make.com Scenario)</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full mb-2">Make.com</span>
+                    <dd class="text-on-surface-variant text-sm leading-relaxed">El equivalente de Make.com a un flujo de automatizaci&oacute;n. Un escenario conecta un trigger con una serie de m&oacute;dulos que procesan y act&uacute;an sobre datos. Cada agente de AgentesVA se importa como un escenario en tu cuenta de Make.com.</dd>
                 </div>
 
-                <div class="glossary-card">
-                    <dt class="glossary-term">Prompt de IA</dt>
-                    <span class="glossary-tag">IA generativa</span>
-                    <dd class="glossary-def">Instrucción de texto que se envía a un modelo de lenguaje (como GPT-4o) para guiar su respuesta. En los agentes de AgentesVA, los prompts están preconfigurados para tareas específicas de negocio, pero son editables para adaptarse a tu tono y contexto.</dd>
+                <div class="bg-surface rounded-2xl border border-outline-variant/15 p-6">
+                    <dt class="font-headline font-bold text-on-surface text-base mb-1">Prompt de IA</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full mb-2">IA generativa</span>
+                    <dd class="text-on-surface-variant text-sm leading-relaxed">Instrucci&oacute;n de texto que se env&iacute;a a un modelo de lenguaje (como GPT-4o) para guiar su respuesta. En los agentes de AgentesVA, los prompts est&aacute;n preconfigurados para tareas espec&iacute;ficas de negocio, pero son editables para adaptarse a tu tono y contexto.</dd>
                 </div>
 
-                <div class="glossary-card">
-                    <dt class="glossary-term">Token de IA</dt>
-                    <span class="glossary-tag">IA generativa</span>
-                    <dd class="glossary-def">Unidad de procesamiento de texto en modelos de lenguaje. Aproximadamente 4 caracteres = 1 token. Los costos de OpenAI se calculan por tokens. Los agentes de AgentesVA están optimizados para usar el mínimo de tokens necesarios manteniendo la calidad de respuesta.</dd>
+                <div class="bg-surface rounded-2xl border border-outline-variant/15 p-6">
+                    <dt class="font-headline font-bold text-on-surface text-base mb-1">Token de IA</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full mb-2">IA generativa</span>
+                    <dd class="text-on-surface-variant text-sm leading-relaxed">Unidad de procesamiento de texto en modelos de lenguaje. Aproximadamente 4 caracteres = 1 token. Los costos de OpenAI se calculan por tokens. Los agentes de AgentesVA est&aacute;n optimizados para usar el m&iacute;nimo de tokens necesarios manteniendo la calidad.</dd>
                 </div>
 
-                <div class="glossary-card">
-                    <dt class="glossary-term">Integración nativa</dt>
-                    <span class="glossary-tag">Make.com</span>
-                    <dd class="glossary-def">Conexión oficial entre Make.com y una aplicación, con módulos específicos y autenticación OAuth segura. Make.com tiene más de 1,000 integraciones nativas. Los agentes de AgentesVA usan integraciones nativas con Gmail, Google Sheets, OpenAI y WhatsApp.</dd>
+                <div class="bg-surface rounded-2xl border border-outline-variant/15 p-6">
+                    <dt class="font-headline font-bold text-on-surface text-base mb-1">Integraci&oacute;n nativa</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full mb-2">Make.com</span>
+                    <dd class="text-on-surface-variant text-sm leading-relaxed">Conexi&oacute;n oficial entre Make.com y una aplicaci&oacute;n, con m&oacute;dulos espec&iacute;ficos y autenticaci&oacute;n OAuth segura. Make.com tiene m&aacute;s de 1,000 integraciones nativas. Los agentes de AgentesVA usan integraciones nativas con Gmail, Google Sheets, OpenAI y WhatsApp.</dd>
                 </div>
 
-                <div class="glossary-card">
-                    <dt class="glossary-term">No-code / Low-code</dt>
-                    <span class="glossary-tag">Tecnología</span>
-                    <dd class="glossary-def">Enfoque de desarrollo de software que permite crear aplicaciones y automatizaciones con interfaces visuales, sin (no-code) o con mínimo (low-code) código. AgentesVA y Make.com son plataformas 100% no-code: cualquier dueño de negocio puede usarlas.</dd>
+                <div class="bg-surface rounded-2xl border border-outline-variant/15 p-6">
+                    <dt class="font-headline font-bold text-on-surface text-base mb-1">No-code / Low-code</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full mb-2">Tecnolog&iacute;a</span>
+                    <dd class="text-on-surface-variant text-sm leading-relaxed">Enfoque de desarrollo que permite crear aplicaciones y automatizaciones con interfaces visuales, sin (no-code) o con m&iacute;nimo (low-code) c&oacute;digo. AgentesVA y Make.com son plataformas 100% no-code: cualquier due&ntilde;o de negocio puede usarlas.</dd>
                 </div>
 
-                <div class="glossary-card">
-                    <dt class="glossary-term">CRM (Customer Relationship Management)</dt>
-                    <span class="glossary-tag">Negocio</span>
-                    <dd class="glossary-def">Sistema para gestionar relaciones con clientes. Para muchas PyMEs de LATAM, Google Sheets funciona como CRM básico. Los agentes de AgentesVA pueden actualizar automáticamente tu CRM en Sheets cada vez que llega un nuevo lead o se completa una venta.</dd>
+                <div class="bg-surface rounded-2xl border border-outline-variant/15 p-6">
+                    <dt class="font-headline font-bold text-on-surface text-base mb-1">CRM (Customer Relationship Management)</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full mb-2">Negocio</span>
+                    <dd class="text-on-surface-variant text-sm leading-relaxed">Sistema para gestionar relaciones con clientes. Para muchas PyMEs de LATAM, Google Sheets funciona como CRM b&aacute;sico. Los agentes de AgentesVA pueden actualizar autom&aacute;ticamente tu CRM en Sheets cada vez que llega un nuevo lead o se completa una venta.</dd>
                 </div>
 
-                <div class="glossary-card">
-                    <dt class="glossary-term">LLM (Large Language Model)</dt>
-                    <span class="glossary-tag">IA generativa</span>
-                    <dd class="glossary-def">Modelo de inteligencia artificial entrenado con enormes cantidades de texto para entender y generar lenguaje natural. GPT-4o es un LLM. Los agentes de AgentesVA usan LLMs para clasificar correos, redactar respuestas y generar contenido de marketing.</dd>
+                <div class="bg-surface rounded-2xl border border-outline-variant/15 p-6">
+                    <dt class="font-headline font-bold text-on-surface text-base mb-1">LLM (Large Language Model)</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full mb-2">IA generativa</span>
+                    <dd class="text-on-surface-variant text-sm leading-relaxed">Modelo de inteligencia artificial entrenado con enormes cantidades de texto para entender y generar lenguaje natural. GPT-4o es un LLM. Los agentes de AgentesVA usan LLMs para clasificar correos, redactar respuestas y generar contenido de marketing.</dd>
                 </div>
 
-                <div class="glossary-card">
-                    <dt class="glossary-term">RAG (Retrieval Augmented Generation)</dt>
-                    <span class="glossary-tag">IA avanzada</span>
-                    <dd class="glossary-def">Técnica que combina búsqueda en una base de conocimiento con generación de texto por un LLM. Permite que los agentes de AgentesVA respondan preguntas usando información específica de tu negocio (FAQs, catálogos, políticas) en lugar de respuestas genéricas.</dd>
+                <div class="bg-surface rounded-2xl border border-outline-variant/15 p-6">
+                    <dt class="font-headline font-bold text-on-surface text-base mb-1">RAG (Retrieval Augmented Generation)</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full mb-2">IA avanzada</span>
+                    <dd class="text-on-surface-variant text-sm leading-relaxed">T&eacute;cnica que combina b&uacute;squeda en una base de conocimiento con generaci&oacute;n de texto por un LLM. Permite que los agentes respondan usando informaci&oacute;n espec&iacute;fica de tu negocio (FAQs, cat&aacute;logos, pol&iacute;ticas) en lugar de respuestas gen&eacute;ricas.</dd>
                 </div>
 
-                <div class="glossary-card">
-                    <dt class="glossary-term">Automatización conversacional</dt>
-                    <span class="glossary-tag">Aplicación</span>
-                    <dd class="glossary-def">Uso de IA para mantener conversaciones automatizadas con clientes a través de canales como WhatsApp, email o chat web. Los agentes de AgentesVA implementan automatización conversacional para soporte al cliente, seguimiento de leads y confirmación de citas sin intervención humana.</dd>
+                <div class="bg-surface rounded-2xl border border-outline-variant/15 p-6">
+                    <dt class="font-headline font-bold text-on-surface text-base mb-1">Automatizaci&oacute;n conversacional</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full mb-2">Aplicaci&oacute;n</span>
+                    <dd class="text-on-surface-variant text-sm leading-relaxed">Uso de IA para mantener conversaciones automatizadas con clientes a trav&eacute;s de WhatsApp, email o chat web. Los agentes de AgentesVA implementan automatizaci&oacute;n conversacional para soporte, seguimiento de leads y confirmaci&oacute;n de citas sin intervenci&oacute;n humana.</dd>
                 </div>
 
             </dl>
@@ -820,180 +527,121 @@
     </section>
 
     <!-- ==================== CTA ==================== -->
-    <div class="cta-section">
-        <div class="cta-banner">
-            <h2 class="cta-title display">¿Listo para automatizar<br>tu negocio?</h2>
-            <p class="cta-sub">Empieza gratis. Sin tarjeta, sin contratos, sin código.</p>
-            <a href="../catalogo/" class="btn-cta-white">Ver catálogo de agentes →</a>
-        </div>
-    </div>
-
-        <footer class="new-footer">
-            <div class="footer-accent-line"></div>
-            <div class="new-footer-content">
-                <div class="footer-brand-col footer-anim">
-                    <a href="/" class="footer-brand-link">
-                        <span class="footer-bot-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#0b28ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
-                                <path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/>
-                                <path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/>
-                            </svg>
-                        </span>
-                        <span class="footer-brand-wordmark">Agentes<span>VA</span></span>
-                    </a>
-                    <p class="footer-brand-desc">Flujos de automatizaci&oacute;n listos para importar en Make.com. Sin c&oacute;digo, sin servidores. Para PyMEs de LATAM.</p>
-                    <p class="footer-brand-copy">&copy; <span id="footer-year"></span> AgentesVA. Todos los derechos reservados.</p>
-                </div>
-                <div class="new-footer-links-grid">
-                    <div class="new-footer-col footer-anim">
-                        <h3>Producto</h3>
-                        <ul>
-                            <li><a href="/catalogo/">Agentes B&aacute;sicos IA</a></li>
-                            <li><a href="/catalogo/">Agentes Est&aacute;ndar IA</a></li>
-                            <li><a href="/catalogo/">Agentes Avanzados IA</a></li>
-                            <li><a href="/servicios/">Servicios Premium</a></li>
-                            <li><a href="/precios/">Setup &amp; Precios</a></li>
-                        </ul>
-                    </div>
-                    <div class="new-footer-col footer-anim">
-                        <h3>Empresa</h3>
-                        <ul>
-                            <li><a href="/faq/">FAQ</a></li>
-                            <li><a href="/legal/">Aviso legal</a></li>
-                            <li><a href="/legal/#privacidad">Privacidad</a></li>
-                            <li><a href="/legal/#terminos">T&eacute;rminos de uso</a></li>
-                        </ul>
-                    </div>
-                    <div class="new-footer-col footer-anim">
-                        <h3>Plataformas</h3>
-                        <ul>
-                            <li><a href="https://make.com" target="_blank" rel="noopener noreferrer">Make.com</a></li>
-                            <li><a href="https://n8n.io" target="_blank" rel="noopener noreferrer">N8N</a></li>
-                            <li><a href="https://openai.com" target="_blank" rel="noopener noreferrer">OpenAI GPT-4o</a></li>
-                            <li><a href="https://sheets.google.com" target="_blank" rel="noopener noreferrer">Google Sheets</a></li>
-                        </ul>
-                    </div>
-                    <div class="new-footer-col footer-anim">
-                        <h3>Redes sociales</h3>
-                        <ul>
-                            <li><a href="https://facebook.com/agentesva" target="_blank" rel="noopener">
-                                <svg class="footer-social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                                Facebook
-                            </a></li>
-                            <li><a href="https://instagram.com/agentesva" target="_blank" rel="noopener">
-                                <svg class="footer-social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
-                                Instagram
-                            </a></li>
-                            <li><a href="https://youtube.com/@agentesva" target="_blank" rel="noopener">
-                                <svg class="footer-social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.45A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.97C5.12 20 12 20 12 20s6.88 0 8.59-.45a2.78 2.78 0 0 0 1.95-1.97A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
-                                YouTube
-                            </a></li>
-                            <li><a href="https://linkedin.com/company/agentesva" target="_blank" rel="noopener">
-                                <svg class="footer-social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                                LinkedIn
-                            </a></li>
-                        </ul>
-                    </div>
+    <section class="px-6 py-16">
+        <div class="max-w-5xl mx-auto">
+            <div class="bg-gradient-to-br from-primary to-primary-container rounded-[2rem] p-8 md:p-16 text-on-primary text-center">
+                <h2 class="font-headline text-3xl md:text-4xl font-bold mb-4">&iquest;Listo para automatizar<br>tu negocio?</h2>
+                <p class="text-on-primary/75 mb-8 max-w-md mx-auto">Empieza gratis. Sin tarjeta, sin contratos, sin c&oacute;digo.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="/catalogo/" class="px-8 py-4 bg-surface-container-lowest text-primary font-bold rounded-full shadow-xl hover:shadow-2xl transition-all active:scale-95">Ver cat&aacute;logo de agentes &rarr;</a>
+                    <a href="/servicios/" class="px-8 py-4 border border-white/30 text-on-primary font-semibold rounded-full hover:bg-white/10 transition-all">Ver servicios premium</a>
                 </div>
             </div>
-        </footer>
+        </div>
+    </section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="bg-surface-container-low rounded-t-[2rem] mt-12 pt-12 pb-24 md:pb-8 px-8">
+    <div class="w-full max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="col-span-2 md:col-span-4 mb-4">
+            <span class="font-headline font-black text-on-surface text-2xl">Agentes<span class="text-primary-container">VA</span></span>
+            <p class="text-on-surface-variant text-sm leading-relaxed mt-2 max-w-md">Flujos de automatizaci&oacute;n listos para importar en Make.com. Sin c&oacute;digo, sin servidores. Para PyMEs de LATAM.</p>
+            <p class="text-on-surface-variant text-xs mt-2">&copy; <span id="footer-year"></span> AgentesVA. Todos los derechos reservados.</p>
+        </div>
+        <div class="space-y-2">
+            <p class="font-bold text-primary-container text-xs uppercase tracking-widest">Producto</p>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="/catalogo/">Agentes B&aacute;sicos IA</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="/catalogo/">Agentes Est&aacute;ndar IA</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="/catalogo/">Agentes Avanzados IA</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="/servicios/">Servicios Premium</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="/precios/">Setup &amp; Precios</a>
+        </div>
+        <div class="space-y-2">
+            <p class="font-bold text-primary-container text-xs uppercase tracking-widest">Empresa</p>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="/faq/">FAQ</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="/como-funciona/">C&oacute;mo funciona</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="/como-empezar/">C&oacute;mo empezar</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="/legal/">Aviso Legal</a>
+        </div>
+        <div class="space-y-2">
+            <p class="font-bold text-primary-container text-xs uppercase tracking-widest">Plataformas</p>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="https://make.com" target="_blank" rel="noopener">Make.com</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="https://n8n.io" target="_blank" rel="noopener">N8N</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="https://openai.com" target="_blank" rel="noopener">OpenAI GPT-4o</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="https://sheets.google.com" target="_blank" rel="noopener">Google Sheets</a>
+        </div>
+        <div class="space-y-2">
+            <p class="font-bold text-primary-container text-xs uppercase tracking-widest">Redes</p>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="https://facebook.com/agentesva" target="_blank" rel="noopener">Facebook</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="https://instagram.com/agentesva" target="_blank" rel="noopener">Instagram</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="https://youtube.com/@agentesva" target="_blank" rel="noopener">YouTube</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="https://linkedin.com/company/agentesva" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+    </div>
+</footer>
+
+<!-- ==================== MOBILE BOTTOM NAV ==================== -->
+<nav class="fixed bottom-0 inset-x-0 z-50 md:hidden bg-surface-container-lowest/95 backdrop-blur-xl border-t border-outline-variant/10 px-2 pt-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]" aria-label="M&oacute;vil">
+    <div class="flex items-center justify-around">
+        <a href="/" class="flex flex-col items-center gap-1 text-on-surface-variant">
+            <span class="material-symbols-outlined text-xl">home</span>
+            <span class="text-[10px] font-medium">Inicio</span>
+        </a>
+        <a href="/catalogo/" class="flex flex-col items-center gap-1 text-on-surface-variant">
+            <span class="material-symbols-outlined text-xl">smart_toy</span>
+            <span class="text-[10px] font-medium">Agentes</span>
+        </a>
+        <a href="/servicios/" class="flex flex-col items-center gap-1 text-on-surface-variant">
+            <span class="material-symbols-outlined text-xl">build</span>
+            <span class="text-[10px] font-medium">Servicios</span>
+        </a>
+        <a href="/precios/" class="flex flex-col items-center gap-1 text-on-surface-variant">
+            <span class="material-symbols-outlined text-xl">payments</span>
+            <span class="text-[10px] font-medium">Precios</span>
+        </a>
+        <a href="/faq/" class="flex flex-col items-center gap-1 text-primary-container font-bold">
+            <span class="material-symbols-outlined text-xl">help</span>
+            <span class="text-[10px] font-medium">FAQ</span>
+        </a>
+    </div>
+</nav>
 
 <script>
+// Footer year
+var fyEl = document.getElementById('footer-year');
+if (fyEl) fyEl.textContent = new Date().getFullYear();
+
 // FAQ accordion
-document.querySelectorAll('.faq-q').forEach(function(q) {
-    q.addEventListener('click', function() {
-        const item = this.closest('.faq-item');
-        const isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
-        if (!isOpen) item.classList.add('open');
+document.querySelectorAll('.faq-item').forEach(function(item) {
+    var btn = item.querySelector('.faq-q');
+    var answer = item.querySelector('.faq-a');
+    var icon = btn.querySelector('.material-symbols-outlined');
+    if (!btn || !answer) return;
+    btn.addEventListener('click', function() {
+        var isOpen = !answer.classList.contains('hidden');
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(function(i) {
+            var a = i.querySelector('.faq-a');
+            var b = i.querySelector('.faq-q');
+            var ic = b ? b.querySelector('.material-symbols-outlined') : null;
+            if (a) a.classList.add('hidden');
+            if (b) b.setAttribute('aria-expanded', 'false');
+            if (ic) { ic.textContent = 'add'; ic.style.transform = ''; }
+        });
+        // Open clicked if it was closed
+        if (!isOpen) {
+            answer.classList.remove('hidden');
+            btn.setAttribute('aria-expanded', 'true');
+            icon.textContent = 'remove';
+            icon.style.transform = 'rotate(0deg)';
+        }
     });
-    q.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.click(); }
+    btn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
     });
 });
-</script>
-
-<script>
-// Countdown timers
-(function(){
-    function parseTime(id){
-        const el=document.getElementById(id);
-        if(!el)return null;
-        const parts=el.textContent.split(':').map(Number);
-        return{el:el,secs:parts[0]*3600+parts[1]*60+parts[2]};
-    }
-    const timers=[parseTime('flash-bar-timer')].filter(Boolean);
-    if(!timers.length)return;
-    setInterval(function(){
-        timers.forEach(function(t){
-            if(t.secs>0)t.secs--;
-            const h=Math.floor(t.secs/3600);
-            const m=Math.floor((t.secs%3600)/60);
-            const s=t.secs%60;
-            t.el.textContent=(h<10?'0':'')+h+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
-        });
-    },1000);
-})();
-</script>
-
-<script>
-/* ── FLASH BANNER ─────────────────────────────────────── */
-(function () {
-    const BANNER_KEY = 'nd-banner-flash-offer-2025';
-    const END_KEY    = 'flash-banner-end';
-    const HOURS      = 3;
-    const banner     = document.getElementById('flash-banner');
-    const timerEl    = document.getElementById('flash-timer');
-    const closeBtn   = document.getElementById('banner-close');
-    const body       = document.body;
-    function hideBanner() {
-        if (banner) banner.style.display = 'none';
-        body.classList.remove('banner-visible');
-    }
-    if (localStorage.getItem(BANNER_KEY) === 'true') { hideBanner(); return; }
-    const stored = localStorage.getItem(END_KEY);
-    const end = stored ? parseInt(stored, 10) : Date.now() + HOURS * 3600000;
-    if (!stored) localStorage.setItem(END_KEY, String(end));
-    function tick() {
-        const diff = Math.max(0, end - Date.now());
-        const h = Math.floor(diff / 3600000);
-        const m = Math.floor((diff % 3600000) / 60000);
-        const s = Math.floor((diff % 60000) / 1000);
-        if (timerEl) timerEl.textContent = String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
-    }
-    tick();
-    setInterval(tick, 1000);
-    if (closeBtn) closeBtn.addEventListener('click', function () { localStorage.setItem(BANNER_KEY,'true'); hideBanner(); });
-}());
-/* ── NAV PILL ANIMATION ───────────────────────────────── */
-(function () {
-    const pill = document.getElementById('nav-pill-cursor');
-    const container = document.getElementById('nav-pill');
-    const tabs = container ? container.querySelectorAll('.nav-pill-tab') : [];
-    if (!pill || !container || !tabs.length) return;
-    tabs.forEach(function (tab) {
-        tab.addEventListener('mouseenter', function () {
-            const cRect = container.getBoundingClientRect();
-            const tRect = tab.getBoundingClientRect();
-            pill.style.left = (tRect.left - cRect.left) + 'px';
-            pill.style.width = tRect.width + 'px';
-            pill.style.opacity = '1';
-        });
-    });
-    container.addEventListener('mouseleave', function () { pill.style.opacity = '0'; });
-}());
-/* ── FOOTER YEAR + ANIMATIONS ────────────────────────── */
-(function () {
-    const yearEl = document.getElementById('footer-year');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
-    const animEls = document.querySelectorAll('.footer-anim');
-    if (!animEls.length) return;
-    if (!('IntersectionObserver' in window)) { animEls.forEach(function(el){ el.classList.add('footer-anim-in'); }); return; }
-    const observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) { if (entry.isIntersecting) { entry.target.classList.add('footer-anim-in'); observer.unobserve(entry.target); } });
-    }, { threshold: 0.1 });
-    animEls.forEach(function (el) { observer.observe(el); });
-}());
 </script>
 
 </body>

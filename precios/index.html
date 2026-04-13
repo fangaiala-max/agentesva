@@ -73,24 +73,21 @@
 <body class="bg-surface font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
 
 <!-- Top Nav -->
-<nav class="fixed top-0 w-full z-50 bg-surface-container-low/80 backdrop-blur-md" aria-label="Navegación principal">
-    <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto w-full">
-        <div class="flex items-center gap-3">
-            <a href="/" class="text-xl font-extrabold text-on-surface font-headline tracking-tight">Agentes<span class="text-primary-container">VA</span></a>
-        </div>
-        <nav class="hidden md:flex items-center gap-1">
-            <a href="/catalogo/" class="px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-primary-container hover:bg-surface-container rounded-full transition-colors">Agentes IA</a>
-            <a href="/servicios/" class="px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-primary-container hover:bg-surface-container rounded-full transition-colors">Servicios</a>
-            <a href="/precios/" class="px-4 py-2 text-sm font-medium text-primary-container bg-surface-container rounded-full transition-colors font-bold">Setup &amp; Precios</a>
-            <a href="/faq/" class="px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-primary-container hover:bg-surface-container rounded-full transition-colors">FAQ</a>
+<header class="sticky top-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10">
+    <div class="max-w-7xl mx-auto flex items-center justify-between h-16 px-6">
+        <a href="/" class="font-headline font-black text-xl text-on-surface">Agentes<span class="text-primary-container">VA</span></a>
+        <nav class="hidden md:flex items-center gap-1 bg-surface-container rounded-full p-1" aria-label="Navegaci&oacute;n principal">
+            <a href="/catalogo/" class="px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-on-surface rounded-full transition-colors">Agentes IA</a>
+            <a href="/servicios/" class="px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-on-surface rounded-full transition-colors">Servicios</a>
+            <a href="/precios/" class="px-4 py-2 text-sm font-medium text-primary-container bg-surface-container-high rounded-full transition-colors font-bold">Setup &amp; Precios</a>
+            <a href="/faq/" class="px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-on-surface rounded-full transition-colors">FAQ</a>
         </nav>
         <a href="/catalogo/" class="hidden md:inline-flex px-5 py-2.5 bg-gradient-to-r from-primary to-primary-container text-on-primary text-sm font-bold rounded-full shadow-lg hover:shadow-xl transition-all active:scale-95">Empezar ahora &rarr;</a>
     </div>
-    <div class="h-px w-full bg-gradient-to-r from-transparent via-outline-variant/15 to-transparent"></div>
-</nav>
+</header>
 
 <!-- Main Content -->
-<main class="pt-24 pb-12 px-5 max-w-4xl mx-auto space-y-10">
+<main class="pb-12 px-5 max-w-4xl mx-auto space-y-10">
 
     <!-- Header -->
     <header class="text-center space-y-3">
@@ -436,24 +433,30 @@
     </div>
 </footer>
 
-<!-- Bottom Nav Bar (Mobile) -->
-<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-container-low border-t border-outline-variant/10 px-6 py-3 flex justify-between items-center z-50" aria-label="Navegación móvil">
-    <a href="/" class="flex flex-col items-center gap-1 text-on-surface-variant">
-        <span class="material-symbols-outlined">storefront</span>
-        <span class="text-[10px] font-medium">Inicio</span>
-    </a>
-    <a href="/precios/" class="flex flex-col items-center gap-1 text-primary-container font-bold">
-        <span class="material-symbols-outlined">payments</span>
-        <span class="text-[10px]">Precios</span>
-    </a>
-    <a href="/catalogo/" class="flex flex-col items-center gap-1 text-on-surface-variant">
-        <span class="material-symbols-outlined">smart_toy</span>
-        <span class="text-[10px] font-medium">Agentes</span>
-    </a>
-    <a href="/faq/" class="flex flex-col items-center gap-1 text-on-surface-variant">
-        <span class="material-symbols-outlined">help</span>
-        <span class="text-[10px] font-medium">FAQ</span>
-    </a>
+<!-- ==================== MOBILE BOTTOM NAV ==================== -->
+<nav class="fixed bottom-0 inset-x-0 z-50 md:hidden bg-surface-container-lowest/95 backdrop-blur-xl border-t border-outline-variant/10 px-2 pt-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]" aria-label="M&oacute;vil">
+    <div class="flex items-center justify-around">
+        <a href="/" class="flex flex-col items-center gap-1 text-on-surface-variant">
+            <span class="material-symbols-outlined text-xl">home</span>
+            <span class="text-[10px] font-medium">Inicio</span>
+        </a>
+        <a href="/catalogo/" class="flex flex-col items-center gap-1 text-on-surface-variant">
+            <span class="material-symbols-outlined text-xl">smart_toy</span>
+            <span class="text-[10px] font-medium">Agentes</span>
+        </a>
+        <a href="/servicios/" class="flex flex-col items-center gap-1 text-on-surface-variant">
+            <span class="material-symbols-outlined text-xl">build</span>
+            <span class="text-[10px] font-medium">Servicios</span>
+        </a>
+        <a href="/precios/" class="flex flex-col items-center gap-1 text-primary-container font-bold">
+            <span class="material-symbols-outlined text-xl">payments</span>
+            <span class="text-[10px] font-medium">Precios</span>
+        </a>
+        <a href="/faq/" class="flex flex-col items-center gap-1 text-on-surface-variant">
+            <span class="material-symbols-outlined text-xl">help</span>
+            <span class="text-[10px] font-medium">FAQ</span>
+        </a>
+    </div>
 </nav>
 
 <!-- Scripts -->
