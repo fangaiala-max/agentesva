@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html class="light" lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,224 +26,34 @@
     <meta name="twitter:description" content="Implementaci&oacute;n IA profesional desde $97. Llave en mano desde $297.">
     <meta name="twitter:image" content="https://agentesva.com/assets/og-home.png">
 
-    <link rel="alternate" hreflang="es"       href="https://agentesva.com/servicios/">
-    <link rel="alternate" hreflang="es-MX"    href="https://agentesva.com/servicios/">
-    <link rel="alternate" hreflang="es-CO"    href="https://agentesva.com/servicios/">
-    <link rel="alternate" hreflang="es-AR"    href="https://agentesva.com/servicios/">
-    <link rel="alternate" hreflang="es-CL"    href="https://agentesva.com/servicios/">
-    <link rel="alternate" hreflang="es-PE"    href="https://agentesva.com/servicios/">
+    <link rel="alternate" hreflang="es"        href="https://agentesva.com/servicios/">
+    <link rel="alternate" hreflang="es-MX"     href="https://agentesva.com/servicios/">
+    <link rel="alternate" hreflang="es-CO"     href="https://agentesva.com/servicios/">
+    <link rel="alternate" hreflang="es-AR"     href="https://agentesva.com/servicios/">
+    <link rel="alternate" hreflang="es-CL"     href="https://agentesva.com/servicios/">
+    <link rel="alternate" hreflang="es-PE"     href="https://agentesva.com/servicios/">
     <link rel="alternate" hreflang="x-default" href="https://agentesva.com/servicios/">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://buy.stripe.com">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/tailwind.css">
 
     <style>
-        :root {
-    --bg:           #f8fafd;
-    --bg2:          #FFFFFF;
-    --bg3:          #f0f2ff;
-    --bg4:          #e8ebff;
-    --surface:      #f0f2ff;
-    --primary:      #0b28ff;
-    --primary-dim:  #0920cc;
-    --orange:       #3d50ff;
-    --orange-dim:   #0920cc;
-    --tertiary:     #ffb4ab;
-    --text:         #1f1f23;
-    --muted:        #8181a5;
-    --muted2:       #a5a5c0;
-    --outline:      #d4d5e0;
-    --teal:         #0b28ff;
-    --border:       rgba(11,40,255,0.18);
-    --border-light: rgba(11,40,255,0.10);
-    --shadow-sm:    0 2px 10px rgba(0,0,0,0.06);
-    --shadow-md:    0 12px 40px rgba(0,0,0,0.08);
-    --shadow-cta:   0 8px 24px rgba(11,40,255,0.25);
-    --mono:         'JetBrains Mono', monospace;
-    --sans:         'Manrope', sans-serif;
-    --display:      'Space Grotesk', sans-serif;
-    --r-xl: 20px; --r-md: 12px; --r-sm: 8px; --r-full: 9999px;
-    --bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
-    --lime:         #0b28ff;
-    --lime-dim:     rgba(11,40,255,0.1);
-    --border-md:    rgba(11,40,255,0.15);
-    --border-lime:  rgba(11,40,255,0.22);
-    color-scheme: light;
-}
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-        ::selection { background: #0b28ff; color: #FFFFFF; }
-        a { color: inherit; text-decoration: none; }
-        .display { font-family: var(--display); }
-        .mono    { font-family: var(--mono); }
-
-        /* ── Flash Banner ── */
-        #flash-banner { position: sticky; top: 0; left: 0; width: 100%; z-index: 60; display: flex; align-items: center; justify-content: center; height: 2.75rem; background: #f8fafd; border-bottom: 1px solid rgba(11,40,255,0.15); font-size: 0.75rem; padding: 0 1rem; }
-        .banner-content { display: flex; align-items: center; gap: 0.5rem; flex-wrap: nowrap; }
-        .banner-dot { width: 6px; height: 6px; border-radius: 50%; background: #0b28ff; flex-shrink: 0; animation: banner-pulse 1.5s ease-in-out infinite; }
-        @keyframes banner-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-        .banner-text { color: var(--muted2); white-space: nowrap; }
-        #flash-timer { font-weight: 700; padding: 2px 8px; border-radius: 4px; background: rgba(11,40,255,0.08); color: #0b28ff; border: 1px solid rgba(11,40,255,0.2); letter-spacing: 0.05em; white-space: nowrap; }
-        .banner-cta-desktop { display: inline-flex; align-items: center; gap: 4px; color: #0b28ff; font-weight: 700; text-decoration: none; font-size: 0.75rem; white-space: nowrap; }
-        .banner-cta-desktop:hover { text-decoration: underline; }
-        .banner-close { position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 6px; cursor: pointer; color: #8181a5; font-size: 14px; background: none; border: none; transition: background 0.2s; line-height: 1; }
-        .banner-close:hover { background: rgba(225,227,228,0.1); }
-        body.banner-visible nav { top: 44px; }
-        @media (max-width: 640px) { .banner-text-full { display: none; } .banner-cta-desktop { display: none !important; } }
-
-        /* ── Nav ── */
-        .nav-pill-container { position: relative; display: flex; align-items: center; border-radius: 9999px; padding: 4px; border: 2px solid rgba(0,0,0,0.18); background: #f8fafd; }
-        .nav-pill-cursor { position: absolute; z-index: 0; top: 4px; height: 32px; border-radius: 9999px; background: #e8ebff; opacity: 0; pointer-events: none; left: 0; width: 0; transition: left 0.3s var(--bounce), width 0.3s var(--bounce), opacity 0.2s ease; }
-        .nav-pill-tab { position: relative; z-index: 10; display: block; padding: 6px 16px; font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; text-decoration: none; border-radius: 9999px;  color: var(--text); }
-        @media (max-width: 960px) { .nav-pill-container { display: none; } }
-        nav { position: sticky; top: 0; z-index: 100; height: 64px; display: flex; align-items: center; padding: 0 32px; background: rgba(248,250,253,0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 2px 12px rgba(0,0,0,0.15); }
-        .nav-inner { max-width: 1160px; margin: 0 auto; width: 100%; display: flex; align-items: center; justify-content: space-between; }
-        .nav-logo { font-family: var(--display); font-size: 20px; font-weight: 800; letter-spacing: -0.025em; color: var(--text); }
-        .nav-logo span { color: var(--lime); }
-        .nav-cta { font-family: var(--display); font-size: 14px; font-weight: 700; padding: 9px 22px; background: linear-gradient(135deg, #0b28ff 0%, #0920cc 100%); color: #FFFFFF; border-radius: var(--r-full); box-shadow: 0 8px 24px rgba(11,40,255,0.2); transition: transform 0.5s var(--bounce), box-shadow 0.3s ease; }
-        .nav-cta:hover { transform: translateY(-2px) scale(1.04); box-shadow: 0 12px 30px rgba(11,40,255,0.38); }
-
-        /* ── Section helpers ── */
-        .section-kicker { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; color: var(--lime); letter-spacing: 0.10em; text-transform: uppercase; margin-bottom: 14px; }
-        .section-kicker::before { content: ''; width: 20px; height: 2px; background: var(--lime); border-radius: 2px; }
-        .section-title { font-family: var(--display); font-size: clamp(30px, 4vw, 48px); font-weight: 800; letter-spacing: -0.028em; line-height: 1.06; margin-bottom: 12px; color: var(--text); }
-        .section-sub { font-size: 15px; color: var(--muted); max-width: 520px; margin: 0 auto; }
-
-        /* ── Hero ── */
-        .servicios-hero { background: var(--bg); padding: 80px 32px 56px; text-align: center; }
-        .servicios-hero-inner { max-width: 760px; margin: 0 auto; }
-        .hero-kicker { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; color: var(--lime); background: var(--bg3); padding: 6px 14px; border-radius: var(--r-full); margin-bottom: 28px; letter-spacing: 0.06em; text-transform: uppercase; }
-        .hero-headline { font-family: var(--display); font-size: clamp(36px, 6vw, 64px); font-weight: 800; line-height: 0.98; letter-spacing: -0.035em; margin-bottom: 24px; color: var(--text); }
-        .hero-headline em { font-style: normal; color: var(--lime); }
-        .hero-sub { font-size: clamp(15px, 2vw, 18px); color: var(--muted); line-height: 1.7; font-weight: 300; max-width: 560px; margin: 0 auto 36px; }
-        .hero-links { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
-        .hero-links a { font-family: var(--display); font-size: 14px; font-weight: 700; padding: 12px 28px; border-radius: var(--r-full); transition: all 0.3s var(--bounce); }
-        .btn-hero-primary { background: linear-gradient(135deg, #0b28ff 0%, #0920cc 100%); color: #FFFFFF; box-shadow: var(--shadow-cta); }
-        .btn-hero-primary:hover { transform: translateY(-3px) scale(1.04); }
-        .btn-hero-ghost { background: transparent; color: var(--lime); border: 1.5px solid var(--border); }
-        .btn-hero-ghost:hover { background: var(--bg2); border-color: var(--lime); transform: translateY(-2px); }
-
-        /* ── Diferenciacion ── */
-        .dif-section { padding: 72px 32px; background: var(--bg3); }
-        .dif-inner { max-width: 1000px; margin: 0 auto; }
-        .dif-kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
-        .dif-title { font-family: var(--display); font-size: clamp(26px, 3.5vw, 42px); font-weight: 800; color: white; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 16px; }
-        .dif-sub { font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.7; font-weight: 300; max-width: 600px; margin-bottom: 48px; }
-        .dif-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .dif-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--r-xl); padding: 32px 28px; }
-        .dif-card-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); margin-bottom: 12px; }
-        .dif-card-title { font-family: var(--display); font-size: 20px; font-weight: 800; color: white; margin-bottom: 10px; letter-spacing: -0.02em; }
-        .dif-card-desc { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.65; }
-        .dif-card-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
-        .dif-card-list li { font-size: 13px; color: rgba(255,255,255,0.75); display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
-        .dif-card-list li::before { content: '\2192'; color: var(--orange); font-weight: 700; flex-shrink: 0; }
-        @media (max-width: 700px) { .dif-grid { grid-template-columns: 1fr; } }
-
-        /* ── Service Section common ── */
-        .srv-section { padding: 80px 32px; }
-        .srv-section:nth-child(odd) { background: var(--bg); }
-        .srv-section:nth-child(even) { background: var(--bg2); }
-        .srv-inner { max-width: 1100px; margin: 0 auto; }
-        .srv-header { margin-bottom: 48px; }
-        .srv-header-top { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 8px; }
-        .srv-tag { display: inline-block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lime); background: var(--bg3); padding: 5px 12px; border-radius: var(--r-full); margin-bottom: 12px; }
-        .srv-title { font-family: var(--display); font-size: clamp(28px, 3.5vw, 44px); font-weight: 800; letter-spacing: -0.028em; line-height: 1.05; color: var(--text); margin-bottom: 8px; }
-        .srv-desc { font-size: 15px; color: var(--muted); max-width: 580px; line-height: 1.7; }
-        .srv-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-
-        /* ── Service Cards ── */
-        .srv-card { background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--r-xl); padding: 36px 28px 32px; position: relative; transition: transform 0.5s var(--bounce), box-shadow 0.3s ease; display: flex; flex-direction: column; }
-        .srv-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
-        .srv-card.featured { background: linear-gradient(135deg, #0b28ff 0%, #0920cc 100%); border-color: transparent; box-shadow: 0 12px 40px rgba(11,40,255,0.25); }
-        .srv-card.featured:hover { box-shadow: 0 20px 50px rgba(11,40,255,0.35); }
-        .srv-card-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 14px; border-radius: var(--r-full); white-space: nowrap; font-weight: 700; background: var(--orange); color: #FFFFFF; }
-        .srv-card-icon { font-size: 40px; margin-bottom: 16px; }
-        .srv-card-level { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
-        .srv-card.featured .srv-card-level { color: rgba(255,255,255,0.6); }
-        .srv-card-name { font-family: var(--display); font-size: 22px; font-weight: 800; color: var(--text); margin-bottom: 6px; letter-spacing: -0.02em; }
-        .srv-card.featured .srv-card-name { color: #FFFFFF; }
-        .srv-card-tagline { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
-        .srv-card.featured .srv-card-tagline { color: rgba(255,255,255,0.75); }
-        .srv-price-row { display: flex; align-items: baseline; gap: 6px; margin-bottom: 4px; }
-        .srv-price { font-family: var(--display); font-size: 52px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--text); }
-        .srv-card.featured .srv-price { color: #FFFFFF; }
-        .srv-price-note { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 24px; }
-        .srv-card.featured .srv-price-note { color: rgba(255,255,255,0.55); }
-        .srv-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; flex: 1; }
-        .srv-features li { font-size: 14px; color: var(--muted); display: flex; align-items: flex-start; gap: 8px; line-height: 1.45; }
-        .srv-card.featured .srv-features li { color: rgba(255,255,255,0.9); }
-        .srv-features li::before { content: '\2713'; font-family: var(--mono); font-size: 12px; color: var(--teal); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-        .srv-card.featured .srv-features li::before { color: #FFFFFF; }
-        .srv-cta { display: block; text-align: center; padding: 14px; border-radius: var(--r-md); font-family: var(--display); font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.3s var(--bounce); border: none; width: 100%; text-decoration: none; }
-        .srv-cta-default { background: var(--bg2); border: 1.5px solid var(--border-md); color: var(--text); }
-        .srv-cta-default:hover { background: var(--bg3); transform: translateY(-2px); }
-        .srv-cta-featured { background: #f0f2ff; color: var(--lime); box-shadow: 0 4px 14px rgba(0,0,0,0.14); }
-        .srv-cta-featured:hover { background: var(--bg); transform: translateY(-2px); }
-        .srv-card-copy { font-size: 13px; color: var(--muted2); text-align: center; margin-top: 14px; line-height: 1.55; }
-        .srv-card.featured .srv-card-copy { color: rgba(255,255,255,0.5); }
-
-        /* ── Audit section ── */
-        .audit-intro { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--r-xl); padding: 32px 28px; margin-bottom: 32px; display: flex; gap: 20px; align-items: flex-start; }
-        .audit-intro-icon { font-size: 48px; flex-shrink: 0; }
-        .audit-intro-text h3 { font-family: var(--display); font-size: 20px; font-weight: 800; color: var(--text); margin-bottom: 8px; letter-spacing: -0.02em; }
-        .audit-intro-text p { font-size: 14px; color: var(--muted); line-height: 1.65; }
-
-        /* ── CTA banner ── */
-        .cta-section { background: var(--bg2); padding: 80px 32px; }
-        .cta-banner { max-width: 1160px; margin: 0 auto; background: linear-gradient(135deg, #0b28ff 0%, #0920cc 100%); border-radius: var(--r-xl); padding: 72px 64px; text-align: center; box-shadow: 0 20px 60px rgba(11,40,255,0.28); }
-        .cta-title { font-family: var(--display); font-size: clamp(28px, 4vw, 52px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.0; color: #FFFFFF; margin-bottom: 18px; }
-        .cta-sub { font-size: 17px; color: rgba(255,255,255,0.78); max-width: 480px; margin: 0 auto 40px; }
-        .btn-cta-white { display: inline-block; font-family: var(--display); font-size: 15px; font-weight: 700; padding: 14px 36px; background: var(--bg2); color: var(--lime); border-radius: var(--r-full); box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: transform 0.5s var(--bounce), box-shadow 0.3s ease; }
-        .btn-cta-white:hover { transform: translateY(-3px) scale(1.05); }
-        .btn-cta-ghost { display: inline-block; font-family: var(--display); font-size: 14px; font-weight: 600; padding: 12px 28px; color: rgba(255,255,255,0.85); border: 1.5px solid rgba(255,255,255,0.3); border-radius: var(--r-full); transition: all 0.3s; margin-left: 12px; }
-        .btn-cta-ghost:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.5); }
-
-        /* ── Footer ── */
-        .new-footer { position: relative; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 3.5rem 1.5rem 5rem; background: #f8fafd; border-top: 1px solid rgba(11,40,255,0.25); }
-        .footer-accent-line { position: absolute; top: 0; left: 50%; transform: translateX(-50%) translateY(-1px); height: 1px; width: 33%; border-radius: 9999px; filter: blur(2px); background: linear-gradient(90deg, transparent, var(--primary), transparent); }
-        .new-footer-content { width: 100%; max-width: 1160px; display: grid; gap: 2.5rem; }
-        @media (min-width: 1280px) { .new-footer-content { grid-template-columns: 1fr 2fr; gap: 3rem; } }
-        .footer-brand-col { display: flex; flex-direction: column; gap: 1rem; }
-        .footer-brand-link { display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; }
-        .footer-bot-icon { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, #0b28ff, #0920cc); flex-shrink: 0; }
-        .footer-bot-icon svg { stroke: #FFFFFF; }
-        .footer-brand-wordmark { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text); }
-        .footer-brand-wordmark span { color: #0b28ff; }
-        .footer-brand-desc { font-size: 0.875rem; line-height: 1.6; max-width: 20rem; color: var(--muted2); }
-        .footer-brand-copy { font-size: 0.75rem; color: var(--muted2); }
-        .new-footer-links-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 1rem; }
-        @media (min-width: 768px) { .new-footer-links-grid { grid-template-columns: repeat(4, 1fr); } }
-        @media (min-width: 1280px) { .new-footer-links-grid { margin-top: 0; } }
-        .new-footer-col h3 { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted2); margin-bottom: 1rem; }
-        .new-footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.625rem; }
-        .new-footer-col a { display: inline-flex; align-items: center; gap: 6px; font-size: 0.875rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-        .new-footer-col a:hover { color: var(--primary); }
-        .footer-social-icon { width: 16px; height: 16px; flex-shrink: 0; }
-        .footer-anim { opacity: 0; filter: blur(4px); transform: translateY(-8px); transition: opacity 0.7s ease, filter 0.7s ease, transform 0.7s ease; }
-        .footer-anim.footer-anim-in { opacity: 1; filter: blur(0); transform: translateY(0); }
-        .footer-anim:nth-child(1) { transition-delay: 0.05s; }
-        .footer-anim:nth-child(2) { transition-delay: 0.13s; }
-        .footer-anim:nth-child(3) { transition-delay: 0.21s; }
-        .footer-anim:nth-child(4) { transition-delay: 0.29s; }
-        .footer-anim:nth-child(5) { transition-delay: 0.37s; }
-
-        /* ── Responsive ── */
-        @media (max-width: 800px) {
-            .srv-cards { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; }
-            .audit-intro { flex-direction: column; gap: 16px; }
-            .cta-banner { padding: 48px 24px; }
-            .btn-cta-ghost { margin-left: 0; margin-top: 12px; }
-        }
-        @media (max-width: 600px) {
-            .servicios-hero { padding: 56px 20px 40px; }
-            .dif-section { padding: 56px 20px; }
-            .srv-section { padding: 56px 20px; }
-            .hero-links { flex-direction: column; gap: 10px; }
-        }
-        .skip-link { position: absolute; top: -44px; left: 1rem; background: #0b28ff; color: #FFFFFF; padding: 8px 16px; border-radius: 0 0 8px 8px; font-weight: 700; font-size: 0.875rem; text-decoration: none; z-index: 9999; transition: top 0.2s; }
-        .skip-link:focus { top: 0; }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        font-family: 'Material Symbols Outlined';
+        font-style: normal;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+      }
     </style>
 
     <script type="application/ld+json">
@@ -264,422 +74,361 @@
       ]
     }
     </script>
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-87SBNWCTWZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-87SBNWCTWZ');
-</script>
-<!-- Mixpanel -->
-<script type="text/javascript">
-(function(f,b){if(!b.__SV){var e,g,i,h;window.mixpanel=b;b._i=[];b.init=function(e,f,c){function g(a,d){var b=d.split(".");2==b.length&&(a=a[b[0]],d=b[1]);a[d]=function(){a.push([d].concat(Array.prototype.slice.call(arguments,0)))}}var a=b;"undefined"!==typeof c?a=b[c]=[]:c="mixpanel";a.people=a.people||[];a.toString=function(a){var d="mixpanel";"mixpanel"!==c&&(d+="."+c);a||(d+=" (stub)");return d};a.people.toString=function(){return a.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");for(h=0;h<i.length;h++)g(a,i[h]);var j="set set_once union unset remove delete".split(" ");a.get_group=function(){function b(c){d[c]=function(){call2_args=arguments;call2=[c].concat(Array.prototype.slice.call(call2_args,0));a.push([e].concat([call2]))}}for(var d={},e=["get_group"].concat(Array.prototype.slice.call(arguments,0)),c=0;c<j.length;c++)b(j[c]);return d};b._i.push([e,f,c])};b.__SV=1.2;e=f.createElement("script");e.type="text/javascript";e.async=!0;e.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===f.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";g=f.getElementsByTagName("script")[0];g.parentNode.insertBefore(e,g)}})(document,window.mixpanel||[]);
-</script>
-<script>
-  mixpanel.init('8fa5118db89d01d0316661d3b0adcc39', {api_host: 'https://api-eu.mixpanel.com'});
-  mixpanel.track('page_viewed', { page: window.location.pathname });
-</script>
-
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-87SBNWCTWZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-87SBNWCTWZ');
+    </script>
+    <!-- Mixpanel -->
+    <script type="text/javascript">
+    (function(f,b){if(!b.__SV){var e,g,i,h;window.mixpanel=b;b._i=[];b.init=function(e,f,c){function g(a,d){var b=d.split(".");2==b.length&&(a=a[b[0]],d=b[1]);a[d]=function(){a.push([d].concat(Array.prototype.slice.call(arguments,0)))}}var a=b;"undefined"!==typeof c?a=b[c]=[]:c="mixpanel";a.people=a.people||[];a.toString=function(a){var d="mixpanel";"mixpanel"!==c&&(d+="."+c);a||(d+=" (stub)");return d};a.people.toString=function(){return a.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");for(h=0;h<i.length;h++)g(a,i[h]);var j="set set_once union unset remove delete".split(" ");a.get_group=function(){function b(c){d[c]=function(){call2_args=arguments;call2=[c].concat(Array.prototype.slice.call(call2_args,0));a.push([e].concat([call2]))}}for(var d={},e=["get_group"].concat(Array.prototype.slice.call(arguments,0)),c=0;c<j.length;c++)b(j[c]);return d};b._i.push([e,f,c])};b.__SV=1.2;e=f.createElement("script");e.type="text/javascript";e.async=!0;e.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===f.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";g=f.getElementsByTagName("script")[0];g.parentNode.insertBefore(e,g)}})(document,window.mixpanel||[]);
+    </script>
+    <script>
+      mixpanel.init('8fa5118db89d01d0316661d3b0adcc39', {api_host: 'https://api-eu.mixpanel.com'});
+      mixpanel.track('page_viewed', { page: window.location.pathname });
+    </script>
 </head>
-<body class="banner-visible">
-<a href="#main-content" class="skip-link">Saltar al contenido</a>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed">
 
-<!-- ===================== FLASH BANNER ===================== -->
-<div id="flash-banner">
-    <div class="banner-content">
-        <span class="banner-dot"></span>
-        <span class="banner-text">
-            <span style="color:#0b28ff;font-weight:700;">PRECIO LANZAMIENTO</span>
-            <span class="banner-text-full"> &middot; Agentes desde $29 &middot; Sin mensualidad &middot; Termina en </span>
-            <span class="banner-text-short" style="color:#a5a5c0;"> &middot; Termina en </span>
-        </span>
-        <span id="flash-timer" class="banner-timer">03:00:00</span>
-        <a href="/catalogo/" class="banner-cta-desktop">Empezar ahora &rarr;</a>
+<!-- ==================== HEADER ==================== -->
+<header class="sticky top-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10">
+    <div class="max-w-7xl mx-auto flex items-center justify-between h-16 px-6">
+        <a href="/" class="font-headline font-black text-xl text-on-surface">Agentes<span class="text-primary-container">VA</span></a>
+        <nav class="hidden md:flex items-center gap-1 bg-surface-container rounded-full p-1" aria-label="Navegaci&oacute;n principal">
+            <a href="/catalogo/" class="px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-on-surface rounded-full transition-colors">Agentes IA</a>
+            <a href="/servicios/" class="px-4 py-2 text-sm font-medium text-primary-container bg-surface-container-high rounded-full transition-colors font-bold">Servicios</a>
+            <a href="/precios/" class="px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-on-surface rounded-full transition-colors">Setup &amp; Precios</a>
+            <a href="/faq/" class="px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-on-surface rounded-full transition-colors">FAQ</a>
+        </nav>
+        <a href="/catalogo/" class="hidden md:inline-flex px-5 py-2.5 bg-gradient-to-r from-primary to-primary-container text-on-primary text-sm font-bold rounded-full shadow-lg hover:shadow-xl transition-all active:scale-95">Empezar ahora &rarr;</a>
     </div>
-    <button id="banner-close" class="banner-close" aria-label="Cerrar banner">&times;</button>
-</div>
+</header>
 
-<!-- ==================== NAV ==================== -->
-<nav>
-    <div class="nav-inner">
-        <a href="/" class="nav-logo display">Agentes<span>VA</span></a>
-        <div class="nav-pill-container" id="nav-pill">
-            <div class="nav-pill-cursor" id="nav-pill-cursor"></div>
-            <a href="/catalogo/" class="nav-pill-tab">Agentes IA</a>
-            <a href="/servicios/" class="nav-pill-tab">Servicios</a>
-            <a href="/precios/" class="nav-pill-tab">Setup &amp; Precios</a>
-            <a href="/faq/" class="nav-pill-tab">FAQ</a>
-        </div>
-        <a href="/catalogo/" class="nav-cta">Empezar ahora &rarr;</a>
-    </div>
-</nav>
+<main id="main-content">
 
-<!-- ==================== HERO ==================== -->
-<div class="servicios-hero">
-    <div class="servicios-hero-inner">
-        <div class="hero-kicker">SERVICIOS PREMIUM</div>
-        <h1 class="hero-headline display">
-            Para negocios que ya saben lo que quieren <em>automatizar.</em>
-        </h1>
-        <p class="hero-sub">
-            No solo te damos el flujo automatizado. Nos metemos contigo a configurarlo, o lo hacemos nosotros de principio a fin. T&uacute; eliges cu&aacute;nto te involucras.
-        </p>
-        <div class="hero-links">
-            <a href="#implementacion" class="btn-hero-primary">Ver servicios &darr;</a>
-            <a href="/catalogo/" class="btn-hero-ghost">Explorar cat&aacute;logo</a>
-        </div>
-    </div>
-</div>
-
-<!-- ==================== DIFERENCIACION ==================== -->
-<section class="dif-section">
-    <div class="dif-inner">
-        <div class="dif-kicker">ACLARACI&Oacute;N IMPORTANTE</div>
-        <h2 class="dif-title">&iquest;Setup o Implementaci&oacute;n?<br>Son cosas distintas.</h2>
-        <p class="dif-sub">Muchos confunden el Setup (configurar un agente que ya compraste) con una Implementaci&oacute;n completa. Aqu&iacute; te explicamos la diferencia para que elijas lo que realmente necesitas.</p>
-        <div class="dif-grid">
-            <div class="dif-card">
-                <div class="dif-card-label">Si compraste un agente del cat&aacute;logo</div>
-                <div class="dif-card-title">Setup desde $19</div>
-                <div class="dif-card-desc">Ya tienes el flujo automatizado. El setup es simplemente la forma en que lo activas: solo, con ayuda en vivo, o que lo hagamos por ti.</div>
-                <ul class="dif-card-list">
-                    <li>hazlo tú mismo ($19): t&uacute; lo configuras en 15 minutos con la gu&iacute;a</li>
-                    <li>Asistido ($49): sesi&oacute;n 30 min en Google Meet contigo</li>
-                    <li>Full Service ($97): nosotros lo hacemos, t&uacute; solo conectas</li>
-                </ul>
-            </div>
-            <div class="dif-card">
-                <div class="dif-card-label">Si tienes un proceso complejo o personalizado</div>
-                <div class="dif-card-title">Implementaci&oacute;n desde $97</div>
-                <div class="dif-card-desc">Aqu&iacute; no hay flujo automatizado predefinido. Analizamos tu negocio y construimos la automatizaci&oacute;n a medida. Ideal para flujos avanzados o multi-paso.</div>
-                <ul class="dif-card-list">
-                    <li>Implementaci&oacute;n Premium: tus procesos existentes, automatizados</li>
-                    <li>Llave en Mano: sistema completo funcional desde el d&iacute;a 1</li>
-                    <li>Auditor&iacute;a IA: mapa de qu&eacute; automatizar primero en tu negocio</li>
-                </ul>
+    <!-- ==================== HERO ==================== -->
+    <section class="px-6 pt-16 pb-12 text-center">
+        <div class="max-w-3xl mx-auto">
+            <span class="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+                <span class="material-symbols-outlined text-sm">build</span> Servicios Premium
+            </span>
+            <h1 class="font-headline text-4xl md:text-6xl font-black text-on-surface leading-[0.95] tracking-tight mb-6">
+                Para negocios que ya saben lo que quieren <span class="text-primary">automatizar.</span>
+            </h1>
+            <p class="text-on-surface-variant text-lg leading-relaxed max-w-xl mx-auto mb-8">
+                No solo te damos el flujo automatizado. Nos metemos contigo a configurarlo, o lo hacemos nosotros de principio a fin. T&uacute; eliges cu&aacute;nto te involucras.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#implementacion" class="px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold rounded-full shadow-lg hover:shadow-xl transition-all active:scale-95">Ver servicios &darr;</a>
+                <a href="/catalogo/" class="px-8 py-4 border border-outline-variant/30 text-on-surface-variant font-semibold rounded-full hover:bg-surface-container transition-all">Explorar cat&aacute;logo</a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ==================== IMPLEMENTACION PREMIUM ==================== -->
-<section class="srv-section" id="implementacion">
-    <div class="srv-inner">
-        <div class="srv-header">
-            <div class="srv-tag">Implementaci&oacute;n Premium</div>
-            <h2 class="srv-title">Tus procesos actuales, <em style="font-style:normal;color:var(--lime);">automatizados.</em></h2>
-            <p class="srv-desc">Tomamos uno de tus flujos de trabajo existentes y lo convertimos en un agente IA que trabaja solo. Sin c&oacute;digo, sin servidores, sin dolores de cabeza.</p>
-            <p style="font-size:0.82rem;color:var(--muted2);margin-top:0.75rem;">✓ Si no quedas satisfecho con la entrega, hacemos 1 ronda de ajustes sin costo adicional.</p>
-        </div>
-        <div class="srv-cards">
-            <div class="srv-card">
-                <div class="srv-card-icon">&#x26A1;</div>
-                <div class="srv-card-level">Simple</div>
-                <div class="srv-card-name">Implementaci&oacute;n Premium Simple</div>
-                <div class="srv-card-tagline">Un proceso. Una automatizaci&oacute;n. Entregado en 48h.</div>
-                <div class="srv-price-row">
-                    <div class="srv-price">$97</div>
+    <!-- ==================== DIFERENCIACION ==================== -->
+    <section class="px-6 py-16">
+        <div class="max-w-5xl mx-auto">
+            <div class="bg-gradient-to-br from-primary to-primary-container rounded-[2rem] p-8 md:p-12 text-on-primary">
+                <span class="text-xs font-bold uppercase tracking-widest text-on-primary/60 mb-4 block">Aclaraci&oacute;n importante</span>
+                <h2 class="font-headline text-3xl md:text-4xl font-bold mb-4 leading-tight">&iquest;Setup o Implementaci&oacute;n?<br>Son cosas distintas.</h2>
+                <p class="text-on-primary/75 text-base leading-relaxed max-w-2xl mb-10">Muchos confunden el Setup (configurar un agente que ya compraste) con una Implementaci&oacute;n completa. Aqu&iacute; te explicamos la diferencia.</p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white/10 border border-white/15 rounded-2xl p-6">
+                        <span class="text-xs font-bold uppercase tracking-widest text-on-primary/50 mb-3 block">Si compraste un agente del cat&aacute;logo</span>
+                        <h3 class="font-headline text-xl font-bold mb-2">Setup desde $19</h3>
+                        <p class="text-on-primary/70 text-sm mb-4">Ya tienes el flujo automatizado. El setup es simplemente la forma en que lo activas.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-2 text-sm text-on-primary/80"><span class="text-on-primary/50">&rarr;</span> Hazlo t&uacute; mismo ($19): configuras en 15 min con la gu&iacute;a</li>
+                            <li class="flex items-start gap-2 text-sm text-on-primary/80"><span class="text-on-primary/50">&rarr;</span> Asistido ($49): sesi&oacute;n 30 min en Google Meet</li>
+                            <li class="flex items-start gap-2 text-sm text-on-primary/80"><span class="text-on-primary/50">&rarr;</span> Full Service ($97): nosotros lo hacemos, t&uacute; solo conectas</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/10 border border-white/15 rounded-2xl p-6">
+                        <span class="text-xs font-bold uppercase tracking-widest text-on-primary/50 mb-3 block">Si tienes un proceso complejo o personalizado</span>
+                        <h3 class="font-headline text-xl font-bold mb-2">Implementaci&oacute;n desde $97</h3>
+                        <p class="text-on-primary/70 text-sm mb-4">No hay flujo predefinido. Analizamos tu negocio y construimos la automatizaci&oacute;n a medida.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-2 text-sm text-on-primary/80"><span class="text-on-primary/50">&rarr;</span> Implementaci&oacute;n Premium: tus procesos, automatizados</li>
+                            <li class="flex items-start gap-2 text-sm text-on-primary/80"><span class="text-on-primary/50">&rarr;</span> Llave en Mano: sistema completo desde el d&iacute;a 1</li>
+                            <li class="flex items-start gap-2 text-sm text-on-primary/80"><span class="text-on-primary/50">&rarr;</span> Auditor&iacute;a IA: mapa de qu&eacute; automatizar primero</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="srv-price-note">Pago &uacute;nico &middot; Sin mensualidad</div>
-                <ul class="srv-features">
-                    <li>An&aacute;lisis de tu proceso actual (formulario + llamada 20 min)</li>
-                    <li>Dise&ntilde;o del flujo en Make.com a tu medida</li>
-                    <li>Configuraci&oacute;n completa + pruebas</li>
-                    <li>Entrega en 48 horas h&aacute;biles</li>
-                    <li>Video explicativo de c&oacute;mo funciona</li>
-                    <li>Soporte por email 15 d&iacute;as post-entrega</li>
-                </ul>
-                <a href="https://buy.stripe.com/7sY28r7WG6rlaoC0TEfnO0I" class="srv-cta srv-cta-default">Contratar por $97</a>
-                <p style="font-size:0.75rem;color:var(--muted2);text-align:center;margin-top:10px;">→ Te contactamos en menos de 24h para agendar tu sesi&oacute;n de setup</p>
-                <div class="srv-card-copy">Ideal para: seguimiento de leads, reportes, notificaciones, email autom&aacute;tico.</div>
-            </div>
-            <div class="srv-card featured">
-                <div class="srv-card-badge">M&Aacute;S SOLICITADO</div>
-                <div class="srv-card-icon">&#x1F680;</div>
-                <div class="srv-card-level">Avanzada</div>
-                <div class="srv-card-name">Implementaci&oacute;n Premium Avanzada</div>
-                <div class="srv-card-tagline">Procesos multi-paso, m&uacute;ltiples integraciones, l&oacute;gica condicional.</div>
-                <div class="srv-price-row">
-                    <div class="srv-price">$197</div>
-                </div>
-                <div class="srv-price-note">Pago &uacute;nico &middot; Sin mensualidad</div>
-                <ul class="srv-features">
-                    <li>Todo lo de Simple +</li>
-                    <li>Flujos condicionales y bifurcaciones l&oacute;gicas</li>
-                    <li>Conexi&oacute;n con hasta 4 apps (CRM, Sheets, Slack, email&hellip;)</li>
-                    <li>Panel de monitoreo en Google Sheets</li>
-                    <li>Sesi&oacute;n de entrega en vivo (30 min)</li>
-                    <li>Soporte prioritario 30 d&iacute;as post-entrega</li>
-                </ul>
-                <a href="https://buy.stripe.com/bJefZhb8Sg1VgN031MfnO0J" class="srv-cta srv-cta-featured">Contratar por $197</a>
-                <p style="font-size:0.75rem;color:var(--muted2);text-align:center;margin-top:10px;">→ Te contactamos en menos de 24h para agendar tu sesi&oacute;n de setup</p>
-                <div class="srv-card-copy">Ideal para: pipeline de ventas, onboarding clientes, facturaci&oacute;n autom&aacute;tica.</div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ==================== LLAVE EN MANO ==================== -->
-<section class="srv-section" id="llave-en-mano">
-    <div class="srv-inner">
-        <div class="srv-header">
-            <div class="srv-tag">Llave en Mano</div>
-            <h2 class="srv-title">Tu sistema de automatizaci&oacute;n <em style="font-style:normal;color:var(--lime);">completo.</em></h2>
-            <p class="srv-desc">No un solo agente. Un sistema que conecta m&uacute;ltiples procesos de tu negocio. T&uacute; nos dices qu&eacute; quieres lograr y nosotros lo construimos de principio a fin.</p>
-            <p style="font-size:0.82rem;color:var(--muted2);margin-top:0.75rem;">✓ Si no quedas satisfecho con la entrega, hacemos 1 ronda de ajustes sin costo adicional.</p>
-        </div>
-        <div class="srv-cards">
-            <div class="srv-card">
-                <div class="srv-card-icon">&#x1F4CB;</div>
-                <div class="srv-card-level">Simple</div>
-                <div class="srv-card-name">Llave en Mano Simple</div>
-                <div class="srv-card-tagline">Sistema completo de 2&ndash;3 agentes interconectados. Listo para usar.</div>
-                <div class="srv-price-row">
-                    <div class="srv-price">$297</div>
-                </div>
-                <div class="srv-price-note">Pago &uacute;nico &middot; Sin mensualidad</div>
-                <ul class="srv-features">
-                    <li>Diagn&oacute;stico inicial de tu negocio (formulario + llamada 30 min)</li>
-                    <li>Dise&ntilde;o del sistema completo (hasta 3 agentes)</li>
-                    <li>Implementaci&oacute;n y pruebas end-to-end</li>
-                    <li>Documentaci&oacute;n completa del sistema</li>
-                    <li>Entrega en 5 d&iacute;as h&aacute;biles</li>
-                    <li>Soporte 30 d&iacute;as y 1 ajuste incluido</li>
-                </ul>
-                <a href="https://buy.stripe.com/14A8wP5Oy2b5fIW1XIfnO0K" class="srv-cta srv-cta-default">Contratar por $297</a>
-                <p style="font-size:0.75rem;color:var(--muted2);text-align:center;margin-top:10px;">→ Recibes el formulario de diagn&oacute;stico en menos de 24h y agendamos llamada</p>
-                <div class="srv-card-copy">Ideal para: peque&ntilde;as empresas con 2&ndash;3 procesos clave que automatizar.</div>
-            </div>
-            <div class="srv-card featured">
-                <div class="srv-card-badge">RECOMENDADO</div>
-                <div class="srv-card-icon">&#x1F3AF;</div>
-                <div class="srv-card-level">Avanzada</div>
-                <div class="srv-card-name">Llave en Mano Avanzada</div>
-                <div class="srv-card-tagline">Sistema completo de hasta 6 agentes. Integraciones ilimitadas. Todo cubierto.</div>
-                <div class="srv-price-row">
-                    <div class="srv-price">$497</div>
-                </div>
-                <div class="srv-price-note">Pago &uacute;nico &middot; Sin mensualidad</div>
-                <ul class="srv-features">
-                    <li>Todo lo de Simple +</li>
-                    <li>Hasta 6 agentes interconectados</li>
-                    <li>Integraciones con CRM, tienda online, WhatsApp, email</li>
-                    <li>Dashboard centralizado de operaciones</li>
-                    <li>Capacitaci&oacute;n para tu equipo (60 min)</li>
-                    <li>Soporte prioritario 60 d&iacute;as + 3 ajustes incluidos</li>
-                </ul>
-                <a href="https://buy.stripe.com/14A28r5OydTN40eauefnO0L" class="srv-cta srv-cta-featured">Contratar por $497</a>
-                <p style="font-size:0.75rem;color:var(--muted2);text-align:center;margin-top:10px;">→ Recibes el formulario de diagn&oacute;stico en menos de 24h y agendamos llamada</p>
-                <div class="srv-card-copy">Ideal para: negocios en crecimiento que quieren un sistema robusto sin contratar IT.</div>
-            </div>
-        </div>
-    </div>
-</section>
+    <!-- ==================== IMPLEMENTACION PREMIUM ==================== -->
+    <section class="px-6 py-16" id="implementacion">
+        <div class="max-w-5xl mx-auto">
+            <span class="inline-flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest mb-4">
+                <span class="material-symbols-outlined text-sm">bolt</span> Implementaci&oacute;n Premium
+            </span>
+            <h2 class="font-headline text-3xl md:text-4xl font-bold text-on-surface mb-3 leading-tight">Tus procesos actuales, <span class="text-primary">automatizados.</span></h2>
+            <p class="text-on-surface-variant text-base max-w-xl mb-3">Tomamos uno de tus flujos de trabajo existentes y lo convertimos en un agente IA que trabaja solo. Sin c&oacute;digo, sin servidores.</p>
+            <p class="text-xs text-on-surface-variant mb-10"><span class="material-symbols-outlined text-green-600 text-xs align-middle mr-1" style="font-variation-settings:'FILL' 1;">verified</span> Si no quedas satisfecho, hacemos 1 ronda de ajustes sin costo adicional.</p>
 
-<!-- ==================== AUDITORIA IA ==================== -->
-<section class="srv-section" id="auditoria">
-    <div class="srv-inner">
-        <div class="srv-header">
-            <div class="srv-tag">Auditor&iacute;a IA</div>
-            <h2 class="srv-title">&iquest;No sabes por d&oacute;nde empezar?<br>Nosotros lo <em style="font-style:normal;color:var(--lime);">mapeamos por ti.</em></h2>
-            <p class="srv-desc">Antes de automatizar, hay que saber qu&eacute; automatizar. Te entregamos un mapa completo de oportunidades de automatizaci&oacute;n en tu negocio, priorizadas por impacto.</p>
-            <p style="font-size:0.82rem;color:var(--muted2);margin-top:0.75rem;">✓ Si el informe no cubre tus expectativas, hacemos 1 ronda de ajustes sin costo adicional.</p>
-        </div>
-        <div class="audit-intro">
-            <div class="audit-intro-icon">&#x1F4CB;</div>
-            <div class="audit-intro-text">
-                <h3>&iquest;Qu&eacute; incluye una Auditor&iacute;a IA?</h3>
-                <p>Analizamos tus procesos actuales, identificamos los cuellos de botella, y te entregamos un informe con las 5&ndash;10 automatizaciones de mayor impacto para tu tipo de negocio, ordenadas por prioridad, estimaci&oacute;n de tiempo ahorrado, y costo de implementaci&oacute;n. Sin compromiso de compra posterior.</p>
-            </div>
-        </div>
-        <div class="srv-cards">
-            <div class="srv-card">
-                <div class="srv-card-icon">&#x1F50D;</div>
-                <div class="srv-card-level">Simple</div>
-                <div class="srv-card-name">Auditor&iacute;a IA Simple</div>
-                <div class="srv-card-tagline">Mapa de automatizaci&oacute;n para un &aacute;rea de tu negocio.</div>
-                <div class="srv-price-row">
-                    <div class="srv-price">$147</div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Simple -->
+                <div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/10 p-8 shadow-sm hover:shadow-lg transition-shadow flex flex-col">
+                    <span class="text-4xl mb-4">&#x26A1;</span>
+                    <span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-1">Simple</span>
+                    <h3 class="font-headline text-xl font-bold text-on-surface mb-2">Implementaci&oacute;n Premium Simple</h3>
+                    <p class="text-sm text-on-surface-variant mb-4">Un proceso. Una automatizaci&oacute;n. Entregado en 48h.</p>
+                    <div class="mb-1"><span class="font-headline text-5xl font-black text-on-surface">$97</span></div>
+                    <p class="text-xs text-on-surface-variant mb-6">Pago &uacute;nico &middot; Sin mensualidad</p>
+                    <ul class="space-y-3 mb-8 flex-1">
+                        <li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> An&aacute;lisis de tu proceso (formulario + llamada 20 min)</li>
+                        <li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Dise&ntilde;o del flujo en Make.com a tu medida</li>
+                        <li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Configuraci&oacute;n completa + pruebas</li>
+                        <li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Entrega en 48 horas h&aacute;biles</li>
+                        <li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Video explicativo de c&oacute;mo funciona</li>
+                        <li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Soporte por email 15 d&iacute;as post-entrega</li>
+                    </ul>
+                    <a href="https://buy.stripe.com/7sY28r7WG6rlaoC0TEfnO0I" class="block text-center py-3.5 border border-primary/20 text-primary font-bold rounded-xl hover:bg-primary/5 transition-all active:scale-95">Contratar por $97 &rarr;</a>
+                    <p class="text-xs text-on-surface-variant text-center mt-3">Te contactamos en menos de 24h para agendar</p>
+                    <p class="text-xs text-on-surface-variant/60 text-center mt-2">Ideal para: seguimiento de leads, reportes, notificaciones.</p>
                 </div>
-                <div class="srv-price-note">Pago &uacute;nico &middot; Entrega en 3 d&iacute;as</div>
-                <ul class="srv-features">
-                    <li>Cuestionario detallado de procesos (formulario)</li>
-                    <li>Llamada de diagn&oacute;stico de 30 minutos</li>
-                    <li>Informe con 5 oportunidades de automatizaci&oacute;n</li>
-                    <li>Priorizaci&oacute;n por impacto y facilidad</li>
-                    <li>Estimaci&oacute;n de horas ahorradas por semana</li>
-                    <li>Recomendaci&oacute;n de herramientas y costos</li>
-                </ul>
-                <a href="https://buy.stripe.com/00weVd7WG02XcwKcCmfnO0M" class="srv-cta srv-cta-default">Solicitar auditor&iacute;a por $147</a>
-                <p style="font-size:0.75rem;color:var(--muted2);text-align:center;margin-top:10px;">→ Recibes el cuestionario de diagn&oacute;stico en menos de 24h · Informe en 3 d&iacute;as</p>
-                <div class="srv-card-copy">Para negocios con 1&ndash;5 personas que quieren claridad antes de invertir.</div>
-            </div>
-            <div class="srv-card featured">
-                <div class="srv-card-icon">&#x1F52C;</div>
-                <div class="srv-card-level">Avanzada</div>
-                <div class="srv-card-name">Auditor&iacute;a IA Avanzada</div>
-                <div class="srv-card-tagline">Mapa completo de tu negocio: ventas, operaciones y atenci&oacute;n al cliente.</div>
-                <div class="srv-price-row">
-                    <div class="srv-price">$297</div>
-                </div>
-                <div class="srv-price-note">Pago &uacute;nico &middot; Entrega en 5 d&iacute;as</div>
-                <ul class="srv-features">
-                    <li>Todo lo de Simple +</li>
-                    <li>An&aacute;lisis de 3 &aacute;reas: ventas, operaciones, soporte</li>
-                    <li>Hasta 10 oportunidades de automatizaci&oacute;n mapeadas</li>
-                    <li>Roadmap de implementaci&oacute;n a 90 d&iacute;as</li>
-                    <li>Sesi&oacute;n de presentaci&oacute;n del informe (45 min)</li>
-                    <li>Descuento del 20% en cualquier implementaci&oacute;n posterior</li>
-                </ul>
-                <a href="https://buy.stripe.com/9B614na4O8zt68meKufnO0N" class="srv-cta srv-cta-featured">Solicitar auditor&iacute;a por $297</a>
-                <p style="font-size:0.75rem;color:var(--muted2);text-align:center;margin-top:10px;">→ Recibes el cuestionario de diagn&oacute;stico en menos de 24h · Informe en 5 d&iacute;as</p>
-                <div class="srv-card-copy">Para PyMEs listas para escalar y que quieren una hoja de ruta clara.</div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- ==================== CTA ==================== -->
-<section class="cta-section">
-    <div class="cta-banner">
-        <h2 class="cta-title">&iquest;Listo para automatizar en serio?</h2>
-        <p class="cta-sub">Elige el servicio que se adapta a tu momento. Sin mensualidades, sin contratos, sin sorpresas.</p>
-        <a href="#implementacion" class="btn-cta-white">Ver todos los servicios</a>
-        <a href="/catalogo/" class="btn-cta-ghost">Empezar con un agente &rarr;</a>
-    </div>
-</section>
+                <!-- Avanzada (featured) -->
+                <div class="relative bg-gradient-to-br from-primary to-primary-container rounded-2xl p-8 shadow-xl flex flex-col text-on-primary">
+                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-widest px-4 py-1 rounded-full">M&aacute;s solicitado</span>
+                    <span class="text-4xl mb-4">&#x1F680;</span>
+                    <span class="text-xs font-bold uppercase tracking-widest text-on-primary/60 mb-1">Avanzada</span>
+                    <h3 class="font-headline text-xl font-bold mb-2">Implementaci&oacute;n Premium Avanzada</h3>
+                    <p class="text-sm text-on-primary/75 mb-4">Procesos multi-paso, m&uacute;ltiples integraciones, l&oacute;gica condicional.</p>
+                    <div class="mb-1"><span class="font-headline text-5xl font-black">$197</span></div>
+                    <p class="text-xs text-on-primary/60 mb-6">Pago &uacute;nico &middot; Sin mensualidad</p>
+                    <ul class="space-y-3 mb-8 flex-1">
+                        <li class="flex items-start gap-2 text-sm text-on-primary/90"><span class="material-symbols-outlined text-on-primary text-base mt-0.5">check_circle</span> Todo lo de Simple +</li>
+                        <li class="flex items-start gap-2 text-sm text-on-primary/90"><span class="material-symbols-outlined text-on-primary text-base mt-0.5">check_circle</span> Flujos condicionales y bifurcaciones l&oacute;gicas</li>
+                        <li class="flex items-start gap-2 text-sm text-on-primary/90"><span class="material-symbols-outlined text-on-primary text-base mt-0.5">check_circle</span> Conexi&oacute;n con hasta 4 apps (CRM, Sheets, Slack&hellip;)</li>
+                        <li class="flex items-start gap-2 text-sm text-on-primary/90"><span class="material-symbols-outlined text-on-primary text-base mt-0.5">check_circle</span> Panel de monitoreo en Google Sheets</li>
+                        <li class="flex items-start gap-2 text-sm text-on-primary/90"><span class="material-symbols-outlined text-on-primary text-base mt-0.5">check_circle</span> Sesi&oacute;n de entrega en vivo (30 min)</li>
+                        <li class="flex items-start gap-2 text-sm text-on-primary/90"><span class="material-symbols-outlined text-on-primary text-base mt-0.5">check_circle</span> Soporte prioritario 30 d&iacute;as post-entrega</li>
+                    </ul>
+                    <a href="https://buy.stripe.com/bJefZhb8Sg1VgN031MfnO0J" class="block text-center py-3.5 bg-surface-container-lowest text-primary font-bold rounded-xl shadow-lg hover:shadow-xl transition-all active:scale-95">Contratar por $197 &rarr;</a>
+                    <p class="text-xs text-on-primary/50 text-center mt-3">Te contactamos en menos de 24h para agendar</p>
+                    <p class="text-xs text-on-primary/40 text-center mt-2">Ideal para: pipeline de ventas, onboarding, facturaci&oacute;n autom&aacute;tica.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LLAVE EN MANO ==================== -->
+    <section class="px-6 py-16 bg-surface-container/30" id="llave-en-mano">
+        <div class="max-w-5xl mx-auto">
+            <span class="inline-flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest mb-4">
+                <span class="material-symbols-outlined text-sm">rocket_launch</span> Llave en Mano
+            </span>
+            <h2 class="font-headline text-3xl md:text-4xl font-bold text-on-surface mb-3 leading-tight">Tu sistema de automatizaci&oacute;n <span class="text-primary">completo.</span></h2>
+            <p class="text-on-surface-variant text-base max-w-xl mb-3">No un solo agente. Un sistema que conecta m&uacute;ltiples procesos de tu negocio. T&uacute; nos dices qu&eacute; quieres lograr y nosotros lo construimos.</p>
+            <p class="text-xs text-on-surface-variant mb-10"><span class="material-symbols-outlined text-green-600 text-xs align-middle mr-1" style="font-variation-settings:'FILL' 1;">verified</span> Si no quedas satisfecho, hacemos 1 ronda de ajustes sin costo adicional.</p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Simple -->
+                <div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/10 p-8 shadow-sm hover:shadow-lg transition-shadow flex flex-col">
+                    <span class="text-4xl mb-4">&#x1F4CB;</span>
+                    <span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-1">Simple</span>
+                    <h3 class="font-headline text-xl font-bold text-on-surface mb-2">Llave en Mano Simple</h3>
+                    <p class="text-sm text-on-surface-variant mb-4">Sistema completo de 2&ndash;3 agentes interconectados. Listo para usar.</p>
+                    <div class="mb-1"><span class="font-headline text-5xl font-black text-on-surface">$297</span></div>
+                    <p class="text-xs text-on-surface-variant mb-6">Pago &uacute;nico &middot; Sin mensualidad</p>
+                    <ul class="space-y-3 mb-8 flex-1">
+                        <li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Diagn&oacute;stico inicial (formulario + llamada 30 min)</li>
+                        <li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Dise&ntilde;o del sistema completo (hasta 3 agentes)</li>
+                        <li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Implementaci&oacute;n y pruebas end-to-end</li>
+                        <li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Documentaci&oacute;n completa del sistema</li>
+                        <li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Entrega en 5 d&iacute;as h&aacute;biles</li>
+                        <li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Soporte 30 d&iacute;as y 1 ajuste incluido</li>
+                    </ul>
+                    <a href="https://buy.stripe.com/14A8wP5Oy2b5fIW1XIfnO0K" class="block text-center py-3.5 border border-primary/20 text-primary font-bold rounded-xl hover:bg-primary/5 transition-all active:scale-95">Contratar por $297 &rarr;</a>
+                    <p class="text-xs text-on-surface-variant text-center mt-3">Formulario de diagn&oacute;stico en menos de 24h</p>
+                    <p class="text-xs text-on-surface-variant/60 text-center mt-2">Ideal para: PyMEs con 2&ndash;3 procesos clave que automatizar.</p>
+                </div>
+
+                <!-- Avanzada (featured) -->
+                <div class="relative bg-gradient-to-br from-primary to-primary-container rounded-2xl p-8 shadow-xl flex flex-col text-on-primary">
+                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-widest px-4 py-1 rounded-full">Recomendado</span>
+                    <span class="text-4xl mb-4">&#x1F3AF;</span>
+                    <span class="text-xs font-bold uppercase tracking-widest text-on-primary/60 mb-1">Avanzada</span>
+                    <h3 class="font-headline text-xl font-bold mb-2">Llave en Mano Avanzada</h3>
+                    <p class="text-sm text-on-primary/75 mb-4">Sistema completo de hasta 6 agentes. Integraciones ilimitadas. Todo cubierto.</p>
+                    <div class="mb-1"><span class="font-headline text-5xl font-black">$497</span></div>
+                    <p class="text-xs text-on-primary/60 mb-6">Pago &uacute;nico &middot; Sin mensualidad</p>
+                    <ul class="space-y-3 mb-8 flex-1">
+                        <li class="flex items-start gap-2 text-sm text-on-primary/90"><span class="material-symbols-outlined text-on-primary text-base mt-0.5">check_circle</span> Todo lo de Simple +</li>
+                        <li class="flex items-start gap-2 text-sm text-on-primary/90"><span class="material-symbols-outlined text-on-primary text-base mt-0.5">check_circle</span> Hasta 6 agentes interconectados</li>
+                        <li class="flex items-start gap-2 text-sm text-on-primary/90"><span class="material-symbols-outlined text-on-primary text-base mt-0.5">check_circle</span> Integraciones con CRM, WhatsApp, email&hellip;</li>
+                        <li class="flex items-start gap-2 text-sm text-on-primary/90"><span class="material-symbols-outlined text-on-primary text-base mt-0.5">check_circle</span> Dashboard centralizado de operaciones</li>
+                        <li class="flex items-start gap-2 text-sm text-on-primary/90"><span class="material-symbols-outlined text-on-primary text-base mt-0.5">check_circle</span> Capacitaci&oacute;n para tu equipo (60 min)</li>
+                        <li class="flex items-start gap-2 text-sm text-on-primary/90"><span class="material-symbols-outlined text-on-primary text-base mt-0.5">check_circle</span> Soporte prioritario 60 d&iacute;as + 3 ajustes</li>
+                    </ul>
+                    <a href="https://buy.stripe.com/14A28r5OydTN40eauefnO0L" class="block text-center py-3.5 bg-surface-container-lowest text-primary font-bold rounded-xl shadow-lg hover:shadow-xl transition-all active:scale-95">Contratar por $497 &rarr;</a>
+                    <p class="text-xs text-on-primary/50 text-center mt-3">Formulario de diagn&oacute;stico en menos de 24h</p>
+                    <p class="text-xs text-on-primary/40 text-center mt-2">Ideal para: negocios en crecimiento que quieren escalar sin contratar IT.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== AUDITORIA IA ==================== -->
+    <section class="px-6 py-16" id="auditoria">
+        <div class="max-w-5xl mx-auto">
+            <span class="inline-flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest mb-4">
+                <span class="material-symbols-outlined text-sm">search</span> Auditor&iacute;a IA
+            </span>
+            <h2 class="font-headline text-3xl md:text-4xl font-bold text-on-surface mb-3 leading-tight">&iquest;No sabes por d&oacute;nde empezar?<br>Nosotros lo <span class="text-primary">mapeamos por ti.</span></h2>
+            <p class="text-on-surface-variant text-base max-w-xl mb-3">Antes de automatizar, hay que saber qu&eacute; automatizar. Te entregamos un mapa completo de oportunidades priorizadas por impacto.</p>
+            <p class="text-xs text-on-surface-variant mb-8"><span class="material-symbols-outlined text-green-600 text-xs align-middle mr-1" style="font-variation-settings:'FILL' 1;">verified</span> Si el informe no cubre tus expectativas, hacemos 1 ronda de ajustes sin costo.</p>
+
+            <!-- Audit intro -->
+            <div class="bg-surface-container rounded-2xl p-6 mb-10 flex flex-col sm:flex-row items-start gap-5">
+                <span class="text-5xl flex-shrink-0">&#x1F4CB;</span>
+                <div>
+                    <h3 class="font-headline text-lg font-bold text-on-surface mb-2">&iquest;Qu&eacute; incluye una Auditor&iacute;a IA?</h3>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Analizamos tus procesos actuales, identificamos cuellos de botella, y te entregamos un informe con las 5&ndash;10 automatizaciones de mayor impacto, ordenadas por prioridad, estimaci&oacute;n de tiempo ahorrado y costo de implementaci&oacute;n. Sin compromiso de compra posterior.</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Simple -->
+                <div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/10 p-8 shadow-sm hover:shadow-lg transition-shadow flex flex-col">
+                    <span class="text-4xl mb-4">&#x1F50D;</span>
+                    <span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-1">Simple</span>
+                    <h3 class="font-headline text-xl font-bold text-on-surface mb-2">Auditor&iacute;a IA Simple</h3>
+                    <p class="text-sm text-on-surface-variant mb-4">Mapa de automatizaci&oacute;n para un &aacute;rea de tu negocio.</p>
+                    <div class="mb-1"><span class="font-headline text-5xl font-black text-on-surface">$147</span></div>
+                    <p class="text-xs text-on-surface-variant mb-6">Pago &uacute;nico &middot; Entrega en 3 d&iacute;as</p>
+                    <ul class="space-y-3 mb-8 flex-1">
+                        <li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Cuestionario detallado de procesos</li>
+                        <li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Llamada de diagn&oacute;stico de 30 min</li>
+                        <li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Informe con 5 oportunidades de automatizaci&oacute;n</li>
+                        <li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Priorizaci&oacute;n por impacto y facilidad</li>
+                        <li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Estimaci&oacute;n de horas ahorradas por semana</li>
+                        <li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Recomendaci&oacute;n de herramientas y costos</li>
+                    </ul>
+                    <a href="https://buy.stripe.com/00weVd7WG02XcwKcCmfnO0M" class="block text-center py-3.5 border border-primary/20 text-primary font-bold rounded-xl hover:bg-primary/5 transition-all active:scale-95">Solicitar auditor&iacute;a por $147 &rarr;</a>
+                    <p class="text-xs text-on-surface-variant text-center mt-3">Cuestionario en 24h &middot; Informe en 3 d&iacute;as</p>
+                    <p class="text-xs text-on-surface-variant/60 text-center mt-2">Para negocios con 1&ndash;5 personas que quieren claridad.</p>
+                </div>
+
+                <!-- Avanzada -->
+                <div class="relative bg-gradient-to-br from-primary to-primary-container rounded-2xl p-8 shadow-xl flex flex-col text-on-primary">
+                    <span class="text-4xl mb-4">&#x1F52C;</span>
+                    <span class="text-xs font-bold uppercase tracking-widest text-on-primary/60 mb-1">Avanzada</span>
+                    <h3 class="font-headline text-xl font-bold mb-2">Auditor&iacute;a IA Avanzada</h3>
+                    <p class="text-sm text-on-primary/75 mb-4">Mapa completo: ventas, operaciones y atenci&oacute;n al cliente.</p>
+                    <div class="mb-1"><span class="font-headline text-5xl font-black">$297</span></div>
+                    <p class="text-xs text-on-primary/60 mb-6">Pago &uacute;nico &middot; Entrega en 5 d&iacute;as</p>
+                    <ul class="space-y-3 mb-8 flex-1">
+                        <li class="flex items-start gap-2 text-sm text-on-primary/90"><span class="material-symbols-outlined text-on-primary text-base mt-0.5">check_circle</span> Todo lo de Simple +</li>
+                        <li class="flex items-start gap-2 text-sm text-on-primary/90"><span class="material-symbols-outlined text-on-primary text-base mt-0.5">check_circle</span> An&aacute;lisis de 3 &aacute;reas: ventas, operaciones, soporte</li>
+                        <li class="flex items-start gap-2 text-sm text-on-primary/90"><span class="material-symbols-outlined text-on-primary text-base mt-0.5">check_circle</span> Hasta 10 oportunidades mapeadas</li>
+                        <li class="flex items-start gap-2 text-sm text-on-primary/90"><span class="material-symbols-outlined text-on-primary text-base mt-0.5">check_circle</span> Roadmap de implementaci&oacute;n a 90 d&iacute;as</li>
+                        <li class="flex items-start gap-2 text-sm text-on-primary/90"><span class="material-symbols-outlined text-on-primary text-base mt-0.5">check_circle</span> Sesi&oacute;n de presentaci&oacute;n del informe (45 min)</li>
+                        <li class="flex items-start gap-2 text-sm text-on-primary/90"><span class="material-symbols-outlined text-on-primary text-base mt-0.5">check_circle</span> 20% descuento en implementaci&oacute;n posterior</li>
+                    </ul>
+                    <a href="https://buy.stripe.com/9B614na4O8zt68meKufnO0N" class="block text-center py-3.5 bg-surface-container-lowest text-primary font-bold rounded-xl shadow-lg hover:shadow-xl transition-all active:scale-95">Solicitar auditor&iacute;a por $297 &rarr;</a>
+                    <p class="text-xs text-on-primary/50 text-center mt-3">Cuestionario en 24h &middot; Informe en 5 d&iacute;as</p>
+                    <p class="text-xs text-on-primary/40 text-center mt-2">Para PyMEs listas para escalar con una hoja de ruta clara.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FINAL CTA ==================== -->
+    <section class="px-6 py-16">
+        <div class="max-w-4xl mx-auto">
+            <div class="relative bg-gradient-to-br from-primary to-primary-container rounded-[2.5rem] p-10 md:p-14 text-center text-on-primary overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/5 -translate-y-1/3 translate-x-1/3"></div>
+                <div class="relative z-10">
+                    <span class="material-symbols-outlined text-5xl mb-4">rocket_launch</span>
+                    <h2 class="font-headline text-3xl md:text-4xl font-bold mb-4">&iquest;Listo para automatizar en serio?</h2>
+                    <p class="text-on-primary/75 mb-8 max-w-md mx-auto">Elige el servicio que se adapta a tu momento. Sin mensualidades, sin contratos, sin sorpresas.</p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="#implementacion" class="px-8 py-4 bg-surface-container-lowest text-primary font-bold rounded-full shadow-xl hover:shadow-2xl transition-all active:scale-95">Ver todos los servicios</a>
+                        <a href="/catalogo/" class="px-8 py-4 border border-white/30 text-on-primary font-semibold rounded-full hover:bg-white/10 transition-all">Empezar con un agente &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
 
 <!-- ==================== FOOTER ==================== -->
-<footer class="new-footer">
-    <div class="footer-accent-line"></div>
-    <div class="new-footer-content">
-        <div class="footer-brand-col footer-anim">
-            <a href="/" class="footer-brand-link">
-                <span class="footer-bot-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#0b28ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
-                        <path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/>
-                        <path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/>
-                    </svg>
-                </span>
-                <span class="footer-brand-wordmark">Agentes<span>VA</span></span>
-            </a>
-            <p class="footer-brand-desc">Flujos de automatizaci&oacute;n listos para importar en Make.com. Sin c&oacute;digo, sin servidores. Para PyMEs de LATAM.</p>
-            <p class="footer-brand-copy">&copy; <span id="footer-year"></span> AgentesVA. Todos los derechos reservados.</p>
+<footer class="bg-surface-container-low rounded-t-[2rem] mt-12 pt-12 pb-24 md:pb-8 px-8">
+    <div class="w-full max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="col-span-2 md:col-span-4 mb-4">
+            <span class="font-headline font-black text-on-surface text-2xl">Agentes<span class="text-primary-container">VA</span></span>
+            <p class="text-on-surface-variant text-sm leading-relaxed mt-2 max-w-md">Flujos de automatizaci&oacute;n listos para importar en Make.com. Sin c&oacute;digo, sin servidores. Para PyMEs de LATAM.</p>
+            <p class="text-on-surface-variant text-xs mt-2">&copy; <span id="footer-year"></span> AgentesVA. Todos los derechos reservados.</p>
         </div>
-        <div class="new-footer-links-grid">
-            <div class="new-footer-col footer-anim">
-                <h3>Producto</h3>
-                <ul>
-                    <li><a href="/catalogo/">Agentes B&aacute;sicos IA</a></li>
-                    <li><a href="/catalogo/">Agentes Est&aacute;ndar IA</a></li>
-                    <li><a href="/catalogo/">Agentes Avanzados IA</a></li>
-                    <li><a href="/servicios/">Servicios Premium</a></li>
-                    <li><a href="/precios/">Setup &amp; Precios</a></li>
-                </ul>
-            </div>
-            <div class="new-footer-col footer-anim">
-                <h3>Empresa</h3>
-                <ul>
-                    <li><a href="/faq/">FAQ</a></li>
-                    <li><a href="/legal/">Aviso legal</a></li>
-                    <li><a href="/legal/#privacidad">Privacidad</a></li>
-                    <li><a href="/legal/#terminos">T&eacute;rminos de uso</a></li>
-                </ul>
-            </div>
-            <div class="new-footer-col footer-anim">
-                <h3>Plataformas</h3>
-                <ul>
-                    <li><a href="https://make.com" target="_blank" rel="noopener noreferrer">Make.com</a></li>
-                    <li><a href="https://n8n.io" target="_blank" rel="noopener noreferrer">N8N</a></li>
-                    <li><a href="https://openai.com" target="_blank" rel="noopener noreferrer">OpenAI GPT-4o</a></li>
-                    <li><a href="https://sheets.google.com" target="_blank" rel="noopener noreferrer">Google Sheets</a></li>
-                </ul>
-            </div>
-            <div class="new-footer-col footer-anim">
-                <h3>Redes sociales</h3>
-                <ul>
-                    <li><a href="https://facebook.com/agentesva" target="_blank" rel="noopener"><svg class="footer-social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg> Facebook</a></li>
-                    <li><a href="https://instagram.com/agentesva" target="_blank" rel="noopener"><svg class="footer-social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg> Instagram</a></li>
-                    <li><a href="https://youtube.com/@agentesva" target="_blank" rel="noopener"><svg class="footer-social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.45A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.97C5.12 20 12 20 12 20s6.88 0 8.59-.45a2.78 2.78 0 0 0 1.95-1.97A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg> YouTube</a></li>
-                    <li><a href="https://linkedin.com/company/agentesva" target="_blank" rel="noopener"><svg class="footer-social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg> LinkedIn</a></li>
-                </ul>
-            </div>
+        <div class="space-y-2">
+            <p class="font-bold text-primary-container text-xs uppercase tracking-widest">Producto</p>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="/catalogo/">Agentes B&aacute;sicos IA</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="/catalogo/">Agentes Est&aacute;ndar IA</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="/catalogo/">Agentes Avanzados IA</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="/servicios/">Servicios Premium</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="/precios/">Setup &amp; Precios</a>
+        </div>
+        <div class="space-y-2">
+            <p class="font-bold text-primary-container text-xs uppercase tracking-widest">Empresa</p>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="/faq/">FAQ</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="/como-funciona/">C&oacute;mo funciona</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="/como-empezar/">C&oacute;mo empezar</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="/legal/">Aviso Legal</a>
+        </div>
+        <div class="space-y-2">
+            <p class="font-bold text-primary-container text-xs uppercase tracking-widest">Plataformas</p>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="https://make.com" target="_blank" rel="noopener">Make.com</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="https://n8n.io" target="_blank" rel="noopener">N8N</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="https://openai.com" target="_blank" rel="noopener">OpenAI GPT-4o</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="https://sheets.google.com" target="_blank" rel="noopener">Google Sheets</a>
+        </div>
+        <div class="space-y-2">
+            <p class="font-bold text-primary-container text-xs uppercase tracking-widest">Redes</p>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="https://facebook.com/agentesva" target="_blank" rel="noopener">Facebook</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="https://instagram.com/agentesva" target="_blank" rel="noopener">Instagram</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="https://youtube.com/@agentesva" target="_blank" rel="noopener">YouTube</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm transition-colors" href="https://linkedin.com/company/agentesva" target="_blank" rel="noopener">LinkedIn</a>
         </div>
     </div>
 </footer>
 
-<!-- ==================== SCRIPTS ==================== -->
+<!-- ==================== MOBILE BOTTOM NAV ==================== -->
+<nav class="fixed bottom-0 inset-x-0 z-50 md:hidden bg-surface-container-lowest/95 backdrop-blur-xl border-t border-outline-variant/10 px-2 pt-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]" aria-label="M&oacute;vil">
+    <div class="flex items-center justify-around">
+        <a href="/" class="flex flex-col items-center gap-1 text-on-surface-variant">
+            <span class="material-symbols-outlined text-xl">home</span>
+            <span class="text-[10px] font-medium">Inicio</span>
+        </a>
+        <a href="/catalogo/" class="flex flex-col items-center gap-1 text-on-surface-variant">
+            <span class="material-symbols-outlined text-xl">smart_toy</span>
+            <span class="text-[10px] font-medium">Agentes</span>
+        </a>
+        <a href="/servicios/" class="flex flex-col items-center gap-1 text-primary-container font-bold">
+            <span class="material-symbols-outlined text-xl">build</span>
+            <span class="text-[10px] font-medium">Servicios</span>
+        </a>
+        <a href="/precios/" class="flex flex-col items-center gap-1 text-on-surface-variant">
+            <span class="material-symbols-outlined text-xl">payments</span>
+            <span class="text-[10px] font-medium">Precios</span>
+        </a>
+        <a href="/faq/" class="flex flex-col items-center gap-1 text-on-surface-variant">
+            <span class="material-symbols-outlined text-xl">help</span>
+            <span class="text-[10px] font-medium">FAQ</span>
+        </a>
+    </div>
+</nav>
+
 <script>
-/* ── Footer year ── */
 var fyEl = document.getElementById('footer-year');
 if (fyEl) fyEl.textContent = new Date().getFullYear();
-
-/* ── Footer animation ── */
-(function(){
-    var els = document.querySelectorAll('.footer-anim');
-    if (!els.length) return;
-    var obs = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('footer-anim-in'); obs.unobserve(e.target); } });
-    }, { threshold: 0.15 });
-    els.forEach(function(el){ obs.observe(el); });
-})();
-
-/* ── Flash Banner countdown ── */
-(function(){
-    var STORAGE_KEY = 'ava_flash_end';
-    var DURATION = 3 * 60 * 60 * 1000;
-    var banner = document.getElementById('flash-banner');
-    var timerEl = document.getElementById('flash-timer');
-    var closeBtn = document.getElementById('banner-close');
-    if (!banner || !timerEl) return;
-
-    var dismissed = localStorage.getItem('ava_flash_dismissed');
-    if (dismissed === '1') { banner.style.display = 'none'; document.body.classList.remove('banner-visible'); return; }
-
-    var stored = parseInt(localStorage.getItem(STORAGE_KEY), 10);
-    var endTime = (!stored || isNaN(stored) || stored < Date.now()) ? Date.now() + DURATION : stored;
-    if (!stored || isNaN(stored) || stored < Date.now()) localStorage.setItem(STORAGE_KEY, endTime);
-
-    function pad(n){ return String(n).padStart(2,'0'); }
-    function tick(){
-        var diff = endTime - Date.now();
-        if (diff <= 0){ timerEl.textContent = '00:00:00'; return; }
-        var h = Math.floor(diff/3600000);
-        var m = Math.floor((diff%3600000)/60000);
-        var s = Math.floor((diff%60000)/1000);
-        timerEl.textContent = pad(h)+':'+pad(m)+':'+pad(s);
-    }
-    tick();
-    setInterval(tick, 1000);
-
-    if (closeBtn) {
-        closeBtn.addEventListener('click', function(){
-            banner.style.display = 'none';
-            document.body.classList.remove('banner-visible');
-            localStorage.setItem('ava_flash_dismissed', '1');
-        });
-    }
-})();
-
-/* ── Nav pill hover ── */
-(function(){
-    var pill = document.getElementById('nav-pill');
-    var cursor = document.getElementById('nav-pill-cursor');
-    if (!pill || !cursor) return;
-    var tabs = pill.querySelectorAll('.nav-pill-tab');
-    tabs.forEach(function(tab){
-        tab.addEventListener('mouseenter', function(){
-            cursor.style.left = tab.offsetLeft + 'px';
-            cursor.style.width = tab.offsetWidth + 'px';
-            cursor.style.opacity = '1';
-        });
-    });
-    pill.addEventListener('mouseleave', function(){
-        cursor.style.opacity = '0';
-    });
-})();
 </script>
-
 </body>
 </html>
