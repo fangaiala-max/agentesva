@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html class="light" lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,863 +34,513 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-container": "#d7dbfd",
+              "on-secondary-container": "#5b5f7c",
+              "on-surface-variant": "#444656",
+              "error-container": "#ffdad6",
+              "outline-variant": "#c4c5d9",
+              "surface": "#fbf8ff",
+              "outline": "#747688",
+              "surface-container-highest": "#dee1ff",
+              "error": "#ba1a1a",
+              "background": "#fbf8ff",
+              "surface-container-low": "#f3f2ff",
+              "surface-dim": "#d4d8fa",
+              "surface-container": "#ececff",
+              "tertiary": "#91001e",
+              "on-secondary": "#ffffff",
+              "on-background": "#151a33",
+              "surface-container-high": "#e5e6ff",
+              "surface-tint": "#1f48f1",
+              "on-tertiary-container": "#ffcbca",
+              "surface-variant": "#dee1ff",
+              "inverse-on-surface": "#f0efff",
+              "tertiary-container": "#be002b",
+              "on-primary-container": "#d0d5ff",
+              "secondary-fixed": "#dee1ff",
+              "primary-fixed-dim": "#bac3ff",
+              "surface-container-lowest": "#ffffff",
+              "primary": "#0030c6",
+              "primary-container": "#1e47f1",
+              "on-error": "#ffffff",
+              "on-primary": "#ffffff",
+              "surface-bright": "#fbf8ff",
+              "on-surface": "#151a33",
+              "inverse-primary": "#bac3ff",
+              "inverse-surface": "#2a2f49"
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "4xl": "2rem", full: "9999px" },
+            fontFamily: { headline: ["Manrope"], body: ["Inter"], label: ["Inter"] }
+          }
+        }
+      }
+    </script>
     <style>
-        :root {
-    --bg:           #f8fafd;
-    --bg2:          #FFFFFF;
-    --bg3:          #f0f2ff;
-    --bg4:          #e8ebff;
-    --surface:      #f0f2ff;
-    --primary:      #0b28ff;
-    --primary-dim:  #0920cc;
-    --orange:       #3d50ff;
-    --orange-dim:   #0920cc;
-    --tertiary:     #ffb4ab;
-    --text:         #1f1f23;
-    --muted:        #8181a5;
-    --muted2:       #a5a5c0;
-    --outline:      #d4d5e0;
-    --teal:         #0b28ff;
-    --border:       rgba(11,40,255,0.18);
-    --border-light: rgba(11,40,255,0.10);
-    --shadow-sm:    0 2px 10px rgba(0,0,0,0.06);
-    --shadow-md:    0 12px 40px rgba(0,0,0,0.08);
-    --shadow-cta:   0 8px 24px rgba(11,40,255,0.25);
-    --mono:         'JetBrains Mono', monospace;
-    --sans:         'Manrope', sans-serif;
-    --display:      'Space Grotesk', sans-serif;
-    --r-xl: 20px; --r-md: 12px; --r-sm: 8px; --r-full: 9999px;
-    --bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
-    --lime:         #0b28ff;
-    --lime-dim:     rgba(11,40,255,0.1);
-    --border-md:    rgba(11,40,255,0.15);
-    --border-lime:  rgba(11,40,255,0.22);
-    color-scheme: light;
-}
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-        ::selection { background: #0b28ff; color: #FFFFFF; }
-        a { color: inherit; text-decoration: none; }
-        .display { font-family: var(--display); }
-        .mono    { font-family: var(--mono); }
-
-        /* ── Flash Banner ── */
-        #flash-banner { position: sticky; top: 0; left: 0; width: 100%; z-index: 60; display: flex; align-items: center; justify-content: center; height: 2.75rem; background: #f8fafd; border-bottom: 1px solid rgba(11,40,255,0.15); font-size: 0.75rem; padding: 0 1rem; }
-        .banner-content { display: flex; align-items: center; gap: 0.5rem; flex-wrap: nowrap; }
-        .banner-dot { width: 6px; height: 6px; border-radius: 50%; background: #0b28ff; flex-shrink: 0; animation: banner-pulse 1.5s ease-in-out infinite; }
-        @keyframes banner-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-        .banner-text { color: rgba(187,203,187,0.6); white-space: nowrap; }
-        #flash-timer { font-weight: 700; padding: 2px 8px; border-radius: 4px; background: rgba(11,40,255,0.08); color: #0b28ff; border: 1px solid rgba(11,40,255,0.2); letter-spacing: 0.05em; white-space: nowrap; }
-        .banner-cta-desktop { display: inline-flex; align-items: center; gap: 4px; color: #0b28ff; font-weight: 700; text-decoration: none; font-size: 0.75rem; white-space: nowrap; }
-        .banner-cta-desktop:hover { text-decoration: underline; }
-        .banner-close { position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 6px; cursor: pointer; color: #a5a5c0; font-size: 14px; background: none; border: none; transition: background 0.2s; line-height: 1; }
-        .banner-close:hover { background: rgba(11,40,255,0.3); }
-        body.banner-visible nav { top: 44px; }
-        @media (max-width: 640px) { .banner-text-full { display: none; } .banner-cta-desktop { display: none !important; } }
-
-        /* ── Nav ── */
-        .nav-pill-container { position: relative; display: flex; align-items: center; border-radius: 9999px; padding: 4px; border: 2px solid rgba(11,40,255,0.28); background: #f8fafd; }
-        .nav-pill-cursor { position: absolute; z-index: 0; top: 4px; height: 32px; border-radius: 9999px; background: #0b28ff; opacity: 0; pointer-events: none; left: 0; width: 0; transition: left 0.3s var(--bounce), width 0.3s var(--bounce), opacity 0.2s ease; }
-        .nav-pill-tab { position: relative; z-index: 10; display: block; padding: 6px 16px; font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; text-decoration: none; border-radius: 9999px;  color: var(--text); }
-        @media (max-width: 960px) { .nav-pill-container { display: none; } }
-        nav { position: sticky; top: 0; z-index: 100; height: 64px; display: flex; align-items: center; padding: 0 32px; background: rgba(248,250,253,0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-        .nav-inner { max-width: 1160px; margin: 0 auto; width: 100%; display: flex; align-items: center; justify-content: space-between; }
-        .nav-logo { font-family: var(--display); font-size: 20px; font-weight: 800; letter-spacing: -0.025em; color: var(--text); }
-        .nav-logo span { color: var(--lime); }
-        .nav-cta { font-family: var(--display); font-size: 14px; font-weight: 700; padding: 9px 22px; background: linear-gradient(135deg, #0b28ff 0%, #0920cc 100%); color: #FFFFFF; border-radius: var(--r-full); box-shadow: 0 8px 24px rgba(11,40,255,0.2); transition: transform 0.5s var(--bounce), box-shadow 0.3s ease; }
-        .nav-cta:hover { transform: translateY(-2px) scale(1.04); box-shadow: 0 12px 30px rgba(11,40,255,0.38); }
-
-        /* ── Hero ── */
-        .pricing-hero { background: var(--bg); padding: 80px 32px 48px; text-align: center; }
-        .pricing-hero-inner { max-width: 760px; margin: 0 auto; }
-        .hero-kicker { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; color: var(--lime); background: var(--bg3); padding: 6px 14px; border-radius: var(--r-full); margin-bottom: 28px; letter-spacing: 0.06em; text-transform: uppercase; }
-        .hero-headline { font-family: var(--display); font-size: clamp(36px, 6vw, 68px); font-weight: 800; line-height: 0.98; letter-spacing: -0.035em; margin-bottom: 24px; color: var(--text); }
-        .hero-headline em { font-style: normal; color: var(--lime); }
-        .hero-sub { font-size: clamp(15px, 2vw, 18px); color: var(--muted); line-height: 1.7; font-weight: 300; max-width: 560px; margin: 0 auto 28px; }
-        .hero-value-props { display: flex; flex-direction: column; gap: 8px; align-items: center; margin-bottom: 32px; }
-        .hero-value-prop { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text); font-weight: 500; }
-        .hero-value-prop .check { color: var(--teal); font-weight: 700; font-family: var(--mono); font-size: 12px; }
-        .hero-value-prop .price-tag { font-family: var(--mono); font-size: 12px; background: var(--bg3); padding: 2px 8px; border-radius: var(--r-full); color: var(--lime); font-weight: 600; }
-        .hero-links { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
-        .hero-links a { font-family: var(--display); font-size: 14px; font-weight: 700; padding: 12px 28px; border-radius: var(--r-full); transition: all 0.3s var(--bounce); }
-        .btn-hero-primary { background: linear-gradient(135deg, #0b28ff 0%, #0920cc 100%); color: #FFFFFF; box-shadow: var(--shadow-cta); }
-        .btn-hero-primary:hover { transform: translateY(-3px) scale(1.04); }
-        .btn-hero-ghost { background: transparent; color: var(--lime); border: 1.5px solid var(--border); }
-        .btn-hero-ghost:hover { background: var(--bg2); border-color: var(--lime); transform: translateY(-2px); }
-
-        /* ── Section helpers ── */
-        .section-kicker { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; color: var(--lime); letter-spacing: 0.10em; text-transform: uppercase; margin-bottom: 14px; }
-        .section-kicker::before { content: ''; width: 20px; height: 2px; background: var(--lime); border-radius: 2px; }
-        .section-title { font-family: var(--display); font-size: clamp(30px, 4vw, 48px); font-weight: 800; letter-spacing: -0.028em; line-height: 1.06; margin-bottom: 12px; color: var(--text); }
-        .section-sub { font-size: 15px; color: var(--muted); max-width: 520px; margin: 0 auto; }
-
-        /* ── 3 Tier Cards ── */
-        .tiers-section { padding: 56px 0 80px; background: var(--bg2); }
-        .tiers-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-        .tiers-header { text-align: center; margin-bottom: 48px; }
-        .tiers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
-
-        .tier-card { background: var(--surface); border-radius: var(--r-xl); padding: 36px 28px 32px; position: relative; border: 1.5px solid var(--border); transition: transform 0.5s var(--bounce), box-shadow 0.3s ease; display: flex; flex-direction: column; }
-        .tier-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
-        .tier-card.featured { background: linear-gradient(135deg, #0b28ff 0%, #0920cc 100%); color: #FFFFFF; border-color: transparent; box-shadow: 0 12px 40px rgba(11,40,255,0.25); transform: scale(1.04); z-index: 2; }
-        .tier-card.featured:hover { transform: scale(1.04) translateY(-6px); box-shadow: 0 20px 50px rgba(11,40,255,0.35); }
-
-        .tier-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 14px; border-radius: var(--r-full); white-space: nowrap; font-weight: 700; }
-        .badge-popular { background: var(--orange); color: #FFFFFF; }
-        .badge-premium { background: linear-gradient(135deg,#6d28d9,#a78bfa); color: white; }
-
-        .tier-icon { font-size: 40px; margin-bottom: 16px; }
-        .tier-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
-        .tier-card.featured .tier-tag { color: rgba(255,255,255,0.6); }
-        .tier-name { font-family: var(--display); font-size: 24px; font-weight: 800; color: var(--text); margin-bottom: 4px; letter-spacing: -0.02em; }
-        .tier-card.featured .tier-name { color: #FFFFFF; }
-        .tier-for { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
-        .tier-card.featured .tier-for { color: rgba(255,255,255,0.75); }
-
-        .tier-price-row { display: flex; align-items: baseline; gap: 6px; margin-bottom: 4px; }
-        .tier-price { font-family: var(--display); font-size: 52px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--text); }
-        .tier-card.featured .tier-price { color: #FFFFFF; }
-        .tier-period { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 24px; }
-        .tier-card.featured .tier-period { color: rgba(255,255,255,0.55); }
-
-        .tier-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; flex: 1; }
-        .tier-features li { font-size: 14px; color: var(--muted); display: flex; align-items: flex-start; gap: 8px; line-height: 1.45; }
-        .tier-card.featured .tier-features li { color: rgba(255,255,255,0.9); }
-        .tier-features li::before { content: '\2713'; font-family: var(--mono); font-size: 12px; color: var(--teal); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-        .tier-card.featured .tier-features li::before { color: #FFFFFF; }
-
-        .tier-meta { display: flex; gap: 16px; margin-bottom: 24px; padding: 14px 0; border-top: 1px solid var(--border-light); }
-        .tier-card.featured .tier-meta { border-color: rgba(255,255,255,0.15); }
-        .tier-meta-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); font-family: var(--mono); letter-spacing: 0.03em; }
-        .tier-card.featured .tier-meta-item { color: rgba(255,255,255,0.65); }
-        .tier-meta-icon { font-size: 14px; flex-shrink: 0; }
-
-        .tier-cta { display: block; text-align: center; padding: 14px; border-radius: var(--r-md); font-family: var(--display); font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.3s var(--bounce); border: none; width: 100%; }
-        .tier-cta-default { background: var(--bg2); border: 1.5px solid var(--border-md); color: var(--text); }
-        .tier-cta-default:hover { background: var(--bg3); transform: translateY(-2px); }
-        .tier-cta-featured { background: #FFFFFF; color: #0b28ff; box-shadow: 0 4px 14px rgba(0,0,0,0.14); }
-        .tier-cta-featured:hover { background: var(--bg); transform: translateY(-2px); }
-
-        .tier-copy { font-size: 13px; color: var(--muted2); text-align: center; margin-top: 14px; line-height: 1.55; }
-        .tier-card.featured .tier-copy { color: rgba(255,255,255,0.5); }
-
-        /* ── Comparison Table ── */
-        .compare-section { padding: 80px 0; background: var(--bg); }
-        .compare-inner { max-width: 840px; margin: 0 auto; padding: 0 24px; }
-        .compare-table { width: 100%; border-collapse: collapse; margin-top: 40px; }
-        .compare-table th, .compare-table td { padding: 14px 16px; text-align: center; font-size: 14px; border-bottom: 1px solid var(--border-light); }
-        .compare-table th:first-child, .compare-table td:first-child { text-align: left; font-weight: 600; color: var(--text); }
-        .compare-table thead th { font-family: var(--display); font-size: 15px; font-weight: 800; color: var(--text); padding-bottom: 20px; border-bottom: 2px solid var(--border); }
-        .compare-table thead th.col-featured { color: var(--lime); }
-        .compare-price { font-family: var(--display); font-weight: 800; font-size: 20px; color: var(--text); display: block; margin-bottom: 2px; }
-        .compare-price-featured { color: var(--lime); }
-        .compare-check { color: var(--teal); font-weight: 700; font-size: 16px; }
-        .compare-x { color: var(--border); font-size: 14px; }
-        .compare-val { font-weight: 600; color: var(--text); }
-        .compare-table tbody tr:hover { background: var(--bg2); }
-
-        /* ── How It Works by Tier ── */
-        .flows-section { padding: 80px 0; background: var(--bg2); }
-        .flows-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-        .flows-header { text-align: center; margin-bottom: 48px; }
-        .flows-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .flow-card { background: var(--surface); border-radius: var(--r-xl); padding: 32px 24px; border: 1px solid var(--border-light); }
-        .flow-card-title { font-family: var(--display); font-size: 18px; font-weight: 800; color: var(--text); margin-bottom: 4px; letter-spacing: -0.01em; }
-        .flow-card-price { font-family: var(--mono); font-size: 12px; color: var(--lime); letter-spacing: 0.04em; margin-bottom: 20px; }
-        .flow-steps { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; counter-reset: step; }
-        .flow-steps li { font-size: 13px; color: var(--muted); display: flex; gap: 10px; line-height: 1.5; counter-increment: step; }
-        .flow-steps li::before { content: counter(step); font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--lime); background: var(--bg3); width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
-        .flow-meta { display: flex; gap: 16px; padding-top: 16px; border-top: 1px solid var(--border-light); }
-        .flow-meta-item { font-size: 12px; color: var(--muted); font-family: var(--mono); display: flex; align-items: center; gap: 4px; }
-
-        /* ── A-la-carte ── */
-        .alacarte-section { padding: 80px 0 96px; background: var(--bg); }
-        .alacarte-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        .alacarte-header { text-align: center; margin-bottom: 16px; }
-        .cat-filters { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
-        .cat-filter { font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; padding: 7px 16px; border-radius: var(--r-full); border: 1.5px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; transition: all 0.2s; }
-        .cat-filter:hover { border-color: var(--lime); color: var(--text); }
-        .cat-filter.active { background: var(--primary); color: #FFFFFF; border-color: var(--primary); }
-
-        .agents-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
-        .agent-card { background: var(--surface); border-radius: var(--r-xl); overflow: hidden; border: 1px solid var(--border-light); transition: transform 0.4s var(--bounce), box-shadow 0.3s; }
-        .agent-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-        .agent-card-header { height: 72px; display: flex; align-items: center; justify-content: center; font-size: 32px; }
-        .agent-card-body { padding: 18px 20px 20px; }
-        .agent-card-tier { font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 10px; border-radius: var(--r-full); display: inline-block; margin-bottom: 8px; font-weight: 600; }
-        .tier-gratis { background: rgba(11,40,255,0.15); color: #0b28ff; }
-        .tier-basico { background: rgba(96,165,250,0.15); color: #60a5fa; }
-        .tier-estandar { background: rgba(251,191,36,0.15); color: #fbbf24; }
-        .tier-avanzado { background: rgba(192,132,252,0.15); color: #c084fc; }
-        .agent-card-name { font-family: var(--display); font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 6px; letter-spacing: -0.01em; }
-        .agent-card-desc { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 14px; }
-        .agent-card-footer { display: flex; align-items: center; justify-content: space-between; }
-        .agent-card-price { font-family: var(--display); font-size: 18px; font-weight: 800; color: var(--text); }
-        .agent-card-price-free { color: #0b28ff; }
-        .agent-card-cta { font-family: var(--display); font-size: 12px; font-weight: 700; padding: 8px 16px; border-radius: var(--r-full); border: 1.5px solid var(--border); color: var(--text); background: transparent; cursor: pointer; transition: all 0.2s; }
-        .agent-card-cta:hover { background: var(--bg3); border-color: var(--lime); }
-        .agent-card-setup { display: flex; gap: 6px; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border-light); }
-        .agent-setup-opt { flex: 1; text-align: center; font-family: var(--mono); font-size: 10px; padding: 6px 4px; border-radius: var(--r-sm); background: var(--bg2); color: var(--muted); letter-spacing: 0.03em; transition: all 0.2s; cursor: pointer; text-decoration: none; display: block; }
-        .agent-setup-opt:hover { background: var(--bg3); color: var(--text); }
-        .agent-setup-opt strong { display: block; font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 1px; }
-
-        /* ── Manifesto ── */
-        .manifesto-section { padding: 96px 32px; background: var(--bg3); }
-        .manifesto-inner { max-width: 800px; margin: 0 auto; }
-        .manifesto-kicker { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--orange); margin-bottom: 20px; }
-        .manifesto-title { font-family: var(--display); font-size: clamp(30px, 4vw, 48px); font-weight: 800; color: var(--text); letter-spacing: -.03em; line-height: 1.05; margin-bottom: 28px; }
-        .manifesto-body { font-size: 17px; color: var(--muted); line-height: 1.75; font-weight: 300; }
-        .manifesto-body p + p { margin-top: 18px; }
-        .manifesto-body strong { color: var(--text); font-weight: 600; }
-
-        /* ── Guarantee ── */
-        .guarantee-section { background: var(--bg2); padding: 80px 32px; }
-        .guarantee-inner { max-width: 800px; margin: 0 auto; display: flex; gap: 48px; align-items: center; }
-        .guarantee-icon { font-size: 72px; flex-shrink: 0; }
-        .guarantee-kicker { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--lime); margin-bottom: 10px; }
-        .guarantee-title { font-family: var(--display); font-size: 30px; font-weight: 800; color: var(--text); letter-spacing: -.02em; margin-bottom: 12px; }
-        .guarantee-text { font-size: 15px; color: var(--muted); line-height: 1.7; }
-
-        /* ── FAQ ── */
-        .faq-section { padding: 80px 0; background: var(--bg); }
-        .faq-wrap { max-width: 800px; margin: 0 auto; padding: 0 32px; }
-        .faq-list { display: flex; flex-direction: column; gap: 0; margin-top: 40px; }
-        .faq-item { border-bottom: 1px solid var(--border); }
-        .faq-item:first-child { border-top: 1px solid var(--border); }
-        .faq-q { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0; font-family: var(--display); font-size: 17px; font-weight: 700; color: var(--text); cursor: pointer; list-style: none; user-select: none; }
-        .faq-q::after { content: '+'; font-family: var(--sans); font-size: 22px; font-weight: 300; color: var(--lime); flex-shrink: 0; transition: transform 0.3s var(--bounce); }
-        .faq-item.open .faq-q::after { transform: rotate(45deg); }
-        .faq-a { display: none; padding: 0 0 20px; font-size: 15px; line-height: 1.75; color: var(--muted); }
-        .faq-item.open .faq-a { display: block; }
-
-        /* ── CTA ── */
-        .cta-section { background: var(--bg2); padding: 80px 32px; }
-        .cta-banner { max-width: 1160px; margin: 0 auto; background: linear-gradient(135deg, #0b28ff 0%, #0920cc 100%); border-radius: var(--r-xl); padding: 72px 64px; text-align: center; box-shadow: 0 20px 60px rgba(11,40,255,0.28); }
-        .cta-title { font-family: var(--display); font-size: clamp(28px, 4vw, 52px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.0; color: #FFFFFF; margin-bottom: 18px; }
-        .cta-sub { font-size: 17px; color: rgba(255,255,255,0.78); max-width: 480px; margin: 0 auto 40px; }
-        .btn-cta-white { display: inline-block; font-family: var(--display); font-size: 15px; font-weight: 700; padding: 14px 36px; background: #FFFFFF; color: #0b28ff; border-radius: var(--r-full); box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: transform 0.5s var(--bounce), box-shadow 0.3s ease; }
-        .btn-cta-white:hover { transform: translateY(-3px) scale(1.05); }
-        .btn-cta-ghost { display: inline-block; font-family: var(--display); font-size: 14px; font-weight: 600; padding: 12px 28px; color: rgba(255,255,255,0.85); border: 1.5px solid rgba(255,255,255,0.3); border-radius: var(--r-full); transition: all 0.3s; margin-left: 12px; }
-        .btn-cta-ghost:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.5); }
-
-        /* ── Footer ── */
-        .new-footer { position: relative; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 3.5rem 1.5rem 5rem; background: #f8fafd; border-top: 1px solid rgba(11,40,255,0.25); }
-        .footer-accent-line { position: absolute; top: 0; left: 50%; transform: translateX(-50%) translateY(-1px); height: 1px; width: 33%; border-radius: 9999px; filter: blur(2px); background: linear-gradient(90deg, transparent, #0b28ff, transparent); }
-        .new-footer-content { width: 100%; max-width: 1160px; display: grid; gap: 2.5rem; }
-        @media (min-width: 1280px) { .new-footer-content { grid-template-columns: 1fr 2fr; gap: 3rem; } }
-        .footer-brand-col { display: flex; flex-direction: column; gap: 1rem; }
-        .footer-brand-link { display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; }
-        .footer-bot-icon { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, #0b28ff, #0920cc); flex-shrink: 0; }
-        .footer-brand-wordmark { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em; color: #1f1f23; }
-        .footer-brand-wordmark span { color: #0b28ff; }
-        .footer-brand-desc { font-size: 0.875rem; line-height: 1.6; max-width: 20rem; color: var(--muted2); }
-        .footer-brand-copy { font-size: 0.75rem; color: var(--muted2); }
-        .new-footer-links-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 1rem; }
-        @media (min-width: 768px) { .new-footer-links-grid { grid-template-columns: repeat(4, 1fr); } }
-        @media (min-width: 1280px) { .new-footer-links-grid { margin-top: 0; } }
-        .new-footer-col h3 { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted2); margin-bottom: 1rem; }
-        .new-footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.625rem; }
-        .new-footer-col a { display: inline-flex; align-items: center; gap: 6px; font-size: 0.875rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-        .new-footer-col a:hover { color: #0b28ff; }
-        .footer-social-icon { width: 16px; height: 16px; flex-shrink: 0; }
-        .footer-anim { opacity: 0; filter: blur(4px); transform: translateY(-8px); transition: opacity 0.7s ease, filter 0.7s ease, transform 0.7s ease; }
-        .footer-anim.footer-anim-in { opacity: 1; filter: blur(0); transform: translateY(0); }
-        .footer-anim:nth-child(1) { transition-delay: 0.05s; }
-        .footer-anim:nth-child(2) { transition-delay: 0.13s; }
-        .footer-anim:nth-child(3) { transition-delay: 0.21s; }
-        .footer-anim:nth-child(4) { transition-delay: 0.29s; }
-        .footer-anim:nth-child(5) { transition-delay: 0.37s; }
-
-        /* ── Responsive ── */
-        @media(max-width:900px) {
-            .tiers-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
-            .tier-card.featured { transform: none; }
-            .tier-card.featured:hover { transform: translateY(-6px); }
-            .flows-grid { grid-template-columns: 1fr; }
-            .guarantee-inner { flex-direction: column; gap: 24px; }
-            .compare-table { font-size: 13px; }
-            .compare-table th, .compare-table td { padding: 10px 8px; }
-        }
-        @media(max-width:600px) {
-            .pricing-hero { padding: 56px 20px 36px; }
-            .cta-banner { padding: 48px 24px; }
-            .manifesto-section { padding: 64px 20px; }
-            .guarantee-section { padding: 56px 20px; }
-            .btn-cta-ghost { margin-left: 0; margin-top: 12px; }
-            .hero-links { flex-direction: column; gap: 10px; }
-        }
-        .skip-link { position: absolute; top: -44px; left: 1rem; background: #0b28ff; color: #FFFFFF; padding: 8px 16px; border-radius: 0 0 8px 8px; font-weight: 700; font-size: 0.875rem; text-decoration: none; z-index: 9999; transition: top 0.2s; }
-        .skip-link:focus { top: 0; }
-
-        /* ── Focus states (a11y) ── */
-        :focus-visible {
-            outline: 2px solid var(--primary);
-            outline-offset: 3px;
-            border-radius: 4px;
-        }
+      .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+      body { min-height: max(884px, 100dvh); }
+      .faq-a { display: none; }
+      .faq-item.open .faq-a { display: block; }
+      .faq-item.open .faq-chevron { transform: rotate(180deg); }
+      /* Agent card styles (needed for JS-rendered catalog) */
+      .agent-card { background: #fff; border-radius: 0.75rem; overflow: hidden; border: 1px solid rgba(196,197,217,0.3); transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s; }
+      .agent-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+      .agent-card-header { height: 72px; display: flex; align-items: center; justify-content: center; font-size: 32px; }
+      .agent-card-body { padding: 18px 20px 20px; }
+      .agent-card-tier { font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 10px; border-radius: 9999px; display: inline-block; margin-bottom: 8px; font-weight: 600; font-family: Inter, sans-serif; }
+      .tier-gratis { background: rgba(30,71,241,0.12); color: #1e47f1; }
+      .tier-basico { background: rgba(96,165,250,0.15); color: #60a5fa; }
+      .tier-estandar { background: rgba(251,191,36,0.15); color: #d4a017; }
+      .tier-avanzado { background: rgba(192,132,252,0.15); color: #c084fc; }
+      .agent-card-name { font-family: Manrope, sans-serif; font-size: 16px; font-weight: 700; color: #151a33; margin-bottom: 6px; }
+      .agent-card-desc { font-size: 13px; color: #444656; line-height: 1.5; margin-bottom: 14px; }
+      .agent-card-footer { display: flex; align-items: center; justify-content: space-between; }
+      .agent-card-price { font-family: Manrope, sans-serif; font-size: 18px; font-weight: 800; color: #151a33; }
+      .agent-card-price-free { color: #1e47f1; }
+      .agent-card-cta { font-size: 12px; font-weight: 700; padding: 8px 16px; border-radius: 9999px; border: 1.5px solid rgba(196,197,217,0.4); color: #151a33; background: transparent; cursor: pointer; transition: all 0.2s; text-decoration: none; }
+      .agent-card-cta:hover { background: #ececff; border-color: #1e47f1; }
+      .agent-card-setup { display: flex; gap: 6px; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(196,197,217,0.2); }
+      .agent-setup-opt { flex: 1; text-align: center; font-size: 10px; padding: 6px 4px; border-radius: 0.5rem; background: #fbf8ff; color: #444656; transition: all 0.2s; cursor: pointer; text-decoration: none; display: block; }
+      .agent-setup-opt:hover { background: #ececff; color: #151a33; }
+      .agent-setup-opt strong { display: block; font-size: 12px; font-weight: 700; color: #151a33; margin-bottom: 1px; }
     </style>
-
-    <!-- JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", "name": "¿Cuál es la diferencia entre DIY, Setup Asistido y Full Service?", "acceptedAnswer": { "@type": "Answer", "text": "DIY ($19): Recibes el blueprint + guía y tú lo configuras en 15 minutos. Setup Asistido ($49): Sesión en vivo de 30 min donde nosotros configuramos mientras tú ves. Full Service ($97): Nosotros hacemos todo, tú solo conectas Gmail/Sheets con 1 clic." } },
-        { "@type": "Question", "name": "¿Los precios son de por vida?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Pagas una vez y el agente es tuyo para siempre. Sin mensualidades, sin contratos. La única suscripción separada es Make.com (desde $9/mes)." } },
-        { "@type": "Question", "name": "¿Hay garantía de devolución?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. 30 días de garantía completa. Si no estás satisfecho, te reembolsamos el 100% sin preguntas." } },
-        { "@type": "Question", "name": "¿Puedo empezar gratis?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Tenemos 8 agentes completamente gratuitos que puedes usar hoy mismo sin pagar nada." } }
-      ]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "AgentesVA, Setup Asistido",
-      "description": "Agente IA con sesión de configuración en vivo. 30 minutos. Pago único.",
-      "brand": { "@type": "Brand", "name": "AgentesVA" },
-      "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "49", "availability": "https://schema.org/InStock", "priceValidUntil": "2027-12-31" }
-    }
-    </script>
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-87SBNWCTWZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-87SBNWCTWZ');
-</script>
-<!-- Mixpanel -->
-<script type="text/javascript">
-(function(f,b){if(!b.__SV){var e,g,i,h;window.mixpanel=b;b._i=[];b.init=function(e,f,c){function g(a,d){var b=d.split(".");2==b.length&&(a=a[b[0]],d=b[1]);a[d]=function(){a.push([d].concat(Array.prototype.slice.call(arguments,0)))}}var a=b;"undefined"!==typeof c?a=b[c]=[]:c="mixpanel";a.people=a.people||[];a.toString=function(a){var d="mixpanel";"mixpanel"!==c&&(d+="."+c);a||(d+=" (stub)");return d};a.people.toString=function(){return a.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");for(h=0;h<i.length;h++)g(a,i[h]);var j="set set_once union unset remove delete".split(" ");a.get_group=function(){function b(c){d[c]=function(){call2_args=arguments;call2=[c].concat(Array.prototype.slice.call(call2_args,0));a.push([e].concat([call2]))}}for(var d={},e=["get_group"].concat(Array.prototype.slice.call(arguments,0)),c=0;c<j.length;c++)b(j[c]);return d};b._i.push([e,f,c])};b.__SV=1.2;e=f.createElement("script");e.type="text/javascript";e.async=!0;e.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===f.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";g=f.getElementsByTagName("script")[0];g.parentNode.insertBefore(e,g)}})(document,window.mixpanel||[]);
-</script>
-<script>
-  mixpanel.init('8fa5118db89d01d0316661d3b0adcc39', {api_host: 'https://api-eu.mixpanel.com'});
-  mixpanel.track('page_viewed', { page: window.location.pathname });
-</script>
-
 </head>
-<body class="banner-visible">
-<a href="#main-content" class="skip-link">Saltar al contenido</a>
 
-<!-- ===================== FLASH BANNER ===================== -->
-<div id="flash-banner">
-    <div class="banner-content">
-        <span class="banner-dot"></span>
-        <span class="banner-text">
-            <span style="color:#1f1f23;font-weight:700;">PRECIO LANZAMIENTO</span>
-            <span class="banner-text-full"> &middot; Agentes desde $29 &middot; Sin mensualidad &middot; Termina en </span>
-            <span class="banner-text-short" style="color:rgba(187,203,187,0.6);"> &middot; Oferta limitada</span>
-        </span>
-        <span id="flash-timer" class="banner-timer">03:00:00</span>
-        <a href="/catalogo/" class="banner-cta-desktop">Empezar ahora &rarr;</a>
-    </div>
-    <button id="banner-close" class="banner-close" aria-label="Cerrar banner">&times;</button>
-</div>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
 
-<!-- ==================== NAV ==================== -->
-<nav>
-    <div class="nav-inner">
-        <a href="/" class="nav-logo display">Agentes<span>VA</span></a>
-        <div class="nav-pill-container" id="nav-pill">
-            <div class="nav-pill-cursor" id="nav-pill-cursor"></div>
-            <a href="/catalogo/" class="nav-pill-tab">Agentes IA</a>
-            <a href="/servicios/" class="nav-pill-tab">Servicios</a>
-            <a href="/precios/" class="nav-pill-tab">Setup &amp; Precios</a>
-            <a href="/faq/" class="nav-pill-tab">FAQ</a>
+<!-- Top Nav -->
+<nav class="fixed top-0 w-full z-50 bg-surface-container-low/80 backdrop-blur-md">
+    <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto w-full">
+        <div class="flex items-center gap-3">
+            <a href="/" class="text-xl font-extrabold text-on-surface font-headline tracking-tight">Agentes<span class="text-primary-container">VA</span></a>
         </div>
-        <a href="/catalogo/" class="nav-cta">Empezar ahora &rarr;</a>
+        <nav class="hidden md:flex items-center gap-1">
+            <a href="/catalogo/" class="px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-primary-container hover:bg-surface-container rounded-full transition-colors">Agentes IA</a>
+            <a href="/servicios/" class="px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-primary-container hover:bg-surface-container rounded-full transition-colors">Servicios</a>
+            <a href="/precios/" class="px-4 py-2 text-sm font-medium text-primary-container bg-surface-container rounded-full transition-colors font-bold">Setup &amp; Precios</a>
+            <a href="/faq/" class="px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-primary-container hover:bg-surface-container rounded-full transition-colors">FAQ</a>
+        </nav>
+        <a href="/catalogo/" class="hidden md:inline-flex px-5 py-2.5 bg-gradient-to-r from-primary to-primary-container text-on-primary text-sm font-bold rounded-full shadow-lg hover:shadow-xl transition-all active:scale-95">Empezar ahora &rarr;</a>
     </div>
+    <div class="h-px w-full bg-gradient-to-r from-transparent via-outline-variant/15 to-transparent"></div>
 </nav>
 
-<!-- ==================== HERO ==================== -->
-<div class="pricing-hero">
-    <div class="pricing-hero-inner">
-        <div class="hero-kicker">BLUEPRINTS INDIVIDUALES</div>
-        <h1 class="hero-headline display">
-            Blueprints listos para importar — para quienes ya usan Make.com.
-        </h1>
-        <p class="hero-sub">
-            Ya conoces Make.com y solo necesitas el archivo. Descarga, importa y activa en 15 minutos.
-        </p>
-        <div class="hero-value-props">
-            <div class="hero-value-prop">
-                <span class="check">&check;</span>
-                <span class="price-tag">$19</span>
-                Empieza hoy (hazlo tú mismo)
+<!-- Main Content -->
+<main class="pt-24 pb-12 px-5 max-w-4xl mx-auto space-y-10">
+
+    <!-- Header -->
+    <header class="text-center space-y-3">
+        <span class="inline-block px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-semibold tracking-wide uppercase">BLUEPRINTS INDIVIDUALES</span>
+        <h1 class="font-headline font-extrabold text-3xl md:text-4xl text-on-surface leading-tight">Blueprints listos para importar &mdash; para quienes ya usan Make.com.</h1>
+        <p class="text-on-surface-variant text-base max-w-xl mx-auto">Ya conoces Make.com y solo necesitas el archivo. Descarga, importa y activa en 15 minutos.</p>
+        <div class="flex flex-col items-center gap-2 pt-2">
+            <div class="flex items-center gap-2 text-sm text-on-surface">
+                <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                <span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary text-xs font-bold">$19</span>
+                Empieza hoy (hazlo t&uacute; mismo)
             </div>
-            <div class="hero-value-prop">
-                <span class="check">&check;</span>
-                <span class="price-tag">$49</span>
+            <div class="flex items-center gap-2 text-sm text-on-surface">
+                <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                <span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary text-xs font-bold">$49</span>
                 Implementaci&oacute;n profesional (Asistido)
             </div>
-            <div class="hero-value-prop">
-                <span class="check">&check;</span>
-                <span class="price-tag">$97</span>
+            <div class="flex items-center gap-2 text-sm text-on-surface">
+                <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                <span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary text-xs font-bold">$97</span>
                 Listo en 24h (Full Service)
             </div>
         </div>
-        <div class="hero-links">
-            <a href="#tiers" class="btn-hero-primary">Ver opciones de setup</a>
-            <a href="#agentes" class="btn-hero-ghost">Ver agentes gratis</a>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
+            <a href="#tiers" class="px-8 py-3 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold rounded-full shadow-lg active:scale-95 transition-all">Ver opciones de setup</a>
+            <a href="#agentes" class="px-8 py-3 border border-outline-variant text-primary font-bold rounded-full hover:bg-surface-container transition-colors">Ver agentes gratis</a>
         </div>
-        <p style="margin-top:20px;font-size:0.85rem;color:var(--muted);">
-            ¿Prefieres que te ayudemos a configurarlo?
-            <a href="/catalogo/#setup" style="color:var(--primary);font-weight:600;">Ver planes con setup incluido &rarr;</a>
-        </p>
-    </div>
-</div>
+    </header>
 
-<!-- ==================== 3 TIER CARDS ==================== -->
-<section class="tiers-section" id="tiers">
-    <div class="tiers-inner">
-        <div class="tiers-header">
-            <div class="section-kicker">Precios por agente</div>
-            <h2 class="section-title display">&iquest;C&oacute;mo quieres configurarlo?</h2>
-            <p class="section-sub">Cada agente tiene 3 opciones de setup. T&uacute; eliges cu&aacute;nta ayuda quieres.</p>
+    <!-- ==================== PRICING TIERS ==================== -->
+    <section class="space-y-6" id="tiers">
+        <div class="text-center space-y-2">
+            <span class="text-primary font-bold uppercase tracking-widest text-xs">Precios por agente</span>
+            <h2 class="font-headline font-extrabold text-2xl text-on-surface">&iquest;C&oacute;mo quieres configurarlo?</h2>
+            <p class="text-on-surface-variant text-sm">Cada agente tiene 3 opciones de setup. T&uacute; eliges cu&aacute;nta ayuda quieres.</p>
         </div>
 
-        <div class="tiers-grid">
-
-            <!-- hazlo tú mismo -->
-            <div class="tier-card">
-                <div class="tier-icon">&#x1F6E0;&#xFE0F;</div>
-                <div class="tier-tag">Para quien aprende haciendo</div>
-                <div class="tier-name display">Hazlo tú mismo</div>
-                <div class="tier-for">Para quien quiere hacerlo por su cuenta</div>
-                <div class="tier-price-row">
-                    <div class="tier-price display">$19</div>
+        <!-- Essentials $19 -->
+        <div class="bg-surface-container-lowest p-6 rounded-xl space-y-4 shadow-[0_12px_32px_-4px_rgba(21,26,51,0.08)]">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="font-headline font-bold text-xl">&#x1F6E0;&#xFE0F; Hazlo t&uacute; mismo</h3>
+                    <p class="text-on-surface-variant text-sm">Para quien aprende haciendo</p>
                 </div>
-                <div class="tier-period">pago &uacute;nico por agente</div>
-                <ul class="tier-features">
-                    <li>Plantilla de automatizaci&oacute;n lista para importar (1 click)</li>
-                    <li>Hoja de c&aacute;lculo pre-configurada</li>
-                    <li>Video tutorial paso a paso (3 min)</li>
-                    <li>Gu&iacute;a visual con capturas de pantalla</li>
-                    <li>Soporte por email si te trabas</li>
-                </ul>
-                <div class="tier-meta">
-                    <div class="tier-meta-item"><span class="tier-meta-icon">&#x23F1;&#xFE0F;</span> 15 min setup</div>
-                    <div class="tier-meta-item"><span class="tier-meta-icon">&#x1F464;</span> T&uacute; configuras</div>
+                <div class="bg-surface-container-low px-3 py-1 rounded-lg">
+                    <span class="text-2xl font-extrabold font-headline text-primary">$19</span>
+                    <span class="text-xs text-on-surface-variant font-medium">/&uacute;nico</span>
                 </div>
-                <a href="https://buy.stripe.com/cNi14ngtc171gN00TEfn000" target="_blank" rel="noopener" class="tier-cta tier-cta-default">Empezar por $19</a>
-                <div class="tier-copy">La forma m&aacute;s r&aacute;pida de tener tu primer agente activo hoy. No necesitas saber programar.</div>
             </div>
-
-            <!-- SETUP ASISTIDO (FEATURED) -->
-            <div class="tier-card featured">
-                <span class="tier-badge badge-popular">M&Aacute;S ELEGIDO</span>
-                <div class="tier-icon">&#x1F4BB;</div>
-                <div class="tier-tag">Para quien quiere aprender mientras lo hacen por ti</div>
-                <div class="tier-name display">Setup Asistido</div>
-                <div class="tier-for">Sesi&oacute;n en vivo. Nosotros configuramos, t&uacute; aprendes.</div>
-                <div class="tier-price-row">
-                    <div class="tier-price display">$49</div>
-                </div>
-                <div class="tier-period">pago &uacute;nico por agente</div>
-                <ul class="tier-features">
-                    <li>Sesi&oacute;n en vivo 30 min (Google Meet)</li>
-                    <li>Setup profesional + explicaci&oacute;n</li>
-                    <li>Grabaci&oacute;n de la sesi&oacute;n</li>
-                    <li>Soporte 7 d&iacute;as post-setup</li>
-                    <li>Google Sheets personalizado</li>
-                </ul>
-                <div class="tier-meta">
-                    <div class="tier-meta-item"><span class="tier-meta-icon">&#x23F1;&#xFE0F;</span> 30 min (en call)</div>
-                    <div class="tier-meta-item"><span class="tier-meta-icon">&#x1F464;</span> Nosotros configuramos</div>
-                </div>
-                <a href="https://buy.stripe.com/5kQbJ1b8S4jd8gu59Ufn001" target="_blank" rel="noopener" class="tier-cta tier-cta-featured">Reservar sesi&oacute;n por $49</a>
-                <div style="text-align:center;margin-top:8px;"><a href="https://calendly.com/agentesva-info/30min" target="_blank" rel="noopener" style="font-size:0.78rem;color:#FFFFFF;text-decoration:underline;">Ver disponibilidad de horarios →</a></div>
-                <div class="tier-copy">Incluye acceso al calendario. Elige el horario que te conviene.</div>
+            <ul class="space-y-3 pt-2">
+                <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Plantilla lista para importar (1 click)</li>
+                <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Hoja de c&aacute;lculo pre-configurada</li>
+                <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Video tutorial paso a paso (3 min)</li>
+                <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Gu&iacute;a visual con capturas de pantalla</li>
+                <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Soporte por email si te trabas</li>
+            </ul>
+            <div class="flex gap-4 pt-2 text-xs text-on-surface-variant">
+                <span>&#x23F1;&#xFE0F; 15 min setup</span>
+                <span>&#x1F464; T&uacute; configuras</span>
             </div>
+            <a href="https://buy.stripe.com/cNi14ngtc171gN00TEfn000" target="_blank" rel="noopener" class="block w-full py-3 bg-surface-container-highest text-primary font-bold rounded-xl text-center active:scale-95 transition-all">Empezar por $19</a>
+            <p class="text-xs text-center text-on-surface-variant">La forma m&aacute;s r&aacute;pida de tener tu primer agente activo hoy.</p>
+        </div>
 
-            <!-- FULL SERVICE -->
-            <div class="tier-card">
-                <span class="tier-badge badge-premium">ZERO FRICTION</span>
-                <div class="tier-icon">&#x1F680;</div>
-                <div class="tier-tag">Para quien quiere el resultado sin el proceso</div>
-                <div class="tier-name display">Full Service</div>
-                <div class="tier-for">Tu agente listo en 24 horas. T&uacute; haces cero.</div>
-                <div class="tier-price-row">
-                    <div class="tier-price display">$97</div>
+        <!-- Growth $49 (Highlighted) -->
+        <div class="relative bg-gradient-to-br from-primary to-primary-container p-7 rounded-xl space-y-4 shadow-xl">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-tertiary-container text-white px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-[0.1em]">M&Aacute;S ELEGIDO</div>
+            <div class="flex justify-between items-start text-on-primary">
+                <div>
+                    <h3 class="font-headline font-bold text-2xl">&#x1F4BB; Setup Asistido</h3>
+                    <p class="text-on-primary-container text-sm opacity-90">Sesi&oacute;n en vivo. Nosotros configuramos, t&uacute; aprendes.</p>
                 </div>
-                <div class="tier-period">pago &uacute;nico por agente</div>
-                <ul class="tier-features">
-                    <li>Setup 100% por nuestro equipo</li>
-                    <li>Entrega garantizada en 24 horas</li>
-                    <li>Dashboard de resultados incluido</li>
-                    <li>Plug &amp; play, m&iacute;nima intervenci&oacute;n tuya</li>
-                    <li>Soporte 30 d&iacute;as incluido</li>
-                </ul>
-                <div class="tier-meta">
-                    <div class="tier-meta-item"><span class="tier-meta-icon">&#x23F1;&#xFE0F;</span> 0 min (t&uacute; haces 0)</div>
-                    <div class="tier-meta-item"><span class="tier-meta-icon">&#x1F464;</span> Nosotros hacemos todo</div>
+                <div class="bg-white/10 backdrop-blur-sm px-3 py-1 rounded-lg">
+                    <span class="text-3xl font-extrabold font-headline">$49</span>
+                    <span class="text-xs opacity-80 font-medium">/&uacute;nico</span>
                 </div>
-                <a href="https://buy.stripe.com/8x27sLccW17100231MfnO02" target="_blank" rel="noopener" class="tier-cta tier-cta-default">Quiero Full Service por $97</a>
-                <div style="text-align:center;margin-top:8px;"><a href="https://calendly.com/agentesva-info/full-service-consultoria-30-min" target="_blank" rel="noopener" style="font-size:0.78rem;color:var(--muted);text-decoration:underline;">¿Tienes dudas? Agenda una consulta gratis →</a></div>
-                <div class="tier-copy">Limitado a 10 clientes por semana para garantizar calidad.</div>
             </div>
-
-        </div>
-        <p style="text-align:center;margin-top:24px;font-size:0.8rem;color:var(--muted);line-height:1.5;">
-            * Para ejecutar los agentes necesitas Make.com activo (desde $9/mes). Total desde $28 el primer mes (agente $19 + Make.com $9).<br>
-            El plan gratuito de Make.com no incluye webhooks — recomendamos el plan Core.
-        </p>
-    </div>
-</section>
-
-<!-- ==================== COMPARISON TABLE ==================== -->
-<section class="compare-section" id="comparar">
-    <div class="compare-inner">
-        <div style="text-align:center;">
-            <div class="section-kicker">Comparativa</div>
-            <h2 class="section-title display">Compara las 3 opciones.</h2>
-        </div>
-        <table class="compare-table">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>hazlo tú mismo<br><span class="compare-price">$19</span></th>
-                    <th class="col-featured">Asistido<br><span class="compare-price compare-price-featured">$49</span></th>
-                    <th>Full Service<br><span class="compare-price">$97</span></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Tiempo de setup</td>
-                    <td><span class="compare-val">15 min</span></td>
-                    <td><span class="compare-val">30 min (sesi&oacute;n)</span></td>
-                    <td><span class="compare-val">0 min</span></td>
-                </tr>
-                <tr>
-                    <td>Complejidad</td>
-                    <td><span class="compare-val">Baja</span></td>
-                    <td><span class="compare-val">Ninguna</span></td>
-                    <td><span class="compare-val">Ninguna</span></td>
-                </tr>
-                <tr>
-                    <td>Soporte</td>
-                    <td>Email</td>
-                    <td>Email + Call</td>
-                    <td>30 d&iacute;as + call</td>
-                </tr>
-                <tr>
-                    <td>Mejor para</td>
-                    <td>Tech-savvy</td>
-                    <td><strong>Mayor&iacute;a</strong></td>
-                    <td>Premium / ocupados</td>
-                </tr>
-                <tr>
-                    <td>Entrega</td>
-                    <td>Autom&aacute;tica</td>
-                    <td>En 24h</td>
-                    <td>Mismo d&iacute;a</td>
-                </tr>
-                <tr>
-                    <td>Mejor si&hellip;</td>
-                    <td>Sabes Make.com</td>
-                    <td><strong>Quieres ayuda</strong></td>
-                    <td>No tienes tiempo</td>
-                </tr>
-                <tr>
-                    <td>Flujo .json</td>
-                    <td><span class="compare-check">&check;</span></td>
-                    <td><span class="compare-check">&check;</span></td>
-                    <td><span class="compare-check">&check;</span></td>
-                </tr>
-                <tr>
-                    <td>Sesi&oacute;n en vivo</td>
-                    <td><span class="compare-x">&mdash;</span></td>
-                    <td><span class="compare-check">&check;</span></td>
-                    <td><span class="compare-check">&check;</span></td>
-                </tr>
-                <tr>
-                    <td>Configuraci&oacute;n por nosotros</td>
-                    <td><span class="compare-x">&mdash;</span></td>
-                    <td><span class="compare-check">&check;</span></td>
-                    <td><span class="compare-check">&check;</span></td>
-                </tr>
-                <tr>
-                    <td>Dashboard + reportes</td>
-                    <td><span class="compare-x">&mdash;</span></td>
-                    <td><span class="compare-x">&mdash;</span></td>
-                    <td><span class="compare-check">&check;</span></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</section>
-
-<!-- ==================== HOW IT WORKS BY TIER ==================== -->
-<section class="flows-section" id="como-funciona">
-    <div class="flows-inner">
-        <div class="flows-header">
-            <div class="section-kicker">Paso a paso</div>
-            <h2 class="section-title display">As&iacute; funciona cada opci&oacute;n.</h2>
-            <p class="section-sub">El mismo resultado. Diferente nivel de ayuda.</p>
+            <ul class="space-y-3 pt-2 text-on-primary">
+                <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-on-primary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span> Sesi&oacute;n en vivo 30 min (Google Meet)</li>
+                <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-on-primary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span> Setup profesional + explicaci&oacute;n</li>
+                <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-on-primary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span> Grabaci&oacute;n de la sesi&oacute;n</li>
+                <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-on-primary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span> Soporte 7 d&iacute;as post-setup</li>
+                <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-on-primary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span> Google Sheets personalizado</li>
+            </ul>
+            <div class="flex gap-4 pt-2 text-xs text-white/60">
+                <span>&#x23F1;&#xFE0F; 30 min (en call)</span>
+                <span>&#x1F464; Nosotros configuramos</span>
+            </div>
+            <a href="https://buy.stripe.com/5kQbJ1b8S4jd8gu59Ufn001" target="_blank" rel="noopener" class="block w-full py-4 bg-white text-primary font-black rounded-xl text-center active:scale-95 transition-all shadow-lg">Reservar sesi&oacute;n por $49</a>
+            <div class="text-center">
+                <a href="https://calendly.com/agentesva-info/30min" target="_blank" rel="noopener" class="text-xs text-white/80 underline">Ver disponibilidad de horarios &rarr;</a>
+            </div>
         </div>
 
-        <div class="flows-grid">
-            <!-- hazlo tú mismo Flow -->
-            <div class="flow-card">
-                <div class="flow-card-title display">Hazlo tú mismo ($19)</div>
-                <div class="flow-card-price">PARA QUIEN QUIERE HACERLO SOLO</div>
-                <ol class="flow-steps">
+        <!-- Elite $97 -->
+        <div class="bg-surface-container-lowest p-6 rounded-xl space-y-4 shadow-[0_12px_32px_-4px_rgba(21,26,51,0.08)]">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="font-headline font-bold text-xl">&#x1F680; Full Service</h3>
+                    <p class="text-on-surface-variant text-sm">Tu agente listo en 24 horas. T&uacute; haces cero.</p>
+                </div>
+                <div class="bg-surface-container-low px-3 py-1 rounded-lg">
+                    <span class="text-2xl font-extrabold font-headline text-primary">$97</span>
+                    <span class="text-xs text-on-surface-variant font-medium">/&uacute;nico</span>
+                </div>
+            </div>
+            <ul class="space-y-3 pt-2">
+                <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Setup 100% por nuestro equipo</li>
+                <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Entrega garantizada en 24 horas</li>
+                <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Dashboard de resultados incluido</li>
+                <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Plug &amp; play, m&iacute;nima intervenci&oacute;n tuya</li>
+                <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Soporte 30 d&iacute;as incluido</li>
+            </ul>
+            <div class="flex gap-4 pt-2 text-xs text-on-surface-variant">
+                <span>&#x23F1;&#xFE0F; 0 min (t&uacute; haces 0)</span>
+                <span>&#x1F464; Nosotros hacemos todo</span>
+            </div>
+            <a href="https://buy.stripe.com/8x27sLccW17100231MfnO02" target="_blank" rel="noopener" class="block w-full py-3 bg-surface-container-highest text-primary font-bold rounded-xl text-center active:scale-95 transition-all">Quiero Full Service por $97</a>
+            <div class="text-center">
+                <a href="https://calendly.com/agentesva-info/full-service-consultoria-30-min" target="_blank" rel="noopener" class="text-xs text-on-surface-variant underline">&iquest;Tienes dudas? Agenda una consulta gratis &rarr;</a>
+            </div>
+        </div>
+
+        <p class="text-center text-xs text-on-surface-variant">* Para ejecutar los agentes necesitas Make.com activo (desde $9/mes). Total desde $28 el primer mes.</p>
+    </section>
+
+    <!-- ==================== COMPARISON TABLE ==================== -->
+    <section class="py-8" id="comparar">
+        <div class="text-center space-y-2 mb-6">
+            <span class="text-primary font-bold uppercase tracking-widest text-xs">Comparativa</span>
+            <h2 class="font-headline font-extrabold text-2xl text-on-surface">Compara las 3 opciones.</h2>
+        </div>
+        <div class="overflow-x-auto rounded-2xl border border-outline-variant/20">
+            <table class="w-full text-sm">
+                <thead class="bg-surface-container-high">
+                    <tr>
+                        <th class="text-left p-4 font-headline font-bold"></th>
+                        <th class="p-4 font-headline font-bold text-center">hazlo t&uacute; mismo<br><span class="text-primary text-lg">$19</span></th>
+                        <th class="p-4 font-headline font-bold text-center text-primary-container">Asistido<br><span class="text-primary-container text-lg">$49</span></th>
+                        <th class="p-4 font-headline font-bold text-center">Full Service<br><span class="text-primary text-lg">$97</span></th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-outline-variant/10">
+                    <tr class="hover:bg-surface-container-low"><td class="p-4 font-semibold">Tiempo de setup</td><td class="p-4 text-center">15 min</td><td class="p-4 text-center font-semibold">30 min (sesi&oacute;n)</td><td class="p-4 text-center">0 min</td></tr>
+                    <tr class="hover:bg-surface-container-low"><td class="p-4 font-semibold">Complejidad</td><td class="p-4 text-center">Baja</td><td class="p-4 text-center font-semibold">Ninguna</td><td class="p-4 text-center">Ninguna</td></tr>
+                    <tr class="hover:bg-surface-container-low"><td class="p-4 font-semibold">Soporte</td><td class="p-4 text-center">Email</td><td class="p-4 text-center">Email + Call</td><td class="p-4 text-center">30 d&iacute;as + call</td></tr>
+                    <tr class="hover:bg-surface-container-low"><td class="p-4 font-semibold">Mejor para</td><td class="p-4 text-center">Tech-savvy</td><td class="p-4 text-center font-bold text-primary-container">Mayor&iacute;a</td><td class="p-4 text-center">Premium / ocupados</td></tr>
+                    <tr class="hover:bg-surface-container-low"><td class="p-4 font-semibold">Flujo .json</td><td class="p-4 text-center text-primary">&#x2713;</td><td class="p-4 text-center text-primary">&#x2713;</td><td class="p-4 text-center text-primary">&#x2713;</td></tr>
+                    <tr class="hover:bg-surface-container-low"><td class="p-4 font-semibold">Sesi&oacute;n en vivo</td><td class="p-4 text-center text-outline-variant">&mdash;</td><td class="p-4 text-center text-primary">&#x2713;</td><td class="p-4 text-center text-primary">&#x2713;</td></tr>
+                    <tr class="hover:bg-surface-container-low"><td class="p-4 font-semibold">Configuraci&oacute;n por nosotros</td><td class="p-4 text-center text-outline-variant">&mdash;</td><td class="p-4 text-center text-primary">&#x2713;</td><td class="p-4 text-center text-primary">&#x2713;</td></tr>
+                    <tr class="hover:bg-surface-container-low"><td class="p-4 font-semibold">Dashboard + reportes</td><td class="p-4 text-center text-outline-variant">&mdash;</td><td class="p-4 text-center text-outline-variant">&mdash;</td><td class="p-4 text-center text-primary">&#x2713;</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ==================== HOW IT WORKS BY TIER ==================== -->
+    <section class="py-8" id="como-funciona">
+        <div class="text-center space-y-2 mb-8">
+            <span class="text-primary font-bold uppercase tracking-widest text-xs">Paso a paso</span>
+            <h2 class="font-headline font-extrabold text-2xl text-on-surface">As&iacute; funciona cada opci&oacute;n.</h2>
+            <p class="text-on-surface-variant text-sm">El mismo resultado. Diferente nivel de ayuda.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant/20 space-y-4">
+                <h3 class="font-headline font-bold text-on-surface">Hazlo t&uacute; mismo ($19)</h3>
+                <p class="text-xs text-primary uppercase font-bold tracking-wider">PARA QUIEN QUIERE HACERLO SOLO</p>
+                <ol class="space-y-2 list-decimal list-inside text-sm text-on-surface-variant">
                     <li>Compra el agente ($19)</li>
-                    <li>Descarga flujo automatizado + gu&iacute;a (PDF + video 3 min)</li>
-                    <li>Importa en Make.com (5 minutos)</li>
-                    <li>Conecta Gmail/Sheets (OAuth, 2 minutos)</li>
+                    <li>Descarga flujo + gu&iacute;a (PDF + video 3 min)</li>
+                    <li>Importa en Make.com (5 min)</li>
+                    <li>Conecta Gmail/Sheets (2 min)</li>
                     <li>Listo. Funciona.</li>
                 </ol>
-                <div class="flow-meta">
-                    <div class="flow-meta-item">&#x23F1;&#xFE0F; Total: 15 min</div>
-                    <div class="flow-meta-item">&#x1F4D6; Docs + email</div>
+                <div class="flex gap-3 pt-2 text-xs text-on-surface-variant border-t border-outline-variant/10">
+                    <span>&#x23F1;&#xFE0F; 15 min</span>
+                    <span>&#x1F4D6; Docs + email</span>
                 </div>
             </div>
-
-            <!-- Asistido Flow -->
-            <div class="flow-card" style="border-color:var(--lime);border-width:2px;">
-                <div class="flow-card-title display">Setup Asistido ($49) &#x2B50;</div>
-                <div class="flow-card-price">RECOMENDADO &middot; 7 DE 10 ELIGEN ESTA</div>
-                <ol class="flow-steps">
+            <div class="bg-surface-container-lowest p-5 rounded-2xl border-2 border-primary-container space-y-4">
+                <h3 class="font-headline font-bold text-on-surface">Setup Asistido ($49) &#x2B50;</h3>
+                <p class="text-xs text-primary uppercase font-bold tracking-wider">RECOMENDADO &middot; 7 DE 10 ELIGEN ESTA</p>
+                <ol class="space-y-2 list-decimal list-inside text-sm text-on-surface-variant">
                     <li>Compra el agente ($49)</li>
-                    <li>Recibe link de agenda — <a href="https://calendly.com/agentesva-info/30min" target="_blank" rel="noopener" style="color:var(--primary)">ver disponibilidad →</a></li>
-                    <li>Reserva sesi&oacute;n de 30 min (zona horaria detectada automáticamente)</li>
+                    <li>Recibe link de agenda</li>
+                    <li>Reserva sesi&oacute;n de 30 min</li>
                     <li>Yo configuro EN VIVO mientras ves</li>
                     <li>&iquest;Preguntas? Las resolvemos en el call</li>
                     <li>Listo. Funciona. Con soporte post-setup.</li>
                 </ol>
-                <div class="flow-meta">
-                    <div class="flow-meta-item">&#x23F1;&#xFE0F; Total: 30 min</div>
-                    <div class="flow-meta-item">&#x1F4D6; Setup + video + 7 d&iacute;as</div>
+                <div class="flex gap-3 pt-2 text-xs text-on-surface-variant border-t border-outline-variant/10">
+                    <span>&#x23F1;&#xFE0F; 30 min</span>
+                    <span>&#x1F4D6; Setup + video + 7 d&iacute;as</span>
                 </div>
             </div>
-
-            <!-- Full Service Flow -->
-            <div class="flow-card">
-                <div class="flow-card-title display">Full Service ($97) &#x1F680;</div>
-                <div class="flow-card-price">PARA QUIEN NO TIENE TIEMPO</div>
-                <ol class="flow-steps">
+            <div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant/20 space-y-4">
+                <h3 class="font-headline font-bold text-on-surface">Full Service ($97) &#x1F680;</h3>
+                <p class="text-xs text-primary uppercase font-bold tracking-wider">PARA QUIEN NO TIENE TIEMPO</p>
+                <ol class="space-y-2 list-decimal list-inside text-sm text-on-surface-variant">
                     <li>Compra el agente ($97)</li>
-                    <li>Env&iacute;as credenciales (Gmail, Sheets, etc.)</li>
+                    <li>Env&iacute;as credenciales</li>
                     <li>Nosotros configuramos TODO</li>
                     <li>Recibes email: &ldquo;Tu agente est&aacute; listo&rdquo;</li>
-                    <li>Solo conectas Gmail/Sheets (1 clic cada una)</li>
-                    <li>Listo. Funciona. Sin tocar nada t&eacute;cnico.</li>
+                    <li>Conectas Gmail/Sheets (1 clic)</li>
+                    <li>Listo. Sin tocar nada t&eacute;cnico.</li>
                 </ol>
-                <div class="flow-meta">
-                    <div class="flow-meta-item">&#x23F1;&#xFE0F; Total: 0 min</div>
-                    <div class="flow-meta-item">&#x1F4D6; Setup + dashboard + 30 d&iacute;as</div>
+                <div class="flex gap-3 pt-2 text-xs text-on-surface-variant border-t border-outline-variant/10">
+                    <span>&#x23F1;&#xFE0F; 0 min</span>
+                    <span>&#x1F4D6; Setup + dashboard + 30 d&iacute;as</span>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ==================== A-LA-CARTE AGENTS ==================== -->
-<section class="alacarte-section" id="agentes">
-    <div class="alacarte-inner">
-        <div class="alacarte-header">
-            <div class="section-kicker">Cat&aacute;logo de agentes</div>
-            <h2 class="section-title display">42 agentes. T&uacute; eliges cu&aacute;l.</h2>
-            <p class="section-sub">Cada agente tiene las 3 opciones de setup: hazlo tú mismo ($19), Asistido ($49), Full Service ($97).</p>
+    <!-- ==================== AGENT CATALOG ==================== -->
+    <section class="py-8" id="agentes">
+        <div class="text-center space-y-2 mb-6">
+            <span class="text-primary font-bold uppercase tracking-widest text-xs">Cat&aacute;logo de agentes</span>
+            <h2 class="font-headline font-extrabold text-2xl text-on-surface">42 agentes. T&uacute; eliges cu&aacute;l.</h2>
+            <p class="text-on-surface-variant text-sm">Cada agente tiene las 3 opciones de setup: hazlo tú mismo ($19), Asistido ($49), Full Service ($97).</p>
         </div>
-
-        <div class="cat-filters">
-            <button class="cat-filter active" data-cat="all">Todos (42)</button>
-            <button class="cat-filter" data-cat="empezar">Para empezar (8)</button>
-            <button class="cat-filter" data-cat="vender">Para vender m&aacute;s (14)</button>
-            <button class="cat-filter" data-cat="operar">Para operar mejor (12)</button>
-            <button class="cat-filter" data-cat="escalar">Para escalar (8)</button>
+        <div class="flex items-center justify-center gap-2 flex-wrap mb-6">
+            <button class="cat-filter px-4 py-2 rounded-full text-xs uppercase tracking-wider font-bold border border-outline-variant/30 bg-primary-container text-on-primary transition-colors active" data-cat="all">Todos (42)</button>
+            <button class="cat-filter px-4 py-2 rounded-full text-xs uppercase tracking-wider font-semibold border border-outline-variant/30 text-on-surface-variant hover:border-primary-container hover:text-primary transition-colors" data-cat="empezar">Para empezar (8)</button>
+            <button class="cat-filter px-4 py-2 rounded-full text-xs uppercase tracking-wider font-semibold border border-outline-variant/30 text-on-surface-variant hover:border-primary-container hover:text-primary transition-colors" data-cat="vender">Para vender m&aacute;s (14)</button>
+            <button class="cat-filter px-4 py-2 rounded-full text-xs uppercase tracking-wider font-semibold border border-outline-variant/30 text-on-surface-variant hover:border-primary-container hover:text-primary transition-colors" data-cat="operar">Para operar mejor (12)</button>
+            <button class="cat-filter px-4 py-2 rounded-full text-xs uppercase tracking-wider font-semibold border border-outline-variant/30 text-on-surface-variant hover:border-primary-container hover:text-primary transition-colors" data-cat="escalar">Para escalar (8)</button>
         </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="agents-grid"></div>
+    </section>
 
-        <div class="agents-grid" id="agents-grid"></div>
-    </div>
-</section>
-
-<!-- ==================== MANIFESTO ==================== -->
-<div class="manifesto-section">
-    <div class="manifesto-inner">
-        <div class="manifesto-kicker">El Manifiesto</div>
-        <h2 class="manifesto-title display">Automatizaci&oacute;n accesible.<br>Para todos.</h2>
-        <div class="manifesto-body">
+    <!-- ==================== MANIFESTO ==================== -->
+    <section class="py-8 bg-surface-container-high rounded-3xl p-8 md:p-12">
+        <span class="text-primary font-bold uppercase tracking-widest text-xs">El Manifiesto</span>
+        <h2 class="font-headline font-extrabold text-2xl md:text-3xl text-on-surface mt-3 mb-6">Automatizaci&oacute;n accesible. Para todos.</h2>
+        <div class="space-y-4 text-on-surface-variant leading-relaxed">
             <p>En AgentesVA creemos que la automatizaci&oacute;n no deber&iacute;a ser solo para empresas con presupuestos grandes o equipos t&eacute;cnicos. Deber&iacute;a ser tan simple como elegir un agente, decidir cu&aacute;nta ayuda necesitas, y activarlo.</p>
-            <p><strong>Por eso ofrecemos 3 caminos:</strong> hazlo t&uacute; por $19 si eres tech-savvy, hazlo con nosotros por $49 si quieres ayuda profesional, o d&eacute;janos hacerlo todo por $97 si tu tiempo vale m&aacute;s.</p>
-            <p>Pago &uacute;nico. Sin mensualidades. Sin contratos. <strong>El agente es tuyo para siempre.</strong></p>
+            <p><strong class="text-on-surface">Por eso ofrecemos 3 caminos:</strong> hazlo t&uacute; por $19 si eres tech-savvy, hazlo con nosotros por $49 si quieres ayuda profesional, o d&eacute;janos hacerlo todo por $97 si tu tiempo vale m&aacute;s.</p>
+            <p>Pago &uacute;nico. Sin mensualidades. Sin contratos. <strong class="text-on-surface">El agente es tuyo para siempre.</strong></p>
         </div>
-    </div>
-</div>
+    </section>
 
-<!-- ==================== GUARANTEE ==================== -->
-<div class="guarantee-section">
-    <div class="guarantee-inner">
-        <div class="guarantee-icon">&#x1F6E1;&#xFE0F;</div>
-        <div>
-            <div class="guarantee-kicker">Protocolo de Satisfacci&oacute;n</div>
-            <h2 class="guarantee-title display">Garant&iacute;a de 30 D&iacute;as</h2>
-            <p class="guarantee-text">Si por cualquier raz&oacute;n no est&aacute;s satisfecho con tu compra, te devolvemos el 100% de tu dinero en los primeros 30 d&iacute;as, sin preguntas, sin formularios interminables, sin peleas. As&iacute; de simple.</p>
+    <!-- ==================== GUARANTEE ==================== -->
+    <section class="py-8">
+        <div class="flex flex-col md:flex-row gap-8 items-center bg-surface-container-lowest rounded-3xl p-8 shadow-sm">
+            <div class="text-7xl flex-shrink-0">&#x1F6E1;&#xFE0F;</div>
+            <div>
+                <span class="text-primary font-bold uppercase tracking-widest text-xs">Protocolo de Satisfacci&oacute;n</span>
+                <h2 class="font-headline font-extrabold text-2xl text-on-surface mt-2 mb-3">Garant&iacute;a de 30 D&iacute;as</h2>
+                <p class="text-on-surface-variant leading-relaxed">Si por cualquier raz&oacute;n no est&aacute;s satisfecho con tu compra, te devolvemos el 100% de tu dinero en los primeros 30 d&iacute;as, sin preguntas, sin formularios interminables, sin peleas. As&iacute; de simple.</p>
+            </div>
         </div>
-    </div>
-</div>
+    </section>
 
-<!-- ==================== FAQ ==================== -->
-<section class="faq-section" aria-label="Preguntas frecuentes sobre precios">
-    <div class="faq-wrap">
-        <div class="section-kicker">FAQ Precios</div>
-        <h2 class="section-title display">Tus dudas<br>sobre precios.</h2>
-        <dl class="faq-list">
-            <div class="faq-item">
-                <dt class="faq-q" tabindex="0">&iquest;Cu&aacute;l es la diferencia entre hazlo tú mismo, Setup Asistido y Full Service?</dt>
-                <dd class="faq-a"><strong>hazlo tú mismo ($19):</strong> Recibes el flujo automatizado + gu&iacute;a paso a paso y t&uacute; lo configuras en ~15 minutos. <strong>Setup Asistido ($49):</strong> Reservas una sesi&oacute;n de 30 min donde nosotros configuramos en vivo mientras t&uacute; ves. <strong>Full Service ($97):</strong> Nosotros hacemos absolutamente todo, t&uacute; solo conectas Gmail/Sheets con 1 clic. El resultado es el mismo agente funcionando. La diferencia es cu&aacute;nta ayuda quieres.</dd>
+    <!-- ==================== FAQ ==================== -->
+    <section class="py-8" aria-label="Preguntas frecuentes sobre precios">
+        <div class="space-y-6">
+            <div class="text-center space-y-2">
+                <span class="text-primary font-bold uppercase tracking-widest text-xs">FAQ Precios</span>
+                <h2 class="font-headline font-extrabold text-2xl text-on-surface">Tus dudas sobre precios.</h2>
             </div>
-            <div class="faq-item">
-                <dt class="faq-q" tabindex="0">&iquest;Los precios son de por vida sin mensualidades?</dt>
-                <dd class="faq-a">S&iacute;, completamente. Pagas una vez y el agente es tuyo para siempre. Sin cuotas mensuales, sin contratos. La &uacute;nica suscripci&oacute;n separada es Make.com (desde $9/mes) para ejecutar los escenarios.</dd>
-            </div>
-            <div class="faq-item">
-                <dt class="faq-q" tabindex="0">&iquest;Cu&aacute;l opci&oacute;n recomiendan?</dt>
-                <dd class="faq-a">Setup Asistido ($49). Es la que eligen 7 de cada 10 usuarios. En 30 minutos de sesi&oacute;n en vivo, nosotros configuramos todo mientras t&uacute; ves y aprendes. Si algo falla despu&eacute;s, tienes 7 d&iacute;as de soporte post-setup. Es la mejor relaci&oacute;n setup/precio.</dd>
-            </div>
-            <div class="faq-item">
-                <dt class="faq-q" tabindex="0">&iquest;Puedo cambiar de tier despu&eacute;s?</dt>
-                <dd class="faq-a">S&iacute;. Si compraste hazlo tú mismo y despu&eacute;s quieres ayuda, puedes upgrade a Setup Asistido pagando la diferencia ($30). Lo mismo de Asistido a Full Service ($48). Sin complicaciones.</dd>
-            </div>
-            <div class="faq-item">
-                <dt class="faq-q" tabindex="0">&iquest;Puedo empezar gratis antes de comprar?</dt>
-                <dd class="faq-a">Absolutamente. Tenemos 8 agentes completamente gratuitos que puedes importar y usar sin pagar nada. Es la mejor forma de confirmar que funciona para tu negocio antes de invertir.</dd>
-            </div>
-            <div class="faq-item">
-                <dt class="faq-q" tabindex="0">&iquest;Hay garant&iacute;a de devoluci&oacute;n?</dt>
-                <dd class="faq-a">S&iacute;. 30 d&iacute;as de garant&iacute;a completa. Si no est&aacute;s satisfecho por cualquier raz&oacute;n, te reembolsamos el 100% sin preguntas. Simplemente escr&iacute;benos.</dd>
-            </div>
-            <div class="faq-item">
-                <dt class="faq-q" tabindex="0">&iquest;El soporte es en espa&ntilde;ol?</dt>
-                <dd class="faq-a">S&iacute;, 100%. AgentesVA est&aacute; construido para PyMEs de LATAM. Todo el soporte, las gu&iacute;as, las sesiones en vivo y la documentaci&oacute;n son en espa&ntilde;ol.</dd>
-            </div>
-        </dl>
-    </div>
-</section>
-
-<!-- ==================== CTA ==================== -->
-<div class="cta-section">
-    <div class="cta-banner">
-        <h2 class="cta-title display">Automatizaci&oacute;n sin fricci&oacute;n.<br>En 30 minutos. O menos.</h2>
-        <p class="cta-sub">hazlo tú mismo $19 &middot; Setup Asistido $49 &middot; Full Service $97. Pago &uacute;nico. Garant&iacute;a 30 d&iacute;as.</p>
-        <a href="#tiers" class="btn-cta-white">Ver opciones de setup &rarr;</a>
-        <a href="#agentes" class="btn-cta-ghost">Ver agentes gratis</a>
-    </div>
-</div>
-
-<!-- ==================== FOOTER ==================== -->
-<footer class="new-footer">
-    <div class="footer-accent-line"></div>
-    <div class="new-footer-content">
-        <div class="footer-brand-col footer-anim">
-            <a href="/" class="footer-brand-link">
-                <span class="footer-bot-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#0b28ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
-                        <path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/>
-                        <path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/>
-                    </svg>
-                </span>
-                <span class="footer-brand-wordmark">Agentes<span>VA</span></span>
-            </a>
-            <p class="footer-brand-desc">Flujos de automatizaci&oacute;n listos para importar en Make.com. Sin c&oacute;digo, sin servidores. Para PyMEs de LATAM.</p>
-            <p class="footer-brand-copy">&copy; <span id="footer-year"></span> AgentesVA. Todos los derechos reservados.</p>
+            <dl class="divide-y divide-outline-variant/20">
+                <div class="faq-item">
+                    <dt class="faq-q flex items-center justify-between gap-4 py-5 cursor-pointer font-headline font-bold text-on-surface" tabindex="0">&iquest;Cu&aacute;l es la diferencia entre hazlo tú mismo, Setup Asistido y Full Service?<span class="material-symbols-outlined faq-chevron text-primary transition-transform flex-shrink-0">expand_more</span></dt>
+                    <dd class="faq-a pb-5 text-sm text-on-surface-variant leading-relaxed"><strong>hazlo tú mismo ($19):</strong> Recibes el flujo + gu&iacute;a y t&uacute; lo configuras en ~15 min. <strong>Setup Asistido ($49):</strong> Sesi&oacute;n de 30 min donde nosotros configuramos en vivo. <strong>Full Service ($97):</strong> Nosotros hacemos absolutamente todo. El resultado es el mismo agente funcionando.</dd>
+                </div>
+                <div class="faq-item">
+                    <dt class="faq-q flex items-center justify-between gap-4 py-5 cursor-pointer font-headline font-bold text-on-surface" tabindex="0">&iquest;Los precios son de por vida sin mensualidades?<span class="material-symbols-outlined faq-chevron text-primary transition-transform flex-shrink-0">expand_more</span></dt>
+                    <dd class="faq-a pb-5 text-sm text-on-surface-variant leading-relaxed">S&iacute;, completamente. Pagas una vez y el agente es tuyo para siempre. La &uacute;nica suscripci&oacute;n separada es Make.com (desde $9/mes) para ejecutar los escenarios.</dd>
+                </div>
+                <div class="faq-item">
+                    <dt class="faq-q flex items-center justify-between gap-4 py-5 cursor-pointer font-headline font-bold text-on-surface" tabindex="0">&iquest;Cu&aacute;l opci&oacute;n recomiendan?<span class="material-symbols-outlined faq-chevron text-primary transition-transform flex-shrink-0">expand_more</span></dt>
+                    <dd class="faq-a pb-5 text-sm text-on-surface-variant leading-relaxed">Setup Asistido ($49). Es la que eligen 7 de cada 10 usuarios. En 30 min nosotros configuramos todo mientras t&uacute; ves y aprendes.</dd>
+                </div>
+                <div class="faq-item">
+                    <dt class="faq-q flex items-center justify-between gap-4 py-5 cursor-pointer font-headline font-bold text-on-surface" tabindex="0">&iquest;Puedo cambiar de tier despu&eacute;s?<span class="material-symbols-outlined faq-chevron text-primary transition-transform flex-shrink-0">expand_more</span></dt>
+                    <dd class="faq-a pb-5 text-sm text-on-surface-variant leading-relaxed">S&iacute;. Si compraste hazlo tú mismo y despu&eacute;s quieres ayuda, puedes upgrade a Setup Asistido pagando la diferencia ($30).</dd>
+                </div>
+                <div class="faq-item">
+                    <dt class="faq-q flex items-center justify-between gap-4 py-5 cursor-pointer font-headline font-bold text-on-surface" tabindex="0">&iquest;Puedo empezar gratis antes de comprar?<span class="material-symbols-outlined faq-chevron text-primary transition-transform flex-shrink-0">expand_more</span></dt>
+                    <dd class="faq-a pb-5 text-sm text-on-surface-variant leading-relaxed">Absolutamente. Tenemos 8 agentes completamente gratuitos que puedes importar y usar sin pagar nada.</dd>
+                </div>
+                <div class="faq-item">
+                    <dt class="faq-q flex items-center justify-between gap-4 py-5 cursor-pointer font-headline font-bold text-on-surface" tabindex="0">&iquest;Hay garant&iacute;a de devoluci&oacute;n?<span class="material-symbols-outlined faq-chevron text-primary transition-transform flex-shrink-0">expand_more</span></dt>
+                    <dd class="faq-a pb-5 text-sm text-on-surface-variant leading-relaxed">S&iacute;. 30 d&iacute;as de garant&iacute;a completa. Si no est&aacute;s satisfecho, te reembolsamos el 100% sin preguntas.</dd>
+                </div>
+                <div class="faq-item">
+                    <dt class="faq-q flex items-center justify-between gap-4 py-5 cursor-pointer font-headline font-bold text-on-surface" tabindex="0">&iquest;El soporte es en espa&ntilde;ol?<span class="material-symbols-outlined faq-chevron text-primary transition-transform flex-shrink-0">expand_more</span></dt>
+                    <dd class="faq-a pb-5 text-sm text-on-surface-variant leading-relaxed">S&iacute;, 100%. Todo el soporte, las gu&iacute;as, las sesiones y la documentaci&oacute;n son en espa&ntilde;ol.</dd>
+                </div>
+            </dl>
         </div>
-        <div class="new-footer-links-grid">
-            <div class="new-footer-col footer-anim">
-                <h3>Producto</h3>
-                <ul>
-                    <li><a href="/catalogo/">Agentes B&aacute;sicos IA</a></li>
-                    <li><a href="/catalogo/">Agentes Est&aacute;ndar IA</a></li>
-                    <li><a href="/catalogo/">Agentes Avanzados IA</a></li>
-                    <li><a href="/servicios/">Servicios Premium</a></li>
-                    <li><a href="/precios/">Setup &amp; Precios</a></li>
-                </ul>
+    </section>
+
+    <!-- ==================== READY TO START CTA ==================== -->
+    <section class="bg-inverse-surface text-inverse-on-surface rounded-[2rem] overflow-hidden flex flex-col items-center text-center p-8 relative">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-50"></div>
+        <div class="relative z-10 space-y-6">
+            <h2 class="font-headline font-bold text-3xl">&iquest;Listo para empezar?</h2>
+            <p class="text-secondary-fixed-dim text-sm max-w-[280px] mx-auto">hazlo tú mismo $19 &middot; Setup Asistido $49 &middot; Full Service $97. Pago &uacute;nico. Garant&iacute;a 30 d&iacute;as.</p>
+            <div class="relative w-48 h-48 mx-auto">
+                <div class="absolute inset-0 bg-primary rounded-full blur-2xl opacity-20"></div>
+                <img alt="Agente de soporte" class="w-full h-full object-cover rounded-full border-4 border-white/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTx6gFlCkjZk93EHZwY52Fqw-FVVqV6a7KMkP1RK_FbOJO7pZy2-kOLWz_-oTDB-t43qpx5L0oO018myYlDDq2wRuDrrSK6N_wMnmdsXyxIV1cNFtTCEbQyGHtYRGUxxg4uYPM4vt7geZyZF20nHUPveb_Gr6ys7vSFSpzV4a1S-lI4ZafSYYGUcp4i-akf59vaSQOSFk3ydZMJxXef17UsPRgDEfG8CyRKhDn7eI07S-yqiEV4FalVryvcH1BTQErSgviRMy8AsI">
             </div>
-            <div class="new-footer-col footer-anim">
-                <h3>Empresa</h3>
-                <ul>
-                    <li><a href="/faq/">FAQ</a></li>
-                    <li><a href="/legal/">Aviso legal</a></li>
-                    <li><a href="/legal/#privacidad">Privacidad</a></li>
-                    <li><a href="/legal/#terminos">T&eacute;rminos de uso</a></li>
-                </ul>
-            </div>
-            <div class="new-footer-col footer-anim">
-                <h3>Plataformas</h3>
-                <ul>
-                    <li><a href="https://make.com" target="_blank" rel="noopener noreferrer">Make.com</a></li>
-                    <li><a href="https://n8n.io" target="_blank" rel="noopener noreferrer">N8N</a></li>
-                    <li><a href="https://openai.com" target="_blank" rel="noopener noreferrer">OpenAI GPT-4o</a></li>
-                    <li><a href="https://sheets.google.com" target="_blank" rel="noopener noreferrer">Google Sheets</a></li>
-                </ul>
-            </div>
-            <div class="new-footer-col footer-anim">
-                <h3>Redes sociales</h3>
-                <ul>
-                    <li><a href="https://facebook.com/agentesva" target="_blank" rel="noopener"><svg class="footer-social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg> Facebook</a></li>
-                    <li><a href="https://instagram.com/agentesva" target="_blank" rel="noopener"><svg class="footer-social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg> Instagram</a></li>
-                    <li><a href="https://youtube.com/@agentesva" target="_blank" rel="noopener"><svg class="footer-social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.45A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.97C5.12 20 12 20 12 20s6.88 0 8.59-.45a2.78 2.78 0 0 0 1.95-1.97A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg> YouTube</a></li>
-                    <li><a href="https://linkedin.com/company/agentesva" target="_blank" rel="noopener"><svg class="footer-social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg> LinkedIn</a></li>
-                </ul>
-            </div>
+            <a href="#tiers" class="inline-block w-full py-4 bg-gradient-to-r from-primary to-primary-container text-white font-extrabold rounded-xl shadow-xl active:scale-95 transition-all">Ver opciones de setup &rarr;</a>
+            <p class="text-xs text-white/50">Sin tarjeta de cr&eacute;dito para la consulta inicial.</p>
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-container-low rounded-t-[2rem] mt-12 pt-12 pb-24 md:pb-8 px-8">
+    <div class="w-full max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="col-span-2 md:col-span-4 mb-4">
+            <span class="font-headline font-black text-on-surface text-lg">Agentes<span class="text-primary-container">VA</span></span>
+            <p class="text-on-surface-variant text-sm mt-2">&copy; <span id="footer-year"></span> AgentesVA. Todos los derechos reservados.</p>
+        </div>
+        <div class="space-y-2">
+            <p class="font-bold text-primary-container text-xs uppercase tracking-widest">Producto</p>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm" href="/catalogo/">Agentes IA</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm" href="/servicios/">Servicios</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm" href="/precios/">Setup &amp; Precios</a>
+        </div>
+        <div class="space-y-2">
+            <p class="font-bold text-primary-container text-xs uppercase tracking-widest">Empresa</p>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm" href="/faq/">FAQ</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm" href="/legal/">Aviso legal</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm" href="/legal/#privacidad">Privacidad</a>
+        </div>
+        <div class="space-y-2">
+            <p class="font-bold text-primary-container text-xs uppercase tracking-widest">Plataformas</p>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm" href="https://make.com" target="_blank" rel="noopener">Make.com</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm" href="https://openai.com" target="_blank" rel="noopener">OpenAI GPT-4o</a>
+        </div>
+        <div class="space-y-2">
+            <p class="font-bold text-primary-container text-xs uppercase tracking-widest">S&iacute;guenos</p>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm" href="https://facebook.com/agentesva" target="_blank" rel="noopener">Facebook</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm" href="https://instagram.com/agentesva" target="_blank" rel="noopener">Instagram</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm" href="https://youtube.com/@agentesva" target="_blank" rel="noopener">YouTube</a>
+            <a class="block text-on-surface-variant hover:text-primary-container text-sm" href="https://linkedin.com/company/agentesva" target="_blank" rel="noopener">LinkedIn</a>
         </div>
     </div>
 </footer>
 
-<!-- ==================== SCRIPTS ==================== -->
+<!-- Bottom Nav Bar (Mobile) -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-container-low border-t border-outline-variant/10 px-6 py-3 flex justify-between items-center z-50">
+    <a href="/" class="flex flex-col items-center gap-1 text-on-surface-variant">
+        <span class="material-symbols-outlined">storefront</span>
+        <span class="text-[10px] font-medium">Inicio</span>
+    </a>
+    <a href="/precios/" class="flex flex-col items-center gap-1 text-primary-container font-bold">
+        <span class="material-symbols-outlined">payments</span>
+        <span class="text-[10px]">Precios</span>
+    </a>
+    <a href="/catalogo/" class="flex flex-col items-center gap-1 text-on-surface-variant">
+        <span class="material-symbols-outlined">smart_toy</span>
+        <span class="text-[10px] font-medium">Agentes</span>
+    </a>
+    <a href="/faq/" class="flex flex-col items-center gap-1 text-on-surface-variant">
+        <span class="material-symbols-outlined">help</span>
+        <span class="text-[10px] font-medium">FAQ</span>
+    </a>
+</div>
+
+<!-- Scripts -->
 <script>
 /* ── AGENTS DATA ─────────────────────────────────────── */
 var agentsData = [
-    /* PARA EMPEZAR, Gratis (8) */
-    { icon:'\uD83D\uDCE7', name:'Clasificador de Correos', desc:'Lee tu bandeja y etiqueta cada email autom\u00e1ticamente. Fin del caos.', cat:'empezar', tier:'Gratis', price:0, gradient:'linear-gradient(135deg,#3d50ff,#0920cc)' },
+    { icon:'\uD83D\uDCE7', name:'Clasificador de Correos', desc:'Lee tu bandeja y etiqueta cada email autom\u00e1ticamente.', cat:'empezar', tier:'Gratis', price:0, gradient:'linear-gradient(135deg,#3d50ff,#0920cc)' },
     { icon:'\u2B50', name:'Colector de Rese\u00f1as Google', desc:'Solicita rese\u00f1as autom\u00e1ticas 7 d\u00edas despu\u00e9s de cada servicio.', cat:'empezar', tier:'Gratis', price:0, gradient:'linear-gradient(135deg,#FFB347,#E88000)' },
-    { icon:'\uD83D\uDCE8', name:'Respondedor de Email con IA', desc:'Borradores inteligentes para cada email importante. Responde en segundos.', cat:'empezar', tier:'Gratis', price:0, gradient:'linear-gradient(135deg,#667eea,#764ba2)' },
+    { icon:'\uD83D\uDCE8', name:'Respondedor de Email con IA', desc:'Borradores inteligentes para cada email importante.', cat:'empezar', tier:'Gratis', price:0, gradient:'linear-gradient(135deg,#667eea,#764ba2)' },
     { icon:'\uD83D\uDCE6', name:'Alertas de Stock Bajo', desc:'Aviso autom\u00e1tico cuando un producto cae por debajo del m\u00ednimo.', cat:'empezar', tier:'Gratis', price:0, gradient:'linear-gradient(135deg,#f5576c,#fa709a)' },
     { icon:'\u23F1\uFE0F', name:'Tracker de Horas y Rentabilidad', desc:'\u00bfGanaste dinero realmente? Registra horas y calcula rentabilidad.', cat:'empezar', tier:'Gratis', price:0, gradient:'linear-gradient(135deg,#11998e,#38ef7d)' },
     { icon:'\uD83C\uDFE0', name:'Alerta de Precio de Propiedades', desc:'Notifica al instante cuando aparece una propiedad que encaja.', cat:'empezar', tier:'Gratis', price:0, gradient:'linear-gradient(135deg,#30cfd0,#1a6b8a)' },
     { icon:'\uD83C\uDFAC', name:'Generador de Guiones Reels/TikTok', desc:'5 guiones de video corto cada semana. Listos para grabar.', cat:'empezar', tier:'Gratis', price:0, gradient:'linear-gradient(135deg,#ff0844,#ffb199)' },
     { icon:'\uD83C\uDF81', name:'Agente de Bienvenida al Cliente', desc:'Email personalizado con IA para cada cliente nuevo.', cat:'empezar', tier:'Gratis', price:0, gradient:'linear-gradient(135deg,#f093fb,#f5576c)' },
-
-    /* PARA VENDER MÁS (14) */
-    { icon:'\uD83D\uDD0D', name:'Detector de Leads en Instagram', desc:'Detecta comentarios con intenci\u00f3n de compra. Convierte comentarios en ventas.', cat:'vender', tier:'Est\u00e1ndar', price:47, gradient:'linear-gradient(135deg,#f77062,#fe5196)' },
+    { icon:'\uD83D\uDD0D', name:'Detector de Leads en Instagram', desc:'Detecta comentarios con intenci\u00f3n de compra.', cat:'vender', tier:'Est\u00e1ndar', price:47, gradient:'linear-gradient(135deg,#f77062,#fe5196)' },
     { icon:'\uD83C\uDFAF', name:'Asistente de Cotizaciones', desc:'Env\u00eda cotizaciones personalizadas en menos de 10 minutos.', cat:'vender', tier:'Est\u00e1ndar', price:47, gradient:'linear-gradient(135deg,#4facfe,#00c6fb)' },
     { icon:'\uD83D\uDD04', name:'Agente de Reactivaci\u00f3n de Clientes', desc:'Reactiva clientes dormidos con secuencias personalizadas.', cat:'vender', tier:'Est\u00e1ndar', price:47, gradient:'linear-gradient(135deg,#fa709a,#fee140)' },
-    { icon:'\uD83D\uDCF1', name:'Nutrici\u00f3n de Leads por WhatsApp', desc:'Secuencia de seguimiento autom\u00e1tico por WhatsApp para prospectos.', cat:'vender', tier:'Est\u00e1ndar', price:47, gradient:'linear-gradient(135deg,#25d366,#128c7e)' },
-    { icon:'\uD83D\uDCE9', name:'Respondedor de Instagram DMs', desc:'Responde consultas en Instagram DMs al instante, 24/7, con IA.', cat:'vender', tier:'Est\u00e1ndar', price:47, gradient:'linear-gradient(135deg,#ff0844,#ffb199)' },
+    { icon:'\uD83D\uDCF1', name:'Nutrici\u00f3n de Leads por WhatsApp', desc:'Secuencia de seguimiento autom\u00e1tico por WhatsApp.', cat:'vender', tier:'Est\u00e1ndar', price:47, gradient:'linear-gradient(135deg,#25d366,#128c7e)' },
+    { icon:'\uD83D\uDCE9', name:'Respondedor de Instagram DMs', desc:'Responde consultas en Instagram DMs al instante, 24/7.', cat:'vender', tier:'Est\u00e1ndar', price:47, gradient:'linear-gradient(135deg,#ff0844,#ffb199)' },
     { icon:'\uD83D\uDCF1', name:'Respuesta Autom\u00e1tica Instagram', desc:'Responde comentarios de Instagram con mensajes personalizados.', cat:'vender', tier:'B\u00e1sico', price:29, gradient:'linear-gradient(135deg,#f77062,#fe5196)' },
     { icon:'\uD83D\uDD04', name:'Seguimiento Post-Venta', desc:'Contacto autom\u00e1tico con el cliente d\u00edas despu\u00e9s de su compra.', cat:'vender', tier:'B\u00e1sico', price:29, gradient:'linear-gradient(135deg,#fa709a,#fee140)' },
     { icon:'\uD83C\uDFAF', name:'Clasificador de Leads Inmobiliarios', desc:'Separa compradores reales de curiosos. Scoring 24/7.', cat:'vender', tier:'B\u00e1sico', price:29, gradient:'linear-gradient(135deg,#30cfd0,#1a6b8a)' },
     { icon:'\uD83D\uDCDD', name:'Gestor de Propuestas Freelance', desc:'Propuestas profesionales personalizadas en minutos.', cat:'vender', tier:'B\u00e1sico', price:29, gradient:'linear-gradient(135deg,#667eea,#764ba2)' },
     { icon:'\uD83D\uDCB0', name:'Gestor de Presupuestos para Obras', desc:'Presupuestos por WhatsApp en menos de 5 minutos.', cat:'vender', tier:'B\u00e1sico', price:29, gradient:'linear-gradient(135deg,#0920cc,#3d50ff)' },
     { icon:'\uD83C\uDFAF', name:'Agente de Nutrici\u00f3n de Leads', desc:'Secuencia multi-canal para convertir prospectos en clientes.', cat:'vender', tier:'Avanzado', price:97, gradient:'linear-gradient(135deg,#667eea,#764ba2)' },
-    { icon:'\uD83E\uDD1D', name:'Sistema de Referidos Autom\u00e1tico', desc:'Programa de referidos que se gestiona solo. Crecimiento viral.', cat:'vender', tier:'Avanzado', price:97, gradient:'linear-gradient(135deg,#f7971e,#ffd200)' },
+    { icon:'\uD83E\uDD1D', name:'Sistema de Referidos Autom\u00e1tico', desc:'Programa de referidos que se gestiona solo.', cat:'vender', tier:'Avanzado', price:97, gradient:'linear-gradient(135deg,#f7971e,#ffd200)' },
     { icon:'\uD83C\uDFE0', name:'Pipeline de Ventas Inmobiliarias', desc:'Seguimiento autom\u00e1tico de cada prospecto en todas las etapas.', cat:'vender', tier:'Avanzado', price:97, gradient:'linear-gradient(135deg,#30cfd0,#1a6b8a)' },
     { icon:'\uD83D\uDCCD', name:'Motor de Seguimiento Inmobiliario', desc:'Contactos autom\u00e1ticos D30, D60, D90 para no perder prospectos.', cat:'vender', tier:'Avanzado', price:97, gradient:'linear-gradient(135deg,#a18cd1,#fbc2eb)' },
-
-    /* PARA OPERAR MEJOR (12) */
-    { icon:'\u23F0', name:'Recordatorio de Citas', desc:'Recordatorios autom\u00e1ticos por email antes de cada cita. Adi\u00f3s no-shows.', cat:'operar', tier:'B\u00e1sico', price:29, gradient:'linear-gradient(135deg,#f5576c,#fa709a)' },
+    { icon:'\u23F0', name:'Recordatorio de Citas', desc:'Recordatorios autom\u00e1ticos por email antes de cada cita.', cat:'operar', tier:'B\u00e1sico', price:29, gradient:'linear-gradient(135deg,#f5576c,#fa709a)' },
     { icon:'\uD83D\uDCC5', name:'Organizador de Agenda Semanal', desc:'Planifica tu semana autom\u00e1ticamente cada domingo.', cat:'operar', tier:'Est\u00e1ndar', price:47, gradient:'linear-gradient(135deg,#6a11cb,#2575fc)' },
     { icon:'\u270D\uFE0F', name:'Generador de Contenido Semanal', desc:'7 ideas de posts para redes cada viernes.', cat:'operar', tier:'Est\u00e1ndar', price:47, gradient:'linear-gradient(135deg,#0920cc,#3d50ff)' },
-    { icon:'\uD83D\uDCDD', name:'Asistente Post-Reuni\u00f3n', desc:'Convierte cada llamada en resumen, tareas y seguimiento autom\u00e1tico.', cat:'operar', tier:'Est\u00e1ndar', price:47, gradient:'linear-gradient(135deg,#11998e,#38ef7d)' },
+    { icon:'\uD83D\uDCDD', name:'Asistente Post-Reuni\u00f3n', desc:'Convierte cada llamada en resumen, tareas y seguimiento.', cat:'operar', tier:'Est\u00e1ndar', price:47, gradient:'linear-gradient(135deg,#11998e,#38ef7d)' },
     { icon:'\uD83D\uDCE2', name:'Publicador de Redes Multi-Canal', desc:'Publica en todas tus redes desde un solo lugar.', cat:'operar', tier:'Est\u00e1ndar', price:47, gradient:'linear-gradient(135deg,#f093fb,#f5576c)' },
-    { icon:'\uD83D\uDCCB', name:'Tracker de Proyectos Freelance', desc:'Seguimiento autom\u00e1tico de estado de proyectos para tus clientes.', cat:'operar', tier:'Est\u00e1ndar', price:47, gradient:'linear-gradient(135deg,#667eea,#764ba2)' },
+    { icon:'\uD83D\uDCCB', name:'Tracker de Proyectos Freelance', desc:'Seguimiento autom\u00e1tico de estado de proyectos.', cat:'operar', tier:'Est\u00e1ndar', price:47, gradient:'linear-gradient(135deg,#667eea,#764ba2)' },
     { icon:'\uD83E\uDDFE', name:'Facturador Autom\u00e1tico', desc:'Genera y env\u00eda facturas al completar cada proyecto.', cat:'operar', tier:'Est\u00e1ndar', price:47, gradient:'linear-gradient(135deg,#0920cc,#3d50ff)' },
     { icon:'\uD83D\uDCCA', name:'Reportes de Ventas Autom\u00e1ticos', desc:'Resumen semanal de ventas cada lunes a tu email.', cat:'operar', tier:'B\u00e1sico', price:29, gradient:'linear-gradient(135deg,#f7971e,#ffd200)' },
     { icon:'\uD83C\uDFE2', name:'Publicador de Propiedades', desc:'Publica propiedades en m\u00faltiples portales desde una sola ficha.', cat:'operar', tier:'B\u00e1sico', price:29, gradient:'linear-gradient(135deg,#4facfe,#00c6fb)' },
-    { icon:'\uD83D\uDEE1\uFE0F', name:'Anti-Cancelaciones Avanzado', desc:'Recordatorio, confirmaci\u00f3n y lista de espera autom\u00e1tica. -70% cancelaciones.', cat:'operar', tier:'Avanzado', price:97, gradient:'linear-gradient(135deg,#f5576c,#fa709a)' },
+    { icon:'\uD83D\uDEE1\uFE0F', name:'Anti-Cancelaciones Avanzado', desc:'Recordatorio, confirmaci\u00f3n y lista de espera autom\u00e1tica.', cat:'operar', tier:'Avanzado', price:97, gradient:'linear-gradient(135deg,#f5576c,#fa709a)' },
     { icon:'\uD83D\uDCBC', name:'CRM Ligero para Freelancers', desc:'Historial completo de cada cliente accesible desde un solo lugar.', cat:'operar', tier:'Avanzado', price:97, gradient:'linear-gradient(135deg,#f093fb,#f5576c)' },
-    { icon:'\uD83D\uDED2', name:'Automatizador de E-commerce', desc:'Confirmaciones, seguimientos y recuperaci\u00f3n de carrito en uno.', cat:'operar', tier:'Avanzado', price:97, gradient:'linear-gradient(135deg,#0920cc,#3d50ff)' },
-
-    /* PARA ESCALAR (8) */
-    { icon:'\uD83E\uDD16', name:'Agente de Soporte FAQ', desc:'Responde las 10 preguntas m\u00e1s frecuentes sin intervenci\u00f3n humana.', cat:'escalar', tier:'Est\u00e1ndar', price:47, gradient:'linear-gradient(135deg,#a18cd1,#fbc2eb)' },
-    { icon:'\uD83D\uDCAC', name:'Capturador de Testimonios', desc:'Solicita testimonios reales a clientes satisfechos autom\u00e1ticamente.', cat:'escalar', tier:'Est\u00e1ndar', price:47, gradient:'linear-gradient(135deg,#FFB347,#E88000)' },
+    { icon:'\uD83D\uDED2', name:'Automatizador de E-commerce', desc:'Confirmaciones, seguimientos y recuperaci\u00f3n de carrito.', cat:'operar', tier:'Avanzado', price:97, gradient:'linear-gradient(135deg,#0920cc,#3d50ff)' },
+    { icon:'\uD83E\uDD16', name:'Agente de Soporte FAQ', desc:'Responde las 10 preguntas m\u00e1s frecuentes sin humano.', cat:'escalar', tier:'Est\u00e1ndar', price:47, gradient:'linear-gradient(135deg,#a18cd1,#fbc2eb)' },
+    { icon:'\uD83D\uDCAC', name:'Capturador de Testimonios', desc:'Solicita testimonios reales a clientes satisfechos.', cat:'escalar', tier:'Est\u00e1ndar', price:47, gradient:'linear-gradient(135deg,#FFB347,#E88000)' },
     { icon:'\u2B50', name:'Agente de Valoraciones de Producto', desc:'Capta rese\u00f1as positivas antes de que lleguen a Google.', cat:'escalar', tier:'Est\u00e1ndar', price:47, gradient:'linear-gradient(135deg,#f5576c,#fa709a)' },
     { icon:'\u2B50', name:'Gestor de Rese\u00f1as Multi-Canal', desc:'Monitorea y responde rese\u00f1as en Google, Tripadvisor y m\u00e1s.', cat:'escalar', tier:'Avanzado', price:97, gradient:'linear-gradient(135deg,#FFB347,#E88000)' },
     { icon:'\uD83C\uDFE0', name:'Asistente de Onboarding Inmobiliario', desc:'Gu\u00eda autom\u00e1tica para clientes nuevos desde el primer d\u00eda.', cat:'escalar', tier:'Est\u00e1ndar', price:47, gradient:'linear-gradient(135deg,#30cfd0,#1a6b8a)' },
@@ -899,61 +549,56 @@ var agentsData = [
     { icon:'\uD83D\uDE80', name:'Asistente de Lanzamientos y Drops', desc:'Lista de espera, notificaciones y seguimiento de tu pr\u00f3ximo drop.', cat:'escalar', tier:'Est\u00e1ndar', price:47, gradient:'linear-gradient(135deg,#6a11cb,#2575fc)' }
 ];
 
-/* ── RENDER AGENTS ────────────────────────────────────── */
 (function(){
     var grid = document.getElementById('agents-grid');
     if (!grid) return;
-
     function tierClass(t) {
         if (t === 'Gratis') return 'tier-gratis';
         if (t === 'B\u00e1sico') return 'tier-basico';
         if (t === 'Est\u00e1ndar') return 'tier-estandar';
         return 'tier-avanzado';
     }
-
     function render(cat) {
         grid.innerHTML = '';
         agentsData.forEach(function(a) {
             if (cat !== 'all' && a.cat !== cat) return;
             var priceLabel = a.price === 0 ? 'GRATIS' : 'Desde $' + a.price;
             var priceClass = a.price === 0 ? 'agent-card-price agent-card-price-free' : 'agent-card-price';
-            var setupRow = a.price === 0
-                ? ''
-                : '<div class="agent-card-setup">' +
-                    '<a href="https://buy.stripe.com/cNi14ngtc171gN00TEfn000" target="_blank" rel="noopener" class="agent-setup-opt"><strong>$19</strong>hazlo tú mismo</a>' +
-                    '<a href="https://buy.stripe.com/5kQbJ1b8S4jd8gu59Ufn001" target="_blank" rel="noopener" class="agent-setup-opt" style="background:var(--bg3);"><strong>$49</strong>Asistido</a>' +
-                    '<a href="https://buy.stripe.com/8x27sLccW17100231MfnO02" target="_blank" rel="noopener" class="agent-setup-opt"><strong>$97</strong>Full</a>' +
-                  '</div>';
-
+            var setupRow = a.price === 0 ? '' :
+                '<div class="agent-card-setup">' +
+                '<a href="https://buy.stripe.com/cNi14ngtc171gN00TEfn000" target="_blank" rel="noopener" class="agent-setup-opt"><strong>$19</strong>DIY</a>' +
+                '<a href="https://buy.stripe.com/5kQbJ1b8S4jd8gu59Ufn001" target="_blank" rel="noopener" class="agent-setup-opt" style="background:#ececff;"><strong>$49</strong>Asistido</a>' +
+                '<a href="https://buy.stripe.com/8x27sLccW17100231MfnO02" target="_blank" rel="noopener" class="agent-setup-opt"><strong>$97</strong>Full</a>' +
+                '</div>';
             grid.innerHTML +=
                 '<div class="agent-card">' +
-                    '<div class="agent-card-header" style="background:' + a.gradient + '">' + a.icon + '</div>' +
-                    '<div class="agent-card-body">' +
-                        '<span class="agent-card-tier ' + tierClass(a.tier) + '">' + a.tier + '</span>' +
-                        '<div class="agent-card-name">' + a.name + '</div>' +
-                        '<div class="agent-card-desc">' + a.desc + '</div>' +
-                        '<div class="agent-card-footer">' +
-                            '<span class="' + priceClass + '">' + priceLabel + '</span>' +
-                            '<a href="/catalogo/" class="agent-card-cta">' + (a.price === 0 ? 'Obtener gratis' : 'Ver opciones') + '</a>' +
-                        '</div>' +
-                        setupRow +
-                    '</div>' +
-                '</div>';
+                '<div class="agent-card-header" style="background:' + a.gradient + '">' + a.icon + '</div>' +
+                '<div class="agent-card-body">' +
+                '<span class="agent-card-tier ' + tierClass(a.tier) + '">' + a.tier + '</span>' +
+                '<div class="agent-card-name">' + a.name + '</div>' +
+                '<div class="agent-card-desc">' + a.desc + '</div>' +
+                '<div class="agent-card-footer">' +
+                '<span class="' + priceClass + '">' + priceLabel + '</span>' +
+                '<a href="/catalogo/" class="agent-card-cta">' + (a.price === 0 ? 'Obtener gratis' : 'Ver opciones') + '</a>' +
+                '</div>' + setupRow + '</div></div>';
         });
     }
-
     render('all');
-
     document.querySelectorAll('.cat-filter').forEach(function(btn) {
         btn.addEventListener('click', function() {
-            document.querySelectorAll('.cat-filter').forEach(function(b){ b.classList.remove('active'); });
-            btn.classList.add('active');
+            document.querySelectorAll('.cat-filter').forEach(function(b){
+                b.classList.remove('active');
+                b.classList.remove('bg-primary-container', 'text-on-primary');
+                b.classList.add('text-on-surface-variant');
+            });
+            btn.classList.add('active', 'bg-primary-container', 'text-on-primary');
+            btn.classList.remove('text-on-surface-variant');
             render(btn.getAttribute('data-cat'));
         });
     });
 })();
 
-/* ── FAQ ACCORDION ────────────────────────────────────── */
+/* ── FAQ ACCORDION ── */
 document.querySelectorAll('.faq-q').forEach(function(q) {
     q.addEventListener('click', function() {
         var item = this.closest('.faq-item');
@@ -966,65 +611,12 @@ document.querySelectorAll('.faq-q').forEach(function(q) {
     });
 });
 
-/* ── FLASH BANNER ─────────────────────────────────────── */
-(function () {
-    var BANNER_KEY = 'nd-banner-flash-offer-2025';
-    var END_KEY    = 'flash-banner-end';
-    var HOURS      = 3;
-    var banner     = document.getElementById('flash-banner');
-    var timerEl    = document.getElementById('flash-timer');
-    var closeBtn   = document.getElementById('banner-close');
-    var body       = document.body;
-    function hideBanner() { if (banner) banner.style.display = 'none'; body.classList.remove('banner-visible'); }
-    if (localStorage.getItem(BANNER_KEY) === 'true') { hideBanner(); return; }
-    var stored = localStorage.getItem(END_KEY);
-    var end = stored ? parseInt(stored, 10) : Date.now() + HOURS * 3600000;
-    if (!stored) localStorage.setItem(END_KEY, String(end));
-    function tick() {
-        var diff = Math.max(0, end - Date.now());
-        var h = Math.floor(diff / 3600000);
-        var m = Math.floor((diff % 3600000) / 60000);
-        var s = Math.floor((diff % 60000) / 1000);
-        if (timerEl) timerEl.textContent = String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
-    }
-    tick(); setInterval(tick, 1000);
-    if (closeBtn) closeBtn.addEventListener('click', function () { localStorage.setItem(BANNER_KEY,'true'); hideBanner(); });
-}());
-
-/* ── NAV PILL ─────────────────────────────────────────── */
-(function () {
-    var pill = document.getElementById('nav-pill-cursor');
-    var container = document.getElementById('nav-pill');
-    var tabs = container ? container.querySelectorAll('.nav-pill-tab') : [];
-    if (!pill || !container || !tabs.length) return;
-    tabs.forEach(function (tab) {
-        tab.addEventListener('mouseenter', function () {
-            var cRect = container.getBoundingClientRect();
-            var tRect = tab.getBoundingClientRect();
-            pill.style.left = (tRect.left - cRect.left) + 'px';
-            pill.style.width = tRect.width + 'px';
-            pill.style.opacity = '1';
-        });
-    });
-    container.addEventListener('mouseleave', function () { pill.style.opacity = '0'; });
-}());
-
-/* ── FOOTER ───────────────────────────────────────────── */
-(function () {
-    var yearEl = document.getElementById('footer-year');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
-    var animEls = document.querySelectorAll('.footer-anim');
-    if (!animEls.length) return;
-    if (!('IntersectionObserver' in window)) { animEls.forEach(function(el){ el.classList.add('footer-anim-in'); }); return; }
-    var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) { if (entry.isIntersecting) { entry.target.classList.add('footer-anim-in'); observer.unobserve(entry.target); } });
-    }, { threshold: 0.1 });
-    animEls.forEach(function (el) { observer.observe(el); });
-}());
+/* ── FOOTER YEAR ── */
+(function() {
+    var el = document.getElementById('footer-year');
+    if (el) el.textContent = new Date().getFullYear();
+})();
 </script>
 
-<script>
-  mixpanel.track('visited_pricing', { source: document.referrer });
-</script>
 </body>
 </html>
