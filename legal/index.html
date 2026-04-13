@@ -637,6 +637,11 @@
                     💳 Reembolsos
                 </button>
             </li>
+            <li class="legal-nav-item">
+                <button onclick="showDoc('whatsapp')" id="tab-whatsapp">
+                    📱 WhatsApp
+                </button>
+            </li>
         </ul>
     </aside>
 
@@ -835,6 +840,76 @@
             </div>
         </div>
 
+        <!-- ── WHATSAPP CONSENT ── -->
+        <div class="legal-panel" id="panel-whatsapp"><span id="whatsapp"></span>
+            <div class="doc-header">
+                <div class="doc-kicker">Consentimiento de mensajería</div>
+                <h1>WhatsApp — Política de Opt-In y Mensajería</h1>
+                <p class="doc-date">Última actualización: 13 de abril de 2026</p>
+            </div>
+
+            <h2>1. Descripción del servicio</h2>
+            <p>AgentesVA (operado por AgentesVA LLC) utiliza WhatsApp Business API a través de Twilio para enviar mensajes automatizados relacionados con nuestros servicios de automatización con inteligencia artificial para pequeñas y medianas empresas.</p>
+
+            <h2>2. Tipos de mensajes</h2>
+            <p>Al dar tu consentimiento, podrás recibir los siguientes tipos de mensajes vía WhatsApp:</p>
+            <ul>
+                <li><strong>Confirmaciones de citas y recordatorios</strong> — Notificaciones automatizadas sobre citas agendadas, cambios de horario y recordatorios previos a la cita.</li>
+                <li><strong>Actualizaciones de servicio</strong> — Estado de tu setup, configuración de agentes y avances en la implementación de tu automatización.</li>
+                <li><strong>Soporte al cliente</strong> — Respuestas a tus consultas, seguimiento post-venta y asistencia técnica.</li>
+                <li><strong>Información promocional</strong> — Ofertas, nuevos agentes disponibles y recursos educativos sobre automatización (solo si aceptas recibirlos explícitamente).</li>
+            </ul>
+
+            <h2>3. Mecanismo de consentimiento (Opt-In)</h2>
+            <p>Obtenemos tu consentimiento explícito antes de enviarte cualquier mensaje por WhatsApp. El consentimiento se recopila de las siguientes formas:</p>
+            <ul>
+                <li><strong>Formulario web</strong> — Al completar un formulario en nuestro sitio web (agentesva.com) que incluye tu número de WhatsApp y una casilla de verificación de consentimiento.</li>
+                <li><strong>Mensaje directo</strong> — Al enviarnos un mensaje de WhatsApp primero, iniciando la conversación voluntariamente.</li>
+                <li><strong>Durante el proceso de compra</strong> — Al adquirir un plan de setup, puedes optar por recibir actualizaciones de tu pedido vía WhatsApp.</li>
+            </ul>
+            <p>En todos los casos, el usuario debe realizar una acción afirmativa clara (marcar una casilla, enviar un mensaje o seleccionar una opción) para dar su consentimiento. Nunca pre-seleccionamos la opción de consentimiento.</p>
+
+            <h2>4. Frecuencia de mensajes</h2>
+            <p>La frecuencia varía según el tipo de mensaje:</p>
+            <ul>
+                <li><strong>Transaccionales</strong> (confirmaciones, recordatorios): según la actividad de tu cuenta, típicamente 1-5 mensajes por semana.</li>
+                <li><strong>Soporte</strong>: solo en respuesta a tus consultas.</li>
+                <li><strong>Promocionales</strong>: máximo 2 mensajes por semana si optaste por recibirlos.</li>
+            </ul>
+
+            <h2>5. Cómo cancelar (Opt-Out)</h2>
+            <p>Puedes dejar de recibir mensajes de WhatsApp en cualquier momento:</p>
+            <ul>
+                <li>Responde <strong>"PARAR"</strong>, <strong>"STOP"</strong> o <strong>"CANCELAR"</strong> a cualquier mensaje que recibas de nosotros.</li>
+                <li>Envía un correo a <a href="mailto:info@agentesva.com">info@agentesva.com</a> con el asunto "Cancelar WhatsApp".</li>
+                <li>Contacta a nuestro equipo de soporte en <a href="https://agentesva.com">agentesva.com</a>.</li>
+            </ul>
+            <p>Tu solicitud se procesará en un máximo de 24 horas. No recibirás más mensajes después de la confirmación de cancelación, excepto un mensaje final confirmando que has sido dado de baja.</p>
+
+            <h2>6. Privacidad y datos</h2>
+            <p>Tu número de teléfono y datos de mensajería se manejan conforme a nuestra <a href="/legal/#privacidad" onclick="showDoc('privacidad');return false;">Política de Privacidad</a>. En resumen:</p>
+            <ul>
+                <li>Tu número de WhatsApp se almacena de forma segura y encriptada.</li>
+                <li>No compartimos tu número con terceros, excepto Twilio (nuestro proveedor de mensajería) para la entrega de mensajes.</li>
+                <li>No vendemos datos personales.</li>
+                <li>Puedes solicitar la eliminación de tus datos en cualquier momento.</li>
+            </ul>
+
+            <h2>7. Costos</h2>
+            <p>No cobramos por enviarte mensajes de WhatsApp. Sin embargo, pueden aplicarse tarifas estándar de datos y mensajería de tu operador telefónico.</p>
+
+            <h2>8. Contacto</h2>
+            <div class="contact-card">
+                <div class="contact-icon">📱</div>
+                <div class="contact-info">
+                    <strong>Preguntas sobre mensajería</strong>
+                    <p>¿Dudas sobre nuestros mensajes de WhatsApp? Escríbenos.</p>
+                </div>
+                <a href="mailto:info@agentesva.com?subject=WhatsApp%20—%20AgentesVA" class="contact-link">Escribir →</a>
+            </div>
+
+        </div>
+
     </main>
 </div>
 
@@ -919,7 +994,7 @@ function showDoc(id) {
 
 /* Auto-activate from URL hash: /legal#reembolso */
 const hash = window.location.hash.replace('#', '');
-if (['privacidad','terminos','reembolso'].includes(hash)) showDoc(hash);
+if (['privacidad','terminos','reembolso','whatsapp'].includes(hash)) showDoc(hash);
 </script>
 
 <script>
