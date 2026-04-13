@@ -303,10 +303,35 @@
     <section class="px-6 mb-16">
         <div class="max-w-7xl mx-auto">
             <div class="flex items-center justify-between mb-6">
-                <h2 class="font-headline text-2xl font-bold text-on-surface">Agentes IA</h2>
+                <div>
+                    <h2 class="font-headline text-2xl font-bold text-on-surface">Agentes IA</h2>
+                    <p class="text-xs text-on-surface-variant mt-1"><span class="inline-flex items-center gap-1"><span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span> 230+ PyMEs ya automatizando</span></p>
+                </div>
                 <span class="text-sm text-on-surface-variant" id="agentCount">42 agentes</span>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="agents-grid"></div>
+        </div>
+    </section>
+
+    <!-- ==================== EMAIL CAPTURE ==================== -->
+    <section class="px-6 mb-16">
+        <div class="max-w-4xl mx-auto">
+            <div class="relative bg-gradient-to-br from-primary/5 via-primary-container/5 to-surface-container rounded-[2rem] p-8 md:p-12 border border-primary/10 overflow-hidden">
+                <div class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-primary/5 blur-3xl"></div>
+                <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
+                    <div class="flex-1 text-center md:text-left">
+                        <div class="inline-flex items-center gap-2 bg-green-100 text-green-700 rounded-full px-3 py-1 text-xs font-bold mb-3">
+                            <span class="material-symbols-outlined text-sm">download</span> 7 agentes gratis disponibles
+                        </div>
+                        <h2 class="font-headline text-2xl font-bold text-on-surface mb-2">Recibe los 7 agentes gratis en tu correo</h2>
+                        <p class="text-sm text-on-surface-variant leading-relaxed">Blueprints listos para importar en Make.com + instrucciones paso a paso. Sin spam, sin tarjeta.</p>
+                    </div>
+                    <form class="w-full md:w-auto flex flex-col sm:flex-row gap-3 min-w-[320px]" id="catalog-lead-form">
+                        <input type="email" name="email" class="flex-1 px-4 py-3 bg-surface-container-lowest border border-outline-variant/20 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30" placeholder="tu@email.com" required autocomplete="email">
+                        <button type="submit" class="px-6 py-3 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold rounded-xl shadow-lg hover:shadow-xl transition-all active:scale-95 whitespace-nowrap">Enviar gratis &rarr;</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -662,8 +687,9 @@ function renderAgents() {
                     <span class="px-2 py-0.5 ${tierColor} rounded-full text-[10px] font-bold">${tierLabel}</span>
                 </div>
                 <button class="w-full py-2.5 bg-gradient-to-r from-primary to-primary-container text-on-primary text-sm font-bold rounded-xl transition-all hover:shadow-md active:scale-95" onclick="event.stopPropagation();openModal('agent','${a.id}')">
-                    Ver Agente
+                    ${a.free ? 'Obtener gratis' : `Obtener por $${a.price}`}
                 </button>
+                ${!a.free ? '<p class="text-[10px] text-on-surface-variant text-center mt-1.5">Pago \u00fanico \u00b7 Garant\u00eda 7 d\u00edas</p>' : '<p class="text-[10px] text-green-600 text-center mt-1.5 font-semibold">Solo necesitas tu email</p>'}
             </div>
         </div>`;
     }).join('');
@@ -754,11 +780,15 @@ function buildAgentModal(a) {
            </form>
            <p class="text-xs text-on-surface-variant text-center mt-2">Sin spam. Solo el archivo que pediste.</p>`
         : `<div class="flex flex-col items-center gap-3">
-               <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/25 rounded-full px-4 py-1.5 text-sm text-primary font-semibold">
-                   <span class="material-symbols-outlined text-sm">check</span> Incluido en tu plan
+               <div class="text-center mb-1">
+                   <span class="font-headline text-3xl font-black text-on-surface">$${a.price} <span class="text-sm font-normal text-on-surface-variant">USD \u00b7 pago \u00fanico</span></span>
                </div>
-               <a href="/precios/" class="w-full py-3 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold rounded-xl shadow-lg hover:shadow-xl transition-all active:scale-95 text-center block">Elegir mi setup &rarr;</a>
-               <p class="text-xs text-on-surface-variant text-center">Desde $19 \u00b7 Pago \u00fanico \u00b7 Garant\u00eda 7 d\u00edas</p>
+               <a href="/precios/" class="w-full py-3.5 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold rounded-xl shadow-lg hover:shadow-xl transition-all active:scale-95 text-center block text-base">Obtener este agente &rarr;</a>
+               <div class="flex items-center justify-center gap-4 text-xs text-on-surface-variant">
+                   <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-green-600 text-sm" style="font-variation-settings:'FILL' 1;">verified</span> Garant\u00eda 7 d\u00edas</span>
+                   <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-primary text-sm">bolt</span> Setup en 15 min</span>
+               </div>
+               <p class="text-[11px] text-on-surface-variant/70 text-center">Incluye agente + setup. Necesitas <a href="https://make.com" target="_blank" rel="noopener" class="text-primary font-semibold">Make.com</a> activo (desde $9/mes).</p>
            </div>`;
     return `
     <div class="relative h-40 flex items-center justify-center" style="background:${a.gradient}">
@@ -766,17 +796,19 @@ function buildAgentModal(a) {
         <button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/40 transition-colors" id="modal-close" aria-label="Cerrar">
             <span class="material-symbols-outlined text-lg">close</span>
         </button>
+        ${!a.free ? `<div class="absolute bottom-3 left-3 bg-white/95 backdrop-blur-sm rounded-full px-3 py-1 shadow-sm"><span class="font-bold text-sm text-on-surface">$${a.price} USD</span></div>` : ''}
     </div>
     <div class="p-6">
         <span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">${a.seg}</span>
         <h2 class="font-headline text-xl font-bold text-on-surface mt-1 mb-2">${a.name}</h2>
         ${a.hook ? `<p class="text-sm text-primary font-semibold leading-relaxed mb-3">${a.hook}</p>` : ''}
         <p class="text-sm text-on-surface-variant leading-relaxed mb-4">${a.desc}</p>
+        ${a.idealPara ? `<p class="text-xs text-on-surface-variant mb-4"><span class="font-bold text-on-surface">Ideal para:</span> ${a.idealPara}</p>` : ''}
         <p class="text-xs font-bold text-on-surface uppercase tracking-wider mb-2">Incluye</p>
         <ul class="space-y-2 mb-4">${inc}</ul>
         <p class="text-xs font-bold text-on-surface uppercase tracking-wider mb-2">Plataformas</p>
         <div class="flex flex-wrap gap-2 mb-4">${tags}</div>
-        ${!a.free ? '<p class="text-xs text-on-surface-variant mb-4">Necesitas Make.com activo (desde $9/mes). <a href="https://make.com" target="_blank" rel="noopener" class="text-primary font-semibold">Ver planes &rarr;</a></p>' : ''}
+        ${!a.free ? '<p class="text-xs text-on-surface-variant mb-4"><span class="material-symbols-outlined text-xs align-middle mr-1">info</span>Necesitas Make.com activo (desde $9/mes). <a href="https://make.com" target="_blank" rel="noopener" class="text-primary font-semibold">Ver planes &rarr;</a></p>' : ''}
         <div class="border-t border-outline-variant/10 pt-4">${action}</div>
     </div>`;
 }
@@ -792,11 +824,13 @@ function buildPromptModal(p) {
            </form>
            <p class="text-xs text-on-surface-variant text-center mt-2">Sin spam. Solo el archivo que pediste.</p>`
         : `<div class="flex flex-col items-center gap-3">
-               <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/25 rounded-full px-4 py-1.5 text-sm text-primary font-semibold">
-                   <span class="material-symbols-outlined text-sm">check</span> Incluido en tu plan
+               <div class="text-center mb-1">
+                   <span class="font-headline text-3xl font-black text-on-surface">$${p.price} <span class="text-sm font-normal text-on-surface-variant">USD</span></span>
                </div>
-               <a href="/precios/" class="w-full py-3 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold rounded-xl shadow-lg hover:shadow-xl transition-all active:scale-95 text-center block">Elegir mi setup &rarr;</a>
-               <p class="text-xs text-on-surface-variant text-center">Desde $19 \u00b7 Pago \u00fanico \u00b7 Garant\u00eda 7 d\u00edas</p>
+               <a href="/precios/" class="w-full py-3.5 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold rounded-xl shadow-lg hover:shadow-xl transition-all active:scale-95 text-center block">Obtener prompt &rarr;</a>
+               <div class="flex items-center justify-center gap-4 text-xs text-on-surface-variant">
+                   <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-green-600 text-sm" style="font-variation-settings:'FILL' 1;">verified</span> Garant\u00eda 7 d\u00edas</span>
+               </div>
            </div>`;
     const upsell = related
         ? `<div class="mt-4 p-3 bg-surface-container rounded-xl">
@@ -836,6 +870,15 @@ async function handleFreeSubmit(e) {
     window.location.href = '/gracias?product=' + product + '&type=free';
 }
 
+/* ── CATALOG LEAD FORM ──────────────────────────────── */
+document.getElementById('catalog-lead-form')?.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const email = this.querySelector('input[type="email"]').value;
+    try { await fetch('/api/subscribe.php', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ email, product:'free-bundle' }) }); } catch(_){}
+    mixpanel.track('lead_captured', { source:'catalog_banner', email_hash: email.split('@')[1] });
+    window.location.href = '/gracias-gratis/?source=catalog';
+});
+
 /* ── UTILS ───────────────────────────────────────────── */
 function debounce(fn, delay) {
     let t; return function(...args) { clearTimeout(t); t = setTimeout(() => fn.apply(this, args), delay); };
@@ -843,6 +886,10 @@ function debounce(fn, delay) {
 
 /* ── INIT ────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
+    // Read filter from URL param (e.g. ?filter=ind-Servicios)
+    const urlFilter = new URLSearchParams(window.location.search).get('filter');
+    if (urlFilter) { setFilter(urlFilter); }
+
     renderAgents();
     renderPrompts();
 
