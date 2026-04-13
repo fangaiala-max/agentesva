@@ -40,79 +40,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "secondary-container": "#d7dbfd",
-              "on-secondary-container": "#5b5f7c",
-              "on-surface-variant": "#444656",
-              "error-container": "#ffdad6",
-              "outline-variant": "#c4c5d9",
-              "on-tertiary": "#ffffff",
-              "surface": "#fbf8ff",
-              "outline": "#747688",
-              "surface-container-highest": "#dee1ff",
-              "error": "#ba1a1a",
-              "background": "#fbf8ff",
-              "surface-container-low": "#f3f2ff",
-              "surface-dim": "#d4d8fa",
-              "surface-container": "#ececff",
-              "tertiary-fixed-dim": "#ffb3b2",
-              "tertiary": "#91001e",
-              "on-secondary": "#ffffff",
-              "on-secondary-fixed-variant": "#404561",
-              "on-secondary-fixed": "#151a33",
-              "on-background": "#151a33",
-              "surface-container-high": "#e5e6ff",
-              "surface-tint": "#1f48f1",
-              "secondary-fixed-dim": "#c1c4e6",
-              "on-primary-fixed": "#00105a",
-              "on-tertiary-container": "#ffcbca",
-              "surface-variant": "#dee1ff",
-              "inverse-on-surface": "#f0efff",
-              "tertiary-container": "#be002b",
-              "on-primary-container": "#d0d5ff",
-              "on-primary-fixed-variant": "#0030c7",
-              "secondary-fixed": "#dee1ff",
-              "primary-fixed-dim": "#bac3ff",
-              "surface-container-lowest": "#ffffff",
-              "primary-fixed": "#dee0ff",
-              "secondary": "#585d7a",
-              "primary": "#0030c6",
-              "primary-container": "#1e47f1",
-              "on-error": "#ffffff",
-              "on-error-container": "#93000a",
-              "on-primary": "#ffffff",
-              "surface-bright": "#fbf8ff",
-              "tertiary-fixed": "#ffdad9",
-              "on-surface": "#151a33",
-              "inverse-primary": "#bac3ff",
-              "on-tertiary-fixed-variant": "#92001f",
-              "inverse-surface": "#2a2f49",
-              "on-tertiary-fixed": "#410008"
-            },
-            borderRadius: {
-              DEFAULT: "0.25rem",
-              lg: "0.5rem",
-              xl: "0.75rem",
-              "2xl": "1rem",
-              "3xl": "1.5rem",
-              "4xl": "2rem",
-              full: "9999px"
-            },
-            fontFamily: {
-              headline: ["Manrope"],
-              body: ["Inter"],
-              label: ["Inter"]
-            }
-          }
-        }
-      }
-    </script>
+    <link rel="stylesheet" href="/assets/tailwind.css">
     <style>
       .material-symbols-outlined {
         font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
@@ -282,10 +210,10 @@
 <body class="bg-surface text-on-surface font-body">
 
 <!-- Top App Bar -->
-<header class="fixed top-0 w-full z-50 bg-surface-container-low/80 backdrop-blur-md">
+<header class="fixed top-0 w-full z-50 bg-surface-container-low/80 backdrop-blur-md" role="banner">
     <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto w-full">
         <div class="flex items-center gap-3">
-            <button id="nav-hamburger" class="md:hidden" aria-label="Abrir menú">
+            <button id="nav-hamburger" class="md:hidden" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-mobile-menu">
                 <span class="material-symbols-outlined text-primary-container">menu</span>
             </button>
             <a href="/" class="text-xl font-extrabold text-on-surface font-headline tracking-tight">Agentes<span class="text-primary-container">VA</span></a>
@@ -302,7 +230,7 @@
 </header>
 
 <!-- Mobile Menu Overlay -->
-<div id="nav-mobile-menu" class="fixed inset-0 z-40 bg-surface/95 backdrop-blur-lg hidden flex-col items-center justify-center gap-6 text-lg font-headline font-bold">
+<div id="nav-mobile-menu" role="navigation" aria-label="Menú móvil" class="fixed inset-0 z-40 bg-surface/95 backdrop-blur-lg hidden flex-col items-center justify-center gap-6 text-lg font-headline font-bold">
     <a href="/catalogo/" class="text-on-surface hover:text-primary-container transition-colors">Agentes IA</a>
     <a href="/servicios/" class="text-on-surface hover:text-primary-container transition-colors">Servicios</a>
     <a href="/precios/" class="text-on-surface hover:text-primary-container transition-colors">Setup &amp; Precios</a>
@@ -316,7 +244,7 @@
     <section class="px-6 py-8" id="solucion">
         <div class="relative overflow-hidden rounded-[2rem] bg-surface-container-low min-h-[520px] flex flex-col">
             <div class="absolute inset-0 z-0">
-                <img class="w-full h-full object-cover" alt="Profesional latinoamericana trabajando con IA" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABFoR2QREx9N6EODwl7as711UQv6YG0-rn97Njw1NUI1Xjc86UJ4EDWD5XzDHItW7EGNkkX4-z7WXdCaVeb--CTb573VcBvZ8fvDWqpI8-AKksTKAaNxdNu_dJRh084X0fe7-UULwxGkMkUqwluUZP85GgsI8PoI2aofbnruelnjNATMNzYKEpvJlkdYPEN4nvIOLwy3_tTkTORGFTNkjTN5_h0e4yLdVxI_lR74M2Ldv8UZu17VZUjB8PWBo3i7a-Xk8gbJAS0EQ">
+                <img class="w-full h-full object-cover" alt="Profesional latinoamericana trabajando con IA" src="/assets/hero-home.png">
                 <div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-on-surface/20 to-transparent"></div>
             </div>
             <div class="relative z-10 mt-auto p-8 space-y-6">
@@ -339,11 +267,11 @@
                 </div>
                 <!-- Industry pills -->
                 <div class="flex flex-wrap gap-2 pt-2">
-                    <a href="/catalogo/#clinica" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-colors"><span>&#x1F3E5;</span> Consultorio</a>
-                    <a href="/catalogo/#restaurante" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-colors"><span>&#x1F37D;&#xFE0F;</span> Restaurante</a>
-                    <a href="/catalogo/#ecommerce" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-colors"><span>&#x1F6CD;&#xFE0F;</span> Ecommerce</a>
-                    <a href="/catalogo/#salon" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-colors"><span>&#x2702;&#xFE0F;</span> Sal&oacute;n</a>
-                    <a href="/catalogo/#inmobiliaria" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-colors"><span>&#x1F3E0;</span> Inmobiliaria</a>
+                    <a href="/catalogo/#clinica" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-colors"><span aria-hidden="true">&#x1F3E5;</span> Consultorio</a>
+                    <a href="/catalogo/#restaurante" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-colors"><span aria-hidden="true">&#x1F37D;&#xFE0F;</span> Restaurante</a>
+                    <a href="/catalogo/#ecommerce" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-colors"><span aria-hidden="true">&#x1F6CD;&#xFE0F;</span> Ecommerce</a>
+                    <a href="/catalogo/#salon" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-colors"><span aria-hidden="true">&#x2702;&#xFE0F;</span> Sal&oacute;n</a>
+                    <a href="/catalogo/#inmobiliaria" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-colors"><span aria-hidden="true">&#x1F3E0;</span> Inmobiliaria</a>
                     <a href="/catalogo/" class="px-4 py-2 rounded-full bg-primary-container/80 text-on-primary text-sm font-bold hover:bg-primary-container transition-colors">+ 7 industrias &rarr;</a>
                 </div>
             </div>
@@ -382,7 +310,7 @@
     </section>
 
     <!-- ==================== DOLOR (Pain Points) ==================== -->
-    <section id="dolor" class="px-6 py-12 bg-surface-container-high rounded-t-[3rem]">
+    <section id="dolor" class="px-6 py-12 bg-surface-container-high rounded-t-[3rem]" aria-label="Problemas que resolvemos">
         <div class="max-w-4xl mx-auto space-y-8">
             <div class="space-y-4">
                 <span class="text-primary font-bold uppercase tracking-widest text-xs">EL PROBLEMA REAL</span>
@@ -502,7 +430,7 @@
                 <p class="text-on-surface-variant text-lg">Combinamos la calidez humana con la precisi&oacute;n algor&iacute;tmica.</p>
             </div>
             <div class="relative rounded-3xl overflow-hidden aspect-[4/3] shadow-xl">
-                <img class="w-full h-full object-cover" alt="Equipo profesional colaborando en oficina moderna" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARzDk-lm1_8edop0j3QEz-Fn4BCeDa8sCOcc1ywAK7h2hUz-5K4cj8lDgGfoRcAvSJQprzA6Lb2Li7DodPz7WMsYGjiDZ7ScAWIVGNW94enqx5oImbvVLLLfPUS73R-YQCuVXGYZKgr1WdpNW-VG_Rjdk6-c52qY85a7t2qjZPT6PHCyM0cZPBHmdC2wUSlVJ3jANzlIKENVyHgknWYssxr9t05_5NJH_vlFMmCZn-fMbLnu8THwMwELe7BnMtF0_KJSckdDuNhrk">
+                <img class="w-full h-full object-cover" alt="Equipo profesional colaborando en oficina moderna" src="/assets/team-collaboration.png">
             </div>
             <div class="space-y-4">
                 <div class="flex items-start gap-4 p-5 bg-surface-container-lowest rounded-2xl">
@@ -898,7 +826,7 @@
 </footer>
 
 <!-- Bottom Nav Bar (Mobile) -->
-<nav class="fixed bottom-0 w-full bg-surface-container-low border-t border-outline-variant/10 z-50 md:hidden">
+<nav class="fixed bottom-0 w-full bg-surface-container-low border-t border-outline-variant/10 z-50 md:hidden" aria-label="Navegación móvil">
     <div class="flex justify-around items-center h-16 px-2">
         <a href="/" class="flex flex-col items-center gap-1 text-primary-container font-bold">
             <span class="material-symbols-outlined">storefront</span>
@@ -971,24 +899,25 @@ document.querySelectorAll('.faq-q').forEach(function(q) {
     var btn = document.getElementById('nav-hamburger');
     var menu = document.getElementById('nav-mobile-menu');
     if (!btn || !menu) return;
+    function openMenu() {
+        menu.classList.remove('hidden');
+        menu.classList.add('flex');
+        btn.setAttribute('aria-expanded', 'true');
+        btn.setAttribute('aria-label', 'Cerrar menú');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+        menu.classList.add('hidden');
+        menu.classList.remove('flex');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'Abrir menú de navegación');
+        document.body.style.overflow = '';
+    }
     btn.addEventListener('click', function() {
-        var isOpen = menu.classList.contains('hidden');
-        if (isOpen) {
-            menu.classList.remove('hidden');
-            menu.classList.add('flex');
-            document.body.style.overflow = 'hidden';
-        } else {
-            menu.classList.add('hidden');
-            menu.classList.remove('flex');
-            document.body.style.overflow = '';
-        }
+        menu.classList.contains('hidden') ? openMenu() : closeMenu();
     });
     menu.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', function() {
-            menu.classList.add('hidden');
-            menu.classList.remove('flex');
-            document.body.style.overflow = '';
-        });
+        link.addEventListener('click', closeMenu);
     });
 })();
 </script>

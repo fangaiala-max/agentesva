@@ -37,54 +37,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "secondary-container": "#d7dbfd",
-              "on-secondary-container": "#5b5f7c",
-              "on-surface-variant": "#444656",
-              "error-container": "#ffdad6",
-              "outline-variant": "#c4c5d9",
-              "surface": "#fbf8ff",
-              "outline": "#747688",
-              "surface-container-highest": "#dee1ff",
-              "error": "#ba1a1a",
-              "background": "#fbf8ff",
-              "surface-container-low": "#f3f2ff",
-              "surface-dim": "#d4d8fa",
-              "surface-container": "#ececff",
-              "tertiary": "#91001e",
-              "on-secondary": "#ffffff",
-              "on-background": "#151a33",
-              "surface-container-high": "#e5e6ff",
-              "surface-tint": "#1f48f1",
-              "on-tertiary-container": "#ffcbca",
-              "surface-variant": "#dee1ff",
-              "inverse-on-surface": "#f0efff",
-              "tertiary-container": "#be002b",
-              "on-primary-container": "#d0d5ff",
-              "secondary-fixed": "#dee1ff",
-              "primary-fixed-dim": "#bac3ff",
-              "surface-container-lowest": "#ffffff",
-              "primary": "#0030c6",
-              "primary-container": "#1e47f1",
-              "on-error": "#ffffff",
-              "on-primary": "#ffffff",
-              "surface-bright": "#fbf8ff",
-              "on-surface": "#151a33",
-              "inverse-primary": "#bac3ff",
-              "inverse-surface": "#2a2f49"
-            },
-            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "4xl": "2rem", full: "9999px" },
-            fontFamily: { headline: ["Manrope"], body: ["Inter"], label: ["Inter"] }
-          }
-        }
-      }
-    </script>
+    <link rel="stylesheet" href="/assets/tailwind.css">
     <style>
       .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
       body { min-height: max(884px, 100dvh); }
@@ -118,7 +71,7 @@
 <body class="bg-surface font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
 
 <!-- Top Nav -->
-<nav class="fixed top-0 w-full z-50 bg-surface-container-low/80 backdrop-blur-md">
+<nav class="fixed top-0 w-full z-50 bg-surface-container-low/80 backdrop-blur-md" aria-label="Navegación principal">
     <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto w-full">
         <div class="flex items-center gap-3">
             <a href="/" class="text-xl font-extrabold text-on-surface font-headline tracking-tight">Agentes<span class="text-primary-container">VA</span></a>
@@ -438,7 +391,7 @@
             <p class="text-secondary-fixed-dim text-sm max-w-[280px] mx-auto">hazlo tú mismo $19 &middot; Setup Asistido $49 &middot; Full Service $97. Pago &uacute;nico. Garant&iacute;a 30 d&iacute;as.</p>
             <div class="relative w-48 h-48 mx-auto">
                 <div class="absolute inset-0 bg-primary rounded-full blur-2xl opacity-20"></div>
-                <img alt="Agente de soporte" class="w-full h-full object-cover rounded-full border-4 border-white/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTx6gFlCkjZk93EHZwY52Fqw-FVVqV6a7KMkP1RK_FbOJO7pZy2-kOLWz_-oTDB-t43qpx5L0oO018myYlDDq2wRuDrrSK6N_wMnmdsXyxIV1cNFtTCEbQyGHtYRGUxxg4uYPM4vt7geZyZF20nHUPveb_Gr6ys7vSFSpzV4a1S-lI4ZafSYYGUcp4i-akf59vaSQOSFk3ydZMJxXef17UsPRgDEfG8CyRKhDn7eI07S-yqiEV4FalVryvcH1BTQErSgviRMy8AsI">
+                <img alt="Agente de soporte" class="w-full h-full object-cover rounded-full border-4 border-white/10" src="/assets/agent-support.png">
             </div>
             <a href="#tiers" class="inline-block w-full py-4 bg-gradient-to-r from-primary to-primary-container text-white font-extrabold rounded-xl shadow-xl active:scale-95 transition-all">Ver opciones de setup &rarr;</a>
             <p class="text-xs text-white/50">Sin tarjeta de cr&eacute;dito para la consulta inicial.</p>
@@ -482,7 +435,7 @@
 </footer>
 
 <!-- Bottom Nav Bar (Mobile) -->
-<div class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-container-low border-t border-outline-variant/10 px-6 py-3 flex justify-between items-center z-50">
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-container-low border-t border-outline-variant/10 px-6 py-3 flex justify-between items-center z-50" aria-label="Navegación móvil">
     <a href="/" class="flex flex-col items-center gap-1 text-on-surface-variant">
         <span class="material-symbols-outlined">storefront</span>
         <span class="text-[10px] font-medium">Inicio</span>
@@ -499,7 +452,7 @@
         <span class="material-symbols-outlined">help</span>
         <span class="text-[10px] font-medium">FAQ</span>
     </a>
-</div>
+</nav>
 
 <!-- Scripts -->
 <script>
