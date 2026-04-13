@@ -22,45 +22,45 @@
 
     <style>
         :root {
-    --bg:           #FAFAF7;
+    --bg:           #f8fafd;
     --bg2:          #FFFFFF;
-    --bg3:          #F0F0EB;
-    --bg4:          #E8E8E2;
-    --surface:      #F0F0EB;
-    --primary:      #2D6A4F;
-    --primary-dim:  #1B4332;
+    --bg3:          #f0f2ff;
+    --bg4:          #e8ebff;
+    --surface:      #f0f2ff;
+    --primary:      #0b28ff;
+    --primary-dim:  #0920cc;
     --orange:       #4ae183;
-    --orange-dim:   #006d37;
+    --orange-dim:   #0920cc;
     --tertiary:     #ffb4ab;
-    --text:         #2D3436;
-    --muted:        #6B7280;
-    --muted2:       #9CA3AF;
-    --outline:      #9CA3AF;
-    --teal:         #2D6A4F;
-    --border:       rgba(45,106,79,0.28);
-    --border-light: rgba(45,106,79,0.15);
+    --text:         #1f1f23;
+    --muted:        #8181a5;
+    --muted2:       #a5a5c0;
+    --outline:      #d4d5e0;
+    --teal:         #0b28ff;
+    --border:       rgba(11,40,255,0.18);
+    --border-light: rgba(11,40,255,0.10);
     --shadow-sm:    0 2px 10px rgba(0,0,0,0.06);
     --shadow-md:    0 12px 40px rgba(0,0,0,0.35);
-    --shadow-cta:   0 8px 24px rgba(45,106,79,0.25);
+    --shadow-cta:   0 8px 24px rgba(11,40,255,0.25);
     --mono:         'JetBrains Mono', monospace;
     --sans:         'Manrope', sans-serif;
     --display:      'Space Grotesk', sans-serif;
     --r-xl: 20px; --r-md: 12px; --r-sm: 8px; --r-full: 9999px;
     --bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
-    --lime:         #2D6A4F;
-    --lime-dim:     rgba(45,106,79,0.1);
-    --border-md:    rgba(45,106,79,0.15);
-    --border-lime:  rgba(45,106,79,0.22);
+    --lime:         #0b28ff;
+    --lime-dim:     rgba(11,40,255,0.1);
+    --border-md:    rgba(11,40,255,0.15);
+    --border-lime:  rgba(11,40,255,0.22);
     color-scheme: dark;
 }
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
         body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; }
-        ::selection { background: #2D6A4F; color: #FFFFFF; }
+        ::selection { background: #0b28ff; color: #FFFFFF; }
         a { color: inherit; text-decoration: none; }
 
         /* ── NAV ── */
-        nav { position: sticky; top: 0; z-index: 100; height: 64px; display: flex; align-items: center; padding: 0 32px; background: rgba(250,250,247,0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 2px 12px rgba(0,0,0,0.15); }
+        nav { position: sticky; top: 0; z-index: 100; height: 64px; display: flex; align-items: center; padding: 0 32px; background: rgba(248,250,253,0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 2px 12px rgba(0,0,0,0.15); }
         .nav-inner { max-width: 860px; margin: 0 auto; width: 100%; display: flex; align-items: center; justify-content: space-between; }
         .nav-logo { font-family: var(--display); font-size: 20px; font-weight: 800; letter-spacing: -0.025em; color: var(--text); }
         .nav-logo span { color: var(--lime); }
@@ -70,7 +70,7 @@
 
         /* ── CHECK ANIMATION ── */
         .check-wrap { display: flex; flex-direction: column; align-items: center; gap: 16px; margin-bottom: 48px; text-align: center; }
-        .check-circle { width: 80px; height: 80px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(45,106,79,0.3); animation: popIn 0.6s var(--bounce) both; }
+        .check-circle { width: 80px; height: 80px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(11,40,255,0.3); animation: popIn 0.6s var(--bounce) both; }
         @keyframes popIn { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         .check-circle svg { animation: checkDraw 0.4s ease 0.4s both; }
         @keyframes checkDraw { from { stroke-dashoffset: 30; opacity: 0; } to { stroke-dashoffset: 0; opacity: 1; } }
@@ -78,7 +78,7 @@
         .check-sub { font-size: 16px; color: var(--muted); font-weight: 300; max-width: 480px; line-height: 1.6; }
 
         /* ── EMAIL BOX ── */
-        .email-box { background: var(--bg3); border: 2px solid rgba(45,106,79,0.12); border-radius: var(--r-xl); padding: 2rem; margin-bottom: 2.5rem; text-align: center; }
+        .email-box { background: var(--bg3); border: 2px solid rgba(11,40,255,0.12); border-radius: var(--r-xl); padding: 2rem; margin-bottom: 2.5rem; text-align: center; }
         .email-icon { font-size: 3rem; margin-bottom: 1rem; }
         .email-title { font-family: var(--display); font-size: 1.2rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
         .email-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
@@ -92,7 +92,7 @@
         .upsell-title { font-family: var(--display); font-size: 1.3rem; font-weight: 800; color: var(--text); margin-bottom: 0.5rem; letter-spacing: -0.02em; }
         .upsell-desc { font-size: 0.9rem; color: var(--muted); margin-bottom: 1.5rem; }
         .agent-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-        .agent-card-mini { background: var(--bg3); border: 1px solid rgba(45,106,79,0.1); border-radius: var(--r-xl); padding: 1.5rem; transition: transform 0.3s var(--bounce), box-shadow 0.3s; text-decoration: none; color: inherit; display: block; }
+        .agent-card-mini { background: var(--bg3); border: 1px solid rgba(11,40,255,0.1); border-radius: var(--r-xl); padding: 1.5rem; transition: transform 0.3s var(--bounce), box-shadow 0.3s; text-decoration: none; color: inherit; display: block; }
         .agent-card-mini:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
         .agent-card-mini-icon { font-size: 2rem; margin-bottom: 0.75rem; }
         .agent-card-mini-name { font-family: var(--display); font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem; }
@@ -101,8 +101,8 @@
 
         /* ── CTA ── */
         .cta-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 2rem; }
-        .btn-primary { display: inline-block; font-family: var(--display); font-size: 15px; font-weight: 700; padding: 14px 32px; background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%); color: #FFFFFF; border-radius: var(--r-full); box-shadow: 0 8px 24px rgba(45,106,79,0.2); transition: transform 0.5s var(--bounce), box-shadow 0.3s ease; }
-        .btn-primary:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 14px 36px rgba(45,106,79,0.38); }
+        .btn-primary { display: inline-block; font-family: var(--display); font-size: 15px; font-weight: 700; padding: 14px 32px; background: linear-gradient(135deg, #0b28ff 0%, #0920cc 100%); color: #FFFFFF; border-radius: var(--r-full); box-shadow: 0 8px 24px rgba(11,40,255,0.2); transition: transform 0.5s var(--bounce), box-shadow 0.3s ease; }
+        .btn-primary:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 14px 36px rgba(11,40,255,0.38); }
         .btn-ghost { display: inline-block; font-size: 14px; color: var(--muted); transition: color 0.2s; }
         .btn-ghost:hover { color: var(--text); }
 
@@ -140,7 +140,7 @@
     <nav>
         <div class="nav-inner">
             <a href="/" class="nav-logo">Agentes<span>VA</span></a>
-            <a href="/catalogo/" style="font-family:var(--display);font-size:14px;font-weight:700;padding:9px 22px;background:linear-gradient(135deg,#2D6A4F 0%,#1B4332 100%);color:#FFFFFF;border-radius:9999px;">Ver cat&aacute;logo</a>
+            <a href="/catalogo/" style="font-family:var(--display);font-size:14px;font-weight:700;padding:9px 22px;background:linear-gradient(135deg,#0b28ff 0%,#0920cc 100%);color:#FFFFFF;border-radius:9999px;">Ver cat&aacute;logo</a>
         </div>
     </nav>
 

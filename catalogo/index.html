@@ -51,25 +51,25 @@
            TOKENS, Dark Green (Kinetic Growth)
         ============================================= */
         :root {
-            --bg:           #FAFAF7;
+            --bg:           #f8fafd;
             --bg2:          #FFFFFF;
-            --bg3:          #F0F0EB;
-            --bg4:          #E8E8E2;
-            --surface:      #F0F0EB;
-            --primary:      #2D6A4F;
-            --primary-dim:  #1B4332;
-            --orange:       #40916C;
-            --orange-dim:   #006d37;
+            --bg3:          #f0f2ff;
+            --bg4:          #e8ebff;
+            --surface:      #f0f2ff;
+            --primary:      #0b28ff;
+            --primary-dim:  #0920cc;
+            --orange:       #3d50ff;
+            --orange-dim:   #0920cc;
             --tertiary:     #ffb4ab;
-            --text:         #2D3436;
-            --muted:        #6B7280;
-            --muted2:       #9CA3AF;
-            --outline:      #9CA3AF;
-            --border:       rgba(45,106,79,0.28);
-            --border-light: rgba(45,106,79,0.15);
+            --text:         #1f1f23;
+            --muted:        #8181a5;
+            --muted2:       #a5a5c0;
+            --outline:      #d4d5e0;
+            --border:       rgba(11,40,255,0.18);
+            --border-light: rgba(11,40,255,0.10);
             --shadow-sm:    0 2px 10px rgba(0,0,0,0.06);
             --shadow-md:    0 12px 40px rgba(0,0,0,0.08);
-            --shadow-cta:   0 8px 24px rgba(45,106,79,0.25);
+            --shadow-cta:   0 8px 24px rgba(11,40,255,0.25);
             --mono:         'JetBrains Mono', monospace;
             --sans:         'Manrope', sans-serif;
             --display:      'Space Grotesk', sans-serif;
@@ -93,7 +93,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        ::selection { background: #2D6A4F; color: #FFFFFF; }
+        ::selection { background: #0b28ff; color: #FFFFFF; }
 
         a { color: inherit; text-decoration: none; }
         button { cursor: pointer; border: none; background: none; font: inherit; color: inherit; }
@@ -119,7 +119,7 @@
             top: 0;
             width: 100%;
             z-index: 50;
-            background: rgba(250,250,247,0.7);
+            background: rgba(248,250,253,0.7);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-light);
@@ -202,7 +202,7 @@
         }
         .nav-search input:focus {
             border-color: var(--outline);
-            box-shadow: 0 0 0 3px rgba(45,106,79,0.18);
+            box-shadow: 0 0 0 3px rgba(11,40,255,0.18);
         }
         .nav-search input::placeholder { color: var(--muted2); }
 
@@ -292,7 +292,7 @@
             font-size: 15px;
             font-weight: 700;
             padding: 14px;
-            background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%);
+            background: linear-gradient(135deg, #0b28ff 0%, #0920cc 100%);
             color: #FFFFFF;
             border-radius: 999px;
             text-align: center;
@@ -377,7 +377,7 @@
         }
         .sb-nav-link:hover { background: var(--bg2); color: var(--text); }
         .sb-nav-link.active {
-            background: rgba(45,106,79,0.08);
+            background: rgba(11,40,255,0.08);
             color: var(--text);
             font-weight: 600;
         }
@@ -418,7 +418,7 @@
         }
         .sb-cta:hover {
             transform: scale(1.04);
-            box-shadow: 0 12px 32px rgba(45,106,79,0.4);
+            box-shadow: 0 12px 32px rgba(11,40,255,0.4);
         }
 
         /* ── Business type grid ── */
@@ -442,12 +442,12 @@
             transition: background 0.15s, border-color 0.15s, color 0.15s;
         }
         .biz-btn:hover {
-            background: rgba(45,106,79,0.08);
-            border-color: rgba(45,106,79,0.3);
+            background: rgba(11,40,255,0.08);
+            border-color: rgba(11,40,255,0.3);
             color: var(--text);
         }
         .biz-btn.active {
-            background: rgba(45,106,79,0.12);
+            background: rgba(11,40,255,0.12);
             border-color: var(--primary);
             color: var(--primary);
         }
@@ -532,7 +532,7 @@
         .sb-dropdown:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 2px rgba(45,106,79,0.1);
+            box-shadow: 0 0 0 2px rgba(11,40,255,0.1);
         }
 
         /* =============================================
@@ -753,7 +753,7 @@
             inset: 0;
             border-radius: inherit;
             padding: 1px;
-            background-image: radial-gradient(transparent, transparent, #2D6A4F, #00ffcc, #a3f7bf, transparent, transparent);
+            background-image: radial-gradient(transparent, transparent, #0b28ff, #00ffcc, #a3f7bf, transparent, transparent);
             background-size: 300% 300%;
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -999,7 +999,7 @@
             width: 36px;
             height: 36px;
             border-radius: 50%;
-            background: rgba(45,106,79,0.1);
+            background: rgba(11,40,255,0.1);
             border: 1px solid var(--primary);
             display: flex;
             align-items: center;
@@ -1120,7 +1120,7 @@
 
         .service-header {
             padding: 1.5rem;
-            background: linear-gradient(135deg, rgba(45,106,79,0.05), rgba(45,106,79,0.05));
+            background: linear-gradient(135deg, rgba(11,40,255,0.05), rgba(11,40,255,0.05));
             border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
@@ -1445,7 +1445,7 @@
         .email-input::placeholder { color: var(--muted2); }
         .email-input:focus {
             border-color: var(--outline);
-            box-shadow: 0 0 0 3px rgba(45,106,79,0.18);
+            box-shadow: 0 0 0 3px rgba(11,40,255,0.18);
         }
 
         .btn-submit {
@@ -1706,8 +1706,8 @@
             align-items: center;
             justify-content: center;
             height: 2.75rem;
-            background: #FAFAF7;
-            border-bottom: 1px solid rgba(45,106,79,0.22);
+            background: #f8fafd;
+            border-bottom: 1px solid rgba(11,40,255,0.22);
             font-family: var(--mono);
             font-size: 0.75rem;
             padding: 0 1rem;
@@ -1722,7 +1722,7 @@
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background: #2D6A4F;
+            background: #0b28ff;
             flex-shrink: 0;
             animation: banner-pulse 1.5s ease-in-out infinite;
         }
@@ -1736,9 +1736,9 @@
             font-weight: 700;
             padding: 2px 8px;
             border-radius: 4px;
-            background: rgba(45,106,79,0.08);
-            color: #2D6A4F;
-            border: 1px solid rgba(45,106,79,0.2);
+            background: rgba(11,40,255,0.08);
+            color: #0b28ff;
+            border: 1px solid rgba(11,40,255,0.2);
             letter-spacing: 0.05em;
             white-space: nowrap;
         }
@@ -1746,7 +1746,7 @@
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            color: #2D6A4F;
+            color: #0b28ff;
             font-weight: 700;
             text-decoration: none;
             font-family: var(--mono);
@@ -1766,7 +1766,7 @@
             justify-content: center;
             border-radius: 6px;
             cursor: pointer;
-            color: #6B7280;
+            color: #8181a5;
             font-size: 14px;
             background: none;
             border: none;
@@ -1790,7 +1790,7 @@
             border-radius: 9999px;
             padding: 4px;
             border: 2px solid rgba(0,0,0,0.18);
-            background: #FAFAF7;
+            background: #f8fafd;
         }
         .nav-pill-cursor {
             position: absolute;
@@ -1798,7 +1798,7 @@
             top: 4px;
             height: 32px;
             border-radius: 9999px;
-            background: #2D3436;
+            background: #0b28ff;
             opacity: 0;
             pointer-events: none;
             left: 0;
@@ -1835,8 +1835,8 @@
             align-items: center;
             justify-content: center;
             padding: 3.5rem 1.5rem 5rem;
-            background: #FAFAF7;
-            border-top: 1px solid rgba(45,106,79,0.25);
+            background: #f8fafd;
+            border-top: 1px solid rgba(11,40,255,0.25);
         }
         .footer-accent-line {
             position: absolute;
@@ -1847,7 +1847,7 @@
             width: 33%;
             border-radius: 9999px;
             filter: blur(2px);
-            background: linear-gradient(90deg, transparent, #2D6A4F, transparent);
+            background: linear-gradient(90deg, transparent, #0b28ff, transparent);
         }
         .new-footer-content {
             width: 100%;
@@ -1876,7 +1876,7 @@
             width: 36px;
             height: 36px;
             border-radius: 10px;
-            background: linear-gradient(135deg, #2D6A4F, #1B4332);
+            background: linear-gradient(135deg, #0b28ff, #0920cc);
             flex-shrink: 0;
         }
         .footer-brand-wordmark {
@@ -1884,9 +1884,9 @@
             font-size: 1.25rem;
             font-weight: 800;
             letter-spacing: -0.02em;
-            color: #2D3436;
+            color: #1f1f23;
         }
-        .footer-brand-wordmark span { color: #2D6A4F; }
+        .footer-brand-wordmark span { color: #0b28ff; }
         .footer-brand-desc {
             font-size: 0.875rem;
             line-height: 1.6;
@@ -1933,7 +1933,7 @@
             text-decoration: none;
             transition: color 0.2s;
         }
-        .new-footer-col a:hover { color: #2D6A4F; }
+        .new-footer-col a:hover { color: #0b28ff; }
         .footer-social-icon {
             width: 16px;
             height: 16px;
@@ -1973,7 +1973,7 @@
         .featured-card-hook { font-size: .82rem; color: var(--muted); line-height: 1.55; }
         .featured-card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: .75rem; border-top: 1px solid var(--border-light); }
         .featured-card-price { font-family: var(--display); font-size: 1.25rem; font-weight: 800; color: var(--primary); }
-        .featured-card-cta { font-family: var(--display); font-size: .78rem; font-weight: 700; padding: 7px 16px; background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%); color: #FFFFFF; border-radius: var(--r-full); border: none; cursor: pointer; transition: transform 0.3s var(--bounce); }
+        .featured-card-cta { font-family: var(--display); font-size: .78rem; font-weight: 700; padding: 7px 16px; background: linear-gradient(135deg, #0b28ff 0%, #0920cc 100%); color: #FFFFFF; border-radius: var(--r-full); border: none; cursor: pointer; transition: transform 0.3s var(--bounce); }
         .featured-card-cta:hover { transform: scale(1.05); }
 
         /* ── Bundles ── */
@@ -1997,8 +1997,8 @@
         .bundle-cta:hover { background: var(--primary-dim); transform: translateY(-2px); }
 
         /* ── Agent ideal para ── */
-        .agent-ideal { font-size: .75rem; color: var(--primary); font-family: var(--mono); letter-spacing: .03em; margin-top: 4px; padding: 3px 8px; background: rgba(45,106,79,0.07); border-radius: var(--r-sm); display: inline-block; }
-        .skip-link { position: absolute; top: -44px; left: 1rem; background: #2D6A4F; color: #FFFFFF; padding: 8px 16px; border-radius: 0 0 var(--r-sm) var(--r-sm); font-weight: 700; font-size: 0.875rem; text-decoration: none; z-index: 9999; transition: top 0.2s; }
+        .agent-ideal { font-size: .75rem; color: var(--primary); font-family: var(--mono); letter-spacing: .03em; margin-top: 4px; padding: 3px 8px; background: rgba(11,40,255,0.07); border-radius: var(--r-sm); display: inline-block; }
+        .skip-link { position: absolute; top: -44px; left: 1rem; background: #0b28ff; color: #FFFFFF; padding: 8px 16px; border-radius: 0 0 var(--r-sm) var(--r-sm); font-weight: 700; font-size: 0.875rem; text-decoration: none; z-index: 9999; transition: top 0.2s; }
         .skip-link:focus { top: 0; }
 
         /* ── Vista Selector ── */
@@ -2056,7 +2056,7 @@
         .resultado-stat-card { background: var(--bg2); border: 1px solid var(--border-light); border-radius: var(--r-xl); padding: 1.5rem; text-align: center; }
         .stat-number { font-family: var(--display); font-size: 2.2rem; font-weight: 800; color: var(--primary); letter-spacing: -.03em; }
         .stat-label { font-size: .8rem; color: var(--muted); margin-top: .25rem; }
-        .resultado-callout { background: linear-gradient(135deg, var(--primary) 0%, #1B4332 100%); border-radius: var(--r-xl); padding: 2rem; text-align: center; font-family: var(--display); font-size: 1.05rem; font-weight: 700; color: #FFFFFF; line-height: 1.4; }
+        .resultado-callout { background: linear-gradient(135deg, var(--primary) 0%, #0920cc 100%); border-radius: var(--r-xl); padding: 2rem; text-align: center; font-family: var(--display); font-size: 1.05rem; font-weight: 700; color: #FFFFFF; line-height: 1.4; }
 
         .agentes-solucion-section { margin-bottom: 3rem; }
         .agentes-solucion-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: .85rem; }
@@ -2098,7 +2098,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(45,106,79,0.06) 0%, transparent 70%);
+            background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(11,40,255,0.06) 0%, transparent 70%);
             pointer-events: none;
         }
         .setup-grid {
@@ -2161,7 +2161,7 @@
             text-align: center;
             padding: 12px;
             background: transparent;
-            border: 1.5px solid rgba(45,106,79,0.4);
+            border: 1.5px solid rgba(11,40,255,0.4);
             border-radius: var(--r-md);
             color: var(--primary);
             font-weight: 600;
@@ -2169,7 +2169,7 @@
             transition: background 0.2s, border-color 0.2s;
         }
         .setup-cta:hover, .setup-cta:focus-visible {
-            background: rgba(45,106,79,0.08);
+            background: rgba(11,40,255,0.08);
             border-color: var(--primary);
         }
         .setup-cta--primary {
@@ -2193,7 +2193,7 @@
             right: 0;
             z-index: 90;
             padding: 12px 20px;
-            background: rgba(250,250,247,0.95);
+            background: rgba(248,250,253,0.95);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-top: 1px solid var(--border);
@@ -2357,7 +2357,7 @@
     <div class="banner-content">
         <span class="banner-dot"></span>
         <span class="banner-text">
-            <span style="color:#2D3436;font-weight:700;">PRECIO LANZAMIENTO</span>
+            <span style="color:#1f1f23;font-weight:700;">PRECIO LANZAMIENTO</span>
             <span class="banner-text-full"> &middot; Agentes desde $29 &middot; Sin mensualidad &middot; Termina en </span>
             <span class="banner-text-short" style="color:rgba(0,0,0,0.6);"> &middot; Termina en </span>
         </span>
@@ -2756,7 +2756,7 @@
             <p style="font-size:1rem;color:var(--muted);max-width:520px;margin:0 auto;">Elige tu nivel. Todos los caminos terminan con tu agente funcionando.</p>
         </div>
 
-        <div style="background:rgba(45,106,79,0.06);border:1px solid rgba(45,106,79,0.15);border-radius:var(--r-lg);padding:14px 20px;text-align:center;margin-bottom:24px;font-size:0.88rem;color:var(--text);">
+        <div style="background:rgba(11,40,255,0.06);border:1px solid rgba(11,40,255,0.15);border-radius:var(--r-lg);padding:14px 20px;text-align:center;margin-bottom:24px;font-size:0.88rem;color:var(--text);">
             <strong>Tu inversi&oacute;n completa:</strong> setup &uacute;nico (abajo) + agente incluido + <a href="https://make.com" target="_blank" rel="noopener" style="color:var(--primary);font-weight:600;">Make.com</a> desde $9/mes para ejecutarlo
         </div>
 
@@ -2826,7 +2826,7 @@
                 <div class="footer-brand-col footer-anim">
                     <a href="/" class="footer-brand-link">
                         <span class="footer-bot-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#0b28ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
                                 <path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/>
                                 <path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/>
                             </svg>
@@ -2937,7 +2937,7 @@ const agents = [
     { id:3, icon:'📞', name:'Registrador de Llamadas', slug:'registrador-llamadas', seg:'Ventas · CRM', cat:'ventas', segmento:'Ventas', industria:['Servicios','SaaS','Ecommerce'], tipoNegocio:['B2B','B2C'], tier:'gratis', platform:'make', price:0, free:true, esfuerzo:'Bajo', prioridad:true, esNuevo:false, trigger:'Llamada completada en sistema telefónico', problems:['Registro manual de llamadas','Datos inconsistentes','Tiempo perdido en admin'], gradient:'linear-gradient(135deg,#667eea,#764ba2)', desc:'Registra automáticamente el resumen de cada llamada en tu Google Sheet. Historial de clientes siempre actualizado.', tags:['Sheets','Make.com','CRM'], includes:['Blueprint .json','Sheet plantilla','Setup rápido'], hook:'El 71% de los leads se pierden por falta de seguimiento post-llamada. Este agente registra cada conversación automáticamente.', idealPara:'inmobiliarias, seguros, clínicas y equipos de televentas', stripeId:'price_agent_003' },
     { id:4, icon:'📊', name:'Dashboard Automático', slug:'dashboard-automatico', seg:'Analytics · Sheets', cat:'analytics', segmento:'Operaciones', industria:['Ecommerce','SaaS','Agencia'], tipoNegocio:['B2B','B2C'], tier:'gratis', platform:'make', price:0, free:true, esfuerzo:'Bajo', prioridad:false, esNuevo:true, trigger:'Diariamente a las 6 AM', problems:['Reportes manuales lentos','Datos dispersos','Decisiones sin datos'], gradient:'linear-gradient(135deg,#11998e,#38ef7d)', desc:'Consolida ventas, leads y métricas clave en un Google Sheet actualizado cada mañana. Dashboard listo sin configuración.', tags:['Sheets','Make.com','Datos'], includes:['Blueprint .json','Plantilla de métricas','Setup automático'], hook:'Los dueños de negocio que revisan métricas diarias crecen 30% más rápido. Tu dashboard llega solo cada mañana.', idealPara:'ecommerce, SaaS, restaurantes con delivery y franquicias', stripeId:'price_agent_004' },
     { id:5, icon:'💬', name:'Responder en Ausencia', slug:'responder-ausencia', seg:'Soporte · Gmail', cat:'soporte', segmento:'Atención al Cliente', industria:['Servicios','SaaS','Ecommerce'], tipoNegocio:['B2B','B2C'], tier:'gratis', platform:'make', price:0, free:true, esfuerzo:'Bajo', prioridad:false, esNuevo:false, trigger:'Email recibido mientras ausente', problems:['Clientes esperando respuesta','Consultas ignoradas','Mala experiencia'], gradient:'linear-gradient(135deg,#f093fb,#f5576c)', desc:'Responde automáticamente cuando estés fuera con un mensaje personalizado. Tus clientes saben que volverás.', tags:['Gmail','Make.com'], includes:['Blueprint .json','Template personalizable','Setup 5 minutos'], hook:'El 62% de clientes no vuelven a escribir si no reciben respuesta en 1 hora. Este agente responde por ti al instante.', idealPara:'freelancers, coaches, terapeutas y consultores independientes', stripeId:'price_agent_005' },
-    { id:6, icon:'✅', name:'Verificador de Tareas', slug:'verificador-tareas', seg:'Operaciones · Sheets', cat:'operaciones', segmento:'Productividad', industria:['Agencia','SaaS','Servicios'], tipoNegocio:['B2B'], tier:'gratis', platform:'make', price:0, free:true, esfuerzo:'Bajo', prioridad:false, esNuevo:true, trigger:'Tarea marcada como completa', problems:['Tareas olvidadas','Sin seguimiento','Equipos desorganizados'], gradient:'linear-gradient(135deg,#1B4332,#40916C)', desc:'Registra automáticamente tareas completadas y envía resúmenes diarios al equipo. Transparencia total sin reuniones.', tags:['Sheets','Gmail','Make.com'], includes:['Blueprint .json','Plantilla de tareas','Notificaciones automáticas'], hook:'Los equipos sin seguimiento de tareas pierden hasta 5h/semana en reuniones de estatus. Elimina esas reuniones hoy.', idealPara:'agencias de marketing, estudios de diseño y equipos remotos', stripeId:'price_agent_006' },
+    { id:6, icon:'✅', name:'Verificador de Tareas', slug:'verificador-tareas', seg:'Operaciones · Sheets', cat:'operaciones', segmento:'Productividad', industria:['Agencia','SaaS','Servicios'], tipoNegocio:['B2B'], tier:'gratis', platform:'make', price:0, free:true, esfuerzo:'Bajo', prioridad:false, esNuevo:true, trigger:'Tarea marcada como completa', problems:['Tareas olvidadas','Sin seguimiento','Equipos desorganizados'], gradient:'linear-gradient(135deg,#0920cc,#3d50ff)', desc:'Registra automáticamente tareas completadas y envía resúmenes diarios al equipo. Transparencia total sin reuniones.', tags:['Sheets','Gmail','Make.com'], includes:['Blueprint .json','Plantilla de tareas','Notificaciones automáticas'], hook:'Los equipos sin seguimiento de tareas pierden hasta 5h/semana en reuniones de estatus. Elimina esas reuniones hoy.', idealPara:'agencias de marketing, estudios de diseño y equipos remotos', stripeId:'price_agent_006' },
     { id:7, icon:'🎯', name:'Catalogador de Leads', slug:'catalogador-leads', seg:'Ventas · Sheets', cat:'ventas', segmento:'Ventas', industria:['Inmobiliaria','Servicios','SaaS'], tipoNegocio:['B2B','Local'], tier:'gratis', platform:'make', price:0, free:true, esfuerzo:'Bajo', prioridad:true, esNuevo:false, trigger:'Nuevo lead desde formulario', problems:['Leads sin clasificar','Duplicados','Seguimiento manual'], gradient:'linear-gradient(135deg,#f77062,#fe5196)', desc:'Clasifica automáticamente leads por calidad y urgencia. Google Sheet con scoring listo para acciones de ventas.', tags:['Sheets','Make.com','Leads'], includes:['Blueprint .json','Sheet con scoring','Criterios personalizables'], hook:'Solo el 25% de los leads están listos para comprar. Este agente identifica cuáles son para que no pierdas tiempo en el 75% restante.', idealPara:'inmobiliarias, academias, aseguradoras y escuelas privadas', stripeId:'price_agent_007' },
 
     /* ── $29 / BÁSICO (11 agents) ── */
@@ -2962,8 +2962,8 @@ const agents = [
     { id:24, icon:'🏠', name:'Clasificador Inmobiliario', slug:'clasificador-inmobiliario', seg:'Inmobiliaria · Leads', cat:'inmobiliaria', segmento:'Ventas', industria:['Inmobiliaria'], tipoNegocio:['B2C','Local'], tier:'estandar', platform:'make', price:47, free:false, esfuerzo:'Medio', prioridad:false, esNuevo:false, trigger:'Lead inmobiliario recibido', problems:['Demasiados leads irrelevantes','Sin scoring','Tiempo perdido'], gradient:'linear-gradient(135deg,#30cfd0,#1a6b8a)', desc:'Clasifica leads inmobiliarios por intención. Score automático según ubicación, presupuesto y urgencia.', tags:['Sheets','Make.com','Inmobiliaria'], includes:['Blueprint .json','Sistema de scoring','Sheet parametrizado'], hook:'Los agentes inmobiliarios pierden 60% de su tiempo con leads que nunca van a comprar. Este agente filtra por ti.', idealPara:'agentes inmobiliarios, desarrolladoras y corredores de bienes raíces', stripeId:'price_agent_024' },
     { id:25, icon:'⭐', name:'Generador de Reseñas en Video', slug:'generador-resenas-video', seg:'Reputación · YouTube', cat:'reputacion', segmento:'Marketing', industria:['Servicios','Ecommerce','SaaS'], tipoNegocio:['B2B','B2C'], tier:'estandar', platform:'make', price:47, free:false, esfuerzo:'Alto', prioridad:false, esNuevo:true, trigger:'Cliente satisfecho completado servicio', problems:['Pocas reseñas en video','Bajo social proof','Desconfianza'], gradient:'linear-gradient(135deg,#f5576c,#fa709a)', desc:'Solicita automáticamente reseñas en video. Integra clips en tu sitio web como prueba social poderosa.', tags:['YouTube','Make.com','Video'], includes:['Blueprint .json','Template de solicitud','Setup integración'], hook:'Los testimonios en video convierten 80% más que las reseñas escritas. Este agente los consigue sin que tú los pidas.', idealPara:'clínicas estéticas, dentistas, coaches y academias', stripeId:'price_agent_025' },
     { id:26, icon:'🔄', name:'Agente de Reactivación', slug:'agente-reactivacion', seg:'Retención · Email', cat:'ventas', segmento:'Ventas', industria:['Ecommerce','SaaS','Servicios'], tipoNegocio:['B2B','B2C'], tier:'estandar', platform:'make', price:47, free:false, esfuerzo:'Medio', prioridad:true, esNuevo:false, trigger:'Cliente inactivo 30 días', problems:['Clientes inactivos','Ingresos perdidos','Sin seguimiento'], gradient:'linear-gradient(135deg,#fa709a,#fee140)', desc:'Detecta clientes inactivos y envía mensajes de reactivación personalizados. Recupera ventas perdidas automáticamente.', tags:['Email','GPT-4o','Make.com'], includes:['Blueprint .json','System prompt personalizable','Secuencia de reactivación'], hook:'El 45% de clientes inactivos vuelven a comprar con un solo mensaje bien hecho. Este agente envía ese mensaje por ti.', idealPara:'ecommerce, peluquerías, spas, gimnasios y servicios de suscripción', stripeId:'price_agent_026' },
-    { id:27, icon:'🎁', name:'Recomendador de Productos', slug:'recomendador-productos', seg:'Ecommerce · Email', cat:'ecommerce', segmento:'Ventas', industria:['Ecommerce'], tipoNegocio:['B2C'], tier:'estandar', platform:'make', price:47, free:false, esfuerzo:'Medio', prioridad:false, esNuevo:true, trigger:'Cliente realiza compra', problems:['Compras de una sola vez','AOV bajo','Sin cross-sell'], gradient:'linear-gradient(135deg,#1B4332,#40916C)', desc:'Recomienda productos automáticamente según historial de compras. Aumenta AOV y frecuencia de compra.', tags:['Ecommerce','GPT-4o','Make.com'], includes:['Blueprint .json','Sistema de recomendaciones','Email templates'], hook:'Amazon genera 35% de sus ventas con recomendaciones personalizadas. Ahora tu tienda también puede hacerlo.', idealPara:'tiendas online, farmacias, tiendas de suplementos y marketplaces', stripeId:'price_agent_027' },
-    { id:28, icon:'✍️', name:'Generador de Contenido Semanal', slug:'generador-contenido', seg:'Marketing · Sheets', cat:'marketing', segmento:'Marketing', industria:['SaaS','Agencia','Ecommerce'], tipoNegocio:['B2B'], tier:'estandar', platform:'make', price:47, free:false, esfuerzo:'Medio', prioridad:false, esNuevo:false, trigger:'Semanalmente lunes 9 AM', problems:['Falta de contenido consistente','Ideas secas','Sin planificación'], gradient:'linear-gradient(135deg,#1B4332,#40916C)', desc:'Genera publicaciones para redes automáticamente cada semana. 7 posts listos, variados y enfocados en conversión.', tags:['Sheets','GPT-4o','Make.com'], includes:['Blueprint .json','System prompt','Plantilla editorial'], hook:'Las marcas que publican 5+ veces/semana crecen 3.5x más rápido. Tus 7 posts llegan listos cada lunes sin esfuerzo.', idealPara:'coaches, marcas personales, restaurantes y tiendas de moda', stripeId:'price_agent_028' },
+    { id:27, icon:'🎁', name:'Recomendador de Productos', slug:'recomendador-productos', seg:'Ecommerce · Email', cat:'ecommerce', segmento:'Ventas', industria:['Ecommerce'], tipoNegocio:['B2C'], tier:'estandar', platform:'make', price:47, free:false, esfuerzo:'Medio', prioridad:false, esNuevo:true, trigger:'Cliente realiza compra', problems:['Compras de una sola vez','AOV bajo','Sin cross-sell'], gradient:'linear-gradient(135deg,#0920cc,#3d50ff)', desc:'Recomienda productos automáticamente según historial de compras. Aumenta AOV y frecuencia de compra.', tags:['Ecommerce','GPT-4o','Make.com'], includes:['Blueprint .json','Sistema de recomendaciones','Email templates'], hook:'Amazon genera 35% de sus ventas con recomendaciones personalizadas. Ahora tu tienda también puede hacerlo.', idealPara:'tiendas online, farmacias, tiendas de suplementos y marketplaces', stripeId:'price_agent_027' },
+    { id:28, icon:'✍️', name:'Generador de Contenido Semanal', slug:'generador-contenido', seg:'Marketing · Sheets', cat:'marketing', segmento:'Marketing', industria:['SaaS','Agencia','Ecommerce'], tipoNegocio:['B2B'], tier:'estandar', platform:'make', price:47, free:false, esfuerzo:'Medio', prioridad:false, esNuevo:false, trigger:'Semanalmente lunes 9 AM', problems:['Falta de contenido consistente','Ideas secas','Sin planificación'], gradient:'linear-gradient(135deg,#0920cc,#3d50ff)', desc:'Genera publicaciones para redes automáticamente cada semana. 7 posts listos, variados y enfocados en conversión.', tags:['Sheets','GPT-4o','Make.com'], includes:['Blueprint .json','System prompt','Plantilla editorial'], hook:'Las marcas que publican 5+ veces/semana crecen 3.5x más rápido. Tus 7 posts llegan listos cada lunes sin esfuerzo.', idealPara:'coaches, marcas personales, restaurantes y tiendas de moda', stripeId:'price_agent_028' },
     { id:29, icon:'💼', name:'Gestor de Propuestas de Valor', slug:'gestor-propuestas-valor', seg:'Ventas · CRM', cat:'ventas', segmento:'Ventas', industria:['SaaS','Servicios','B2B'], tipoNegocio:['B2B'], tier:'estandar', platform:'make', price:47, free:false, esfuerzo:'Alto', prioridad:false, esNuevo:true, trigger:'Oportunidad creada en CRM', problems:['Propuestas genéricas inefectivas','Sin personalización','Baja tasa cierre'], gradient:'linear-gradient(135deg,#a18cd1,#fbc2eb)', desc:'Personaliza automáticamente propuestas según industria y tamaño del cliente. Tasas de cierre 40% más altas.', tags:['Docs','GPT-4o','Make.com'], includes:['Blueprint .json','System prompt avanzado','Templates por industria'], hook:'Las propuestas personalizadas cierran 40% más que las genéricas. Cada propuesta parece hecha a mano, aunque sea automática.', idealPara:'consultorías B2B, agencias y despachos profesionales', stripeId:'price_agent_029' },
     { id:30, icon:'🔗', name:'Automatizador de Follow-ups', slug:'automatizador-followups', seg:'Ventas · Email', cat:'ventas', segmento:'Ventas', industria:['SaaS','Servicios','Agencia'], tipoNegocio:['B2B'], tier:'estandar', platform:'make', price:47, free:false, esfuerzo:'Medio', prioridad:true, esNuevo:false, trigger:'Email enviado sin respuesta', problems:['Leads abandonados','Sin seguimiento','Cierres perdidos'], gradient:'linear-gradient(135deg,#f7971e,#ffd200)', desc:'Secuencia automática de follow-ups inteligente según la respuesta (o falta de). Cierra más oportunidades.', tags:['Email','GPT-4o','Make.com'], includes:['Blueprint .json','Secuencia de 5 emails','Lógica condicional'], hook:'El 80% de ventas requieren al menos 5 follow-ups, pero el 44% de vendedores abandona después del primero.', idealPara:'vendedores B2B, agencias, consultorías y proveedores de servicios', stripeId:'price_agent_030' },
     { id:31, icon:'🎓', name:'Asistente de Onboarding Cliente', slug:'asistente-onboarding', seg:'Operaciones · Docs', cat:'operaciones', segmento:'Operaciones', industria:['SaaS','Servicios','Agencia'], tipoNegocio:['B2B'], tier:'estandar', platform:'make', price:47, free:false, esfuerzo:'Medio', prioridad:false, esNuevo:true, trigger:'Cliente completa pago', problems:['Onboarding inconsistente','Time-to-value lento','Churn inicial alto'], gradient:'linear-gradient(135deg,#667eea,#764ba2)', desc:'Crea plan de onboarding personalizado automáticamente. Documentos, timeline y tareas - todo generado con GPT-4o.', tags:['Docs','Sheets','Make.com'], includes:['Blueprint .json','Plantilla de onboarding','Cronograma personalizado'], hook:'El 86% del churn ocurre en los primeros 90 días. Un onboarding automatizado reduce esa cifra a la mitad.', idealPara:'SaaS, agencias de marketing, consultorías y academias online', stripeId:'price_agent_031' },
@@ -2973,7 +2973,7 @@ const agents = [
     { id:33, icon:'🧠', name:'Agente de Soporte Inteligente', slug:'agente-soporte-ia', seg:'Soporte · Gmail', cat:'soporte', segmento:'Atención al Cliente', industria:['SaaS','Ecommerce','Servicios'], tipoNegocio:['B2B','B2C'], tier:'avanzado', platform:'make', price:97, free:false, esfuerzo:'Alto', prioridad:true, esNuevo:false, trigger:'Email de soporte recibido', problems:['Soporte lento','Clientes insatisfechos','Equipo saturado'], gradient:'linear-gradient(135deg,#a18cd1,#fbc2eb)', desc:'Responde preguntas de soporte automáticamente usando tu base de conocimiento. GPT-4o con memoria del cliente.', tags:['Gmail','GPT-4o','Make.com'], includes:['Blueprint .json','Sistema de memoria','Base de conocimiento personalizable'], hook:'El 75% de tickets de soporte son preguntas repetitivas. Este agente las resuelve al instante con tu base de conocimiento.', idealPara:'SaaS, ecommerce, academias online y servicios de telecomunicaciones', stripeId:'price_agent_033' },
     { id:34, icon:'💡', name:'Generador de Contenido Estratégico', slug:'generador-contenido-estrategico', seg:'Marketing · IA', cat:'marketing', segmento:'Marketing', industria:['SaaS','Agencia','B2B'], tipoNegocio:['B2B'], tier:'avanzado', platform:'make', price:97, free:false, esfuerzo:'Alto', prioridad:false, esNuevo:true, trigger:'Mensualmente primer día', problems:['Contenido sin estrategia','Bajo ROI content','Temas desalineados'], gradient:'linear-gradient(135deg,#f7971e,#ffd200)', desc:'Genera plan de contenido estratégico basado en tus objetivos de negocio. Blogs, social, emails integrados.', tags:['Docs','GPT-4o','Make.com'], includes:['Blueprint .json','Sistema de estrategia','Plan de 3 meses generado'], hook:'Las empresas con estrategia de contenido documentada generan 6x más conversiones. La tuya se genera sola cada mes.', idealPara:'agencias, SaaS, consultorías y marcas con blog activo', stripeId:'price_agent_034' },
     { id:35, icon:'🔗', name:'Integrador CRM Universal', slug:'integrador-crm', seg:'Integración · Multi-canal', cat:'integraciones', segmento:'Operaciones', industria:['SaaS','Agencia','Servicios'], tipoNegocio:['B2B'], tier:'avanzado', platform:'make', price:97, free:false, esfuerzo:'Alto', prioridad:false, esNuevo:false, trigger:'Lead de cualquier fuente', problems:['Datos dispersos en multiples sistemas','Duplicados','Sin vista 360 cliente'], gradient:'linear-gradient(135deg,#30cfd0,#1a6b8a)', desc:'Unifica leads de Gmail, WhatsApp, formularios web, Instagram en un CRM único con vista 360 del cliente.', tags:['CRM','Make.com','Integración'], includes:['Blueprint .json','Configuración 4+ canales','Sistema deduplicacion'], hook:'El negocio promedio usa 5 herramientas diferentes sin integrar. Este agente los conecta todos en un CRM unificado.', idealPara:'inmobiliarias, agencias, consultorías y equipos de ventas multicanal', stripeId:'price_agent_035' },
-    { id:36, icon:'🎯', name:'Creador de Automatizaciones Complejas', slug:'creador-automatizaciones', seg:'Operaciones · Workflows', cat:'operaciones', segmento:'Operaciones', industria:['Agencia','SaaS','Servicios'], tipoNegocio:['B2B'], tier:'avanzado', platform:'make', price:97, free:false, esfuerzo:'Alto', prioridad:false, esNuevo:true, trigger:'A medida según necesidad', problems:['Procesos manuales repetitivos','Sin escalabilidad','Errores humanos'], gradient:'linear-gradient(135deg,#1B4332,#40916C)', desc:'Diseña workflows avanzados sin código. Condicionales, loops, transformaciones de datos complejas.', tags:['Make.com','Workflow','Automatización'], includes:['Blueprint .json','Ejemplos de workflows','Sistema de templates'], hook:'Cada proceso manual repetitivo le cuesta a una PyME hasta $180,000 MXN/año en tiempo perdido. Automatízalo sin código.', idealPara:'agencias, fábricas, distribuidoras y empresas con procesos multipasos', stripeId:'price_agent_036' },
+    { id:36, icon:'🎯', name:'Creador de Automatizaciones Complejas', slug:'creador-automatizaciones', seg:'Operaciones · Workflows', cat:'operaciones', segmento:'Operaciones', industria:['Agencia','SaaS','Servicios'], tipoNegocio:['B2B'], tier:'avanzado', platform:'make', price:97, free:false, esfuerzo:'Alto', prioridad:false, esNuevo:true, trigger:'A medida según necesidad', problems:['Procesos manuales repetitivos','Sin escalabilidad','Errores humanos'], gradient:'linear-gradient(135deg,#0920cc,#3d50ff)', desc:'Diseña workflows avanzados sin código. Condicionales, loops, transformaciones de datos complejas.', tags:['Make.com','Workflow','Automatización'], includes:['Blueprint .json','Ejemplos de workflows','Sistema de templates'], hook:'Cada proceso manual repetitivo le cuesta a una PyME hasta $180,000 MXN/año en tiempo perdido. Automatízalo sin código.', idealPara:'agencias, fábricas, distribuidoras y empresas con procesos multipasos', stripeId:'price_agent_036' },
     { id:37, icon:'📊', name:'Analista de Cohortes Automático', slug:'analista-cohortes', seg:'Analytics · Datos', cat:'analytics', segmento:'Operaciones', industria:['SaaS','Ecommerce'], tipoNegocio:['B2B','B2C'], tier:'avanzado', platform:'make', price:97, free:false, esfuerzo:'Alto', prioridad:false, esNuevo:false, trigger:'Mensualmente primer día', problems:['Sin análisis de cohortes','Retención desconocida','Decisiones sin insight'], gradient:'linear-gradient(135deg,#f5576c,#fa709a)', desc:'Analiza automáticamente cohortes por fecha de signup. Métricas de retención, LTV, churn por cohorte.', tags:['Sheets','GPT-4o','Make.com'], includes:['Blueprint .json','Sistema de análisis','Reportes automáticos'], hook:'Las empresas que analizan cohortes retienen 25% más clientes porque entienden exactamente qué funciona y qué no.', idealPara:'SaaS, apps móviles, ecommerce por suscripción y plataformas digitales', stripeId:'price_agent_037' },
     { id:38, icon:'🏆', name:'Ranker de Leads por Probabilidad', slug:'ranker-leads', seg:'Ventas · AI', cat:'ventas', segmento:'Ventas', industria:['SaaS','Servicios','B2B'], tipoNegocio:['B2B'], tier:'avanzado', platform:'make', price:97, free:false, esfuerzo:'Alto', prioridad:true, esNuevo:false, trigger:'Lead entra en sistema', problems:['Demasiados leads para seguimiento','Tiempo perdido en malos leads','Sin priorización'], gradient:'linear-gradient(135deg,#667eea,#764ba2)', desc:'Califica leads con probabilidad de conversión automática. Ordena por score para que el equipo enfoque en los mejores.', tags:['Sheets','GPT-4o','Make.com'], includes:['Blueprint .json','Sistema de scoring ML-like','Ranker visual'], hook:'Los equipos de ventas pierden 50% de su tiempo en leads que nunca convertirán. Este agente prioriza los que sí van a cerrar.', idealPara:'equipos de ventas B2B, inmobiliarias, seguros y servicios financieros', stripeId:'price_agent_038' },
     { id:39, icon:'🔐', name:'Guardián de Datos y Compliance', slug:'guardian-datos', seg:'Operaciones · Seguridad', cat:'operaciones', segmento:'Operaciones', industria:['SaaS','Servicios','Finanzas'], tipoNegocio:['B2B'], tier:'avanzado', platform:'make', price:97, free:false, esfuerzo:'Alto', prioridad:false, esNuevo:true, trigger:'Datos sensibles detectados', problems:['Cumplimiento GDPR incierto','Datos sensibles desprotegidos','Auditorías fallidas'], gradient:'linear-gradient(135deg,#11998e,#38ef7d)', desc:'Monitorea y protege datos sensibles automáticamente. Encriptación, backups y reportes de cumplimiento GDPR.', tags:['Seguridad','Make.com','Compliance'], includes:['Blueprint .json','Sistema de cifrado','Reportes automáticos'], hook:'Las multas por incumplimiento de datos pueden llegar a 4% de ingresos anuales. Este agente te protege automáticamente.', idealPara:'clínicas, despachos legales, fintech y empresas con datos sensibles', stripeId:'price_agent_039' },
@@ -3011,7 +3011,7 @@ const prompts = [
       hook:'Reabre conversaciones olvidadas sin que el cliente sienta que lo estás presionando.',
       desc:'Mensajes de seguimiento que mantienen interés sin presionar. Tono natural y humano.',
       plat:['ChatGPT','WhatsApp','Gmail'], price:9, free:false, upsell:7 },
-    { id:4, cat:'Ventas', icon:'🤝', gradient:'linear-gradient(135deg,#1B4332,#40916C)',
+    { id:4, cat:'Ventas', icon:'🤝', gradient:'linear-gradient(135deg,#0920cc,#3d50ff)',
       name:'Cierre de venta por WhatsApp',
       hook:'El mensaje exacto que convierte "lo pienso" en "sí, lo quiero" por WhatsApp.',
       desc:'El mensaje exacto para cerrar ventas por WhatsApp sin sonar como vendedor.',
@@ -3050,8 +3050,8 @@ const prompts = [
 
 const bundles = [
     { id:'bundle-starter', platform:'make', icon:'🚀', name:'Pack Starter: Make',
-      price:49, was:97, color:'#2D6A4F',
-      gradient:'linear-gradient(135deg,#2D6A4F,#1B4332)',
+      price:49, was:97, color:'#0b28ff',
+      gradient:'linear-gradient(135deg,#0b28ff,#0920cc)',
       desc:'Los 3 agentes más populares de Make.com para empezar a automatizar hoy mismo.',
       chips:['Recordatorio de Citas $29','Agente de Bienvenida $29','Asistente de Cotizaciones $39'],
       hook:'Las 3 pérdidas más grandes de una PyME: no-shows, leads sin respuesta y cotizaciones lentas. Este pack las elimina. Ahorra +15h/semana desde el día 1.',
@@ -3642,7 +3642,7 @@ function buildAgentModal(a) {
            </form>
            <p class="action-note">Sin spam. Solo el archivo que pediste.</p>`
         : `<div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:4px 0;">
-               <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(45,106,79,0.1);border:1px solid rgba(45,106,79,0.25);border-radius:var(--r-full);padding:6px 16px;font-size:0.82rem;color:var(--primary);font-weight:600;">
+               <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(11,40,255,0.1);border:1px solid rgba(11,40,255,0.25);border-radius:var(--r-full);padding:6px 16px;font-size:0.82rem;color:var(--primary);font-weight:600;">
                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                    Incluido en tu plan
                </div>
@@ -3685,7 +3685,7 @@ function buildPromptModal(p) {
            </form>
            <p class="action-note">Sin spam. Solo el archivo que pediste.</p>`
         : `<div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:4px 0;">
-               <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(45,106,79,0.1);border:1px solid rgba(45,106,79,0.25);border-radius:var(--r-full);padding:6px 16px;font-size:0.82rem;color:var(--primary);font-weight:600;">
+               <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(11,40,255,0.1);border:1px solid rgba(11,40,255,0.25);border-radius:var(--r-full);padding:6px 16px;font-size:0.82rem;color:var(--primary);font-weight:600;">
                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                    Incluido en tu plan
                </div>

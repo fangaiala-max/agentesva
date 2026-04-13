@@ -22,35 +22,35 @@
 
     <style>
         :root {
-    --bg:           #FAFAF7;
+    --bg:           #f8fafd;
     --bg2:          #FFFFFF;
-    --bg3:          #F0F0EB;
-    --bg4:          #E8E8E2;
-    --surface:      #F0F0EB;
-    --primary:      #2D6A4F;
-    --primary-dim:  #1B4332;
-    --orange:       #40916C;
-    --orange-dim:   #006d37;
+    --bg3:          #f0f2ff;
+    --bg4:          #e8ebff;
+    --surface:      #f0f2ff;
+    --primary:      #0b28ff;
+    --primary-dim:  #0920cc;
+    --orange:       #3d50ff;
+    --orange-dim:   #0920cc;
     --tertiary:     #ffb4ab;
-    --text:         #2D3436;
-    --muted:        #6B7280;
-    --muted2:       #9CA3AF;
-    --outline:      #9CA3AF;
-    --teal:         #2D6A4F;
-    --border:       rgba(45,106,79,0.28);
-    --border-light: rgba(45,106,79,0.15);
+    --text:         #1f1f23;
+    --muted:        #8181a5;
+    --muted2:       #a5a5c0;
+    --outline:      #d4d5e0;
+    --teal:         #0b28ff;
+    --border:       rgba(11,40,255,0.18);
+    --border-light: rgba(11,40,255,0.10);
     --shadow-sm:    0 2px 10px rgba(0,0,0,0.06);
     --shadow-md:    0 12px 40px rgba(0,0,0,0.08);
-    --shadow-cta:   0 8px 24px rgba(45,106,79,0.25);
+    --shadow-cta:   0 8px 24px rgba(11,40,255,0.25);
     --mono:         'JetBrains Mono', monospace;
     --sans:         'Manrope', sans-serif;
     --display:      'Space Grotesk', sans-serif;
     --r-xl: 20px; --r-md: 12px; --r-sm: 8px; --r-full: 9999px;
     --bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
-    --lime:         #2D6A4F;
-    --lime-dim:     rgba(45,106,79,0.1);
-    --border-md:    rgba(45,106,79,0.15);
-    --border-lime:  rgba(45,106,79,0.22);
+    --lime:         #0b28ff;
+    --lime-dim:     rgba(11,40,255,0.1);
+    --border-md:    rgba(11,40,255,0.15);
+    --border-lime:  rgba(11,40,255,0.22);
     color-scheme: light;
 }
 
@@ -67,7 +67,7 @@
             min-height: 100vh;
         }
 
-        ::selection { background: #2D6A4F; color: #FFFFFF; }
+        ::selection { background: #0b28ff; color: #FFFFFF; }
 
         a { color: inherit; text-decoration: none; }
 
@@ -80,7 +80,7 @@
             display: flex;
             align-items: center;
             padding: 0 32px;
-            background: rgba(250,250,247,0.7);
+            background: rgba(248,250,253,0.7);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             box-shadow: 0 2px 12px rgba(255,255,255,0.05);
@@ -193,7 +193,7 @@
             border-radius: var(--r-full);
         }
         .badge-free { background: var(--teal); color: #FFFFFF; }
-        .badge-paid { background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%); color: #FFFFFF; }
+        .badge-paid { background: linear-gradient(135deg, #0b28ff 0%, #0920cc 100%); color: #FFFFFF; }
 
         /* ── CHECK ANIMATION ── */
         .check-wrap {
@@ -213,7 +213,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 24px rgba(45,106,79,0.35);
+            box-shadow: 0 8px 24px rgba(11,40,255,0.35);
             animation: popIn 0.6s var(--bounce) both;
         }
 
@@ -316,17 +316,17 @@
             font-size: 13px;
             font-weight: 700;
             padding: 9px 20px;
-            background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%);
+            background: linear-gradient(135deg, #0b28ff 0%, #0920cc 100%);
             color: #FFFFFF;
             border-radius: var(--r-full);
-            box-shadow: 0 4px 12px rgba(45,106,79,0.25);
+            box-shadow: 0 4px 12px rgba(11,40,255,0.25);
             flex-shrink: 0;
             transition: transform 0.4s var(--bounce), box-shadow 0.3s ease;
             display: inline-block;
         }
         .dl-btn:hover {
             transform: scale(1.06);
-            box-shadow: 0 8px 20px rgba(45,106,79,0.2);
+            box-shadow: 0 8px 20px rgba(11,40,255,0.2);
         }
 
         /* ── STEPS ── */
@@ -347,7 +347,7 @@
             font-family: var(--mono);
             font-size: 11px;
             color: #FFFFFF;
-            background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%);
+            background: linear-gradient(135deg, #0b28ff 0%, #0920cc 100%);
             width: 28px;
             height: 28px;
             border-radius: 50%;
@@ -355,7 +355,7 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 14px;
-            box-shadow: 0 4px 10px rgba(45,106,79,0.28);
+            box-shadow: 0 4px 10px rgba(11,40,255,0.28);
         }
 
         .step-title {
@@ -429,16 +429,16 @@
             font-size: 15px;
             font-weight: 700;
             padding: 14px 32px;
-            background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%);
+            background: linear-gradient(135deg, #0b28ff 0%, #0920cc 100%);
             color: #FFFFFF;
             border-radius: var(--r-full);
-            box-shadow: 0 8px 24px rgba(45,106,79,0.2);
+            box-shadow: 0 8px 24px rgba(11,40,255,0.2);
             display: inline-block;
             transition: transform 0.5s var(--bounce), box-shadow 0.3s ease;
         }
         .btn-primary:hover {
             transform: translateY(-3px) scale(1.04);
-            box-shadow: 0 14px 36px rgba(45,106,79,0.38);
+            box-shadow: 0 14px 36px rgba(11,40,255,0.38);
         }
 
         .btn-ghost {
@@ -537,8 +537,8 @@
             align-items: center;
             justify-content: center;
             height: 2.75rem;
-            background: #FAFAF7;
-            border-bottom: 1px solid rgba(45,106,79,0.22);
+            background: #f8fafd;
+            border-bottom: 1px solid rgba(11,40,255,0.22);
             font-size: 0.75rem;
             padding: 0 1rem;
         }
@@ -552,7 +552,7 @@
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background: #2D6A4F;
+            background: #0b28ff;
             flex-shrink: 0;
             animation: banner-pulse 1.5s ease-in-out infinite;
         }
@@ -565,9 +565,9 @@
             font-weight: 700;
             padding: 2px 8px;
             border-radius: 4px;
-            background: rgba(45,106,79,0.08);
-            color: #2D6A4F;
-            border: 1px solid rgba(45,106,79,0.2);
+            background: rgba(11,40,255,0.08);
+            color: #0b28ff;
+            border: 1px solid rgba(11,40,255,0.2);
             letter-spacing: 0.05em;
             white-space: nowrap;
         }
@@ -575,7 +575,7 @@
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            color: #2D6A4F;
+            color: #0b28ff;
             font-weight: 700;
             text-decoration: none;
             font-size: 0.75rem;
@@ -594,7 +594,7 @@
             justify-content: center;
             border-radius: 6px;
             cursor: pointer;
-            color: #6B7280;
+            color: #8181a5;
             font-size: 14px;
             background: none;
             border: none;
@@ -616,7 +616,7 @@
             align-items: center;
             border-radius: 9999px;
             padding: 4px;
-            border: 2px solid rgba(45,106,79,0.28);
+            border: 2px solid rgba(11,40,255,0.28);
             background: var(--bg2);
         }
         .nav-pill-cursor {
@@ -625,7 +625,7 @@
             top: 4px;
             height: 32px;
             border-radius: 9999px;
-            background: #2D3436;
+            background: #0b28ff;
             opacity: 0;
             pointer-events: none;
             left: 0;
@@ -661,8 +661,8 @@
             align-items: center;
             justify-content: center;
             padding: 3.5rem 1.5rem 5rem;
-            background: #FAFAF7;
-            border-top: 1px solid rgba(45,106,79,0.25);
+            background: #f8fafd;
+            border-top: 1px solid rgba(11,40,255,0.25);
         }
         .footer-accent-line {
             position: absolute;
@@ -673,7 +673,7 @@
             width: 33%;
             border-radius: 9999px;
             filter: blur(2px);
-            background: linear-gradient(90deg, transparent, #2D6A4F, transparent);
+            background: linear-gradient(90deg, transparent, #0b28ff, transparent);
         }
         .new-footer-content {
             width: 100%;
@@ -689,10 +689,10 @@
         .footer-bot-icon {
             display: flex; align-items: center; justify-content: center;
             width: 36px; height: 36px; border-radius: 10px;
-            background: linear-gradient(135deg, #2D6A4F, #1B4332); flex-shrink: 0;
+            background: linear-gradient(135deg, #0b28ff, #0920cc); flex-shrink: 0;
         }
-        .footer-brand-wordmark { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em; color: #2D3436; }
-        .footer-brand-wordmark span { color: #2D6A4F; }
+        .footer-brand-wordmark { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em; color: #1f1f23; }
+        .footer-brand-wordmark span { color: #0b28ff; }
         .footer-brand-desc { font-size: 0.875rem; line-height: 1.6; max-width: 20rem; color: var(--muted2); }
         .footer-brand-copy { font-size: 0.75rem; color: var(--muted2); }
         .new-footer-links-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 1rem; }
@@ -701,7 +701,7 @@
         .new-footer-col h3 { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted2); margin-bottom: 1rem; }
         .new-footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.625rem; }
         .new-footer-col a { display: inline-flex; align-items: center; gap: 6px; font-size: 0.875rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-        .new-footer-col a:hover { color: #2D6A4F; }
+        .new-footer-col a:hover { color: #0b28ff; }
         .footer-social-icon { width: 16px; height: 16px; flex-shrink: 0; }
         .footer-anim { opacity: 0; filter: blur(4px); transform: translateY(-8px); transition: opacity 0.7s ease, filter 0.7s ease, transform 0.7s ease; }
         .footer-anim.footer-anim-in { opacity: 1; filter: blur(0); transform: translateY(0); }
@@ -736,9 +736,9 @@
     <div class="banner-content">
         <span class="banner-dot"></span>
         <span class="banner-text">
-            <span style="color:#2D3436;font-weight:700;">PRECIO LANZAMIENTO</span>
+            <span style="color:#1f1f23;font-weight:700;">PRECIO LANZAMIENTO</span>
             <span class="banner-text-full"> &middot; Agentes desde $29 &middot; Sin mensualidad &middot; Termina en </span>
-            <span class="banner-text-short" style="color:#9CA3AF;"> &middot; Termina en </span>
+            <span class="banner-text-short" style="color:#a5a5c0;"> &middot; Termina en </span>
         </span>
         <span id="flash-timer" class="banner-timer">03:00:00</span>
         <a href="/catalogo/" class="banner-cta-desktop">Empezar ahora &rarr;</a>
@@ -772,7 +772,7 @@
                 <div class="footer-brand-col footer-anim">
                     <a href="/" class="footer-brand-link">
                         <span class="footer-bot-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#0b28ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
                                 <path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/>
                                 <path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/>
                             </svg>
@@ -844,7 +844,7 @@ const PRODUCTS = {
         name:     'Clasificador de Correos',
         icon:     '📧',
         seg:      'Inbox · Gmail',
-        gradient: 'linear-gradient(135deg,#40916C,#1B4332)',
+        gradient: 'linear-gradient(135deg,#3d50ff,#0920cc)',
         price:    0,
         files: [
             { icon:'📦', bg:'#FFF0E8', name:'Blueprint Make.com', meta:'JSON · Importar en Make.com', url:'blueprints/agentesva-clasificador-correos-v1.json', dl:'agentesva-clasificador-correos-v1.json' },
@@ -932,7 +932,7 @@ const PRODUCTS = {
         name:     'Generador de Contenido',
         icon:     '✍️',
         seg:      'Marketing · Sheets',
-        gradient: 'linear-gradient(135deg,#1B4332,#40916C)',
+        gradient: 'linear-gradient(135deg,#0920cc,#3d50ff)',
         price:    47,
         files: [
             { icon:'📦', bg:'#EDFFF6', name:'Blueprint Make.com', meta:'JSON · Importar en Make.com', url:'blueprints/agentesva-generador-contenido-v1.json', dl:'agentesva-generador-contenido-v1.json' },
@@ -1003,7 +1003,7 @@ const PRODUCTS = {
         name:     'Prompt Clasificador de Correos',
         icon:     '📧',
         seg:      'Productividad · ChatGPT / Claude',
-        gradient: 'linear-gradient(135deg,#40916C,#1B4332)',
+        gradient: 'linear-gradient(135deg,#3d50ff,#0920cc)',
         price:    0,
         files: [
             { icon:'📝', bg:'#FFF0E8', name:'System prompt completo', meta:'TXT · Copiar en ChatGPT o Claude', url:'prompts/agentesva-clasificador-correos-v1.txt', dl:'agentesva-prompt-clasificador-correos.txt' }
@@ -1069,7 +1069,7 @@ const PRODUCTS = {
         name:     'Clasificador de Correos',
         icon:     '📥',
         seg:      'Inbox · Gmail',
-        gradient: 'linear-gradient(135deg,#40916C,#1B4332)',
+        gradient: 'linear-gradient(135deg,#3d50ff,#0920cc)',
         price:    0,
         files: [
             { icon:'📦', bg:'#FFF0E8', name:'Blueprint Make.com', meta:'JSON · Importar en Make.com', url:'blueprints/agentesva-clasificador-correos-v1.json', dl:'agentesva-clasificador-correos-v1.json' },
@@ -1189,7 +1189,7 @@ const PRODUCTS = {
         name:     'Generador de Contenido Semanal',
         icon:     '✍️',
         seg:      'Marketing · Sheets',
-        gradient: 'linear-gradient(135deg,#1B4332,#40916C)',
+        gradient: 'linear-gradient(135deg,#0920cc,#3d50ff)',
         price:    49,
         files: [
             { icon:'📦', bg:'#E8FFF4', name:'Blueprint Make.com', meta:'JSON · Importar en Make.com', url:'blueprints/agentesva-generador-contenido-v2.json', dl:'agentesva-generador-contenido-v2.json' },
@@ -1241,7 +1241,7 @@ const PRODUCTS = {
         name:     'Dashboard de Ventas Automático',
         icon:     '📊',
         seg:      'Analytics · Sheets',
-        gradient: 'linear-gradient(135deg,#40916C,#1B4332)',
+        gradient: 'linear-gradient(135deg,#3d50ff,#0920cc)',
         price:    0,
         files: [
             { icon:'📦', bg:'#FFF0E8', name:'Workflow N8N', meta:'JSON · Importar en N8N', url:'', dl:'agentesva-dashboard-ventas-n8n-v1.json' },
@@ -1344,7 +1344,7 @@ const PRODUCTS = {
         name:     'Clasificador de Correos',
         icon:     '📥',
         seg:      'Inbox · Gmail',
-        gradient: 'linear-gradient(135deg,#40916C,#1B4332)',
+        gradient: 'linear-gradient(135deg,#3d50ff,#0920cc)',
         price:    0,
         files: [
             { icon:'📦', bg:'#FFF0E8', name:'Blueprint Make.com', meta:'JSON · Importar en Make.com', url:'blueprints/agentesva-clasificador-correos-v1.json', dl:'agentesva-clasificador-correos-v1.json' },
@@ -1379,7 +1379,7 @@ const PRODUCTS = {
         name:     'Dashboard de Ventas Automático',
         icon:     '📊',
         seg:      'Analytics · Sheets',
-        gradient: 'linear-gradient(135deg,#40916C,#1B4332)',
+        gradient: 'linear-gradient(135deg,#3d50ff,#0920cc)',
         price:    0,
         files: [
             { icon:'📦', bg:'#FFF0E8', name:'Workflow N8N', meta:'JSON · Importar en N8N', url:'', dl:'agentesva-dashboard-ventas-n8n-v1.json' },
@@ -1447,7 +1447,7 @@ function render() {
         <div class="check-wrap fade-in">
             <div class="check-circle">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                     stroke="#2D6A4F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                     stroke="#0b28ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
                      stroke-dasharray="30" stroke-dashoffset="30">
                     <polyline points="6,16 13,23 26,10"/>
                 </svg>
