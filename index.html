@@ -57,6 +57,18 @@
       .faq-item.open .faq-chevron { transform: rotate(180deg); }
       .hero-rotate-word { display: inline-block; transition: opacity 0.35s, transform 0.35s; }
       .hero-rotate-word.out { opacity: 0; transform: translateY(8px); }
+      @keyframes heroIn {
+        from { opacity: 0; transform: translateY(14px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .hero-in {
+        opacity: 0;
+        animation: heroIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+      .hero-grain {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+        background-size: 180px 180px;
+      }
     </style>
 
     <!-- JSON-LD: Organization -->
@@ -260,6 +272,7 @@
                     <a href="/catalogo/inmobiliaria/" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-colors"><span aria-hidden="true">&#x1F3E0;</span> Inmobiliaria</a>
                     <a href="/catalogo/" class="px-4 py-2 rounded-full bg-primary-container/80 text-on-primary text-sm font-bold hover:bg-primary-container transition-colors">+ 7 industrias &rarr;</a>
                 </div>
+
             </div>
         </div>
     </section>
