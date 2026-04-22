@@ -285,7 +285,13 @@
 <script>
 (function() {
     // TODO: Replace with real Make.com webhook once created
-    var WEBHOOK_URL = 'https://hook.eu2.make.com/AGENTESVA_DIAGNOSTIC_WEBHOOK';
+    // HubSpot Forms API v3 — form "Diagnóstico AgentesVA"
+    var HUBSPOT_PORTAL_ID = '148323903';
+    var HUBSPOT_FORM_GUID = '6a283564-7cb8-46a6-a812-76101a686d41';
+    var HUBSPOT_SUBMIT_URL = 'https://api.hsforms.com/submissions/v3/integration/submit/' + HUBSPOT_PORTAL_ID + '/' + HUBSPOT_FORM_GUID;
+
+    // Map quiz → HubSpot enum values
+    var HERRAMIENTAS_MAP = { whatsapp: 'whatsapp', excel: 'sheets', crm: 'crm', email: 'email', calendario: 'calendly', ecommerce_plat: 'otras', zapier_make: 'otras', ninguna: 'otras' };
     var STORAGE_KEY = 'agentesva_diagnostico_v1';
     var TOTAL_STEPS = 6;
     var currentStep = 1;
@@ -439,12 +445,43 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        fetch(WEBHOOK_URL, {
+        // Build HubSpot v3 Forms submission payload
+        var herramientasArr = Array.isArray(payload.herramientas) ? payload.herramientas : (payload.herramientas ? [payload.herramientas] : []);
+        var herramientasMapped = herramientasArr.map(function(v) { return HERRAMIENTAS_MAP[v] || 'otras'; });
+        var dolorEnriched = (payload.frustracion || '') +
+            '\n\n[Meta] Horas/semana perdidas: ' + (payload.horas_perdidas || 'n/a') +
+            ' | Leads/clientes perdidos: ' + (payload.leads_perdidos || 'n/a');
+
+        var hsPayload = {
+            submittedAt: Date.now(),
+            fields: [
+                { objectTypeId: '0-1', name: 'firstname', value: payload.nombre || '' },
+                { objectTypeId: '0-1', name: 'email', value: payload.email || '' },
+                { objectTypeId: '0-1', name: 'industria_agentesva', value: payload.tipo_negocio || 'otro' },
+                { objectTypeId: '0-1', name: 'herramientas_actuales', value: herramientasMapped.join(';') },
+                { objectTypeId: '0-1', name: 'dolor_principal', value: dolorEnriched }
+            ],
+            context: {
+                pageUri: window.location.href,
+                pageName: document.title
+            },
+            legalConsentOptions: {
+                consent: {
+                    consentToProcess: true,
+                    text: 'Acepto que AgentesVA procese mis datos para enviarme el diagnóstico personalizado.'
+                }
+            }
+        };
+
+        fetch(HUBSPOT_SUBMIT_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-        }).then(function() { done(); }).catch(function() {
-            // If submit fails (webhook doesn't exist yet), still show success for QA
+            body: JSON.stringify(hsPayload)
+        }).then(function(res) {
+            if (!res.ok) console.warn('HubSpot submit returned', res.status);
+            done();
+        }).catch(function() {
+            // If network fails, still show success so user sees completion
             done();
         });
     });

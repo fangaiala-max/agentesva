@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Auditor&iacute;a AgentesVA &mdash; [NOMBRE CLIENTE]</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { font-family: 'Inter', sans-serif; color: #151a33; background: #fff; line-height: 1.55; }
+  .page { width: 210mm; min-height: 297mm; padding: 20mm 18mm; margin: 0 auto 10mm; background: #fff; page-break-after: always; position: relative; }
+  .page:last-child { page-break-after: auto; }
+  h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; color: #0030c6; font-weight: 800; }
+  h1 { font-size: 36px; line-height: 1.1; margin-bottom: 8px; }
+  h2 { font-size: 22px; margin: 28px 0 12px; color: #151a33; border-bottom: 3px solid #1e47f1; padding-bottom: 8px; }
+  h3 { font-size: 16px; margin: 18px 0 6px; color: #1e47f1; }
+  h4 { font-size: 13px; margin: 12px 0 4px; color: #444656; text-transform: uppercase; letter-spacing: 0.08em; }
+  p { margin-bottom: 10px; font-size: 13px; }
+  ul, ol { margin: 8px 0 12px 22px; font-size: 13px; }
+  li { margin-bottom: 5px; }
+  strong { color: #0030c6; }
+  .cover { background: linear-gradient(135deg, #0030c6 0%, #1e47f1 100%); color: #fff; display: flex; flex-direction: column; justify-content: space-between; min-height: 297mm; }
+  .cover h1, .cover h2, .cover h3 { color: #fff; border: none; }
+  .cover .brand { font-family: 'Manrope', sans-serif; font-weight: 900; font-size: 28px; letter-spacing: -0.02em; }
+  .cover .brand span { color: #b4c2ff; }
+  .cover .subtitle { font-size: 14px; opacity: 0.85; margin-top: 8px; text-transform: uppercase; letter-spacing: 0.15em; }
+  .cover .client-block { margin-top: 60mm; }
+  .cover .client-name { font-size: 48px; font-weight: 900; line-height: 1.05; margin-bottom: 12px; font-family: 'Manrope', sans-serif; }
+  .cover .client-meta { font-size: 14px; opacity: 0.85; line-height: 1.8; }
+  .cover .footer-cover { font-size: 11px; opacity: 0.7; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 14px; }
+  .header-bar { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #ececff; padding-bottom: 10px; margin-bottom: 24px; }
+  .header-bar .brand-mini { font-family: 'Manrope', sans-serif; font-weight: 900; font-size: 16px; color: #0030c6; }
+  .header-bar .brand-mini span { color: #1e47f1; }
+  .header-bar .meta-mini { font-size: 11px; color: #676c82; }
+  .callout { background: #fbf8ff; border-left: 4px solid #1e47f1; padding: 14px 18px; border-radius: 8px; margin: 12px 0; }
+  .callout p { margin: 0; font-size: 13px; }
+  .metric-row { display: flex; gap: 12px; margin: 14px 0; }
+  .metric-card { flex: 1; background: #fbf8ff; padding: 16px; border-radius: 10px; text-align: center; border: 1px solid #ececff; }
+  .metric-value { font-family: 'Manrope', sans-serif; font-weight: 900; font-size: 26px; color: #0030c6; line-height: 1; margin-bottom: 4px; }
+  .metric-label { font-size: 11px; color: #676c82; text-transform: uppercase; letter-spacing: 0.06em; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 12px; }
+  thead { background: #0030c6; color: #fff; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #ececff; }
+  th { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; }
+  tbody tr:nth-child(even) { background: #fbf8ff; }
+  .priority-chip { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  .priority-1 { background: #fee2e2; color: #b91c1c; }
+  .priority-2 { background: #fef3c7; color: #b45309; }
+  .priority-3 { background: #dbeafe; color: #1e40af; }
+  .timeline { display: flex; gap: 12px; margin: 14px 0; }
+  .phase { flex: 1; background: #fff; border: 2px solid #1e47f1; border-radius: 12px; padding: 16px; position: relative; }
+  .phase-label { font-family: 'Manrope', sans-serif; font-weight: 900; color: #0030c6; font-size: 14px; margin-bottom: 8px; }
+  .phase-content { font-size: 11px; color: #444656; line-height: 1.5; }
+  .two-col { display: flex; gap: 18px; margin: 14px 0; }
+  .col { flex: 1; padding: 16px; border-radius: 10px; border: 1px solid #ececff; }
+  .col.option-a { background: #fbf8ff; }
+  .col.option-b { background: linear-gradient(135deg, #0030c6, #1e47f1); color: #fff; }
+  .col.option-b h3 { color: #fff; }
+  .col.option-b strong { color: #b4c2ff; }
+  .cta-box { background: #151a33; color: #fff; padding: 24px; border-radius: 12px; text-align: center; margin-top: 24px; }
+  .cta-box h3 { color: #fff; margin-bottom: 8px; }
+  .cta-box p { font-size: 13px; opacity: 0.9; margin-bottom: 14px; }
+  .cta-box a { display: inline-block; background: #1e47f1; color: #fff; text-decoration: none; padding: 12px 28px; border-radius: 999px; font-weight: 700; font-family: 'Manrope', sans-serif; }
+  .footer-note { position: absolute; bottom: 14mm; left: 18mm; right: 18mm; font-size: 10px; color: #aaa; border-top: 1px solid #ececff; padding-top: 8px; display: flex; justify-content: space-between; }
+  .placeholder { background: #fff3cd; color: #664d03; padding: 2px 6px; border-radius: 4px; font-weight: 600; font-size: inherit; }
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; margin: 0; padding: 18mm 16mm; }
+    .placeholder { background: #fff3cd !important; color: #664d03 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== PORTADA ==================== -->
+<section class="page cover">
+  <div>
+    <div class="brand">Agentes<span>VA</span></div>
+    <div class="subtitle">Auditor&iacute;a de automatizaci&oacute;n</div>
+  </div>
+  <div class="client-block">
+    <div class="client-name"><span class="placeholder">[NOMBRE CLIENTE / EMPRESA]</span></div>
+    <div class="client-meta">
+      Industria: <span class="placeholder">[INDUSTRIA]</span><br>
+      Fecha de auditor&iacute;a: <span class="placeholder">[DD/MM/AAAA]</span><br>
+      Preparado por: Fernando Angulo &middot; AgentesVA<br>
+      Validez de esta propuesta: 30 d&iacute;as
+    </div>
+  </div>
+  <div class="footer-cover">
+    AgentesVA &middot; Automatizaci&oacute;n con IA para PyMEs &middot; Espa&ntilde;a &amp; Latinoam&eacute;rica<br>
+    agentesva.com &middot; hola@agentesva.com &middot; Este documento es confidencial y personalizado.
+  </div>
+</section>
+
+<!-- ==================== PAGINA 1: RESUMEN EJECUTIVO ==================== -->
+<section class="page">
+  <div class="header-bar">
+    <div class="brand-mini">Agentes<span>VA</span> &middot; Auditor&iacute;a</div>
+    <div class="meta-mini"><span class="placeholder">[NOMBRE CLIENTE]</span> &middot; P&aacute;g. 1</div>
+  </div>
+
+  <h1>Resumen ejecutivo</h1>
+  <p style="font-size: 14px; color: #676c82; margin-bottom: 20px;">Lo que encontramos, lo que recomendamos y el impacto esperado.</p>
+
+  <h2>Tu situaci&oacute;n actual</h2>
+  <p><span class="placeholder">[2-3 l&iacute;neas describiendo el negocio del cliente: qu&eacute; hace, tama&ntilde;o, equipo, herramientas actuales. Ej: "ClinicaX es un consultorio dental en Madrid con 4 recepcionistas atendiendo ~800 pacientes/mes. Operan con Gmail + Excel + calendario manual."]</span></p>
+
+  <div class="callout">
+    <p><strong>Dolor principal detectado:</strong> <span class="placeholder">[FRASE CONCRETA DEL PROBLEMA. Ej: "22 horas semanales del equipo se consumen en confirmar citas por tel&eacute;fono, con tasa de no-show del 18%."]</span></p>
+  </div>
+
+  <h2>El impacto de no automatizar (estado actual)</h2>
+  <div class="metric-row">
+    <div class="metric-card">
+      <div class="metric-value"><span class="placeholder">[X]h</span></div>
+      <div class="metric-label">Horas/semana perdidas</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value"><span class="placeholder">[X]&euro;</span></div>
+      <div class="metric-label">Coste mensual estimado</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value"><span class="placeholder">[X]%</span></div>
+      <div class="metric-label">Leads/clientes perdidos</div>
+    </div>
+  </div>
+
+  <h2>Lo que proponemos</h2>
+  <p>Implementar <strong>3 automatizaciones priorizadas</strong> que, en conjunto, eliminan la mayor&iacute;a del trabajo manual y recuperan ingresos perdidos. Detalle en p&aacute;ginas siguientes.</p>
+
+  <h2>Impacto esperado (post-implementaci&oacute;n)</h2>
+  <div class="metric-row">
+    <div class="metric-card" style="background: #ecfdf5; border-color: #a7f3d0;">
+      <div class="metric-value" style="color: #047857;">&minus;<span class="placeholder">[X]h</span></div>
+      <div class="metric-label">Horas recuperadas/semana</div>
+    </div>
+    <div class="metric-card" style="background: #ecfdf5; border-color: #a7f3d0;">
+      <div class="metric-value" style="color: #047857;">+<span class="placeholder">[X]&euro;</span></div>
+      <div class="metric-label">Ingresos adicionales/mes</div>
+    </div>
+    <div class="metric-card" style="background: #ecfdf5; border-color: #a7f3d0;">
+      <div class="metric-value" style="color: #047857;"><span class="placeholder">[X]</span> d&iacute;as</div>
+      <div class="metric-label">Hasta ROI positivo</div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <span>AgentesVA &middot; Auditor&iacute;a confidencial para <span class="placeholder">[CLIENTE]</span></span>
+    <span>agentesva.com</span>
+  </div>
+</section>
+
+<!-- ==================== PAGINA 2: MAPA DE PROCESOS ==================== -->
+<section class="page">
+  <div class="header-bar">
+    <div class="brand-mini">Agentes<span>VA</span> &middot; Auditor&iacute;a</div>
+    <div class="meta-mini"><span class="placeholder">[CLIENTE]</span> &middot; P&aacute;g. 2</div>
+  </div>
+
+  <h1>Mapa de procesos automatizables</h1>
+  <p style="font-size: 14px; color: #676c82; margin-bottom: 20px;">Todos los procesos manuales detectados en tu operaci&oacute;n actual.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 28%;">Proceso</th>
+        <th style="width: 22%;">Frecuencia</th>
+        <th style="width: 18%;">Horas/mes</th>
+        <th style="width: 18%;">Automatizable</th>
+        <th style="width: 14%;">Prioridad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="placeholder">[Proceso 1]</span></td>
+        <td><span class="placeholder">[Diario/Semanal/Mensual]</span></td>
+        <td><span class="placeholder">[X h]</span></td>
+        <td><span class="placeholder">[Total/Parcial]</span></td>
+        <td><span class="priority-chip priority-1">Alta</span></td>
+      </tr>
+      <tr>
+        <td><span class="placeholder">[Proceso 2]</span></td>
+        <td><span class="placeholder">[Frecuencia]</span></td>
+        <td><span class="placeholder">[X h]</span></td>
+        <td><span class="placeholder">[Total/Parcial]</span></td>
+        <td><span class="priority-chip priority-1">Alta</span></td>
+      </tr>
+      <tr>
+        <td><span class="placeholder">[Proceso 3]</span></td>
+        <td><span class="placeholder">[Frecuencia]</span></td>
+        <td><span class="placeholder">[X h]</span></td>
+        <td><span class="placeholder">[Total/Parcial]</span></td>
+        <td><span class="priority-chip priority-2">Media</span></td>
+      </tr>
+      <tr>
+        <td><span class="placeholder">[Proceso 4]</span></td>
+        <td><span class="placeholder">[Frecuencia]</span></td>
+        <td><span class="placeholder">[X h]</span></td>
+        <td><span class="placeholder">[Total/Parcial]</span></td>
+        <td><span class="priority-chip priority-2">Media</span></td>
+      </tr>
+      <tr>
+        <td><span class="placeholder">[Proceso 5]</span></td>
+        <td><span class="placeholder">[Frecuencia]</span></td>
+        <td><span class="placeholder">[X h]</span></td>
+        <td><span class="placeholder">[Total/Parcial]</span></td>
+        <td><span class="priority-chip priority-3">Baja</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout" style="margin-top: 20px;">
+    <p><strong>Observaci&oacute;n clave:</strong> <span class="placeholder">[Insight relevante, ej: "Los 3 procesos de prioridad alta concentran el 75% de las horas manuales del equipo y son 100% automatizables con herramientas no-code existentes."]</span></p>
+  </div>
+
+  <h2>Herramientas actuales detectadas</h2>
+  <ul>
+    <li><strong>Comunicaci&oacute;n:</strong> <span class="placeholder">[Gmail / Outlook / WhatsApp / otro]</span></li>
+    <li><strong>Agenda/Calendario:</strong> <span class="placeholder">[Google Calendar / Outlook / papel / otro]</span></li>
+    <li><strong>CRM o base de clientes:</strong> <span class="placeholder">[Excel / Sheets / HubSpot / ninguno]</span></li>
+    <li><strong>Herramientas sector:</strong> <span class="placeholder">[OpenTable / Dentalink / Shopify / etc]</span></li>
+  </ul>
+
+  <div class="footer-note">
+    <span>AgentesVA &middot; Auditor&iacute;a confidencial para <span class="placeholder">[CLIENTE]</span></span>
+    <span>agentesva.com</span>
+  </div>
+</section>
+
+<!-- ==================== PAGINA 3: TOP 3 AUTOMATIZACIONES ==================== -->
+<section class="page">
+  <div class="header-bar">
+    <div class="brand-mini">Agentes<span>VA</span> &middot; Auditor&iacute;a</div>
+    <div class="meta-mini"><span class="placeholder">[CLIENTE]</span> &middot; P&aacute;g. 3</div>
+  </div>
+
+  <h1>Top 3 automatizaciones priorizadas por ROI</h1>
+  <p style="font-size: 14px; color: #676c82; margin-bottom: 24px;">En orden de mayor a menor impacto. Cada una se puede implementar de forma independiente.</p>
+
+  <!-- AUTOMATIZACI&Oacute;N #1 -->
+  <div style="border: 2px solid #1e47f1; border-radius: 12px; padding: 20px; margin-bottom: 18px; background: #fbf8ff;">
+    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px;">
+      <h3 style="margin: 0; font-size: 18px;">#1 &middot; <span class="placeholder">[Nombre automatizaci&oacute;n 1]</span></h3>
+      <span class="priority-chip priority-1">M&aacute;ximo ROI</span>
+    </div>
+    <p><strong>Qu&eacute; hace:</strong> <span class="placeholder">[Descripci&oacute;n en 2 l&iacute;neas del flujo automatizado]</span></p>
+    <p><strong>Herramientas:</strong> <span class="placeholder">[Make.com + WhatsApp + Google Sheets, ej.]</span></p>
+    <div class="metric-row" style="margin: 10px 0;">
+      <div class="metric-card" style="padding: 10px;">
+        <div class="metric-value" style="font-size: 18px;"><span class="placeholder">[X]h</span></div>
+        <div class="metric-label" style="font-size: 9px;">Ahorro/mes</div>
+      </div>
+      <div class="metric-card" style="padding: 10px;">
+        <div class="metric-value" style="font-size: 18px;"><span class="placeholder">[X]&euro;</span></div>
+        <div class="metric-label" style="font-size: 9px;">Impacto econ&oacute;mico/mes</div>
+      </div>
+      <div class="metric-card" style="padding: 10px;">
+        <div class="metric-value" style="font-size: 18px;"><span class="placeholder">[X] d</span></div>
+        <div class="metric-label" style="font-size: 9px;">Implementaci&oacute;n</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUTOMATIZACI&Oacute;N #2 -->
+  <div style="border: 1px solid #ececff; border-radius: 12px; padding: 20px; margin-bottom: 18px;">
+    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px;">
+      <h3 style="margin: 0; font-size: 18px;">#2 &middot; <span class="placeholder">[Nombre automatizaci&oacute;n 2]</span></h3>
+      <span class="priority-chip priority-2">Alto ROI</span>
+    </div>
+    <p><strong>Qu&eacute; hace:</strong> <span class="placeholder">[Descripci&oacute;n del flujo]</span></p>
+    <p><strong>Herramientas:</strong> <span class="placeholder">[Stack de herramientas]</span></p>
+    <div class="metric-row" style="margin: 10px 0;">
+      <div class="metric-card" style="padding: 10px;">
+        <div class="metric-value" style="font-size: 18px;"><span class="placeholder">[X]h</span></div>
+        <div class="metric-label" style="font-size: 9px;">Ahorro/mes</div>
+      </div>
+      <div class="metric-card" style="padding: 10px;">
+        <div class="metric-value" style="font-size: 18px;"><span class="placeholder">[X]&euro;</span></div>
+        <div class="metric-label" style="font-size: 9px;">Impacto econ&oacute;mico/mes</div>
+      </div>
+      <div class="metric-card" style="padding: 10px;">
+        <div class="metric-value" style="font-size: 18px;"><span class="placeholder">[X] d</span></div>
+        <div class="metric-label" style="font-size: 9px;">Implementaci&oacute;n</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUTOMATIZACI&Oacute;N #3 -->
+  <div style="border: 1px solid #ececff; border-radius: 12px; padding: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px;">
+      <h3 style="margin: 0; font-size: 18px;">#3 &middot; <span class="placeholder">[Nombre automatizaci&oacute;n 3]</span></h3>
+      <span class="priority-chip priority-3">ROI s&oacute;lido</span>
+    </div>
+    <p><strong>Qu&eacute; hace:</strong> <span class="placeholder">[Descripci&oacute;n del flujo]</span></p>
+    <p><strong>Herramientas:</strong> <span class="placeholder">[Stack de herramientas]</span></p>
+    <div class="metric-row" style="margin: 10px 0;">
+      <div class="metric-card" style="padding: 10px;">
+        <div class="metric-value" style="font-size: 18px;"><span class="placeholder">[X]h</span></div>
+        <div class="metric-label" style="font-size: 9px;">Ahorro/mes</div>
+      </div>
+      <div class="metric-card" style="padding: 10px;">
+        <div class="metric-value" style="font-size: 18px;"><span class="placeholder">[X]&euro;</span></div>
+        <div class="metric-label" style="font-size: 9px;">Impacto econ&oacute;mico/mes</div>
+      </div>
+      <div class="metric-card" style="padding: 10px;">
+        <div class="metric-value" style="font-size: 18px;"><span class="placeholder">[X] d</span></div>
+        <div class="metric-label" style="font-size: 9px;">Implementaci&oacute;n</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <span>AgentesVA &middot; Auditor&iacute;a confidencial para <span class="placeholder">[CLIENTE]</span></span>
+    <span>agentesva.com</span>
+  </div>
+</section>
+
+<!-- ==================== PAGINA 4: ROADMAP 30-60-90 ==================== -->
+<section class="page">
+  <div class="header-bar">
+    <div class="brand-mini">Agentes<span>VA</span> &middot; Auditor&iacute;a</div>
+    <div class="meta-mini"><span class="placeholder">[CLIENTE]</span> &middot; P&aacute;g. 4</div>
+  </div>
+
+  <h1>Roadmap de implementaci&oacute;n</h1>
+  <p style="font-size: 14px; color: #676c82; margin-bottom: 24px;">Orden de ejecuci&oacute;n recomendado para ver resultados desde el d&iacute;a 30.</p>
+
+  <div class="timeline">
+    <div class="phase">
+      <div class="phase-label">D&iacute;as 1-30</div>
+      <h4 style="margin-top: 0;">Quick wins</h4>
+      <div class="phase-content">
+        <strong>Implementar:</strong><br>
+        &middot; <span class="placeholder">[Automatizaci&oacute;n 1]</span><br><br>
+        <strong>Resultados esperados:</strong><br>
+        &middot; <span class="placeholder">[Resultado medible]</span><br>
+        &middot; <span class="placeholder">[Resultado medible]</span>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="phase-label">D&iacute;as 31-60</div>
+      <h4 style="margin-top: 0;">Escala operativa</h4>
+      <div class="phase-content">
+        <strong>Implementar:</strong><br>
+        &middot; <span class="placeholder">[Automatizaci&oacute;n 2]</span><br><br>
+        <strong>Resultados esperados:</strong><br>
+        &middot; <span class="placeholder">[Resultado medible]</span><br>
+        &middot; <span class="placeholder">[Resultado medible]</span>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="phase-label">D&iacute;as 61-90</div>
+      <h4 style="margin-top: 0;">Consolidaci&oacute;n</h4>
+      <div class="phase-content">
+        <strong>Implementar:</strong><br>
+        &middot; <span class="placeholder">[Automatizaci&oacute;n 3]</span><br><br>
+        <strong>Resultados esperados:</strong><br>
+        &middot; <span class="placeholder">[Resultado medible]</span><br>
+        &middot; <span class="placeholder">[Resultado medible]</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>Requisitos previos a la implementaci&oacute;n</h2>
+  <ul>
+    <li><span class="placeholder">[Requisito 1: ej. "Acceso a cuenta Google Workspace del negocio"]</span></li>
+    <li><span class="placeholder">[Requisito 2: ej. "N&uacute;mero verificado en WhatsApp Business API"]</span></li>
+    <li><span class="placeholder">[Requisito 3: ej. "Suscripci&oacute;n Make.com (desde 9&euro;/mes) &mdash; activaci&oacute;n incluida"]</span></li>
+    <li><span class="placeholder">[Requisito 4: ej. "Base de datos de clientes en formato estructurado (Excel/Sheets/CSV)"]</span></li>
+  </ul>
+
+  <h2>Qu&eacute; NO vamos a automatizar (y por qu&eacute;)</h2>
+  <p><span class="placeholder">[1-2 procesos que apareceiron pero NO recomendamos automatizar ahora, con raz&oacute;n. Ej: "La gesti&oacute;n de reclamaciones complejas: requiere juicio humano y riesgo reputacional alto. Mejor mantener manual y automatizar la recepci&oacute;n/enrutado."]</span></p>
+
+  <div class="footer-note">
+    <span>AgentesVA &middot; Auditor&iacute;a confidencial para <span class="placeholder">[CLIENTE]</span></span>
+    <span>agentesva.com</span>
+  </div>
+</section>
+
+<!-- ==================== PAGINA 5: 2 CAMINOS ==================== -->
+<section class="page">
+  <div class="header-bar">
+    <div class="brand-mini">Agentes<span>VA</span> &middot; Auditor&iacute;a</div>
+    <div class="meta-mini"><span class="placeholder">[CLIENTE]</span> &middot; P&aacute;g. 5</div>
+  </div>
+
+  <h1>C&oacute;mo avanzar desde aqu&iacute;</h1>
+  <p style="font-size: 14px; color: #676c82; margin-bottom: 24px;">Dos caminos. T&uacute; eliges. Ambos con el mismo destino.</p>
+
+  <div class="two-col">
+    <div class="col option-a">
+      <h3>Opci&oacute;n A &middot; Hazlo t&uacute; mismo</h3>
+      <p><strong>Qu&eacute; incluye:</strong></p>
+      <ul>
+        <li>Este PDF con el plan detallado</li>
+        <li>Gu&iacute;as t&eacute;cnicas recomendadas</li>
+        <li>Plantillas de Make.com (si aplica)</li>
+        <li>Soporte por email (hasta 30 d&iacute;as)</li>
+      </ul>
+      <p><strong>Cu&aacute;ndo elegir esta v&iacute;a:</strong></p>
+      <ul>
+        <li>Tienes equipo t&eacute;cnico interno</li>
+        <li>Presupuesto limitado</li>
+        <li>Quieres aprender implementando</li>
+      </ul>
+      <p><strong>Inversi&oacute;n:</strong> 0&euro; &middot; ya eres due&ntilde;o del plan.</p>
+    </div>
+    <div class="col option-b">
+      <h3>Opci&oacute;n B &middot; Lo implementamos nosotros</h3>
+      <p><strong>Qu&eacute; incluye:</strong></p>
+      <ul>
+        <li>Implementaci&oacute;n 100% por nuestro equipo</li>
+        <li>Pruebas en real + documentaci&oacute;n</li>
+        <li>Acompa&ntilde;amiento 30 d&iacute;as post-entrega</li>
+        <li>Ajustes y tuning incluidos</li>
+      </ul>
+      <p><strong>Cu&aacute;ndo elegir esta v&iacute;a:</strong></p>
+      <ul>
+        <li>Quieres resultados sin riesgo de ejecuci&oacute;n</li>
+        <li>Tu tiempo es mejor usado en vender/operar</li>
+        <li>Prefieres que funcione desde el d&iacute;a 1</li>
+      </ul>
+      <p><strong>Inversi&oacute;n estimada:</strong> <span class="placeholder">[RANGO, ej. 1.800&euro; &mdash; 3.200&euro;]</span></p>
+      <p style="font-size: 11px; opacity: 0.85;">Precio final bajo propuesta formal tras aceptaci&oacute;n de scope.</p>
+    </div>
+  </div>
+
+  <h2>Preguntas frecuentes post-auditor&iacute;a</h2>
+  <h3>&iquest;Cu&aacute;nto tiempo tengo para decidir?</h3>
+  <p>Esta propuesta es v&aacute;lida por 30 d&iacute;as. Despu&eacute;s necesitar&iacute;amos revisarla por si tu operaci&oacute;n cambi&oacute;.</p>
+  <h3>&iquest;El precio puede cambiar?</h3>
+  <p>El rango es firme para el scope descrito. Si a&ntilde;ades procesos adicionales, calculamos incremental por separado.</p>
+  <h3>&iquest;C&oacute;mo es el pago?</h3>
+  <p>50% al iniciar, 50% al entregar. Factura legal emitida desde Espa&ntilde;a con IVA correspondiente.</p>
+
+  <div class="cta-box">
+    <h3>&iquest;Listo para avanzar?</h3>
+    <p>Resp&oacute;ndeme este email y agendamos la reuni&oacute;n de scope para la opci&oacute;n que prefieras.</p>
+    <a href="mailto:hola@agentesva.com">hola@agentesva.com</a>
+  </div>
+
+  <div class="footer-note">
+    <span>AgentesVA &middot; Auditor&iacute;a confidencial para <span class="placeholder">[CLIENTE]</span></span>
+    <span>agentesva.com</span>
+  </div>
+</section>
+
+</body>
+</html>
