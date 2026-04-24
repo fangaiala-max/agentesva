@@ -208,6 +208,18 @@
       mixpanel.init('8fa5118db89d01d0316661d3b0adcc39', {api_host: 'https://api-eu.mixpanel.com'});
       mixpanel.track('page_viewed', { page: window.location.pathname });
     </script>
+
+    <!-- JSON-LD: ItemList (Catálogo) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Catálogo de agentes IA AgentesVA",
+      "description": "44 agentes de automatización IA disponibles por industria",
+      "numberOfItems": 44,
+      "itemListOrder": "https://schema.org/ItemListOrderDescending"
+    }
+    </script>
 </head>
 
 <body class="bg-surface text-on-surface font-body selection:bg-primary-fixed">

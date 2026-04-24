@@ -60,12 +60,29 @@
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      "name": "AgentesVA: Servicios de Implementaci&oacute;n IA",
-      "description": "Implementaci&oacute;n profesional de agentes IA para negocios de LATAM. Sin c&oacute;digo.",
-      "provider": { "@type": "Organization", "name": "AgentesVA" },
-      "areaServed": ["MX","CO","AR","CL","PE"],
+      "name": "AgentesVA: Consultoría e implementación de automatización con IA",
+      "description": "Consultoría y desarrollo custom de automatizaciones con IA para PyMEs. Todos los proyectos arrancan con una auditoría gratuita de 30 min.",
+      "provider": { "@type": "Organization", "name": "AgentesVA", "url": "https://agentesva.com" },
+      "areaServed": ["ES", "MX", "CO", "AR", "CL", "PE"],
       "offers": [
-        { "@type": "Offer", "name": "Auditor&iacute;a gratis 30 min", "price": "0", "priceCurrency": "USD", "url": "https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min" }
+        {
+          "@type": "Offer",
+          "name": "Auditoría gratis 30 min",
+          "price": "0",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "url": "https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min"
+        },
+        {
+          "@type": "Offer",
+          "name": "Proyecto de automatización a medida",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "minPrice": "1500"
+          },
+          "availability": "https://schema.org/InStock"
+        }
       ]
     }
     </script>

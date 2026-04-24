@@ -41,6 +41,78 @@
       .faq-item.open .faq-a { display: block; }
       .faq-item.open .faq-chevron { transform: rotate(180deg); }
     </style>
+
+    <!-- JSON-LD: AboutPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "Sobre AgentesVA",
+      "description": "Por qué AgentesVA opera con perfil anónimo. Razones, verificables y trayectoria.",
+      "url": "https://agentesva.com/sobre/",
+      "about": {
+        "@type": "Organization",
+        "name": "AgentesVA"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://agentesva.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Sobre", "item": "https://agentesva.com/sobre/" }
+        ]
+      }
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage (Sobre) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cómo sé que existes si no veo una cara?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tenemos empresa registrada, dominio propio, email corporativo, casos documentados con métricas verificables bajo NDA y una auditoría gratis sin compromiso. Si el primer contacto no te da confianza, no tienes por qué seguir adelante."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Los casos de éxito son reales?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Tres casos verificables: restaurante (+60% ingresos), escuela de idiomas (+60% alumnos) y renta de camiones (+70% utilización). Las métricas son reales; los nombres de cliente están cubiertos por NDA, pero podemos compartir referencias 1:1 tras la auditoría si avanzamos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Y si desapareces después de cobrar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cada proyecto entrega documentación completa: blueprints de Make.com, credenciales en cuentas del cliente y un runbook operativo. Si mañana dejamos de existir, tu automatización sigue funcionando y cualquier consultor puede tomar el relevo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo ver tu LinkedIn antes de contratarte?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tras la auditoría gratis, si hay encaje, compartimos perfil profesional y referencias privadas. El anonimato público es por NDAs con otras marcas, no por esconder trayectoria."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué no hay un video tuyo en la web?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porque la propuesta es el trabajo, no la marca personal. Preferimos que la decisión se base en la auditoría concreta sobre tu negocio y los resultados que podemos demostrar, no en storytelling."
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body class="bg-surface font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
