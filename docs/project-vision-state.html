@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>AgentesVA &mdash; Vision + Current State</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { font-family: 'Inter', sans-serif; color: #151a33; background: #fff; line-height: 1.55; }
+  .page { width: 210mm; min-height: 297mm; padding: 20mm 18mm; margin: 0 auto 10mm; background: #fff; page-break-after: always; position: relative; }
+  .page:last-child { page-break-after: auto; }
+  h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; color: #0030c6; font-weight: 800; }
+  h1 { font-size: 36px; line-height: 1.1; margin-bottom: 10px; }
+  h2 { font-size: 22px; margin: 28px 0 12px; color: #151a33; border-bottom: 3px solid #1e47f1; padding-bottom: 8px; }
+  h3 { font-size: 16px; margin: 16px 0 6px; color: #1e47f1; }
+  h4 { font-size: 12px; margin: 10px 0 4px; color: #444656; text-transform: uppercase; letter-spacing: 0.08em; }
+  p { margin-bottom: 10px; font-size: 13px; }
+  ul, ol { margin: 8px 0 12px 22px; font-size: 13px; }
+  li { margin-bottom: 5px; }
+  strong { color: #0030c6; }
+  code, .mono { font-family: 'SF Mono', 'Monaco', 'Menlo', monospace; font-size: 11px; background: #fbf8ff; padding: 2px 6px; border-radius: 4px; color: #1e47f1; }
+  .cover { background: linear-gradient(135deg, #0030c6 0%, #1e47f1 100%); color: #fff; display: flex; flex-direction: column; justify-content: space-between; min-height: 297mm; }
+  .cover h1, .cover h2, .cover h3 { color: #fff; border: none; }
+  .cover .brand { font-family: 'Manrope', sans-serif; font-weight: 900; font-size: 32px; letter-spacing: -0.02em; }
+  .cover .brand span { color: #b4c2ff; }
+  .cover .subtitle { font-size: 14px; opacity: 0.85; margin-top: 8px; text-transform: uppercase; letter-spacing: 0.15em; }
+  .cover .title-block { margin-top: 50mm; }
+  .cover .doc-title { font-size: 52px; font-weight: 900; line-height: 1.05; margin-bottom: 18px; font-family: 'Manrope', sans-serif; }
+  .cover .doc-sub { font-size: 16px; opacity: 0.85; max-width: 130mm; line-height: 1.5; }
+  .cover .footer-cover { font-size: 11px; opacity: 0.7; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 14px; }
+  .header-bar { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #ececff; padding-bottom: 10px; margin-bottom: 24px; }
+  .header-bar .brand-mini { font-family: 'Manrope', sans-serif; font-weight: 900; font-size: 16px; color: #0030c6; }
+  .header-bar .brand-mini span { color: #1e47f1; }
+  .header-bar .meta-mini { font-size: 11px; color: #676c82; }
+  .callout { background: #fbf8ff; border-left: 4px solid #1e47f1; padding: 14px 18px; border-radius: 8px; margin: 12px 0; }
+  .callout p { margin: 0; font-size: 13px; }
+  .callout.warn { background: #fef3c7; border-color: #b45309; }
+  .callout.good { background: #ecfdf5; border-color: #047857; }
+  .metric-row { display: flex; gap: 12px; margin: 14px 0; }
+  .metric-card { flex: 1; background: #fbf8ff; padding: 16px; border-radius: 10px; text-align: center; border: 1px solid #ececff; }
+  .metric-value { font-family: 'Manrope', sans-serif; font-weight: 900; font-size: 24px; color: #0030c6; line-height: 1; margin-bottom: 4px; }
+  .metric-label { font-size: 10px; color: #676c82; text-transform: uppercase; letter-spacing: 0.06em; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 12px; }
+  thead { background: #0030c6; color: #fff; }
+  th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #ececff; vertical-align: top; }
+  th { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; }
+  tbody tr:nth-child(even) { background: #fbf8ff; }
+  .chip { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  .chip.done { background: #ecfdf5; color: #047857; }
+  .chip.progress { background: #fef3c7; color: #b45309; }
+  .chip.pending { background: #dbeafe; color: #1e40af; }
+  .chip.risk { background: #fee2e2; color: #b91c1c; }
+  .funnel { display: flex; flex-direction: column; gap: 4px; margin: 14px 0; }
+  .funnel-step { background: #fbf8ff; border-left: 4px solid #1e47f1; padding: 10px 14px; font-size: 12px; border-radius: 0 8px 8px 0; }
+  .funnel-step strong { color: #0030c6; display: block; font-size: 13px; margin-bottom: 2px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+  .col { padding: 14px; border-radius: 10px; border: 1px solid #ececff; background: #fff; }
+  .col h3 { margin-top: 0; font-size: 14px; }
+  .footer-note { position: absolute; bottom: 14mm; left: 18mm; right: 18mm; font-size: 10px; color: #aaa; border-top: 1px solid #ececff; padding-top: 8px; display: flex; justify-content: space-between; }
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; margin: 0; padding: 18mm 16mm; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PORTADA -->
+<section class="page cover">
+  <div>
+    <div class="brand">Agentes<span>VA</span></div>
+    <div class="subtitle">Vision &amp; Current State &middot; 2026-04-24</div>
+  </div>
+  <div class="title-block">
+    <div class="doc-title">La vision del proyecto y d&oacute;nde estamos hoy</div>
+    <div class="doc-sub">Consultor&iacute;a de automatizaci&oacute;n con IA para PyMEs. Pivot completado. Funnel live. Email automation en construcci&oacute;n.</div>
+  </div>
+  <div class="footer-cover">
+    AgentesVA &middot; agentesva.com &middot; Espa&ntilde;a &amp; Latinoam&eacute;rica<br>
+    Documento interno de estado. Clasificaci&oacute;n: confidencial.
+  </div>
+</section>
+
+<!-- PAGINA 1 — EXECUTIVE SUMMARY -->
+<section class="page">
+  <div class="header-bar">
+    <div class="brand-mini">Agentes<span>VA</span> &middot; Vision + State</div>
+    <div class="meta-mini">P&aacute;g. 1 &middot; Executive Summary</div>
+  </div>
+
+  <h1>Executive summary</h1>
+  <p style="font-size: 14px; color: #676c82; margin-bottom: 20px;">Tres p&aacute;rrafos para tener el contexto completo.</p>
+
+  <h2>Qu&eacute; es AgentesVA</h2>
+  <p>AgentesVA es una consultor&iacute;a independiente de <strong>automatizaci&oacute;n con IA para PyMEs</strong> con base en Espa&ntilde;a y alcance a Latinoam&eacute;rica. Trabajamos con Make.com, Claude/GPT, HubSpot y WhatsApp Business API para eliminar trabajo manual en procesos operativos de PyMEs de 1 a 50 empleados.</p>
+
+  <p>El founder mantiene perfil an&oacute;nimo en el sitio p&uacute;blico por acuerdos profesionales con marcas globales del sector tecnol&oacute;gico donde opera en paralelo. La identidad se revela en la auditor&iacute;a gratis de 30 minutos (video call).</p>
+
+  <h2>El pivot (abril 2026)</h2>
+  <p>El sitio operaba hasta abril con un modelo de <strong>paquetes pre-empaquetados</strong> a precio fijo ($19 DIY / $49 Asistido / $97 Full Service) para 42 agentes individuales. Cero conversiones org&aacute;nicas en 6 meses (0 tr&aacute;fico Semrush, 0 ventas).</p>
+
+  <p>Se ejecut&oacute; pivot completo a modelo de <strong>auditor&iacute;a gratis + PDF personalizado + proyectos custom desde 1.500&euro;</strong>. Todo precio removido del sitio, CTAs unificados a Calendly, nuevo posicionamiento Espa&ntilde;a-primero. Objetivo: subir ticket promedio 10x (de $97 a 1.500-5.000&euro;/proyecto) y alejar clientes no-fit antes de consumir tiempo del founder.</p>
+
+  <h2>D&oacute;nde estamos hoy</h2>
+  <div class="metric-row">
+    <div class="metric-card">
+      <div class="metric-value">23</div>
+      <div class="metric-label">P&aacute;ginas en sitio</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value">100%</div>
+      <div class="metric-label">Pivot deployado</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value">3</div>
+      <div class="metric-label">Casos verificables</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value">80%</div>
+      <div class="metric-label">Funnel completo</div>
+    </div>
+  </div>
+
+  <div class="callout good">
+    <p><strong>Estado actual:</strong> sitio live funcional en agentesva.com, HubSpot CRM capturando leads del quiz, infraestructura de email automation en construcci&oacute;n (Make.com scenario). Falta activar canal de adquisici&oacute;n (Meta Ads + Reels IG) para generar tr&aacute;fico.</p>
+  </div>
+
+  <div class="footer-note">
+    <span>AgentesVA &middot; Documento interno</span>
+    <span>agentesva.com</span>
+  </div>
+</section>
+
+<!-- PAGINA 2 — VISION -->
+<section class="page">
+  <div class="header-bar">
+    <div class="brand-mini">Agentes<span>VA</span> &middot; Vision + State</div>
+    <div class="meta-mini">P&aacute;g. 2 &middot; Vision</div>
+  </div>
+
+  <h1>La visi&oacute;n</h1>
+
+  <h2>Problema que resolvemos</h2>
+  <p>Las PyMEs hispanohablantes est&aacute;n atrapadas entre dos opciones malas:</p>
+  <ul>
+    <li><strong>Seguir manual</strong> y perder tiempo/dinero en procesos repetitivos (confirmar citas, responder DMs, hacer seguimiento a leads, clasificar correos, emitir facturas)</li>
+    <li><strong>Contratar consultoras enterprise</strong> que cobran tarifas imposibles para una PyME y entregan soluciones sobre-dimensionadas</li>
+  </ul>
+  <p>No existe la capa intermedia: consultor senior con experiencia enterprise que aplique el mismo criterio al tama&ntilde;o y ritmo de una PyME.</p>
+
+  <h2>Propuesta de valor &uacute;nica</h2>
+  <div class="callout">
+    <p><strong>Aplicamos disciplina enterprise a la velocidad de una PyME.</strong> Mismo stack que marcas globales (Make.com, Claude, HubSpot), misma metodolog&iacute;a basada en datos, pero con el tama&ntilde;o y la honestidad que un due&ntilde;o-operador puede absorber.</p>
+  </div>
+
+  <h2>El pacto con el cliente</h2>
+  <p>Nuestro compromiso es simple y se manifiesta en cada p&aacute;gina del sitio:</p>
+  <ul>
+    <li><strong>Auditor&iacute;a primero, propuesta despu&eacute;s.</strong> 30 minutos gratis. PDF con diagn&oacute;stico en 24h. Si no hay encaje, te quedas con el plan y lo implementas solo.</li>
+    <li><strong>Rangos orientativos p&uacute;blicos.</strong> No escondemos precios: proyectos desde 1.500&euro;. La auditor&iacute;a ajusta scope y calcula n&uacute;mero exacto.</li>
+    <li><strong>Entrega documentada.</strong> Todo blueprint queda en cuenta Make.com del cliente + runbook. Si mañana desaparecemos, cualquier consultor toma el relevo.</li>
+    <li><strong>Cero presi&oacute;n comercial.</strong> Sin funnels de venta agresivos, sin countdown fake, sin upsells post-compra. Valor primero, trabajo despu&eacute;s.</li>
+  </ul>
+
+  <h2>Por qu&eacute; anonimato (temporalmente)</h2>
+  <p>El founder trabaja en paralelo para marcas globales del sector tecnol&oacute;gico. Acuerdos profesionales restringen exposici&oacute;n p&uacute;blica de proyectos paralelos. La soluci&oacute;n:</p>
+  <ul>
+    <li>AgentesVA opera como marca independiente con facturaci&oacute;n legal espa&ntilde;ola</li>
+    <li>Identidad revelada en la auditor&iacute;a (video call + LinkedIn)</li>
+    <li>NDA bidireccional en cada proyecto</li>
+    <li>6 verificables p&uacute;blicos sustituyen al nombre: facturaci&oacute;n ES + casos con m&eacute;tricas + referencias on demand + sin pago adelantado + contrato legal ES + NDA mutuo</li>
+  </ul>
+
+  <h2>Horizonte 2026-2027</h2>
+  <p>La visi&oacute;n a 18 meses es ser <strong>la consultora de referencia para PyMEs hispanohablantes</strong> en automatizaci&oacute;n IA no-code. M&eacute;tricas objetivo:</p>
+  <ul>
+    <li><strong>Q3 2026:</strong> 10 clientes activos, 3.000-5.000&euro; MRR</li>
+    <li><strong>Q4 2026:</strong> Primer founder-reveal p&uacute;blico (salir del modo an&oacute;nimo cuando acuerdos lo permitan)</li>
+    <li><strong>Q2 2027:</strong> Equipo de 2-3 consultores + 20-30 clientes</li>
+  </ul>
+
+  <div class="footer-note">
+    <span>AgentesVA &middot; Documento interno</span>
+    <span>agentesva.com</span>
+  </div>
+</section>
+
+<!-- PAGINA 3 — FUNNEL ARCHITECTURE -->
+<section class="page">
+  <div class="header-bar">
+    <div class="brand-mini">Agentes<span>VA</span> &middot; Vision + State</div>
+    <div class="meta-mini">P&aacute;g. 3 &middot; Funnel</div>
+  </div>
+
+  <h1>Arquitectura del funnel</h1>
+  <p style="font-size: 14px; color: #676c82; margin-bottom: 20px;">El recorrido completo del lead, del primer click al contrato firmado.</p>
+
+  <div class="funnel">
+    <div class="funnel-step">
+      <strong>1. Descubrimiento (Awareness)</strong>
+      Canales planeados: Meta Ads (&euro;200/mes), Reels IG con Hailuo AI (3/semana), referidos. LinkedIn outbound manual pospuesto.
+    </div>
+    <div class="funnel-step">
+      <strong>2. Visitante en agentesva.com</strong>
+      Landing en homepage o p&aacute;gina de industria. Hero con casos reales +60%/+60%/+70%. Urgencia real ("2 slots esta semana").
+    </div>
+    <div class="funnel-step">
+      <strong>3. Bifurcaci&oacute;n del inter&eacute;s</strong>
+      Dos caminos seg&uacute;n fricci&oacute;n que acepte:
+      <br>&rarr; Camino hot: reserva directa en Calendly (fricci&oacute;n alta, lead calificado)
+      <br>&rarr; Camino warm: quiz /diagnostico/ 5 preguntas (fricci&oacute;n baja, captura email)
+    </div>
+    <div class="funnel-step">
+      <strong>4. Calificaci&oacute;n autom&aacute;tica (HubSpot Forms API)</strong>
+      Quiz submit crea contacto en HubSpot con 6 properties (industria, tama&ntilde;o, herramientas, dolor, presupuesto, score).
+    </div>
+    <div class="funnel-step">
+      <strong>5. Email automation (en construcci&oacute;n)</strong>
+      Make.com: HubSpot trigger &rarr; Claude API genera diagn&oacute;stico HTML personalizado &rarr; Gemini fallback &rarr; Resend env&iacute;a email branded en &lt;30s.
+    </div>
+    <div class="funnel-step">
+      <strong>6. Auditor&iacute;a gratis 30 min (Calendly)</strong>
+      Video call Google Meet. Revelar identidad + LinkedIn + referencias. Diagn&oacute;stico conversacional. Entrega PDF 24h despu&eacute;s.
+    </div>
+    <div class="funnel-step">
+      <strong>7. Propuesta formal</strong>
+      48h post-PDF si hay inter&eacute;s. Template Google Docs con scope + precio + timeline. Firma online.
+    </div>
+    <div class="funnel-step">
+      <strong>8. Implementaci&oacute;n + acompa&ntilde;amiento</strong>
+      2-8 semanas seg&uacute;n scope. Entrega con documentaci&oacute;n en cuenta Make.com del cliente. Soporte 30 d&iacute;as post-go-live.
+    </div>
+  </div>
+
+  <h2>Tasas de conversi&oacute;n objetivo (benchmark sector)</h2>
+  <table>
+    <thead>
+      <tr><th>Etapa</th><th>Target CVR</th><th>Notas</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Visitante &rarr; Quiz submit</td><td>3-5%</td><td>Lead magnet</td></tr>
+      <tr><td>Visitante &rarr; Calendly booking</td><td>1-2%</td><td>Cold to call</td></tr>
+      <tr><td>Calendly booked &rarr; Show</td><td>65-75%</td><td>Con reminder autom&aacute;tico</td></tr>
+      <tr><td>Audit &rarr; Propuesta enviada</td><td>70-80%</td><td>Filtro previo</td></tr>
+      <tr><td>Propuesta &rarr; Contrato firmado</td><td>25-35%</td><td>Ticket medio 1.500-5.000&euro;</td></tr>
+    </tbody>
+  </table>
+
+  <div class="footer-note">
+    <span>AgentesVA &middot; Documento interno</span>
+    <span>agentesva.com</span>
+  </div>
+</section>
+
+<!-- PAGINA 4 — TECH STACK -->
+<section class="page">
+  <div class="header-bar">
+    <div class="brand-mini">Agentes<span>VA</span> &middot; Vision + State</div>
+    <div class="meta-mini">P&aacute;g. 4 &middot; Tech Stack</div>
+  </div>
+
+  <h1>Stack t&eacute;cnico</h1>
+  <p style="font-size: 14px; color: #676c82; margin-bottom: 20px;">Cada pieza del ecosistema y qu&eacute; funci&oacute;n cumple.</p>
+
+  <h2>Frontend + Hosting</h2>
+  <table>
+    <thead><tr><th>Herramienta</th><th>Rol</th><th>Coste/mes</th></tr></thead>
+    <tbody>
+      <tr><td>HTML + Tailwind CSS v3</td><td>Sitio est&aacute;tico, 23 p&aacute;ginas, sin framework</td><td>&euro;0</td></tr>
+      <tr><td>Vercel (Hobby)</td><td>Hosting + CDN global + deploy autom&aacute;tico desde Git</td><td>&euro;0</td></tr>
+      <tr><td>Cloudflare (Free)</td><td>DNS + Email Routing para hola@agentesva.com</td><td>&euro;0</td></tr>
+      <tr><td>GitHub (Free)</td><td>Control de versiones + trigger deploys</td><td>&euro;0</td></tr>
+    </tbody>
+  </table>
+
+  <h2>CRM + Forms + Meetings</h2>
+  <table>
+    <thead><tr><th>Herramienta</th><th>Rol</th><th>Coste/mes</th></tr></thead>
+    <tbody>
+      <tr><td>HubSpot CRM (Free)</td><td>Contactos, pipeline deals, form Diagn&oacute;stico, scoring</td><td>&euro;0</td></tr>
+      <tr><td>Calendly</td><td>Booking auditor&iacute;as 30 min (a reemplazar por HubSpot Meetings)</td><td>&euro;0</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Automation + AI</h2>
+  <table>
+    <thead><tr><th>Herramienta</th><th>Rol</th><th>Coste/mes</th></tr></thead>
+    <tbody>
+      <tr><td>Make.com (Core &euro;8)</td><td>Orquesta scenario HubSpot &rarr; Claude &rarr; Resend</td><td>&euro;8</td></tr>
+      <tr><td>Anthropic Claude API</td><td>Genera diagn&oacute;stico HTML personalizado por lead</td><td>&euro;3-8</td></tr>
+      <tr><td>Google Gemini API</td><td>Fallback si Claude falla (free tier)</td><td>&euro;0</td></tr>
+      <tr><td>Resend</td><td>Env&iacute;o transaccional email desde hola@agentesva.com</td><td>&euro;0</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Analytics + Tracking</h2>
+  <table>
+    <thead><tr><th>Herramienta</th><th>Rol</th><th>Coste/mes</th></tr></thead>
+    <tbody>
+      <tr><td>Google Analytics 4</td><td>Tr&aacute;fico, sesiones, fuentes</td><td>&euro;0</td></tr>
+      <tr><td>Mixpanel (Free)</td><td>Eventos de funnel: page_viewed, audit_booking_started, quiz_completed</td><td>&euro;0</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Coste total infraestructura</h2>
+  <div class="callout good">
+    <p><strong>Total: ~&euro;11-16/mes</strong> para procesar hasta 160 leads/mes con email automation completo. Escala a Core &euro;16/mes de Make cuando se supere 1000 ops/mes (&gt;160 leads).</p>
+  </div>
+
+  <h2>Stack de implementaci&oacute;n para clientes</h2>
+  <p>Al ejecutar proyectos de automatizaci&oacute;n con clientes usamos el mismo stack base (Make + Claude + HubSpot) m&aacute;s lo espec&iacute;fico de cada industria:</p>
+  <ul>
+    <li><strong>Restaurantes/cl&iacute;nicas:</strong> + WhatsApp Business API, Google Calendar, OpenTable/Dentalink</li>
+    <li><strong>Ecommerce:</strong> + Shopify, Instagram API, Klaviyo</li>
+    <li><strong>Inmobiliarias/renting:</strong> + custom CRM scraping, Clay/Apollo enrichment</li>
+    <li><strong>Educaci&oacute;n/academias:</strong> + Typeform, Zoom, sistemas LMS</li>
+  </ul>
+
+  <div class="footer-note">
+    <span>AgentesVA &middot; Documento interno</span>
+    <span>agentesva.com</span>
+  </div>
+</section>
+
+<!-- PAGINA 5 — CASOS REALES -->
+<section class="page">
+  <div class="header-bar">
+    <div class="brand-mini">Agentes<span>VA</span> &middot; Vision + State</div>
+    <div class="meta-mini">P&aacute;g. 5 &middot; Casos</div>
+  </div>
+
+  <h1>Casos verificables</h1>
+  <p style="font-size: 14px; color: #676c82; margin-bottom: 20px;">Tres proyectos reales con m&eacute;tricas. Nombres bajo NDA, n&uacute;meros verificables en la auditor&iacute;a.</p>
+
+  <div style="border: 2px solid #1e47f1; border-radius: 12px; padding: 18px; margin-bottom: 18px; background: #fbf8ff;">
+    <h3 style="margin-top: 0;">Caso 1 &middot; Restaurante local</h3>
+    <div class="metric-row" style="margin: 10px 0;">
+      <div class="metric-card" style="padding: 10px;">
+        <div class="metric-value" style="font-size: 20px;">+60%</div>
+        <div class="metric-label" style="font-size: 9px;">Facturaci&oacute;n/mes</div>
+      </div>
+      <div class="metric-card" style="padding: 10px;">
+        <div class="metric-value" style="font-size: 20px;">25k&rarr;40k&euro;</div>
+        <div class="metric-label" style="font-size: 9px;">De/a mensual</div>
+      </div>
+    </div>
+    <p><strong>Problema:</strong> reservas perdidas por no contestar WhatsApp fuera de horario, ausencias sin confirmaci&oacute;n autom&aacute;tica.</p>
+    <p><strong>Soluci&oacute;n:</strong> Agente WhatsApp 24/7 que responde preguntas, sugiere mesa y redirige a OpenTable. Recordatorios autom&aacute;ticos 24h antes.</p>
+    <p><strong>Stack:</strong> Make.com + WhatsApp Business API + OpenTable + Claude para respuestas.</p>
+  </div>
+
+  <div style="border: 1px solid #ececff; border-radius: 12px; padding: 18px; margin-bottom: 18px;">
+    <h3 style="margin-top: 0;">Caso 2 &middot; Escuela de idiomas</h3>
+    <div class="metric-row" style="margin: 10px 0;">
+      <div class="metric-card" style="padding: 10px;">
+        <div class="metric-value" style="font-size: 20px;">+60%</div>
+        <div class="metric-label" style="font-size: 9px;">Alumnos activos</div>
+      </div>
+      <div class="metric-card" style="padding: 10px;">
+        <div class="metric-value" style="font-size: 20px;">500&rarr;800</div>
+        <div class="metric-label" style="font-size: 9px;">De/a mensual</div>
+      </div>
+    </div>
+    <p><strong>Problema:</strong> dropout alto en onboarding (estudiantes inscritos que no completaban proceso de nivel), falta de seguimiento personalizado.</p>
+    <p><strong>Soluci&oacute;n:</strong> cadenas autom&aacute;ticas por WhatsApp para recuperar dropouts + tests de nivel autom&aacute;ticos v&iacute;a chat con correcci&oacute;n por IA.</p>
+    <p><strong>Stack:</strong> Make.com + WhatsApp + HubSpot + Claude para corregir tests.</p>
+  </div>
+
+  <div style="border: 1px solid #ececff; border-radius: 12px; padding: 18px;">
+    <h3 style="margin-top: 0;">Caso 3 &middot; Renting de camiones B2B (Espa&ntilde;a) &middot; <span class="chip done">Caso destacado</span></h3>
+    <div class="metric-row" style="margin: 10px 0;">
+      <div class="metric-card" style="padding: 10px;">
+        <div class="metric-value" style="font-size: 20px;">+70%</div>
+        <div class="metric-label" style="font-size: 9px;">Utilizaci&oacute;n flota</div>
+      </div>
+      <div class="metric-card" style="padding: 10px;">
+        <div class="metric-value" style="font-size: 20px;">40&rarr;68%</div>
+        <div class="metric-label" style="font-size: 9px;">En 2 meses</div>
+      </div>
+    </div>
+    <p><strong>Problema:</strong> camiones parados porque el equipo comercial no pod&iacute;a perfilar manualmente a todos los leads que entraban.</p>
+    <p><strong>Soluci&oacute;n:</strong> agente IA perfila leads autom&aacute;ticamente (tipo de carga, ruta, presupuesto, zona) y matchea con cami&oacute;n disponible m&aacute;s cercano.</p>
+    <p><strong>Stack:</strong> Make.com + HubSpot + Claude + scraping custom de disponibilidad.</p>
+  </div>
+
+  <div class="footer-note">
+    <span>AgentesVA &middot; Documento interno</span>
+    <span>agentesva.com</span>
+  </div>
+</section>
+
+<!-- PAGINA 6 — CURRENT STATE -->
+<section class="page">
+  <div class="header-bar">
+    <div class="brand-mini">Agentes<span>VA</span> &middot; Vision + State</div>
+    <div class="meta-mini">P&aacute;g. 6 &middot; Current State</div>
+  </div>
+
+  <h1>Estado actual &middot; 24 abril 2026</h1>
+
+  <h2>Lo que est&aacute; LIVE</h2>
+  <table>
+    <thead><tr><th>Item</th><th>Estado</th><th>Notas</th></tr></thead>
+    <tbody>
+      <tr><td>Sitio web pivot v2</td><td><span class="chip done">Live</span></td><td>23 p&aacute;ginas, Spain-primary, Schema.org</td></tr>
+      <tr><td>P&aacute;gina /sobre/</td><td><span class="chip done">Live</span></td><td>Aborda objeci&oacute;n an&oacute;nimo-founder</td></tr>
+      <tr><td>Quiz /diagnostico/ &rarr; HubSpot</td><td><span class="chip done">Live</span></td><td>Capturando leads via Forms API</td></tr>
+      <tr><td>HubSpot CRM Free</td><td><span class="chip done">Activo</span></td><td>Portal 148323903, form creado v&iacute;a API</td></tr>
+      <tr><td>Cloudflare Email Routing</td><td><span class="chip done">Activo</span></td><td>hola@agentesva.com &rarr; Gmail</td></tr>
+      <tr><td>Resend (dominio verificado)</td><td><span class="chip done">Verified</span></td><td>DKIM OK, API key creada</td></tr>
+      <tr><td>Anthropic Claude API</td><td><span class="chip done">Activo</span></td><td>Auto-reload $5/$20, key dedicada</td></tr>
+      <tr><td>Make.com plan Core</td><td><span class="chip done">&euro;8/mes</span></td><td>10k ops, HubSpot connection creada</td></tr>
+      <tr><td>PDF template auditor&iacute;a</td><td><span class="chip done">Listo</span></td><td>5 p&aacute;ginas, print-ready</td></tr>
+      <tr><td>Sitemap + robots.txt + AI crawlers</td><td><span class="chip done">Actualizado</span></td><td>es-ES hreflang, GPTBot/ClaudeBot allowed</td></tr>
+      <tr><td>Schema.org JSON-LD</td><td><span class="chip done">7 p&aacute;ginas</span></td><td>ProfessionalService, AboutPage, Service, ItemList, FAQPage</td></tr>
+      <tr><td>Mixpanel + GA4 tracking</td><td><span class="chip done">Live</span></td><td>Funnel events en 8 p&aacute;ginas clave</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Lo que est&aacute; EN CONSTRUCCI&Oacute;N</h2>
+  <table>
+    <thead><tr><th>Item</th><th>Estado</th><th>ETA</th></tr></thead>
+    <tbody>
+      <tr><td>Make.com scenario (7 m&oacute;dulos)</td><td><span class="chip progress">Cowork reintentando</span></td><td>Hoy 24 abr</td></tr>
+      <tr><td>Email automation Claude+Resend</td><td><span class="chip progress">Depende scenario</span></td><td>Post-scenario</td></tr>
+      <tr><td>HubSpot Meeting scheduler (reemplazo Calendly)</td><td><span class="chip pending">Post-scenario</span></td><td>25 abr</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Lo que est&aacute; PENDIENTE</h2>
+  <table>
+    <thead><tr><th>Item</th><th>Estado</th><th>Bloqueador</th></tr></thead>
+    <tbody>
+      <tr><td>Footer fiscal Espa&ntilde;a</td><td><span class="chip pending">Esperando</span></td><td>Datos fiscales esposa aut&oacute;noma</td></tr>
+      <tr><td>Meta Ads &euro;200/mes</td><td><span class="chip pending">Post-scenario</span></td><td>Requiere funnel completo</td></tr>
+      <tr><td>Reels Instagram con Hailuo AI</td><td><span class="chip pending">Planificado</span></td><td>4 reels de prueba primero</td></tr>
+      <tr><td>Cleanup 9 scenarios legacy Make</td><td><span class="chip pending">Opcional</span></td><td>No cr&iacute;tico</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Riesgos activos</h2>
+  <div class="callout warn">
+    <p><strong>Riesgo 1 &middot; <span class="chip risk">Medio</span> Cero tr&aacute;fico actual.</strong> El sitio est&aacute; listo pero nadie entra. Meta Ads + Reels son cr&iacute;ticos esta semana.</p>
+  </div>
+  <div class="callout warn">
+    <p><strong>Riesgo 2 &middot; <span class="chip risk">Bajo</span> Mensaje "llega en 24h".</strong> El quiz promete diagn&oacute;stico en 24h manual hasta que automation est&eacute; live. Requiere disciplina operativa.</p>
+  </div>
+  <div class="callout warn">
+    <p><strong>Riesgo 3 &middot; <span class="chip risk">Bajo</span> Founder an&oacute;nimo puede frenar conversi&oacute;n.</strong> Mitigado con /sobre/ pero requer monitorear tasa audit&rarr;contrato los primeros 10 leads.</p>
+  </div>
+
+  <div class="footer-note">
+    <span>AgentesVA &middot; Documento interno</span>
+    <span>agentesva.com</span>
+  </div>
+</section>
+
+<!-- PAGINA 7 — NEXT ACTIONS -->
+<section class="page">
+  <div class="header-bar">
+    <div class="brand-mini">Agentes<span>VA</span> &middot; Vision + State</div>
+    <div class="meta-mini">P&aacute;g. 7 &middot; Next Actions</div>
+  </div>
+
+  <h1>Siguientes acciones</h1>
+
+  <h2>Esta semana (24-28 abril)</h2>
+  <ol>
+    <li><strong>Terminar Make.com scenario</strong> (en progreso via Cowork). Criterio de &eacute;xito: completar quiz test &rarr; email llega en &lt;60s con diagn&oacute;stico generado por Claude.</li>
+    <li><strong>Configurar HubSpot Meeting scheduler</strong> reemplazando Calendly. Motivo: integraci&oacute;n nativa con deals y lead scoring.</li>
+    <li><strong>Recolectar datos fiscales esposa</strong> y desplegar footer legal Espa&ntilde;a en 23 p&aacute;ginas.</li>
+    <li><strong>Grabar 4 reels de prueba</strong> con Hailuo AI siguiendo los 3 prompts del system prompt de diagn&oacute;stico.</li>
+  </ol>
+
+  <h2>Semana 2 (28 abr - 4 may)</h2>
+  <ol>
+    <li><strong>Lanzar Meta Ads</strong> &euro;200/mes con 1 ad set &rarr; retargeting primero, adquisici&oacute;n fr&iacute;a despu&eacute;s.</li>
+    <li><strong>Publicar 3 reels/semana</strong> en Instagram. Medir engagement antes de boostear.</li>
+    <li><strong>Atender primer lead real</strong> end-to-end y documentar fricciones del funnel.</li>
+  </ol>
+
+  <h2>Semanas 3-4 (4-18 mayo)</h2>
+  <ol>
+    <li><strong>Iterar oferta basado en primeros 5-10 leads reales.</strong> Ajustar copy de hero, FAQ y /sobre/ seg&uacute;n objeciones que aparezcan.</li>
+    <li><strong>Lanzar campa&ntilde;a LinkedIn outbound</strong> si Meta Ads no traccionan bien. 10 DMs personalizados/d&iacute;a.</li>
+    <li><strong>Configurar A/B testing</strong> de hero y CTAs v&iacute;a Vercel rewrites o similar.</li>
+  </ol>
+
+  <h2>Mes 2+ (mayo-junio)</h2>
+  <ol>
+    <li><strong>Primer contrato firmado objetivo.</strong> Criterio: 1 proyecto con ticket &gt;1.500&euro; cerrado.</li>
+    <li><strong>Construir sistema de referidos</strong> post-primer cliente.</li>
+    <li><strong>Considerar upgrade HubSpot Starter</strong> (&euro;15/mes) si se necesitan m&aacute;s workflows.</li>
+    <li><strong>Evaluar cuando sea el momento de salir del modo an&oacute;nimo.</strong> Dependiente de acuerdos con empleadores actuales.</li>
+  </ol>
+
+  <h2>Hito de decisi&oacute;n estrat&eacute;gica: 22 mayo 2026</h2>
+  <div class="callout">
+    <p><strong>Si a 22 de mayo:</strong></p>
+    <ul style="margin-top: 6px;">
+      <li>&ge;3 auditor&iacute;as reservadas + &ge;1 contrato firmado &rarr; continuar, escalar canal de adquisici&oacute;n ganador</li>
+      <li>0-2 auditor&iacute;as o 0 contratos &rarr; diagnosticar d&oacute;nde est&aacute; el gap:
+        <br>&bull; Problema de canal (pocos leads) &rarr; duplicar outbound manual
+        <br>&bull; Problema de conversi&oacute;n (no reservan) &rarr; revisar CTAs + oferta
+        <br>&bull; Problema de cierre (reservan, no compran) &rarr; revisar precio + posicionamiento
+      </li>
+    </ul>
+  </div>
+
+  <h2>Plan B si todo falla el 22 mayo</h2>
+  <ol>
+    <li>Opci&oacute;n 1: re-introducir productos con precios fijos m&aacute;s la auditor&iacute;a como upsell</li>
+    <li>Opci&oacute;n 2: pivot a agencia con retainer mensual (&euro;500-1500/mes por cliente)</li>
+    <li>Opci&oacute;n 3: concentrarse 100% en un nicho vertical (ej. solo cl&iacute;nicas dentales Espa&ntilde;a)</li>
+  </ol>
+
+  <div style="margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #0030c6, #1e47f1); color: #fff; border-radius: 12px; text-align: center;">
+    <p style="color: #fff; margin: 0; font-size: 14px; opacity: 0.9;">Documento preparado: 24 abril 2026 &middot; Pr&oacute;xima revisi&oacute;n: 1 mayo 2026</p>
+  </div>
+
+  <div class="footer-note">
+    <span>AgentesVA &middot; Documento interno confidencial</span>
+    <span>agentesva.com</span>
+  </div>
+</section>
+
+</body>
+</html>
