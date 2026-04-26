@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>AgentesVA &middot; Preview v3 (Technical Agency)</title>
+<meta name="description" content="Preview alternativo de la home v3 (Technical Agency). Comparativa con la versión actual.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Inter:wght@400;500;600;700;800;900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        "deep-blue": "#0A192F",
+        "vibrant-orange": "#FF4F00",
+        "off-white": "#F9FAFB"
+      },
+      borderRadius: { DEFAULT: "0px", lg: "0px", xl: "0px", full: "9999px" },
+      fontFamily: {
+        serif: ["Newsreader", "Georgia", "serif"],
+        sans: ["Inter", "system-ui", "sans-serif"]
+      }
+    }
+  }
+}
+</script>
+<style>
+  body { background: #ffffff; color: #0A192F; font-family: 'Inter', sans-serif; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .technical-divider { height: 1px; background: #0A192F; opacity: 0.1; }
+  .orange-bullet { width: 4px; height: 4px; background: #FF4F00; flex-shrink: 0; }
+  .label-caps { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; }
+  .serif { font-family: 'Newsreader', Georgia, serif; }
+  .ascii-grid { background-image: linear-gradient(to right, #0A192F08 1px, transparent 1px), linear-gradient(to bottom, #0A192F08 1px, transparent 1px); background-size: 32px 32px; }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- Preview banner -->
+<div class="bg-vibrant-orange text-white text-center py-2 text-sm font-bold tracking-wide">
+  PREVIEW v3 &middot; Technical Agency &middot;
+  <a href="/" class="underline hover:no-underline ml-2">← Ver versión actual (Editorial cálido)</a>
+</div>
+
+<!-- ==================== HEADER ==================== -->
+<header class="sticky top-0 z-50 w-full bg-white border-b-2 border-deep-blue">
+  <nav class="flex justify-between items-center h-20 px-6 md:px-12 w-full max-w-[1440px] mx-auto">
+    <a href="/" class="serif text-2xl font-black tracking-tighter text-deep-blue uppercase">AgentesVA</a>
+    <div class="hidden md:flex items-center gap-8 label-caps">
+      <a class="text-deep-blue hover:text-vibrant-orange transition-colors" href="#servicios">Servicios</a>
+      <a class="text-deep-blue hover:text-vibrant-orange transition-colors" href="#proceso">Proceso</a>
+      <a class="text-deep-blue hover:text-vibrant-orange transition-colors" href="#casos">Casos</a>
+      <a class="text-deep-blue hover:text-vibrant-orange transition-colors" href="/sobre/">Sobre</a>
+      <a class="text-deep-blue hover:text-vibrant-orange transition-colors" href="/faq/">FAQ</a>
+    </div>
+    <a href="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min" target="_blank" rel="noopener" class="bg-vibrant-orange text-white px-6 py-3 label-caps active:scale-95 transition-transform">
+      Reservar auditor&iacute;a
+    </a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ==================== HERO ==================== -->
+<section class="relative min-h-[78vh] flex flex-col justify-center px-6 md:px-12 py-24 ascii-grid">
+  <div class="max-w-[1240px] mx-auto w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+      <!-- Left: H1 + lede -->
+      <div class="lg:col-span-8 space-y-10">
+        <div class="flex items-center gap-3">
+          <div class="orange-bullet"></div>
+          <span class="label-caps text-deep-blue">Consultor&iacute;a de automatizaci&oacute;n &middot; Espa&ntilde;a 2026</span>
+        </div>
+
+        <h1 class="serif text-5xl md:text-7xl lg:text-[6.5rem] leading-[0.95] tracking-tight text-deep-blue font-light">
+          Auditamos d&oacute;nde la IA<br>
+          puede subir<br>
+          <span class="italic font-normal text-vibrant-orange">tu facturaci&oacute;n.</span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-deep-blue/80 max-w-2xl leading-relaxed">
+          30 minutos por Google Meet. Mapeamos procesos manuales, detectamos d&oacute;nde la IA recupera m&aacute;rgen, y te entregamos un PDF personalizado en 24h. Casos reales: restaurantes <strong>+60%</strong>, escuelas <strong>+60%</strong>, renting <strong>+70%</strong>.
+        </p>
+
+        <div class="flex flex-col md:flex-row gap-6 pt-4 items-start md:items-center">
+          <a href="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min" target="_blank" rel="noopener" class="bg-vibrant-orange text-white px-10 py-5 label-caps text-sm hover:brightness-110 active:scale-95 transition-all">
+            Quiero mi diagn&oacute;stico (290&euro;)
+          </a>
+          <a href="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min" target="_blank" rel="noopener" class="text-deep-blue underline underline-offset-4 decoration-deep-blue/30 hover:decoration-vibrant-orange hover:text-vibrant-orange transition-colors text-sm">
+            &iquest;Prefieres hablar primero? Reserva 30 min gratis &rarr;
+          </a>
+        </div>
+        <p class="text-xs text-deep-blue/60 pt-2 max-w-xl">
+          PDF 290&euro; recuperables al 100% si avanzamos a proyecto &middot; sin tarjeta &middot; sin presi&oacute;n comercial
+        </p>
+      </div>
+
+      <!-- Right: technical sidebar -->
+      <aside class="lg:col-span-4 border-l-2 border-deep-blue pl-8 space-y-8">
+        <div>
+          <div class="label-caps text-deep-blue/60 mb-2">Estado operativo</div>
+          <div class="flex items-center gap-3">
+            <span class="inline-block w-2 h-2 bg-green-600 rounded-full animate-pulse"></span>
+            <span class="text-sm font-bold text-deep-blue">Disponible esta semana</span>
+          </div>
+        </div>
+        <div class="technical-divider"></div>
+        <div>
+          <div class="label-caps text-deep-blue/60 mb-2">Stack t&eacute;cnico</div>
+          <ul class="space-y-1.5 text-sm text-deep-blue/80">
+            <li class="flex items-center gap-2"><span class="orange-bullet"></span> Make.com + Claude API</li>
+            <li class="flex items-center gap-2"><span class="orange-bullet"></span> WhatsApp Business API</li>
+            <li class="flex items-center gap-2"><span class="orange-bullet"></span> HubSpot + Resend</li>
+            <li class="flex items-center gap-2"><span class="orange-bullet"></span> n8n self-hosted</li>
+          </ul>
+        </div>
+        <div class="technical-divider"></div>
+        <div>
+          <div class="label-caps text-deep-blue/60 mb-2">Mercado primario</div>
+          <p class="text-sm text-deep-blue/80">PyMEs Espa&ntilde;a 1-50 empleados &middot; LATAM secundario</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PROOF GRID — 3 casos reales ==================== -->
+<section id="casos" class="px-6 md:px-12 py-24 bg-off-white border-y border-deep-blue">
+  <div class="max-w-[1240px] mx-auto">
+    <div class="flex items-center gap-3 mb-12">
+      <div class="orange-bullet"></div>
+      <span class="label-caps text-deep-blue">Casos verificables &middot; m&eacute;tricas reales</span>
+    </div>
+
+    <h2 class="serif text-4xl md:text-5xl text-deep-blue mb-12 max-w-3xl leading-tight">
+      Tres casos. Tres industrias. <span class="italic text-vibrant-orange">N&uacute;meros que se sostienen.</span>
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 border border-deep-blue">
+      <!-- Caso 1: Restaurante -->
+      <div class="p-10 md:p-12 border-b md:border-b-0 md:border-r border-deep-blue bg-white group hover:bg-deep-blue transition-colors duration-300">
+        <div class="label-caps text-deep-blue/60 group-hover:text-vibrant-orange mb-6">Restaurante &middot; Madrid</div>
+        <span class="serif text-7xl md:text-8xl block mb-6 text-vibrant-orange leading-none">+60%</span>
+        <p class="serif text-2xl text-deep-blue group-hover:text-white mb-4 leading-tight">Facturaci&oacute;n de <em class="not-italic font-bold">25k&euro; a 40k&euro;</em>/mes</p>
+        <p class="text-sm text-deep-blue/70 group-hover:text-white/80">WhatsApp Business API + Claude para reservas 24/7. OpenTable integrado. Recordatorios autom&aacute;ticos &minus;73% no-shows.</p>
+      </div>
+      <!-- Caso 2: Escuela -->
+      <div class="p-10 md:p-12 border-b md:border-b-0 md:border-r border-deep-blue bg-white group hover:bg-deep-blue transition-colors duration-300">
+        <div class="label-caps text-deep-blue/60 group-hover:text-vibrant-orange mb-6">Escuela idiomas &middot; Hispano</div>
+        <span class="serif text-7xl md:text-8xl block mb-6 text-vibrant-orange leading-none">+60%</span>
+        <p class="serif text-2xl text-deep-blue group-hover:text-white mb-4 leading-tight">Alumnos activos: <em class="not-italic font-bold">500 &rarr; 800</em>/mes</p>
+        <p class="text-sm text-deep-blue/70 group-hover:text-white/80">Cadenas autom&aacute;ticas WhatsApp para recuperar dropouts de onboarding. Tests de nivel por chat. Cero fricci&oacute;n para el estudiante.</p>
+      </div>
+      <!-- Caso 3: Renting -->
+      <div class="p-10 md:p-12 bg-white group hover:bg-deep-blue transition-colors duration-300">
+        <div class="label-caps text-deep-blue/60 group-hover:text-vibrant-orange mb-6">Renting B2B &middot; Espa&ntilde;a nacional</div>
+        <span class="serif text-7xl md:text-8xl block mb-6 text-vibrant-orange leading-none">+70%</span>
+        <p class="serif text-2xl text-deep-blue group-hover:text-white mb-4 leading-tight">Utilizaci&oacute;n flota: <em class="not-italic font-bold">40% &rarr; 68%</em></p>
+        <p class="text-sm text-deep-blue/70 group-hover:text-white/80">Agente de perfilado autom&aacute;tico de leads B2B en toda Espa&ntilde;a. Matching cliente-cami&oacute;n disponible. 2 meses al go-live.</p>
+      </div>
+    </div>
+
+    <p class="mt-8 text-xs text-deep-blue/50 max-w-2xl">
+      <span class="orange-bullet inline-block mr-2 align-middle"></span>
+      Nombres de cliente bajo NDA. M&eacute;tricas verificables en la auditor&iacute;a (compartimos screenshots de dashboards y referencia 1:1 si avanzamos).
+    </p>
+  </div>
+</section>
+
+<!-- ==================== SERVICIOS — 6 nodos ==================== -->
+<section id="servicios" class="px-6 md:px-12 py-24">
+  <div class="max-w-[1240px] mx-auto">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="orange-bullet"></div>
+      <span class="label-caps text-deep-blue">Lo que construimos</span>
+    </div>
+    <h2 class="serif text-4xl md:text-5xl text-deep-blue mb-4 max-w-3xl leading-tight">
+      Seis tipos de agentes. <span class="italic text-vibrant-orange">Una filosof&iacute;a:</span> que tu equipo deje de hacer trabajo de m&aacute;quina.
+    </h2>
+    <p class="text-deep-blue/70 max-w-2xl mb-16">Cada nodo es modular. No vendemos cajas negras. Todo construido en Make.com sobre cuentas tuyas. Si te vas, te llevas todo.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border border-deep-blue">
+      <!-- 01 -->
+      <article class="p-10 border-r border-b border-deep-blue group hover:bg-deep-blue transition-colors duration-300">
+        <div class="flex items-start justify-between mb-6">
+          <span class="material-symbols-outlined text-3xl text-vibrant-orange">policy</span>
+          <span class="label-caps text-deep-blue/40 group-hover:text-white/60">01</span>
+        </div>
+        <h3 class="serif text-xl text-deep-blue group-hover:text-white mb-3 leading-tight">Auditor&iacute;a de procesos</h3>
+        <p class="text-sm text-deep-blue/70 group-hover:text-white/80 mb-6">Mapeamos tu operaci&oacute;n, identificamos cuellos de botella, cuantificamos coste por proceso. Sale: plan priorizado por ROI.</p>
+        <div class="technical-divider group-hover:opacity-30"></div>
+        <ul class="mt-4 space-y-1 label-caps text-[10px] text-deep-blue/60 group-hover:text-white/60">
+          <li class="flex items-center gap-2"><span class="orange-bullet"></span> Discovery 30 min</li>
+          <li class="flex items-center gap-2"><span class="orange-bullet"></span> ROI Map &middot; PDF 24h</li>
+        </ul>
+      </article>
+
+      <!-- 02 -->
+      <article class="p-10 border-r border-b border-deep-blue group hover:bg-deep-blue transition-colors duration-300">
+        <div class="flex items-start justify-between mb-6">
+          <span class="material-symbols-outlined text-3xl text-vibrant-orange">forum</span>
+          <span class="label-caps text-deep-blue/40 group-hover:text-white/60">02</span>
+        </div>
+        <h3 class="serif text-xl text-deep-blue group-hover:text-white mb-3 leading-tight">Agentes de WhatsApp</h3>
+        <p class="text-sm text-deep-blue/70 group-hover:text-white/80 mb-6">Conversaciones que califican, agendan, cobran y derivan. Conectados a tu CRM, calendario y stock en tiempo real.</p>
+        <div class="technical-divider group-hover:opacity-30"></div>
+        <ul class="mt-4 space-y-1 label-caps text-[10px] text-deep-blue/60 group-hover:text-white/60">
+          <li class="flex items-center gap-2"><span class="orange-bullet"></span> WhatsApp Business API</li>
+          <li class="flex items-center gap-2"><span class="orange-bullet"></span> CRM sync</li>
+        </ul>
+      </article>
+
+      <!-- 03 -->
+      <article class="p-10 border-b border-deep-blue group hover:bg-deep-blue transition-colors duration-300">
+        <div class="flex items-start justify-between mb-6">
+          <span class="material-symbols-outlined text-3xl text-vibrant-orange">conversion_path</span>
+          <span class="label-caps text-deep-blue/40 group-hover:text-white/60">03</span>
+        </div>
+        <h3 class="serif text-xl text-deep-blue group-hover:text-white mb-3 leading-tight">Back-office automatizado</h3>
+        <p class="text-sm text-deep-blue/70 group-hover:text-white/80 mb-6">Make.com + APIs propias. Sincronizamos sistemas que nunca hablaron entre s&iacute; sin tocar el c&oacute;digo que ya funciona.</p>
+        <div class="technical-divider group-hover:opacity-30"></div>
+        <ul class="mt-4 space-y-1 label-caps text-[10px] text-deep-blue/60 group-hover:text-white/60">
+          <li class="flex items-center gap-2"><span class="orange-bullet"></span> Make.com</li>
+          <li class="flex items-center gap-2"><span class="orange-bullet"></span> Custom APIs</li>
+        </ul>
+      </article>
+
+      <!-- 04 -->
+      <article class="p-10 border-r border-b md:border-b-0 border-deep-blue group hover:bg-deep-blue transition-colors duration-300">
+        <div class="flex items-start justify-between mb-6">
+          <span class="material-symbols-outlined text-3xl text-vibrant-orange">call</span>
+          <span class="flex items-center gap-2">
+            <span class="label-caps text-vibrant-orange text-[10px]">Pr&oacute;ximamente</span>
+            <span class="label-caps text-deep-blue/40 group-hover:text-white/60">04</span>
+          </span>
+        </div>
+        <h3 class="serif text-xl text-deep-blue group-hover:text-white mb-3 leading-tight">Agentes de voz 24/7</h3>
+        <p class="text-sm text-deep-blue/70 group-hover:text-white/80 mb-6">Llamadas entrantes y salientes con voz humana en espa&ntilde;ol. En desarrollo, lanzamiento Q3 2026. Apuntarse a waitlist.</p>
+        <div class="technical-divider group-hover:opacity-30"></div>
+        <ul class="mt-4 space-y-1 label-caps text-[10px] text-deep-blue/60 group-hover:text-white/60">
+          <li class="flex items-center gap-2"><span class="orange-bullet"></span> Voz LATAM + ES</li>
+          <li class="flex items-center gap-2"><span class="orange-bullet"></span> Waitlist Q3 2026</li>
+        </ul>
+      </article>
+
+      <!-- 05 -->
+      <article class="p-10 border-r border-b md:border-b-0 border-deep-blue group hover:bg-deep-blue transition-colors duration-300">
+        <div class="flex items-start justify-between mb-6">
+          <span class="material-symbols-outlined text-3xl text-vibrant-orange">description</span>
+          <span class="label-caps text-deep-blue/40 group-hover:text-white/60">05</span>
+        </div>
+        <h3 class="serif text-xl text-deep-blue group-hover:text-white mb-3 leading-tight">Generaci&oacute;n de propuestas</h3>
+        <p class="text-sm text-deep-blue/70 group-hover:text-white/80 mb-6">Briefs &rarr; cotizaciones, contratos y presentaciones en minutos. Tu equipo solo revisa y env&iacute;a. Plantillas + firma digital.</p>
+        <div class="technical-divider group-hover:opacity-30"></div>
+        <ul class="mt-4 space-y-1 label-caps text-[10px] text-deep-blue/60 group-hover:text-white/60">
+          <li class="flex items-center gap-2"><span class="orange-bullet"></span> PDF + Docs</li>
+          <li class="flex items-center gap-2"><span class="orange-bullet"></span> Firma digital</li>
+        </ul>
+      </article>
+
+      <!-- 06 -->
+      <article class="p-10 border-deep-blue group hover:bg-deep-blue transition-colors duration-300">
+        <div class="flex items-start justify-between mb-6">
+          <span class="material-symbols-outlined text-3xl text-vibrant-orange">forward_to_inbox</span>
+          <span class="label-caps text-deep-blue/40 group-hover:text-white/60">06</span>
+        </div>
+        <h3 class="serif text-xl text-deep-blue group-hover:text-white mb-3 leading-tight">Cadenas email + WhatsApp</h3>
+        <p class="text-sm text-deep-blue/70 group-hover:text-white/80 mb-6">Recuperamos clientes inactivos, dropouts y leads enfriados. Secuencias multicanal que escriben en tu tono, segmentan y miden.</p>
+        <div class="technical-divider group-hover:opacity-30"></div>
+        <ul class="mt-4 space-y-1 label-caps text-[10px] text-deep-blue/60 group-hover:text-white/60">
+          <li class="flex items-center gap-2"><span class="orange-bullet"></span> Nurture &middot; Recovery</li>
+          <li class="flex items-center gap-2"><span class="orange-bullet"></span> Multicanal</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PARADIGM SHIFT ==================== -->
+<section id="proceso" class="px-6 md:px-12 py-24">
+  <div class="max-w-[1240px] mx-auto">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="orange-bullet"></div>
+      <span class="label-caps text-deep-blue">Antes / Despu&eacute;s</span>
+    </div>
+    <h2 class="serif text-4xl md:text-5xl text-deep-blue mb-12 max-w-3xl leading-tight">
+      Lo que cambia cuando el trabajo de m&aacute;quina <span class="italic text-vibrant-orange">deja de hacerlo tu equipo.</span>
+    </h2>
+
+    <div class="border-2 border-deep-blue grid grid-cols-1 md:grid-cols-2">
+      <div class="p-10 md:p-14 border-b md:border-b-0 md:border-r-2 border-deep-blue">
+        <div class="label-caps text-deep-blue/50 mb-10">Sin AgentesVA</div>
+        <ul class="space-y-6">
+          <li class="flex items-start gap-4 line-through opacity-50">
+            <span class="material-symbols-outlined text-deep-blue mt-1">close</span>
+            <span>Responder WhatsApp del negocio hasta las 11 pm.</span>
+          </li>
+          <li class="flex items-start gap-4 line-through opacity-50">
+            <span class="material-symbols-outlined text-deep-blue mt-1">close</span>
+            <span>Leads que se enfr&iacute;an porque nadie les hizo seguimiento a tiempo.</span>
+          </li>
+          <li class="flex items-start gap-4 line-through opacity-50">
+            <span class="material-symbols-outlined text-deep-blue mt-1">close</span>
+            <span>Citas que cancelan porque nadie confirm&oacute;.</span>
+          </li>
+          <li class="flex items-start gap-4 line-through opacity-50">
+            <span class="material-symbols-outlined text-deep-blue mt-1">close</span>
+            <span>Cotizaciones que tardan d&iacute;as cuando podr&iacute;an salir en minutos.</span>
+          </li>
+          <li class="flex items-start gap-4 line-through opacity-50">
+            <span class="material-symbols-outlined text-deep-blue mt-1">close</span>
+            <span>Datos en hojas de c&aacute;lculo que nadie analiza.</span>
+          </li>
+        </ul>
+      </div>
+      <div class="p-10 md:p-14 bg-deep-blue text-white">
+        <div class="label-caps text-vibrant-orange mb-10">Con AgentesVA</div>
+        <ul class="space-y-6">
+          <li class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-vibrant-orange mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            <span class="font-medium">WhatsApp respondiendo 24/7 con el tono de tu negocio.</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-vibrant-orange mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            <span class="font-medium">Leads calificados y con seguimiento autom&aacute;tico antes de enfriarse.</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-vibrant-orange mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            <span class="font-medium">Citas confirmadas autom&aacute;ticamente &minus;73% no-shows.</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-vibrant-orange mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            <span class="font-medium">Cotizaciones generadas en minutos, no d&iacute;as.</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-vibrant-orange mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            <span class="font-medium">Reportes vivos por email cada lunes sin abrir Excel.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PRECIOS / PROCESO ==================== -->
+<section class="px-6 md:px-12 py-24 bg-off-white border-y border-deep-blue">
+  <div class="max-w-[1240px] mx-auto">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="orange-bullet"></div>
+      <span class="label-caps text-deep-blue">Precios transparentes &middot; Espa&ntilde;a 2026</span>
+    </div>
+    <h2 class="serif text-4xl md:text-5xl text-deep-blue mb-4 max-w-3xl leading-tight">
+      Publicamos precios. <span class="italic text-vibrant-orange">El 95% de las consultoras IT en Espa&ntilde;a no.</span>
+    </h2>
+    <p class="text-deep-blue/70 max-w-2xl mb-12">Si nuestro rango no encaja con tu presupuesto, te ahorramos la auditor&iacute;a. Si encaja, llegas con expectativas claras desde el primer email.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-0 border border-deep-blue">
+      <div class="p-8 border-b md:border-b-0 md:border-r border-deep-blue bg-white">
+        <div class="label-caps text-deep-blue/60 mb-3">Diagn&oacute;stico</div>
+        <div class="serif text-3xl text-deep-blue mb-2">290&euro;</div>
+        <p class="text-xs text-deep-blue/60 mb-4">Recuperables al 100%</p>
+        <p class="text-sm text-deep-blue/80">PDF personalizado en 24h. Auditor&iacute;a 30 min gratis previa.</p>
+      </div>
+      <div class="p-8 border-b md:border-b-0 md:border-r border-deep-blue bg-white">
+        <div class="label-caps text-deep-blue/60 mb-3">Proyecto peque&ntilde;o</div>
+        <div class="serif text-3xl text-deep-blue mb-2">desde 4.997&euro;</div>
+        <p class="text-xs text-vibrant-orange mb-4">Kit Digital compatible</p>
+        <p class="text-sm text-deep-blue/80">1-2 procesos &middot; 25-40h &middot; 2-3 semanas</p>
+      </div>
+      <div class="p-8 border-b md:border-b-0 md:border-r border-deep-blue bg-deep-blue text-white relative">
+        <span class="absolute -top-3 left-4 inline-block bg-vibrant-orange px-2 py-0.5 label-caps text-[10px] text-white">M&aacute;s frecuente</span>
+        <div class="label-caps text-vibrant-orange mb-3">Crecimiento</div>
+        <div class="serif text-3xl mb-2">8&ndash;14k&euro;</div>
+        <p class="text-xs opacity-60 mb-4">Rango cerrado tras auditor&iacute;a</p>
+        <p class="text-sm opacity-90">3-5 procesos &middot; 60-100h &middot; 4-8 semanas</p>
+      </div>
+      <div class="p-8 bg-white">
+        <div class="label-caps text-deep-blue/60 mb-3">Custom enterprise</div>
+        <div class="serif text-3xl text-deep-blue mb-2">18&ndash;30k&euro;</div>
+        <p class="text-xs text-deep-blue/60 mb-4">Bajo propuesta</p>
+        <p class="text-sm text-deep-blue/80">+50 empleados &middot; 150h+ &middot; 2-4 meses</p>
+      </div>
+    </div>
+
+    <p class="mt-6 text-sm text-deep-blue/60">
+      <span class="orange-bullet inline-block mr-2 align-middle"></span>
+      Retainer post-go-live opcional: <strong class="text-deep-blue">800&ndash;1.800&euro;/mes</strong> b&aacute;sico &middot; <strong class="text-deep-blue">2.500&ndash;3.500&euro;/mes</strong> activo
+    </p>
+  </div>
+</section>
+
+<!-- ==================== SOBRE / ANONIMATO ==================== -->
+<section class="px-6 md:px-12 py-24">
+  <div class="max-w-[1240px] mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <div class="space-y-8">
+        <div class="flex items-center gap-3">
+          <div class="orange-bullet"></div>
+          <span class="label-caps text-deep-blue">Transparencia radical</span>
+        </div>
+        <h2 class="serif text-4xl md:text-5xl text-deep-blue leading-tight">
+          &iquest;Por qu&eacute; no ves mi nombre <span class="italic text-vibrant-orange">aqu&iacute;?</span>
+        </h2>
+        <p class="text-deep-blue/80 leading-relaxed">
+          Trabajo en paralelo para marcas globales de tecnolog&iacute;a y SEO. Por acuerdos profesionales, mantengo AgentesVA como proyecto independiente sin exposici&oacute;n p&uacute;blica.
+        </p>
+        <p class="text-deep-blue/80 leading-relaxed">
+          En la auditor&iacute;a gratis te muestro mi cara, te digo mi nombre, comparto mi LinkedIn y te paso referencias. <strong>El anonimato es solo frente a Google, nunca frente a ti.</strong>
+        </p>
+        <a href="/sobre/" class="inline-flex items-center gap-2 text-deep-blue underline underline-offset-4 decoration-deep-blue/30 hover:decoration-vibrant-orange hover:text-vibrant-orange transition-colors">
+          Ver verificables que sustituyen al nombre
+          <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 gap-0 border border-deep-blue">
+        <div class="p-6 border-r border-b border-deep-blue bg-white">
+          <div class="label-caps text-vibrant-orange mb-2">10+</div>
+          <p class="text-sm text-deep-blue/80">A&ntilde;os en automatizaci&oacute;n</p>
+        </div>
+        <div class="p-6 border-b border-deep-blue bg-white">
+          <div class="label-caps text-vibrant-orange mb-2">4</div>
+          <p class="text-sm text-deep-blue/80">Continentes con proyectos</p>
+        </div>
+        <div class="p-6 border-r border-deep-blue bg-white">
+          <div class="label-caps text-vibrant-orange mb-2">ES</div>
+          <p class="text-sm text-deep-blue/80">Base operativa Madrid</p>
+        </div>
+        <div class="p-6 bg-white">
+          <div class="label-caps text-vibrant-orange mb-2">NDA</div>
+          <p class="text-sm text-deep-blue/80">Bidireccional cada proyecto</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FINAL CTA ==================== -->
+<section class="px-6 md:px-12 py-24 bg-deep-blue text-white relative overflow-hidden">
+  <div class="absolute inset-0 ascii-grid opacity-30"></div>
+  <div class="max-w-[1240px] mx-auto relative">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
+      <div class="md:col-span-7 space-y-8">
+        <div class="flex items-center gap-3">
+          <div class="orange-bullet"></div>
+          <span class="label-caps text-vibrant-orange">Pr&oacute;ximo slot disponible esta semana</span>
+        </div>
+        <h2 class="serif text-5xl md:text-7xl leading-[0.95] tracking-tight font-light">
+          30 minutos.<br>
+          PDF personalizado.<br>
+          <span class="italic text-vibrant-orange">Cero presi&oacute;n.</span>
+        </h2>
+        <p class="text-white/70 text-lg max-w-xl">
+          Si los datos del PDF no te valen, te quedas con un plan de automatizaci&oacute;n que vale m&aacute;s que esta p&aacute;gina y no tienes que reservarme nunca m&aacute;s.
+        </p>
+      </div>
+      <div class="md:col-span-5 space-y-4">
+        <a href="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min" target="_blank" rel="noopener" class="block w-full bg-vibrant-orange text-white px-10 py-6 label-caps text-sm hover:brightness-110 active:scale-95 transition-all text-center">
+          Reservar mi auditor&iacute;a (gratis)
+        </a>
+        <p class="text-xs text-white/60 text-center">
+          PDF 290&euro; recuperables al 100% si avanzamos &middot; identidad revelada en la llamada &middot; sin compromiso
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="border-t-2 border-deep-blue bg-white">
+  <div class="max-w-[1240px] mx-auto px-6 md:px-12 py-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+    <div class="col-span-2 md:col-span-1 space-y-4">
+      <div class="serif text-2xl font-black text-deep-blue uppercase">AgentesVA</div>
+      <p class="text-sm text-deep-blue/70 leading-relaxed">Consultor&iacute;a de automatizaci&oacute;n con IA para PyMEs en Espa&ntilde;a y Latinoam&eacute;rica. Operamos remoto, base Madrid.</p>
+    </div>
+    <div class="space-y-3">
+      <div class="label-caps text-deep-blue/50 mb-1">Sitio</div>
+      <a class="block text-sm text-deep-blue/80 hover:text-vibrant-orange" href="/">Inicio actual</a>
+      <a class="block text-sm text-deep-blue/80 hover:text-vibrant-orange" href="/precios/">C&oacute;mo trabajamos</a>
+      <a class="block text-sm text-deep-blue/80 hover:text-vibrant-orange" href="/catalogo/">Cat&aacute;logo agentes</a>
+      <a class="block text-sm text-deep-blue/80 hover:text-vibrant-orange" href="/diagnostico/">Diagn&oacute;stico 2 min</a>
+    </div>
+    <div class="space-y-3">
+      <div class="label-caps text-deep-blue/50 mb-1">Empresa</div>
+      <a class="block text-sm text-deep-blue/80 hover:text-vibrant-orange" href="/sobre/">Sobre AgentesVA</a>
+      <a class="block text-sm text-deep-blue/80 hover:text-vibrant-orange" href="/faq/">FAQ</a>
+      <a class="block text-sm text-deep-blue/80 hover:text-vibrant-orange" href="/legal/">Aviso legal</a>
+    </div>
+    <div class="space-y-3">
+      <div class="label-caps text-deep-blue/50 mb-1">Contacto</div>
+      <a class="block text-sm text-deep-blue/80 hover:text-vibrant-orange" href="mailto:hola@agentesva.com">hola@agentesva.com</a>
+      <a class="block text-sm text-deep-blue/80 hover:text-vibrant-orange" href="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min" target="_blank" rel="noopener">Reservar auditor&iacute;a</a>
+    </div>
+  </div>
+  <div class="border-t border-deep-blue/20">
+    <div class="max-w-[1240px] mx-auto px-6 md:px-12 py-6 flex flex-col md:flex-row justify-between gap-4 text-xs text-deep-blue/50">
+      <span>&copy; 2026 AgentesVA &middot; Consultor&iacute;a de automatizaci&oacute;n con IA</span>
+      <span>Preview v3 (Technical Agency) &middot; <a class="underline hover:text-vibrant-orange" href="/">comparar con versi&oacute;n actual</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
