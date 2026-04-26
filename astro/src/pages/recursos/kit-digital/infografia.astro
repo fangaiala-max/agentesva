@@ -1,0 +1,193 @@
+---
+// Infografía vertical Pillar #1 - Kit Digital + Automatización con IA
+// Dimensión: 1080x1920 px (Stories IG / Reels / TikTok cover)
+// Para exportar: abrir en navegador a 1080px de ancho, captura con scroll completo
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Infografía Kit Digital — AgentesVA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F7F3EC;
+    --paper-2: #EFE8DC;
+    --paper-3: #E5DCC8;
+    --ink: #1A1814;
+    --ink-2: #3D362C;
+    --ink-3: #6B6253;
+    --line: #D9CFB8;
+    --line-soft: #E8DFCC;
+    --card: #FFFEFB;
+    --clay: #C2543A;
+    --clay-deep: #9C3F2A;
+    --clay-soft: #E8B5A4;
+    --clay-wash: #F4DDD2;
+    --forest: #2F4A3A;
+    --forest-wash: #DFE7E0;
+    --sand: #E8C77E;
+    --sand-wash: #F5E9CC;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter Tight', sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #2a2724; padding: 24px; font-family: var(--sans); color: var(--ink); }
+  .container { max-width: 1080px; margin: 0 auto; background: var(--paper); padding: 80px 60px; min-height: 1920px; position: relative; overflow: hidden; }
+
+  /* Header */
+  .header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 24px; border-bottom: 2px solid var(--ink); margin-bottom: 48px; }
+  .logo { font-family: var(--serif); font-weight: 800; font-size: 28px; letter-spacing: -0.02em; color: var(--ink); }
+  .logo-mark { display: inline-block; background: var(--ink); color: var(--paper); width: 36px; height: 36px; line-height: 36px; text-align: center; border-radius: 8px; font-style: italic; font-size: 22px; margin-right: 6px; vertical-align: middle; }
+  .url { font-family: var(--mono); font-size: 13px; color: var(--ink-3); letter-spacing: 0.05em; }
+
+  /* Hero block */
+  .hero-tag { font-family: var(--mono); font-size: 13px; color: var(--clay); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 24px; font-weight: 600; }
+  .hero-title { font-family: var(--serif); font-weight: 300; font-size: 92px; line-height: 0.95; letter-spacing: -0.04em; color: var(--ink); margin-bottom: 32px; }
+  .hero-title em { font-style: italic; color: var(--clay); font-weight: 400; }
+  .hero-sub { font-size: 22px; line-height: 1.5; color: var(--ink-3); max-width: 720px; }
+  .hero-amount { display: inline-block; background: var(--ink); color: var(--paper); padding: 14px 28px; font-family: var(--serif); font-size: 56px; font-weight: 400; letter-spacing: -0.02em; margin: 24px 0 8px; }
+  .hero-amount em { font-style: italic; color: var(--sand); }
+
+  /* Steps */
+  .steps-section { margin: 80px 0; }
+  .steps-title { font-family: var(--mono); font-size: 14px; color: var(--ink-3); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 36px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+  .steps-title em { color: var(--clay); font-style: normal; }
+  .step { display: grid; grid-template-columns: 80px 1fr; gap: 32px; padding: 28px 0; border-bottom: 1px dashed var(--line); align-items: start; }
+  .step:last-child { border-bottom: 0; }
+  .step-num { font-family: var(--serif); font-style: italic; font-size: 64px; line-height: 1; color: var(--clay); font-weight: 400; }
+  .step-content h3 { font-family: var(--serif); font-size: 28px; color: var(--ink); letter-spacing: -0.015em; line-height: 1.15; margin-bottom: 8px; font-weight: 500; }
+  .step-content p { font-size: 17px; line-height: 1.5; color: var(--ink-3); }
+  .step-meta { font-family: var(--mono); font-size: 12px; color: var(--clay-deep); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 8px; }
+
+  /* Result block */
+  .result { background: linear-gradient(135deg, var(--ink) 0%, var(--clay-deep) 100%); color: var(--paper); padding: 48px 40px; margin: 56px 0 40px; position: relative; overflow: hidden; }
+  .result::before { content: ""; position: absolute; top: -60px; right: -60px; width: 240px; height: 240px; background: radial-gradient(circle, var(--sand) 0%, transparent 70%); opacity: 0.3; }
+  .result-tag { font-family: var(--mono); font-size: 13px; color: var(--sand); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 16px; font-weight: 600; position: relative; }
+  .result-h { font-family: var(--serif); font-weight: 400; font-size: 44px; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 24px; position: relative; }
+  .result-h em { font-style: italic; color: var(--sand); }
+  .result-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(247,243,236,0.2); position: relative; }
+  .result-stat { padding-right: 16px; border-right: 1px solid rgba(247,243,236,0.2); }
+  .result-stat:last-child { border-right: 0; }
+  .result-stat-num { font-family: var(--serif); font-size: 40px; font-weight: 400; line-height: 1; letter-spacing: -0.02em; }
+  .result-stat-num em { font-style: italic; color: var(--sand); }
+  .result-stat-label { font-size: 12px; opacity: 0.7; margin-top: 6px; line-height: 1.3; font-family: var(--mono); letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* Footer */
+  .footer { display: flex; justify-content: space-between; align-items: center; padding-top: 32px; border-top: 2px solid var(--ink); font-family: var(--mono); font-size: 12px; color: var(--ink-3); letter-spacing: 0.08em; text-transform: uppercase; }
+  .footer-cta { font-weight: 600; color: var(--clay); }
+
+  /* Decorative orange line */
+  .accent-line { width: 60px; height: 4px; background: var(--clay); margin: 0 0 16px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo"><span class="logo-mark">A</span>AgentesVA</div>
+    <div class="url">agentesva.com/blog</div>
+  </header>
+
+  <!-- Hero -->
+  <div class="accent-line"></div>
+  <div class="hero-tag">Kit Digital · Guía 2026</div>
+  <h1 class="hero-title">Cómo cubrir<br>tu automatización<br>con IA <em>casi gratis.</em></h1>
+  <p class="hero-sub">Si tu PyME tiene 3-9 empleados en España, el Estado te paga hasta:</p>
+  <div class="hero-amount"><em>€6.000</em></div>
+  <p class="hero-sub" style="font-size: 17px;">Pero la mayoría no sabe usarlo bien. Aquí los pasos en orden.</p>
+
+  <!-- Steps -->
+  <section class="steps-section">
+    <div class="steps-title">El proceso · <em>en 6 pasos</em></div>
+
+    <div class="step">
+      <div class="step-num">i</div>
+      <div class="step-content">
+        <h3>Verifica si calificas</h3>
+        <p>Autodiagnóstico online: 3-9 empleados, alta CIRCE válida, sin deudas con Hacienda/SS.</p>
+        <div class="step-meta">acelerapyme.es/autodiagnostico · 5 min</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">ii</div>
+      <div class="step-content">
+        <h3>Solicita la subvención</h3>
+        <p>Formulario online con certificado digital. Documentación: alta, datos económicos, CNAE.</p>
+        <div class="step-meta">€6.000 · Segmento II · 1-3 meses resolución</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">iii</div>
+      <div class="step-content">
+        <h3>Reserva auditoría con AgentesVA</h3>
+        <p>Mientras esperas resolución, mapeamos tus procesos. Te entregamos un PDF con plan personalizado.</p>
+        <div class="step-meta">30 min gratis · PDF €290 recuperables</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">iv</div>
+      <div class="step-content">
+        <h3>Aprobación + elegir Agente Digitalizador</h3>
+        <p>Cuando llega la subvención, eliges proveedor. AgentesVA está dado de alta como Agente.</p>
+        <div class="step-meta">Cobramos directo a la subvención</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">v</div>
+      <div class="step-content">
+        <h3>Implementación de la automatización</h3>
+        <p>2-8 semanas según scope. Construimos sobre tus cuentas: Make.com, WhatsApp Business, HubSpot.</p>
+        <div class="step-meta">Categoría Procesos · €6.000 · Categoría CRM · €4.000</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">vi</div>
+      <div class="step-content">
+        <h3>Operación + métricas</h3>
+        <p>Línea base medida pre-go-live. Resultados al mes 1, 2 y 3. Documentación + runbook entregados.</p>
+        <div class="step-meta">Tu lo eres dueño de los flujos · cero lock-in</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Result -->
+  <div class="result">
+    <div class="result-tag">Resultado real · Caso publicado</div>
+    <div class="result-h">Restaurante en Madrid pasó de €25k a <em>€40k/mes</em>.<br>Coste real al cliente: <em>€0</em>.</div>
+    <div class="result-stats">
+      <div class="result-stat">
+        <div class="result-stat-num">+<em>60</em>%</div>
+        <div class="result-stat-label">Facturación mensual</div>
+      </div>
+      <div class="result-stat">
+        <div class="result-stat-num">−<em>73</em>%</div>
+        <div class="result-stat-label">No-shows</div>
+      </div>
+      <div class="result-stat">
+        <div class="result-stat-num"><em>7</em>sem</div>
+        <div class="result-stat-label">A go-live</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer CTA -->
+  <footer class="footer">
+    <span class="footer-cta">→ Auditoría gratis 30 min</span>
+    <span>agentesva.com/sobre</span>
+  </footer>
+
+</div>
+</body>
+</html>
