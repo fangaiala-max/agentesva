@@ -3,17 +3,43 @@ import { defineCollection, z } from 'astro:content';
 const blog = defineCollection({
   type: 'content',
   schema: z.object({
-    title: z.string(),
-    description: z.string(),
+    title: z.string().max(70),
+    description: z.string().min(120).max(160),
     publishedAt: z.date(),
     updatedAt: z.date().optional(),
     author: z.string().default('Equipo AgentesVA'),
     tags: z.array(z.string()),
-    pillar: z.enum(['automatizacion-ia-pymes', 'make-tutorial', 'caso-estudio', 'noticias']),
-    industria: z.string().optional(),
+    pillar: z.enum([
+      'kit-digital',
+      'whatsapp-api',
+      'automatizacion-ia-pymes',
+      'comparativas',
+      'agentes-ia-concepto',
+      'caso-estudio',
+    ]),
+    industria: z
+      .enum([
+        'restaurante',
+        'escuela-idiomas',
+        'renting',
+        'consultorio',
+        'inmobiliaria',
+        'ecommerce',
+        'agencia',
+        'farmacia',
+        'salon',
+        'gimnasio',
+        'consultoria',
+        'academia',
+        'general',
+      ])
+      .default('general'),
     youtubeId: z.string().optional(),
+    casoRelacionado: z.string().optional(),
     ogImage: z.string().optional(),
     draft: z.boolean().default(false),
+    featured: z.boolean().default(false),
+    readingTimeMin: z.number().int().min(2).max(45).optional(),
   }),
 });
 

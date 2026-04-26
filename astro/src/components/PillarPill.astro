@@ -1,0 +1,37 @@
+---
+export interface Props {
+  pillar:
+    | 'kit-digital'
+    | 'whatsapp-api'
+    | 'automatizacion-ia-pymes'
+    | 'comparativas'
+    | 'agentes-ia-concepto'
+    | 'caso-estudio';
+  size?: 'sm' | 'md';
+}
+
+const { pillar, size = 'md' } = Astro.props;
+
+const styles: Record<string, string> = {
+  'kit-digital': 'bg-clay-wash text-clay-deep',
+  'whatsapp-api': 'bg-forest-wash text-forest',
+  'automatizacion-ia-pymes': 'bg-paper-2 text-ink',
+  'comparativas': 'bg-sand-wash text-ink',
+  'agentes-ia-concepto': 'bg-clay text-paper',
+  'caso-estudio': 'bg-ink text-paper',
+};
+
+const labels: Record<string, string> = {
+  'kit-digital': 'Kit Digital',
+  'whatsapp-api': 'WhatsApp API',
+  'automatizacion-ia-pymes': 'Automatización IA',
+  'comparativas': 'Comparativas',
+  'agentes-ia-concepto': 'Agentes IA',
+  'caso-estudio': 'Caso de estudio',
+};
+
+const sizeCls = size === 'sm' ? 'px-2.5 py-1 text-[11px]' : 'px-3 py-1.5 text-xs';
+---
+<span class={`inline-flex items-center rounded-full font-medium tracking-wide uppercase ${sizeCls} ${styles[pillar]}`}>
+  {labels[pillar]}
+</span>

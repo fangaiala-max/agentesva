@@ -1,0 +1,62 @@
+---
+export interface Props {
+  url: string;
+  title: string;
+}
+
+const { url, title } = Astro.props;
+const enc = encodeURIComponent;
+const twitter = `https://twitter.com/intent/tweet?text=${enc(title)}&url=${enc(url)}`;
+const linkedin = `https://www.linkedin.com/sharing/share-offsite/?url=${enc(url)}`;
+const whatsapp = `https://wa.me/?text=${enc(`${title} ${url}`)}`;
+---
+<div class="flex flex-wrap items-center gap-2 my-8 py-4 border-y border-line">
+  <span class="text-sm text-ink-3 mr-2">Compartir:</span>
+  <a
+    href={twitter}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Compartir en Twitter/X"
+    class="px-3 py-1.5 rounded-full bg-paper-2 text-ink-2 text-xs font-medium hover:bg-ink hover:text-paper transition"
+  >
+    X / Twitter
+  </a>
+  <a
+    href={linkedin}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Compartir en LinkedIn"
+    class="px-3 py-1.5 rounded-full bg-paper-2 text-ink-2 text-xs font-medium hover:bg-ink hover:text-paper transition"
+  >
+    LinkedIn
+  </a>
+  <a
+    href={whatsapp}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Compartir en WhatsApp"
+    class="px-3 py-1.5 rounded-full bg-paper-2 text-ink-2 text-xs font-medium hover:bg-forest hover:text-paper transition"
+  >
+    WhatsApp
+  </a>
+  <button
+    type="button"
+    data-share-url={url}
+    class="js-copy-url px-3 py-1.5 rounded-full bg-paper-2 text-ink-2 text-xs font-medium hover:bg-clay hover:text-paper transition"
+  >
+    Copiar enlace
+  </button>
+</div>
+<script is:inline>
+  document.querySelectorAll('.js-copy-url').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const url = btn.getAttribute('data-share-url');
+      try {
+        await navigator.clipboard.writeText(url);
+        const original = btn.textContent;
+        btn.textContent = 'Copiado!';
+        setTimeout(() => { btn.textContent = original; }, 1800);
+      } catch (e) { /* noop */ }
+    });
+  });
+</script>

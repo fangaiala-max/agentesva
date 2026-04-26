@@ -1,0 +1,87 @@
+---
+import PillarPill from './PillarPill.astro';
+
+export interface Props {
+  href: string;
+  title: string;
+  description: string;
+  pillar:
+    | 'kit-digital'
+    | 'whatsapp-api'
+    | 'automatizacion-ia-pymes'
+    | 'comparativas'
+    | 'agentes-ia-concepto'
+    | 'caso-estudio';
+  publishedAt: Date;
+  readingTimeMin?: number;
+  author?: string;
+  ogImage?: string;
+  featured?: boolean;
+}
+
+const {
+  href,
+  title,
+  description,
+  pillar,
+  publishedAt,
+  readingTimeMin,
+  author,
+  ogImage,
+  featured = false,
+} = Astro.props;
+
+const dateStr = new Date(publishedAt).toLocaleDateString('es-ES', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+---
+<a
+  href={href}
+  class={`group block bg-card border border-line rounded-lg overflow-hidden transition hover:-translate-y-1 hover:shadow-sh-md hover:border-clay/30 ${featured ? 'md:col-span-2' : ''}`}
+>
+  {ogImage && (
+    <div class={`overflow-hidden bg-paper-2 ${featured ? 'aspect-[2/1]' : 'aspect-[16/9]'}`}>
+      <img
+        src={ogImage}
+        alt={title}
+        loading="lazy"
+        class="w-full h-full object-cover transition group-hover:scale-105"
+      />
+    </div>
+  )}
+  <div class={`p-6 ${featured ? 'md:p-8' : ''}`}>
+    <div class="flex items-center gap-2 mb-4">
+      <PillarPill pillar={pillar} size="sm" />
+      {featured && (
+        <span class="text-[11px] uppercase tracking-wider text-clay font-medium">Destacado</span>
+      )}
+    </div>
+    <h3
+      class={`font-serif font-normal tracking-tight text-ink leading-tight mb-3 group-hover:text-clay transition ${
+        featured ? 'text-3xl md:text-4xl' : 'text-xl md:text-2xl'
+      }`}
+    >
+      {title}
+    </h3>
+    <p class={`text-ink-2 leading-relaxed mb-4 ${featured ? 'text-base' : 'text-sm'}`}>
+      {description}
+    </p>
+    <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink-3">
+      <time datetime={new Date(publishedAt).toISOString()}>{dateStr}</time>
+      {readingTimeMin && (
+        <>
+          <span aria-hidden="true">·</span>
+          <span>{readingTimeMin} min</span>
+        </>
+      )}
+      {author && (
+        <>
+          <span aria-hidden="true">·</span>
+          <span>{author}</span>
+        </>
+      )}
+    </div>
+  </div>
+</a>

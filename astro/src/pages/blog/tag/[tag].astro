@@ -1,0 +1,80 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import MobileNav from '../../../components/MobileNav.astro';
+import PostCard from '../../../components/PostCard.astro';
+
+export async function getStaticPaths() {
+  const isProd = import.meta.env.PROD;
+  const posts = await getCollection('blog', ({ data }) => !(isProd && data.draft));
+  const tagMap = new Map<string, typeof posts>();
+  for (const p of posts) {
+    for (const t of p.data.tags) {
+      if (!tagMap.has(t)) tagMap.set(t, [] as any);
+      (tagMap.get(t) as any).push(p);
+    }
+  }
+  return Array.from(tagMap.entries()).map(([tag, tagPosts]) => ({
+    params: { tag },
+    props: { tag, posts: tagPosts },
+  }));
+}
+
+const { tag, posts } = Astro.props as {
+  tag: string;
+  posts: any[];
+};
+
+posts.sort(
+  (a: any, b: any) =>
+    new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime()
+);
+
+const url = `https://agentesva.com/blog/tag/${tag}/`;
+---
+<BaseLayout
+  title={`#${tag} — AgentesVA Blog`}
+  description={`Posts del blog de AgentesVA etiquetados con #${tag}. Tutoriales y casos sobre automatización con IA para PyMEs.`}
+  canonical={url}
+>
+  <Header />
+  <main class="bg-paper">
+    <section class="container pt-16 md:pt-24 pb-12">
+      <nav class="text-xs text-ink-3 mb-6" aria-label="Migas de pan">
+        <a href="/" class="hover:text-clay transition">Inicio</a>
+        <span class="mx-2">/</span>
+        <a href="/blog/" class="hover:text-clay transition">Blog</a>
+        <span class="mx-2">/</span>
+        <span>#{tag}</span>
+      </nav>
+      <p class="eyebrow mb-4">Etiqueta</p>
+      <h1 class="font-serif text-5xl md:text-7xl leading-tight tracking-tight text-ink mb-6">
+        #{tag}
+      </h1>
+      <p class="text-lg text-ink-2 leading-relaxed max-w-2xl">
+        {posts.length} {posts.length === 1 ? 'post' : 'posts'} con esta etiqueta.
+      </p>
+    </section>
+
+    <section class="container pb-24">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map((p: any) => (
+          <PostCard
+            href={`/blog/${p.slug}/`}
+            title={p.data.title}
+            description={p.data.description}
+            pillar={p.data.pillar}
+            publishedAt={p.data.publishedAt}
+            readingTimeMin={p.data.readingTimeMin}
+            author={p.data.author}
+            ogImage={p.data.ogImage}
+          />
+        ))}
+      </div>
+    </section>
+  </main>
+  <Footer />
+  <MobileNav />
+</BaseLayout>

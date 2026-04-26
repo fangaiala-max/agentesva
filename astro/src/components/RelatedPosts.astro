@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import PostCard from './PostCard.astro';
+
+export interface Props {
+  currentSlug: string;
+  tags: string[];
+  pillar?: string;
+}
+
+const { currentSlug, tags, pillar } = Astro.props;
+const isProd = import.meta.env.PROD;
+
+const all = await getCollection('blog', ({ data, slug }) => {
+  if (slug === currentSlug) return false;
+  if (isProd && data.draft) return false;
+  return true;
+});
+
+// Score by tag overlap; fallback to same pillar; fallback to recency
+const scored = all.map((p) => {
+  const overlap = p.data.tags.filter((t) => tags.includes(t)).length;
+  const pillarBonus = pillar && p.data.pillar === pillar ? 0.5 : 0;
+  return { post: p, score: overlap + pillarBonus };
+});
+
+scored.sort((a, b) => {
+  if (b.score !== a.score) return b.score - a.score;
+  return new Date(b.post.data.publishedAt).getTime() - new Date(a.post.data.publishedAt).getTime();
+});
+
+const related = scored.slice(0, 3).map((s) => s.post);
+---
+{related.length > 0 && (
+  <section class="mt-20 pt-12 border-t border-line">
+    <h2 class="font-serif text-3xl md:text-4xl text-ink mb-8">Sigue leyendo</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {related.map((p) => (
+        <PostCard
+          href={`/blog/${p.slug}/`}
+          title={p.data.title}
+          description={p.data.description}
+          pillar={p.data.pillar}
+          publishedAt={p.data.publishedAt}
+          readingTimeMin={p.data.readingTimeMin}
+          author={p.data.author}
+          ogImage={p.data.ogImage}
+        />
+      ))}
+    </div>
+  </section>
+)}

@@ -5,10 +5,13 @@
       "type": "object",
       "properties": {
         "title": {
-          "type": "string"
+          "type": "string",
+          "maxLength": 70
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "minLength": 120,
+          "maxLength": 160
         },
         "publishedAt": {
           "anyOf": [
@@ -55,16 +58,37 @@
         "pillar": {
           "type": "string",
           "enum": [
+            "kit-digital",
+            "whatsapp-api",
             "automatizacion-ia-pymes",
-            "make-tutorial",
-            "caso-estudio",
-            "noticias"
+            "comparativas",
+            "agentes-ia-concepto",
+            "caso-estudio"
           ]
         },
         "industria": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "restaurante",
+            "escuela-idiomas",
+            "renting",
+            "consultorio",
+            "inmobiliaria",
+            "ecommerce",
+            "agencia",
+            "farmacia",
+            "salon",
+            "gimnasio",
+            "consultoria",
+            "academia",
+            "general"
+          ],
+          "default": "general"
         },
         "youtubeId": {
+          "type": "string"
+        },
+        "casoRelacionado": {
           "type": "string"
         },
         "ogImage": {
@@ -73,6 +97,15 @@
         "draft": {
           "type": "boolean",
           "default": false
+        },
+        "featured": {
+          "type": "boolean",
+          "default": false
+        },
+        "readingTimeMin": {
+          "type": "integer",
+          "minimum": 2,
+          "maximum": 45
         },
         "$schema": {
           "type": "string"
