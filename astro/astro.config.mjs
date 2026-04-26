@@ -5,7 +5,6 @@ import vercel from '@astrojs/vercel';
 
 export default defineConfig({
   site: 'https://agentesva.com',
-  base: '/v2',
   output: 'static',
   adapter: vercel(),
   integrations: [
