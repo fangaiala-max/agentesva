@@ -1,6 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,ts,tsx,md,mdx}'],
+  // Safelist forces compilation of v2 design tokens used inside template literals
+  // (some legacy pages from Batch 1+3 use `const bodyHtml = ` template literal pattern
+  // which Tailwind's static analyzer doesn't reliably extract from)
+  safelist: [
+    // v2 design tokens — broad patterns to catch all token-color combinations
+    { pattern: /(bg|text|border|from|to|via|placeholder|ring|outline|divide|fill)-(paper|ink|clay|forest|sand|line|card)/, variants: ['hover', 'focus', 'active', 'group-hover', 'md', 'lg'] },
+    { pattern: /(bg|text|border|from|to)-(paper|ink|clay|forest|sand|line)-(2|3|4|deep|soft|wash)/, variants: ['hover', 'focus', 'group-hover', 'md', 'lg'] },
+    // Tipografía v2
+    'font-serif', 'font-sans', 'font-mono',
+    // Selection variants
+    'selection:bg-clay-wash', 'selection:text-clay-deep', 'selection:bg-paper', 'selection:text-ink',
+    // Common opacity modifiers
+    { pattern: /(bg|text|border)-(paper|ink|clay|forest|sand|line|card)\/(\d{1,3})/, variants: ['hover', 'group-hover'] },
+  ],
   theme: {
     extend: {
       colors: {

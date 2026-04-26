@@ -1,6 +1,9 @@
 /* AgentesVA Redesign v2 — Editorial cálido (Version A) */
 /* Source: AgentesVA Redesign Standalone.html, extracted 2026-04-26 */
-/* Apply via <link rel="stylesheet" href="/assets/redesign-v2.css"> */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --paper: #F7F3EC;
