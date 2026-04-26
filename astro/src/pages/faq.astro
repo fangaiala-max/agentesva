@@ -1,0 +1,489 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileNav from '../components/MobileNav.astro';
+
+const bodyHtml = `<main id="main-content">
+
+    <!-- ==================== HERO ==================== -->
+    <section class="px-6 pt-16 pb-12 text-center">
+        <div class="max-w-3xl mx-auto">
+            <span class="inline-flex items-center gap-2 bg-ink/10 text-clay text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+                <span class="material-symbols-outlined text-sm">help</span> FAQ &middot; Soporte &middot; Conocimiento
+            </span>
+            <h1 class="font-serif text-4xl md:text-6xl font-black text-ink leading-[0.95] tracking-tight mb-6">
+                Todo lo que necesitas saber antes de agendar tu <span class="text-clay">auditor&iacute;a gratis.</span>
+            </h1>
+            <p class="text-ink-3 text-lg leading-relaxed max-w-xl mx-auto mb-8">
+                Preguntas frecuentes sobre c&oacute;mo trabajamos, la auditor&iacute;a de 30 min, precios a medida y m&aacute;s.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min" target="_blank" rel="noopener" class="px-8 py-4 bg-gradient-to-r from-ink to-clay text-paper font-bold rounded-full shadow-lg hover:shadow-xl transition-all active:scale-95">Reservar auditor&iacute;a gratis &rarr;</a>
+                <a href="#faq" class="px-8 py-4 border border-line-soft/30 text-ink-3 font-semibold rounded-full hover:bg-paper-2 transition-all">Ver preguntas &darr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ ACCORDION ==================== -->
+    <section class="px-6 py-16" id="faq" aria-label="Preguntas frecuentes">
+        <div class="max-w-3xl mx-auto">
+
+            <!-- BLOQUE 1: Sobre los agentes -->
+            <p class="text-xs font-bold uppercase tracking-widest text-clay mb-4">Bloque 1 &mdash; Sobre los agentes</p>
+            <div class="divide-y divide-line-soft/20 mb-12">
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-serif font-bold text-ink text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Qu&eacute; es exactamente un agente de IA?</span>
+                        <span class="material-symbols-outlined text-clay flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-ink-3 text-sm leading-relaxed">
+                        Un agente de IA es un sistema de automatizaci&oacute;n que ejecuta procesos completos de negocio de forma aut&oacute;noma, sin intervenci&oacute;n humana. No es un chatbot que responde preguntas predefinidas. Es un sistema que conecta tus herramientas actuales (Gmail, WhatsApp, Google Sheets, tu CRM), lee informaci&oacute;n, toma decisiones y act&uacute;a: env&iacute;a emails, crea registros, genera documentos, agenda citas. Los agentes de AgentesVA corren en Make.com, la plataforma de automatizaci&oacute;n m&aacute;s flexible del mercado.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-serif font-bold text-ink text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Necesito saber programar?</span>
+                        <span class="material-symbols-outlined text-clay flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-ink-3 text-sm leading-relaxed">
+                        No. Los agentes de AgentesVA son flujos visuales en Make.com. No hay c&oacute;digo que escribir, no hay servidores que configurar, no hay APIs que integrar manualmente. Si sabes usar Gmail y Google Sheets, puedes operar un agente. Y si prefieres que lo hagamos todo nosotros, tambi&eacute;n: lo definimos en la auditor&iacute;a gratis.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-serif font-bold text-ink text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;C&oacute;mo se conecta el agente a mis herramientas?</span>
+                        <span class="material-symbols-outlined text-clay flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-ink-3 text-sm leading-relaxed">
+                        A trav&eacute;s de OAuth (el mismo sistema que usas cuando autorizas una app con &ldquo;Iniciar sesi&oacute;n con Google&rdquo;). Conectas tu Gmail, Google Sheets, WhatsApp Business, o cualquier otra herramienta compatible con Make.com con 1&ndash;2 clics. El agente solo accede a lo que t&uacute; expl&iacute;citamente autorices. No compartimos ni almacenamos tus credenciales.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-serif font-bold text-ink text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;El agente funciona solo?</span>
+                        <span class="material-symbols-outlined text-clay flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-ink-3 text-sm leading-relaxed">
+                        S&iacute;. Una vez configurado, el agente funciona 24/7 sin supervisi&oacute;n. Se activa autom&aacute;ticamente cuando ocurre el evento que lo dispara (llega un email, se agrega una fila a tu hoja, recibes un mensaje de WhatsApp) y ejecuta el proceso completo. T&uacute; solo ves los resultados. Si algo sale mal, Make.com te notifica por email.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-serif font-bold text-ink text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Los agentes funcionan con WhatsApp?</span>
+                        <span class="material-symbols-outlined text-clay flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-ink-3 text-sm leading-relaxed">
+                        S&iacute;. Varios agentes de AgentesVA est&aacute;n dise&ntilde;ados para funcionar con WhatsApp Business API a trav&eacute;s de Make.com. Esto incluye enviar recordatorios de citas, responder mensajes de clientes, calificar leads que escriben por WhatsApp, y confirmar reservas. Requiere una cuenta de WhatsApp Business API (360Dialog, Twilio, o similar).
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- BLOQUE 2: Cómo trabajamos y precios -->
+            <p class="text-xs font-bold uppercase tracking-widest text-clay mb-4">Bloque 2 &mdash; C&oacute;mo trabajamos</p>
+            <div class="divide-y divide-line-soft/20 mb-12">
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-serif font-bold text-ink text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Cu&aacute;nto cuesta trabajar con AgentesVA?</span>
+                        <span class="material-symbols-outlined text-clay flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-ink-3 text-sm leading-relaxed">
+                        No tenemos precios fijos. Cada proyecto se cotiza a medida porque cada negocio tiene procesos, volumen y herramientas distintas. Todo empieza con una <strong>auditor&iacute;a gratis de 30 minutos</strong> donde definimos el alcance exacto y te entregamos un precio cerrado por escrito. Sin sorpresas, sin paquetes prearmados que no calzan con tu operaci&oacute;n.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-serif font-bold text-ink text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Por qu&eacute; ya no hay precios fijos?</span>
+                        <span class="material-symbols-outlined text-clay flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-ink-3 text-sm leading-relaxed">
+                        Probamos tiers prepagados y el resultado fue siempre el mismo: o el cliente necesitaba m&aacute;s y hab&iacute;a que renegociar a mitad de camino (scope-creep), o pagaba de m&aacute;s por algo que no calzaba con su operaci&oacute;n. El enfoque <strong>audit-first</strong> produce mejores resultados: primero entendemos tu negocio en 30 min, luego cotizamos solo lo que realmente mueve la aguja. Expectativas alineadas, cero sorpresas.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-serif font-bold text-ink text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Qu&eacute; es exactamente la auditor&iacute;a gratis?</span>
+                        <span class="material-symbols-outlined text-clay flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-ink-3 text-sm leading-relaxed">
+                        Son <strong>30 minutos por Google Meet</strong> donde mapeamos tus procesos actuales. En 24 horas recibes por email un PDF personalizado con: mapa visual de tus procesos, top 3 automatizaciones priorizadas por ROI estimado, y roadmap de implementaci&oacute;n a 30-60-90 d&iacute;as. Todo gratis, sin tarjeta, sin compromiso. <a href="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min" target="_blank" rel="noopener" class="text-clay underline underline-offset-2">Reservar ahora &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-serif font-bold text-ink text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Qu&eacute; pasa si despu&eacute;s de la auditor&iacute;a no quiero avanzar?</span>
+                        <span class="material-symbols-outlined text-clay flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-ink-3 text-sm leading-relaxed">
+                        Cero presi&oacute;n. Te quedas con el PDF (que pagaste 290&euro;). Puedes implementar t&uacute; mismo el roadmap con Make.com (te dejamos los blueprints sugeridos), guardarlo para el pr&oacute;ximo trimestre, o compartirlo con tu equipo t&eacute;cnico. Si en cualquier momento futuro firmamos proyecto, los 290&euro; se descuentan al 100% del primer pago. No hay letra chica.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-serif font-bold text-ink text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Funciona para Espa&ntilde;a?</span>
+                        <span class="material-symbols-outlined text-clay flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-ink-3 text-sm leading-relaxed">
+                        S&iacute;. Facturamos desde Espa&ntilde;a con <strong>IVA 21%</strong> para clientes en la UE, y tambi&eacute;n emitimos factura sin IVA para LATAM. Trabajamos en horario compatible con ambas zonas y el contenido, prompts y documentaci&oacute;n se adaptan al espa&ntilde;ol neutro o al castellano de Espa&ntilde;a seg&uacute;n prefieras.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-serif font-bold text-ink text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Si tengo dudas antes de reservar, me puede contactar alguien r&aacute;pido?</span>
+                        <span class="material-symbols-outlined text-clay flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-ink-3 text-sm leading-relaxed">
+                        S&iacute;. Si dejas tu n&uacute;mero en el formulario de contacto, nuestro <strong>agente automatizado te escribe por WhatsApp en menos de 2 minutos</strong> para resolver dudas puntuales. Tambi&eacute;n puedes hacer el quiz de diagn&oacute;stico (2 min) que te dice qu&eacute; automatizaciones tienen m&aacute;s sentido para tu negocio antes de agendar la auditor&iacute;a.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-serif font-bold text-ink text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Cu&aacute;l es el ROI real?</span>
+                        <span class="material-symbols-outlined text-clay flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-ink-3 text-sm leading-relaxed">
+                        Depende del proceso automatizado y tu volumen. Un ejemplo com&uacute;n: un agente de recordatorio de citas recupera en promedio 2&ndash;3 citas por semana que de otro modo ser&iacute;an no-shows. Si una cita vale $50, recuperas $100&ndash;$150 semanales. En la auditor&iacute;a gratis te entregamos el ROI estimado espec&iacute;fico de tus top 3 automatizaciones antes de que decidas invertir un peso.
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- BLOQUE 3: Sobre el soporte y la seguridad -->
+            <p class="text-xs font-bold uppercase tracking-widest text-clay mb-4">Bloque 3 &mdash; Sobre el soporte y la seguridad</p>
+            <div class="divide-y divide-line-soft/20 mb-12">
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-serif font-bold text-ink text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Qu&eacute; pasa si el agente deja de funcionar?</span>
+                        <span class="material-symbols-outlined text-clay flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-ink-3 text-sm leading-relaxed">
+                        Todos los proyectos incluyen un per&iacute;odo de soporte que definimos en la cotizaci&oacute;n. La mayor&iacute;a de los problemas son de conexi&oacute;n (token expirado, permisos revocados) y se resuelven en minutos. Make.com tambi&eacute;n tiene historial de ejecuciones que nos permite diagnosticar exactamente qu&eacute; fall&oacute;.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-serif font-bold text-ink text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Es seguro?</span>
+                        <span class="material-symbols-outlined text-clay flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-ink-3 text-sm leading-relaxed">
+                        S&iacute;. El agente corre en tu propia cuenta de Make.com, no en nuestros servidores. Nosotros nunca vemos tus emails, tus datos de clientes, ni tu informaci&oacute;n de negocio. Lo &uacute;nico que entregamos es el flujo de automatizaci&oacute;n. Tus datos siempre est&aacute;n en tu ecosistema: tu Gmail, tu Sheets, tu CRM.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-serif font-bold text-ink text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Qu&eacute; nivel de acceso tiene?</span>
+                        <span class="material-symbols-outlined text-clay flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-ink-3 text-sm leading-relaxed">
+                        Solo el que t&uacute; le otorgues expl&iacute;citamente. Por ejemplo, un clasificador de correos necesita acceso de lectura a Gmail. Un agente de cobros necesita acceso para enviar emails desde tu cuenta. Puedes revisar y revocar estos permisos en cualquier momento desde la configuraci&oacute;n de tu cuenta de Google o de la herramienta correspondiente.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-serif font-bold text-ink text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Puedo desconectar el agente?</span>
+                        <span class="material-symbols-outlined text-clay flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-ink-3 text-sm leading-relaxed">
+                        S&iacute;, en cualquier momento. En Make.com puedes desactivar un escenario con un clic (toggle on/off). Tambi&eacute;n puedes eliminar el escenario completamente si decides no usarlo m&aacute;s. Revocar los permisos de OAuth en tu cuenta de Google desconecta el agente de esa herramienta de inmediato.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-serif font-bold text-ink text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Puedo usar los agentes con datos sensibles?</span>
+                        <span class="material-symbols-outlined text-clay flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-ink-3 text-sm leading-relaxed">
+                        Depende del tipo de datos. Para datos de negocio est&aacute;ndar (emails de clientes, citas, leads, facturas) s&iacute;, sin problema. Para datos m&eacute;dicos (HIPAA), legales, o financieros regulados, recomendamos revisar los t&eacute;rminos de Make.com y OpenAI para tu jurisdicci&oacute;n. Si tienes dudas espec&iacute;ficas, lo conversamos en la auditor&iacute;a gratis.
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- BLOQUE 4: Cómo empezar -->
+            <p class="text-xs font-bold uppercase tracking-widest text-clay mb-4">Bloque 4 &mdash; C&oacute;mo empezar</p>
+            <div class="divide-y divide-line-soft/20 mb-12">
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-serif font-bold text-ink text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;C&oacute;mo s&eacute; qu&eacute; automatizar primero?</span>
+                        <span class="material-symbols-outlined text-clay flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-ink-3 text-sm leading-relaxed">
+                        Pregunta clave: &iquest;qu&eacute; proceso repetitivo te quita m&aacute;s tiempo o te hace perder m&aacute;s dinero? Si a&uacute;n no lo tienes claro, la auditor&iacute;a gratis identifica tus 3 mejores oportunidades con ROI estimado, priorizadas por impacto y facilidad de implementaci&oacute;n.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-serif font-bold text-ink text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Cu&aacute;nto tiempo tarda en estar funcionando?</span>
+                        <span class="material-symbols-outlined text-clay flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-ink-3 text-sm leading-relaxed">
+                        Depende del alcance definido en la auditor&iacute;a. Agentes simples (recordatorios, clasificaci&oacute;n de correos): 1&ndash;2 semanas. Flujos con m&uacute;ltiples integraciones y l&oacute;gica condicional: 3&ndash;6 semanas. En la cotizaci&oacute;n te entregamos un cronograma concreto con hitos, no promesas vagas.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q w-full flex items-center justify-between gap-4 py-5 text-left font-serif font-bold text-ink text-base md:text-lg cursor-pointer" aria-expanded="false">
+                        <span>&iquest;Cu&aacute;l es el siguiente paso?</span>
+                        <span class="material-symbols-outlined text-clay flex-shrink-0 transition-transform duration-300">add</span>
+                    </button>
+                    <div class="faq-a hidden pb-5 text-ink-3 text-sm leading-relaxed">
+                        Agendar la auditor&iacute;a gratis de 30 minutos. Elige un horario que te convenga, cuenta brevemente qu&eacute; procesos quieres mejorar, y nos vemos por Google Meet. En 24h tienes el PDF con tu roadmap. <a href="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min" target="_blank" rel="noopener" class="text-clay underline underline-offset-2">Reservar auditor&iacute;a gratis &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== GLOSARIO ==================== -->
+    <section class="px-6 py-16 bg-paper" id="glosario" aria-label="Glosario de t&eacute;rminos de automatizaci&oacute;n IA">
+        <div class="max-w-5xl mx-auto">
+            <span class="inline-flex items-center gap-2 text-clay text-xs font-bold uppercase tracking-widest mb-4">
+                <span class="material-symbols-outlined text-sm">menu_book</span> Glosario
+            </span>
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink mb-3 leading-tight">Diccionario de la<br><span class="text-clay">Automatizaci&oacute;n IA.</span></h2>
+            <p class="text-ink-3 text-base max-w-xl mb-10">Definiciones claras para que hables el idioma de la automatizaci&oacute;n con seguridad.</p>
+
+            <dl class="grid sm:grid-cols-2 gap-4">
+
+                <div class="bg-paper rounded-2xl border border-line-soft/15 p-6">
+                    <dt class="font-serif font-bold text-ink text-base mb-1">Agente Virtual IA</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-clay bg-ink/10 px-2 py-0.5 rounded-full mb-2">Concepto core</span>
+                    <dd class="text-ink-3 text-sm leading-relaxed">Programa de inteligencia artificial que ejecuta tareas de negocio de forma aut&oacute;noma: responder correos, calificar leads, generar documentos, tomando decisiones basadas en el contexto sin intervenci&oacute;n humana constante.</dd>
+                </div>
+
+                <div class="bg-paper rounded-2xl border border-line-soft/15 p-6">
+                    <dt class="font-serif font-bold text-ink text-base mb-1">Flujo automatizado (Blueprint)</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-clay bg-ink/10 px-2 py-0.5 rounded-full mb-2">Make.com</span>
+                    <dd class="text-ink-3 text-sm leading-relaxed">Archivo JSON exportable que contiene el flujo completo de un escenario de Make.com. Importarlo reproduce el escenario &iacute;ntegro en cualquier cuenta, con todos sus m&oacute;dulos y conexiones. Es la unidad de producto de AgentesVA.</dd>
+                </div>
+
+                <div class="bg-paper rounded-2xl border border-line-soft/15 p-6">
+                    <dt class="font-serif font-bold text-ink text-base mb-1">Make.com</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-clay bg-ink/10 px-2 py-0.5 rounded-full mb-2">Plataforma</span>
+                    <dd class="text-ink-3 text-sm leading-relaxed">Plataforma visual no-code de automatizaci&oacute;n que conecta m&aacute;s de 1,000 aplicaciones. Permite crear flujos de trabajo complejos mediante m&oacute;dulos arrastrables. Es la plataforma base donde corren todos los agentes de AgentesVA.</dd>
+                </div>
+
+                <div class="bg-paper rounded-2xl border border-line-soft/15 p-6">
+                    <dt class="font-serif font-bold text-ink text-base mb-1">GPT-4o</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-clay bg-ink/10 px-2 py-0.5 rounded-full mb-2">IA generativa</span>
+                    <dd class="text-ink-3 text-sm leading-relaxed">Modelo multimodal de inteligencia artificial de OpenAI, capaz de procesar texto, im&aacute;genes y audio. Es el motor de razonamiento que permite a los agentes clasificar correos, generar contenido y tomar decisiones contextuales.</dd>
+                </div>
+
+                <div class="bg-paper rounded-2xl border border-line-soft/15 p-6">
+                    <dt class="font-serif font-bold text-ink text-base mb-1">Automatizaci&oacute;n de Procesos (RPA)</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-clay bg-ink/10 px-2 py-0.5 rounded-full mb-2">Tecnolog&iacute;a</span>
+                    <dd class="text-ink-3 text-sm leading-relaxed">Robotic Process Automation: tecnolog&iacute;a que automatiza tareas repetitivas basadas en reglas, imitando acciones humanas en software. En PyMEs se aplica para clasificar correos, enviar recordatorios o actualizar hojas de c&aacute;lculo.</dd>
+                </div>
+
+                <div class="bg-paper rounded-2xl border border-line-soft/15 p-6">
+                    <dt class="font-serif font-bold text-ink text-base mb-1">PyME</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-clay bg-ink/10 px-2 py-0.5 rounded-full mb-2">Contexto</span>
+                    <dd class="text-ink-3 text-sm leading-relaxed">Peque&ntilde;a y Mediana Empresa. En LATAM, generalmente empresas de 1 a 250 empleados. Son el cliente principal de AgentesVA: negocios con operaciones repetitivas que se benefician enormemente de la automatizaci&oacute;n sin necesitar equipos t&eacute;cnicos grandes.</dd>
+                </div>
+
+                <div class="bg-paper rounded-2xl border border-line-soft/15 p-6">
+                    <dt class="font-serif font-bold text-ink text-base mb-1">Flujo de trabajo (Workflow)</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-clay bg-ink/10 px-2 py-0.5 rounded-full mb-2">Operaciones</span>
+                    <dd class="text-ink-3 text-sm leading-relaxed">Secuencia de pasos automatizados que se ejecutan en respuesta a un evento. En Make.com, un flujo puede incluir decenas de m&oacute;dulos conectados que procesan datos, toman decisiones y act&uacute;an sobre m&uacute;ltiples aplicaciones simult&aacute;neamente.</dd>
+                </div>
+
+                <div class="bg-paper rounded-2xl border border-line-soft/15 p-6">
+                    <dt class="font-serif font-bold text-ink text-base mb-1">Trigger (Disparador)</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-clay bg-ink/10 px-2 py-0.5 rounded-full mb-2">Make.com</span>
+                    <dd class="text-ink-3 text-sm leading-relaxed">Evento que inicia la ejecuci&oacute;n de un escenario de automatizaci&oacute;n. Puede ser la llegada de un nuevo correo a Gmail, un nuevo registro en Google Sheets, o un horario programado. Todo agente de AgentesVA tiene al menos un trigger configurado.</dd>
+                </div>
+
+                <div class="bg-paper rounded-2xl border border-line-soft/15 p-6">
+                    <dt class="font-serif font-bold text-ink text-base mb-1">API (Interfaz de Programaci&oacute;n)</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-clay bg-ink/10 px-2 py-0.5 rounded-full mb-2">T&eacute;cnico</span>
+                    <dd class="text-ink-3 text-sm leading-relaxed">Conjunto de protocolos que permite que dos aplicaciones se comuniquen entre s&iacute;. Make.com act&uacute;a como intermediario de APIs, lo que permite a los agentes hablar con Gmail, OpenAI, Google Sheets y WhatsApp sin que el usuario maneje c&oacute;digo.</dd>
+                </div>
+
+                <div class="bg-paper rounded-2xl border border-line-soft/15 p-6">
+                    <dt class="font-serif font-bold text-ink text-base mb-1">Activador autom&aacute;tico (Webhook)</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-clay bg-ink/10 px-2 py-0.5 rounded-full mb-2">T&eacute;cnico</span>
+                    <dd class="text-ink-3 text-sm leading-relaxed">URL especial que recibe notificaciones HTTP en tiempo real cuando ocurre un evento en otra aplicaci&oacute;n. Permite que aplicaciones externas (como WhatsApp o formularios web) disparen autom&aacute;ticamente un escenario de AgentesVA.</dd>
+                </div>
+
+                <div class="bg-paper rounded-2xl border border-line-soft/15 p-6">
+                    <dt class="font-serif font-bold text-ink text-base mb-1">M&oacute;dulo de Make.com</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-clay bg-ink/10 px-2 py-0.5 rounded-full mb-2">Make.com</span>
+                    <dd class="text-ink-3 text-sm leading-relaxed">Bloque visual en Make.com que representa una acci&oacute;n espec&iacute;fica: enviar un correo, leer una hoja de c&aacute;lculo, llamar a GPT-4o. Los flujos automatizados de AgentesVA son colecciones de m&oacute;dulos preconfigurados listos para activar.</dd>
+                </div>
+
+                <div class="bg-paper rounded-2xl border border-line-soft/15 p-6">
+                    <dt class="font-serif font-bold text-ink text-base mb-1">Escenario (Make.com Scenario)</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-clay bg-ink/10 px-2 py-0.5 rounded-full mb-2">Make.com</span>
+                    <dd class="text-ink-3 text-sm leading-relaxed">El equivalente de Make.com a un flujo de automatizaci&oacute;n. Un escenario conecta un trigger con una serie de m&oacute;dulos que procesan y act&uacute;an sobre datos. Cada agente de AgentesVA se importa como un escenario en tu cuenta de Make.com.</dd>
+                </div>
+
+                <div class="bg-paper rounded-2xl border border-line-soft/15 p-6">
+                    <dt class="font-serif font-bold text-ink text-base mb-1">Prompt de IA</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-clay bg-ink/10 px-2 py-0.5 rounded-full mb-2">IA generativa</span>
+                    <dd class="text-ink-3 text-sm leading-relaxed">Instrucci&oacute;n de texto que se env&iacute;a a un modelo de lenguaje (como GPT-4o) para guiar su respuesta. En los agentes de AgentesVA, los prompts est&aacute;n preconfigurados para tareas espec&iacute;ficas de negocio, pero son editables para adaptarse a tu tono y contexto.</dd>
+                </div>
+
+                <div class="bg-paper rounded-2xl border border-line-soft/15 p-6">
+                    <dt class="font-serif font-bold text-ink text-base mb-1">Token de IA</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-clay bg-ink/10 px-2 py-0.5 rounded-full mb-2">IA generativa</span>
+                    <dd class="text-ink-3 text-sm leading-relaxed">Unidad de procesamiento de texto en modelos de lenguaje. Aproximadamente 4 caracteres = 1 token. Los costos de OpenAI se calculan por tokens. Los agentes de AgentesVA est&aacute;n optimizados para usar el m&iacute;nimo de tokens necesarios manteniendo la calidad.</dd>
+                </div>
+
+                <div class="bg-paper rounded-2xl border border-line-soft/15 p-6">
+                    <dt class="font-serif font-bold text-ink text-base mb-1">Integraci&oacute;n nativa</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-clay bg-ink/10 px-2 py-0.5 rounded-full mb-2">Make.com</span>
+                    <dd class="text-ink-3 text-sm leading-relaxed">Conexi&oacute;n oficial entre Make.com y una aplicaci&oacute;n, con m&oacute;dulos espec&iacute;ficos y autenticaci&oacute;n OAuth segura. Make.com tiene m&aacute;s de 1,000 integraciones nativas. Los agentes de AgentesVA usan integraciones nativas con Gmail, Google Sheets, OpenAI y WhatsApp.</dd>
+                </div>
+
+                <div class="bg-paper rounded-2xl border border-line-soft/15 p-6">
+                    <dt class="font-serif font-bold text-ink text-base mb-1">No-code / Low-code</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-clay bg-ink/10 px-2 py-0.5 rounded-full mb-2">Tecnolog&iacute;a</span>
+                    <dd class="text-ink-3 text-sm leading-relaxed">Enfoque de desarrollo que permite crear aplicaciones y automatizaciones con interfaces visuales, sin (no-code) o con m&iacute;nimo (low-code) c&oacute;digo. AgentesVA y Make.com son plataformas 100% no-code: cualquier due&ntilde;o de negocio puede usarlas.</dd>
+                </div>
+
+                <div class="bg-paper rounded-2xl border border-line-soft/15 p-6">
+                    <dt class="font-serif font-bold text-ink text-base mb-1">CRM (Customer Relationship Management)</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-clay bg-ink/10 px-2 py-0.5 rounded-full mb-2">Negocio</span>
+                    <dd class="text-ink-3 text-sm leading-relaxed">Sistema para gestionar relaciones con clientes. Para muchas PyMEs de LATAM, Google Sheets funciona como CRM b&aacute;sico. Los agentes de AgentesVA pueden actualizar autom&aacute;ticamente tu CRM en Sheets cada vez que llega un nuevo lead o se completa una venta.</dd>
+                </div>
+
+                <div class="bg-paper rounded-2xl border border-line-soft/15 p-6">
+                    <dt class="font-serif font-bold text-ink text-base mb-1">LLM (Large Language Model)</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-clay bg-ink/10 px-2 py-0.5 rounded-full mb-2">IA generativa</span>
+                    <dd class="text-ink-3 text-sm leading-relaxed">Modelo de inteligencia artificial entrenado con enormes cantidades de texto para entender y generar lenguaje natural. GPT-4o es un LLM. Los agentes de AgentesVA usan LLMs para clasificar correos, redactar respuestas y generar contenido de marketing.</dd>
+                </div>
+
+                <div class="bg-paper rounded-2xl border border-line-soft/15 p-6">
+                    <dt class="font-serif font-bold text-ink text-base mb-1">RAG (Retrieval Augmented Generation)</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-clay bg-ink/10 px-2 py-0.5 rounded-full mb-2">IA avanzada</span>
+                    <dd class="text-ink-3 text-sm leading-relaxed">T&eacute;cnica que combina b&uacute;squeda en una base de conocimiento con generaci&oacute;n de texto por un LLM. Permite que los agentes respondan usando informaci&oacute;n espec&iacute;fica de tu negocio (FAQs, cat&aacute;logos, pol&iacute;ticas) en lugar de respuestas gen&eacute;ricas.</dd>
+                </div>
+
+                <div class="bg-paper rounded-2xl border border-line-soft/15 p-6">
+                    <dt class="font-serif font-bold text-ink text-base mb-1">Automatizaci&oacute;n conversacional</dt>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-clay bg-ink/10 px-2 py-0.5 rounded-full mb-2">Aplicaci&oacute;n</span>
+                    <dd class="text-ink-3 text-sm leading-relaxed">Uso de IA para mantener conversaciones automatizadas con clientes a trav&eacute;s de WhatsApp, email o chat web. Los agentes de AgentesVA implementan automatizaci&oacute;n conversacional para soporte, seguimiento de leads y confirmaci&oacute;n de citas sin intervenci&oacute;n humana.</dd>
+                </div>
+
+            </dl>
+        </div>
+    </section>
+
+    <!-- ==================== CTA ==================== -->
+    <section class="px-6 py-16">
+        <div class="max-w-5xl mx-auto">
+            <div class="bg-gradient-to-br from-ink to-clay rounded-[2rem] p-8 md:p-16 text-paper text-center">
+                <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4">&iquest;Listo para automatizar<br>tu negocio?</h2>
+                <p class="text-paper/75 mb-8 max-w-md mx-auto">Empieza con una auditor&iacute;a gratis de 30 min. Sin tarjeta, sin compromiso.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min" target="_blank" rel="noopener" class="px-8 py-4 bg-card text-clay font-bold rounded-full shadow-xl hover:shadow-2xl transition-all active:scale-95">Reservar auditor&iacute;a gratis &rarr;</a>
+                    <a href="/servicios/" class="px-8 py-4 border border-white/30 text-paper font-semibold rounded-full hover:bg-white/10 transition-all">Ver servicios</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->`;
+---
+<BaseLayout
+  title={`FAQ y Glosario de Agentes IA | AgentesVA`}
+  description={`Preguntas frecuentes sobre automatización IA para PyMEs. Cómo funciona la auditoría gratis, Make.com, agentes virtuales y glosario de términos clave.`}
+  canonical="https://agentesva.com/faq/"
+  ogImage="https://agentesva.com/assets/og-home.png"
+>
+  <Fragment slot="head">
+    <meta name="robots" content="index, follow" />
+    <link rel="alternate" hreflang="es" href="https://agentesva.com/faq/" />
+    <link rel="alternate" hreflang="es-MX" href="https://agentesva.com/faq/" />
+    <link rel="alternate" hreflang="es-CO" href="https://agentesva.com/faq/" />
+    <link rel="alternate" hreflang="es-AR" href="https://agentesva.com/faq/" />
+    <link rel="alternate" hreflang="es-CL" href="https://agentesva.com/faq/" />
+    <link rel="alternate" hreflang="es-PE" href="https://agentesva.com/faq/" />
+    <link rel="alternate" hreflang="es-ES" href="https://agentesva.com/faq/" />
+    <link rel="alternate" hreflang="x-default" href="https://agentesva.com/faq/" />
+    <script type="application/ld+json" is:inline set:html={`{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué es exactamente un agente de IA?", "acceptedAnswer": {"@type": "Answer", "text": "Un agente de IA es un sistema de automatización que ejecuta procesos completos de negocio de forma autónoma, sin intervención humana. No es un chatbot que responde preguntas predefinidas. Es un sistema que conecta tus herramientas actuales (Gmail, WhatsApp, Google Sheets, tu CRM), lee información, toma decisiones y actúa: envía emails, crea registros, genera documentos, agenda citas. Los agentes de AgentesVA corren en Make.com."}}, {"@type": "Question", "name": "¿Cuánto cuesta trabajar con AgentesVA?", "acceptedAnswer": {"@type": "Answer", "text": "No tenemos precios fijos. Cada proyecto se cotiza a medida porque cada negocio tiene procesos, volumen y herramientas distintas. Todo empieza con una auditoría gratis de 30 minutos donde definimos el alcance exacto y te entregamos un precio cerrado por escrito. Sin sorpresas, sin paquetes prearmados que no calzan."}}, {"@type": "Question", "name": "¿Por qué ya no hay precios fijos?", "acceptedAnswer": {"@type": "Answer", "text": "Probamos tiers prepagados de bajo ticket y el resultado fue siempre el mismo: o el cliente necesitaba más y había que renegociar, o pagaba de más por algo que no calzaba con su operación. El enfoque audit-first produce mejores resultados: primero entendemos tu negocio en 30 min, luego cotizamos solo lo que realmente mueve la aguja. Menos scope-creep, expectativas alineadas."}}, {"@type": "Question", "name": "¿Qué es exactamente la auditoría gratis?", "acceptedAnswer": {"@type": "Answer", "text": "Son 30 minutos por Google Meet donde mapeamos tus procesos actuales. En 24 horas recibes por email un PDF personalizado con: mapa visual de tus procesos, top 3 automatizaciones priorizadas por ROI estimado, y roadmap de implementación a 30-60-90 días. Todo gratis, sin tarjeta, sin compromiso."}}, {"@type": "Question", "name": "¿Qué pasa si después de la auditoría no quiero avanzar?", "acceptedAnswer": {"@type": "Answer", "text": "Cero presión. Te quedas con el PDF (que pagaste 290 €). Puedes implementar tú mismo el roadmap con Make.com (te dejamos los blueprints sugeridos), guardarlo para el próximo trimestre, o compartirlo con tu equipo técnico. Si en cualquier momento futuro decides firmar proyecto, los 290 € se descuentan al 100% del primer pago. No hay letra chica."}}, {"@type": "Question", "name": "¿Funciona para España?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Facturamos desde España con IVA 21% para clientes en la UE, y también emitimos factura sin IVA para LATAM. Trabajamos en horario compatible con ambas zonas y el contenido, prompts y documentación se adaptan al español neutro o al castellano de España según prefieras."}}, {"@type": "Question", "name": "¿Si tengo dudas antes de reservar, me puede contactar alguien rápido?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Si dejas tu número en el formulario de contacto, nuestro agente automatizado te escribe por WhatsApp en menos de 2 minutos para resolver dudas puntuales. También puedes hacer el quiz de diagnóstico (2 min) que te dice qué automatizaciones tienen más sentido para tu negocio antes de agendar la auditoría."}}, {"@type": "Question", "name": "¿Necesito saber programar?", "acceptedAnswer": {"@type": "Answer", "text": "No. Los agentes de AgentesVA son flujos visuales en Make.com. No hay código que escribir, no hay servidores que configurar. Si sabes usar Gmail y Google Sheets, puedes operar un agente."}}, {"@type": "Question", "name": "¿Es seguro usar los agentes de AgentesVA?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Los flujos corren en tu propia cuenta de Make.com y solo acceden a las cuentas que tú autorices explícitamente vía OAuth. AgentesVA no almacena ni accede a tus datos."}}, {"@type": "Question", "name": "¿Los agentes soportan WhatsApp?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Varios agentes están diseñados para integrarse con WhatsApp Business API a través de Make.com (360Dialog, Twilio, o similar)."}}]}`}></script>
+    <script type="application/ld+json" is:inline set:html={`{"@context": "https://schema.org", "@type": "DefinedTermSet", "name": "Glosario de Automatizaci&oacute;n IA para PyMEs", "description": "Definiciones de t&eacute;rminos clave de automatizaci&oacute;n con inteligencia artificial, agentes virtuales y herramientas no-code para peque&ntilde;as y medianas empresas en Latinoam&eacute;rica.", "url": "https://agentesva.com/faq/#glosario", "hasDefinedTerm": [{"@type": "DefinedTerm", "name": "Agente Virtual IA", "description": "Programa de inteligencia artificial que ejecuta tareas de negocio de forma aut&oacute;noma, tomando decisiones basadas en el contexto sin intervenci&oacute;n humana constante."}, {"@type": "DefinedTerm", "name": "Blueprint de automatizaci&oacute;n", "description": "Archivo JSON que contiene el flujo completo de un escenario de automatizaci&oacute;n, listo para importar en Make.com con un clic."}, {"@type": "DefinedTerm", "name": "Make.com", "description": "Plataforma visual no-code de automatizaci&oacute;n que conecta apps y servicios. Base tecnol&oacute;gica donde corren todos los agentes de AgentesVA."}, {"@type": "DefinedTerm", "name": "GPT-4o", "description": "Modelo multimodal de inteligencia artificial de OpenAI, capaz de procesar texto, im&aacute;genes y audio. El motor de razonamiento principal de los agentes de AgentesVA."}, {"@type": "DefinedTerm", "name": "Automatizaci&oacute;n de procesos (RPA)", "description": "Tecnolog&iacute;a que automatiza tareas repetitivas basadas en reglas, imitando acciones humanas en sistemas de software."}]}`}></script>
+  </Fragment>
+
+  <Header />
+
+  <Fragment set:html={bodyHtml} />
+
+  <Footer />
+  <MobileNav />
+</BaseLayout>
+
+<style is:global>
+.material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        font-family: 'Material Symbols Outlined';
+        font-style: normal;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+      }
+</style>
+
+<script is:inline>
+// Footer year
+var fyEl = document.getElementById('footer-year');
+if (fyEl) fyEl.textContent = new Date().getFullYear();
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(function(item) {
+    var btn = item.querySelector('.faq-q');
+    var answer = item.querySelector('.faq-a');
+    var icon = btn.querySelector('.material-symbols-outlined');
+    if (!btn || !answer) return;
+    btn.addEventListener('click', function() {
+        var isOpen = !answer.classList.contains('hidden');
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(function(i) {
+            var a = i.querySelector('.faq-a');
+            var b = i.querySelector('.faq-q');
+            var ic = b ? b.querySelector('.material-symbols-outlined') : null;
+            if (a) a.classList.add('hidden');
+            if (b) b.setAttribute('aria-expanded', 'false');
+            if (ic) { ic.textContent = 'add'; ic.style.transform = ''; }
+        });
+        // Open clicked if it was closed
+        if (!isOpen) {
+            answer.classList.remove('hidden');
+            btn.setAttribute('aria-expanded', 'true');
+            icon.textContent = 'remove';
+            icon.style.transform = 'rotate(0deg)';
+        }
+    });
+    btn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
+    });
+});
+</script>

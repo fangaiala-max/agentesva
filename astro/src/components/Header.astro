@@ -1,0 +1,25 @@
+---
+const links = [
+  { href: '/servicios/', label: 'Servicios' },
+  { href: '/catalogo/', label: 'Catálogo' },
+  { href: '/como-funciona/', label: 'Cómo funciona' },
+  { href: '/precios/', label: 'Precios' },
+  { href: '/sobre/', label: 'Sobre' },
+];
+---
+<nav class="dirA-nav">
+  <div class="dirA-nav-inner">
+    <a href="/" class="dirA-logo">
+      <span class="dirA-logo-mark">A</span>
+      AgentesVA
+    </a>
+    <div class="dirA-nav-links">
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    </div>
+    <div class="dirA-nav-cta">
+      <a class="btn btn-primary" href="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min">
+        Auditoría gratis
+      </a>
+    </div>
+  </div>
+</nav>

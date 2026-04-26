@@ -1,0 +1,73 @@
+{
+  "$ref": "#/definitions/casos",
+  "definitions": {
+    "casos": {
+      "type": "object",
+      "properties": {
+        "cliente": {
+          "type": "string"
+        },
+        "industria": {
+          "type": "string"
+        },
+        "ciudad": {
+          "type": "string"
+        },
+        "metrica": {
+          "type": "string"
+        },
+        "metricaLabel": {
+          "type": "string"
+        },
+        "descripcion": {
+          "type": "string"
+        },
+        "stack": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "plazo": {
+          "type": "string"
+        },
+        "publicado": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "integer",
+              "format": "unix-time"
+            }
+          ]
+        },
+        "confidencial": {
+          "type": "boolean",
+          "default": true
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "cliente",
+        "industria",
+        "ciudad",
+        "metrica",
+        "metricaLabel",
+        "descripcion",
+        "stack",
+        "plazo",
+        "publicado"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

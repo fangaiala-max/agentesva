@@ -1,0 +1,231 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileNav from '../components/MobileNav.astro';
+
+const bodyHtml = `<main id="main-content">
+
+    <!-- ==================== HERO ==================== -->
+    <section class="px-6 pt-16 pb-12 text-center">
+        <div class="max-w-3xl mx-auto">
+            <span class="inline-flex items-center gap-2 bg-ink/10 text-clay text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+                <span class="material-symbols-outlined text-sm">verified</span> 30 min &middot; PDF incluido &middot; Sin costo
+            </span>
+            <h1 class="font-serif text-4xl md:text-6xl font-black text-ink leading-[0.95] tracking-tight mb-6">
+                Reserva tu auditor&iacute;a <span class="text-clay">gratis</span> de automatizaci&oacute;n
+            </h1>
+            <p class="text-ink-3 text-lg leading-relaxed max-w-xl mx-auto mb-8">
+                30 minutos por videollamada + PDF con el mapa de tus procesos automatizables, top 3 oportunidades priorizadas por ROI y tu roadmap 30-60-90. Sin tarjeta, sin compromiso.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min" target="_blank" rel="noopener" class="px-8 py-4 bg-gradient-to-r from-ink to-clay text-paper font-bold rounded-full shadow-lg hover:shadow-xl transition-all active:scale-95">Reservar auditor&iacute;a gratis (30 min)</a>
+                <a href="#agenda" class="px-8 py-4 border border-line-soft/30 text-ink-3 font-semibold rounded-full hover:bg-paper-2 transition-all">Ver agenda &darr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== DELIVERABLES ==================== -->
+    <section class="px-6 py-16 bg-paper-2/30">
+        <div class="max-w-5xl mx-auto">
+            <span class="inline-flex items-center gap-2 text-clay text-xs font-bold uppercase tracking-widest mb-4">
+                <span class="material-symbols-outlined text-sm">inventory_2</span> Qu&eacute; recibes
+            </span>
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink mb-3 leading-tight">Qu&eacute; recibes en tu <span class="text-clay">auditor&iacute;a.</span></h2>
+            <p class="text-ink-3 text-base max-w-xl mb-10">Salimos de la sesi&oacute;n con un entregable concreto, no con &ldquo;te paso propuesta&rdquo;. Todo en un PDF que puedes ejecutar solo o con nosotros.</p>
+
+            <div class="grid md:grid-cols-2 gap-6">
+
+                <div class="bg-card rounded-2xl border border-line-soft/10 p-8 shadow-sm">
+                    <span class="material-symbols-outlined text-clay text-3xl mb-3">account_tree</span>
+                    <h3 class="font-serif text-xl font-bold text-ink mb-2">Mapa de procesos automatizables</h3>
+                    <p class="text-sm text-ink-3 leading-relaxed">Revisamos tu operaci&oacute;n y detectamos d&oacute;nde hay tareas repetitivas, c&oacute;digo manual y tiempo perdido que una IA puede tomar.</p>
+                </div>
+
+                <div class="bg-card rounded-2xl border border-line-soft/10 p-8 shadow-sm">
+                    <span class="material-symbols-outlined text-clay text-3xl mb-3">trending_up</span>
+                    <h3 class="font-serif text-xl font-bold text-ink mb-2">Top 3 automatizaciones por ROI</h3>
+                    <p class="text-sm text-ink-3 leading-relaxed">Las 3 oportunidades con mayor retorno, cuantificadas en horas y euros ahorrados al mes. Sabes exactamente por d&oacute;nde empezar.</p>
+                </div>
+
+                <div class="bg-card rounded-2xl border border-line-soft/10 p-8 shadow-sm">
+                    <span class="material-symbols-outlined text-clay text-3xl mb-3">timeline</span>
+                    <h3 class="font-serif text-xl font-bold text-ink mb-2">Roadmap 30-60-90 d&iacute;as</h3>
+                    <p class="text-sm text-ink-3 leading-relaxed">Qu&eacute; hacer los primeros 30 d&iacute;as, qu&eacute; a los 60 y qu&eacute; a los 90. Concreto, con dependencias y m&eacute;tricas para cada fase.</p>
+                </div>
+
+                <div class="bg-card rounded-2xl border border-line-soft/10 p-8 shadow-sm">
+                    <span class="material-symbols-outlined text-clay text-3xl mb-3">alt_route</span>
+                    <h3 class="font-serif text-xl font-bold text-ink mb-2">2 caminos: DIY o propuesta formal</h3>
+                    <p class="text-sm text-ink-3 leading-relaxed">Te quedas con la gu&iacute;a para implementar t&uacute; mismo, o pides propuesta formal para que lo construyamos contigo. T&uacute; eliges.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CALENDLY EMBED ==================== -->
+    <section class="px-6 py-16" id="agenda">
+        <div class="max-w-4xl mx-auto">
+            <span class="inline-flex items-center gap-2 text-clay text-xs font-bold uppercase tracking-widest mb-4">
+                <span class="material-symbols-outlined text-sm">event_available</span> Elige tu horario
+            </span>
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink mb-3 leading-tight">Reserva tu <span class="text-clay">slot.</span></h2>
+            <p class="text-ink-3 text-base max-w-xl mb-8">Selecciona la hora que mejor te encaje. Recibir&aacute;s confirmaci&oacute;n por email con el link de videollamada.</p>
+
+            <div class="bg-card rounded-2xl border border-line-soft/10 overflow-hidden shadow-sm">
+                <iframe src="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min?embed_domain=agentesva.com&amp;embed_type=Inline" width="100%" height="700" frameborder="0" title="Reservar auditor&iacute;a gratis 30 min" loading="lazy"></iframe>
+            </div>
+
+            <p class="text-xs text-ink-3 text-center mt-4">
+                &iquest;No carga la agenda?
+                <a href="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min" target="_blank" rel="noopener" class="text-clay font-semibold underline">Abre Calendly en una pesta&ntilde;a nueva &rarr;</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- ==================== SOCIAL PROOF ==================== -->
+    <section class="px-6 py-16 bg-paper-2/30">
+        <div class="max-w-5xl mx-auto">
+            <span class="inline-flex items-center gap-2 text-clay text-xs font-bold uppercase tracking-widest mb-4">
+                <span class="material-symbols-outlined text-sm">insights</span> Casos reales
+            </span>
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink mb-3 leading-tight">Lo que han hecho <span class="text-clay">otros PyMEs.</span></h2>
+            <p class="text-ink-3 text-base max-w-xl mb-10">3 casos reales (anonimizados) de negocios que empezaron con una auditor&iacute;a como la tuya.</p>
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <div class="bg-card rounded-2xl border border-line-soft/10 p-8 shadow-sm">
+                    <span class="text-3xl mb-3 block">&#x1F37D;&#xFE0F;</span>
+                    <p class="text-xs font-bold uppercase tracking-widest text-ink-3 mb-2">Restaurante local</p>
+                    <p class="font-serif text-3xl font-black text-clay mb-2">+60%</p>
+                    <p class="text-sm text-ink-3 leading-relaxed">Facturaci&oacute;n mensual: &euro;25k &rarr; &euro;40k. Automatizaci&oacute;n de reservas, reviews y marketing de retenci&oacute;n.</p>
+                </div>
+
+                <div class="bg-card rounded-2xl border border-line-soft/10 p-8 shadow-sm">
+                    <span class="text-3xl mb-3 block">&#x1F393;</span>
+                    <p class="text-xs font-bold uppercase tracking-widest text-ink-3 mb-2">Escuela de idiomas</p>
+                    <p class="font-serif text-3xl font-black text-clay mb-2">+60%</p>
+                    <p class="text-sm text-ink-3 leading-relaxed">Alumnos activos: 500 &rarr; 800/mes. Onboarding automatizado, seguimiento y reactivaci&oacute;n de bajas.</p>
+                </div>
+
+                <div class="bg-card rounded-2xl border border-line-soft/10 p-8 shadow-sm">
+                    <span class="text-3xl mb-3 block">&#x1F69B;</span>
+                    <p class="text-xs font-bold uppercase tracking-widest text-ink-3 mb-2">Renting de camiones B2B</p>
+                    <p class="font-serif text-3xl font-black text-clay mb-2">+70%</p>
+                    <p class="text-sm text-ink-3 leading-relaxed">Utilizaci&oacute;n de flota: 40% &rarr; 68% en 2 meses. Matching autom&aacute;tico oferta-demanda y gesti&oacute;n de disponibilidad.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ ==================== -->
+    <section class="px-6 py-16" aria-label="Preguntas frecuentes">
+        <div class="max-w-3xl mx-auto">
+            <span class="inline-flex items-center gap-2 text-clay text-xs font-bold uppercase tracking-widest mb-4">
+                <span class="material-symbols-outlined text-sm">help</span> Preguntas frecuentes
+            </span>
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink mb-10 leading-tight">Dudas antes<br>de <span class="text-clay">reservar.</span></h2>
+
+            <div class="divide-y divide-line-soft/20">
+
+                <details class="group py-5">
+                    <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-serif text-base font-bold text-ink">
+                        &iquest;Es realmente gratis?
+                        <span class="material-symbols-outlined text-clay transition-transform group-open:rotate-45">add</span>
+                    </summary>
+                    <p class="mt-3 text-sm text-ink-3 leading-relaxed">S&iacute;. La sesi&oacute;n de 30 minutos y el PDF con el roadmap son completamente gratis. No pedimos tarjeta, no hay letra peque&ntilde;a y no hay compromiso posterior. Lo hacemos porque es la mejor forma de mostrar c&oacute;mo trabajamos.</p>
+                </details>
+
+                <details class="group py-5">
+                    <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-serif text-base font-bold text-ink">
+                        &iquest;Qu&eacute; pasa despu&eacute;s?
+                        <span class="material-symbols-outlined text-clay transition-transform group-open:rotate-45">add</span>
+                    </summary>
+                    <p class="mt-3 text-sm text-ink-3 leading-relaxed">En las 24-48 horas siguientes recibes tu PDF con el mapa de procesos, top 3 oportunidades por ROI y roadmap 30-60-90. A partir de ah&iacute;, o lo implementas t&uacute; con la gu&iacute;a, o nos pides propuesta formal para construirlo contigo. Sin prisa.</p>
+                </details>
+
+                <details class="group py-5">
+                    <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-serif text-base font-bold text-ink">
+                        &iquest;Me van a presionar a comprar?
+                        <span class="material-symbols-outlined text-clay transition-transform group-open:rotate-45">add</span>
+                    </summary>
+                    <p class="mt-3 text-sm text-ink-3 leading-relaxed">No. La sesi&oacute;n es diagn&oacute;stica, no comercial. No hay pitch de cierre ni t&aacute;cticas de urgencia. Si tiene sentido trabajar juntos lo hablamos al final, si no, te quedas con el PDF igual.</p>
+                </details>
+
+                <details class="group py-5">
+                    <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-serif text-base font-bold text-ink">
+                        &iquest;Qu&eacute; pasa si no encajamos?
+                        <span class="material-symbols-outlined text-clay transition-transform group-open:rotate-45">add</span>
+                    </summary>
+                    <p class="mt-3 text-sm text-ink-3 leading-relaxed">Te lo decimos de frente. Si tu caso est&aacute; fuera de nuestro alcance, si el momento no es el adecuado o si simplemente no somos el partner correcto, te lo decimos y te dejamos el PDF con el roadmap para que sigas por tu cuenta o con otro proveedor. No perdemos el tiempo de nadie.</p>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FINAL CTA ==================== -->
+    <section class="px-6 py-16">
+        <div class="max-w-4xl mx-auto">
+            <div class="relative bg-gradient-to-br from-ink to-clay rounded-[2.5rem] p-10 md:p-14 text-center text-paper overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/5 -translate-y-1/3 translate-x-1/3"></div>
+                <div class="relative z-10">
+                    <span class="material-symbols-outlined text-5xl mb-4">rocket_launch</span>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4">Reserva tu auditor&iacute;a<br>en 2 clics.</h2>
+                    <p class="text-paper/75 mb-8 max-w-md mx-auto">30 minutos por videollamada + PDF con tu roadmap de automatizaci&oacute;n. Sin tarjeta, sin compromiso.</p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min" target="_blank" rel="noopener" class="px-8 py-4 bg-card text-clay font-bold rounded-full shadow-xl hover:shadow-2xl transition-all active:scale-95">Reservar auditor&iacute;a gratis (30 min)</a>
+                        <a href="/precios/" class="px-8 py-4 border border-white/30 text-paper font-semibold rounded-full hover:bg-white/10 transition-all">C&oacute;mo trabajamos &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->`;
+---
+<BaseLayout
+  title={`Reservar auditoría gratis | AgentesVA`}
+  description={`Reserva tu auditoría gratis de automatización: 30 minutos + PDF con mapa de procesos, top 3 automatizaciones por ROI y roadmap 30-60-90.`}
+  canonical="https://agentesva.com/como-empezar/"
+  ogImage="https://agentesva.com/assets/og-home.png"
+>
+  <Fragment slot="head">
+    <meta name="robots" content="index, follow" />
+    <link rel="alternate" hreflang="es" href="https://agentesva.com/como-empezar/" />
+    <link rel="alternate" hreflang="es-MX" href="https://agentesva.com/como-empezar/" />
+    <link rel="alternate" hreflang="es-CO" href="https://agentesva.com/como-empezar/" />
+    <link rel="alternate" hreflang="es-AR" href="https://agentesva.com/como-empezar/" />
+    <link rel="alternate" hreflang="es-CL" href="https://agentesva.com/como-empezar/" />
+    <link rel="alternate" hreflang="es-PE" href="https://agentesva.com/como-empezar/" />
+    <link rel="alternate" hreflang="x-default" href="https://agentesva.com/como-empezar/" />
+    <script type="application/ld+json" is:inline set:html={`{"@context": "https://schema.org", "@type": "Service", "name": "Auditoría gratis de automatización AgentesVA", "serviceType": "Consultoría de automatización con IA", "description": "Sesión de 30 minutos + PDF con mapa de procesos automatizables, top 3 oportunidades priorizadas por ROI y roadmap 30-60-90 días.", "provider": {"@type": "Organization", "name": "AgentesVA", "url": "https://agentesva.com"}, "areaServed": "Latin America", "url": "https://agentesva.com/como-empezar/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock"}}`}></script>
+    <script type="application/ld+json" is:inline set:html={`{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Es realmente gratis?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. La auditoría de 30 minutos y el PDF con el roadmap son completamente gratis. No pedimos tarjeta ni compromiso posterior."}}, {"@type": "Question", "name": "¿Qué pasa después de la auditoría?", "acceptedAnswer": {"@type": "Answer", "text": "Recibes un PDF con tu mapa de procesos, top 3 automatizaciones priorizadas por ROI y un roadmap 30-60-90. Puedes implementarlo tú mismo con la guía, o pedirnos una propuesta formal."}}, {"@type": "Question", "name": "¿Me van a presionar a comprar?", "acceptedAnswer": {"@type": "Answer", "text": "No. La sesión es diagnóstica, no comercial. Si no encajamos, te lo decimos y te vas con el PDF igual. Cero presión."}}, {"@type": "Question", "name": "¿Qué pasa si no encajamos?", "acceptedAnswer": {"@type": "Answer", "text": "Te lo decimos de frente y te dejamos el PDF con el roadmap para que sigas por tu cuenta o con otro proveedor. No perdemos el tiempo de nadie."}}]}`}></script>
+  </Fragment>
+
+  <Header />
+
+  <Fragment set:html={bodyHtml} />
+
+  <Footer />
+  <MobileNav />
+</BaseLayout>
+
+<style is:global>
+.material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        font-family: 'Material Symbols Outlined';
+        font-style: normal;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+      }
+</style>

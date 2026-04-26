@@ -1,0 +1,431 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileNav from '../components/MobileNav.astro';
+import JsonLd from '../components/JsonLd.astro';
+import HeroIllus from '../components/HeroIllus.astro';
+import CaseCard from '../components/CaseCard.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import StatsBand from '../components/StatsBand.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+
+const casos = (await getCollection('casos')).sort(
+  (a, b) => new Date(b.data.publicado).getTime() - new Date(a.data.publicado).getTime()
+);
+const industrias = await getCollection('industrias');
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'AgentesVA',
+  url: 'https://agentesva.com',
+  description:
+    'Consultoría de automatización con IA para PyMEs en España y Latinoamérica. Auditoría gratis de 30 min + PDF personalizado con top 3 automatizaciones priorizadas por ROI.',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer service',
+    email: 'hola@agentesva.com',
+    availableLanguage: { '@type': 'Language', name: 'Spanish' },
+  },
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'AgentesVA',
+  url: 'https://agentesva.com',
+  priceRange: '€€',
+  offers: {
+    '@type': 'Offer',
+    name: 'Auditoría gratis de automatización',
+    price: '0',
+    priceCurrency: 'EUR',
+    description: '30 min + PDF personalizado con top 3 automatizaciones priorizadas por ROI',
+    url: 'https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min',
+    availability: 'https://schema.org/InStock',
+  },
+};
+
+const faqs = [
+  {
+    q: '¿Cuánto cuesta empezar?',
+    a: 'La auditoría inicial es gratuita (30 min + PDF). Después, los proyectos arrancan desde 1.500 € + IVA con planes por sprints o suscripción mensual.',
+  },
+  {
+    q: '¿En cuánto tiempo veo resultados?',
+    a: 'Las primeras automatizaciones están operativas en 2-4 semanas. Resultados de negocio medibles (leads, facturación) en 60-90 días.',
+  },
+  {
+    q: '¿Necesito tener un CRM o herramientas previas?',
+    a: 'No. Te ayudamos a elegir el stack adecuado. Trabajamos con HubSpot, Pipedrive, Notion, Sheets, WhatsApp Business API, Calendly y más.',
+  },
+  {
+    q: '¿Trabajan con empresas fuera de España?',
+    a: 'Sí. Damos servicio a PyMEs en España, México, Colombia, Argentina, Chile y Perú. Reuniones en español con horarios coordinados.',
+  },
+];
+
+const heroStats = [
+  { num: '40', suffix: '+', label: 'Procesos automatizables identificados en auditorías reales' },
+  { num: '24', suffix: 'h', label: 'Para entregar tu PDF personalizado tras la auditoría' },
+  { num: '0', suffix: '€', label: 'Coste de la auditoría inicial · sin tarjeta, sin compromiso' },
+  { num: '0', suffix: '', label: 'Líneas de código que tu equipo necesita escribir' },
+];
+
+const pains = [
+  {
+    num: 'PAIN 01 / 06',
+    title: 'Leads que se enfrían entre el formulario y la llamada',
+    desc: 'Llegan a tu CRM, esperan 2-6 horas a que alguien los vea, y pierden interés antes del primer contacto humano.',
+    cost: '~30%',
+    costLabel: 'conversión perdida vs. respuesta <5 min',
+  },
+  {
+    num: 'PAIN 02 / 06',
+    title: 'No-shows porque nadie confirma la cita',
+    desc: 'Tu equipo no tiene tiempo de llamar uno a uno el día antes. Resultado: huecos vacíos en agenda y clientes que se olvidan.',
+    cost: '15-25%',
+    costLabel: 'de citas que no aparecen',
+  },
+  {
+    num: 'PAIN 03 / 06',
+    title: 'Propuestas que tardan 3 días en salir',
+    desc: 'Mientras tú redactas, el cliente ya pidió presupuesto a otros tres. La velocidad es el músculo más caro de tu venta.',
+    cost: '2.7×',
+    costLabel: 'más cierre cuando la propuesta llega el mismo día',
+  },
+  {
+    num: 'PAIN 04 / 06',
+    title: 'Clientes que se van al rival que respondió antes',
+    desc: 'No perdiste por precio ni por producto. Perdiste porque al otro lo atendieron en WhatsApp en 30 segundos y a ti te respondieron al día siguiente.',
+    cost: '~40%',
+    costLabel: 'de leads eligen al primero que contesta',
+  },
+  {
+    num: 'PAIN 05 / 06',
+    title: 'Datos en cinco lugares y ningún insight',
+    desc: 'Tienes Google Sheets, HubSpot, WhatsApp, Stripe y un Excel del 2022. Saber cómo va el mes te toma medio día.',
+    cost: '8-12h/sem',
+    costLabel: 'en reportes hechos a mano',
+  },
+  {
+    num: 'PAIN 06 / 06',
+    title: 'WhatsApp del founder a las 11pm',
+    desc: 'Tu cliente escribe a las 22:47. Tú respondes a las 23:15 desde la cama. Así no escala un negocio, así se quema un fundador.',
+    cost: '100%',
+    costLabel: 'de los founders nos dicen lo mismo',
+  },
+];
+
+const beforeItems = [
+  'Lead llega, espera horas, se enfría.',
+  'Citas confirmadas a mano (o no confirmadas).',
+  'Propuestas tardan días en salir.',
+  'WhatsApp del founder hasta las 23h.',
+  'Reportes en Excel cada lunes a mano.',
+  'Reseñas que nadie pide después del servicio.',
+];
+
+const afterItems = [
+  'Lead llega, IA responde en <1 min y califica.',
+  'Recordatorios automáticos por WhatsApp.',
+  'Propuesta personalizada en horas, no días.',
+  'El founder duerme. La IA contesta de noche.',
+  'Dashboard vivo con números del día.',
+  'Reseñas que se piden solas tras cada servicio.',
+];
+
+const services = [
+  {
+    num: '01',
+    title: 'Auditoría de procesos',
+    desc: 'Mapeamos dónde se atasca tu operación y priorizamos por ROI. Sale un PDF con tres automatizaciones concretas y su impacto estimado.',
+    tags: ['discovery', 'ROI map', 'PDF entregable'],
+  },
+  {
+    num: '02',
+    title: 'Agentes WhatsApp',
+    desc: 'Atención IA en español que califica leads, agenda citas y responde 24/7 sin sonar a bot. Conectado a tu CRM real.',
+    tags: ['WhatsApp Business', 'Claude', 'CRM nativo'],
+  },
+  {
+    num: '03',
+    title: 'Automatización back-office',
+    desc: 'Conciliación, envío de facturas, recordatorios de cobro y traspaso de datos entre sistemas. La parte aburrida que te come horas.',
+    tags: ['Make.com', 'Sheets / HubSpot', 'facturación'],
+  },
+  {
+    num: '04',
+    title: 'Agentes de voz 24/7',
+    desc: 'Llamadas entrantes y salientes con voz humana en español. En desarrollo: lanzamiento previsto Q3 2026. <a href="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min" target="_blank" rel="noopener" style="color: var(--sand); text-decoration: underline;">Apuntarse a la lista de espera →</a>',
+    tags: ['voice AI', 'español neutro', 'waitlist'],
+    comingSoon: true,
+  },
+  {
+    num: '05',
+    title: 'Generación de propuestas',
+    desc: 'El comercial introduce 4 datos, la IA genera la propuesta personalizada en minutos, en tu plantilla y con tu tono.',
+    tags: ['brief → PDF', 'templating', 'multilingüe'],
+  },
+  {
+    num: '06',
+    title: 'Cadenas de email + WhatsApp',
+    desc: 'Recuperamos clientes inactivos, dropouts de onboarding y leads que se enfriaron. Secuencias multicanal con IA que escribe en tu tono, segmenta y mide.',
+    tags: ['nurture', 'recovery', 'multicanal'],
+  },
+];
+
+const processSteps = [
+  {
+    roman: 'i',
+    when: 'Día 1',
+    title: 'Auditoría 30 min',
+    desc: 'Llamada gratuita. Te escuchamos, miramos tu stack actual y salimos con tres oportunidades priorizadas.',
+  },
+  {
+    roman: 'ii',
+    when: 'Semana 1',
+    title: 'PDF + plan de juego',
+    desc: 'PDF personalizado en 24h (290€, recuperables al 100% si avanzamos). Si tiene sentido, diseñamos el primer agente con scope cerrado y precio fijo.',
+  },
+  {
+    roman: 'iii',
+    when: 'Semana 2-4',
+    title: 'Build & integración',
+    desc: 'Construimos sobre tu stack actual (Make + Claude + tu CRM). Demo semanal contigo. Sin sorpresas, sin codo a codo todo el día.',
+  },
+  {
+    roman: 'iv',
+    when: 'Mes 2+',
+    title: 'Operación + tuning',
+    desc: 'Pasa a producción. Medimos contra línea base y optimizamos cada mes. Tu equipo sólo opera lo humano.',
+  },
+];
+---
+<BaseLayout
+  title="AgentesVA — Auditoría gratis de automatización con IA para PyMEs en España"
+  description="Auditoría gratis de 30 min para PyMEs en España: identificamos dónde la IA puede aumentar tu facturación sin contratar más personal. Casos reales: +60% restaurantes, +70% renting. PDF personalizado en 24h."
+  canonical="https://agentesva.com/"
+>
+  <JsonLd slot="head" data={[orgSchema, serviceSchema]} />
+
+  <div class="dirA">
+    <Header />
+
+    <!-- HERO -->
+    <section class="dirA-hero">
+      <div class="container">
+        <div class="dirA-hero-grid">
+          <div>
+            <span class="eyebrow">Automatización con IA · PyMEs</span>
+            <h1 class="serif" style="margin-top: 16px;">
+              Automatiza lo <em>repetitivo</em>. <span class="underline">Crece</span> sin contratar.
+            </h1>
+            <p class="dirA-hero-lede">
+              Auditoría gratis de 30 minutos. Identificamos las 3 automatizaciones con mejor ROI para tu PyME y te entregamos un PDF personalizado en 24h.
+            </p>
+            <div class="dirA-hero-actions">
+              <a class="btn btn-primary" href="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min">
+                Reservar auditoría gratis →
+              </a>
+              <a class="btn btn-ghost" href="/catalogo/">Ver catálogo</a>
+            </div>
+            <div class="dirA-hero-meta">
+              <span class="dirA-hero-meta-dot"></span>
+              <span>Próxima ranura disponible esta semana</span>
+            </div>
+          </div>
+          <HeroIllus />
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS BAND (dark) -->
+    <StatsBand stats={heroStats} />
+
+    <!-- PROBLEM (6 PAIN cards) -->
+    <section class="dirA-problem">
+      <div class="container">
+        <div class="dirA-problem-head">
+          <div>
+            <span class="dirA-eyebrow on-clay">El problema real</span>
+            <h2 class="serif">Cada día que operas sin automatización, <em>pierdes dinero que no ves</em>.</h2>
+          </div>
+          <p>No es que tu equipo sea ineficiente. Es que está haciendo trabajo de máquina mientras la máquina espera. Estos son los 6 costes invisibles que detectamos cada semana en auditorías.</p>
+        </div>
+        <div class="dirA-pain-grid">
+          {pains.map((p) => (
+            <article class="dirA-pain">
+              <div class="dirA-pain-num">{p.num}</div>
+              <h3 class="dirA-pain-title">{p.title}</h3>
+              <p class="dirA-pain-desc">{p.desc}</p>
+              <div class="dirA-pain-cost"><span class="dirA-pain-cost-num">{p.cost}</span> {p.costLabel}</div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- BEFORE / AFTER -->
+    <BeforeAfter before={beforeItems} after={afterItems} />
+
+    <!-- FEATURED CASE STUDY -->
+    <section class="dirA-case">
+      <div class="container">
+        <div class="dirA-case-head">
+          <span class="dirA-case-head-label">Caso destacado · 02 / 2026</span>
+          <span class="dirA-case-head-label" style="text-align:right;">Renting de camiones B2B · España nacional</span>
+        </div>
+        <div class="dirA-case-grid">
+          <div class="dirA-case-img">
+            <div class="dirA-case-img-meta">
+              <div class="dirA-case-img-cli">Cliente · Empresa de renting (NDA)</div>
+              <div class="dirA-case-img-name">Cuatro meses,<br><em>+70% utilización</em>.</div>
+            </div>
+          </div>
+          <div class="dirA-case-content">
+            <span class="dirA-case-tag">Caso de estudio</span>
+            <h3 class="serif">De camiones parados a una flota que <em>se factura sola</em>.</h3>
+            <p class="dirA-case-lede">La empresa opera +200 camiones en toda España. Antes, su equipo comercial perfilaba leads manualmente y muchos quedaban sin matchear con camión disponible. Implementamos un agente de perfilado automático en 8 semanas.</p>
+            <div class="dirA-case-metrics">
+              <div class="dirA-case-metric">
+                <div class="dirA-case-metric-num">+<em>70</em>%</div>
+                <div class="dirA-case-metric-label">Utilización flota</div>
+              </div>
+              <div class="dirA-case-metric">
+                <div class="dirA-case-metric-num"><em>40</em>→<em>68</em>%</div>
+                <div class="dirA-case-metric-label">Antes y ahora</div>
+              </div>
+              <div class="dirA-case-metric">
+                <div class="dirA-case-metric-num"><em>2</em>m</div>
+                <div class="dirA-case-metric-label">Plazo a primer impacto</div>
+              </div>
+            </div>
+            <blockquote class="dirA-case-quote">
+              “Antes pasaban días entre lead y match. Ahora es minutos. Los camiones que estaban parados están facturando.”
+              <span class="dirA-case-quote-by">— Director de operaciones (NDA)</span>
+            </blockquote>
+            <div>
+              <a href="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min" target="_blank" rel="noopener" class="btn btn-primary js-audit-cta" data-cta="case-study">Hablamos sobre tu caso →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDUSTRIAS -->
+    <section class="dirA-ind">
+      <div class="container">
+        <div class="dirA-ind-head">
+          <div>
+            <span class="eyebrow">Industrias que conocemos</span>
+            <h2 class="serif" style="margin-top: 12px;">12 sectores, un mismo principio: <em>automatiza lo repetitivo</em>.</h2>
+          </div>
+          <p>
+            Cada industria tiene sus propios cuellos de botella. Empezamos por los que más impacto tienen en tu cuenta de resultados.
+          </p>
+        </div>
+        <div class="dirA-ind-grid">
+          {industrias.map((ind) => (
+            <a class="dirA-ind-card" href={`/industrias/${ind.slug}/`}>
+              <div class="dirA-ind-glyph">{ind.data.glyph}</div>
+              <div class="dirA-ind-name">{ind.data.nombre}</div>
+              <div class="dirA-ind-meta">
+                {ind.data.metrica ?? ind.data.descripcionCorta}
+              </div>
+              <span class="dirA-ind-arrow">→</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES (dark) -->
+    <section class="dirA-srv">
+      <div class="container">
+        <div class="dirA-srv-head">
+          <span class="dirA-srv-eyebrow">Lo que construimos</span>
+          <h2 class="serif">Seis tipos de agentes. <em>Una sola filosofía:</em> que tu equipo deje de hacer lo que la IA puede hacer mejor.</h2>
+        </div>
+        <div class="dirA-srv-grid">
+          {services.map((s) => (
+            <ServiceCard
+              num={s.num}
+              title={s.title}
+              desc={s.desc}
+              tags={s.tags}
+              comingSoon={s.comingSoon}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS (4 steps) -->
+    <ProcessSteps steps={processSteps} />
+
+    <!-- CASOS / TESTIMONIALS -->
+    <section class="dirA-test">
+      <div class="container">
+        <div class="dirA-test-head">
+          <div>
+            <span class="eyebrow">Casos documentados</span>
+            <h2 class="serif" style="margin-top: 12px;">Resultados reales, métricas reales.</h2>
+          </div>
+          <p style="color: var(--ink-3); font-size: 17px; line-height: 1.55;">
+            Tres PyMEs que pasaron de operar a mano a automatizar lo repetitivo — sin perder el toque humano que les diferencia.
+          </p>
+        </div>
+        <div class="dirA-test-grid">
+          {casos.slice(0, 3).map((c, i) => (
+            <CaseCard
+              cliente={c.data.cliente}
+              industria={c.data.industria}
+              ciudad={c.data.ciudad}
+              metrica={c.data.metrica}
+              metricaLabel={c.data.metricaLabel}
+              descripcion={c.data.descripcion}
+              featured={i === 0}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="dirA-cta">
+      <div class="container">
+        <div class="dirA-cta-card">
+          <div>
+            <h2 class="serif">Reserva tu <em>auditoría gratis</em>.</h2>
+            <p>30 minutos por videollamada. Te entregamos un PDF con las top 3 automatizaciones priorizadas por ROI para tu PyME.</p>
+          </div>
+          <div class="dirA-cta-actions">
+            <a class="btn btn-primary" href="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min">
+              Reservar 30 min <span>→</span>
+            </a>
+            <span class="dirA-cta-detail"><span class="dirA-cta-detail-dot"></span> Próxima ranura esta semana</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="dirA-faq">
+      <div class="container">
+        <div class="dirA-faq-head">
+          <span class="eyebrow">Preguntas frecuentes</span>
+          <h2 class="serif" style="margin-top: 12px;">Lo que más nos preguntan.</h2>
+        </div>
+        <FAQAccordion items={faqs} />
+      </div>
+    </section>
+
+    <Footer />
+    <MobileNav />
+  </div>
+</BaseLayout>

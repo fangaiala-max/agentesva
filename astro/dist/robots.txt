@@ -8,7 +8,6 @@ Disallow: /gracias-gratis
 Disallow: /templates/
 Disallow: /scripts/
 Disallow: /api/
-Disallow: /v2/
 
 # AI training crawlers: welcome (we want to show up in AI answers)
 User-agent: GPTBot

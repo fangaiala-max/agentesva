@@ -1,0 +1,28 @@
+---
+export interface FAQItem {
+  q: string;
+  a: string;
+}
+export interface Props {
+  items: FAQItem[];
+}
+const { items } = Astro.props;
+---
+<div class="dirA-faq-list">
+  {items.map((item) => (
+    <details class="dirA-faq-item">
+      <summary class="dirA-faq-q">
+        <span>{item.q}</span>
+        <span class="dirA-faq-icon">+</span>
+      </summary>
+      <div class="dirA-faq-a" set:html={item.a}></div>
+    </details>
+  ))}
+</div>
+
+<style>
+  details.dirA-faq-item summary { list-style: none; cursor: pointer; }
+  details.dirA-faq-item summary::-webkit-details-marker { display: none; }
+  details.dirA-faq-item[open] .dirA-faq-icon { transform: rotate(45deg); }
+  details.dirA-faq-item[open] .dirA-faq-a { max-height: 600px; padding-top: 16px; }
+</style>

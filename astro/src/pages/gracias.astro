@@ -1,0 +1,426 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileNav from '../components/MobileNav.astro';
+
+const bodyHtml = `<main id="main-content" class="max-w-3xl mx-auto px-6 py-12 pb-32 md:pb-16">
+    <!-- JS renders here -->
+</main>
+
+<!-- ==================== FOOTER ==================== -->`;
+---
+<BaseLayout
+  title={`¡Listo! Tu agente está esperando | AgentesVA`}
+  description={`Tu agente está listo. Descarga tu blueprint y empieza a automatizar tu negocio con AgentesVA.`}
+  canonical="https://agentesva.com/gracias/"
+  ogImage="https://agentesva.com/assets/og-home.png"
+>
+  <Fragment slot="head">
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="alternate" hreflang="es" href="https://agentesva.com/gracias/" />
+    <link rel="alternate" hreflang="es-MX" href="https://agentesva.com/gracias/" />
+    <link rel="alternate" hreflang="es-CO" href="https://agentesva.com/gracias/" />
+    <link rel="alternate" hreflang="es-AR" href="https://agentesva.com/gracias/" />
+    <link rel="alternate" hreflang="es-CL" href="https://agentesva.com/gracias/" />
+    <link rel="alternate" hreflang="es-PE" href="https://agentesva.com/gracias/" />
+    <link rel="alternate" hreflang="x-default" href="https://agentesva.com/" />
+    
+  </Fragment>
+
+  <Header />
+
+  <Fragment set:html={bodyHtml} />
+
+  <Footer />
+  <MobileNav />
+</BaseLayout>
+
+<style is:global>
+.material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        font-family: 'Material Symbols Outlined';
+        font-style: normal;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+      }
+      @keyframes popIn {
+        from { transform: scale(0); opacity: 0; }
+        to   { transform: scale(1); opacity: 1; }
+      }
+      @keyframes checkDraw {
+        from { stroke-dashoffset: 30; opacity: 0; }
+        to   { stroke-dashoffset: 0;  opacity: 1; }
+      }
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(16px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .animate-pop-in { animation: popIn 0.6s cubic-bezier(0.34,1.56,0.64,1) both; }
+      .animate-check  { animation: checkDraw 0.4s ease 0.4s both; }
+      .fade-in { animation: fadeUp 0.5s ease both; }
+      .fade-in:nth-child(2) { animation-delay: 0.08s; }
+      .fade-in:nth-child(3) { animation-delay: 0.16s; }
+      .fade-in:nth-child(4) { animation-delay: 0.24s; }
+      .fade-in:nth-child(5) { animation-delay: 0.32s; }
+</style>
+
+<script is:inline>
+/* ── PRODUCTS CATALOG ─────────────────────────────────── */
+const PRODUCTS = {
+    /* ── AGENTES FREE ── */
+    'clasificador-correos': {
+        name:     'Clasificador de Correos',
+        icon:     '📧',
+        seg:      'Inbox · Gmail',
+        gradient: 'linear-gradient(135deg,#3d50ff,#0920cc)',
+        price:    0,
+        files: [
+            { icon:'📦', bg:'#FFF0E8', name:'Blueprint Make.com', meta:'JSON · Importar en Make.com', url:'blueprints/agentesva-clasificador-correos-v1.json', dl:'agentesva-clasificador-correos-v1.json' },
+            { icon:'📄', bg:'#EEF2FF', name:'Guía de configuración', meta:'PDF · Paso a paso', url:'guias/agentesva-guia-01-clasificador-correos.pdf', dl:'agentesva-guia-01-clasificador-correos.pdf' }
+        ],
+        steps: [
+            { t:'Importa el blueprint', d:'Ve a Make.com → "Escenarios" → "Importar blueprint". Sube el archivo .json que acabas de descargar.' },
+            { t:'Conecta Gmail', d:'Haz clic en el módulo de Gmail y autoriza tu cuenta. Solo tardas 2 minutos.' },
+            { t:'Activa el escenario', d:'Haz clic en el switch "On/Off". Tu agente empieza a clasificar correos automáticamente.' }
+        ]
+    },
+    'colector-resenas': {
+        name:     'Colector de Reseñas Google',
+        icon:     '⭐',
+        seg:      'Reputación · Gmail',
+        gradient: 'linear-gradient(135deg,#FFB347,#E88000)',
+        price:    0,
+        files: [
+            { icon:'📦', bg:'#FFF8E8', name:'Blueprint Make.com', meta:'JSON · Importar en Make.com', url:'blueprints/agentesva-colector-resenas-v1.json', dl:'agentesva-colector-resenas-v1.json' },
+            { icon:'📝', bg:'#F0FFF9', name:'Template de email', meta:'TXT · Copiar en Gmail', url:'prompts/agentesva-colector-resenas-v1.txt', dl:'agentesva-template-resenas.txt' },
+            { icon:'📄', bg:'#EEF2FF', name:'Guía de configuración', meta:'PDF · Paso a paso', url:'guias/agentesva-guia-02-colector-resenas.pdf', dl:'agentesva-guia-02-colector-resenas.pdf' }
+        ],
+        steps: [
+            { t:'Configura tu Google Sheet', d:'Crea un Sheet con las columnas: Nombre, Email, Servicio, Fecha_Servicio, Reseña_Enviada. La guía incluye el formato exacto.' },
+            { t:'Importa y conecta', d:'Sube el blueprint a Make.com y conecta Gmail + Google Sheets. Edita el link de tus reseñas en Google Business.' },
+            { t:'Activa y recibe reseñas', d:'El agente enviará emails automáticos 7 días después de cada servicio registrado en tu Sheet.' }
+        ]
+    },
+    /* ── AGENTES $37 ── */
+    'recordatorio-citas': {
+        name:     'Recordatorio de Citas',
+        icon:     '📅',
+        seg:      'Citas · Gmail',
+        gradient: 'linear-gradient(135deg,#667eea,#764ba2)',
+        price:    37,
+        files: [
+            { icon:'📦', bg:'#F0EDFF', name:'Blueprint Make.com', meta:'JSON · Importar en Make.com', url:'blueprints/agentesva-recordatorio-citas-v1.json', dl:'agentesva-recordatorio-citas-v1.json' },
+            { icon:'📄', bg:'#EEF2FF', name:'Guía de configuración', meta:'PDF · Paso a paso', url:'guias/agentesva-guia-03-recordatorio-citas.pdf', dl:'agentesva-guia-03-recordatorio-citas.pdf' }
+        ],
+        steps: [
+            { t:'Conecta Google Calendar', d:'Importa el blueprint y autoriza tu cuenta de Google Calendar en Make.com.' },
+            { t:'Configura el tiempo de aviso', d:'En el módulo de filtro, ajusta cuántas horas antes quieres enviar el recordatorio (24h, 48h, etc.).' },
+            { t:'Activa y reduce no-shows', d:'El agente revisará tu calendario cada hora y enviará recordatorios automáticamente.' }
+        ]
+    },
+    'agente-bienvenida': {
+        name:     'Agente de Bienvenida',
+        icon:     '👋',
+        seg:      'Onboarding · Gmail',
+        gradient: 'linear-gradient(135deg,#f093fb,#f5576c)',
+        price:    37,
+        files: [
+            { icon:'📦', bg:'#FFF0F8', name:'Blueprint Make.com', meta:'JSON · Importar en Make.com', url:'blueprints/agentesva-agente-bienvenida-v1.json', dl:'agentesva-agente-bienvenida-v1.json' },
+            { icon:'📄', bg:'#EEF2FF', name:'Guía de configuración', meta:'PDF · Paso a paso', url:'guias/agentesva-guia-04-agente-bienvenida.pdf', dl:'agentesva-guia-04-agente-bienvenida.pdf' }
+        ],
+        steps: [
+            { t:'Importa y conecta Gmail', d:'Sube el blueprint a Make.com. Autoriza Gmail y OpenAI (necesitas API key de OpenAI).' },
+            { t:'Personaliza el prompt', d:'En el módulo de OpenAI, edita el system prompt con el tono y datos de tu negocio.' },
+            { t:'Define el trigger', d:'Configura qué correos activarán el agente: por asunto, remitente o etiqueta de Gmail.' }
+        ]
+    },
+    /* ── AGENTES $47 ── */
+    'asistente-cotizaciones': {
+        name:     'Asistente de Cotizaciones',
+        icon:     '📋',
+        seg:      'Ventas · Google Docs',
+        gradient: 'linear-gradient(135deg,#4facfe,#00c6fb)',
+        price:    47,
+        files: [
+            { icon:'📦', bg:'#E8F5FF', name:'Blueprint Make.com', meta:'JSON · Importar en Make.com', url:'blueprints/agentesva-asistente-cotizaciones-v1.json', dl:'agentesva-asistente-cotizaciones-v1.json' },
+            { icon:'📄', bg:'#EEF2FF', name:'Guía de configuración', meta:'PDF · Paso a paso', url:'guias/agentesva-guia-05-asistente-cotizaciones.pdf', dl:'agentesva-guia-05-asistente-cotizaciones.pdf' }
+        ],
+        steps: [
+            { t:'Crea tu plantilla en Docs', d:'Duplica la plantilla de cotización de la guía. El agente copiará esta plantilla por cada nueva cotización.' },
+            { t:'Conecta Gmail + Docs + OpenAI', d:'Autoriza las tres conexiones en Make.com. La guía incluye cada paso en screenshots.' },
+            { t:'Responde cotizaciones en minutos', d:'Cuando llegue un correo de solicitud, el agente genera la cotización y te la envía lista para revisar.' }
+        ]
+    },
+    'generador-contenido': {
+        name:     'Generador de Contenido',
+        icon:     '✍️',
+        seg:      'Marketing · Sheets',
+        gradient: 'linear-gradient(135deg,#0920cc,#3d50ff)',
+        price:    47,
+        files: [
+            { icon:'📦', bg:'#EDFFF6', name:'Blueprint Make.com', meta:'JSON · Importar en Make.com', url:'blueprints/agentesva-generador-contenido-v1.json', dl:'agentesva-generador-contenido-v1.json' },
+            { icon:'📄', bg:'#EEF2FF', name:'Guía de configuración', meta:'PDF · Paso a paso', url:'guias/agentesva-guia-06-generador-contenido.pdf', dl:'agentesva-guia-06-generador-contenido.pdf' }
+        ],
+        steps: [
+            { t:'Copia la plantilla editorial', d:'Duplica el Google Sheet de la guía. Ahí definirás los temas, red social y tono por semana.' },
+            { t:'Conecta Sheets + OpenAI', d:'Autoriza las conexiones y pega tu API key de OpenAI en el módulo correspondiente.' },
+            { t:'Activa el trigger semanal', d:'Configura que el escenario se ejecute cada lunes a las 8am. Tu contenido de la semana estará listo.' }
+        ]
+    },
+    'agente-reactivacion': {
+        name:     'Agente de Reactivación',
+        icon:     '🔁',
+        seg:      'Retención · Gmail',
+        gradient: 'linear-gradient(135deg,#fa709a,#fee140)',
+        price:    47,
+        files: [
+            { icon:'📦', bg:'#FFF5F9', name:'Blueprint Make.com', meta:'JSON · Importar en Make.com', url:'blueprints/agentesva-agente-reactivacion-v1.json', dl:'agentesva-agente-reactivacion-v1.json' },
+            { icon:'📄', bg:'#EEF2FF', name:'Guía de configuración', meta:'PDF · Paso a paso', url:'guias/agentesva-guia-07-agente-reactivacion.pdf', dl:'agentesva-guia-07-agente-reactivacion.pdf' }
+        ],
+        steps: [
+            { t:'Sube tu lista de clientes', d:'Agrega los clientes a tu Google Sheet de seguimiento con su último contacto. La plantilla está en la guía.' },
+            { t:'Ajusta el tiempo de inactividad', d:'Define cuántos días sin contacto disparan el agente (ej: 60 días). Edita el filtro en Make.' },
+            { t:'Recupera clientes dormidos', d:'El agente detecta inactivos cada semana y envía mensajes personalizados con GPT-4o.' }
+        ]
+    },
+    /* ── AGENTES $57 ── */
+    'clasificador-leads-inmobiliarios': {
+        name:     'Clasificador de Leads Inmob.',
+        icon:     '🏠',
+        seg:      'Inmobiliaria · Gmail',
+        gradient: 'linear-gradient(135deg,#30cfd0,#1a6b8a)',
+        price:    57,
+        files: [
+            { icon:'📦', bg:'#E8FFFE', name:'Blueprint Make.com', meta:'JSON · Importar en Make.com', url:'blueprints/agentesva-clasificador-leads-inmobiliarios-v1.json', dl:'agentesva-clasificador-leads-inmobiliarios-v1.json' },
+            { icon:'📄', bg:'#EEF2FF', name:'Guía de configuración', meta:'PDF · Paso a paso', url:'guias/agentesva-guia-08-clasificador-leads-inmobiliarios.pdf', dl:'agentesva-guia-08-clasificador-leads-inmobiliarios.pdf' }
+        ],
+        steps: [
+            { t:'Configura tu Sheet de leads', d:'Duplica la plantilla con columnas: Nombre, Email, Fuente, Zona, Presupuesto, Score. La guía incluye el link.' },
+            { t:'Conecta Gmail + Sheets + OpenAI', d:'El agente lee correos de leads, extrae datos con GPT-4o y calcula el score automáticamente.' },
+            { t:'Prioriza y cierra más ventas', d:'Enfócate en los leads con score alto. El Sheet se actualiza en tiempo real con cada nuevo lead.' }
+        ]
+    },
+    /* ── AGENTES $67 ── */
+    'agente-soporte-faq': {
+        name:     'Agente de Soporte FAQ',
+        icon:     '💬',
+        seg:      'Soporte · Gmail',
+        gradient: 'linear-gradient(135deg,#a8edea,#7eb8d4)',
+        price:    67,
+        files: [
+            { icon:'📦', bg:'#EDFEFF', name:'Blueprint Make.com', meta:'JSON · Importar en Make.com', url:'blueprints/agentesva-agente-soporte-faq-v1.json', dl:'agentesva-agente-soporte-faq-v1.json' },
+            { icon:'📄', bg:'#EEF2FF', name:'Guía de configuración', meta:'PDF · Paso a paso', url:'guias/agentesva-guia-09-agente-soporte-faq.pdf', dl:'agentesva-guia-09-agente-soporte-faq.pdf' }
+        ],
+        steps: [
+            { t:'Crea tu base de conocimiento', d:'Documenta tus 10-20 preguntas frecuentes en el Sheet de la guía. El agente aprende de este documento.' },
+            { t:'Conecta Gmail + Sheets + OpenAI', d:'Autoriza las tres conexiones. El agente leerá correos entrantes y buscará la respuesta en tu FAQ.' },
+            { t:'Soporte 24/7 sin intervención', d:'El agente responde automáticamente. Si no encuentra respuesta, te reenvía el correo para responder tú.' }
+        ]
+    },
+    /* ── PROMPTS FREE ── */
+    'prompt-clasificador-correos': {
+        name:     'Prompt Clasificador de Correos',
+        icon:     '📧',
+        seg:      'Productividad · ChatGPT / Claude',
+        gradient: 'linear-gradient(135deg,#3d50ff,#0920cc)',
+        price:    0,
+        files: [
+            { icon:'📝', bg:'#FFF0E8', name:'System prompt completo', meta:'TXT · Copiar en ChatGPT o Claude', url:'prompts/agentesva-clasificador-correos-v1.txt', dl:'agentesva-prompt-clasificador-correos.txt' }
+        ],
+        steps: [
+            { t:'Abre ChatGPT o Claude', d:'Ve a chatgpt.com o claude.ai. Crea una nueva conversación.' },
+            { t:'Pega el system prompt', d:'En ChatGPT: Instrucciones personalizadas → "¿Qué quieres que sepa?". En Claude: primer mensaje.' },
+            { t:'Empieza a clasificar', d:'Pega el asunto y cuerpo de correos que quieras clasificar. El prompt devuelve la etiqueta exacta.' }
+        ]
+    },
+    'prompt-email-resenas': {
+        name:     'Template Email Reseñas Google',
+        icon:     '⭐',
+        seg:      'Reputación · Gmail / Email',
+        gradient: 'linear-gradient(135deg,#FFB347,#E88000)',
+        price:    0,
+        files: [
+            { icon:'📝', bg:'#FFF8E8', name:'Template HTML de email', meta:'TXT · Copiar en tu cliente de email', url:'prompts/agentesva-colector-resenas-v1.txt', dl:'agentesva-template-email-resenas.txt' }
+        ],
+        steps: [
+            { t:'Copia el template', d:'Abre el archivo .txt y copia el HTML completo.' },
+            { t:'Pega tu link de Google Reviews', d:'Reemplaza [PEGAR_AQUÍ_TU_LINK_DE_GOOGLE_REVIEWS] con el link de tu perfil de Google Business.' },
+            { t:'Personaliza y envía', d:'Actualiza tu nombre, negocio y teléfono. Envía el email 7 días después de cada servicio.' }
+        ]
+    },
+    /* ── PROMPTS PAID ── */
+    'prompt-contenido-semanal': {
+        name:     'Pack Contenido Semanal',
+        icon:     '✍️',
+        seg:      'Marketing · ChatGPT / Claude / Gemini',
+        gradient: 'linear-gradient(135deg,#6a11cb,#2575fc)',
+        price:    19,
+        files: [
+            { icon:'📝', bg:'#F0EEFF', name:'5 prompts de contenido', meta:'TXT · Instagram · LinkedIn · X', url:'#', dl:'agentesva-pack-contenido-semanal.txt' }
+        ],
+        steps: [
+            { t:'Elige tu red social', d:'El pack incluye prompts específicos para Instagram, LinkedIn y X/Twitter. Usa el que aplique.' },
+            { t:'Personaliza el contexto', d:'Cada prompt tiene secciones [ENTRE CORCHETES] para completar con tus datos de negocio.' },
+            { t:'Genera y publica', d:'Pega el prompt en ChatGPT, Claude o Gemini. Obtienes publicaciones listas para copiar y pegar.' }
+        ]
+    },
+    'prompt-cotizaciones': {
+        name:     'Pack Prompts de Cotización',
+        icon:     '📋',
+        seg:      'Ventas · ChatGPT / Claude',
+        gradient: 'linear-gradient(135deg,#11998e,#38ef7d)',
+        price:    27,
+        files: [
+            { icon:'📝', bg:'#EDFFF8', name:'4 prompts de cotización', meta:'TXT · Propuestas y presupuestos', url:'#', dl:'agentesva-pack-cotizaciones.txt' }
+        ],
+        steps: [
+            { t:'Lee el email del cliente', d:'Identifica qué servicio pide, plazos y expectativas. Esa info va en el prompt.' },
+            { t:'Usa el prompt correspondiente', d:'El pack incluye prompts para: servicio único, proyecto, retención mensual y propuesta ejecutiva.' },
+            { t:'Cotización en 30 segundos', d:'Pega el resultado en tu template de cotización. Revisa números y envía al cliente.' }
+        ]
+    },
+    /* ── V2.0 NUMERIC ID ALIASES ── */
+    'agent-1': { name:'Clasificador de Correos', icon:'📥', seg:'Inbox · Gmail', gradient:'linear-gradient(135deg,#3d50ff,#0920cc)', price:0, files:[{icon:'📦',bg:'#FFF0E8',name:'Blueprint Make.com',meta:'JSON · Importar en Make.com',url:'blueprints/agentesva-clasificador-correos-v1.json',dl:'agentesva-clasificador-correos-v1.json'},{icon:'📄',bg:'#EEF2FF',name:'Guía de configuración',meta:'PDF · Paso a paso',url:'guias/agentesva-guia-01-clasificador-correos.pdf',dl:'agentesva-guia-01-clasificador-correos.pdf'}], steps:[{t:'Importa el blueprint',d:'Ve a Make.com → "Escenarios" → "Importar blueprint". Sube el archivo .json.'},{t:'Conecta Gmail',d:'Haz clic en el módulo de Gmail y autoriza tu cuenta. Solo tardas 2 minutos.'},{t:'Activa el escenario',d:'Haz clic en el switch "On/Off". Tu agente empieza a clasificar correos.'}]},
+    'agent-2': { name:'Colector de Reseñas Google', icon:'⭐', seg:'Reputación · Gmail', gradient:'linear-gradient(135deg,#FFB347,#E88000)', price:0, files:[{icon:'📦',bg:'#FFF8E8',name:'Blueprint Make.com',meta:'JSON',url:'blueprints/agentesva-colector-resenas-v1.json',dl:'agentesva-colector-resenas-v1.json'},{icon:'📄',bg:'#EEF2FF',name:'Guía de configuración',meta:'PDF',url:'guias/agentesva-guia-02-colector-resenas.pdf',dl:'agentesva-guia-02-colector-resenas.pdf'}], steps:[{t:'Configura tu Google Sheet',d:'Crea un Sheet con las columnas: Nombre, Email, Servicio, Fecha_Servicio, Reseña_Enviada.'},{t:'Importa y conecta',d:'Sube el blueprint y conecta Gmail + Google Sheets.'},{t:'Activa y recibe reseñas',d:'El agente enviará emails automáticos 7 días después de cada servicio.'}]},
+    'agent-3': { name:'Recordatorio de Citas', icon:'⏰', seg:'Citas · Calendar', gradient:'linear-gradient(135deg,#667eea,#764ba2)', price:29, files:[{icon:'📦',bg:'#F0EDFF',name:'Blueprint Make.com',meta:'JSON',url:'blueprints/agentesva-recordatorio-citas-v1.json',dl:'agentesva-recordatorio-citas-v1.json'},{icon:'📄',bg:'#EEF2FF',name:'Guía de configuración',meta:'PDF',url:'guias/agentesva-guia-03-recordatorio-citas.pdf',dl:'agentesva-guia-03-recordatorio-citas.pdf'}], steps:[{t:'Conecta Google Calendar',d:'Importa el blueprint y autoriza tu cuenta de Google Calendar.'},{t:'Configura el tiempo de aviso',d:'Ajusta cuántas horas antes quieres enviar el recordatorio.'},{t:'Activa y reduce no-shows',d:'El agente revisará tu calendario cada hora.'}]},
+    'agent-4': { name:'Agente de Bienvenida', icon:'🎯', seg:'Onboarding · Gmail', gradient:'linear-gradient(135deg,#f093fb,#f5576c)', price:29, files:[{icon:'📦',bg:'#FFF0F8',name:'Blueprint Make.com',meta:'JSON',url:'blueprints/agentesva-agente-bienvenida-v1.json',dl:'agentesva-agente-bienvenida-v1.json'},{icon:'📄',bg:'#EEF2FF',name:'Guía de configuración',meta:'PDF',url:'guias/agentesva-guia-04-agente-bienvenida.pdf',dl:'agentesva-guia-04-agente-bienvenida.pdf'}], steps:[{t:'Importa y conecta Gmail',d:'Sube el blueprint. Autoriza Gmail y OpenAI.'},{t:'Personaliza el prompt',d:'Edita el system prompt con el tono de tu negocio.'},{t:'Define el trigger',d:'Configura qué correos activarán el agente.'}]},
+    'agent-5': { name:'Detector de Leads Instagram', icon:'🔍', seg:'Social · Instagram', gradient:'linear-gradient(135deg,#f77062,#fe5196)', price:39, files:[{icon:'📦',bg:'#FFF0F8',name:'Workflow Make.com',meta:'JSON',url:'',dl:'agentesva-detector-leads-instagram-v1.json'},{icon:'📄',bg:'#EEF2FF',name:'Guía de configuración',meta:'PDF',url:'',dl:'agentesva-guia-05-detector-leads.pdf'}], steps:[{t:'Conecta Instagram',d:'Autoriza tu cuenta de Instagram Business en Make.com.'},{t:'Configura palabras clave',d:'Define las palabras que identifican a potenciales clientes.'},{t:'Activa y captura leads',d:'El agente detectará menciones y las registrará en tu Sheet.'}]},
+    'agent-6': { name:'Asistente de Cotizaciones', icon:'💬', seg:'Ventas · Google Docs', gradient:'linear-gradient(135deg,#4facfe,#00c6fb)', price:39, files:[{icon:'📦',bg:'#E8F5FF',name:'Blueprint Make.com',meta:'JSON',url:'blueprints/agentesva-asistente-cotizaciones-v2.json',dl:'agentesva-asistente-cotizaciones-v2.json'},{icon:'📄',bg:'#EEF2FF',name:'Guía de configuración',meta:'PDF',url:'',dl:'agentesva-guia-06-cotizaciones.pdf'}], steps:[{t:'Importa el blueprint',d:'Sube el JSON a Make.com y conecta Gmail y Google Docs.'},{t:'Personaliza el template',d:'Edita la plantilla de cotización con los datos de tu empresa.'},{t:'Activa y cotiza automático',d:'El agente genera cotizaciones al detectar correos con solicitudes.'}]},
+    'agent-7': { name:'Agente de Reactivación', icon:'🔄', seg:'Retención · Gmail', gradient:'linear-gradient(135deg,#fa709a,#fee140)', price:39, files:[{icon:'📦',bg:'#FFF8E0',name:'Blueprint Make.com',meta:'JSON',url:'',dl:'agentesva-agente-reactivacion-v1.json'},{icon:'📄',bg:'#EEF2FF',name:'Guía de configuración',meta:'PDF',url:'',dl:'agentesva-guia-07-reactivacion.pdf'}], steps:[{t:'Configura tu Sheet de clientes',d:'Crea una columna "Última compra" en tu Google Sheet.'},{t:'Importa y conecta',d:'Conecta Make.com con Gmail y Google Sheets.'},{t:'Define el plazo de inactividad',d:'El agente detectará clientes sin compras en X días.'}]},
+    'agent-8': { name:'Generador de Contenido Semanal', icon:'✍️', seg:'Marketing · Sheets', gradient:'linear-gradient(135deg,#0920cc,#3d50ff)', price:49, files:[{icon:'📦',bg:'#E8FFF4',name:'Blueprint Make.com',meta:'JSON',url:'blueprints/agentesva-generador-contenido-v2.json',dl:'agentesva-generador-contenido-v2.json'},{icon:'📄',bg:'#EEF2FF',name:'Guía de configuración',meta:'PDF',url:'',dl:'agentesva-guia-08-contenido.pdf'}], steps:[{t:'Prepara tu Google Sheet',d:'Completa la plantilla con tu nicho, tono y temas preferidos.'},{t:'Importa y conecta OpenAI',d:'Conecta Make.com con tu API key de OpenAI.'},{t:'Activa y publica',d:'Cada lunes recibirás 7 ideas de contenido listas para usar.'}]},
+    'agent-9': { name:'Clasificador de Leads Inmobiliarios', icon:'🏠', seg:'Inmobiliaria · Gmail', gradient:'linear-gradient(135deg,#30cfd0,#1a6b8a)', price:49, files:[{icon:'📦',bg:'#E8FAFF',name:'Blueprint Make.com',meta:'JSON',url:'blueprints/agentesva-clasificador-leads-inmob-v2.json',dl:'agentesva-clasificador-leads-inmob-v2.json'},{icon:'📄',bg:'#EEF2FF',name:'Guía de configuración',meta:'PDF',url:'',dl:'agentesva-guia-09-leads-inmob.pdf'}], steps:[{t:'Importa el blueprint',d:'Sube el JSON a Make.com y conecta Gmail.'},{t:'Configura criterios de calificación',d:'Edita el system prompt con tus criterios de leads ideales.'},{t:'Activa y prioriza',d:'Cada lead recibe un score 1-10 en tu Google Sheet automáticamente.'}]},
+    'agent-10': { name:'Agente de Soporte FAQ', icon:'💡', seg:'Soporte · Gmail', gradient:'linear-gradient(135deg,#a18cd1,#fbc2eb)', price:67, files:[{icon:'📦',bg:'#F5F0FF',name:'Blueprint Make.com',meta:'JSON',url:'',dl:'agentesva-agente-soporte-faq-v1.json'},{icon:'📄',bg:'#EEF2FF',name:'Guía de configuración',meta:'PDF',url:'',dl:'agentesva-guia-10-faq.pdf'}], steps:[{t:'Prepara tu base de conocimiento',d:'Completa la plantilla de Sheets con tus preguntas frecuentes y respuestas.'},{t:'Importa y conecta',d:'Conecta Make.com con Gmail y OpenAI.'},{t:'Activa y responde solo',d:'El agente leerá cada correo y responderá usando tu base de conocimiento.'}]},
+    /* ── N8N AGENTS ── */
+    'agent-101': { name:'Dashboard de Ventas Automático', icon:'📊', seg:'Analytics · Sheets', gradient:'linear-gradient(135deg,#3d50ff,#0920cc)', price:0, files:[{icon:'📦',bg:'#FFF0E8',name:'Workflow N8N',meta:'JSON · Importar en N8N',url:'',dl:'agentesva-dashboard-ventas-n8n-v1.json'},{icon:'📄',bg:'#EEF2FF',name:'Guía de configuración',meta:'PDF',url:'',dl:'agentesva-guia-n8n-01-dashboard.pdf'}], steps:[{t:'Importa el workflow',d:'En N8N, ve a "Workflows" → "Import" y sube el archivo JSON.'},{t:'Conecta Google Sheets',d:'Autoriza tu cuenta de Google en el nodo de Sheets.'},{t:'Activa y visualiza',d:'Tu dashboard se actualiza automáticamente cada día con tus ventas.'}]},
+    'agent-102': { name:'Sistema de Email Marketing Inteligente', icon:'📧', seg:'Marketing · Email', gradient:'linear-gradient(135deg,#667eea,#764ba2)', price:29, files:[{icon:'📦',bg:'#F0EDFF',name:'Workflow N8N',meta:'JSON',url:'',dl:'agentesva-email-marketing-n8n-v1.json'},{icon:'📄',bg:'#EEF2FF',name:'Guía de configuración',meta:'PDF',url:'',dl:'agentesva-guia-n8n-02-email.pdf'}], steps:[{t:'Importa el workflow',d:'Sube el JSON a N8N.'},{t:'Configura tu lista',d:'Conecta tu Google Sheet de contactos y define los segmentos.'},{t:'Activa las campañas',d:'El sistema envía emails automáticos según el comportamiento de cada contacto.'}]},
+    'agent-103': { name:'Agente de WhatsApp Inteligente', icon:'🤖', seg:'Mensajería · WhatsApp', gradient:'linear-gradient(135deg,#25d366,#128c7e)', price:39, files:[{icon:'📦',bg:'#E8FFF4',name:'Workflow N8N',meta:'JSON',url:'',dl:'agentesva-whatsapp-n8n-v1.json'},{icon:'📄',bg:'#EEF2FF',name:'Guía de configuración',meta:'PDF',url:'',dl:'agentesva-guia-n8n-03-whatsapp.pdf'}], steps:[{t:'Configura WhatsApp Business API',d:'Necesitas una cuenta de WhatsApp Business y acceso a la API.'},{t:'Importa y personaliza',d:'Sube el workflow y edita el system prompt con tu información.'},{t:'Activa',d:'Tu agente responderá consultas en WhatsApp las 24 horas.'}]},
+    'agent-104': { name:'CRM Ligero Automatizado', icon:'📋', seg:'Ventas · CRM', gradient:'linear-gradient(135deg,#4facfe,#00c6fb)', price:39, files:[{icon:'📦',bg:'#E8F5FF',name:'Workflow N8N',meta:'JSON',url:'',dl:'agentesva-crm-n8n-v1.json'},{icon:'📄',bg:'#EEF2FF',name:'Guía de configuración',meta:'PDF',url:'',dl:'agentesva-guia-n8n-04-crm.pdf'}], steps:[{t:'Prepara tu Google Sheet CRM',d:'Usa la plantilla incluida con columnas de nombre, email, estado y última interacción.'},{t:'Conecta tus canales',d:'Autoriza Gmail y WhatsApp en N8N.'},{t:'Activa',d:'Cada contacto nuevo se registra automáticamente en tu CRM.'}]},
+    'agent-105': { name:'Integrador Multi-Canal', icon:'🔗', seg:'Integración · Multi-canal', gradient:'linear-gradient(135deg,#f7971e,#ffd200)', price:49, files:[{icon:'📦',bg:'#FFFBE8',name:'Workflow N8N',meta:'JSON',url:'',dl:'agentesva-multicanal-n8n-v1.json'},{icon:'📄',bg:'#EEF2FF',name:'Guía de configuración',meta:'PDF',url:'',dl:'agentesva-guia-n8n-05-multicanal.pdf'}], steps:[{t:'Importa el workflow',d:'Sube el JSON a N8N.'},{t:'Conecta los 4 canales',d:'Autoriza WhatsApp, Gmail, Slack y tu CRM.'},{t:'Activa la integración',d:'Todos los mensajes de tus canales se unifican en un solo flujo.'}]},
+    'agent-106': { name:'Asistente de Contenido con Memoria', icon:'🧠', seg:'Marketing · IA', gradient:'linear-gradient(135deg,#a18cd1,#fbc2eb)', price:67, files:[{icon:'📦',bg:'#F5F0FF',name:'Workflow N8N',meta:'JSON',url:'',dl:'agentesva-contenido-memoria-n8n-v1.json'},{icon:'📄',bg:'#EEF2FF',name:'Guía de configuración',meta:'PDF',url:'',dl:'agentesva-guia-n8n-06-memoria.pdf'}], steps:[{t:'Configura la memoria',d:'El workflow usa una Google Sheet como memoria de largo plazo de tu contenido.'},{t:'Importa y conecta OpenAI',d:'Conecta tu API key de OpenAI en N8N.'},{t:'Activa',d:'El asistente genera contenido coherente recordando tu historial y métricas.'}]},
+    /* ── FREE-AGENT KEYS ── */
+    'agent-free-1': { name:'Clasificador de Correos', icon:'📥', seg:'Inbox · Gmail', gradient:'linear-gradient(135deg,#3d50ff,#0920cc)', price:0, files:[{icon:'📦',bg:'#FFF0E8',name:'Blueprint Make.com',meta:'JSON',url:'blueprints/agentesva-clasificador-correos-v1.json',dl:'agentesva-clasificador-correos-v1.json'},{icon:'📄',bg:'#EEF2FF',name:'Guía de configuración',meta:'PDF',url:'guias/agentesva-guia-01-clasificador-correos.pdf',dl:'agentesva-guia-01-clasificador-correos.pdf'}], steps:[{t:'Importa el blueprint',d:'Ve a Make.com → "Escenarios" → "Importar blueprint".'},{t:'Conecta Gmail',d:'Autoriza tu cuenta. Solo tardas 2 minutos.'},{t:'Activa el escenario',d:'Haz clic en el switch "On/Off".'}]},
+    'agent-free-2': { name:'Colector de Reseñas Google', icon:'⭐', seg:'Reputación · Gmail', gradient:'linear-gradient(135deg,#FFB347,#E88000)', price:0, files:[{icon:'📦',bg:'#FFF8E8',name:'Blueprint Make.com',meta:'JSON',url:'blueprints/agentesva-colector-resenas-v1.json',dl:'agentesva-colector-resenas-v1.json'},{icon:'📝',bg:'#F0FFF9',name:'Template de email',meta:'TXT',url:'prompts/agentesva-colector-resenas-v1.txt',dl:'agentesva-template-resenas.txt'},{icon:'📄',bg:'#EEF2FF',name:'Guía de configuración',meta:'PDF',url:'guias/agentesva-guia-02-colector-resenas.pdf',dl:'agentesva-guia-02-colector-resenas.pdf'}], steps:[{t:'Configura tu Google Sheet',d:'Crea un Sheet con columnas: Nombre, Email, Servicio, Fecha_Servicio, Reseña_Enviada.'},{t:'Importa y conecta',d:'Sube el blueprint y conecta Gmail + Google Sheets.'},{t:'Activa y recibe reseñas',d:'El agente enviará emails automáticos 7 días después de cada servicio.'}]},
+    'agent-free-101': { name:'Dashboard de Ventas Automático', icon:'📊', seg:'Analytics · Sheets', gradient:'linear-gradient(135deg,#3d50ff,#0920cc)', price:0, files:[{icon:'📦',bg:'#FFF0E8',name:'Workflow N8N',meta:'JSON',url:'',dl:'agentesva-dashboard-ventas-n8n-v1.json'},{icon:'📄',bg:'#EEF2FF',name:'Guía de configuración',meta:'PDF',url:'',dl:'agentesva-guia-n8n-01-dashboard.pdf'}], steps:[{t:'Importa el workflow',d:'En N8N, ve a "Workflows" → "Import" y sube el archivo JSON.'},{t:'Conecta Google Sheets',d:'Autoriza tu cuenta de Google.'},{t:'Activa y visualiza',d:'Tu dashboard se actualiza automáticamente cada día.'}]}
+};
+
+/* ── RENDER ──────────────────────────────────────────── */
+function render() {
+    var params  = new URLSearchParams(window.location.search);
+    var id      = params.get('product') || '';
+    var type    = params.get('type') || 'free';
+    var product = PRODUCTS[id];
+    var el      = document.getElementById('main-content');
+
+    if (!product) {
+        el.innerHTML =
+            '<div class="text-center py-20 px-8">' +
+            '<span class="material-symbols-outlined text-6xl text-ink-3 mb-4 block">search_off</span>' +
+            '<h2 class="font-serif text-2xl font-bold text-ink mb-3">No encontramos tu producto</h2>' +
+            '<p class="text-ink-3 mb-8">El enlace puede haber expirado o ser incorrecto.<br>Revisa tu email de confirmaci\u00f3n.</p>' +
+            '<a href="/catalogo/" class="inline-flex px-8 py-4 bg-gradient-to-r from-ink to-clay text-paper font-bold rounded-full shadow-lg hover:shadow-xl transition-all active:scale-95">Ver cat\u00e1logo completo &rarr;</a>' +
+            '</div>';
+        return;
+    }
+
+    var isFree   = product.price === 0;
+    var badgeHtml = isFree
+        ? '<span class="inline-block px-3 py-1 bg-ink text-paper text-[10px] font-bold uppercase tracking-widest rounded-full">Acceso gratuito</span>'
+        : '<span class="inline-block px-3 py-1 bg-gradient-to-r from-ink to-clay text-paper text-[10px] font-bold uppercase tracking-widest rounded-full">Compra confirmada</span>';
+
+    var filesHtml = product.files.map(function(f) {
+        return '<div class="fade-in flex items-center gap-4 bg-card rounded-2xl border border-line-soft/10 p-5 shadow-sm hover:shadow-lg transition-shadow">' +
+            '<div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0" style="background:' + f.bg + '">' + f.icon + '</div>' +
+            '<div class="flex-1 min-w-0">' +
+            '<p class="font-bold text-ink text-sm mb-0.5">' + f.name + '</p>' +
+            '<p class="text-xs text-ink-3 uppercase tracking-wide">' + f.meta + '</p>' +
+            '</div>' +
+            '<a href="' + f.url + '" download="' + f.dl + '" class="flex-shrink-0 px-4 py-2 bg-gradient-to-r from-ink to-clay text-paper text-sm font-bold rounded-full shadow hover:shadow-lg transition-all active:scale-95">Descargar &darr;</a>' +
+            '</div>';
+    }).join('');
+
+    var stepsHtml = product.steps.map(function(s, i) {
+        return '<div class="fade-in bg-card rounded-2xl border border-line-soft/10 p-6">' +
+            '<div class="w-7 h-7 rounded-full bg-gradient-to-br from-ink to-clay text-paper text-xs font-bold flex items-center justify-center shadow mb-4">' + (i+1) + '</div>' +
+            '<p class="font-bold text-ink text-sm mb-1">' + s.t + '</p>' +
+            '<p class="text-xs text-ink-3 leading-relaxed">' + s.d + '</p>' +
+            '</div>';
+    }).join('');
+
+    var confirmMsg = isFree
+        ? '\u00a1Tu agente est\u00e1 en camino!'
+        : '\u00a1Gracias por tu compra!';
+    var confirmSub = isFree
+        ? 'Revisa tu email en los pr\u00f3ximos 5 minutos. Incluye el blueprint, la gu\u00eda de activaci\u00f3n, y un video de 2 minutos para tenerlo funcionando hoy.'
+        : 'Recibir\u00e1s un email con los pr\u00f3ximos pasos en menos de 5 minutos.';
+
+    el.innerHTML =
+        '<!-- Check -->' +
+        '<div class="fade-in flex flex-col items-center gap-4 mb-12 text-center">' +
+        '<div class="animate-pop-in w-18 h-18 w-[72px] h-[72px] bg-ink rounded-full flex items-center justify-center shadow-xl">' +
+        '<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="30" stroke-dashoffset="30" class="animate-check"><polyline points="6,16 13,23 26,10"/></svg>' +
+        '</div>' +
+        '<div>' +
+        '<p class="font-serif text-2xl md:text-3xl font-black text-ink">' + confirmMsg + '</p>' +
+        '<p class="text-ink-3 mt-2 max-w-md mx-auto text-sm leading-relaxed">' + confirmSub + '</p>' +
+        '</div>' +
+        '</div>' +
+
+        '<!-- Hero Banner -->' +
+        '<div class="fade-in rounded-2xl overflow-hidden mb-10">' +
+        '<div class="flex items-end gap-6 p-8 pb-0 min-h-[120px]" style="background:' + product.gradient + '">' +
+        '<div class="text-6xl filter drop-shadow-lg leading-none flex-shrink-0 mb-[-8px]">' + product.icon + '</div>' +
+        '<div class="pb-6">' +
+        '<p class="text-xs text-white/70 font-mono uppercase tracking-widest mb-1">' + product.seg + '</p>' +
+        '<h1 class="font-serif text-2xl md:text-3xl font-black text-white drop-shadow">' + product.name + '</h1>' +
+        '</div>' +
+        '</div>' +
+        '<div class="bg-paper px-8 py-4 flex items-center justify-between gap-4 flex-wrap">' +
+        '<span class="text-xs text-ink-3 uppercase tracking-wide font-medium">AgentesVA &middot; Make.com Blueprint</span>' +
+        badgeHtml +
+        '</div>' +
+        '</div>' +
+
+        '<!-- Downloads -->' +
+        '<p class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-clay mb-4 fade-in">' +
+        '<span class="inline-block w-5 h-0.5 bg-ink rounded"></span> Tus archivos' +
+        '</p>' +
+        '<div class="flex flex-col gap-3 mb-10">' + filesHtml + '</div>' +
+
+        '<!-- Steps -->' +
+        '<p class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-clay mb-4 fade-in">' +
+        '<span class="inline-block w-5 h-0.5 bg-ink rounded"></span> Siguientes pasos' +
+        '</p>' +
+        '<div class="grid sm:grid-cols-3 gap-4 mb-10">' + stepsHtml + '</div>' +
+
+        '<!-- Email reminder -->' +
+        '<div class="fade-in flex items-center gap-5 bg-paper rounded-2xl p-6 mb-10 flex-wrap">' +
+        '<span class="text-3xl flex-shrink-0">&#x1F4EC;</span>' +
+        '<div class="flex-1 min-w-40">' +
+        '<p class="font-bold text-ink text-sm mb-1">Guarda este link</p>' +
+        '<p class="text-xs text-ink-3">Puedes volver a esta p\u00e1gina cuando quieras usando el link de tu email de confirmaci\u00f3n.</p>' +
+        '</div>' +
+        '<span class="text-xs font-mono text-clay bg-ink/10 px-3 py-1.5 rounded-full flex-shrink-0">' + id + '</span>' +
+        '</div>' +
+
+        '<!-- CTA -->' +
+        '<div class="fade-in flex items-center gap-4 flex-wrap">' +
+        '<a href="/catalogo/" class="px-8 py-4 bg-gradient-to-r from-ink to-clay text-paper font-bold rounded-full shadow-lg hover:shadow-xl transition-all active:scale-95">Ver m\u00e1s agentes &rarr;</a>' +
+        '<a href="/" class="text-sm text-ink-3 hover:text-ink transition-colors">Volver al inicio &rarr;</a>' +
+        '</div>';
+}
+
+document.addEventListener('DOMContentLoaded', render);
+</script>
+
+<script is:inline>
+mixpanel.track('lead_form_submitted', {
+    product: new URLSearchParams(window.location.search).get('product'),
+    type: new URLSearchParams(window.location.search).get('type')
+  });
+</script>

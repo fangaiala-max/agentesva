@@ -1,0 +1,37 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    publishedAt: Date;
+    updatedAt?: Date;
+    author: string;
+    ogImage?: string;
+  };
+}
+const { frontmatter } = Astro.props;
+---
+<BaseLayout
+  title={`${frontmatter.title} — AgentesVA`}
+  description={frontmatter.description}
+  ogImage={frontmatter.ogImage}
+  ogType="article"
+>
+  <Header />
+  <article class="container" style="padding: 80px 0; max-width: 760px;">
+    <header style="margin-bottom: 40px;">
+      <h1 class="serif">{frontmatter.title}</h1>
+      <p class="eyebrow" style="margin-top: 16px;">
+        {frontmatter.author} · {new Date(frontmatter.publishedAt).toLocaleDateString('es-ES')}
+      </p>
+    </header>
+    <div class="prose">
+      <slot />
+    </div>
+  </article>
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,23 @@
+---
+export interface Props {
+  cliente: string;
+  industria: string;
+  ciudad: string;
+  metrica: string;
+  metricaLabel: string;
+  descripcion: string;
+  featured?: boolean;
+}
+const { cliente, industria, ciudad, metrica, metricaLabel, descripcion, featured = false } = Astro.props;
+---
+<article class={`dirA-test-card${featured ? ' feat' : ''}`}>
+  <p class="dirA-test-quote">{descripcion}</p>
+  <div class="dirA-test-meta">
+    <div class="dirA-test-avatar">{cliente.charAt(0)}</div>
+    <div>
+      <div class="dirA-test-name">{cliente}</div>
+      <div class="dirA-test-role">{industria} · {ciudad}</div>
+    </div>
+  </div>
+  <div class="dirA-test-result">{metrica} {metricaLabel}</div>
+</article>

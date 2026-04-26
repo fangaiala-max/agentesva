@@ -1,0 +1,277 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileNav from '../components/MobileNav.astro';
+
+const bodyHtml = `<main id="main-content">
+
+    <!-- ==================== HERO ==================== -->
+    <section class="px-6 pt-16 pb-12 text-center">
+        <div class="max-w-3xl mx-auto">
+            <span class="inline-flex items-center gap-2 bg-ink/10 text-clay text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+                <span class="material-symbols-outlined text-sm">play_circle</span> Proceso &middot; 4 pasos &middot; 5 minutos
+            </span>
+            <h1 class="font-serif text-4xl md:text-6xl font-black text-ink leading-[0.95] tracking-tight mb-6">
+                De Compra a <span class="text-clay">Automatizaci&oacute;n</span> en Minutos.
+            </h1>
+            <p class="text-ink-3 text-lg leading-relaxed max-w-xl mx-auto mb-8">
+                No necesitas saber programar. No necesitas servidores. Solo necesitas 5 minutos y las cuentas que ya tienes.
+            </p>
+            <a href="/catalogo/" class="inline-flex px-8 py-4 bg-gradient-to-r from-ink to-clay text-paper font-bold rounded-full shadow-lg hover:shadow-xl transition-all active:scale-95">Empieza gratis hoy &rarr;</a>
+        </div>
+    </section>
+
+    <!-- ==================== 4 STEPS ==================== -->
+    <section class="px-6 py-16 bg-paper-2/30">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-flex items-center gap-2 text-clay text-xs font-bold uppercase tracking-widest mb-4">
+                    <span class="material-symbols-outlined text-sm">route</span> El proceso
+                </span>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink leading-tight mb-3">4 pasos. <span class="text-clay">Sin complicaciones.</span></h2>
+                <p class="text-ink-3 text-base max-w-md mx-auto">Dise&ntilde;ado para due&ntilde;os de negocio, no para desarrolladores.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+
+                <!-- Step 1 -->
+                <div class="bg-card rounded-2xl border border-line-soft/10 p-8 shadow-sm hover:shadow-lg transition-shadow relative overflow-hidden">
+                    <span class="absolute top-4 right-6 font-serif text-8xl font-black text-outline-variant/10 leading-none select-none">1</span>
+                    <div class="relative">
+                        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-ink to-clay flex items-center justify-center mb-4 shadow-md">
+                            <span class="text-paper font-bold text-base">1</span>
+                        </div>
+                        <span class="text-3xl mb-3 block">&#x1F6D2;</span>
+                        <h3 class="font-serif text-xl font-bold text-ink mb-3">Elige tu agente</h3>
+                        <p class="text-ink-3 text-sm leading-relaxed mb-4">Explora el cat&aacute;logo y encuentra el agente que resuelve tu problema espec&iacute;fico. Empieza con los agentes gratuitos para ver el impacto antes de invertir.</p>
+                        <span class="inline-block bg-ink/10 text-clay text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">catalogo.agentesva.com</span>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-card rounded-2xl border border-line-soft/10 p-8 shadow-sm hover:shadow-lg transition-shadow relative overflow-hidden">
+                    <span class="absolute top-4 right-6 font-serif text-8xl font-black text-outline-variant/10 leading-none select-none">2</span>
+                    <div class="relative">
+                        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-ink to-clay flex items-center justify-center mb-4 shadow-md">
+                            <span class="text-paper font-bold text-base">2</span>
+                        </div>
+                        <span class="text-3xl mb-3 block">&#x1F4E5;</span>
+                        <h3 class="font-serif text-xl font-bold text-ink mb-3">Importa el Flujo automatizado</h3>
+                        <p class="text-ink-3 text-sm leading-relaxed mb-4">Descarga el archivo .json del agente. En Make.com, haz clic en &ldquo;Importar Flujo automatizado&rdquo; y sube el archivo. El flujo completo aparece listo en tu cuenta en segundos.</p>
+                        <span class="inline-block bg-ink/10 text-clay text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">make.com &middot; 1 clic</span>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-card rounded-2xl border border-line-soft/10 p-8 shadow-sm hover:shadow-lg transition-shadow relative overflow-hidden">
+                    <span class="absolute top-4 right-6 font-serif text-8xl font-black text-outline-variant/10 leading-none select-none">3</span>
+                    <div class="relative">
+                        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-ink to-clay flex items-center justify-center mb-4 shadow-md">
+                            <span class="text-paper font-bold text-base">3</span>
+                        </div>
+                        <span class="text-3xl mb-3 block">&#x1F517;</span>
+                        <h3 class="font-serif text-xl font-bold text-ink mb-3">Conecta tus cuentas</h3>
+                        <p class="text-ink-3 text-sm leading-relaxed mb-4">Autoriza Gmail, Google Sheets u OpenAI desde la interfaz visual de Make.com. Es tan simple como hacer clic en &ldquo;Autorizar&rdquo; e iniciar sesi&oacute;n. Sin c&oacute;digo, sin configuraciones complejas.</p>
+                        <span class="inline-block bg-ink/10 text-clay text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">gmail &middot; sheets &middot; openai</span>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative bg-gradient-to-br from-ink to-clay rounded-2xl p-8 shadow-xl text-paper relative overflow-hidden">
+                    <span class="absolute top-4 right-6 font-serif text-8xl font-black text-white/10 leading-none select-none">4</span>
+                    <div class="relative">
+                        <div class="w-11 h-11 rounded-full bg-white/20 border border-white/30 flex items-center justify-center mb-4">
+                            <span class="text-paper font-bold text-base">4</span>
+                        </div>
+                        <span class="text-3xl mb-3 block">&#x1F680;</span>
+                        <h3 class="font-serif text-xl font-bold mb-3">Activa y olv&iacute;date</h3>
+                        <p class="text-paper/80 text-sm leading-relaxed mb-4">Enciende el escenario en Make.com. El agente trabaja 24/7 en segundo plano mientras t&uacute; cierras ventas, atiendes clientes o simplemente descansas.</p>
+                        <span class="inline-block bg-white/20 text-paper text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">24/7 &middot; en piloto autom&aacute;tico</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HERRAMIENTAS COMPATIBLES ==================== -->
+    <section class="px-6 py-16">
+        <div class="max-w-5xl mx-auto">
+            <span class="inline-flex items-center gap-2 text-clay text-xs font-bold uppercase tracking-widest mb-4">
+                <span class="material-symbols-outlined text-sm">hub</span> Ecosistema
+            </span>
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink mb-3 leading-tight">Herramientas <span class="text-clay">compatibles.</span></h2>
+            <p class="text-ink-3 text-base max-w-xl mb-10">Funciona con las apps que ya usas. Sin migraciones, sin cambios en tu stack actual.</p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+                <div class="bg-card rounded-2xl border border-line-soft/10 p-5 text-center shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="text-3xl mb-2">&#x2699;&#xFE0F;</div>
+                    <div class="font-serif text-sm font-bold text-ink">Make.com</div>
+                </div>
+                <div class="bg-card rounded-2xl border border-line-soft/10 p-5 text-center shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="text-3xl mb-2">&#x1F4E7;</div>
+                    <div class="font-serif text-sm font-bold text-ink">Gmail</div>
+                </div>
+                <div class="bg-card rounded-2xl border border-line-soft/10 p-5 text-center shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="text-3xl mb-2">&#x1F4CA;</div>
+                    <div class="font-serif text-sm font-bold text-ink">Google Sheets</div>
+                </div>
+                <div class="bg-card rounded-2xl border border-line-soft/10 p-5 text-center shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="text-3xl mb-2">&#x1F4AC;</div>
+                    <div class="font-serif text-sm font-bold text-ink">WhatsApp</div>
+                </div>
+                <div class="bg-card rounded-2xl border border-line-soft/10 p-5 text-center shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="text-3xl mb-2">&#x1F916;</div>
+                    <div class="font-serif text-sm font-bold text-ink">GPT-4o</div>
+                </div>
+                <div class="bg-card rounded-2xl border border-line-soft/10 p-5 text-center shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="text-3xl mb-2">&#x1F4C4;</div>
+                    <div class="font-serif text-sm font-bold text-ink">Google Docs</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== VIDEO DEMO ==================== -->
+    <section class="px-6 py-16 bg-paper-2/30">
+        <div class="max-w-4xl mx-auto">
+            <span class="inline-flex items-center gap-2 text-clay text-xs font-bold uppercase tracking-widest mb-4">
+                <span class="material-symbols-outlined text-sm">videocam</span> Demo en vivo
+            </span>
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink mb-3 leading-tight">V&eacute;lo en <span class="text-clay">acci&oacute;n.</span></h2>
+            <p class="text-ink-3 text-base max-w-lg mb-8">Mira c&oacute;mo se importa y activa un agente en menos de 5 minutos reales.</p>
+
+            <div class="rounded-2xl overflow-hidden bg-on-surface aspect-video flex items-center justify-center shadow-xl relative cursor-pointer group">
+                <div class="w-16 h-16 bg-gradient-to-br from-ink to-clay rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+                <div class="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/50 text-xs font-bold uppercase tracking-widest whitespace-nowrap">Demo &middot; Clasificador de Correos &middot; 4:32 min</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ ==================== -->
+    <section class="px-6 py-16" aria-label="Preguntas frecuentes sobre el proceso">
+        <div class="max-w-3xl mx-auto">
+            <span class="inline-flex items-center gap-2 text-clay text-xs font-bold uppercase tracking-widest mb-4">
+                <span class="material-symbols-outlined text-sm">help</span> Preguntas frecuentes
+            </span>
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink mb-10 leading-tight">Dudas sobre<br>el <span class="text-clay">proceso.</span></h2>
+
+            <dl class="divide-y divide-line-soft/20 border-t border-line-soft/20">
+
+                <div class="faq-item">
+                    <dt class="faq-q flex items-center justify-between gap-4 py-5 cursor-pointer select-none" tabindex="0">
+                        <span class="font-serif text-base font-bold text-ink">&iquest;Realmente no necesito saber programar?</span>
+                        <span class="material-symbols-outlined text-clay faq-icon transition-transform">add</span>
+                    </dt>
+                    <dd class="faq-a hidden pb-5 text-ink-3 text-sm leading-relaxed">Correcto. Los flujos automatizados de AgentesVA son flujos visuales listos para importar en Make.com. No hay una sola l&iacute;nea de c&oacute;digo que escribir. Si puedes hacer clic en un bot&oacute;n e iniciar sesi&oacute;n en Gmail, puedes configurar un agente hoy mismo.</dd>
+                </div>
+
+                <div class="faq-item">
+                    <dt class="faq-q flex items-center justify-between gap-4 py-5 cursor-pointer select-none" tabindex="0">
+                        <span class="font-serif text-base font-bold text-ink">&iquest;Necesito una cuenta de Make.com de pago?</span>
+                        <span class="material-symbols-outlined text-clay faq-icon transition-transform">add</span>
+                    </dt>
+                    <dd class="faq-a hidden pb-5 text-ink-3 text-sm leading-relaxed">Depende del uso. Make.com ofrece un plan gratuito con 1,000 operaciones al mes, suficiente para probar los agentes. Para uso continuo en un negocio activo, el plan Core de Make.com tiene un costo accesible y es m&aacute;s que suficiente para la mayor&iacute;a de los agentes de AgentesVA (lo revisamos en la auditor&iacute;a gratis).</dd>
+                </div>
+
+                <div class="faq-item">
+                    <dt class="faq-q flex items-center justify-between gap-4 py-5 cursor-pointer select-none" tabindex="0">
+                        <span class="font-serif text-base font-bold text-ink">&iquest;Cu&aacute;nto tiempo tarda la configuraci&oacute;n completa?</span>
+                        <span class="material-symbols-outlined text-clay faq-icon transition-transform">add</span>
+                    </dt>
+                    <dd class="faq-a hidden pb-5 text-ink-3 text-sm leading-relaxed">El tiempo promedio de setup es de 3 a 5 minutos para los agentes est&aacute;ndar. Los agentes m&aacute;s avanzados con personalizaci&oacute;n de prompts pueden tomar entre 10 y 20 minutos. Cada agente incluye una gu&iacute;a paso a paso en PDF y video tutorial.</dd>
+                </div>
+
+            </dl>
+        </div>
+    </section>
+
+    <!-- ==================== CTA FINAL ==================== -->
+    <section class="px-6 py-16">
+        <div class="max-w-4xl mx-auto">
+            <div class="relative bg-gradient-to-br from-ink to-clay rounded-[2.5rem] p-10 md:p-14 text-center text-paper overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/5 -translate-y-1/3 translate-x-1/3"></div>
+                <div class="relative z-10">
+                    <span class="material-symbols-outlined text-5xl mb-4">rocket_launch</span>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4">Automatiza tu negocio<br>en los pr&oacute;ximos 5 minutos.</h2>
+                    <p class="text-paper/75 mb-8 max-w-md mx-auto">Empieza gratis. Sin tarjeta de cr&eacute;dito. Sin contratos.</p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="/catalogo/" class="px-8 py-4 bg-card text-clay font-bold rounded-full shadow-xl hover:shadow-2xl transition-all active:scale-95">Empieza gratis hoy &rarr;</a>
+                        <a href="/servicios/" class="px-8 py-4 border border-white/30 text-paper font-semibold rounded-full hover:bg-white/10 transition-all">Ver servicios &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->`;
+---
+<BaseLayout
+  title={`Cómo Funciona AgentesVA | Automatiza tu PyME en 5 Minutos`}
+  description={`Cómo funciona AgentesVA paso a paso. De la compra a la automatización en minutos. Sin código. Compatible con Make.com y GPT-4o.`}
+  canonical="https://agentesva.com/como-funciona/"
+  ogImage="https://agentesva.com/assets/og-home.png"
+>
+  <Fragment slot="head">
+    <meta name="robots" content="index, follow" />
+    <link rel="alternate" hreflang="es" href="https://agentesva.com/como-funciona/" />
+    <link rel="alternate" hreflang="es-MX" href="https://agentesva.com/como-funciona/" />
+    <link rel="alternate" hreflang="es-CO" href="https://agentesva.com/como-funciona/" />
+    <link rel="alternate" hreflang="es-AR" href="https://agentesva.com/como-funciona/" />
+    <link rel="alternate" hreflang="es-CL" href="https://agentesva.com/como-funciona/" />
+    <link rel="alternate" hreflang="es-PE" href="https://agentesva.com/como-funciona/" />
+    <link rel="alternate" hreflang="x-default" href="https://agentesva.com/como-funciona/" />
+    <script type="application/ld+json" is:inline set:html={`{"@context": "https://schema.org", "@type": "HowTo", "name": "C&oacute;mo configurar un Agente VA en Make.com", "description": "Gu&iacute;a paso a paso para importar y activar un agente virtual de automatizaci&oacute;n IA en tu negocio usando Make.com.", "totalTime": "PT5M", "estimatedCost": {"@type": "MonetaryAmount", "currency": "USD", "value": "0"}, "tool": [{"@type": "HowToTool", "name": "Make.com (cuenta gratuita o Core)"}, {"@type": "HowToTool", "name": "Gmail"}, {"@type": "HowToTool", "name": "Google Sheets"}], "step": [{"@type": "HowToStep", "position": 1, "name": "Elige tu agente", "text": "Explora el cat&aacute;logo de AgentesVA. Empieza gratis con los agentes sin costo para probar antes de comprar.", "url": "https://agentesva.com/catalogo/"}, {"@type": "HowToStep", "position": 2, "name": "Importa el Blueprint", "text": "Descarga el archivo .json del agente y s&uacute;belo a Make.com con 1 clic. El flujo completo aparece listo en tu cuenta."}, {"@type": "HowToStep", "position": 3, "name": "Conecta tus cuentas", "text": "Autoriza Gmail, Google Sheets u OpenAI desde la interfaz de Make.com. No se requiere c&oacute;digo."}, {"@type": "HowToStep", "position": 4, "name": "Activa y olv&iacute;date", "text": "Enciende el escenario en Make.com. El agente trabaja 24/7 en segundo plano mientras t&uacute; atiendes tu negocio."}]}`}></script>
+  </Fragment>
+
+  <Header />
+
+  <Fragment set:html={bodyHtml} />
+
+  <Footer />
+  <MobileNav />
+</BaseLayout>
+
+<style is:global>
+.material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        font-family: 'Material Symbols Outlined';
+        font-style: normal;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+      }
+</style>
+
+<script is:inline>
+var fyEl = document.getElementById('footer-year');
+if (fyEl) fyEl.textContent = new Date().getFullYear();
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(function(item) {
+    var q = item.querySelector('.faq-q');
+    var a = item.querySelector('.faq-a');
+    var icon = item.querySelector('.faq-icon');
+    q.addEventListener('click', function() {
+        var isOpen = !a.classList.contains('hidden');
+        document.querySelectorAll('.faq-a').forEach(function(el){ el.classList.add('hidden'); });
+        document.querySelectorAll('.faq-icon').forEach(function(el){ el.textContent = 'add'; el.style.transform = ''; });
+        if (!isOpen) {
+            a.classList.remove('hidden');
+            icon.textContent = 'remove';
+        }
+    });
+    q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.click(); }
+    });
+});
+</script>

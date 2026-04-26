@@ -1,0 +1,45 @@
+---
+export interface Props {
+  eyebrow?: string;
+  title?: string;
+  before: string[];
+  after: string[];
+  beforeTag?: string;
+  afterTag?: string;
+}
+const {
+  eyebrow = 'Antes & Después',
+  title = 'Esto es lo que cambia <em>cuando automatizas</em>.',
+  before,
+  after,
+  beforeTag = 'Antes',
+  afterTag = 'Después',
+} = Astro.props;
+---
+<section class="dirA-ba">
+  <div class="container">
+    <div class="dirA-ba-head">
+      <span class="dirA-eyebrow on-clay">{eyebrow}</span>
+      <h2 class="serif" set:html={title} />
+    </div>
+    <div class="dirA-ba-cards">
+      <article class="dirA-ba-card before">
+        <span class="dirA-ba-tag">{beforeTag}</span>
+        <ul class="dirA-ba-list">
+          {before.map((item) => (
+            <li><span class="dirA-ba-icon">−</span> {item}</li>
+          ))}
+        </ul>
+      </article>
+      <div class="dirA-ba-arrow" aria-hidden="true">→</div>
+      <article class="dirA-ba-card after">
+        <span class="dirA-ba-tag">{afterTag}</span>
+        <ul class="dirA-ba-list">
+          {after.map((item) => (
+            <li><span class="dirA-ba-icon">✓</span> {item}</li>
+          ))}
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>

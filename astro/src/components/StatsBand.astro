@@ -1,0 +1,39 @@
+---
+export interface Stat {
+  num: string;
+  suffix?: string;
+  label: string;
+}
+export interface Props {
+  eyebrow?: string;
+  title?: string;
+  stats: Stat[];
+  footerLeft?: string;
+  footerRight?: string;
+}
+const {
+  eyebrow = 'Resultados probados',
+  title = 'Confianza en cada interacción, <em>medible cada semana</em>.',
+  stats,
+  footerLeft = 'Construido sobre <strong>Make.com</strong>, Claude API y APIs nativas.',
+  footerRight = 'v.2026.04 · automation funnel',
+} = Astro.props;
+---
+<section class="dirA-stats">
+  <div class="container">
+    <span class="dirA-stats-eyebrow">{eyebrow}</span>
+    <h2 class="serif" set:html={title} />
+    <div class="dirA-stats-grid">
+      {stats.map((s) => (
+        <div class="dirA-stat">
+          <div class="dirA-stat-num"><em>{s.num}</em>{s.suffix ?? ''}</div>
+          <div class="dirA-stat-label">{s.label}</div>
+        </div>
+      ))}
+    </div>
+    <div class="dirA-stats-footer">
+      <span set:html={footerLeft} />
+      <span>{footerRight}</span>
+    </div>
+  </div>
+</section>
