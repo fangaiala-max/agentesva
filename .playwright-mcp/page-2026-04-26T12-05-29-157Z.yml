@@ -1,0 +1,1233 @@
+- generic [ref=e5]:
+  - generic [ref=e7]: Direcciones
+  - generic [ref=e8]:
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - generic "Drag to reorder" [ref=e11]:
+          - img [ref=e12]
+        - generic "Click to focus" [ref=e19] [cursor=pointer]:
+          - generic [ref=e20]: A — Editorial cálido (humano, profesional) · v2
+      - button "Focus" [ref=e21] [cursor=pointer]:
+        - img [ref=e22]
+      - generic [ref=e26]:
+        - navigation [ref=e27]:
+          - generic [ref=e28]:
+            - generic [ref=e29]:
+              - generic [ref=e30]: A
+              - generic [ref=e31]: AgentesVA
+            - generic [ref=e32]:
+              - link "Servicios" [ref=e33] [cursor=pointer]:
+                - /url: "#srv"
+              - link "Proceso" [ref=e34] [cursor=pointer]:
+                - /url: "#proc"
+              - link "Industrias" [ref=e35] [cursor=pointer]:
+                - /url: "#ind"
+              - link "Casos" [ref=e36] [cursor=pointer]:
+                - /url: "#test"
+              - link "FAQ" [ref=e37] [cursor=pointer]:
+                - /url: "#faq"
+            - generic [ref=e38]:
+              - link "Iniciar sesión" [ref=e39] [cursor=pointer]:
+                - /url: "#cta"
+              - link "Reservar auditoría →" [ref=e40] [cursor=pointer]:
+                - /url: "#cta"
+                - text: Reservar auditoría
+                - generic [ref=e41]: →
+        - generic [ref=e44]:
+          - generic [ref=e45]:
+            - generic [ref=e46]: Consultoría en automatización con IA
+            - heading "Hacemos que tu equipo deje de hacer trabajo de máquina ." [level=1] [ref=e47]:
+              - text: Hacemos que tu equipo deje de hacer
+              - emphasis [ref=e48]:
+                - generic [ref=e49]: trabajo de máquina
+              - text: .
+            - paragraph [ref=e50]: Auditamos tus procesos, identificamos donde pierdes dinero, y desplegamos agentes de IA que operan 24/7. Sin código. En semanas, no en meses.
+            - generic [ref=e51]:
+              - link "Reservar auditoría gratis →" [ref=e52] [cursor=pointer]:
+                - /url: "#cta"
+                - text: Reservar auditoría gratis
+                - generic [ref=e53]: →
+              - link "Ver cómo trabajamos" [ref=e54] [cursor=pointer]:
+                - /url: "#proc"
+            - generic [ref=e57]: 30 min · sin compromiso · diagnóstico al instante
+            - generic [ref=e58]:
+              - generic [ref=e59]:
+                - generic [ref=e60]:
+                  - text: +
+                  - emphasis [ref=e61]: "40"
+                  - text: "%"
+                - generic [ref=e62]: Facturación promedio
+              - generic [ref=e63]:
+                - generic [ref=e64]:
+                  - text: −
+                  - emphasis [ref=e65]: "73"
+                  - text: "%"
+                - generic [ref=e66]: No-shows
+              - generic [ref=e67]:
+                - generic [ref=e68]:
+                  - emphasis [ref=e69]: "2.4"
+                  - text: ×
+                - generic [ref=e70]: Velocidad de respuesta
+            - generic [ref=e71]:
+              - generic [ref=e72]: Trabajamos con
+              - generic [ref=e73]: Restaurantes
+              - generic [ref=e74]: E-commerce
+              - generic [ref=e75]: Inmobiliarias
+              - generic [ref=e76]: Consultoría
+              - generic [ref=e77]: Salud
+              - generic [ref=e78]: +3 industrias
+          - generic [ref=e79]:
+            - img "Founder" [ref=e80]
+            - generic [ref=e83]: Disponible esta semana
+            - generic [ref=e84]:
+              - generic [ref=e85]: D
+              - generic [ref=e86]:
+                - generic [ref=e87]: Diego Vargas
+                - generic [ref=e88]: Founder · 8 años en automatización
+        - generic [ref=e90]:
+          - generic [ref=e91]: Resultados probados
+          - heading "Confianza en cada interacción, medible cada semana." [level=2] [ref=e92]:
+            - text: Confianza en cada interacción,
+            - emphasis [ref=e93]: medible cada semana.
+          - generic [ref=e94]:
+            - generic [ref=e95]:
+              - generic [ref=e96]: "42"
+              - generic [ref=e97]: Agentes especializados desplegados en producción
+            - generic [ref=e98]:
+              - generic [ref=e99]:
+                - text: "24"
+                - emphasis [ref=e100]: /
+                - text: "7"
+              - generic [ref=e101]: Atención de IA, en español, sin pausas
+            - generic [ref=e102]:
+              - generic [ref=e103]: "6"
+              - generic [ref=e104]: Países de LATAM con clientes activos
+            - generic [ref=e105]:
+              - generic [ref=e106]: "0"
+              - generic [ref=e107]: Líneas de código que tu equipo necesita escribir
+          - generic [ref=e108]:
+            - generic [ref=e109]:
+              - text: Construido sobre
+              - strong [ref=e110]: Make.com
+              - text: ", OpenAI y APIs nativas."
+            - generic [ref=e111]: v.2026.04 · 312 flujos en producción
+        - generic [ref=e113]:
+          - generic [ref=e114]:
+            - generic [ref=e115]: Empresas que ya operan con AgentesVA
+            - generic [ref=e116]: 47 clientes activos · 6 países LATAM
+          - generic [ref=e118]:
+            - generic [ref=e119]:
+              - generic [ref=e120]: Casa Grumo
+              - generic [ref=e121]: Restaurantes
+            - generic [ref=e122]:
+              - generic [ref=e123]: Lumina
+              - generic [ref=e124]: E-commerce
+            - generic [ref=e125]:
+              - generic [ref=e126]: Habitar
+              - generic [ref=e127]: Inmobiliaria
+            - generic [ref=e128]:
+              - generic [ref=e129]: Verde Lab
+              - generic [ref=e130]: Consultoría
+            - generic [ref=e131]:
+              - generic [ref=e132]: Clínica Sur
+              - generic [ref=e133]: Salud
+            - generic [ref=e134]:
+              - generic [ref=e135]: Mercado Norte
+              - generic [ref=e136]: Retail
+            - generic [ref=e137]:
+              - generic [ref=e138]: Estudio AB
+              - generic [ref=e139]: B2B
+            - generic [ref=e140]:
+              - generic [ref=e141]: Acueducto
+              - generic [ref=e142]: Logística
+            - generic [ref=e143]:
+              - generic [ref=e144]:
+                - text: Pueblo
+                - emphasis [ref=e145]: "&Co"
+              - generic [ref=e146]: Hotelería
+            - generic [ref=e147]:
+              - generic [ref=e148]: Kilómetro
+              - generic [ref=e149]: Movilidad
+            - generic [ref=e150]:
+              - generic [ref=e151]: Aula 36
+              - generic [ref=e152]: Educación
+            - generic [ref=e153]:
+              - generic [ref=e154]: Tablero
+              - generic [ref=e155]: Fintech
+        - generic [ref=e157]:
+          - generic [ref=e158]:
+            - generic [ref=e159]:
+              - generic [ref=e160]: El problema real
+              - heading "Cada día que operas sin automatización, pierdes dinero que no ves." [level=2] [ref=e161]:
+                - text: Cada día que operas sin automatización,
+                - emphasis [ref=e162]: pierdes dinero que no ves
+                - text: .
+            - paragraph [ref=e163]: No es que tu equipo sea ineficiente. Es que está haciendo trabajo de máquina mientras la máquina espera. Estos son los seis costos invisibles que escuchamos cada semana en auditorías.
+          - generic [ref=e164]:
+            - generic [ref=e165]:
+              - generic [ref=e166]: PAIN 01 / 06
+              - generic [ref=e167]: Leads que se enfrían porque nadie los sigue a tiempo
+              - generic [ref=e168]:
+                - generic [ref=e169]: "Costo invisible:"
+                - generic [ref=e170]: Hasta 38% de oportunidades perdidas
+            - generic [ref=e171]:
+              - generic [ref=e172]: PAIN 02 / 06
+              - generic [ref=e173]: No llegan a reuniones porque no recordamos confirmar
+              - generic [ref=e174]:
+                - generic [ref=e175]: "Costo invisible:"
+                - generic [ref=e176]: ~2.5h diarias en seguimientos
+            - generic [ref=e177]:
+              - generic [ref=e178]: PAIN 03 / 06
+              - generic [ref=e179]: Propuestas que tardan días cuando podrían generarse en minutos
+              - generic [ref=e180]:
+                - generic [ref=e181]: "Costo invisible:"
+                - generic [ref=e182]: 4 días promedio de ciclo
+            - generic [ref=e183]:
+              - generic [ref=e184]: PAIN 04 / 06
+              - generic [ref=e185]: Clientes que se van al rival porque no respondiste
+              - generic [ref=e186]:
+                - generic [ref=e187]: "Costo invisible:"
+                - generic [ref=e188]: Tasa de respuesta < 12 min crítica
+            - generic [ref=e189]:
+              - generic [ref=e190]: PAIN 05 / 06
+              - generic [ref=e191]: Datos que existen pero nadie analiza porque el equipo está saturado
+              - generic [ref=e192]:
+                - generic [ref=e193]: "Costo invisible:"
+                - generic [ref=e194]: Decisiones por intuición, no por dato
+            - generic [ref=e195]:
+              - generic [ref=e196]: PAIN 06 / 06
+              - generic [ref=e197]: WhatsApps de clientes que quedan sin responder fuera de horario
+              - generic [ref=e198]:
+                - generic [ref=e199]: "Costo invisible:"
+                - generic [ref=e200]: 60% de las consultas son nocturnas
+        - generic [ref=e202]:
+          - generic [ref=e203]:
+            - generic [ref=e204]: Antes & Después
+            - heading "Esto es lo que cambia cuando automatizas." [level=2] [ref=e205]:
+              - text: Esto es lo que cambia
+              - emphasis [ref=e206]: cuando automatizas
+              - text: .
+          - generic [ref=e207]:
+            - generic [ref=e208]:
+              - generic [ref=e209]: Sin AgentesVA
+              - heading "El día típico de tu equipo" [level=3] [ref=e210]
+              - list [ref=e211]:
+                - listitem [ref=e212]:
+                  - generic [ref=e213]: −
+                  - generic [ref=e214]: Copiar datos de clientes a mano entre apps
+                - listitem [ref=e215]:
+                  - generic [ref=e216]: −
+                  - generic [ref=e217]: Responder WhatsApp uno por uno, incluso de noche
+                - listitem [ref=e218]:
+                  - generic [ref=e219]: −
+                  - generic [ref=e220]: Recordar citas y seguimientos manualmente
+                - listitem [ref=e221]:
+                  - generic [ref=e222]: −
+                  - generic [ref=e223]: Excel y formularios para reportes
+                - listitem [ref=e224]:
+                  - generic [ref=e225]: −
+                  - generic [ref=e226]: Perder clientes por no contestar a tiempo
+                - listitem [ref=e227]:
+                  - generic [ref=e228]: −
+                  - generic [ref=e229]: Cada propuesta es un trabajo de horas
+            - generic [ref=e230]: →
+            - generic [ref=e231]:
+              - generic [ref=e232]: Con AgentesVA
+              - heading "El día que recuperas" [level=3] [ref=e233]
+              - list [ref=e234]:
+                - listitem [ref=e235]:
+                  - generic [ref=e236]: ✓
+                  - generic [ref=e237]: Datos sincronizados automáticamente entre apps
+                - listitem [ref=e238]:
+                  - generic [ref=e239]: ✓
+                  - generic [ref=e240]: Respuestas instantáneas 24/7 por WhatsApp
+                - listitem [ref=e241]:
+                  - generic [ref=e242]: ✓
+                  - generic [ref=e243]: Recordatorios automáticos por email y voz
+                - listitem [ref=e244]:
+                  - generic [ref=e245]: ✓
+                  - generic [ref=e246]: Reportes generados en vivo, sin tocar Excel
+                - listitem [ref=e247]:
+                  - generic [ref=e248]: ✓
+                  - generic [ref=e249]: Cero clientes perdidos por timing
+                - listitem [ref=e250]:
+                  - generic [ref=e251]: ✓
+                  - generic [ref=e252]: Propuestas a medida en menos de 5 minutos
+        - generic [ref=e254]:
+          - generic [ref=e255]:
+            - generic [ref=e256]: Caso destacado · 02 / 2026
+            - generic [ref=e257]: Cadena de restaurantes · Bogotá, Medellín, Cali
+          - generic [ref=e258]:
+            - generic [ref=e260]:
+              - generic [ref=e261]: Cliente · Casa Grumo
+              - generic [ref=e262]:
+                - text: Cuatro meses,
+                - emphasis [ref=e263]: nueve agentes
+                - text: .
+            - generic [ref=e264]:
+              - generic [ref=e265]: Caso de estudio
+              - heading "De responder WhatsApps hasta las 11pm a un equipo que duerme tranquilo." [level=3] [ref=e266]:
+                - text: De responder WhatsApps hasta las 11pm a un equipo que
+                - emphasis [ref=e267]: duerme tranquilo
+                - text: .
+              - paragraph [ref=e268]: Casa Grumo opera 12 sucursales y 4 cocinas en Colombia. Antes, su equipo de servicio dedicaba 4.5 horas diarias a confirmar reservas, responder consultas y procesar pedidos por WhatsApp. Implementamos 9 agentes interconectados en 7 semanas.
+              - generic [ref=e269]:
+                - generic [ref=e270]:
+                  - generic [ref=e271]:
+                    - text: +
+                    - emphasis [ref=e272]: "42"
+                    - text: "%"
+                  - generic [ref=e273]: Facturación adicional, mes 4
+                - generic [ref=e274]:
+                  - generic [ref=e275]:
+                    - text: −
+                    - emphasis [ref=e276]: "89"
+                    - text: "%"
+                  - generic [ref=e277]: Tiempo en confirmaciones
+                - generic [ref=e278]:
+                  - generic [ref=e279]:
+                    - emphasis [ref=e280]: "4.7"
+                    - text: ★
+                  - generic [ref=e281]: CSAT en conversaciones IA
+              - generic [ref=e282]:
+                - text: "\"El primer mes pensé que iba a sentir distancia con los clientes. Pasó al revés — el agente filtra lo repetitivo y nosotros volvimos a tener tiempo para los clientes que sí quieren hablar con un humano.\""
+                - generic [ref=e283]: — María Fernanda Restrepo, Dir. Operaciones
+              - link "Leer caso completo →" [ref=e284] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e286]:
+          - generic [ref=e287]:
+            - generic [ref=e288]:
+              - generic [ref=e289]: Industrias
+              - heading "Industrias donde ya hemos movido la aguja." [level=2] [ref=e290]:
+                - text: Industrias donde ya hemos
+                - emphasis [ref=e291]: movido la aguja
+                - text: .
+            - paragraph [ref=e292]: No prometemos cosas que no hemos hecho. Cada industria que listamos tiene casos vivos en producción, con resultados medidos contra su línea base.
+          - generic [ref=e293]:
+            - generic [ref=e294] [cursor=pointer]:
+              - generic [ref=e295]: R
+              - generic [ref=e296]: Restaurantes
+              - generic [ref=e297]: 14 implementaciones
+              - generic [ref=e298]: ↗
+            - generic [ref=e299] [cursor=pointer]:
+              - generic [ref=e300]: E
+              - generic [ref=e301]: E-commerce
+              - generic [ref=e302]: 11 tiendas activas
+              - generic [ref=e303]: ↗
+            - generic [ref=e304] [cursor=pointer]:
+              - generic [ref=e305]: I
+              - generic [ref=e306]: Inmobiliarias
+              - generic [ref=e307]: 8 oficinas
+              - generic [ref=e308]: ↗
+            - generic [ref=e309] [cursor=pointer]:
+              - generic [ref=e310]: C
+              - generic [ref=e311]: Consultoría
+              - generic [ref=e312]: 6 firmas
+              - generic [ref=e313]: ↗
+            - generic [ref=e314] [cursor=pointer]:
+              - generic [ref=e315]: S
+              - generic [ref=e316]: Salud
+              - generic [ref=e317]: 4 clínicas
+              - generic [ref=e318]: ↗
+            - generic [ref=e319] [cursor=pointer]:
+              - generic [ref=e320]: L
+              - generic [ref=e321]: Logística
+              - generic [ref=e322]: 3 operadores
+              - generic [ref=e323]: ↗
+            - generic [ref=e324] [cursor=pointer]:
+              - generic [ref=e325]: Ed
+              - generic [ref=e326]: Educación
+              - generic [ref=e327]: 5 academias
+              - generic [ref=e328]: ↗
+            - generic [ref=e329] [cursor=pointer]:
+              - generic [ref=e330]: B
+              - generic [ref=e331]: Servicios B2B
+              - generic [ref=e332]: 9 empresas
+              - generic [ref=e333]: ↗
+        - generic [ref=e335]:
+          - generic [ref=e336]:
+            - generic [ref=e337]: Lo que construimos
+            - 'heading "Seis tipos de agentes. Una sola filosofía: que tu equipo deje de hacer lo que la IA puede hacer mejor." [level=2] [ref=e338]':
+              - text: Seis tipos de agentes.
+              - emphasis [ref=e339]: "Una sola filosofía:"
+              - text: que tu equipo deje de hacer lo que la IA puede hacer mejor.
+          - generic [ref=e340]:
+            - generic [ref=e341]:
+              - generic [ref=e342]: "01"
+              - generic [ref=e343]: Auditoría de procesos
+              - generic [ref=e344]: "Mapeamos tu operación, identificamos los cuellos de botella y cuantificamos el costo de cada uno. Salida: un plan priorizado."
+              - generic [ref=e345]:
+                - generic [ref=e346]: Discovery
+                - generic [ref=e347]: ROI map
+                - generic [ref=e348]: 2 semanas
+            - generic [ref=e349]:
+              - generic [ref=e350]: "02"
+              - generic [ref=e351]: Agentes de WhatsApp
+              - generic [ref=e352]: Conversaciones que califican, agendan, cobran y derivan. Conectados a tu CRM, calendario y stock en tiempo real.
+              - generic [ref=e353]:
+                - generic [ref=e354]: WhatsApp Business
+                - generic [ref=e355]: CRM sync
+                - generic [ref=e356]: Multi-canal
+            - generic [ref=e357]:
+              - generic [ref=e358]: "03"
+              - generic [ref=e359]: Automatización de back-office
+              - generic [ref=e360]: Make.com + APIs propias. Sincronizamos sistemas que nunca hablaron entre sí, sin tocar el código que ya funciona.
+              - generic [ref=e361]:
+                - generic [ref=e362]: Make.com
+                - generic [ref=e363]: Zapier Pro
+                - generic [ref=e364]: Custom APIs
+            - generic [ref=e365]:
+              - generic [ref=e366]: "04"
+              - generic [ref=e367]: Agentes de voz
+              - generic [ref=e368]: Llamadas entrantes y salientes con IA conversacional en español. Confirma, recuerda, califica y deriva con voz natural.
+              - generic [ref=e369]:
+                - generic [ref=e370]: Voz LATAM
+                - generic [ref=e371]: Confirmaciones
+                - generic [ref=e372]: Outbound
+            - generic [ref=e373]:
+              - generic [ref=e374]: "05"
+              - generic [ref=e375]: Generación de propuestas
+              - generic [ref=e376]: Briefs que se convierten en cotizaciones, contratos y presentaciones en minutos. Tu equipo solo revisa y envía.
+              - generic [ref=e377]:
+                - generic [ref=e378]: PDF + Docs
+                - generic [ref=e379]: Plantillas
+                - generic [ref=e380]: Firma digital
+            - generic [ref=e381]:
+              - generic [ref=e382]: "06"
+              - generic [ref=e383]: Inteligencia de datos
+              - generic [ref=e384]: Dashboards vivos y resúmenes automáticos. Tu equipo recibe los insights por email cada lunes, sin pedirlos.
+              - generic [ref=e385]:
+                - generic [ref=e386]: BI ligero
+                - generic [ref=e387]: Resúmenes IA
+                - generic [ref=e388]: Alertas
+        - generic [ref=e390]:
+          - generic [ref=e391]:
+            - generic [ref=e392]: Cómo trabajamos
+            - heading "De auditoría a operación, en cuatro pasos claros." [level=2] [ref=e393]:
+              - text: De auditoría a operación,
+              - emphasis [ref=e394]: en cuatro pasos claros
+              - text: .
+          - generic [ref=e395]:
+            - generic [ref=e397]:
+              - generic [ref=e398]: "1"
+              - generic [ref=e399]: Día 1
+              - generic [ref=e400]: Auditoría
+              - generic [ref=e401]: Sesión de 30 min. Mapeamos procesos y oportunidades.
+            - generic [ref=e402]:
+              - generic [ref=e403]: "2"
+              - generic [ref=e404]: Semana 1
+              - generic [ref=e405]: Diseño
+              - generic [ref=e406]: Diagrama de flujo y plan priorizado por ROI.
+            - generic [ref=e407]:
+              - generic [ref=e408]: "3"
+              - generic [ref=e409]: Semana 2-4
+              - generic [ref=e410]: Build
+              - generic [ref=e411]: Construimos contigo, no para ti. Total transparencia.
+            - generic [ref=e412]:
+              - generic [ref=e413]: "4"
+              - generic [ref=e414]: Mes 2+
+              - generic [ref=e415]: Operación
+              - generic [ref=e416]: Soporte continuo, mejoras y nuevos agentes.
+        - generic [ref=e418]:
+          - generic [ref=e420]:
+            - generic [ref=e421]: Lo que dicen
+            - heading "Equipos que recuperaron su tiempo y su margen." [level=2] [ref=e422]:
+              - text: Equipos que recuperaron
+              - emphasis [ref=e423]: su tiempo
+              - text: y su margen.
+          - generic [ref=e424]:
+            - generic [ref=e425]:
+              - generic [ref=e426]: "\"Pasamos de responder WhatsApps hasta las 11 pm a un equipo que duerme tranquilo. Y la facturación subió 42% en cuatro meses."
+              - generic [ref=e427]: FACTURACIÓN +42%
+              - generic [ref=e428]:
+                - generic [ref=e429]: MF
+                - generic [ref=e430]:
+                  - generic [ref=e431]: María Fernanda Restrepo
+                  - generic [ref=e432]: Directora de Operaciones · Cadena de restaurantes (Bogotá)
+            - generic [ref=e433]:
+              - generic [ref=e434]: "\"El agente de voz confirma todas las citas. Las cancelaciones bajaron del 22% al 6%."
+              - generic [ref=e435]: NO-SHOWS −73%
+              - generic [ref=e436]:
+                - generic [ref=e437]: AV
+                - generic [ref=e438]:
+                  - generic [ref=e439]: Andrés Vega
+                  - generic [ref=e440]: Gerente · Clínica dental
+            - generic [ref=e441]:
+              - generic [ref=e442]: "\"Nuestras cotizaciones tardaban 3 días. Ahora salen en 4 minutos. El equipo de ventas duplicó su pipeline."
+              - generic [ref=e443]: PIPELINE 2×
+              - generic [ref=e444]:
+                - generic [ref=e445]: LM
+                - generic [ref=e446]:
+                  - generic [ref=e447]: Lucía Mendoza
+                  - generic [ref=e448]: CCO · Inmobiliaria
+        - generic [ref=e450]:
+          - generic [ref=e451]:
+            - generic [ref=e452]:
+              - generic [ref=e453]: Metodología
+              - heading "Seis principios que guían cada implementación." [level=2] [ref=e454]:
+                - text: Seis principios que guían
+                - emphasis [ref=e455]: cada implementación
+                - text: .
+            - paragraph [ref=e456]: No improvisamos. Después de 312 flujos en producción, llegamos a una forma de trabajar que protege tu inversión y minimiza el riesgo.
+          - generic [ref=e457]:
+            - generic [ref=e458]:
+              - generic [ref=e459]:
+                - text: i
+                - generic [ref=e460]: Principio
+              - generic [ref=e461]: Diagnóstico antes que solución
+              - generic [ref=e462]: No vendemos automatizaciones. Vendemos un mapa de tu operación. Si no encontramos retorno claro en 30 minutos, no avanzamos.
+            - generic [ref=e463]:
+              - generic [ref=e464]:
+                - text: ii
+                - generic [ref=e465]: Principio
+              - generic [ref=e466]: Construir junto a tu equipo
+              - generic [ref=e467]: Cada flujo se diseña con quien lo va a usar. Tu gente queda con el conocimiento, no atada a nosotros.
+            - generic [ref=e468]:
+              - generic [ref=e469]:
+                - text: iii
+                - generic [ref=e470]: Principio
+              - generic [ref=e471]: Medir desde el día uno
+              - generic [ref=e472]: Definimos línea base antes de tocar nada. Cada implementación se mide contra esa línea cada semana.
+            - generic [ref=e473]:
+              - generic [ref=e474]:
+                - text: iv
+                - generic [ref=e475]: Principio
+              - generic [ref=e476]: Sin lock-in tecnológico
+              - generic [ref=e477]: Todos los agentes viven en cuentas tuyas — Make, OpenAI, WhatsApp Business. Si te vas, te llevas todo.
+            - generic [ref=e478]:
+              - generic [ref=e479]:
+                - text: v
+                - generic [ref=e480]: Principio
+              - generic [ref=e481]: Privacidad y datos primero
+              - generic [ref=e482]: Cumplimiento GDPR y leyes locales LATAM. Logs, auditorías, y separación estricta entre clientes.
+            - generic [ref=e483]:
+              - generic [ref=e484]:
+                - text: vi
+                - generic [ref=e485]: Principio
+              - generic [ref=e486]: Iteración semanal, no quincenal
+              - generic [ref=e487]: Demos cada semana. Si algo no funciona, se ajusta antes del lunes. La automatización es un producto vivo.
+        - generic [ref=e490]:
+          - generic [ref=e492]: — Diego Vargas
+          - generic [ref=e493]:
+            - generic [ref=e494]: Quién está detrás
+            - heading "Ocho años construyendo automatización antes de que tuviera nombre." [level=2] [ref=e495]:
+              - text: Ocho años construyendo automatización
+              - emphasis [ref=e496]: antes de que tuviera nombre
+              - text: .
+            - paragraph [ref=e497]: "Diego empezó automatizando back-office en banca corporativa en 2018. Cuando OpenAI cambió las reglas, ya tenía 5 años entendiendo cómo se conectan sistemas en empresas reales. AgentesVA es la consultoría que le hubiera gustado contratar entonces: con criterio técnico, sin hype, midiendo resultados desde el día uno."
+            - generic [ref=e498]:
+              - generic [ref=e499]:
+                - emphasis [ref=e501]: "312"
+                - generic [ref=e502]: Flujos en producción
+              - generic [ref=e503]:
+                - generic [ref=e504]:
+                  - text: "8"
+                  - emphasis [ref=e505]: años
+                - generic [ref=e506]: En automatización empresarial
+              - generic [ref=e507]:
+                - emphasis [ref=e509]: "47"
+                - generic [ref=e510]: Empresas servidas en LATAM
+              - generic [ref=e511]:
+                - emphasis [ref=e513]: "0"
+                - generic [ref=e514]: Clientes con lock-in técnico
+            - generic [ref=e515]:
+              - link "LinkedIn ↗" [ref=e516] [cursor=pointer]:
+                - /url: "#"
+              - link "Newsletter ↗" [ref=e517] [cursor=pointer]:
+                - /url: "#"
+              - link "Charlas ↗" [ref=e518] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e520]:
+          - generic [ref=e521]:
+            - generic [ref=e522]: Stack
+            - heading "Construimos sobre las mismas herramientas que ya usas." [level=2] [ref=e523]:
+              - text: Construimos sobre
+              - emphasis [ref=e524]: las mismas herramientas
+              - text: que ya usas.
+            - paragraph [ref=e525]: No te pedimos cambiar de CRM, ERP ni de WhatsApp. Conectamos lo que tienes con la inteligencia que necesitas. Si una integración no existe, la construimos.
+          - generic [ref=e526]:
+            - generic [ref=e527]:
+              - generic [ref=e528]: M
+              - generic [ref=e529]: Make.com
+            - generic [ref=e530]:
+              - generic [ref=e531]: oai
+              - generic [ref=e532]: OpenAI
+            - generic [ref=e533]:
+              - generic [ref=e534]: wa
+              - generic [ref=e535]: WhatsApp
+            - generic [ref=e536]:
+              - generic [ref=e537]: hs
+              - generic [ref=e538]: HubSpot
+            - generic [ref=e539]:
+              - generic [ref=e540]: sf
+              - generic [ref=e541]: Salesforce
+            - generic [ref=e542]:
+              - generic [ref=e543]: air
+              - generic [ref=e544]: Airtable
+            - generic [ref=e545]:
+              - generic [ref=e546]: "no"
+              - generic [ref=e547]: Notion
+            - generic [ref=e548]:
+              - generic [ref=e549]: sl
+              - generic [ref=e550]: Slack
+            - generic [ref=e551]:
+              - generic [ref=e552]: gw
+              - generic [ref=e553]: Google W.
+            - generic [ref=e554]:
+              - generic [ref=e555]: sh
+              - generic [ref=e556]: Shopify
+            - generic [ref=e557]:
+              - generic [ref=e558]: st
+              - generic [ref=e559]: Stripe
+            - generic [ref=e560]:
+              - generic [ref=e561]: cal
+              - generic [ref=e562]: Calendly
+            - generic [ref=e563]:
+              - generic [ref=e564]: pi
+              - generic [ref=e565]: Pipedrive
+            - generic [ref=e566]:
+              - generic [ref=e567]: zd
+              - generic [ref=e568]: Zendesk
+            - generic [ref=e569]:
+              - generic [ref=e570]: tw
+              - generic [ref=e571]: Twilio
+            - generic [ref=e572]:
+              - generic [ref=e573]: el
+              - generic [ref=e574]: ElevenLabs
+        - generic [ref=e576]:
+          - generic [ref=e577]:
+            - generic [ref=e578]: Por qué AgentesVA
+            - heading "Cómo nos comparamos con otras opciones." [level=2] [ref=e579]:
+              - text: Cómo nos comparamos con
+              - emphasis [ref=e580]: otras opciones
+              - text: .
+          - generic [ref=e581]:
+            - generic [ref=e582]:
+              - generic [ref=e584]: AgentesVA
+              - generic [ref=e585]: Consultora tradicional
+              - generic [ref=e586]: SaaS genérico
+            - generic [ref=e587]:
+              - generic [ref=e588]: Auditoría inicial gratuita
+              - generic [ref=e589]:
+                - generic [ref=e590]: ✓
+                - text: Sí · 30 min con plan escrito
+              - generic [ref=e591]: "No"
+              - generic [ref=e592]: Demo genérica
+            - generic [ref=e593]:
+              - generic [ref=e594]: Tiempo a producción
+              - generic [ref=e595]:
+                - generic [ref=e596]: ✓
+                - text: 2–6 semanas
+              - generic [ref=e597]: 3–6 meses
+              - generic [ref=e598]: Plug & play limitado
+            - generic [ref=e599]:
+              - generic [ref=e600]: Dueño de los flujos y datos
+              - generic [ref=e601]:
+                - generic [ref=e602]: ✓
+                - text: Tú · 100%
+              - generic [ref=e603]: Vendor
+              - generic [ref=e604]: Vendor
+            - generic [ref=e605]:
+              - generic [ref=e606]: Adaptación a tu industria
+              - generic [ref=e607]:
+                - generic [ref=e608]: ✓
+                - text: A medida
+              - generic [ref=e609]: A medida
+              - generic [ref=e610]: Plantillas fijas
+            - generic [ref=e611]:
+              - generic [ref=e612]: Soporte en español LATAM
+              - generic [ref=e613]:
+                - generic [ref=e614]: ✓
+                - text: Equipo local
+              - generic [ref=e615]: Email · 24-48h
+              - generic [ref=e616]: Comunidad
+            - generic [ref=e617]:
+              - generic [ref=e618]: Costo típico (USD)
+              - generic [ref=e619]:
+                - generic [ref=e620]: ✓
+                - text: $3.5K–$25K + ops
+              - generic [ref=e621]: $50K+
+              - generic [ref=e622]: $50–500/mes
+        - generic [ref=e625]:
+          - heading "Lo que importa al final del trimestre." [level=3] [ref=e626]:
+            - text: Lo que importa
+            - emphasis [ref=e627]: al final del trimestre
+            - text: .
+          - generic [ref=e628]:
+            - generic [ref=e629]:
+              - generic [ref=e630]:
+                - emphasis [ref=e631]: $2.4
+                - text: M
+              - generic [ref=e632]: Facturación adicional generada para clientes en 2025
+            - generic [ref=e633]:
+              - generic [ref=e634]:
+                - emphasis [ref=e635]: "18"
+                - text: K
+              - generic [ref=e636]: Horas de equipo recuperadas al año
+            - generic [ref=e637]:
+              - generic [ref=e638]:
+                - emphasis [ref=e639]: "97"
+                - text: "%"
+              - generic [ref=e640]: Clientes que renuevan al cuarto mes
+        - generic [ref=e643]:
+          - generic [ref=e644]:
+            - heading "¿Listo para una auditoría sin compromiso?" [level=2] [ref=e645]:
+              - text: ¿Listo para una auditoría
+              - emphasis [ref=e646]: sin compromiso
+              - text: "?"
+            - paragraph [ref=e647]: 30 minutos. Te mostramos en concreto qué automatizar primero, cuánto puedes recuperar, y un plan en una página. Si no encaja, te lo decimos sin vueltas.
+          - generic [ref=e648]:
+            - link "Reservar mi auditoría →" [ref=e649] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e650]: Reservar mi auditoría
+              - generic [ref=e651]: →
+            - generic [ref=e654]: "Próximo slot disponible: martes 28 abr · 10:30 GMT-5"
+        - generic [ref=e656]:
+          - generic [ref=e657]:
+            - generic [ref=e658]: Preguntas frecuentes
+            - heading "Lo que toda empresa nos pregunta antes de empezar." [level=2] [ref=e659]
+          - generic [ref=e660]:
+            - generic [ref=e661] [cursor=pointer]:
+              - generic [ref=e662]:
+                - generic [ref=e663]: ¿Necesito cambiar mis sistemas actuales?
+                - generic [ref=e664]: +
+              - generic [ref=e665]: No. Trabajamos sobre lo que ya tienes — CRM, ERP, WhatsApp, ecommerce, hojas de cálculo. Conectamos en lugar de reemplazar.
+            - generic [ref=e666] [cursor=pointer]:
+              - generic [ref=e667]:
+                - generic [ref=e668]: ¿Cuánto tarda una implementación típica?
+                - generic [ref=e669]: +
+              - generic: Entre 2 y 6 semanas, según la complejidad. La auditoría nos permite darte un plazo exacto antes de empezar.
+            - generic [ref=e670] [cursor=pointer]:
+              - generic [ref=e671]:
+                - generic [ref=e672]: ¿Cuánto cuesta?
+                - generic [ref=e673]: +
+              - generic: Depende del alcance. Los proyectos suelen ir desde USD $3.500 hasta $25.000, con costos operativos mensuales claros desde el día uno.
+            - generic [ref=e674] [cursor=pointer]:
+              - generic [ref=e675]:
+                - generic [ref=e676]: ¿Quién es el dueño de los agentes y los datos?
+                - generic [ref=e677]: +
+              - generic: Tú. Todos los flujos, prompts, datos y conexiones quedan bajo tu cuenta. Si un día decides parar, te llevas todo.
+            - generic [ref=e678] [cursor=pointer]:
+              - generic [ref=e679]:
+                - generic [ref=e680]: ¿Funciona si mi equipo no es técnico?
+                - generic [ref=e681]: +
+              - generic: Por diseño. Hablamos con tu equipo, no con tu equipo de TI. Los agentes se operan desde paneles simples y mensajes.
+            - generic [ref=e682] [cursor=pointer]:
+              - generic [ref=e683]:
+                - generic [ref=e684]: ¿Trabajan en toda LATAM?
+                - generic [ref=e685]: +
+              - generic: Sí. Tenemos clientes activos en México, Colombia, Perú, Chile, Argentina y Uruguay. Operamos 100% remoto.
+        - contentinfo [ref=e686]:
+          - generic [ref=e687]:
+            - generic [ref=e688]:
+              - generic [ref=e689]:
+                - generic [ref=e690]:
+                  - generic [ref=e691]: A
+                  - generic [ref=e692]: AgentesVA
+                - paragraph [ref=e693]: Consultoría en automatización con IA para empresas medianas en LATAM. Hecho con cariño desde Medellín, Buenos Aires y CDMX.
+              - generic [ref=e694]:
+                - heading "Servicios" [level=4] [ref=e695]
+                - generic [ref=e696]:
+                  - link "Auditoría" [ref=e697] [cursor=pointer]:
+                    - /url: "#"
+                  - link "WhatsApp IA" [ref=e698] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Agentes de voz" [ref=e699] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Back-office" [ref=e700] [cursor=pointer]:
+                    - /url: "#"
+              - generic [ref=e701]:
+                - heading "Empresa" [level=4] [ref=e702]
+                - generic [ref=e703]:
+                  - link "Casos" [ref=e704] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Equipo" [ref=e705] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Blog" [ref=e706] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Contacto" [ref=e707] [cursor=pointer]:
+                    - /url: "#"
+              - generic [ref=e708]:
+                - heading "Contacto" [level=4] [ref=e709]
+                - generic [ref=e710]:
+                  - link "hola@agentesva.com" [ref=e711] [cursor=pointer]:
+                    - /url: "#"
+                  - link "+57 300 000 0000" [ref=e712] [cursor=pointer]:
+                    - /url: "#"
+                  - link "LinkedIn" [ref=e713] [cursor=pointer]:
+                    - /url: "#"
+            - generic [ref=e714]:
+              - generic [ref=e715]: © 2026 AgentesVA · Todos los derechos reservados
+              - generic [ref=e716]: Términos · Privacidad
+    - generic [ref=e717]:
+      - generic [ref=e718]:
+        - generic "Drag to reorder" [ref=e719]:
+          - img [ref=e720]
+        - generic "Click to focus" [ref=e727] [cursor=pointer]:
+          - generic [ref=e728]: B — Editorial bold (magazine, confiado)
+      - button "Focus" [ref=e729] [cursor=pointer]:
+        - img [ref=e730]
+      - generic [ref=e734]:
+        - navigation [ref=e735]:
+          - generic [ref=e736]:
+            - generic [ref=e737]:
+              - generic [ref=e738]: A
+              - generic [ref=e739]: AgentesVA
+            - generic [ref=e740]:
+              - link "Servicios" [ref=e741] [cursor=pointer]:
+                - /url: "#srv"
+              - link "Proceso" [ref=e742] [cursor=pointer]:
+                - /url: "#proc"
+              - link "Industrias" [ref=e743] [cursor=pointer]:
+                - /url: "#ind"
+              - link "Casos" [ref=e744] [cursor=pointer]:
+                - /url: "#test"
+              - link "FAQ" [ref=e745] [cursor=pointer]:
+                - /url: "#faq"
+            - link "Reservar auditoría →" [ref=e747] [cursor=pointer]:
+              - /url: "#cta"
+              - text: Reservar auditoría
+              - generic [ref=e748]: →
+        - generic [ref=e751]:
+          - generic [ref=e752]:
+            - generic [ref=e753]:
+              - generic [ref=e754]: AgentesVA · Edición 04 / 2026
+              - generic [ref=e755]: Auditoría gratis · 30 minutos
+            - generic [ref=e756]:
+              - heading "Tu equipo no es lento. Está atrapado haciendo trabajo de máquina." [level=1] [ref=e757]:
+                - text: Tu equipo no es lento.
+                - generic [ref=e758]: Está atrapado
+                - text: haciendo trabajo de máquina.
+              - paragraph [ref=e759]: Auditamos tus procesos, identificamos donde pierdes dinero, y desplegamos agentes de IA que operan 24/7. Sin código. En semanas, no en meses.
+              - generic [ref=e760]:
+                - link "Reservar auditoría gratis →" [ref=e761] [cursor=pointer]:
+                  - /url: "#cta"
+                  - text: Reservar auditoría gratis
+                  - generic [ref=e762]: →
+                - link "Ver proceso" [ref=e763] [cursor=pointer]:
+                  - /url: "#proc"
+          - generic [ref=e764]:
+            - generic [ref=e765]:
+              - generic [ref=e766]:
+                - generic [ref=e767]: Resultado promedio
+                - generic [ref=e768]:
+                  - text: +
+                  - emphasis [ref=e769]: "40"
+                  - text: "%"
+              - generic [ref=e770]:
+                - generic [ref=e771]: Facturación adicional medida en clientes con 4+ meses de operación.
+                - generic [ref=e772]: N=27 · Promedio · 2025-2026
+            - generic [ref=e774]:
+              - generic [ref=e775]: AHORA · LIVE
+              - generic [ref=e777]: Agente respondiendo a 14 conversaciones de WhatsApp en simultáneo.
+        - generic [ref=e779]:
+          - generic [ref=e780]:
+            - generic [ref=e781]: Auditorías sin compromiso
+            - generic [ref=e782]: ●
+            - generic [ref=e783]: Implementación 2–6 semanas
+            - generic [ref=e784]: ●
+            - generic [ref=e785]: Sin escribir una línea de código
+            - generic [ref=e786]: ●
+            - generic [ref=e787]: 6 países LATAM
+            - generic [ref=e788]: ●
+            - generic [ref=e789]: 312 flujos en producción
+            - generic [ref=e790]: ●
+          - generic [ref=e791]:
+            - generic [ref=e792]: Auditorías sin compromiso
+            - generic [ref=e793]: ●
+            - generic [ref=e794]: Implementación 2–6 semanas
+            - generic [ref=e795]: ●
+            - generic [ref=e796]: Sin escribir una línea de código
+            - generic [ref=e797]: ●
+            - generic [ref=e798]: 6 países LATAM
+            - generic [ref=e799]: ●
+            - generic [ref=e800]: 312 flujos en producción
+            - generic [ref=e801]: ●
+        - generic [ref=e803]:
+          - generic [ref=e804]:
+            - heading "Resultados medibles. Confianza en cada interacción." [level=2] [ref=e805]:
+              - text: Resultados
+              - emphasis [ref=e806]: medibles.
+              - text: Confianza en cada interacción.
+            - paragraph [ref=e807]: No cifras de marketing. Indicadores que rastreamos en producción cada semana, contra la línea base de cada cliente.
+          - generic [ref=e808]:
+            - generic [ref=e809]:
+              - generic [ref=e810]: "42"
+              - generic [ref=e811]: Agentes especializados desplegados en producción.
+              - generic [ref=e812]: AGENTES
+            - generic [ref=e813]:
+              - generic [ref=e814]:
+                - text: "24"
+                - emphasis [ref=e815]: /
+                - text: "7"
+              - generic [ref=e816]: Atención de IA en español, sin pausas ni festivos.
+              - generic [ref=e817]: UPTIME
+            - generic [ref=e818]:
+              - generic [ref=e819]: "6"
+              - generic [ref=e820]: Países de LATAM con clientes activos hoy.
+              - generic [ref=e821]: COBERTURA
+            - generic [ref=e822]:
+              - generic [ref=e823]: "0"
+              - generic [ref=e824]: Líneas de código que tu equipo necesita escribir.
+              - generic [ref=e825]: CÓDIGO
+        - generic [ref=e827]:
+          - generic [ref=e828]:
+            - generic [ref=e829]: ¶
+            - generic [ref=e830]:
+              - heading "Cada día que operas sin automatización, pierdes dinero que no ves." [level=2] [ref=e831]:
+                - text: Cada día que operas sin automatización,
+                - emphasis [ref=e832]: pierdes dinero que no ves.
+              - paragraph [ref=e833]: No es que tu equipo sea ineficiente. Es que está haciendo trabajo de máquina mientras la máquina espera. Estos son los seis costos invisibles que escuchamos cada semana en auditorías.
+          - generic [ref=e834]:
+            - generic [ref=e835]:
+              - generic [ref=e836]: "01"
+              - generic [ref=e837]: Leads que se enfrían porque nadie los sigue a tiempo.
+              - generic [ref=e838]:
+                - text: COSTO INVISIBLE —
+                - strong [ref=e839]: 38% de oportunidades perdidas
+            - generic [ref=e840]:
+              - generic [ref=e841]: "02"
+              - generic [ref=e842]: No llegan a reuniones porque nadie confirma.
+              - generic [ref=e843]:
+                - text: COSTO INVISIBLE —
+                - strong [ref=e844]: ~2.5h/día en seguimientos
+            - generic [ref=e845]:
+              - generic [ref=e846]: "03"
+              - generic [ref=e847]: Propuestas que tardan días, no minutos.
+              - generic [ref=e848]:
+                - text: COSTO INVISIBLE —
+                - strong [ref=e849]: 4 días promedio de ciclo
+            - generic [ref=e850]:
+              - generic [ref=e851]: "04"
+              - generic [ref=e852]: Clientes que se van al rival porque no respondiste.
+              - generic [ref=e853]:
+                - text: COSTO INVISIBLE —
+                - strong [ref=e854]: Tasa < 12 min crítica
+            - generic [ref=e855]:
+              - generic [ref=e856]: "05"
+              - generic [ref=e857]: Datos que existen pero nadie analiza.
+              - generic [ref=e858]:
+                - text: COSTO INVISIBLE —
+                - strong [ref=e859]: Decisiones por intuición
+            - generic [ref=e860]:
+              - generic [ref=e861]: "06"
+              - generic [ref=e862]: WhatsApps fuera de horario que quedan sin respuesta.
+              - generic [ref=e863]:
+                - text: COSTO INVISIBLE —
+                - strong [ref=e864]: 60% son nocturnas
+        - generic [ref=e866]:
+          - generic [ref=e867]:
+            - generic [ref=e868]:
+              - generic [ref=e869]: Antes & Después
+              - heading "Esto es lo que cambia cuando automatizas." [level=2] [ref=e870]:
+                - text: Esto es lo que cambia
+                - emphasis [ref=e871]: cuando automatizas.
+            - paragraph [ref=e872]: Misma empresa. Mismo equipo. Distinta operación. Comparación basada en clientes que pasaron por nuestra auditoría en los últimos 12 meses.
+          - generic [ref=e873]:
+            - generic [ref=e874]:
+              - generic [ref=e875]: SIN AGENTESVA
+              - heading "El día típico de tu equipo" [level=3] [ref=e876]:
+                - text: El día
+                - emphasis [ref=e877]: típico
+                - text: de tu equipo
+              - list [ref=e878]:
+                - listitem [ref=e879]:
+                  - generic [ref=e880]: "01"
+                  - generic [ref=e881]: Copiar datos de clientes a mano entre apps
+                - listitem [ref=e882]:
+                  - generic [ref=e883]: "02"
+                  - generic [ref=e884]: Responder WhatsApp uno por uno hasta tarde
+                - listitem [ref=e885]:
+                  - generic [ref=e886]: "03"
+                  - generic [ref=e887]: Recordar citas y seguimientos manualmente
+                - listitem [ref=e888]:
+                  - generic [ref=e889]: "04"
+                  - generic [ref=e890]: Excel y formularios para reportar
+                - listitem [ref=e891]:
+                  - generic [ref=e892]: "05"
+                  - generic [ref=e893]: Perder clientes por no contestar a tiempo
+                - listitem [ref=e894]:
+                  - generic [ref=e895]: "06"
+                  - generic [ref=e896]: Cada propuesta es un trabajo de horas
+            - generic [ref=e897]:
+              - generic [ref=e898]: CON AGENTESVA
+              - heading "El día que recuperas" [level=3] [ref=e899]:
+                - text: El día que
+                - emphasis [ref=e900]: recuperas
+              - list [ref=e901]:
+                - listitem [ref=e902]:
+                  - generic [ref=e903]: "01"
+                  - generic [ref=e904]: Datos sincronizados automáticamente entre apps
+                - listitem [ref=e905]:
+                  - generic [ref=e906]: "02"
+                  - generic [ref=e907]: Respuestas instantáneas 24/7 por WhatsApp
+                - listitem [ref=e908]:
+                  - generic [ref=e909]: "03"
+                  - generic [ref=e910]: Recordatorios automáticos por email y voz
+                - listitem [ref=e911]:
+                  - generic [ref=e912]: "04"
+                  - generic [ref=e913]: Reportes generados en vivo, sin tocar Excel
+                - listitem [ref=e914]:
+                  - generic [ref=e915]: "05"
+                  - generic [ref=e916]: Cero clientes perdidos por timing
+                - listitem [ref=e917]:
+                  - generic [ref=e918]: "06"
+                  - generic [ref=e919]: Propuestas a medida en menos de 5 minutos
+        - generic [ref=e921]:
+          - generic [ref=e922]:
+            - generic [ref=e923]:
+              - generic [ref=e924]: Industrias
+              - heading "Donde ya hemos movido la aguja." [level=2] [ref=e925]:
+                - text: Donde ya hemos
+                - emphasis [ref=e926]: movido la aguja.
+            - paragraph [ref=e927]: No prometemos cosas que no hemos hecho. Cada industria que listamos tiene casos vivos en producción, con resultados medidos contra su línea base.
+          - generic [ref=e928]:
+            - generic [ref=e929] [cursor=pointer]:
+              - generic [ref=e930]: I/01
+              - generic [ref=e931]: ↗
+              - generic [ref=e932]: Restaurantes
+              - generic [ref=e933]: 14 IMPLEMENTACIONES
+            - generic [ref=e934] [cursor=pointer]:
+              - generic [ref=e935]: I/02
+              - generic [ref=e936]: ↗
+              - generic [ref=e937]: E-commerce
+              - generic [ref=e938]: 11 TIENDAS ACTIVAS
+            - generic [ref=e939] [cursor=pointer]:
+              - generic [ref=e940]: I/03
+              - generic [ref=e941]: ↗
+              - generic [ref=e942]: Inmobiliarias
+              - generic [ref=e943]: 8 OFICINAS
+            - generic [ref=e944] [cursor=pointer]:
+              - generic [ref=e945]: I/04
+              - generic [ref=e946]: ↗
+              - generic [ref=e947]: Consultoría
+              - generic [ref=e948]: 6 FIRMAS
+            - generic [ref=e949] [cursor=pointer]:
+              - generic [ref=e950]: I/05
+              - generic [ref=e951]: ↗
+              - generic [ref=e952]: Salud
+              - generic [ref=e953]: 4 CLÍNICAS
+            - generic [ref=e954] [cursor=pointer]:
+              - generic [ref=e955]: I/06
+              - generic [ref=e956]: ↗
+              - generic [ref=e957]: Logística
+              - generic [ref=e958]: 3 OPERADORES
+            - generic [ref=e959] [cursor=pointer]:
+              - generic [ref=e960]: I/07
+              - generic [ref=e961]: ↗
+              - generic [ref=e962]: Educación
+              - generic [ref=e963]: 5 ACADEMIAS
+            - generic [ref=e964] [cursor=pointer]:
+              - generic [ref=e965]: I/08
+              - generic [ref=e966]: ↗
+              - generic [ref=e967]: Servicios B2B
+              - generic [ref=e968]: 9 EMPRESAS
+        - generic [ref=e970]:
+          - generic [ref=e971]:
+            - generic [ref=e972]:
+              - generic [ref=e973]: Lo que construimos
+              - heading "Seis tipos de agentes. Una filosofía." [level=2] [ref=e974]:
+                - text: Seis tipos de agentes.
+                - emphasis [ref=e975]: Una filosofía.
+            - paragraph [ref=e976]: Que tu equipo deje de hacer lo que la IA puede hacer mejor — y vuelva a las decisiones que solo un humano puede tomar.
+          - generic [ref=e977]:
+            - generic [ref=e978] [cursor=pointer]:
+              - generic [ref=e979]: S/01
+              - generic [ref=e980]: Auditoría de procesos
+              - generic [ref=e981]: "Mapeamos tu operación, identificamos los cuellos de botella y cuantificamos el costo de cada uno. Salida: un plan priorizado por ROI."
+              - generic [ref=e982]:
+                - generic [ref=e983]: — DISCOVERY
+                - generic [ref=e984]: — ROI MAP
+                - generic [ref=e985]: — 2 SEMANAS
+            - generic [ref=e986] [cursor=pointer]:
+              - generic [ref=e987]: S/02
+              - generic [ref=e988]: Agentes de WhatsApp
+              - generic [ref=e989]: Conversaciones que califican, agendan, cobran y derivan. Conectados a tu CRM, calendario y stock en tiempo real.
+              - generic [ref=e990]:
+                - generic [ref=e991]: — WHATSAPP BUSINESS
+                - generic [ref=e992]: — CRM SYNC
+                - generic [ref=e993]: — MULTI-CANAL
+            - generic [ref=e994] [cursor=pointer]:
+              - generic [ref=e995]: S/03
+              - generic [ref=e996]: Automatización back-office
+              - generic [ref=e997]: Make.com + APIs propias. Sincronizamos sistemas que nunca hablaron entre sí, sin tocar el código que ya funciona.
+              - generic [ref=e998]:
+                - generic [ref=e999]: — MAKE.COM
+                - generic [ref=e1000]: — ZAPIER PRO
+                - generic [ref=e1001]: — CUSTOM APIs
+            - generic [ref=e1002] [cursor=pointer]:
+              - generic [ref=e1003]: S/04
+              - generic [ref=e1004]: Agentes de voz
+              - generic [ref=e1005]: Llamadas entrantes y salientes con IA conversacional en español. Confirma, recuerda, califica y deriva con voz natural.
+              - generic [ref=e1006]:
+                - generic [ref=e1007]: — VOZ LATAM
+                - generic [ref=e1008]: — CONFIRMACIONES
+                - generic [ref=e1009]: — OUTBOUND
+            - generic [ref=e1010] [cursor=pointer]:
+              - generic [ref=e1011]: S/05
+              - generic [ref=e1012]: Generación de propuestas
+              - generic [ref=e1013]: Briefs que se convierten en cotizaciones, contratos y presentaciones en minutos. Tu equipo solo revisa y envía.
+              - generic [ref=e1014]:
+                - generic [ref=e1015]: — PDF + DOCS
+                - generic [ref=e1016]: — PLANTILLAS
+                - generic [ref=e1017]: — FIRMA DIGITAL
+            - generic [ref=e1018] [cursor=pointer]:
+              - generic [ref=e1019]: S/06
+              - generic [ref=e1020]: Inteligencia de datos
+              - generic [ref=e1021]: Dashboards vivos y resúmenes automáticos. Tu equipo recibe los insights por email cada lunes, sin pedirlos.
+              - generic [ref=e1022]:
+                - generic [ref=e1023]: — BI LIGERO
+                - generic [ref=e1024]: — RESÚMENES IA
+                - generic [ref=e1025]: — ALERTAS
+        - generic [ref=e1027]:
+          - generic [ref=e1028]:
+            - generic [ref=e1029]:
+              - generic [ref=e1030]: Cómo trabajamos
+              - heading "De auditoría a operación, en cuatro pasos." [level=2] [ref=e1031]:
+                - text: De auditoría a operación,
+                - emphasis [ref=e1032]: en cuatro pasos.
+            - paragraph [ref=e1033]: Sin contratos eternos ni "fases" infinitas. Sabes desde el día uno qué pasa, cuándo y cuánto cuesta.
+          - generic [ref=e1034]:
+            - generic [ref=e1035]:
+              - emphasis [ref=e1037]: "1"
+              - generic [ref=e1038]: DÍA 1
+              - generic [ref=e1039]: Auditoría
+              - generic [ref=e1040]: Sesión de 30 min. Mapeamos procesos y oportunidades.
+            - generic [ref=e1041]:
+              - generic [ref=e1042]: "2"
+              - generic [ref=e1043]: SEMANA 1
+              - generic [ref=e1044]: Diseño
+              - generic [ref=e1045]: Diagrama de flujo y plan priorizado por ROI.
+            - generic [ref=e1046]:
+              - generic [ref=e1047]: "3"
+              - generic [ref=e1048]: SEMANA 2-4
+              - generic [ref=e1049]: Build
+              - generic [ref=e1050]: Construimos contigo, no para ti. Total transparencia.
+            - generic [ref=e1051]:
+              - emphasis [ref=e1053]: "4"
+              - generic [ref=e1054]: MES 2+
+              - generic [ref=e1055]: Operación
+              - generic [ref=e1056]: Soporte continuo, mejoras y nuevos agentes.
+        - generic [ref=e1058]:
+          - generic [ref=e1059]:
+            - generic [ref=e1060]: Lo que dicen
+            - heading "Equipos que recuperaron su tiempo y su margen." [level=2] [ref=e1061]:
+              - text: Equipos que recuperaron
+              - emphasis [ref=e1062]: su tiempo
+              - text: y su margen.
+          - generic [ref=e1063]:
+            - generic [ref=e1064]:
+              - generic [ref=e1065]: FACTURACIÓN +42%
+              - generic [ref=e1066]: "\"Pasamos de responder WhatsApps hasta las 11 pm a un equipo que duerme tranquilo. Y la facturación subió 42% en cuatro meses.\""
+              - generic [ref=e1068]:
+                - generic [ref=e1069]: María Fernanda Restrepo
+                - generic [ref=e1070]: Dir. Operaciones · Cadena de restaurantes (Bogotá)
+            - generic [ref=e1071]:
+              - generic [ref=e1072]:
+                - generic [ref=e1073]: NO-SHOWS −73%
+                - generic [ref=e1074]: "\"El agente de voz confirma todas las citas. Las cancelaciones bajaron del 22% al 6%.\""
+                - generic [ref=e1076]:
+                  - generic [ref=e1077]: Andrés Vega
+                  - generic [ref=e1078]: Gerente · Clínica dental
+              - generic [ref=e1079]:
+                - generic [ref=e1080]: PIPELINE 2×
+                - generic [ref=e1081]: "\"Nuestras cotizaciones tardaban 3 días. Ahora salen en 4 minutos.\""
+                - generic [ref=e1083]:
+                  - generic [ref=e1084]: Lucía Mendoza
+                  - generic [ref=e1085]: CCO · Inmobiliaria
+        - generic [ref=e1087]:
+          - generic [ref=e1088]: Auditoría gratis · 30 min · Cero compromiso
+          - heading "¿Hablamos 30 minutos? Salimos con un plan." [level=2] [ref=e1089]:
+            - text: ¿Hablamos
+            - emphasis [ref=e1090]: 30 minutos
+            - text: "?"
+            - text: Salimos con un plan.
+          - link "Reservar mi auditoría →" [ref=e1092] [cursor=pointer]:
+            - /url: "#"
+            - text: Reservar mi auditoría
+            - generic [ref=e1093]: →
+          - generic [ref=e1096]: Próximo slot disponible — Martes 28 abril · 10:30 GMT-5
+        - generic [ref=e1098]:
+          - generic [ref=e1100]:
+            - generic [ref=e1101]: Preguntas frecuentes
+            - heading "Lo que toda empresa nos pregunta antes de empezar." [level=2] [ref=e1102]:
+              - text: Lo que toda empresa nos pregunta
+              - emphasis [ref=e1103]: antes de empezar.
+          - generic [ref=e1104]:
+            - generic [ref=e1105] [cursor=pointer]:
+              - generic [ref=e1106]:
+                - generic [ref=e1107]: Q/01
+                - generic [ref=e1108]: ¿Necesito cambiar mis sistemas actuales?
+                - generic [ref=e1109]: +
+              - generic [ref=e1110]: No. Trabajamos sobre lo que ya tienes — CRM, ERP, WhatsApp, ecommerce, hojas de cálculo. Conectamos en lugar de reemplazar.
+            - generic [ref=e1111] [cursor=pointer]:
+              - generic [ref=e1112]:
+                - generic [ref=e1113]: Q/02
+                - generic [ref=e1114]: ¿Cuánto tarda una implementación típica?
+                - generic [ref=e1115]: +
+              - generic: Entre 2 y 6 semanas, según la complejidad. La auditoría nos permite darte un plazo exacto antes de empezar.
+            - generic [ref=e1116] [cursor=pointer]:
+              - generic [ref=e1117]:
+                - generic [ref=e1118]: Q/03
+                - generic [ref=e1119]: ¿Cuánto cuesta?
+                - generic [ref=e1120]: +
+              - generic: Depende del alcance. Los proyectos suelen ir desde USD $3.500 hasta $25.000, con costos operativos mensuales claros desde el día uno.
+            - generic [ref=e1121] [cursor=pointer]:
+              - generic [ref=e1122]:
+                - generic [ref=e1123]: Q/04
+                - generic [ref=e1124]: ¿Quién es el dueño de los agentes y los datos?
+                - generic [ref=e1125]: +
+              - generic: Tú. Todos los flujos, prompts, datos y conexiones quedan bajo tu cuenta. Si un día decides parar, te llevas todo.
+            - generic [ref=e1126] [cursor=pointer]:
+              - generic [ref=e1127]:
+                - generic [ref=e1128]: Q/05
+                - generic [ref=e1129]: ¿Funciona si mi equipo no es técnico?
+                - generic [ref=e1130]: +
+              - generic: Por diseño. Hablamos con tu equipo, no con tu equipo de TI. Los agentes se operan desde paneles simples y mensajes.
+            - generic [ref=e1131] [cursor=pointer]:
+              - generic [ref=e1132]:
+                - generic [ref=e1133]: Q/06
+                - generic [ref=e1134]: ¿Trabajan en toda LATAM?
+                - generic [ref=e1135]: +
+              - generic: Sí. Tenemos clientes activos en México, Colombia, Perú, Chile, Argentina y Uruguay. Operamos 100% remoto.
+        - contentinfo [ref=e1136]:
+          - generic [ref=e1137]:
+            - generic [ref=e1138]:
+              - text: Agentes
+              - emphasis [ref=e1139]: VA.
+            - generic [ref=e1140]:
+              - generic [ref=e1141]: Consultoría en automatización con IA para empresas medianas en LATAM. Hecho con cariño desde Medellín, Buenos Aires y CDMX.
+              - generic [ref=e1142]:
+                - heading "Servicios" [level=4] [ref=e1143]
+                - generic [ref=e1144]:
+                  - link "Auditoría" [ref=e1145] [cursor=pointer]:
+                    - /url: "#"
+                  - link "WhatsApp IA" [ref=e1146] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Agentes de voz" [ref=e1147] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Back-office" [ref=e1148] [cursor=pointer]:
+                    - /url: "#"
+              - generic [ref=e1149]:
+                - heading "Empresa" [level=4] [ref=e1150]
+                - generic [ref=e1151]:
+                  - link "Casos" [ref=e1152] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Equipo" [ref=e1153] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Blog" [ref=e1154] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Contacto" [ref=e1155] [cursor=pointer]:
+                    - /url: "#"
+              - generic [ref=e1156]:
+                - heading "Contacto" [level=4] [ref=e1157]
+                - generic [ref=e1158]:
+                  - link "hola@agentesva.com" [ref=e1159] [cursor=pointer]:
+                    - /url: "#"
+                  - link "+57 300 000 0000" [ref=e1160] [cursor=pointer]:
+                    - /url: "#"
+                  - link "LinkedIn" [ref=e1161] [cursor=pointer]:
+                    - /url: "#"
+            - generic [ref=e1162]:
+              - generic [ref=e1163]: © 2026 AGENTESVA · TODOS LOS DERECHOS RESERVADOS
+              - generic [ref=e1164]: TÉRMINOS · PRIVACIDAD
