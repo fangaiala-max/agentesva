@@ -9,6 +9,13 @@ industria: "general"
 draft: false
 featured: false
 readingTimeMin: 8
+faqs:
+  - q: "¿Qué diferencia hay entre un agente de IA y un sistema multi-agente?"
+    a: "Un agente ejecuta una tarea dentro de un contexto definido. Un sistema multi-agente coordina múltiples agentes con capacidades distintas para resolver problemas que ningún agente individual podría manejar de forma eficiente."
+  - q: "¿Qué empresas están implementando orquestación agéntica en 2026?"
+    a: "Según los informes de Deloitte y Anthropic de este año, las primeras adopciones masivas se dan en servicios financieros, logística, y desarrollo de software, donde los flujos de trabajo son complejos pero suficientemente estructurados como para modelarse."
+  - q: "¿Es lo mismo que RPA?"
+    a: "No. La automatización robótica de procesos (RPA) sigue reglas rígidas y falla ante excepciones. La orquestación agéntica toma decisiones en contexto y puede adaptarse a variaciones dentro del workflow."
 ---
 
 Durante años, la conversación sobre IA en la empresa giró en torno a chatbots y automatizaciones puntuales: un bot que responde tickets, un script que mueve datos entre sistemas. Útil, pero incremental. Lo que está ocurriendo en 2026 es cualitativamente distinto.

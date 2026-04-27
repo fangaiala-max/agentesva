@@ -9,6 +9,13 @@ industria: "general"
 draft: false
 featured: false
 readingTimeMin: 9
+faqs:
+  - q: "¿Cuál es la diferencia entre low-code y no-code en el contexto de automatización agéntica?"
+    a: "Low-code requiere comprensión básica de lógica de programación y permite mayor personalización. No-code opera completamente mediante interfaces visuales o lenguaje natural y está diseñado para usuarios sin ningún background técnico."
+  - q: "¿Qué herramientas lideran la democratización de la automatización en 2026?"
+    a: "Make.com, n8n, Zapier (con sus funciones de IA), y los constructores agénticos nativos de plataformas CRM y ERP líderes son los más adoptados en el segmento empresarial."
+  - q: "¿Cómo evitar la deuda técnica cuando toda la organización puede automatizar?"
+    a: "Con un Centro de Excelencia de Automatización ligero: no un departamento de aprobación, sino un repositorio de plantillas validadas, estándares mínimos de documentación, y revisión trimestral de workflows activos por área."
 ---
 
 Durante décadas, automatizar un proceso de negocio requería tres cosas que rara vez coincidían: un experto en el proceso, un desarrollador disponible, y tiempo. La **democratización de la automatización** rompe esa dependencia. En 2026, el cuello de botella ya no es técnico — es organizativo.
