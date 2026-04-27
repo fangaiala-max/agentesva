@@ -17,6 +17,7 @@ export interface Props {
   author?: string;
   ogImage?: string;
   featured?: boolean;
+  variant?: 'featured' | 'compact' | 'grid';
 }
 
 const {
@@ -28,143 +29,138 @@ const {
   readingTimeMin,
   author,
   featured = false,
+  variant = featured ? 'featured' : 'grid',
 } = Astro.props;
 
 type Visual = { gradient: string; glyph: string; glyphTone: 'sand' | 'paper' | 'ink' };
 const PILLAR_VISUALS: Record<Props['pillar'], Visual> = {
-  'kit-digital': {
-    gradient: 'linear-gradient(135deg, #1A1814 0%, #9C3F2A 100%)',
-    glyph: '€',
-    glyphTone: 'sand',
-  },
-  'whatsapp-api': {
-    gradient: 'linear-gradient(135deg, #2F4A3A 0%, #5C7868 100%)',
-    glyph: 'w',
-    glyphTone: 'paper',
-  },
-  'automatizacion-ia-pymes': {
-    gradient: 'linear-gradient(135deg, #C2543A 0%, #E8C77E 100%)',
-    glyph: 'a',
-    glyphTone: 'ink',
-  },
-  'comparativas': {
-    gradient: 'linear-gradient(135deg, #3D362C 0%, #2F4A3A 100%)',
-    glyph: '⇄',
-    glyphTone: 'paper',
-  },
-  'agentes-ia-concepto': {
-    gradient: 'linear-gradient(135deg, #9C3F2A 0%, #1A1814 100%)',
-    glyph: '◆',
-    glyphTone: 'sand',
-  },
-  'caso-estudio': {
-    gradient: 'linear-gradient(135deg, #E8C77E 0%, #C2543A 100%)',
-    glyph: 'c',
-    glyphTone: 'ink',
-  },
+  'kit-digital': { gradient: 'linear-gradient(135deg, #1A1814 0%, #9C3F2A 100%)', glyph: '€', glyphTone: 'sand' },
+  'whatsapp-api': { gradient: 'linear-gradient(135deg, #2F4A3A 0%, #5C7868 100%)', glyph: 'w', glyphTone: 'paper' },
+  'automatizacion-ia-pymes': { gradient: 'linear-gradient(135deg, #C2543A 0%, #E8C77E 100%)', glyph: 'a', glyphTone: 'ink' },
+  'comparativas': { gradient: 'linear-gradient(135deg, #3D362C 0%, #2F4A3A 100%)', glyph: '⇄', glyphTone: 'paper' },
+  'agentes-ia-concepto': { gradient: 'linear-gradient(135deg, #9C3F2A 0%, #1A1814 100%)', glyph: '◆', glyphTone: 'sand' },
+  'caso-estudio': { gradient: 'linear-gradient(135deg, #E8C77E 0%, #C2543A 100%)', glyph: 'c', glyphTone: 'ink' },
+};
+
+const PILLAR_LABELS: Record<Props['pillar'], string> = {
+  'kit-digital': 'Kit Digital',
+  'whatsapp-api': 'WhatsApp API',
+  'automatizacion-ia-pymes': 'Automatización IA',
+  'comparativas': 'Comparativas',
+  'agentes-ia-concepto': 'Agentes IA',
+  'caso-estudio': 'Caso de estudio',
 };
 
 const visual = PILLAR_VISUALS[pillar];
+const pillarLabel = PILLAR_LABELS[pillar];
 const glyphColor =
-  visual.glyphTone === 'sand'
-    ? 'var(--sand)'
-    : visual.glyphTone === 'paper'
-    ? 'var(--paper)'
-    : 'rgba(26,24,20,0.92)';
+  visual.glyphTone === 'sand' ? 'var(--sand)' :
+  visual.glyphTone === 'paper' ? 'var(--paper)' :
+  'rgba(26,24,20,0.92)';
 
 const dateStr = new Date(publishedAt).toLocaleDateString('es-ES', {
-  year: 'numeric',
-  month: 'short',
-  day: 'numeric',
+  year: 'numeric', month: 'short', day: 'numeric',
 });
 ---
-<a
-  href={href}
-  class={`group block bg-card border border-line rounded-lg overflow-hidden transition hover:-translate-y-1 hover:shadow-sh-md hover:border-clay/30 ${featured ? 'md:col-span-2' : ''}`}
->
-  <div
-    class={`post-card-thumb relative overflow-hidden ${featured ? 'aspect-[3/1]' : 'aspect-[16/7]'}`}
-    style={`background: ${visual.gradient};`}
-    aria-hidden="true"
-  >
-    <span
-      class="post-card-glyph"
-      style={`color: ${glyphColor};`}
-    >{visual.glyph}</span>
-  </div>
-  <div class={`p-6 ${featured ? 'md:p-8' : ''}`}>
-    <div class="flex items-center gap-2 mb-4">
-      <PillarPill pillar={pillar} size="sm" />
-      {featured && (
-        <span class="text-[11px] uppercase tracking-wider text-clay font-medium">Destacado</span>
-      )}
+{variant === 'compact' && (
+  <a href={href} class="group flex gap-5 items-center py-5 border-b border-line/60 transition hover:border-clay/40">
+    <div class="flex-1 min-w-0">
+      <span class="block font-mono text-[11px] uppercase tracking-[0.16em] text-clay mb-2">{pillarLabel}</span>
+      <h3 class="font-serif text-xl md:text-2xl font-normal tracking-tight text-ink leading-tight group-hover:text-clay transition-colors">{title}</h3>
+      <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink-3 mt-3">
+        <time datetime={new Date(publishedAt).toISOString()}>{dateStr}</time>
+        {readingTimeMin && (<><span aria-hidden="true">·</span><span>{readingTimeMin} min</span></>)}
+      </div>
     </div>
-    <h3
-      class={`font-serif font-normal tracking-tight text-ink leading-tight mb-3 group-hover:text-clay transition ${
-        featured ? 'text-3xl md:text-4xl' : 'text-xl md:text-2xl'
-      }`}
+    <div
+      class="post-card-thumb post-card-thumb-compact relative w-24 h-24 md:w-28 md:h-28 flex-shrink-0 overflow-hidden rounded-md"
+      style={`background: ${visual.gradient};`}
+      aria-hidden="true"
     >
-      {title}
-    </h3>
-    <p class={`text-ink-2 leading-relaxed mb-4 ${featured ? 'text-base' : 'text-sm'}`}>
-      {description}
-    </p>
-    <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink-3">
-      <time datetime={new Date(publishedAt).toISOString()}>{dateStr}</time>
-      {readingTimeMin && (
-        <>
-          <span aria-hidden="true">·</span>
-          <span>{readingTimeMin} min</span>
-        </>
-      )}
-      {author && (
-        <>
-          <span aria-hidden="true">·</span>
-          <span>{author}</span>
-        </>
-      )}
+      <span class="post-card-glyph post-card-glyph-compact" style={`color: ${glyphColor};`}>{visual.glyph}</span>
     </div>
-  </div>
-</a>
+  </a>
+)}
+
+{variant === 'featured' && (
+  <a href={href} class="group block">
+    <div
+      class="post-card-thumb relative aspect-[16/10] overflow-hidden mb-6 rounded-md"
+      style={`background: ${visual.gradient};`}
+      aria-hidden="true"
+    >
+      <span class="post-card-glyph" style={`color: ${glyphColor};`}>{visual.glyph}</span>
+    </div>
+    <div class="flex flex-col gap-3">
+      <span class="font-mono text-[11px] uppercase tracking-[0.16em] text-clay">{pillarLabel}</span>
+      <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight text-ink leading-[1.1] group-hover:text-clay transition-colors">{title}</h2>
+      <p class="text-ink-2 leading-relaxed line-clamp-3">{description}</p>
+      <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink-3">
+        <time datetime={new Date(publishedAt).toISOString()}>{dateStr}</time>
+        {readingTimeMin && (<><span aria-hidden="true">·</span><span>{readingTimeMin} min</span></>)}
+        {author && (<><span aria-hidden="true">·</span><span>{author}</span></>)}
+      </div>
+    </div>
+  </a>
+)}
+
+{variant === 'grid' && (
+  <a href={href} class="group block bg-card border border-line rounded-lg overflow-hidden transition hover:-translate-y-1 hover:shadow-sh-md hover:border-clay/30">
+    <div
+      class="post-card-thumb relative aspect-[16/7] overflow-hidden"
+      style={`background: ${visual.gradient};`}
+      aria-hidden="true"
+    >
+      <span class="post-card-glyph" style={`color: ${glyphColor};`}>{visual.glyph}</span>
+    </div>
+    <div class="p-6">
+      <div class="flex items-center gap-2 mb-4">
+        <PillarPill pillar={pillar} size="sm" />
+      </div>
+      <h3 class="font-serif font-normal tracking-tight text-ink leading-tight mb-3 text-xl md:text-2xl group-hover:text-clay transition">{title}</h3>
+      <p class="text-ink-2 leading-relaxed mb-4 text-sm">{description}</p>
+      <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink-3">
+        <time datetime={new Date(publishedAt).toISOString()}>{dateStr}</time>
+        {readingTimeMin && (<><span aria-hidden="true">·</span><span>{readingTimeMin} min</span></>)}
+        {author && (<><span aria-hidden="true">·</span><span>{author}</span></>)}
+      </div>
+    </div>
+  </a>
+)}
 
 <style>
-  .post-card-thumb {
-    position: relative;
-    isolation: isolate;
-  }
+  .post-card-thumb { isolation: isolate; }
   .post-card-thumb::before {
-    content: "";
-    position: absolute;
-    top: -40%;
-    right: -20%;
-    width: 240px;
-    height: 240px;
-    border-radius: 50%;
+    content: ""; position: absolute; top: -40%; right: -20%;
+    width: 240px; height: 240px; border-radius: 50%;
     background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, transparent 70%);
     pointer-events: none;
   }
   .post-card-thumb::after {
-    content: "";
-    position: absolute;
-    bottom: -30%;
-    left: -15%;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
+    content: ""; position: absolute; bottom: -30%; left: -15%;
+    width: 200px; height: 200px; border-radius: 50%;
     background: radial-gradient(circle, rgba(0,0,0,0.12) 0%, transparent 70%);
     pointer-events: none;
   }
   .post-card-glyph {
-    position: absolute;
-    bottom: 18px;
-    left: 24px;
+    position: absolute; bottom: 18px; left: 24px;
     font-family: 'Fraunces', Georgia, serif;
-    font-style: italic;
-    font-weight: 400;
+    font-style: italic; font-weight: 400;
     font-size: clamp(72px, 10vw, 120px);
-    line-height: 0.85;
-    letter-spacing: -0.06em;
-    z-index: 1;
-    text-shadow: 0 1px 8px rgba(0,0,0,0.08);
+    line-height: 0.85; letter-spacing: -0.06em;
+    z-index: 1; text-shadow: 0 1px 8px rgba(0,0,0,0.08);
+  }
+  .post-card-glyph-compact {
+    bottom: 8px !important;
+    left: 12px !important;
+    font-size: 56px !important;
+  }
+  .post-card-thumb-compact::before {
+    width: 100px !important; height: 100px !important;
+    top: -20% !important; right: -10% !important;
+  }
+  .post-card-thumb-compact::after {
+    width: 80px !important; height: 80px !important;
+    bottom: -20% !important; left: -10% !important;
   }
 </style>
