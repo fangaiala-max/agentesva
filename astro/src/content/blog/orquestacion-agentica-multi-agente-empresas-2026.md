@@ -13,7 +13,7 @@ readingTimeMin: 8
 
 Durante años, la conversación sobre IA en la empresa giró en torno a chatbots y automatizaciones puntuales: un bot que responde tickets, un script que mueve datos entre sistemas. Útil, pero incremental. Lo que está ocurriendo en 2026 es cualitativamente distinto.
 
-Los informes de Anthropic, Deloitte y Redwood Software publicados este año coinciden en el mismo diagnóstico: la unidad básica de la IA empresarial ya no es el agente individual, sino el sistema de agentes coordinados. A esto lo llaman **orquestación agéntica**, y está rediseñando la arquitectura de operaciones de las organizaciones que la adoptan.
+Los informes de [Anthropic](https://www.anthropic.com/research/economic-index-march-2026-report), [Deloitte](https://www.deloitte.com/global/en/issues/generative-ai/state-of-ai-in-enterprise.html) y [Redwood Software](https://www.redwood.com/article/ai-automation-trends/) publicados este año coinciden en el mismo diagnóstico: la unidad básica de la IA empresarial ya no es el agente individual, sino el sistema de agentes coordinados. A esto lo llaman **orquestación agéntica**, y está rediseñando la arquitectura de operaciones de las organizaciones que la adoptan.
 
 ## Qué significa en la práctica
 
@@ -49,7 +49,7 @@ Un agente ejecuta una tarea dentro de un contexto definido. Un sistema multi-age
 
 ### ¿Qué empresas están implementando orquestación agéntica en 2026?
 
-Según los informes de Deloitte y Anthropic de este año, las primeras adopciones masivas se dan en servicios financieros, logística, y desarrollo de software, donde los flujos de trabajo son complejos pero suficientemente estructurados como para modelarse.
+Según los informes de [Deloitte](https://www.deloitte.com/global/en/issues/generative-ai/state-of-ai-in-enterprise.html) y [Anthropic](https://www.anthropic.com/research/economic-index-march-2026-report) de este año, las primeras adopciones masivas se dan en servicios financieros, logística, y desarrollo de software, donde los flujos de trabajo son complejos pero suficientemente estructurados como para modelarse.
 
 ### ¿Es lo mismo que RPA?
 

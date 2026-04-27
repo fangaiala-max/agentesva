@@ -26,7 +26,7 @@ Este cambio no es ideológico. Es la respuesta empírica de las organizaciones q
 
 Los sistemas agénticos, cuando están bien diseñados, tienen ventajas estructurales en todas estas dimensiones respecto a la automatización rígida basada en reglas. Un agente puede recibir una excepción, razonar sobre ella en contexto, y tomar una decisión razonable. Un workflow de RPA simplemente falla y espera intervención humana.
 
-Según el informe de Redwood Software de 2026 sobre tendencias en automatización empresarial, el **74% de los CIOs en empresas Fortune 500** afirman que la resiliencia operativa superó a la eficiencia de costes como criterio primario de evaluación de inversiones en automatización durante el último año fiscal.
+Según el informe [AI & Automation Trends 2026 de Redwood Software](https://www.redwood.com/article/ai-automation-trends/), una mayoría de líderes empresariales sitúa ya la **resiliencia operativa por encima de la eficiencia de costes** como criterio primario de evaluación de inversiones en automatización (ver también el [Enterprise Automation Index 2026](https://www.redwood.com/resource/enterprise-automation-index/) de Redwood Software).
 
 ## Las implicaciones para cómo diseñamos workflows
 

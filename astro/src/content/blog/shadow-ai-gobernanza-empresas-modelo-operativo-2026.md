@@ -13,13 +13,13 @@ readingTimeMin: 9
 
 En 2024, el problema era que los empleados no usaban IA. En 2026, el problema es que la usan para todo, con cualquier herramienta, sin que IT lo sepa.
 
-Este fenómeno tiene nombre: **Shadow AI**. Y según los datos de Deloitte recogidos en su informe de automatización de 2026, más del **60% de los trabajadores del conocimiento** en empresas medianas y grandes utilizan herramientas de IA no sancionadas por la organización para tareas relacionadas con su trabajo. Datos internos que entran en modelos externos. Procesos críticos que dependen de herramientas sin contrato ni SLA. Decisiones basadas en outputs que nadie ha validado.
+Este fenómeno tiene nombre: **Shadow AI**. Y según los datos de [Deloitte recogidos en su State of AI in the Enterprise 2026](https://www.deloitte.com/global/en/issues/generative-ai/state-of-ai-in-enterprise.html), más del **60% de los trabajadores del conocimiento** en empresas medianas y grandes utilizan herramientas de IA no sancionadas por la organización para tareas relacionadas con su trabajo. Datos internos que entran en modelos externos. Procesos críticos que dependen de herramientas sin contrato ni SLA. Decisiones basadas en outputs que nadie ha validado.
 
 ## El error de respuesta más común
 
 La mayoría de las organizaciones responden con lo que siempre han respondido: políticas. Un documento de uso aceptable de IA que nadie lee, enviado por un departamento legal que tampoco entiende cómo funcionan los LLMs. Esto no funciona por una razón simple: el incentivo del empleado es **productividad inmediata**, y la política no le da una alternativa mejor.
 
-El modelo operativo que sí funciona, según los marcos publicados por Redwood Software este año, tiene tres capas:
+El modelo operativo que sí funciona, según los marcos publicados por [Redwood Software este año](https://www.redwood.com/article/ai-automation-trends/), tiene tres capas:
 
 - **Habilitación**: dar acceso a herramientas aprobadas que sean tan buenas o mejores que las no aprobadas.
 - **Observabilidad**: logging de qué datos fluyen hacia qué sistemas.
