@@ -4,18 +4,22 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import MobileNav from '../components/MobileNav.astro';
 
-const bodyHtml = `<main class="pb-12 px-5 max-w-3xl mx-auto space-y-12">
+const bodyHtml = `<main class="pb-12">
 
-    <!-- HERO -->
-    <section class="text-center space-y-4 pt-12">
-        <span class="inline-block px-3 py-1 rounded-full bg-paper-2 text-ink-2 text-xs font-semibold tracking-wide uppercase">Equipo &middot; Espa&ntilde;a</span>
-        <h1 class="font-serif font-extrabold text-3xl md:text-5xl text-ink leading-tight">
-            Un equipo profesional<br>especializado en <em class="italic text-clay">automatizaci&oacute;n con IA</em>.
-        </h1>
-        <p class="text-ink-3 text-lg max-w-2xl mx-auto">
-            Hoy somos 2 personas. En Q3 2026 seremos 4: sales + 2 customer service. Operamos remoto desde Espa&ntilde;a, atendemos toda LATAM. Cada proyecto entra con un <strong class="text-ink">point of contact dedicado</strong>.
-        </p>
+    <!-- HERO (full-width photo bg) -->
+    <section class="dirA-hero-photo-4 text-center space-y-4">
+        <div class="max-w-3xl mx-auto space-y-4">
+            <span class="inline-block px-3 py-1 rounded-full bg-paper-2 text-ink-2 text-xs font-semibold tracking-wide uppercase">Equipo &middot; Espa&ntilde;a</span>
+            <h1 class="font-serif font-extrabold text-3xl md:text-5xl text-ink leading-tight">
+                Un equipo profesional<br>especializado en <em class="italic text-clay">automatizaci&oacute;n con IA</em>.
+            </h1>
+            <p class="text-ink-3 text-lg max-w-2xl mx-auto">
+                Hoy somos 2 personas. En Q3 2026 seremos 4: sales + 2 customer service. Operamos remoto desde Espa&ntilde;a, atendemos toda LATAM. Cada proyecto entra con un <strong class="text-ink">point of contact dedicado</strong>.
+            </p>
+        </div>
     </section>
+
+    <div class="px-5 max-w-3xl mx-auto space-y-12">
 
     <!-- CÓMO TRABAJAMOS -->
     <section class="space-y-4 bg-card p-8 rounded-3xl border border-line-soft/10">
@@ -135,6 +139,7 @@ const bodyHtml = `<main class="pb-12 px-5 max-w-3xl mx-auto space-y-12">
         <p class="text-xs text-ink-3">Sin tarjeta &middot; Sin presi&oacute;n &middot; Equipo real, no chatbot</p>
     </section>
 
+    </div>
 </main>`;
 ---
 <BaseLayout
