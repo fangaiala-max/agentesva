@@ -3,7 +3,13 @@
 **Post URL:** https://agentesva.com/blog/kit-digital-automatizacion-ia-2026/
 **Fecha audit:** 2026-04-27
 **Auditor:** Equipo AgentesVA
-**Estado actual:** ✅ VERIFIED (2026-04-27, segunda iteración).
+**Estado actual:** ✅ VERIFIED (2026-04-27, tercera iteración — incluye corrección de ubicación + suavizado de métricas).
+
+**Iteración 3 (2026-04-27):** El usuario confirmó:
+1. Caso restaurante NO es Madrid, es **Cataluña** → corregido en pillar, casos/restaurante.md, infografia.astro, carrusel.astro
+2. Métricas (+60%, +70%, −73%) son **aproximaciones** → suavizadas con "del orden de" / "aproximadamente"
+3. Cuantías Kit Digital: confirmadas
+4. Stack: **varía por cliente** — confirmado que las secciones "Stack típico" en el post describen stacks de mercado por tipo de automatización, no implementaciones uniformes de AgentesVA. OK.
 
 **Histórico de iteraciones del claim A1:**
 

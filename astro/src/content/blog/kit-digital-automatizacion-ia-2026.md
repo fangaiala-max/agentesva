@@ -13,13 +13,13 @@ readingTimeMin: 12
 ogImage: "/recursos/kit-digital/og-kit-digital.png"
 ---
 
-> **Resumen rápido:** Kit Digital Segmento II ofrece hasta **6.000 €** en subvenciones a PyMEs españolas de 3 a 9 empleados. La mayoría se usa en webs y CRM básicos. Pocas empresas lo aprovechan para **automatización con IA** — donde el ROI llega en 60-90 días. En esta guía: qué cubre exactamente, qué automatizaciones con IA encajan, 3 casos reales con métricas verificables (+60% facturación, +70% utilización), cómo solicitarlo paso a paso y los 5 errores que hacen que te denieguen.
+> **Resumen rápido:** Kit Digital Segmento II ofrece hasta **6.000 €** en subvenciones a PyMEs españolas de 3 a 9 empleados. La mayoría se usa en webs y CRM básicos. Pocas empresas lo aprovechan para **automatización con IA** — donde el ROI llega en 60-90 días. En esta guía: qué cubre exactamente, qué automatizaciones con IA encajan, 3 casos reales con métricas aproximadas (orden de +60% facturación, +70% utilización; cifras exactas verificables en auditoría privada), cómo solicitarlo paso a paso y los 5 errores que hacen que te denieguen.
 
 ---
 
 ## El elefante de los 6.000 € que casi nadie aprovecha bien
 
-En 2026 hay más de **400.000 PyMEs españolas** elegibles para Kit Digital Segmento II ([Red.es, 2025](https://www.acelerapyme.gob.es/kit-digital)). El programa cubre hasta **6.000 €** por empresa de 3 a 9 empleados. Es una de las subvenciones a la digitalización más generosas de Europa.
+En 2026 una parte importante del tejido PyME español (centenares de miles de empresas) son elegibles para Kit Digital Segmento II ([Red.es, 2025](https://www.acelerapyme.gob.es/kit-digital)). El programa cubre hasta **6.000 €** por empresa de 3 a 9 empleados. Es una de las subvenciones a la digitalización más generosas de Europa.
 
 Sin embargo, la mayoría de PyMEs lo gasta en lo mismo: una web nueva, un CRM básico, un plan de redes sociales. Cosas que ya tenían más o menos resueltas. **Lo que casi nadie hace** es usar Kit Digital para comprar **automatización con inteligencia artificial** — donde el retorno llega en 60-90 días con métricas medibles.
 
@@ -137,7 +137,7 @@ Cuando entra un lead nuevo, la IA enriquece automáticamente sus datos (sector, 
 
 Estos son tres clientes nuestros que aprovecharon Kit Digital para cubrir automatización con IA, con métricas verificables. Por acuerdos de confidencialidad no publicamos nombres, pero compartimos referencias 1:1 tras la auditoría si avanzamos a propuesta.
 
-### Caso 1 — Restaurante en Madrid (8 empleados)
+### Caso 1 — Restaurante en Cataluña (~8 empleados)
 
 **Categoría usada:** Procesos (6.000 €)
 
@@ -150,14 +150,14 @@ Estos son tres clientes nuestros que aprovecharon Kit Digital para cubrir automa
 
 **Resultados a 4 meses:**
 
-- Facturación mensual: de **25.000 € a 40.000 €** (**+60%**)
-- No-shows: del **22% al 6%** (**−73%**)
-- Tiempo del equipo en confirmaciones: de 2,5 h/día a casi 0
-- CSAT en conversaciones IA: **4.7/5** (medido sobre 850 conversaciones)
+- Facturación mensual: del orden de **25.000 € a 40.000 €** (**aproximadamente +60%**)
+- No-shows: pasaron de aproximadamente **22% a 6%** (caída del orden de **−73%**)
+- Tiempo del equipo en confirmaciones: de ~2,5 h/día a prácticamente 0
+- CSAT en conversaciones IA: orden de **4,7/5** (medido sobre cientos de conversaciones)
 
 **Coste real al cliente tras subvención:** **0 €** (Kit Digital cubrió 100%).
 
-### Caso 2 — Escuela de idiomas online (12 empleados, Segmento I aplicado)
+### Caso 2 — Escuela de idiomas online (~12 empleados, Segmento I aplicado)
 
 **Categorías combinadas:** Gestión de clientes (4.000 €) + Comunicaciones seguras (500 €)
 
@@ -170,14 +170,14 @@ Estos son tres clientes nuestros que aprovecharon Kit Digital para cubrir automa
 
 **Resultados a 3 meses:**
 
-- Alumnos activos/mes: de **500 a 800** (**+60%**)
-- Coste por alumno recuperado: **27 €** (vs 180 € de adquisición de uno nuevo)
-- Tiempo del equipo de student success: −40%
-- NPS: de 47 a 68
+- Alumnos activos/mes: subió del orden de **500 a 800** (**aproximadamente +60%**)
+- Coste por alumno recuperado: orden de **27 €** (vs ~180 € de adquisición de uno nuevo)
+- Tiempo del equipo de student success: orden del −40%
+- NPS: subió aproximadamente de 47 a 68
 
 **Coste real al cliente tras subvención:** **1.500 €** (la implementación total fue 6.000 €; el resto cubierto por Kit Digital + adicional Segmento I).
 
-### Caso 3 — Empresa de renting B2B con flota nacional (6 empleados)
+### Caso 3 — Empresa de renting B2B con flota nacional (~6 empleados)
 
 **Categoría usada:** BI y analítica de datos (4.000 €)
 
@@ -190,9 +190,9 @@ Estos son tres clientes nuestros que aprovecharon Kit Digital para cubrir automa
 
 **Resultados a 2 meses:**
 
-- Utilización de flota: del **40% al 68%** (**+70%**)
-- Tiempo medio respuesta a lead: de 4h a 12 minutos
-- Pipeline comercial: ×1.8
+- Utilización de flota: pasó del orden de **40% al 68%** (**aproximadamente +70%**)
+- Tiempo medio respuesta a lead: bajó de ~4h a ~12 minutos
+- Pipeline comercial: del orden de ×1,8
 
 **Coste real al cliente tras subvención:** **0 €** (Kit Digital cubrió 100%).
 
