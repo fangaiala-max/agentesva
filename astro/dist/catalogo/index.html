@@ -200,10 +200,7 @@ AgentesVA
       e.preventDefault();
       const email = leadForm.querySelector('input[type="email"]').value;
       try {
-        await fetch('/api/subscribe.php', {
-          method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, product: 'free-bundle' })
-        });
+        var _hsq=window._hsq=window._hsq||[];_hsq.push(['identify',{email:email}]);_hsq.push(['trackPageView']);
       } catch(_){}
       try { if (window.mixpanel) mixpanel.track('lead_captured', { source: 'catalog_banner' }); } catch(e){}
       window.location.href = '/gracias-gratis/?source=catalog';
