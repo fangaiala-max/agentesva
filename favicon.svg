@@ -1,6 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="7" fill="#4b2409"/>
-  <text x="16" y="22.5" text-anchor="middle" font-family="system-ui,-apple-system,sans-serif" font-weight="800" font-size="18" letter-spacing="-0.5">
-    <tspan fill="#fff4f0">V</tspan><tspan fill="#ff793d">A</tspan>
-  </text>
+  <rect width="32" height="32" rx="7" fill="#1A1814"/>
+  <text x="16.5" y="24" text-anchor="middle"
+        font-family="'Fraunces','Cormorant Garamond','EB Garamond',Georgia,serif"
+        font-style="italic" font-weight="500" font-size="22"
+        letter-spacing="-0.02em" fill="#F7F3EC">A</text>
+  <circle cx="25" cy="9" r="2.2" fill="#C2543A"/>
 </svg>
