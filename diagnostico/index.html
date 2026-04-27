@@ -401,6 +401,13 @@ AgentesVA
             }
         };
 
+        // Fire Make.com webhook for AI diagnostic email (fire-and-forget)
+        fetch('https://hook.eu1.make.com/niwg4pqhrkk46ernjbwqang7n3iqvo8u', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        }).catch(function() { /* silent — email is a bonus, not a blocker */ });
+
         fetch(HUBSPOT_SUBMIT_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
