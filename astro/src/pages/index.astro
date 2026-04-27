@@ -219,12 +219,25 @@ const processSteps = [
     <!-- HERO -->
     <section class="dirA-hero">
       <div class="av-aurora" aria-hidden="true"></div>
+      <div class="av-orbs" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
       <div class="container">
         <div class="dirA-hero-grid av-reveal-stagger">
           <div>
             <span class="eyebrow">Automatización con IA · PyMEs</span>
             <h1 class="serif" style="margin-top: 16px;">
-              Automatiza lo <em>repetitivo</em>. <span class="underline">Crece</span> sin contratar.
+              Automatiza lo
+              <span class="av-cycle" aria-label="repetitivo, manual, lento, aburrido">
+                <span class="av-cycle-track">
+                  <span class="av-cycle-word">repetitivo</span>
+                  <span class="av-cycle-word">manual</span>
+                  <span class="av-cycle-word">lento</span>
+                  <span class="av-cycle-word">aburrido</span>
+                  <span class="av-cycle-word">repetitivo</span>
+                </span>
+              </span>.
+              <span class="underline"><span class="av-grad-text">Crece</span></span> sin contratar.
             </h1>
             <p class="dirA-hero-lede">
               Auditoría gratis de 30 minutos. Identificamos las 3 automatizaciones con mejor ROI para tu PyME y te entregamos un PDF personalizado en 24h.
@@ -236,7 +249,7 @@ const processSteps = [
               <a class="btn btn-ghost av-magnet" href="/catalogo/">Ver catálogo</a>
             </div>
             <div class="dirA-hero-meta">
-              <span class="dirA-hero-meta-dot"></span>
+              <span class="dirA-hero-meta-dot av-breathe"></span>
               <span>Próxima ranura disponible esta semana</span>
             </div>
           </div>
@@ -295,7 +308,7 @@ const processSteps = [
         </div>
         <div class="dirA-pain-grid av-reveal-stagger">
           {pains.map((p) => (
-            <article class="dirA-pain av-glow-card">
+            <article class="dirA-pain av-glow-card av-tilt">
               <div class="dirA-pain-num">{p.num}</div>
               <h3 class="dirA-pain-title">{p.title}</h3>
               <p class="dirA-pain-desc">{p.desc}</p>
@@ -317,7 +330,7 @@ const processSteps = [
           <span class="dirA-case-head-label" style="text-align:right;">Renting de camiones B2B · España nacional</span>
         </div>
         <div class="dirA-case-grid">
-          <div class="dirA-case-img">
+          <div class="dirA-case-img av-tilt">
             <div class="dirA-case-img-meta">
               <div class="dirA-case-img-cli">Cliente · Empresa de renting (NDA)</div>
               <div class="dirA-case-img-name">Cuatro meses,<br><em>+70% utilización</em>.</div>
@@ -367,7 +380,7 @@ const processSteps = [
         </div>
         <div class="dirA-ind-grid av-reveal-stagger">
           {industrias.map((ind) => (
-            <a class="dirA-ind-card av-glow-card" href={`/industrias/${ind.slug}/`}>
+            <a class="dirA-ind-card av-glow-card av-tilt" href={`/industrias/${ind.slug}/`}>
               <div class="dirA-ind-glyph">{ind.data.glyph}</div>
               <div class="dirA-ind-name">{ind.data.nombre}</div>
               <div class="dirA-ind-meta">
@@ -435,7 +448,7 @@ const processSteps = [
     <!-- CTA -->
     <section class="dirA-cta">
       <div class="container">
-        <div class="dirA-cta-card av-spotlight av-reveal">
+        <div class="dirA-cta-card av-spotlight av-reveal av-beam">
           <div>
             <h2 class="serif">Reserva tu <em>auditoría gratis</em>.</h2>
             <p>30 minutos por videollamada. Te entregamos un PDF con las top 3 automatizaciones priorizadas por ROI para tu PyME.</p>

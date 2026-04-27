@@ -496,3 +496,196 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 720px) {
   .dirA-footer-newsletter { grid-template-columns: 1fr; }
 }
+
+/* ==========================================================
+   21st-style ANIMATION layer — kinetic, motion-forward
+   text-shimmer · gradient-text · word-cycle · tilt-3d ·
+   border-beam · float-orbs · btn-shimmer · word-reveal ·
+   number-counter · breathing
+   ========================================================== */
+
+/* Animated gradient text — for em / accents in headlines */
+.av-grad-text {
+  background: linear-gradient(110deg, var(--clay) 0%, var(--clay-deep) 35%, var(--sand) 65%, var(--clay) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: av-grad-shift 6s linear infinite;
+}
+@keyframes av-grad-shift {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Shimmer sweep over text (subtle metallic shine) */
+.av-shimmer-text {
+  background: linear-gradient(90deg, var(--ink) 0%, var(--ink) 40%, var(--clay) 50%, var(--ink) 60%, var(--ink) 100%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: av-shimmer 4s ease-in-out infinite;
+}
+@keyframes av-shimmer {
+  0%   { background-position: 250% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Word cycle — vertical flip rotation between phrases */
+.av-cycle {
+  display: inline-block;
+  position: relative;
+  vertical-align: baseline;
+  min-width: 1ch;
+}
+.av-cycle-track {
+  display: inline-flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 1.05em;
+  vertical-align: bottom;
+}
+.av-cycle-word {
+  display: block;
+  height: 1.05em;
+  line-height: 1.05;
+  white-space: nowrap;
+  font-style: italic;
+  color: var(--clay);
+  animation: av-cycle-up 14s steps(1, end) infinite;
+}
+.av-cycle-word:nth-child(1) { animation-delay: 0s; }
+.av-cycle-word:nth-child(2) { animation-delay: 0s; }
+.av-cycle-word:nth-child(3) { animation-delay: 0s; }
+.av-cycle-word:nth-child(4) { animation-delay: 0s; }
+@keyframes av-cycle-up {
+  0%, 22%   { transform: translateY(0); }
+  25%, 47%  { transform: translateY(-100%); }
+  50%, 72%  { transform: translateY(-200%); }
+  75%, 97%  { transform: translateY(-300%); }
+  100%      { transform: translateY(-400%); }
+}
+
+/* 3D Tilt on hover — subtle, restrained */
+.av-tilt { transition: transform 0.4s cubic-bezier(.2,.7,.3,1); transform-style: preserve-3d; }
+.av-tilt:hover {
+  transform: perspective(900px) rotateX(2deg) rotateY(-3deg) translateZ(0);
+}
+
+/* Border beam — rotating conic gradient ring (animated) */
+.av-beam { position: relative; isolation: isolate; }
+.av-beam::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1.5px;
+  background: conic-gradient(
+    from var(--beam-angle, 0deg),
+    transparent 0deg,
+    var(--clay) 90deg,
+    var(--sand) 130deg,
+    transparent 220deg,
+    transparent 360deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: av-beam-spin 5s linear infinite;
+  pointer-events: none;
+  opacity: 0.85;
+}
+@property --beam-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes av-beam-spin {
+  to { --beam-angle: 360deg; }
+}
+/* Fallback for browsers without @property — fake it via background rotation */
+@supports not (background: paint(something)) {
+  .av-beam::after { animation: av-beam-fallback 5s linear infinite; }
+  @keyframes av-beam-fallback { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+}
+
+/* Floating orbs (decorative dots that drift) */
+.av-orbs { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.av-orbs span {
+  position: absolute; display: block;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--clay-soft);
+  opacity: 0.4;
+  animation: av-drift 18s ease-in-out infinite;
+}
+.av-orbs span:nth-child(1) { top: 10%; left: 12%; width: 8px; height: 8px; background: var(--sand); animation-duration: 22s; }
+.av-orbs span:nth-child(2) { top: 70%; left: 20%; animation-duration: 20s; animation-delay: -4s; }
+.av-orbs span:nth-child(3) { top: 30%; left: 80%; width: 5px; height: 5px; animation-duration: 24s; animation-delay: -8s; }
+.av-orbs span:nth-child(4) { top: 85%; left: 70%; background: var(--sand); animation-duration: 19s; animation-delay: -12s; }
+.av-orbs span:nth-child(5) { top: 50%; left: 55%; width: 4px; height: 4px; animation-duration: 26s; animation-delay: -2s; }
+@keyframes av-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(28px, -22px) scale(1.2); }
+  66%      { transform: translate(-22px, 18px) scale(0.85); }
+}
+
+/* Button shimmer (sweep across primary CTAs) */
+.btn-primary { position: relative; overflow: hidden; }
+.btn-primary::before {
+  content: ""; position: absolute; top: 0; left: -120%; width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(232,199,126,0.35), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+.btn-primary:hover::before { left: 130%; }
+
+/* Word-reveal — chars stagger in (used on h2s) */
+.av-word-reveal { display: inline-block; }
+.av-word-reveal .av-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.4em);
+  filter: blur(4px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(.2,.7,.3,1), filter 0.5s ease;
+}
+.av-word-reveal.is-in .av-word { opacity: 1; transform: translateY(0); filter: blur(0); }
+.av-word-reveal.is-in .av-word:nth-child(1) { transition-delay: 0.05s; }
+.av-word-reveal.is-in .av-word:nth-child(2) { transition-delay: 0.10s; }
+.av-word-reveal.is-in .av-word:nth-child(3) { transition-delay: 0.15s; }
+.av-word-reveal.is-in .av-word:nth-child(4) { transition-delay: 0.20s; }
+.av-word-reveal.is-in .av-word:nth-child(5) { transition-delay: 0.25s; }
+.av-word-reveal.is-in .av-word:nth-child(6) { transition-delay: 0.30s; }
+.av-word-reveal.is-in .av-word:nth-child(7) { transition-delay: 0.35s; }
+.av-word-reveal.is-in .av-word:nth-child(8) { transition-delay: 0.40s; }
+.av-word-reveal.is-in .av-word:nth-child(9) { transition-delay: 0.45s; }
+.av-word-reveal.is-in .av-word:nth-child(10) { transition-delay: 0.50s; }
+.av-word-reveal.is-in .av-word:nth-child(n+11) { transition-delay: 0.55s; }
+
+/* Number counter — adds breathing pulse to numbers when in view */
+.av-num { display: inline-block; }
+.av-num.is-in {
+  animation: av-num-pop 0.6s cubic-bezier(.2,.7,.3,1.6) both;
+}
+@keyframes av-num-pop {
+  0%   { transform: scale(0.6); opacity: 0; filter: blur(4px); }
+  60%  { transform: scale(1.1); opacity: 1; filter: blur(0); }
+  100% { transform: scale(1); }
+}
+
+/* Breathing circle (status dot variant) */
+.av-breathe { animation: av-breathe 2.4s ease-in-out infinite; }
+@keyframes av-breathe {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50%      { transform: scale(1.15); opacity: 1; }
+}
+
+/* Reduce motion override */
+@media (prefers-reduced-motion: reduce) {
+  .av-grad-text, .av-shimmer-text, .av-cycle-word, .av-orbs span,
+  .btn-primary::before, .av-num, .av-breathe, .av-beam::after {
+    animation: none !important;
+  }
+  .av-tilt:hover { transform: none; }
+  .av-word-reveal .av-word { opacity: 1; transform: none; filter: none; }
+}
