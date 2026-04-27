@@ -14,7 +14,7 @@ casoRelacionado: "restaurante"
 ogImage: "/recursos/whatsapp-api/og-whatsapp-api.png"
 ---
 
-> **Resumen rápido:** WhatsApp Business API es la versión empresarial de WhatsApp para empresas que necesitan responder en volumen, integrar con su CRM y automatizar con IA. No se contrata directo a Meta sino vía un **BSP** (Business Solution Provider). El coste real ronda entre **0,03 € y 0,10 € por conversación** según categoría y país. En esta guía: cómo elegir BSP, cómo conectar con IA tipo Claude/GPT, cómo evitar bloqueos por spam, y un caso real de restaurante en Cataluña que pasó de no-shows del orden de 22% al 6% (caída aproximada de **−73%**) y subió facturación del orden de **+60%** en 7 semanas.
+> **Resumen rápido:** WhatsApp Business API es la versión empresarial de WhatsApp para empresas que necesitan responder en volumen, integrar con su CRM y automatizar con IA. No se contrata directo a Meta sino vía un **BSP** (Business Solution Provider). Desde el **1 de julio de 2025** Meta cobra **por mensaje** (antes era por conversación de 24h), con precios del orden de **céntimos por mensaje** según categoría y país. En esta guía: cómo elegir BSP, cómo conectar con IA tipo Claude/GPT, cómo evitar bloqueos por spam, y un caso real de restaurante en Cataluña que pasó de no-shows del orden de 22% al 6% (caída aproximada de **−73%**) y subió facturación del orden de **+60%** en 7 semanas.
 
 ---
 
@@ -99,38 +99,49 @@ El BSP te da:
 
 ## Coste real de WhatsApp API en España 2026 <a id="coste-real-whatsapp-api-espana-2026"></a>
 
-Esto es lo que casi nadie explica con claridad. WhatsApp API tiene **dos capas de coste**:
+Esto es lo que casi nadie explica con claridad — y donde más confusión hay porque **Meta cambió el modelo de pricing el 1 de julio de 2025**: pasó de cobrar **por conversación** (ventana 24h) a cobrar **por mensaje entregado**.
 
-### Capa 1 — Meta cobra por **conversación** (no por mensaje)
+WhatsApp API tiene **dos capas de coste**:
 
-Una "conversación" en WhatsApp = ventana de **24 horas** que se abre desde el primer mensaje enviado por la empresa o iniciado por el usuario. Dentro de esa ventana, todos los mensajes son gratis.
+### Capa 1 — Meta cobra por **mensaje entregado** (modelo nuevo desde julio 2025)
 
-Meta clasifica las conversaciones en **4 categorías** con precios distintos (datos aproximados España 2026, cambian periódicamente — verifica precios actuales en [Meta Developers Pricing](https://developers.facebook.com/docs/whatsapp/pricing)):
+Meta clasifica los mensajes en **4 categorías**. Las dos primeras siguen siendo **gratis** en el flujo más común (atención al cliente):
 
-| Categoría | Iniciada por | Coste aproximado | Uso típico |
+| Categoría | Quién inicia | Coste | Uso típico |
 |---|---|---|---|
-| **Service** | Usuario (cliente escribe primero) | **Gratis** (dentro de ventana 24h) | Atención al cliente |
-| **Utility** | Empresa | ~0,03–0,06 € | Confirmación de pedido, recordatorio cita |
-| **Authentication** | Empresa | ~0,03–0,05 € | OTP, códigos verificación |
-| **Marketing** | Empresa | ~0,06–0,10 € | Campañas, ofertas, lanzamientos |
+| **Service** | Usuario (cliente escribe primero) | **Gratis** | Atención al cliente |
+| **Utility** | Empresa, en respuesta al usuario dentro de 24h | **Gratis** | Confirmación de pedido tras solicitud, recordatorio cita |
+| **Utility** | Empresa, fuera de ventana 24h | Pago por mensaje | Recordatorio que abre flujo |
+| **Authentication** | Empresa | Pago por mensaje | OTP, códigos verificación |
+| **Marketing** | Empresa | Pago por mensaje | Campañas, ofertas, lanzamientos |
 
-> **Nota:** los precios exactos varían por país, BSP y volumen. España suele estar en el rango medio-alto de Europa. Para volúmenes >10.000 conversaciones/mes hay descuentos negociables.
+**Precios indicativos por mensaje en España (2026)** — son del orden de **céntimos** o fracciones de céntimo según referencias públicas de BSPs como [Twilio](https://www.twilio.com/en-us/whatsapp/pricing) o [Meta Business Pricing](https://business.whatsapp.com/products/platform-pricing). Verifica los precios actuales antes de presupuestar — Meta los actualiza cada cierto tiempo.
+
+> **Excepción importante:** mensajes que llegan desde un **anuncio Click-to-WhatsApp** (Facebook/Instagram con CTA a WhatsApp) o desde un botón Call-to-Action de una página de Facebook abren una **ventana gratis de 72h** durante la que cualquier mensaje de la empresa al usuario no se cobra. Útil si haces ads y quieres flujo nutrido sin coste extra.
+
+> **Nota:** los precios exactos varían por país, BSP y volumen. Para volúmenes altos hay descuentos negociables vía tiers de volumen Meta.
 
 ### Capa 2 — BSP markup
 
-El BSP añade su markup encima del coste Meta:
+El BSP añade su markup o tarifa encima del coste Meta:
 
-- **360dialog / Meta Cloud directo:** ~0–10% markup
-- **Twilio / MessageBird:** ~15–25% markup
-- **Plataformas all-in-one (Respond.io, Wati, etc.):** ~30–50% markup + suscripción mensual fija
+- **360dialog / Meta Cloud directo:** markup bajo o nulo, suscripción mensual del BSP del orden de **€49–€249/mes** según plan ([360dialog pricing](https://www.360dialog.com/pricing))
+- **Twilio:** tarifa fija ~$0,005/mensaje + Meta fees ([Twilio WhatsApp pricing](https://www.twilio.com/en-us/whatsapp/pricing))
+- **Plataformas all-in-one (Respond.io, Wati, MessageBird):** suscripción mensual + márgenes mayores
 
-### Ejemplo real — PyME que envía 1.000 conversaciones/mes
+### Ejemplo realista — PyME que envía 5.000 mensajes/mes
 
-- Mix típico: 600 service (gratis), 250 utility (~0,04 €), 100 marketing (~0,08 €), 50 authentication (~0,04 €)
-- Coste Meta ≈ 600 × 0 + 250 × 0,04 + 100 × 0,08 + 50 × 0,04 = **20 €/mes**
-- BSP markup 360dialog (~10%) ≈ +2 €
-- Suscripción 360dialog ≈ ~50 €/mes (varía con plan)
-- **Total ≈ 70-80 €/mes** para 1.000 conversaciones
+Asume mix típico de un negocio B2C operativo:
+
+- ~3.500 service messages (cliente inicia, dentro de 24h) → **0 €**
+- ~1.000 utility messages en respuesta al usuario → **0 €**
+- ~300 utility messages fuera de ventana (recordatorios proactivos) → coste por mensaje
+- ~150 marketing (campañas opt-in)
+- ~50 authentication (OTPs)
+
+El coste Meta puro suele rondar la **decena baja de euros/mes** en este escenario. Sumando suscripción BSP (€49–€149/mes según plan) y markup, el **total mensual realista** está habitualmente entre **€60 y €200/mes** para una PyME activa, dependiendo del BSP elegido.
+
+> Para presupuesto exacto: pide cotización al BSP con tu mix estimado de mensajes (Meta tiene calculadora oficial en [business.whatsapp.com/products/platform-pricing](https://business.whatsapp.com/products/platform-pricing)).
 
 Si en lugar de 360dialog usas Wati o Respond.io: probablemente **150-300 €/mes** para el mismo volumen.
 
@@ -301,7 +312,7 @@ Hemos visto cuentas bloqueadas en 30 días por estos motivos. Evítalos:
 
 5. **Conectar el número API también a la app móvil.** Una vez que el número está en API, **NO** lo abras en WhatsApp Business app o personal. Te lo desconectan inmediatamente.
 
-6. **No verificar el negocio en Meta.** Sin verificación oficial, los límites de mensajería son mucho más bajos (hasta 1.000 conversaciones únicas en 24h vs ilimitadas con verificado).
+6. **No verificar el negocio en Meta.** Sin verificación oficial el cap inicial es de **250 mensajes business-initiated por 24h**. Tras pasar la verificación de negocio, subes a **1.000** (Tier 1). Cuentas verificadas con buena calidad escalan automáticamente a **2.000 → 10.000 → 100.000 → ilimitado** ([Meta — Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits/)). Meta revisa automáticamente cada 6 horas si puedes subir tier, siempre que estés usando ≥50% del cap actual con calidad alta.
 
 ---
 
