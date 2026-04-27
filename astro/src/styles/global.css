@@ -604,3 +604,50 @@ a { color: inherit; text-decoration: none; }
   .av-tilt:hover { transform: none; }
   .av-word-reveal .av-word { opacity: 1; transform: none; filter: none; }
 }
+
+/* ==========================================================
+   Hero photo background variant — agentes-hero.jpg
+   Aplica imagen completa al fondo del hero con gradient
+   overlay desde paper (izquierda, donde va el texto) hacia
+   transparente (derecha, donde se ve el tablet).
+   ========================================================== */
+.dirA-hero-photo {
+  position: relative;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(247,243,236,0.96) 0%,
+      rgba(247,243,236,0.88) 30%,
+      rgba(247,243,236,0.55) 55%,
+      rgba(247,243,236,0.20) 78%,
+      rgba(247,243,236,0.05) 100%
+    ),
+    url('/assets/agentes-hero.jpg') center right / cover no-repeat;
+  min-height: 720px;
+  isolation: isolate;
+}
+.dirA-hero-photo .dirA-hero-grid {
+  grid-template-columns: minmax(0, 620px) 1fr;
+  gap: 48px;
+  min-height: 520px;
+}
+/* Hide the inline illustration column when photo bg is on (image already is the visual) */
+.dirA-hero-photo .dirA-hero-illus { display: none; }
+/* Ensure aurora is below photo */
+.dirA-hero-photo .av-aurora { display: none; }
+
+@media (max-width: 900px) {
+  .dirA-hero-photo {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(247,243,236,0.94) 0%,
+        rgba(247,243,236,0.86) 50%,
+        rgba(247,243,236,0.20) 100%
+      ),
+      url('/assets/agentes-hero-mobile.jpg') center bottom / cover no-repeat;
+    min-height: auto;
+    padding-bottom: 280px;
+  }
+  .dirA-hero-photo .dirA-hero-grid { grid-template-columns: 1fr; }
+}
