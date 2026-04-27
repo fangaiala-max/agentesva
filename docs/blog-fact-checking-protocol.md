@@ -125,6 +125,9 @@ Para claims públicos verificables, considerar añadir Schema.org `ClaimReview` 
 
 ## Reglas duras (no negociables)
 
+0. **Toda CORRECCIÓN de un claim Tier A se trata como un nuevo claim Tier A.** No confíes en tu propia reescritura. Cada edit que tocque Red.es / certificaciones / partnerships requiere re-confirmación explícita del usuario.
+   - **Lesson learned 2026-04-27:** al corregir el claim "AgentesVA es Agente Digitalizador" el primer fix introdujo OTRO claim falso ("trabajamos con Agentes de confianza"). El usuario lo cazó. El protocolo no lo hubiera cazado solo porque la nueva frase parecía menos extrema.
+   - Regla operativa: cada vez que modifiques un párrafo Tier A, vuelves a leer el párrafo y re-haces el scoring desde cero. No partas de "esto ya estaba mejor que antes".
 1. **Nunca publicar Tier A sin verificación explícita.** El "esto creo que está bien" es prohibido.
 2. **Nunca inventar números.** Si no encuentras la cifra exacta, dilo: "según fuentes públicas, aproximadamente XX". Mejor decir "aproximadamente" que un número falso preciso.
 3. **Cita siempre URL específica**, no "acelerapyme.gob.es" genérico.

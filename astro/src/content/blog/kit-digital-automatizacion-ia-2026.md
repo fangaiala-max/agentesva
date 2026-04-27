@@ -230,7 +230,7 @@ Mientras esperas la resolución, podemos hacer la auditoría gratuita de 30 minu
 
 ### 5. Aprobación + firma del contrato
 
-Cuando llegue la resolución positiva, eliges un Agente Digitalizador certificado por Red.es. AgentesVA **no es Agente Digitalizador** (no es nuestro foco regulatorio): nosotros somos los implementadores técnicos de la solución. Trabajamos con Agentes certificados de confianza que se encargan de cobrar a la subvención, mientras nosotros nos enfocamos en construir y desplegar la automatización con IA. En la auditoría te recomendamos los Agentes con los que colaboramos en tu zona si te encaja el flujo.
+Cuando llegue la resolución positiva, **tú eliges** un Agente Digitalizador certificado por Red.es del catálogo público de [acelerapyme.gob.es](https://www.acelerapyme.gob.es/soluciones-digitales/catalogo). AgentesVA **no es Agente Digitalizador** y no tenemos partnerships exclusivas con ninguno: somos los implementadores técnicos de la solución de automatización. La forma habitual de operar es: el Agente Digitalizador que tú elijas firma contigo y cobra la subvención; nosotros ejecutamos la parte técnica como subcontratistas o consultores externos del proyecto. Si quieres, en la auditoría te orientamos sobre criterios para elegir Agente (cuáles tienen experiencia en automatización con IA, cuáles solo hacen webs).
 
 ### 6. Implementación de la automatización (2-8 semanas)
 

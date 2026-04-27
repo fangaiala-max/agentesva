@@ -3,7 +3,15 @@
 **Post URL:** https://agentesva.com/blog/kit-digital-automatizacion-ia-2026/
 **Fecha audit:** 2026-04-27
 **Auditor:** Equipo AgentesVA
-**Estado actual:** ✅ VERIFIED (resolución 2026-04-27) — claim A1 reescrito tras confirmación user.
+**Estado actual:** ✅ VERIFIED (2026-04-27, segunda iteración).
+
+**Histórico de iteraciones del claim A1:**
+
+1. Original (publicado por error): "AgentesVA está dado de alta como Agente Digitalizador en Procesos, CRM y BI" → 🔴 falso
+2. Primer fix (introdujo NUEVO claim falso): "Trabajamos con Agentes certificados de confianza" → 🔴 también falso (no tenemos partnerships establecidas)
+3. **Versión final (verified):** "Tú eliges Agente del catálogo público Red.es. AgentesVA no es Agente Digitalizador y no tiene partnerships exclusivas. Operamos como subcontratista/consultor externo del proyecto del Agente que tú elijas. En la auditoría te orientamos sobre criterios para elegir Agente."
+
+**Lesson:** la primera corrección NO fue Tier A clean. Cada edit Tier A debe re-auditarse desde cero, no asumir que un fix "más suave" es correcto.
 
 ---
 
