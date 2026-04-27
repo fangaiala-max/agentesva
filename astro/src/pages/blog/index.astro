@@ -8,6 +8,7 @@ import PostCard from '../../components/PostCard.astro';
 import JsonLd from '../../components/JsonLd.astro';
 
 const isProd = import.meta.env.PROD;
+const CALENDLY = 'https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min';
 
 const all = await getCollection('blog', ({ data }) => !(isProd && data.draft));
 all.sort(
@@ -15,7 +16,7 @@ all.sort(
     new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime()
 );
 
-const featured = all.find((p) => p.data.featured);
+const featured = all.find((p) => p.data.featured) ?? all[0];
 const rest = all.filter((p) => p.id !== featured?.id);
 
 const pillars = [
@@ -55,70 +56,106 @@ const blogSchema = {
   <Header />
 
   <main class="bg-paper">
-    <section class="container pt-16 md:pt-24 pb-12">
-      <p class="eyebrow mb-4">Blog · AgentesVA</p>
-      <h1 class="font-serif text-5xl md:text-7xl leading-tight tracking-tight text-ink mb-6 max-w-4xl">
-        El blog de <em class="text-clay font-serif italic">AgentesVA</em>
-      </h1>
-      <p class="text-lg md:text-xl text-ink-2 leading-relaxed max-w-2xl">
-        Tutoriales técnicos, casos reales y análisis del mercado español. Kit Digital, WhatsApp API, comparativas de stack y aprendizajes de implementación.
-      </p>
-    </section>
+    <div class="max-w-screen-md mx-auto px-5 md:px-8">
 
-    <section class="container pb-8">
-      <div class="flex flex-wrap gap-2" role="tablist" aria-label="Filtrar por pilar">
-        {pillars.map((p) => (
-          <button
-            type="button"
-            class="js-pillar-filter px-4 py-2 rounded-full border border-line bg-card text-ink-2 text-sm font-medium hover:bg-paper-2 hover:border-clay/30 transition data-[active=true]:bg-ink data-[active=true]:text-paper data-[active=true]:border-ink"
-            data-pillar={p.slug}
-            data-active={p.slug === 'todos' ? 'true' : 'false'}
-          >
-            {p.label}
-          </button>
-        ))}
-      </div>
-    </section>
+      <!-- Hero del blog -->
+      <section class="pt-12 md:pt-20 pb-8 text-center">
+        <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-3 mb-4">El blog · AgentesVA</p>
+        <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-ink leading-[1.05] mb-5">
+          Notas sobre <em class="italic text-clay">automatización con IA</em> para PyMEs
+        </h1>
+        <p class="text-base md:text-lg text-ink-2 leading-relaxed max-w-xl mx-auto">
+          Tutoriales técnicos, casos reales y análisis del mercado español. Kit Digital, WhatsApp API, comparativas de stack y aprendizajes de implementación.
+        </p>
+      </section>
 
-    {featured && (
-      <section class="container pb-12">
-        <div class="post-card-wrap" data-pillar={featured.data.pillar}>
-          <PostCard
-            href={`/blog/${featured.slug}/`}
-            title={featured.data.title}
-            description={featured.data.description}
-            pillar={featured.data.pillar}
-            publishedAt={featured.data.publishedAt}
-            readingTimeMin={featured.data.readingTimeMin}
-            author={featured.data.author}
-            ogImage={featured.data.ogImage}
-            featured
-          />
+      <!-- Filtros por pilar -->
+      <section class="pb-10 -mx-5 md:mx-0 px-5 md:px-0 overflow-x-auto">
+        <div class="flex gap-2 min-w-max md:flex-wrap md:min-w-0" role="tablist" aria-label="Filtrar por pilar">
+          {pillars.map((p) => (
+            <button
+              type="button"
+              class="js-pillar-filter shrink-0 px-4 py-2 rounded-full border border-line bg-card text-ink-2 text-sm font-medium hover:bg-paper-2 hover:border-clay/30 transition data-[active=true]:bg-ink data-[active=true]:text-paper data-[active=true]:border-ink"
+              data-pillar={p.slug}
+              data-active={p.slug === 'todos' ? 'true' : 'false'}
+            >
+              {p.label}
+            </button>
+          ))}
         </div>
       </section>
-    )}
 
-    <section class="container pb-24">
-      {rest.length === 0 && !featured && (
-        <div class="py-20 text-center text-ink-3">
-          <p class="text-lg">Aún no hay posts publicados. Vuelve pronto.</p>
-        </div>
-      )}
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 js-post-grid">
-        {rest.map((p) => (
-          <div class="post-card-wrap" data-pillar={p.data.pillar}>
+      <!-- Featured Post -->
+      {featured && (
+        <section class="pb-10">
+          <div class="post-card-wrap" data-pillar={featured.data.pillar}>
             <PostCard
-              href={`/blog/${p.slug}/`}
-              title={p.data.title}
-              description={p.data.description}
-              pillar={p.data.pillar}
-              publishedAt={p.data.publishedAt}
-              readingTimeMin={p.data.readingTimeMin}
-              author={p.data.author}
-              ogImage={p.data.ogImage}
+              href={`/blog/${featured.slug}/`}
+              title={featured.data.title}
+              description={featured.data.description}
+              pillar={featured.data.pillar}
+              publishedAt={featured.data.publishedAt}
+              readingTimeMin={featured.data.readingTimeMin}
+              author={featured.data.author}
+              variant="featured"
             />
           </div>
-        ))}
+        </section>
+      )}
+
+      <!-- Divider -->
+      <div class="h-px bg-line opacity-50 w-full"></div>
+
+      <!-- Latest Dispatches -->
+      <section class="py-10">
+        <div class="flex items-baseline justify-between mb-4">
+          <h3 class="font-serif text-2xl md:text-3xl font-normal text-ink">Últimas publicaciones</h3>
+          <span class="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3">{rest.length} artículos</span>
+        </div>
+        {rest.length === 0 && !featured && (
+          <div class="py-20 text-center text-ink-3">
+            <p class="text-lg">Aún no hay posts publicados. Vuelve pronto.</p>
+          </div>
+        )}
+        <div class="js-post-grid">
+          {rest.map((p) => (
+            <div class="post-card-wrap" data-pillar={p.data.pillar}>
+              <PostCard
+                href={`/blog/${p.slug}/`}
+                title={p.data.title}
+                description={p.data.description}
+                pillar={p.data.pillar}
+                publishedAt={p.data.publishedAt}
+                readingTimeMin={p.data.readingTimeMin}
+                author={p.data.author}
+                variant="compact"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
+    </div>
+
+    <!-- CTA Auditoría gratis -->
+    <section class="bg-ink text-paper py-16 md:py-20 px-6 my-8">
+      <div class="max-w-screen-md mx-auto flex flex-col items-center text-center gap-6">
+        <div class="w-12 h-px bg-clay"></div>
+        <h2 class="font-serif text-3xl md:text-4xl font-normal leading-tight">
+          Mejora tu operación <em class="italic text-sand">sin contratar más personal</em>.
+        </h2>
+        <p class="text-base text-paper/80 max-w-md leading-relaxed">
+          Auditoría gratis de 30 min + PDF personalizado en 24h con tus top 3 automatizaciones priorizadas por ROI.
+        </p>
+        <a
+          href={CALENDLY}
+          target="_blank"
+          rel="noopener"
+          class="inline-block bg-paper hover:bg-sand text-ink font-mono text-[11px] uppercase tracking-[0.18em] px-8 py-4 transition-all duration-300 rounded-full font-semibold"
+        >
+          Reservar auditoría gratis
+        </a>
+        <div class="w-12 h-px bg-clay"></div>
       </div>
     </section>
   </main>
