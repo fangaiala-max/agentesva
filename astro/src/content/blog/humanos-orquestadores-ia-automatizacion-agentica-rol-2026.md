@@ -13,7 +13,7 @@ readingTimeMin: 9
 
 La pregunta equivocada sobre IA y empleo siempre fue *"¿qué trabajos va a eliminar?"*. La pregunta correcta es *"¿qué parte de cada trabajo va a absorber, y qué deja?"*. Porque la **automatización agéntica** no está borrando roles: está separando brutalmente lo que requiere juicio humano de lo que no.
 
-Los informes de 2026 de Anthropic y Deloitte describen el mismo patrón en industrias tan distintas como desarrollo de software, servicios legales, y análisis financiero: los equipos de mayor rendimiento no son los que más agentes usan, son los que **mejor entienden cuándo delegar en un agente y cuándo intervenir**.
+Los informes de 2026 de [Anthropic](https://www.anthropic.com/research/economic-index-march-2026-report) y [Deloitte](https://www.deloitte.com/global/en/issues/generative-ai/state-of-ai-in-enterprise.html) describen el mismo patrón en industrias tan distintas como desarrollo de software, servicios legales, y análisis financiero: los equipos de mayor rendimiento no son los que más agentes usan, son los que **mejor entienden cuándo delegar en un agente y cuándo intervenir**.
 
 ## El nuevo perfil de valor profesional
 
@@ -43,7 +43,7 @@ Los programas de desarrollo de talento que van a marcar la diferencia en los pr�
 
 ### ¿Qué habilidades necesito para convertirme en orquestador de IA?
 
-Las más valoradas según los datos de 2026 son: pensamiento sistémico, capacidad de prompt engineering estructurado, criterio para evaluar outputs de LLMs, y comprensión básica de arquitecturas de agentes. El perfil técnico profundo no es obligatorio.
+Las más valoradas según los datos del [Anthropic Economic Index 2026](https://www.anthropic.com/research/economic-index-march-2026-report) son: pensamiento sistémico, capacidad de prompt engineering estructurado, criterio para evaluar outputs de LLMs, y comprensión básica de arquitecturas de agentes. El perfil técnico profundo no es obligatorio.
 
 ### ¿Qué sectores están liderando esta transición?
 
