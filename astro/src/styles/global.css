@@ -683,3 +683,32 @@ a { color: inherit; text-decoration: none; }
     padding-bottom: 220px;
   }
 }
+
+/* Hero photo bg variant 3 — servicios (mapa Mediterráneo + circuit board, centered text) */
+.dirA-hero-photo-3 {
+  position: relative;
+  background:
+    radial-gradient(
+      ellipse 75% 70% at 50% 50%,
+      rgba(247,243,236,0.92) 0%,
+      rgba(247,243,236,0.78) 45%,
+      rgba(247,243,236,0.45) 75%,
+      rgba(247,243,236,0.20) 100%
+    ),
+    url('/assets/servicios-hero.jpg') center center / cover no-repeat;
+  min-height: 520px;
+  isolation: isolate;
+}
+@media (max-width: 900px) {
+  .dirA-hero-photo-3 {
+    background:
+      radial-gradient(
+        ellipse 90% 80% at 50% 40%,
+        rgba(247,243,236,0.93) 0%,
+        rgba(247,243,236,0.75) 60%,
+        rgba(247,243,236,0.30) 100%
+      ),
+      url('/assets/servicios-hero-mobile.jpg') center center / cover no-repeat;
+    min-height: auto;
+  }
+}

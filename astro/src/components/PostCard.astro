@@ -27,9 +27,50 @@ const {
   publishedAt,
   readingTimeMin,
   author,
-  ogImage,
   featured = false,
 } = Astro.props;
+
+type Visual = { gradient: string; glyph: string; glyphTone: 'sand' | 'paper' | 'ink' };
+const PILLAR_VISUALS: Record<Props['pillar'], Visual> = {
+  'kit-digital': {
+    gradient: 'linear-gradient(135deg, #1A1814 0%, #9C3F2A 100%)',
+    glyph: '€',
+    glyphTone: 'sand',
+  },
+  'whatsapp-api': {
+    gradient: 'linear-gradient(135deg, #2F4A3A 0%, #5C7868 100%)',
+    glyph: 'w',
+    glyphTone: 'paper',
+  },
+  'automatizacion-ia-pymes': {
+    gradient: 'linear-gradient(135deg, #C2543A 0%, #E8C77E 100%)',
+    glyph: 'a',
+    glyphTone: 'ink',
+  },
+  'comparativas': {
+    gradient: 'linear-gradient(135deg, #3D362C 0%, #2F4A3A 100%)',
+    glyph: '⇄',
+    glyphTone: 'paper',
+  },
+  'agentes-ia-concepto': {
+    gradient: 'linear-gradient(135deg, #9C3F2A 0%, #1A1814 100%)',
+    glyph: '◆',
+    glyphTone: 'sand',
+  },
+  'caso-estudio': {
+    gradient: 'linear-gradient(135deg, #E8C77E 0%, #C2543A 100%)',
+    glyph: 'c',
+    glyphTone: 'ink',
+  },
+};
+
+const visual = PILLAR_VISUALS[pillar];
+const glyphColor =
+  visual.glyphTone === 'sand'
+    ? 'var(--sand)'
+    : visual.glyphTone === 'paper'
+    ? 'var(--paper)'
+    : 'rgba(26,24,20,0.92)';
 
 const dateStr = new Date(publishedAt).toLocaleDateString('es-ES', {
   year: 'numeric',
@@ -41,16 +82,16 @@ const dateStr = new Date(publishedAt).toLocaleDateString('es-ES', {
   href={href}
   class={`group block bg-card border border-line rounded-lg overflow-hidden transition hover:-translate-y-1 hover:shadow-sh-md hover:border-clay/30 ${featured ? 'md:col-span-2' : ''}`}
 >
-  {ogImage && (
-    <div class={`overflow-hidden bg-paper-2 ${featured ? 'aspect-[2/1]' : 'aspect-[16/9]'}`}>
-      <img
-        src={ogImage}
-        alt={title}
-        loading="lazy"
-        class="w-full h-full object-cover transition group-hover:scale-105"
-      />
-    </div>
-  )}
+  <div
+    class={`post-card-thumb relative overflow-hidden ${featured ? 'aspect-[3/1]' : 'aspect-[16/7]'}`}
+    style={`background: ${visual.gradient};`}
+    aria-hidden="true"
+  >
+    <span
+      class="post-card-glyph"
+      style={`color: ${glyphColor};`}
+    >{visual.glyph}</span>
+  </div>
   <div class={`p-6 ${featured ? 'md:p-8' : ''}`}>
     <div class="flex items-center gap-2 mb-4">
       <PillarPill pillar={pillar} size="sm" />
@@ -85,3 +126,45 @@ const dateStr = new Date(publishedAt).toLocaleDateString('es-ES', {
     </div>
   </div>
 </a>
+
+<style>
+  .post-card-thumb {
+    position: relative;
+    isolation: isolate;
+  }
+  .post-card-thumb::before {
+    content: "";
+    position: absolute;
+    top: -40%;
+    right: -20%;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .post-card-thumb::after {
+    content: "";
+    position: absolute;
+    bottom: -30%;
+    left: -15%;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,0,0,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .post-card-glyph {
+    position: absolute;
+    bottom: 18px;
+    left: 24px;
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(72px, 10vw, 120px);
+    line-height: 0.85;
+    letter-spacing: -0.06em;
+    z-index: 1;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.08);
+  }
+</style>
