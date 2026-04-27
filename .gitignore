@@ -40,3 +40,4 @@ npm-debug.log*
 .vercel
 audit-*.png
 .playwright-mcp/
+live-*.jpg
