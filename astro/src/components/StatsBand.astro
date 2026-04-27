@@ -19,14 +19,14 @@ const {
   footerRight = 'v.2026.04 · automation funnel',
 } = Astro.props;
 ---
-<section class="dirA-stats av-grid-bg-dark">
+<section class="dirA-stats">
   <div class="container">
     <span class="dirA-stats-eyebrow">{eyebrow}</span>
     <h2 class="serif" set:html={title} />
-    <div class="dirA-stats-grid av-reveal-stagger">
+    <div class="dirA-stats-grid">
       {stats.map((s) => (
         <div class="dirA-stat">
-          <div class="dirA-stat-num"><em class="av-num av-reveal">{s.num}</em>{s.suffix ?? ''}</div>
+          <div class="dirA-stat-num"><em>{s.num}</em>{s.suffix ?? ''}</div>
           <div class="dirA-stat-label">{s.label}</div>
         </div>
       ))}

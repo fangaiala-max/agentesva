@@ -219,25 +219,12 @@ const processSteps = [
     <!-- HERO -->
     <section class="dirA-hero">
       <div class="av-aurora" aria-hidden="true"></div>
-      <div class="av-orbs" aria-hidden="true">
-        <span></span><span></span><span></span><span></span><span></span>
-      </div>
       <div class="container">
-        <div class="dirA-hero-grid av-reveal-stagger">
+        <div class="dirA-hero-grid">
           <div>
             <span class="eyebrow">Automatización con IA · PyMEs</span>
             <h1 class="serif" style="margin-top: 16px;">
-              Automatiza lo
-              <span class="av-cycle" aria-label="repetitivo, manual, lento, aburrido">
-                <span class="av-cycle-track">
-                  <span class="av-cycle-word">repetitivo</span>
-                  <span class="av-cycle-word">manual</span>
-                  <span class="av-cycle-word">lento</span>
-                  <span class="av-cycle-word">aburrido</span>
-                  <span class="av-cycle-word">repetitivo</span>
-                </span>
-              </span>.
-              <span class="underline"><span class="av-grad-text">Crece</span></span> sin contratar.
+              Automatiza lo <em>repetitivo</em>. <span class="underline">Crece</span> sin contratar.
             </h1>
             <p class="dirA-hero-lede">
               Auditoría gratis de 30 minutos. Identificamos las 3 automatizaciones con mejor ROI para tu PyME y te entregamos un PDF personalizado en 24h.
@@ -306,7 +293,7 @@ const processSteps = [
           </div>
           <p>No es que tu equipo sea ineficiente. Es que está haciendo trabajo de máquina mientras la máquina espera. Estos son los 6 costes invisibles que detectamos cada semana en auditorías.</p>
         </div>
-        <div class="dirA-pain-grid av-reveal-stagger">
+        <div class="dirA-pain-grid">
           {pains.map((p) => (
             <article class="dirA-pain av-glow-card av-tilt">
               <div class="dirA-pain-num">{p.num}</div>
@@ -378,7 +365,7 @@ const processSteps = [
             Cada industria tiene sus propios cuellos de botella. Empezamos por los que más impacto tienen en tu cuenta de resultados.
           </p>
         </div>
-        <div class="dirA-ind-grid av-reveal-stagger">
+        <div class="dirA-ind-grid">
           {industrias.map((ind) => (
             <a class="dirA-ind-card av-glow-card av-tilt" href={`/industrias/${ind.slug}/`}>
               <div class="dirA-ind-glyph">{ind.data.glyph}</div>
@@ -394,7 +381,7 @@ const processSteps = [
     </section>
 
     <!-- SERVICES (dark) -->
-    <section class="dirA-srv av-grid-bg-dark">
+    <section class="dirA-srv">
       <div class="container">
         <div class="dirA-srv-head">
           <span class="dirA-srv-eyebrow">Lo que construimos</span>
