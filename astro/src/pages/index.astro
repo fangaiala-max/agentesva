@@ -12,6 +12,7 @@ import StatsBand from '../components/StatsBand.astro';
 import BeforeAfter from '../components/BeforeAfter.astro';
 import ProcessSteps from '../components/ProcessSteps.astro';
 import ServiceCard from '../components/ServiceCard.astro';
+import EmailSignup from '../components/EmailSignup.astro';
 
 const casos = (await getCollection('casos')).sort(
   (a, b) => new Date(b.data.publicado).getTime() - new Date(a.data.publicado).getTime()
@@ -161,7 +162,7 @@ const services = [
   {
     num: '04',
     title: 'Agentes de voz 24/7',
-    desc: 'Llamadas entrantes y salientes con voz humana en español. En desarrollo: lanzamiento previsto Q3 2026. <a href="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min" target="_blank" rel="noopener" style="color: var(--sand); text-decoration: underline;">Apuntarse a la lista de espera →</a>',
+    desc: 'Llamadas entrantes y salientes con voz humana en español. En desarrollo: lanzamiento previsto Q3 2026. <a href="#voice-waitlist" style="color: var(--sand); text-decoration: underline;">Apuntarse a la lista de espera →</a>',
     tags: ['voice AI', 'español neutro', 'waitlist'],
     comingSoon: true,
   },
@@ -398,6 +399,22 @@ const processSteps = [
             />
           ))}
         </div>
+      </div>
+    </section>
+
+    <!-- VOICE WAITLIST -->
+    <section id="voice-waitlist" style="padding: 96px 0; background: var(--paper-2);">
+      <div class="container" style="max-width: 720px;">
+        <EmailSignup
+          list="voice-waitlist"
+          variant="card"
+          eyebrow="Lista de espera · Próximamente"
+          title="Agentes de voz 24/7 · acceso prioritario"
+          description="Llamadas entrantes y salientes con voz humana en español, para PyMEs en España y LATAM. Lanzamiento previsto Q3 2026. Apúntate y serás de los primeros en probarlo."
+          placeholder="tu@email.com"
+          ctaLabel="Apuntarme"
+          privacyNote="Sin spam. Solo te avisamos cuando esté listo. Cancelas cuando quieras."
+        />
       </div>
     </section>
 
