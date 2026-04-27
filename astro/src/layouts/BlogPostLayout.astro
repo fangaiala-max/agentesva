@@ -100,25 +100,43 @@ if (frontmatter.youtubeId) {
 
   <article class="bg-paper">
     <header class="container max-w-[760px] pt-16 md:pt-24 pb-8">
-      <nav class="text-xs text-ink-3 mb-6" aria-label="Migas de pan">
+      <nav class="text-xs text-ink-3 mb-8 text-center md:text-left" aria-label="Migas de pan">
         <a href="/" class="hover:text-clay transition">Inicio</a>
         <span class="mx-2" aria-hidden="true">/</span>
         <a href="/blog/" class="hover:text-clay transition">Blog</a>
       </nav>
-      <div class="mb-5">
-        <PillarPill pillar={frontmatter.pillar} />
+
+      <div class="text-center md:text-left mb-12">
+        <span class="inline-block font-mono text-[11px] uppercase tracking-[0.20em] text-clay mb-6 font-semibold">
+          {{
+            'kit-digital': 'Kit Digital',
+            'whatsapp-api': 'WhatsApp API',
+            'automatizacion-ia-pymes': 'Automatización IA',
+            'comparativas': 'Comparativas',
+            'agentes-ia-concepto': 'Agentes IA',
+            'caso-estudio': 'Caso de estudio',
+          }[frontmatter.pillar]}
+        </span>
+        <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.05] tracking-[-0.025em] text-ink mb-6 font-normal">
+          {frontmatter.title}
+        </h1>
+        <p class="text-lg md:text-xl text-ink-2 leading-relaxed max-w-[640px] mx-auto md:mx-0">
+          {frontmatter.description}
+        </p>
       </div>
-      <h1 class="font-serif text-4xl md:text-6xl leading-tight tracking-tight text-ink mb-6">
-        {frontmatter.title}
-      </h1>
-      <p class="text-lg md:text-xl text-ink-2 leading-relaxed mb-6">
-        {frontmatter.description}
-      </p>
-      <PostMeta
-        publishedAt={frontmatter.publishedAt}
-        readingTimeMin={readingTimeMin}
-        author={frontmatter.author}
-      />
+
+      <div class="flex flex-col md:flex-row items-center gap-4 py-6 border-y border-line/50">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-ink text-paper grid place-items-center font-serif italic text-base flex-shrink-0">A</div>
+          <span class="text-sm font-medium text-ink">Por {frontmatter.author}</span>
+        </div>
+        <div class="hidden md:block w-1 h-1 rounded-full bg-line"></div>
+        <span class="text-sm text-ink-3">{readingTimeMin ? `${readingTimeMin} min de lectura` : ''}</span>
+        <div class="hidden md:block w-1 h-1 rounded-full bg-line"></div>
+        <span class="text-sm text-ink-3">
+          Publicado {new Date(frontmatter.publishedAt).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </span>
+      </div>
     </header>
 
     <!-- Hero image removed by design — small gradient thumbs in cards instead -->
@@ -127,6 +145,16 @@ if (frontmatter.youtubeId) {
       <div class="grid grid-cols-1 lg:grid-cols-[1fr_240px] gap-12">
         <div class="prose prose-blog max-w-[760px] mx-auto lg:mx-0">
           <slot />
+
+          {frontmatter.tags && frontmatter.tags.length > 0 && (
+            <div class="not-prose mt-12 pt-8 border-t border-line/40 flex flex-wrap gap-2">
+              {frontmatter.tags.slice(0, 6).map((t) => (
+                <a href={`/blog/tag/${t}/`} class="px-3 py-1 bg-paper-2 hover:bg-clay-wash text-ink-2 hover:text-clay-deep font-mono text-[11px] uppercase tracking-[0.12em] rounded transition">
+                  {t.replace(/-/g, ' ')}
+                </a>
+              ))}
+            </div>
+          )}
 
           <ShareButtons url={url} title={frontmatter.title} />
 
@@ -139,14 +167,16 @@ if (frontmatter.youtubeId) {
           </div>
 
           <div class="mt-8 p-8 md:p-10 bg-ink text-paper rounded-lg">
-            <p class="text-xs uppercase tracking-wider text-paper/60 mb-3 font-mono">Siguiente paso</p>
-            <h3 class="font-serif text-2xl md:text-3xl mb-4 text-paper">¿Quieres aplicar esto a tu negocio?</h3>
-            <p class="text-paper/80 mb-6 leading-relaxed">
+            <p class="text-[11px] uppercase tracking-[0.18em] text-sand mb-3 font-mono font-semibold">Siguiente paso</p>
+            <h3 class="font-serif text-2xl md:text-3xl mb-4 text-paper leading-tight">¿Quieres aplicar esto a tu negocio?</h3>
+            <p class="text-paper/85 mb-6 leading-relaxed">
               Reserva una auditoría gratuita de 30 minutos. Revisamos tus procesos y diseñamos un mapa concreto de automatización.
             </p>
             <a
               href="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min"
-              class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-clay text-paper font-medium hover:bg-clay-deep transition"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-sand text-ink font-semibold hover:bg-paper transition"
             >
               Reservar auditoría gratis →
             </a>
@@ -237,16 +267,58 @@ if (frontmatter.youtubeId) {
   .prose.prose-blog ol { list-style: decimal; }
   .prose.prose-blog li { margin: 0.5em 0; }
   .prose.prose-blog li::marker { color: var(--clay); }
+  /* Drop cap on first paragraph (editorial style) */
+  .prose.prose-blog > p:first-of-type::first-letter {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 4.4em;
+    line-height: 0.85;
+    float: left;
+    margin: 0.05em 0.12em 0 0;
+    color: var(--clay);
+    font-style: normal;
+  }
+  /* Pull-quote style for blockquotes */
   .prose.prose-blog blockquote {
-    border-left: 3px solid var(--clay);
-    padding: 0.5em 1.5em;
-    margin: 1.8em 0;
+    position: relative;
+    margin: 2.2em 0;
+    padding: 2.4em 2em 1.6em;
+    background: var(--paper-2);
+    border-radius: var(--r-lg);
+    border-left: none;
+    overflow: hidden;
+  }
+  .prose.prose-blog blockquote::before {
+    content: '"';
+    position: absolute;
+    top: 0.2em;
+    left: 0.3em;
+    font-family: var(--serif);
+    font-size: 5em;
+    line-height: 1;
+    color: var(--clay);
+    opacity: 0.25;
+    pointer-events: none;
+  }
+  .prose.prose-blog blockquote p {
     font-family: var(--serif);
     font-style: italic;
-    font-size: 1.1em;
-    color: var(--ink-2);
-    background: var(--card);
-    border-radius: 0 var(--r-md) var(--r-md) 0;
+    font-weight: 300;
+    font-size: 1.4em;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0;
+  }
+  .prose.prose-blog blockquote cite {
+    display: block;
+    margin-top: 1em;
+    font-family: var(--mono);
+    font-style: normal;
+    font-size: 0.7em;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-3);
   }
   .prose.prose-blog code {
     font-family: var(--mono);
