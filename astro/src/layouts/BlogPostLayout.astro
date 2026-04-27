@@ -42,25 +42,57 @@ const readingTimeMin = frontmatter.readingTimeMin;
 // Filter TOC: only H2/H3
 const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
 
+const PILLAR_SECTION_LABELS: Record<string, string> = {
+  'kit-digital': 'Kit Digital',
+  'whatsapp-api': 'WhatsApp API',
+  'automatizacion-ia-pymes': 'Automatización IA para PyMEs',
+  'comparativas': 'Comparativas de stack',
+  'agentes-ia-concepto': 'Agentes de IA',
+  'caso-estudio': 'Casos de estudio',
+};
+
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: frontmatter.title,
   description: frontmatter.description,
+  inLanguage: 'es-ES',
+  articleSection: PILLAR_SECTION_LABELS[frontmatter.pillar] || 'Blog',
   datePublished: new Date(frontmatter.publishedAt).toISOString(),
   dateModified: new Date(frontmatter.updatedAt || frontmatter.publishedAt).toISOString(),
-  author: { '@type': 'Organization', name: frontmatter.author || 'AgentesVA' },
+  author: {
+    '@type': 'Organization',
+    name: frontmatter.author || 'AgentesVA',
+    url: 'https://agentesva.com/sobre/',
+  },
   publisher: {
     '@type': 'Organization',
     name: 'AgentesVA',
+    url: 'https://agentesva.com',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://agentesva.com/assets/logo.png',
+      url: 'https://agentesva.com/favicon.png',
+      width: 512,
+      height: 512,
     },
   },
   mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-  image: frontmatter.ogImage || 'https://agentesva.com/assets/og-home.png',
+  image: frontmatter.ogImage
+    ? `https://agentesva.com${frontmatter.ogImage}`
+    : 'https://agentesva.com/assets/og-home.png',
   keywords: frontmatter.tags.join(', '),
+  isPartOf: {
+    '@type': 'Blog',
+    '@id': 'https://agentesva.com/blog/',
+    name: 'AgentesVA Blog',
+  },
+  ...(readingTimeMin
+    ? { timeRequired: `PT${readingTimeMin}M` }
+    : {}),
+  speakable: {
+    '@type': 'SpeakableSpecification',
+    cssSelector: ['.prose-blog > p:first-of-type', 'h1', 'h2'],
+  },
 };
 
 const breadcrumbSchema = {
@@ -74,6 +106,19 @@ const breadcrumbSchema = {
 };
 
 const schemas: Record<string, any>[] = [articleSchema, breadcrumbSchema];
+
+// Auto-emit FAQPage if frontmatter declares faqs
+if (Array.isArray(frontmatter.faqs) && frontmatter.faqs.length > 0) {
+  schemas.push({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: frontmatter.faqs.map((f: { q: string; a: string }) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  });
+}
 
 if (frontmatter.youtubeId) {
   schemas.push({

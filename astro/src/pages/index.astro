@@ -37,17 +37,50 @@ const orgSchema = {
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
+  '@id': 'https://agentesva.com/#service',
   name: 'AgentesVA',
   url: 'https://agentesva.com',
+  parentOrganization: { '@id': 'https://agentesva.com/#organization' },
+  serviceType: 'Consultoría de automatización con IA',
   priceRange: '€€',
-  offers: {
-    '@type': 'Offer',
-    name: 'Auditoría gratis de automatización',
-    price: '0',
-    priceCurrency: 'EUR',
-    description: '30 min + PDF personalizado con top 3 automatizaciones priorizadas por ROI',
-    url: 'https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min',
-    availability: 'https://schema.org/InStock',
+  areaServed: [
+    { '@type': 'Country', name: 'España' },
+    { '@type': 'Country', name: 'México' },
+    { '@type': 'Country', name: 'Colombia' },
+    { '@type': 'Country', name: 'Argentina' },
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Servicios AgentesVA',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        name: 'Auditoría gratis de automatización',
+        price: '0',
+        priceCurrency: 'EUR',
+        description: '30 min + PDF personalizado con top 3 automatizaciones priorizadas por ROI',
+        url: 'https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min',
+        availability: 'https://schema.org/InStock',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Plan personalizado en PDF',
+        price: '290',
+        priceCurrency: 'EUR',
+        description: 'PDF de plan de automatización personalizado, recuperable al 100% si avanzas a proyecto.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Proyecto de automatización IA (rango)',
+        priceSpecification: {
+          '@type': 'PriceSpecification',
+          priceCurrency: 'EUR',
+          minPrice: '4997',
+          maxPrice: '30000',
+        },
+        description: 'Proyectos pequeños desde 4.997€. Medianos 8k-14k€. Custom enterprise 18k-30k€.',
+      },
+    ],
   },
 };
 
@@ -212,7 +245,7 @@ const processSteps = [
   description="Auditoría gratis de 30 min para PyMEs en España: identificamos dónde la IA puede aumentar tu facturación sin contratar más personal. Casos reales: +60% restaurantes, +70% renting. PDF personalizado en 24h."
   canonical="https://agentesva.com/"
 >
-  <JsonLd slot="head" data={[orgSchema, serviceSchema]} />
+  <JsonLd slot="head" data={[serviceSchema]} />
 
   <div class="dirA">
     <Header />

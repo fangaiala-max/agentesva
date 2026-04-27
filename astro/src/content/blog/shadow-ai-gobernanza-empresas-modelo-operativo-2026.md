@@ -9,6 +9,11 @@ industria: "general"
 draft: false
 featured: false
 readingTimeMin: 9
+faqs:
+  - q: "¿El Shadow AI es siempre un riesgo legal?"
+    a: "Depende del tipo de datos involucrados y la jurisdicción. En Europa, cualquier procesamiento de datos personales por herramientas sin acuerdo de tratamiento de datos firmado incumple el RGPD por defecto."
+  - q: "¿Cómo detecto qué herramientas de IA usa mi organización?"
+    a: "Combinando análisis de tráfico de red saliente, encuestas anónimas por departamento, y revisión de gastos en tarjetas corporativas para suscripciones SaaS no aprobadas."
 ---
 
 En 2024, el problema era que los empleados no usaban IA. En 2026, el problema es que la usan para todo, con cualquier herramienta, sin que IT lo sepa.

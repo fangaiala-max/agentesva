@@ -11,6 +11,21 @@ draft: false
 featured: true
 readingTimeMin: 12
 ogImage: "/recursos/kit-digital/og-kit-digital.png"
+faqs:
+  - q: "¿Puedo usar Kit Digital para pagar Make.com o HubSpot mensual?"
+    a: "No. Kit Digital cubre setup y primer año de servicio gestionado. Suscripciones mensuales recurrentes posteriores son tu responsabilidad. La buena noticia: el primer año típicamente está incluido en el setup que sí cubre Kit Digital."
+  - q: "¿Qué pasa si la implementación supera los 6.000 € de subvención?"
+    a: "Pagas la diferencia tú. En proyectos pequeños (1-2 procesos automatizados) el setup suele caber entero. En proyectos medianos (3-5 procesos integrados con IA) puedes necesitar entre 1.500 € y 5.000 € adicionales."
+  - q: "¿Cuánto tarda la implementación tras aprobación?"
+    a: "Entre 2 y 8 semanas. Proyectos pequeños (un agente WhatsApp + integración CRM): 2-3 semanas. Proyectos medianos (cadenas multicanal + dashboards + agentes de propuestas): 4-8 semanas."
+  - q: "¿Las facturas van a mi nombre o al del Agente Digitalizador?"
+    a: "Tu empresa recibe la factura del Agente Digitalizador, pero la subvención se paga directamente al Agente. Tú solo aportas la documentación y validas la entrega. Esta es una de las grandes ventajas del programa: no tienes que adelantar dinero."
+  - q: "¿Puedo combinar varias categorías?"
+    a: "Sí. De hecho es lo que recomendamos para automatización compleja: combinar Procesos (6.000 €) + CRM (4.000 €) + BI (4.000 €) hasta agotar el cupo total del Segmento II (6.000 € hard cap)."
+  - q: "¿Hay riesgo de que me retiren la subvención después?"
+    a: "Solo si: - No justificas el gasto en plazo - Cierras la empresa antes de 24 meses - Falseas datos en la solicitud Si sigues el proceso normal, no hay riesgo de revocación."
+  - q: "¿Vale la pena vs pagar todo de mi bolsillo?"
+    a: "Si calificas para Segmento II y tu proyecto encaja en categorías compatibles, sí, definitivamente. Es dinero gratis que el Estado te da para escalar tu PyME. La única \"inversión\" es el tiempo administrativo (4-6 horas totales). ---"
 ---
 
 > **Resumen rápido:** Kit Digital Segmento II ofrece hasta **6.000 €** en subvenciones a PyMEs españolas de 3 a 9 empleados. La mayoría se usa en webs y CRM básicos. Pocas empresas lo aprovechan para **automatización con IA** — donde el ROI llega en 60-90 días. En esta guía: qué cubre exactamente, qué automatizaciones con IA encajan, 3 casos reales con métricas aproximadas (orden de +60% facturación, +70% utilización; cifras exactas verificables en auditoría privada), cómo solicitarlo paso a paso y los 5 errores que hacen que te denieguen.

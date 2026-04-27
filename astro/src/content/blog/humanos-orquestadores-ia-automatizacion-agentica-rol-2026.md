@@ -9,6 +9,11 @@ industria: "general"
 draft: false
 featured: false
 readingTimeMin: 9
+faqs:
+  - q: "¿Qué habilidades necesito para convertirme en orquestador de IA?"
+    a: "Las más valoradas según los datos del Anthropic Economic Index 2026 son: pensamiento sistémico, capacidad de prompt engineering estructurado, criterio para evaluar outputs de LLMs, y comprensión básica de arquitecturas de agentes. El perfil técnico profundo no es obligatorio."
+  - q: "¿Qué sectores están liderando esta transición?"
+    a: "Desarrollo de software, servicios financieros, y operaciones de e-commerce son los más adelantados. Legal y salud van más lentos por barreras regulatorias, pero la dirección es la misma."
 ---
 
 La pregunta equivocada sobre IA y empleo siempre fue *"¿qué trabajos va a eliminar?"*. La pregunta correcta es *"¿qué parte de cada trabajo va a absorber, y qué deja?"*. Porque la **automatización agéntica** no está borrando roles: está separando brutalmente lo que requiere juicio humano de lo que no.

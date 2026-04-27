@@ -9,6 +9,13 @@ industria: "general"
 draft: false
 featured: false
 readingTimeMin: 9
+faqs:
+  - q: "¿Cómo se mide la resiliencia de un sistema de automatización?"
+    a: "Las métricas más usadas en 2026 son: tasa de manejo autónomo de excepciones (sin intervención humana), tiempo de recuperación ante fallos parciales, y varianza en tiempo de ejecución bajo condiciones de carga atípica."
+  - q: "¿Resiliencia y eficiencia son objetivos contradictorios?"
+    a: "En el diseño clásico de automatización basado en reglas, frecuentemente sí. En sistemas agénticos bien diseñados, la resiliencia no sacrifica necesariamente eficiencia porque el agente maneja excepciones de forma autónoma en lugar de detenerse y esperar."
+  - q: "¿Qué industrias lideran la adopción de automatización resiliente?"
+    a: "Logística, manufactura, y servicios financieros son los sectores donde la presión de resiliencia operativa es más alta y donde la adopción de marcos agénticos está más avanzada."
 ---
 
 Hay un cambio de paradigma en cómo las organizaciones justifican internamente sus inversiones en automatización, y vale la pena nombrarlo con precisión porque cambia todo lo demás: **el criterio de éxito ha dejado de ser "horas ahorradas" y se ha convertido en "capacidad de absorber disrupciones sin colapsar"**.

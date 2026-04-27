@@ -12,6 +12,21 @@ featured: true
 readingTimeMin: 14
 casoRelacionado: "restaurante"
 ogImage: "/recursos/whatsapp-api/og-whatsapp-api.png"
+faqs:
+  - q: "¿Puedo usar WhatsApp Business API sin BSP?"
+    a: "Solo via Meta Cloud API directa, pero igual necesitas validación de un partner Meta para producción seria. Para empezar, usar BSP es más rápido y barato en tiempo."
+  - q: "¿Cuánto tarda el setup completo?"
+    a: "Realista: 3-4 semanas desde verificación de negocio hasta producción estable con IA conectada. Los primeros 2 semanas son aprobaciones de Meta (verificación + display name + plantillas)."
+  - q: "¿Puedo usar el mismo número que ya tengo en WhatsApp Business app?"
+    a: "No. Tienes que migrar el número a API y eso significa que dejas de poder usarlo en la app móvil. Aviso a clientes con antelación."
+  - q: "¿La IA puede contestar todo o necesito agentes humanos?"
+    a: "Recomendamos híbrido. La IA contesta el ~70-85% de mensajes (preguntas frecuentes, calificación, agendamiento, recordatorios). El ~15-30% restante (quejas, casos complejos, alto valor) se escala a humano. La proporción exacta varía por industria."
+  - q: "¿Puede integrarse con HubSpot, Pipedrive, mi CRM existente?"
+    a: "Sí. WhatsApp API es el único producto WhatsApp que se integra de verdad con CRMs vía webhooks + APIs. Es uno de los motivos principales para migrar de la app a API."
+  - q: "¿Cuánto cuesta implementar todo esto con AgentesVA?"
+    a: "La auditoría inicial es gratuita (30 min + PDF entregable en 24h). Los proyectos de WhatsApp API + IA arrancan típicamente desde 3.500 € a 8.000 € según scope. Una parte importante puede cubrirse con Kit Digital Segmento II si tu PyME califica (guía Kit Digital)."
+  - q: "¿Hay alternativas a WhatsApp API para mensajería empresarial?"
+    a: "Sí: Telegram Business API (gratis, menos uso en España), iMessage Business (vía Apple, limitado), SMS (caro en EU), email (otro canal). Pero en España, WhatsApp tiene una penetración tal que para la mayoría de PyMEs B2C es el canal principal."
 ---
 
 > **Resumen rápido:** WhatsApp Business API es la versión empresarial de WhatsApp para empresas que necesitan responder en volumen, integrar con su CRM y automatizar con IA. No se contrata directo a Meta sino vía un **BSP** (Business Solution Provider). Desde el **1 de julio de 2025** Meta cobra **por mensaje** (antes era por conversación de 24h), con precios del orden de **céntimos por mensaje** según categoría y país. En esta guía: cómo elegir BSP, cómo conectar con IA tipo Claude/GPT, cómo evitar bloqueos por spam, y un caso real de restaurante en Cataluña que pasó de no-shows del orden de 22% al 6% (caída aproximada de **−73%**) y subió facturación del orden de **+60%** en 7 semanas.

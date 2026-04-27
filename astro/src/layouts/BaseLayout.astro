@@ -54,6 +54,78 @@ const {
 
     <slot name="head" />
 
+    <!-- Sitewide schema: WebSite + Organization -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'WebSite',
+          '@id': 'https://agentesva.com/#website',
+          url: 'https://agentesva.com/',
+          name: 'AgentesVA',
+          alternateName: 'Agentes VA',
+          inLanguage: 'es-ES',
+          description: 'Consultoría de automatización con IA para PyMEs en España y Latinoamérica.',
+          publisher: { '@id': 'https://agentesva.com/#organization' },
+          potentialAction: {
+            '@type': 'SearchAction',
+            target: 'https://agentesva.com/blog/?q={search_term_string}',
+            'query-input': 'required name=search_term_string',
+          },
+        },
+        {
+          '@type': 'Organization',
+          '@id': 'https://agentesva.com/#organization',
+          name: 'AgentesVA',
+          url: 'https://agentesva.com',
+          logo: {
+            '@type': 'ImageObject',
+            url: 'https://agentesva.com/favicon.png',
+            width: 512,
+            height: 512,
+          },
+          description: 'Consultoría de automatización con IA para PyMEs en España y Latinoamérica. Auditoría gratis + PDF personalizado en 24h.',
+          founder: { '@type': 'Person', name: 'Fernando Angulo' },
+          foundingDate: '2024',
+          areaServed: [
+            { '@type': 'Country', name: 'España' },
+            { '@type': 'Country', name: 'México' },
+            { '@type': 'Country', name: 'Colombia' },
+            { '@type': 'Country', name: 'Argentina' },
+            { '@type': 'Country', name: 'Chile' },
+            { '@type': 'Country', name: 'Perú' },
+          ],
+          knowsAbout: [
+            'Automatización con inteligencia artificial',
+            'WhatsApp Business API',
+            'Make.com',
+            'Claude API',
+            'Kit Digital',
+            'Agentes IA',
+            'Orquestación agéntica',
+          ],
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: 'Carrer Lleó 27, 3º 1ª',
+            postalCode: '43004',
+            addressLocality: 'Tarragona',
+            addressRegion: 'Tarragona',
+            addressCountry: 'ES',
+          },
+          contactPoint: {
+            '@type': 'ContactPoint',
+            contactType: 'customer service',
+            telephone: '+34 648 09 09 25',
+            availableLanguage: { '@type': 'Language', name: 'Spanish' },
+            areaServed: ['ES', 'MX', 'CO', 'AR', 'CL', 'PE'],
+          },
+          sameAs: [
+            'https://github.com/fangaiala-max/agentesva',
+          ],
+        },
+      ],
+    })} />
+
     <!-- GA4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-87SBNWCTWZ"></script>
     <script is:inline>
