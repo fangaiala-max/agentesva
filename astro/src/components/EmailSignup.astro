@@ -1,0 +1,215 @@
+---
+export interface Props {
+  list: 'newsletter' | 'voice-waitlist';
+  variant?: 'inline' | 'card';
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  placeholder?: string;
+  ctaLabel?: string;
+  successText?: string;
+  privacyNote?: string;
+  invertColors?: boolean; /* dark bg variant */
+}
+
+const {
+  list,
+  variant = 'inline',
+  eyebrow,
+  title,
+  description,
+  placeholder = 'tu@email.com',
+  ctaLabel = 'Suscribirme',
+  successText = '¡Listo! Revisa tu email para confirmar.',
+  privacyNote = 'Sin spam. Cancelas cuando quieras. Cumple RGPD.',
+  invertColors = false,
+} = Astro.props;
+
+const formId = `email-signup-${Math.random().toString(36).slice(2, 9)}`;
+---
+<form
+  id={formId}
+  class={`email-signup ${variant === 'card' ? 'email-signup-card' : 'email-signup-inline'} ${invertColors ? 'email-signup-dark' : ''}`}
+  data-list={list}
+  novalidate
+>
+  {eyebrow && (
+    <span class="email-signup-eyebrow">{eyebrow}</span>
+  )}
+  {title && (
+    <h3 class="email-signup-title">{title}</h3>
+  )}
+  {description && (
+    <p class="email-signup-desc">{description}</p>
+  )}
+
+  <div class="email-signup-row">
+    <input
+      type="email"
+      name="email"
+      class="email-signup-input"
+      placeholder={placeholder}
+      required
+      aria-label="Email"
+      autocomplete="email"
+    />
+    <button type="submit" class="email-signup-btn">
+      <span class="email-signup-btn-label">{ctaLabel}</span>
+      <span class="email-signup-btn-loading" hidden>Enviando…</span>
+    </button>
+  </div>
+
+  <p class="email-signup-feedback" data-state="idle">{privacyNote}</p>
+</form>
+
+<style>
+  .email-signup { display: flex; flex-direction: column; gap: 12px; }
+  .email-signup-card {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 28px;
+    gap: 14px;
+  }
+  .email-signup-dark { background: var(--ink); color: var(--paper); border: none; }
+  .email-signup-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--clay);
+    font-weight: 600;
+  }
+  .email-signup-dark .email-signup-eyebrow { color: var(--sand); }
+  .email-signup-title {
+    font-family: var(--serif);
+    font-size: clamp(22px, 2.4vw, 28px);
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+    color: var(--ink);
+    margin: 0;
+  }
+  .email-signup-dark .email-signup-title { color: var(--paper); }
+  .email-signup-desc {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink-3);
+    margin: 0;
+  }
+  .email-signup-dark .email-signup-desc { color: rgba(247,243,236,0.78); }
+  .email-signup-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+  }
+  .email-signup-input {
+    flex: 1 1 220px;
+    min-width: 0;
+    padding: 14px 18px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--card);
+    font-family: var(--sans);
+    font-size: 15px;
+    color: var(--ink);
+    transition: border-color 0.2s;
+  }
+  .email-signup-input:focus {
+    outline: none;
+    border-color: var(--clay);
+  }
+  .email-signup-dark .email-signup-input {
+    background: rgba(247,243,236,0.08);
+    border-color: rgba(247,243,236,0.18);
+    color: var(--paper);
+  }
+  .email-signup-dark .email-signup-input::placeholder { color: rgba(247,243,236,0.5); }
+  .email-signup-btn {
+    padding: 14px 22px;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    white-space: nowrap;
+  }
+  .email-signup-btn:hover { background: var(--clay-deep); }
+  .email-signup-btn:active { transform: translateY(1px); }
+  .email-signup-btn[disabled] { opacity: 0.6; cursor: wait; }
+  .email-signup-dark .email-signup-btn { background: var(--sand); color: var(--ink); }
+  .email-signup-dark .email-signup-btn:hover { background: var(--paper); }
+  .email-signup-feedback {
+    font-size: 12px;
+    color: var(--ink-3);
+    margin: 0;
+    line-height: 1.4;
+  }
+  .email-signup-dark .email-signup-feedback { color: rgba(247,243,236,0.6); }
+  .email-signup-feedback[data-state="success"] { color: var(--forest); font-weight: 500; }
+  .email-signup-dark .email-signup-feedback[data-state="success"] { color: var(--sand); }
+  .email-signup-feedback[data-state="error"] { color: var(--clay-deep); font-weight: 500; }
+</style>
+
+<script is:inline>
+  (function () {
+    document.querySelectorAll('form.email-signup').forEach((form) => {
+      if (form.dataset.bound === '1') return;
+      form.dataset.bound = '1';
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const fb = form.querySelector('.email-signup-feedback');
+        const btn = form.querySelector('.email-signup-btn');
+        const btnLabel = form.querySelector('.email-signup-btn-label');
+        const btnLoading = form.querySelector('.email-signup-btn-loading');
+        const input = form.querySelector('input[type="email"]');
+        const list = form.dataset.list || 'default';
+
+        const email = (input.value || '').trim();
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          fb.dataset.state = 'error';
+          fb.textContent = 'Por favor, introduce un email válido.';
+          return;
+        }
+
+        btn.disabled = true;
+        btnLabel.hidden = true;
+        btnLoading.hidden = false;
+        fb.dataset.state = 'idle';
+        fb.textContent = '';
+
+        try {
+          const r = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, list }),
+          });
+          const data = await r.json().catch(() => ({}));
+          if (r.ok && data.success) {
+            fb.dataset.state = 'success';
+            fb.textContent = '¡Listo! Te enviamos un email de confirmación.';
+            input.value = '';
+            try {
+              if (window.gtag) gtag('event', 'subscribe_success', { list });
+              if (window.mixpanel) mixpanel.track('subscribe_success', { list });
+            } catch (_) {}
+          } else {
+            fb.dataset.state = 'error';
+            fb.textContent = data.error || 'No se pudo completar la suscripción. Intenta de nuevo.';
+          }
+        } catch (err) {
+          fb.dataset.state = 'error';
+          fb.textContent = 'Error de red. Intenta de nuevo.';
+        } finally {
+          btn.disabled = false;
+          btnLabel.hidden = false;
+          btnLoading.hidden = true;
+        }
+      });
+    });
+  })();
+</script>
