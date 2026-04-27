@@ -38,3 +38,5 @@ npm-debug.log*
 # Logs
 *.log
 .vercel
+audit-*.png
+.playwright-mcp/
