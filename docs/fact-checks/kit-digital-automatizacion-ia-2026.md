@@ -3,7 +3,7 @@
 **Post URL:** https://agentesva.com/blog/kit-digital-automatizacion-ia-2026/
 **Fecha audit:** 2026-04-27
 **Auditor:** Equipo AgentesVA
-**Estado actual:** ⚠️ PARTIAL — 1 claim Tier A no verificado bloquea publicación segura
+**Estado actual:** ✅ VERIFIED (resolución 2026-04-27) — claim A1 reescrito tras confirmación user.
 
 ---
 

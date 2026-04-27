@@ -7,7 +7,7 @@ author: "Equipo AgentesVA"
 tags: ["kit-digital", "automatizacion-ia", "subvenciones-pyme", "kit-digital-segmento-ii", "make-com", "whatsapp-business-api", "pymes-espana", "2026"]
 pillar: "kit-digital"
 industria: "general"
-draft: true
+draft: false
 featured: true
 readingTimeMin: 12
 ogImage: "/recursos/kit-digital/og-kit-digital.png"
@@ -230,7 +230,7 @@ Mientras esperas la resolución, podemos hacer la auditoría gratuita de 30 minu
 
 ### 5. Aprobación + firma del contrato
 
-Cuando llegue la resolución positiva, eliges Agente Digitalizador y firmas. Como AgentesVA está dado de alta como Agente Digitalizador en las categorías Procesos, CRM y BI, podemos cobrar directamente a la subvención.
+Cuando llegue la resolución positiva, eliges un Agente Digitalizador certificado por Red.es. AgentesVA **no es Agente Digitalizador** (no es nuestro foco regulatorio): nosotros somos los implementadores técnicos de la solución. Trabajamos con Agentes certificados de confianza que se encargan de cobrar a la subvención, mientras nosotros nos enfocamos en construir y desplegar la automatización con IA. En la auditoría te recomendamos los Agentes con los que colaboramos en tu zona si te encaja el flujo.
 
 ### 6. Implementación de la automatización (2-8 semanas)
 
@@ -238,7 +238,7 @@ Construimos la solución sobre tus cuentas (Make.com, Claude API, WhatsApp Busin
 
 ### 7. Justificación del gasto (10 días tras pago)
 
-Crítico: tienes **10 días naturales** desde que se realiza el pago para subir la justificación a la plataforma. Si te pasas, la subvención puede revocarse. Como Agente Digitalizador, nosotros gestionamos la documentación contigo.
+Crítico: tienes **10 días naturales** desde que se realiza el pago para subir la justificación a la plataforma. Si te pasas, la subvención puede revocarse. El Agente Digitalizador con el que firmes es quien gestiona esta documentación; AgentesVA te apoya con la parte técnica (entregables, runbook, métricas pre/post implementación) que el Agente necesita anexar.
 
 ---
 
