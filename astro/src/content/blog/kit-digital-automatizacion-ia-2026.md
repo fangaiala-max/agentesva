@@ -7,7 +7,7 @@ author: "Equipo AgentesVA"
 tags: ["kit-digital", "automatizacion-ia", "subvenciones-pyme", "kit-digital-segmento-ii", "make-com", "whatsapp-business-api", "pymes-espana", "2026"]
 pillar: "kit-digital"
 industria: "general"
-draft: false
+draft: true
 featured: true
 readingTimeMin: 12
 ogImage: "/recursos/kit-digital/og-kit-digital.png"
