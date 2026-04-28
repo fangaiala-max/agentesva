@@ -38,7 +38,7 @@ Auditoría gratis
         </div>
 
         <form id="quiz-form" action="#" method="post" novalidate>
-            <!-- TODO: Replace action with real Make.com webhook once created -->
+            <!-- Submit handled via JS fetch to Make webhook (see line ~391); action="#" prevents native submit. -->
 
             <!-- Step 1: Tipo de negocio -->
             <div class="quiz-step active" data-step="1">
@@ -212,7 +212,7 @@ AgentesVA
       });
     </script> </body> </html>  <script>
 (function() {
-    // TODO: Replace with real Make.com webhook once created
+    // Make webhook hook.eu1.make.com/niwg4pqhrkk46ernjbwqang7n3iqvo8u — fire-and-forget below
     // HubSpot Forms API v3 — form "Diagnóstico AgentesVA"
     var HUBSPOT_PORTAL_ID = '148323903';
     var HUBSPOT_FORM_GUID = '6a283564-7cb8-46a6-a812-76101a686d41';
