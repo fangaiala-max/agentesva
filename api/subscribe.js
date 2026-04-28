@@ -4,10 +4,16 @@
 const LIST_MAP = {
   // Default list (general signup) — kept for backward compatibility
   default: () => parseInt(process.env.BREVO_LIST_ID || '8', 10),
-  // Blog newsletter
-  newsletter: () => parseInt(process.env.BREVO_LIST_ID_NEWSLETTER || process.env.BREVO_LIST_ID || '8', 10),
-  // Voice agents waitlist
-  'voice-waitlist': () => parseInt(process.env.BREVO_LIST_ID_VOICE_WAITLIST || process.env.BREVO_LIST_ID || '8', 10),
+  // Blog newsletter (env var puede ser BREVO_LIST_BLOG_NEWSLETTER o BREVO_LIST_ID_NEWSLETTER)
+  newsletter: () => parseInt(
+    process.env.BREVO_LIST_BLOG_NEWSLETTER ||
+    process.env.BREVO_LIST_ID_NEWSLETTER ||
+    process.env.BREVO_LIST_ID || '8', 10),
+  // Voice agents waitlist (env var puede ser BREVO_LIST_VOICE_WAITLIST o BREVO_LIST_ID_VOICE_WAITLIST)
+  'voice-waitlist': () => parseInt(
+    process.env.BREVO_LIST_VOICE_WAITLIST ||
+    process.env.BREVO_LIST_ID_VOICE_WAITLIST ||
+    process.env.BREVO_LIST_ID || '8', 10),
 };
 
 export default async function handler(req, res) {
