@@ -172,9 +172,13 @@ const filterPills = [
             <h2 class="serif" style="margin-top: 12px;">Recibe los 7 agentes gratis en tu correo</h2>
             <p>Blueprints listos para importar en Make.com + instrucciones paso a paso. Sin spam, sin tarjeta.</p>
           </div>
-          <form id="catalog-lead-form" class="cat-lead-form">
-            <input type="email" name="email" required placeholder="tu@email.com" autocomplete="email" />
-            <button type="submit" class="btn btn-primary">Enviar gratis →</button>
+          <form id="catalog-lead-form" class="cat-lead-form" novalidate>
+            <input type="email" name="email" required placeholder="tu@email.com" autocomplete="email" aria-label="Email" />
+            <button type="submit" class="btn btn-primary">
+              <span class="cat-lead-label">Enviar gratis →</span>
+              <span class="cat-lead-loading" hidden>Enviando…</span>
+            </button>
+            <p class="cat-lead-feedback" data-state="idle">Sin spam. Cancelas cuando quieras.</p>
           </form>
         </div>
       </div>
@@ -275,6 +279,10 @@ const filterPills = [
   .cat-lead-card p { color: var(--ink-3); margin: 0; }
   .cat-lead-form { display: flex; gap: 8px; flex-wrap: wrap; }
   .cat-lead-form input { padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; font-family: inherit; font-size: 14px; min-width: 240px; }
+  .cat-lead-form input:focus { outline: none; border-color: var(--clay); }
+  .cat-lead-form button[disabled] { opacity: 0.7; cursor: wait; }
+  .cat-lead-feedback { flex-basis: 100%; margin: 4px 0 0; font-size: 12px; color: var(--ink-3); line-height: 1.4; transition: color 0.2s; }
+  .cat-lead-feedback[data-state="error"] { color: var(--clay-deep); font-weight: 500; }
   @media (max-width: 720px) { .cat-lead-card { grid-template-columns: 1fr; } }
 
   .cat-modal { border: none; border-radius: 20px; padding: 0; max-width: 540px; width: 95vw; max-height: 88vh; box-shadow: 0 24px 80px rgba(26,24,20,0.25); background: var(--card); color: var(--ink); overflow: hidden; }
@@ -434,15 +442,56 @@ const filterPills = [
   if (leadForm) {
     leadForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const email = leadForm.querySelector('input[type="email"]').value;
+      const input = leadForm.querySelector('input[type="email"]');
+      const btn = leadForm.querySelector('button[type="submit"]');
+      const label = leadForm.querySelector('.cat-lead-label');
+      const loading = leadForm.querySelector('.cat-lead-loading');
+      const fb = leadForm.querySelector('.cat-lead-feedback');
+      const email = (input.value || '').trim();
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        fb.dataset.state = 'error';
+        fb.textContent = 'Por favor, introduce un email válido.';
+        return;
+      }
+
+      btn.disabled = true;
+      label.hidden = true;
+      loading.hidden = false;
+      fb.dataset.state = 'idle';
+      fb.textContent = '';
+
+      // HubSpot identify (tracking pixel) — fire-and-forget
       try {
-        // HubSpot contact identification via tracking pixel
         var _hsq = window._hsq = window._hsq || [];
         _hsq.push(['identify', { email: email }]);
         _hsq.push(['trackPageView']);
-      } catch(_){}
-      try { if (window.mixpanel) mixpanel.track('lead_captured', { source: 'catalog_banner' }); } catch(e){}
-      window.location.href = '/gracias-gratis/?source=catalog';
+      } catch(_) {}
+      try { if (window.mixpanel) mixpanel.track('lead_captured', { source: 'catalog_banner' }); } catch(_) {}
+      try { if (window.gtag) gtag('event', 'lead_captured', { source: 'catalog_banner' }); } catch(_) {}
+
+      try {
+        // Brevo subscription via /api/subscribe (list: newsletter — 7 agentes gratis flow)
+        const r = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, list: 'newsletter' }),
+        });
+        const data = await r.json().catch(() => ({}));
+        if (r.ok && data.success) {
+          window.location.href = '/gracias-gratis/?source=catalog';
+          return;
+        }
+        fb.dataset.state = 'error';
+        fb.textContent = data.error || 'No se pudo completar. Intenta de nuevo.';
+      } catch (err) {
+        fb.dataset.state = 'error';
+        fb.textContent = 'Error de red. Intenta de nuevo.';
+      } finally {
+        btn.disabled = false;
+        label.hidden = false;
+        loading.hidden = true;
+      }
     });
   }
 })();
