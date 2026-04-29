@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import MobileNav from '../components/MobileNav.astro';
+import EmailSignup from '../components/EmailSignup.astro';
 
 const bodyHtml = `<main class="pb-12">
 
@@ -156,6 +157,22 @@ const bodyHtml = `<main class="pb-12">
   </Fragment>
   <Header currentPath="/sobre/" />
   <Fragment set:html={bodyHtml} />
+
+  <section style="padding: 64px 24px 96px; background: var(--paper-2);">
+    <div class="px-5 max-w-2xl mx-auto">
+      <EmailSignup
+        list="newsletter"
+        variant="card"
+        eyebrow="Si conectó la metodología"
+        title="Recibe el próximo caso publicable cuando esté listo"
+        description="1 email cada 2 semanas. Casos reales con métricas, aprendizajes de implementación, y comparativas de stack. Sin spam."
+        placeholder="tu@email.com"
+        ctaLabel="Suscribirme"
+        privacyNote="Sin spam. Cancelas cuando quieras. Cumple RGPD."
+      />
+    </div>
+  </section>
+
   <Footer />
   <MobileNav currentPath="/sobre/" />
 </BaseLayout>

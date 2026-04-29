@@ -441,7 +441,7 @@ const processSteps = [
         <span class="eyebrow on-clay" style="display: inline-block;">Quiz · 2 min</span>
         <h2 class="serif" style="margin-top: 16px;">¿Por dónde empezar a <em>automatizar</em>?</h2>
         <p style="font-size: 17px; line-height: 1.55; color: var(--ink-3); margin: 16px auto 32px; max-width: 620px;">
-          5 preguntas. Recibes por email un diagnóstico personalizado con las top 3 automatizaciones para tu negocio. Sin compromiso, sin tarjeta.
+          <strong>Tu top 3 automatizaciones por email en 24 h.</strong> Generado analizando tus 5 respuestas + tu stack actual. Sin compromiso, sin tarjeta.
         </p>
         <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
           <a class="btn btn-primary av-magnet" href="/diagnostico/">
@@ -454,22 +454,6 @@ const processSteps = [
         <p style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); margin-top: 24px;">
           Diagnóstico en 24 h · Personal review · Sin spam
         </p>
-      </div>
-    </section>
-
-    <!-- VOICE WAITLIST -->
-    <section id="voice-waitlist" style="padding: 96px 0; background: var(--paper-2);">
-      <div class="container" style="max-width: 720px;">
-        <EmailSignup
-          list="voice-waitlist"
-          variant="card"
-          eyebrow="Lista de espera · Próximamente"
-          title="Agentes de voz 24/7 · acceso prioritario"
-          description="Llamadas entrantes y salientes con voz humana en español, para PyMEs en España y LATAM. Lanzamiento previsto Q3 2026. Apúntate y serás de los primeros en probarlo."
-          placeholder="tu@email.com"
-          ctaLabel="Apuntarme"
-          privacyNote="Sin spam. Solo te avisamos cuando esté listo. Cancelas cuando quieras."
-        />
       </div>
     </section>
 
@@ -530,6 +514,22 @@ const processSteps = [
           <h2 class="serif" style="margin-top: 12px;">Lo que más nos preguntan.</h2>
         </div>
         <FAQAccordion items={faqs} />
+      </div>
+    </section>
+
+    <!-- VOICE WAITLIST -->
+    <section id="voice-waitlist" style="padding: 96px 0; background: var(--paper-2);">
+      <div class="container" style="max-width: 720px;">
+        <EmailSignup
+          list="voice-waitlist"
+          variant="card"
+          eyebrow="Lista de espera · Próximamente"
+          title="Agentes de voz 24/7 · acceso prioritario"
+          description="Llamadas entrantes y salientes con voz humana en español, para PyMEs en España y LATAM. Lanzamiento previsto Q3 2026. Apúntate y serás de los primeros en probarlo."
+          placeholder="tu@email.com"
+          ctaLabel="Apuntarme"
+          privacyNote="Sin spam. Solo te avisamos cuando esté listo. Cancelas cuando quieras."
+        />
       </div>
     </section>
 

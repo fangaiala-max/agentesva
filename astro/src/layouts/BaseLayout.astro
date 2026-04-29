@@ -171,10 +171,19 @@ const {
   <body class="bg-paper text-ink font-sans antialiased has-sticky-cta">
     <slot />
 
-    <!-- Sticky bottom CTA (mobile only) -->
-    <a href="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min" class="av-sticky-cta js-sticky-cta js-audit-cta" data-cta="sticky-mobile" target="_blank" rel="noopener">
-      <span class="av-sticky-cta-text"><span class="av-sticky-cta-dot"></span> Auditoría gratis · 30 min</span>
-      <span class="av-sticky-cta-btn">Reservar →</span>
+    <!-- Sticky bottom CTA (mobile only) — context-aware -->
+    <a href="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min"
+       class="av-sticky-cta js-sticky-cta js-audit-cta"
+       data-cta="sticky-mobile"
+       data-audit-href="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min"
+       data-audit-text="Auditoría gratis · 30 min"
+       data-audit-btn="Reservar →"
+       data-blog-href="/blog/#newsletter"
+       data-blog-text="Recibe el próximo artículo"
+       data-blog-btn="Suscribir →"
+       target="_blank" rel="noopener">
+      <span class="av-sticky-cta-text"><span class="av-sticky-cta-dot"></span><span class="js-sticky-cta-label">Auditoría gratis · 30 min</span></span>
+      <span class="av-sticky-cta-btn js-sticky-cta-btn">Reservar →</span>
     </a>
 
     <!-- Scroll reveal + spotlight + sticky CTA observer -->
@@ -201,9 +210,25 @@ const {
           });
         });
 
-        // Sticky CTA: show after scrolling past hero
+        // Sticky CTA: contextual + show after scrolling past hero
         const sticky = document.querySelector('.js-sticky-cta');
         if (sticky) {
+          // Swap CTA based on URL context (blog → newsletter, else → audit)
+          const isBlog = /^\/blog(\/|$)/.test(window.location.pathname);
+          const ctx = isBlog ? 'blog' : 'audit';
+          const href = sticky.getAttribute('data-' + ctx + '-href');
+          const text = sticky.getAttribute('data-' + ctx + '-text');
+          const btn  = sticky.getAttribute('data-' + ctx + '-btn');
+          if (href) sticky.setAttribute('href', href);
+          if (isBlog) {
+            sticky.removeAttribute('target');
+            sticky.removeAttribute('rel');
+          }
+          const labelEl = sticky.querySelector('.js-sticky-cta-label');
+          const btnEl   = sticky.querySelector('.js-sticky-cta-btn');
+          if (labelEl && text) labelEl.textContent = text;
+          if (btnEl && btn)    btnEl.textContent = btn;
+
           let shown = false;
           window.addEventListener('scroll', () => {
             const should = window.scrollY > 600;
