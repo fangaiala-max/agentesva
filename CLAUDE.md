@@ -1,6 +1,14 @@
 # AgentesVA
 
-Static HTML/CSS/JS site for AI automation agents targeting Latin American SMEs.
+Astro 5 static site on Vercel (no DB) targeting PyMEs hispanohablantes (España + LATAM). Sales funnel for AI automation consulting.
+
+**Source of truth:**
+- [`ARCHITECTURE.md`](./ARCHITECTURE.md) — topology, stack, env vars, funnel paths
+- [`OPERATIONS.md`](./OPERATIONS.md) — secrets, alerts, incident response
+- [`DESIGN.md`](./DESIGN.md) — design tokens + component library
+- `docs/blog-fact-checking-protocol.md` — Tier A/B/C/D for content claims
+
+**Pre-Astro docs** (April 6 vintage): archived in `docs/_archive/pre-astro/`. Don't use as current reference.
 
 ## Skill routing
 
