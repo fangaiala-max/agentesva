@@ -103,6 +103,16 @@ const faqs = [
   },
 ];
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
 const heroStats = [
   { num: '40', suffix: '+', label: 'Procesos automatizables identificados en auditorías reales' },
   { num: '24', suffix: 'h', label: 'Para entregar tu PDF personalizado tras la auditoría' },
@@ -245,7 +255,7 @@ const processSteps = [
   description="Auditoría gratis de 30 min para PyMEs en España: identificamos dónde la IA puede aumentar tu facturación sin contratar más personal. Casos reales: +60% restaurantes, +70% renting. PDF personalizado en 24h."
   canonical="https://agentesva.com/"
 >
-  <JsonLd slot="head" data={[serviceSchema]} />
+  <JsonLd slot="head" data={[serviceSchema, faqSchema]} />
 
   <div class="dirA">
     <Header />
@@ -256,12 +266,15 @@ const processSteps = [
       <div class="container">
         <div class="dirA-hero-grid">
           <div>
-            <span class="eyebrow">Automatización con IA · PyMEs</span>
+            <span class="eyebrow">Automatización con IA · PyMEs en España y LATAM</span>
             <h1 class="serif" style="margin-top: 16px;">
-              Automatiza lo <em>repetitivo</em>. <span class="underline">Crece</span> sin contratar.
+              PyMEs: automatiza lo <em>repetitivo</em> y <span class="underline">crece</span> sin contratar más personal.
             </h1>
             <p class="dirA-hero-lede">
               Auditoría gratis de 30 minutos. Identificamos las 3 automatizaciones con mejor ROI para tu PyME y te entregamos un PDF personalizado en 24h.
+            </p>
+            <p class="dirA-hero-proof" style="margin: 12px 0 20px; font-size: 0.95rem; opacity: 0.85;">
+              Casos reales: <strong>+60% reservas</strong> en restauración · <strong>+70% leads</strong> en renting B2B · PDF entregado en <strong>24h</strong>.
             </p>
             <div class="dirA-hero-actions">
               <a class="btn btn-primary av-magnet" href="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min">
@@ -269,6 +282,9 @@ const processSteps = [
               </a>
               <a class="btn btn-ghost av-magnet" href="/catalogo/">Ver catálogo</a>
             </div>
+            <p class="dirA-hero-risk" style="margin: 10px 0 0; font-size: 0.85rem; opacity: 0.7;">
+              Sin tarjeta · sin compromiso · cancelas con un click
+            </p>
             <div class="dirA-hero-meta">
               <span class="dirA-hero-meta-dot av-breathe"></span>
               <span>Próxima ranura disponible esta semana</span>
