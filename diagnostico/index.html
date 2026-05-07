@@ -258,6 +258,12 @@ AgentesVA
         } catch (e) { /* noop */ }
     }
 
+    function trackGA(event, props) {
+        try {
+            if (window.gtag) window.gtag('event', event, props || {});
+        } catch (e) { /* noop */ }
+    }
+
     function saveProgress() {
         try {
             var data = {};
@@ -342,6 +348,7 @@ AgentesVA
     btnNext.addEventListener('click', function() {
         if (!quizStartedTracked) {
             trackMixpanel('quiz_started', { page: '/diagnostico/' });
+            trackGA('form_start', { form_id: 'diagnostico_quiz' });
             quizStartedTracked = true;
         }
         if (!validateStep(currentStep)) return;
@@ -383,6 +390,12 @@ AgentesVA
 
         function done() {
             trackMixpanel('quiz_completed', { page: '/diagnostico/', tipo_negocio: payload.tipo_negocio });
+            trackGA('generate_lead', {
+                currency: 'EUR',
+                value: 290,
+                method: 'diagnostico_quiz',
+                tipo_negocio: payload.tipo_negocio || 'otro'
+            });
             try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
             document.getElementById('quiz-wrapper').classList.add('hidden');
             document.getElementById('success-state').classList.remove('hidden');
