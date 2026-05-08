@@ -173,6 +173,11 @@ const filterPills = [
             <p>Blueprints listos para importar en Make.com + instrucciones paso a paso. Sin spam, sin tarjeta.</p>
           </div>
           <form id="catalog-lead-form" class="cat-lead-form" novalidate>
+            <div class="cat-lead-hp" aria-hidden="true">
+              <label>Website
+                <input type="text" name="website" tabindex="-1" autocomplete="off" />
+              </label>
+            </div>
             <input type="email" name="email" required placeholder="tu@email.com" autocomplete="email" aria-label="Email" />
             <button type="submit" class="btn btn-primary">
               <span class="cat-lead-label">Enviar gratis →</span>
@@ -278,6 +283,7 @@ const filterPills = [
   .cat-lead-card h2 { font-size: 28px; margin: 0 0 8px; color: var(--ink); }
   .cat-lead-card p { color: var(--ink-3); margin: 0; }
   .cat-lead-form { display: flex; gap: 8px; flex-wrap: wrap; }
+  .cat-lead-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
   .cat-lead-form input { padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; font-family: inherit; font-size: 14px; min-width: 240px; }
   .cat-lead-form input:focus { outline: none; border-color: var(--clay); }
   .cat-lead-form button[disabled] { opacity: 0.7; cursor: wait; }
@@ -443,6 +449,7 @@ const filterPills = [
     leadForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const input = leadForm.querySelector('input[type="email"]');
+      const hp = leadForm.querySelector('input[name="website"]');
       const btn = leadForm.querySelector('button[type="submit"]');
       const label = leadForm.querySelector('.cat-lead-label');
       const loading = leadForm.querySelector('.cat-lead-loading');
@@ -475,7 +482,7 @@ const filterPills = [
         const r = await fetch('/api/subscribe', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, list: 'newsletter' }),
+          body: JSON.stringify({ email, list: 'newsletter', website: hp ? hp.value : '' }),
         });
         const data = await r.json().catch(() => ({}));
         if (r.ok && data.success) {

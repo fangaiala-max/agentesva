@@ -60,6 +60,10 @@
       "destination": "/api/subscribe.js"
     },
     {
+      "source": "/api/diagnostico",
+      "destination": "/api/diagnostico.js"
+    },
+    {
       "source": "/wh/wa",
       "destination": "/api/wa.js"
     }

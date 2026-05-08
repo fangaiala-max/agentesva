@@ -27,7 +27,10 @@ export default async function handler(req, res) {
   const apiKey = process.env.BREVO_API_KEY;
   if (!apiKey) return res.status(500).json({ error: 'Server misconfiguration' });
 
-  const { email = '', name = '', list = 'default' } = req.body || {};
+  const { email = '', name = '', list = 'default', website = '' } = req.body || {};
+
+  if (website) return res.status(200).json({ success: true, list });
+
   const cleanEmail = email.trim();
   const cleanName  = name.trim().slice(0, 100);
 
