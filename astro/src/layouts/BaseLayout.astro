@@ -7,6 +7,7 @@ export interface Props {
   canonical?: string;
   ogImage?: string;
   ogType?: 'website' | 'article';
+  robots?: string;
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   canonical = Astro.url.href,
   ogImage = 'https://agentesva.com/assets/og-home.png',
   ogType = 'website',
+  robots = 'index, follow',
 } = Astro.props;
 ---
 <!DOCTYPE html>
@@ -27,7 +29,7 @@ const {
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={robots} />
     <meta name="geo.placename" content="España" />
     <meta name="geo.region" content="ES" />
     <link rel="canonical" href={canonical} />

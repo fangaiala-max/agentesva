@@ -84,9 +84,9 @@ const bodyHtml = `<main class="max-w-2xl mx-auto px-6 py-12 pb-32 md:pb-16">
   description={`Tu agente gratuito está en camino. Revisa tu email en 5 minutos.`}
   canonical="https://agentesva.com/gracias-gratis/"
   ogImage="https://agentesva.com/assets/og-home.png"
+  robots="noindex, nofollow"
 >
   <Fragment slot="head">
-    <meta name="robots" content="noindex, nofollow" />
     <link rel="alternate" hreflang="es" href="https://agentesva.com/gracias-gratis/" />
     <link rel="alternate" hreflang="es-MX" href="https://agentesva.com/gracias-gratis/" />
     <link rel="alternate" hreflang="es-CO" href="https://agentesva.com/gracias-gratis/" />
@@ -103,6 +103,15 @@ const bodyHtml = `<main class="max-w-2xl mx-auto px-6 py-12 pb-32 md:pb-16">
 
   <Footer />
   <MobileNav />
+
+  <script is:inline>
+    if (window.gtag) {
+      gtag('event', 'conversion_complete', {
+        funnel: 'diagnostico',
+        page_path: '/gracias-gratis/'
+      });
+    }
+  </script>
 </BaseLayout>
 
 <style is:global>
