@@ -1,71 +1,92 @@
-# Design System — AgentesVA
+# Sistema de diseño — AgentesVA
 
-> Replaces the previous "Editorial cálido" consulting brand. AgentesVA is now a **product brand** for a fintech AI-visibility + accuracy SaaS. Reference mockups: `mockup-agentesva-sw.html` (chosen direction), `mockup-agentesva-dashboard.html` (app).
+> **Fuente de verdad visual.** Sustituye por completo a la marca anterior ("fintech AI-visibility SaaS", verde/ámbar/rojo + Geist) — concepto abandonado en el pivote a **directorio/medio de IA en español** (ver `docs/superpowers/specs/2026-06-21-agentesva-directory-business-brief.md`).
+>
+> Dos artefactos lo definen, ambos de claude.ai/design (proyecto "AgentesVA Newsletter y captación"):
+> - **Identidad de marca** → `AgentesVA - Brand & Social Kit` (logo, tipografía, color, assets sociales).
+> - **Tema web** → `AgentesVA - Futurista` (home oscura del directorio + fichas), implementado en `src/`.
+>
+> Voz y copy: [`docs/brand-guidelines.md`](./docs/brand-guidelines.md).
 
-## Product Context
-- **What this is:** AgentesVA — a self-serve SaaS that monitors how AI agents (ChatGPT, Gemini, Perplexity, Claude) **recommend** (visibility / Share of Answer) and **describe** (accuracy / risk on regulated claims) a fintech's products vs competitors, in Spanish + English (LATAM + Spain), and helps fix it.
-- **Name:** AgentesVA = "Agentes Virtuales" (the AI agents the product monitors). Two pillars: **Visibilidad** + **Precisión**.
-- **Who it's for:** Heads of Growth/Brand/Marketing + Compliance/Comms at LATAM & Spain neobanks, payments, lending, B2B fintech.
-- **Space:** AI search visibility / GEO-AEO, data-intelligence SaaS (peer reference for *language only*: SimilarWeb). Differentiator vs horizontal tools: vertical fintech + bilingual LATAM depth + the **accuracy** pillar.
-- **Brand posture:** product brand, **no public founder face** (founder restricted). Sister brand: **citable** (the done-for-you agency, light editorial/citation-blue). AgentesVA must read as *related in rigor, distinct in face* — bolder, data-SaaS, green.
+---
 
-## Aesthetic Direction
-- **Direction:** confident data-intelligence SaaS. Dark hero → domain-search as the hero action → product dashboard as proof → clean light body. Evidence-led, modern, trustworthy. (SimilarWeb design *language*, not a clone.)
-- **Decoration:** minimal-to-intentional. Rounded cards, soft shadows, one subtle radial glow on the dark hero. No gradients as accents, no AI-brain imagery, no stock photos, no purple.
-- **Mood:** "a credible instrument a fintech CMO and a compliance lead both trust."
-- **Reference:** `mockup-agentesva-sw.html`.
+## 1. Identidad de marca
 
-## Typography
-- **Display/Hero:** Geist (700/800), tight tracking (-0.02 to -0.025em). Fallback: "Helvetica Neue", system-ui.
-- **Body/UI:** Geist (400/500/600).
-- **Data/Mono:** Geist Mono — scores, prompts, domains, metrics. Always `font-variant-numeric: tabular-nums`.
-- **Loading:** self-host or Google/Bunny Fonts for Geist + Geist Mono.
-- **Scale (16px base):** Display 54/56 · H1 42/44 · H2 36 · H3 23 · Body-lg 19 · Body 16 · Caption 13 · Mono 12-14.
+### Logotipo
+- **Wordmark:** `AgentesVA` en **DM Serif Display** (peso 400), tracking **−0.025em**.
+- **Glifo:** `[IA]` en **JetBrains Mono** (600), superíndice, **siempre azul** — nunca otro color (`#5B7CFF` sobre oscuro, `#0040FF` sobre claro).
+- **Monograma:** "A" serif + `[IA]`. Para avatares/app icon.
+- **Margen de respeto** = altura de la "A" por los cuatro lados. **Ancho mínimo** del wordmark: 96px.
 
-## Color
-Light body, dark hero/CTA. Green is the brand (visibility); amber + red are the other two verdicts.
-- **Navy (hero/CTA bg):** `#0B1020` · deep variant `#111935`
-- **Body bg:** `#F6F7F9` · **Surface:** `#FFFFFF` · **Mist (tracks/fills bg):** `#EEF1F6`
-- **Ink (text):** `#0E1116` · **Slate (secondary):** `#5B6472` · **Line:** `#E5E8EE`
-- **Green (PRIMARY — visibility):** `#16A34A` · bright (on dark) `#34D87E` · soft `#DCF3E4`
-- **Amber (the gap / attention):** `#E0A52E`
-- **Red (accuracy / false claim):** `#E0483A` · soft `#F8DDD9`
-- **Semantic = brand:** green/amber/red are not generic states, they ARE the product's three verdicts (recommended / gap / false). Use them consistently with that meaning.
-- **Ratio:** ~70% neutral (bg/surface), green as the confident accent, amber/red only on data verdicts.
-- **Contrast:** Ink on body ≥ 14:1; bright green `#34D87E` on navy for dark-surface accents/CTAs.
-
-## Spacing
-- **Base:** 4px. **Density:** comfortable (it's a data product but must breathe).
-- **Scale:** 4 · 8 · 12 · 16 · 24 · 32 · 48 · 64.
-
-## Layout
-- **Pattern:** dark hero (centered headline + domain search) → product-proof panel overlapping up into the page (`margin-top: -110px`) → "Medimos en" logo strip → light card-based sections → dark CTA block.
-- **Hero action = the grader:** a white rounded search bar with a domain input + green button is the signature hero element. Always present.
-- **Max content width:** 1180px. **Grid:** 12-col responsive; app dashboards use a 228px sidebar + fluid main.
-- **Border radius:** sm 8px · md 10-12px · lg 14-16px · pill 999px.
-
-## Motion
-- **Approach:** intentional. Count-ups on metrics, bar-fill transitions (1.1s cubic-bezier(.2,.7,.2,1)), live-scan pulse dot. No decorative/scroll-jacking motion.
-- **Easing:** enter ease-out · move ease-in-out. **Duration:** micro 80ms · short 150-250ms · data 900-1100ms.
-
-## Components
-- **Domain search (hero):** white pill, mono input, green primary button "Ver mi visibilidad ▸".
-- **Product-proof panel:** white card, browser-dot bar, ES-vs-EN bars (green/amber), big amber gap number, ranked-competitor list, red accuracy alert row.
-- **Accuracy alert:** red-soft bg, red border, mono uppercase "Precisión" tag. The signature differentiator — surface it prominently.
-- **Buttons:** primary = green; on navy = bright green `#34D87E` with dark text `#06250F`; secondary = ghost with 1px border.
-- **Lens nav (app):** dark sidebar; Visibilidad (green dot, active) + Precisión (red dot) as the two pillars.
-
-## Brand vs citable (keep distinct)
-| | AgentesVA (product) | citable (agency) |
+### Tipografía
+| Rol | Fuente | Uso |
 |---|---|---|
-| Face | bold data-SaaS, dark hero, green | light editorial "research paper", citation-blue |
-| Type | Geist / Geist Mono | Inter / IBM Plex Mono |
-| Feel | live instrument | calm authority |
+| Display / titulares / wordmark | **DM Serif Display** | H1 de marca, héroes, OG, banners (`--serif`) |
+| Cuerpo / UI | **DM Sans** | párrafos, botones, tarjetas (`--sans`) |
+| Etiquetas / datos / mono | **JetBrains Mono** | eyebrows, badges, números (`--mono`) |
 
-## Decisions Log
-| Date | Decision | Rationale |
-|------|----------|-----------|
-| 2026-06-05 | New AgentesVA product-brand design system (replaces consulting "Editorial cálido") | Repositioned to fintech AI-visibility+accuracy SaaS; product brand, no founder face |
-| 2026-06-05 | SimilarWeb design *language* (dark hero + domain-search + dashboard proof) | Best-in-class data-intelligence SaaS pattern; domain-input = the grader. Adapted, not cloned (trade-dress/IP). |
-| 2026-06-05 | Green primary (not SimilarWeb blue / not citable blue) | Green = "visible" (the product's promise) + finance; differentiates from sister brand citable |
-| 2026-06-05 | Green/amber/red as semantic brand colors | They are the product's three verdicts: recommended / gap / false |
+### Color
+| Token | Hex | Uso |
+|---|---|---|
+| Negro | `#08080B` | fondo principal (superficie oscura) |
+| Azul primario | `#0040FF` | marca sobre superficies claras (`--blue-deep`) |
+| Azul acento | `#5B7CFF` | acento sobre superficies oscuras (`--accent`) |
+| Claro | `#FAFAF7` | superficie clara |
+| Gris | `#6B6B6B` | texto secundario sobre claro |
+| Verde estado | `#4ec98a` | "en vivo / activo" (`--green`) |
+
+---
+
+## 2. Tema web "Futurista" (directorio, tema oscuro)
+
+Implementado en `src/styles/global.css` (tokens) + componentes. **Lee `global.css` antes de tocar UI.**
+
+### Superficies (oscuro)
+`--bg #08080B` · `--bg-2 #0a0a0f` · `--panel #0b0b12` · `--panel-2 #0c0c14` · `--panel-3 #0d0d15`
+Líneas: `--line #1c1c24` · `--line-2 #262632` · `--line-3 #3a3a52` (hover).
+
+### Texto
+`--fg #ededf0` · `--fg-strong #fff` · `--fg-2 #cfcfda` · `--fg-3 #a5a5b2` · `--fg-4 #8a8a99` · `--fg-5 #6a6a78`.
+
+### Componentes (`src/components/`)
+- `SiteHeader` — ticker marquee + cabecera sticky con blur. Logo serif + nav mono.
+- `SiteFooter` — pie minimal.
+- `ToolCard` — tarjeta de herramienta (stretched-link → ficha; botón marcador independiente).
+
+### Patrones de interacción (clases en `global.css`)
+- `.lift` — hover: translateY(−5px) + borde claro + glow azul.
+- `.navlink` / `.chip` — transiciones de color/borde.
+- `.searchwrap:focus-within` — borde + glow azul al enfocar la búsqueda.
+- `.reveal` — entrada scroll-driven (`view()`); **no usar en contenido primario** (queda opacity:0 hasta el scroll; el grid del directorio NO lo usa).
+
+### Motion
+Aurora (`auroraDrift`), rejilla (`gridDrift`), glow (`glowPulse`), marquee, count-up de stats, cursor `blink`. Todo bajo `@media (prefers-reduced-motion: reduce)` → desactivado.
+
+### Accesibilidad
+- Foco visible (`:focus-visible` outline azul) en todo interactivo.
+- `aria-label` / `aria-pressed` en botones de icono (marcador, chips).
+- `prefers-reduced-motion` respetado; labels ocultas (sr-only) en inputs.
+- Botones de icono ≥ 44px de área táctil (hit area con padding negativo).
+
+---
+
+## 3. Assets de marca
+
+Generados y versionados en `public/brand/` (índice + tamaños en `public/brand/README.md`). `public/og.png` (1200×630) es el og:image por defecto (en `BaseLayout`). Fuentes regenerables con `node brand-build/gen.mjs` (gitignored).
+
+| Asset | Tamaño |
+|---|---|
+| `og.png` | 1200 × 630 |
+| `brand/avatar.png` · `avatar-blue.png` | 512 × 512 |
+| `brand/twitter-header.png` | 1500 × 500 |
+| `brand/linkedin-banner.png` | 1584 × 396 |
+| `brand/facebook-cover.png` | 1200 × 630 |
+| `brand/substack-header.png` | 1200 × 400 |
+| `brand/instagram-post.png` | 1080 × 1080 |
+| `brand/instagram-story.png` | 1080 × 1920 |
+
+---
+
+## 4. CSP / fuentes
+
+DM Serif Display + DM Sans + JetBrains Mono vía Google Fonts (`display=swap`). La CSP en `vercel.json` permite `fonts.googleapis.com` (style-src) y `fonts.gstatic.com` (font-src). Scripts de cliente externos (`script-src 'self'`; `vite.assetsInlineLimit=0`).

@@ -50,3 +50,6 @@ dist/
 /growwithai-ref.png
 /og.png
 /dist-agentesva/
+
+# Brand asset generator (source HTML; outputs go to public/brand)
+brand-build/

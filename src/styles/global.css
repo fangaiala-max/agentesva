@@ -19,7 +19,9 @@
   --fg-4: #8a8a99;
   --fg-5: #6a6a78;
   --accent: #5b7cff;
+  --blue-deep: #0040ff;
   --green: #4ec98a;
+  --serif: 'DM Serif Display', Georgia, 'Times New Roman', serif;
   --sans: 'DM Sans', system-ui, -apple-system, sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
 }
