@@ -1,0 +1,23 @@
+{
+  "name": "Descript",
+  "cat": "Vídeo",
+  "desc": "Edita vídeo/podcast como un texto.",
+  "price": "Freemium",
+  "rating": "4.5",
+  "color": "#2945FF",
+  "tagline": "Edita vídeo y podcast editando el texto.",
+  "ideal": "Podcast y vídeo",
+  "url": "https://descript.com",
+  "long": "Descript transcribe tu vídeo o podcast y te deja editarlo borrando palabras del texto, con clonación de voz y eliminación de muletillas.",
+  "features": [
+    "Edita borrando texto",
+    "Elimina muletillas con IA",
+    "Transcripción automática"
+  ],
+  "steps": [
+    "Crea una cuenta en descript.com",
+    "Sube tu grabación",
+    "Edita el texto y exporta"
+  ],
+  "orden": 36
+}

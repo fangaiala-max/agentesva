@@ -1,0 +1,23 @@
+{
+  "name": "Writesonic",
+  "cat": "Escritura",
+  "desc": "Escribe artículos SEO con IA.",
+  "price": "Freemium",
+  "rating": "4.2",
+  "color": "#5546FF",
+  "tagline": "Artículos optimizados para SEO con IA.",
+  "ideal": "Blogs y SEO",
+  "url": "https://writesonic.com",
+  "long": "Writesonic redacta artículos largos optimizados para SEO, con datos actualizados de la web y un editor asistido.",
+  "features": [
+    "Artículos SEO largos",
+    "Datos actualizados",
+    "Editor con IA"
+  ],
+  "steps": [
+    "Crea una cuenta en writesonic.com",
+    "Introduce el tema y la palabra clave",
+    "Genera y edita el artículo"
+  ],
+  "orden": 40
+}

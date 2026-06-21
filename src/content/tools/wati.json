@@ -1,0 +1,23 @@
+{
+  "name": "Wati",
+  "cat": "WhatsApp",
+  "desc": "WhatsApp Business API para pymes.",
+  "price": "Pago",
+  "rating": "4.4",
+  "color": "#15B86C",
+  "tagline": "Gestiona WhatsApp Business a escala.",
+  "ideal": "Equipos de ventas/soporte",
+  "url": "https://wati.io",
+  "long": "Wati es una plataforma sobre la API de WhatsApp Business: bandeja compartida, campañas, chatbots y automatización para equipos.",
+  "features": [
+    "Bandeja de equipo en WhatsApp",
+    "Campañas y plantillas",
+    "Chatbots sin código"
+  ],
+  "steps": [
+    "Solicita acceso en wati.io",
+    "Conecta tu número de WhatsApp Business",
+    "Crea automatizaciones y campañas"
+  ],
+  "orden": 22
+}

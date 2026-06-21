@@ -1,0 +1,23 @@
+{
+  "name": "Cursor",
+  "cat": "Código",
+  "desc": "Editor de código con IA integrada.",
+  "price": "Freemium",
+  "rating": "4.7",
+  "color": "#000000",
+  "tagline": "El editor de código pensado para la IA.",
+  "ideal": "Desarrolladores",
+  "url": "https://cursor.com",
+  "long": "Cursor es un editor (fork de VS Code) con IA en el centro: edita varios archivos por instrucción, entiende tu repo y aplica cambios.",
+  "features": [
+    "Edita tu código por instrucciones",
+    "Entiende todo el proyecto",
+    "Plan gratuito para empezar"
+  ],
+  "steps": [
+    "Descarga Cursor en cursor.com",
+    "Abre tu proyecto",
+    "Pídele cambios con lenguaje natural"
+  ],
+  "orden": 44
+}

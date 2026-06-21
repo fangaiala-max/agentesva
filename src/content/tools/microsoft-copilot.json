@@ -1,0 +1,23 @@
+{
+  "name": "Microsoft Copilot",
+  "cat": "Asistentes",
+  "desc": "IA de Microsoft, gratis en la web.",
+  "price": "Gratis",
+  "rating": "4.4",
+  "color": "#0A6CFF",
+  "tagline": "El asistente de IA de Microsoft para el día a día.",
+  "ideal": "Usuarios de Windows y Office",
+  "url": "https://copilot.microsoft.com",
+  "long": "Copilot combina chat de IA con búsqueda web y generación de imágenes. Gratis en la web y dentro de Windows, Edge y Office.",
+  "features": [
+    "Chat con acceso a la web",
+    "Genera imágenes con IA",
+    "Integrado en Windows y Edge"
+  ],
+  "steps": [
+    "Abre copilot.microsoft.com",
+    "Haz tu pregunta o pide una imagen",
+    "Úsalo también desde la barra de Windows"
+  ],
+  "orden": 15
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Tome",
+  "cat": "Productividad",
+  "desc": "Genera presentaciones narrativas.",
+  "price": "Freemium",
+  "rating": "4.2",
+  "color": "#000000",
+  "tagline": "Presentaciones que cuentan una historia.",
+  "ideal": "Ventas y producto",
+  "url": "https://tome.app",
+  "long": "Tome crea presentaciones narrativas a partir de una idea, con formato e imágenes generadas, pensado para ventas y propuestas.",
+  "features": [
+    "Presentaciones desde una idea",
+    "Formato e imágenes con IA",
+    "Enfoque narrativo"
+  ],
+  "steps": [
+    "Entra en tome.app",
+    "Describe tu tema",
+    "Ajusta el guion y comparte"
+  ],
+  "orden": 51
+}

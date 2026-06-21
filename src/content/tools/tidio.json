@@ -1,0 +1,23 @@
+{
+  "name": "Tidio",
+  "cat": "WhatsApp",
+  "desc": "Chat y bots de IA para tu web.",
+  "price": "Freemium",
+  "rating": "4.5",
+  "color": "#0B7AFF",
+  "tagline": "Chat en vivo + bot de IA para atender y vender.",
+  "ideal": "Tiendas online",
+  "url": "https://tidio.com",
+  "long": "Tidio combina chat en vivo con un bot de IA (Lyro) que responde dudas de clientes en tu web, WhatsApp e Instagram.",
+  "features": [
+    "Bot de IA que responde solo",
+    "Chat en vivo unificado",
+    "Recupera carritos abandonados"
+  ],
+  "steps": [
+    "Crea una cuenta en tidio.com",
+    "Instala el widget en tu web",
+    "Entrena al bot con tus FAQs"
+  ],
+  "orden": 21
+}

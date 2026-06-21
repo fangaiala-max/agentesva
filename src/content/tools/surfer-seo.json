@@ -1,0 +1,23 @@
+{
+  "name": "Surfer SEO",
+  "cat": "Marketing",
+  "desc": "Optimiza contenido para posicionar.",
+  "price": "Pago",
+  "rating": "4.5",
+  "color": "#22A699",
+  "tagline": "Escribe contenido que rankea en Google.",
+  "ideal": "Marketing de contenidos",
+  "url": "https://surferseo.com",
+  "long": "Surfer SEO analiza la competencia y te guía (palabras, estructura, extensión) para escribir contenido optimizado, con un editor asistido por IA.",
+  "features": [
+    "Guía de optimización en tiempo real",
+    "Análisis de competencia",
+    "Editor de contenido con IA"
+  ],
+  "steps": [
+    "Crea una cuenta en surferseo.com",
+    "Introduce tu palabra clave",
+    "Escribe siguiendo las recomendaciones"
+  ],
+  "orden": 26
+}

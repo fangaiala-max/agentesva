@@ -1,0 +1,23 @@
+{
+  "name": "Copy.ai",
+  "cat": "Escritura",
+  "desc": "Genera textos de venta y blog.",
+  "price": "Freemium",
+  "rating": "4.3",
+  "color": "#1FB6FF",
+  "tagline": "Textos de venta, email y blog en segundos.",
+  "ideal": "Pymes y ventas",
+  "url": "https://copy.ai",
+  "long": "Copy.ai genera textos de marketing y ventas (emails, anuncios, blogs) y automatiza flujos de trabajo de contenido (GTM).",
+  "features": [
+    "Plantillas de copy",
+    "Flujos de trabajo de contenido",
+    "Plan gratuito para empezar"
+  ],
+  "steps": [
+    "Regístrate en copy.ai",
+    "Elige una plantilla",
+    "Describe el producto y genera"
+  ],
+  "orden": 39
+}

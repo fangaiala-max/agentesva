@@ -1,0 +1,23 @@
+{
+  "name": "Synthesia",
+  "cat": "Vídeo",
+  "desc": "Vídeos con avatares IA sin grabar.",
+  "price": "Pago",
+  "rating": "4.6",
+  "color": "#1B1B3A",
+  "tagline": "Vídeos con avatares IA a partir de un guion.",
+  "ideal": "Formación y comunicación",
+  "url": "https://synthesia.io",
+  "long": "Synthesia crea vídeos profesionales con avatares de IA que hablan en más de 140 idiomas, ideal para formación y comunicación interna.",
+  "features": [
+    "Avatares en 140+ idiomas",
+    "Plantillas de vídeo",
+    "Sin cámara ni edición"
+  ],
+  "steps": [
+    "Crea una cuenta en synthesia.io",
+    "Elige avatar y escribe el guion",
+    "Genera y comparte el vídeo"
+  ],
+  "orden": 34
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Chatfuel",
+  "cat": "WhatsApp",
+  "desc": "Bots para WhatsApp e Instagram.",
+  "price": "Freemium",
+  "rating": "4.3",
+  "color": "#1E86FF",
+  "tagline": "Automatiza ventas por WhatsApp e Instagram.",
+  "ideal": "Comercio y agencias",
+  "url": "https://chatfuel.com",
+  "long": "Chatfuel crea bots para WhatsApp, Instagram y Facebook que captan, responden y venden de forma automática, con IA integrada.",
+  "features": [
+    "Bots para WhatsApp e Instagram",
+    "Respuestas con IA",
+    "Recupera ventas automáticamente"
+  ],
+  "steps": [
+    "Regístrate en chatfuel.com",
+    "Conecta tu canal",
+    "Diseña el flujo de conversación"
+  ],
+  "orden": 23
+}

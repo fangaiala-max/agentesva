@@ -1,0 +1,23 @@
+{
+  "name": "Mem",
+  "cat": "Productividad",
+  "desc": "Notas que se organizan solas con IA.",
+  "price": "Freemium",
+  "rating": "4.1",
+  "color": "#6151F5",
+  "tagline": "Toma notas y deja que la IA las organice.",
+  "ideal": "Profesionales del conocimiento",
+  "url": "https://mem.ai",
+  "long": "Mem es una app de notas con IA que organiza y conecta tu información automáticamente y responde preguntas sobre tus propias notas.",
+  "features": [
+    "Organización automática",
+    "Pregunta a tus notas",
+    "Conecta ideas relacionadas"
+  ],
+  "steps": [
+    "Crea una cuenta en mem.ai",
+    "Escribe tus notas",
+    "Pregúntale a la IA sobre ellas"
+  ],
+  "orden": 52
+}

@@ -1,0 +1,23 @@
+{
+  "name": "DeepSeek",
+  "cat": "Asistentes",
+  "desc": "Asistente de IA potente y gratuito.",
+  "price": "Gratis",
+  "rating": "4.5",
+  "color": "#4D6BFE",
+  "tagline": "Razonamiento de calidad, gratis.",
+  "ideal": "Quien busca alternativa gratuita",
+  "url": "https://deepseek.com",
+  "long": "DeepSeek ofrece un asistente de IA con buen razonamiento y código, de uso gratuito en su web. Buena alternativa para tareas técnicas sin coste.",
+  "features": [
+    "Razonamiento y matemáticas",
+    "Ayuda con código",
+    "Gratis en la web"
+  ],
+  "steps": [
+    "Entra en chat.deepseek.com",
+    "Escribe tu consulta",
+    "Activa el modo de razonamiento para problemas difíciles"
+  ],
+  "orden": 16
+}

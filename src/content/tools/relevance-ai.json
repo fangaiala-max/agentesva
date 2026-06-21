@@ -1,0 +1,23 @@
+{
+  "name": "Relevance AI",
+  "cat": "Automatización",
+  "desc": "Crea equipos de agentes de IA.",
+  "price": "Freemium",
+  "rating": "4.3",
+  "color": "#5C46F6",
+  "tagline": "Monta agentes de IA que ejecutan tareas por ti.",
+  "ideal": "Operaciones y soporte",
+  "url": "https://relevanceai.com",
+  "long": "Relevance AI te deja construir agentes y \"equipos\" de IA que ejecutan procesos completos (investigar, escribir, clasificar) sin programar.",
+  "features": [
+    "Agentes de IA sin código",
+    "Encadena herramientas y datos",
+    "Plantillas por caso de uso"
+  ],
+  "steps": [
+    "Regístrate en relevanceai.com",
+    "Crea tu primer agente",
+    "Dale herramientas y una tarea"
+  ],
+  "orden": 20
+}

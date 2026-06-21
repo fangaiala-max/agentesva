@@ -1,0 +1,23 @@
+{
+  "name": "Fathom",
+  "cat": "Productividad",
+  "desc": "Notas de reunión con IA, gratis.",
+  "price": "Gratis",
+  "rating": "4.7",
+  "color": "#5856FF",
+  "tagline": "Graba, transcribe y resume tus reuniones gratis.",
+  "ideal": "Comerciales y consultores",
+  "url": "https://fathom.video",
+  "long": "Fathom graba, transcribe y resume tus videollamadas automáticamente, con un plan gratuito muy generoso para uso individual.",
+  "features": [
+    "Resúmenes automáticos",
+    "Marca momentos clave",
+    "Gratis para individuos"
+  ],
+  "steps": [
+    "Conecta Fathom a tu Zoom/Meet/Teams",
+    "Habla con normalidad en la reunión",
+    "Recibe el resumen al terminar"
+  ],
+  "orden": 50
+}

@@ -1,0 +1,23 @@
+{
+  "name": "DeepL",
+  "cat": "Escritura",
+  "desc": "Traducción IA de máxima calidad.",
+  "price": "Freemium",
+  "rating": "4.7",
+  "color": "#0F2B46",
+  "tagline": "La mejor traducción automática, y corrector.",
+  "ideal": "Negocios internacionales",
+  "url": "https://deepl.com",
+  "long": "DeepL ofrece traducción automática de altísima calidad en decenas de idiomas, además de DeepL Write para mejorar tu redacción.",
+  "features": [
+    "Traducción muy natural",
+    "Traduce documentos enteros",
+    "Corrector de estilo (Write)"
+  ],
+  "steps": [
+    "Entra en deepl.com",
+    "Pega tu texto o sube el documento",
+    "Copia la traducción"
+  ],
+  "orden": 42
+}

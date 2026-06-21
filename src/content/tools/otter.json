@@ -1,0 +1,23 @@
+{
+  "name": "Otter.ai",
+  "cat": "Productividad",
+  "desc": "Transcribe y resume reuniones.",
+  "price": "Freemium",
+  "rating": "4.4",
+  "color": "#00A1E0",
+  "tagline": "Transcribe reuniones y saca los acuerdos.",
+  "ideal": "Equipos y comerciales",
+  "url": "https://otter.ai",
+  "long": "Otter transcribe tus reuniones en tiempo real, las resume y extrae acciones, conectándose a Zoom, Meet y Teams.",
+  "features": [
+    "Transcripción en tiempo real",
+    "Resumen y acciones",
+    "Se une a tus reuniones"
+  ],
+  "steps": [
+    "Crea una cuenta en otter.ai",
+    "Conéctalo a tu calendario",
+    "Revisa el resumen tras la reunión"
+  ],
+  "orden": 49
+}

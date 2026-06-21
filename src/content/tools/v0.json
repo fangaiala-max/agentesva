@@ -1,0 +1,23 @@
+{
+  "name": "v0",
+  "cat": "Código",
+  "desc": "Genera interfaces web con IA.",
+  "price": "Freemium",
+  "rating": "4.5",
+  "color": "#000000",
+  "tagline": "Crea interfaces web describiéndolas.",
+  "ideal": "Front-end y prototipos",
+  "url": "https://v0.dev",
+  "long": "v0, de Vercel, genera componentes e interfaces web (React/Tailwind) a partir de texto o una imagen, listos para copiar a tu proyecto.",
+  "features": [
+    "UI desde texto o imagen",
+    "Código React/Tailwind",
+    "Itera por chat"
+  ],
+  "steps": [
+    "Entra en v0.dev",
+    "Describe la interfaz",
+    "Copia el código a tu proyecto"
+  ],
+  "orden": 46
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Gamma",
+  "cat": "Productividad",
+  "desc": "Presentaciones con IA en segundos.",
+  "price": "Freemium",
+  "rating": "4.6",
+  "color": "#9333EA",
+  "tagline": "Crea presentaciones y webs con IA.",
+  "ideal": "Pymes y ventas",
+  "url": "https://gamma.app",
+  "long": "Gamma genera presentaciones, documentos y webs a partir de un tema o un guion, con diseño automático y créditos gratis.",
+  "features": [
+    "Presentaciones desde un tema",
+    "Diseño automático",
+    "También webs y documentos"
+  ],
+  "steps": [
+    "Regístrate en gamma.app",
+    "Escribe el tema o pega tu guion",
+    "Genera y personaliza el diseño"
+  ],
+  "orden": 48
+}

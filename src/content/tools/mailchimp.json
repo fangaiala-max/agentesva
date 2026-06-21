@@ -1,0 +1,23 @@
+{
+  "name": "Mailchimp",
+  "cat": "Marketing",
+  "desc": "Email marketing con asistente de IA.",
+  "price": "Freemium",
+  "rating": "4.3",
+  "color": "#FFE01B",
+  "tagline": "Email marketing con ayuda de IA.",
+  "ideal": "Pymes y creadores",
+  "url": "https://mailchimp.com",
+  "long": "Mailchimp es una plataforma de email marketing con asistentes de IA que generan asuntos, textos y recomiendan cuándo enviar.",
+  "features": [
+    "Genera asuntos y textos",
+    "Automatiza campañas",
+    "Plan gratuito para empezar"
+  ],
+  "steps": [
+    "Crea una cuenta en mailchimp.com",
+    "Importa tus contactos",
+    "Usa la IA para redactar tus emails"
+  ],
+  "orden": 24
+}
