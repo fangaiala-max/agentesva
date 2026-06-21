@@ -18,5 +18,13 @@ export default defineConfig({
   ],
   build: {
     format: 'directory',
+    // Emit client scripts as external files so a strict CSP (script-src 'self')
+    // allows them — Astro would otherwise inline small scripts, which CSP blocks.
+    inlineStylesheets: 'auto',
+  },
+  vite: {
+    build: {
+      assetsInlineLimit: 0,
+    },
   },
 });
