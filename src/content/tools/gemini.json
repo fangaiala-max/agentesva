@@ -1,0 +1,23 @@
+{
+  "name": "Gemini",
+  "cat": "Asistentes",
+  "desc": "El asistente de IA de Google, gratis.",
+  "price": "Freemium",
+  "rating": "4.6",
+  "color": "#4285F4",
+  "tagline": "El asistente de IA de Google, integrado con tus apps.",
+  "ideal": "Usuarios de Google Workspace",
+  "url": "https://gemini.google.com",
+  "long": "Gemini es el asistente de IA de Google: responde, redacta y analiza, y se conecta con Gmail, Docs y Drive para trabajar sobre tu información.",
+  "features": [
+    "Responde y redacta en español",
+    "Analiza imágenes y documentos",
+    "Se integra con Google Workspace"
+  ],
+  "steps": [
+    "Entra en gemini.google.com con tu cuenta Google",
+    "Escribe tu petición",
+    "Conéctalo a tus apps de Google para más contexto"
+  ],
+  "orden": 14
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Leonardo AI",
+  "cat": "Diseño",
+  "desc": "Genera imágenes con créditos gratis.",
+  "price": "Freemium",
+  "rating": "4.6",
+  "color": "#7B2FF7",
+  "tagline": "Imágenes y arte con IA, con plan gratuito.",
+  "ideal": "Creadores y marketing",
+  "url": "https://leonardo.ai",
+  "long": "Leonardo AI genera imágenes de alta calidad con modelos propios y control fino de estilo, con créditos gratuitos diarios.",
+  "features": [
+    "Imágenes de alta calidad",
+    "Control de estilo y modelos",
+    "Créditos gratis cada día"
+  ],
+  "steps": [
+    "Regístrate en leonardo.ai",
+    "Describe la imagen que quieres",
+    "Ajusta el modelo y descarga"
+  ],
+  "orden": 27
+}

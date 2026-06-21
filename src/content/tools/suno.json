@@ -1,0 +1,23 @@
+{
+  "name": "Suno",
+  "cat": "Voz",
+  "desc": "Crea canciones con IA desde texto.",
+  "price": "Freemium",
+  "rating": "4.5",
+  "color": "#000000",
+  "tagline": "Compón canciones completas a partir de una idea.",
+  "ideal": "Marketing y creadores",
+  "url": "https://suno.com",
+  "long": "Suno crea canciones completas (música y voz) a partir de una descripción de texto. Útil para jingles, intros y contenido original.",
+  "features": [
+    "Canciones completas por texto",
+    "Voz y música generadas",
+    "Créditos gratis diarios"
+  ],
+  "steps": [
+    "Entra en suno.com",
+    "Describe el estilo y la letra",
+    "Genera y descarga tu canción"
+  ],
+  "orden": 33
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Brevo",
+  "cat": "Marketing",
+  "desc": "Email, SMS y CRM con plan gratis.",
+  "price": "Freemium",
+  "rating": "4.4",
+  "color": "#0B996E",
+  "tagline": "Email + SMS + CRM, con IA y plan gratis.",
+  "ideal": "Pymes europeas",
+  "url": "https://brevo.com",
+  "long": "Brevo reúne email marketing, SMS, WhatsApp y CRM con un plan gratuito generoso y asistentes de IA para redactar campañas.",
+  "features": [
+    "Email, SMS y WhatsApp",
+    "CRM incluido",
+    "Plan gratuito real"
+  ],
+  "steps": [
+    "Regístrate en brevo.com",
+    "Importa tus contactos",
+    "Crea una campaña con ayuda de la IA"
+  ],
+  "orden": 25
+}

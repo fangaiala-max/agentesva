@@ -1,0 +1,23 @@
+{
+  "name": "Play.ht",
+  "cat": "Voz",
+  "desc": "Voces IA y clonación realista.",
+  "price": "Freemium",
+  "rating": "4.3",
+  "color": "#7C4DFF",
+  "tagline": "Genera y clona voces ultra-realistas.",
+  "ideal": "Podcast y agentes de voz",
+  "url": "https://play.ht",
+  "long": "Play.ht genera voces de IA realistas y permite clonar voces, con API para agentes de voz en tiempo real.",
+  "features": [
+    "Voces realistas y clonación",
+    "API de voz en tiempo real",
+    "Muchos idiomas"
+  ],
+  "steps": [
+    "Crea una cuenta en play.ht",
+    "Pega tu texto y elige voz",
+    "Descarga o conéctalo por API"
+  ],
+  "orden": 32
+}

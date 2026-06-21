@@ -1,0 +1,23 @@
+{
+  "name": "Adobe Firefly",
+  "cat": "Diseño",
+  "desc": "IA de imagen de Adobe, uso comercial.",
+  "price": "Freemium",
+  "rating": "4.4",
+  "color": "#FF3366",
+  "tagline": "IA de imagen segura para uso comercial.",
+  "ideal": "Marcas y agencias",
+  "url": "https://firefly.adobe.com",
+  "long": "Firefly es la IA generativa de Adobe, entrenada con contenido licenciado y pensada para uso comercial, integrada en Photoshop e Illustrator.",
+  "features": [
+    "Imágenes para uso comercial",
+    "Relleno generativo",
+    "Integrada en Adobe"
+  ],
+  "steps": [
+    "Entra en firefly.adobe.com",
+    "Describe la imagen",
+    "Edítala o llévala a Photoshop"
+  ],
+  "orden": 30
+}

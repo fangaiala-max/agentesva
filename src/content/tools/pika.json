@@ -1,0 +1,23 @@
+{
+  "name": "Pika",
+  "cat": "Vídeo",
+  "desc": "Vídeos cortos con IA desde texto.",
+  "price": "Freemium",
+  "rating": "4.3",
+  "color": "#111827",
+  "tagline": "Crea vídeos cortos con IA al instante.",
+  "ideal": "Redes sociales",
+  "url": "https://pika.art",
+  "long": "Pika genera y anima vídeos cortos a partir de texto o imágenes, con efectos creativos, ideal para contenido de redes.",
+  "features": [
+    "Vídeo corto desde texto",
+    "Anima imágenes",
+    "Efectos creativos"
+  ],
+  "steps": [
+    "Entra en pika.art",
+    "Describe tu vídeo o sube una imagen",
+    "Genera y descarga"
+  ],
+  "orden": 37
+}

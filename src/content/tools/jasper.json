@@ -1,0 +1,23 @@
+{
+  "name": "Jasper",
+  "cat": "Escritura",
+  "desc": "Copywriting de marketing con IA.",
+  "price": "Pago",
+  "rating": "4.4",
+  "color": "#A05CFF",
+  "tagline": "Redacta marketing con la voz de tu marca.",
+  "ideal": "Equipos de marketing",
+  "url": "https://jasper.ai",
+  "long": "Jasper es una plataforma de copywriting con IA para equipos de marketing: campañas, anuncios y blogs manteniendo la voz de marca.",
+  "features": [
+    "Mantiene tu voz de marca",
+    "Plantillas de marketing",
+    "Trabajo en equipo"
+  ],
+  "steps": [
+    "Crea una cuenta en jasper.ai",
+    "Define tu voz de marca",
+    "Genera campañas y textos"
+  ],
+  "orden": 38
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Mistral (Le Chat)",
+  "cat": "Asistentes",
+  "desc": "IA europea, rápida y con plan gratis.",
+  "price": "Freemium",
+  "rating": "4.3",
+  "color": "#FA520F",
+  "tagline": "Asistente de IA europeo, rápido y privado.",
+  "ideal": "Empresas con foco en privacidad",
+  "url": "https://chat.mistral.ai",
+  "long": "Le Chat de Mistral es un asistente rápido de una empresa europea, con opciones de privacidad y un plan gratuito generoso.",
+  "features": [
+    "Respuestas rápidas",
+    "Empresa europea (RGPD)",
+    "Plan gratuito disponible"
+  ],
+  "steps": [
+    "Abre chat.mistral.ai",
+    "Regístrate",
+    "Empieza a chatear o subir documentos"
+  ],
+  "orden": 17
+}

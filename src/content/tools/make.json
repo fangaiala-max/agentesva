@@ -1,0 +1,23 @@
+{
+  "name": "Make",
+  "cat": "Automatización",
+  "desc": "Conecta tus apps sin escribir código.",
+  "price": "Pago",
+  "rating": "4.7",
+  "color": "#6D5EF7",
+  "tagline": "Automatiza procesos conectando tus apps, sin código.",
+  "ideal": "Operaciones y back office",
+  "url": "https://make.com",
+  "long": "Make une tus herramientas (email, hojas, CRM, WhatsApp) en flujos automáticos visuales. Lo que hacías a mano, ocurre solo.",
+  "features": [
+    "Conecta cientos de aplicaciones",
+    "Flujos visuales sin programar",
+    "Automatiza tareas repetitivas"
+  ],
+  "steps": [
+    "Crea una cuenta en make.com",
+    "Elige las apps que quieres conectar",
+    "Diseña el flujo arrastrando módulos"
+  ],
+  "orden": 4
+}

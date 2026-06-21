@@ -1,0 +1,23 @@
+{
+  "name": "Bardeen",
+  "cat": "Automatización",
+  "desc": "Automatiza tareas del navegador con IA.",
+  "price": "Freemium",
+  "rating": "4.4",
+  "color": "#6D4AFF",
+  "tagline": "Automatiza tareas repetitivas del navegador.",
+  "ideal": "Ventas y operaciones",
+  "url": "https://bardeen.ai",
+  "long": "Bardeen automatiza tareas que haces en el navegador (extraer datos, rellenar CRMs, enviar mensajes) con la ayuda de la IA, sin código.",
+  "features": [
+    "Extrae datos de webs",
+    "Automatiza el navegador",
+    "Plantillas listas para usar"
+  ],
+  "steps": [
+    "Instala la extensión de Bardeen",
+    "Elige o crea un \"playbook\"",
+    "Ejecútalo sobre tus tareas diarias"
+  ],
+  "orden": 19
+}

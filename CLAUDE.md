@@ -5,7 +5,7 @@ Astro 5 static site on Vercel (no DB) targeting PyMEs hispanohablantes (España 
 **Source of truth:**
 - [`ARCHITECTURE.md`](./ARCHITECTURE.md) — topology, stack, env vars, funnel paths
 - [`OPERATIONS.md`](./OPERATIONS.md) — secrets, alerts, incident response
-- [`DESIGN.md`](./DESIGN.md) — design tokens + component library
+- [`DESIGN.md`](./DESIGN.md) — **AgentesVA** design system: "Futurista" dark directory theme + Brand & Social Kit (DM Serif Display + DM Sans + JetBrains Mono; black `#08080B` / blue `#0040FF`–`#5B7CFF`). Implemented in `src/` (Futurista home + fichas) and `public/brand/`. Always read it before any UI work.
 - `docs/blog-fact-checking-protocol.md` — Tier A/B/C/D for content claims
 
 **Pre-Astro docs** (April 6 vintage): archived in `docs/_archive/pre-astro/`. Don't use as current reference.

@@ -1,0 +1,23 @@
+{
+  "name": "ChatGPT",
+  "cat": "Asistentes",
+  "desc": "Escribe, resume y responde lo que necesites.",
+  "price": "Freemium",
+  "rating": "4.9",
+  "color": "#10A37F",
+  "tagline": "El asistente de IA más versátil para el día a día.",
+  "ideal": "Autónomos y equipos pequeños",
+  "url": "https://chat.openai.com",
+  "long": "ChatGPT entiende lo que le pides en lenguaje normal y te ayuda a redactar, resumir, traducir y resolver dudas. Es el mejor punto de partida para casi cualquier tarea con IA en tu negocio.",
+  "features": [
+    "Redacta emails, anuncios y publicaciones",
+    "Resume documentos y reuniones largas",
+    "Genera ideas y responde dudas al instante"
+  ],
+  "steps": [
+    "Crea una cuenta gratis en chat.openai.com",
+    "Escribe tu petición como si hablaras con un empleado",
+    "Afina el resultado pidiéndole cambios concretos"
+  ],
+  "orden": 1
+}

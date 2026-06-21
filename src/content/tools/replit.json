@@ -1,0 +1,23 @@
+{
+  "name": "Replit",
+  "cat": "Código",
+  "desc": "Programa en el navegador con IA.",
+  "price": "Freemium",
+  "rating": "4.4",
+  "color": "#F26207",
+  "tagline": "Crea apps en el navegador con un agente IA.",
+  "ideal": "Aprender y prototipar",
+  "url": "https://replit.com",
+  "long": "Replit es un entorno de programación en el navegador con un agente de IA que construye y despliega apps a partir de una descripción.",
+  "features": [
+    "Programa sin instalar nada",
+    "Agente que crea apps",
+    "Despliega al instante"
+  ],
+  "steps": [
+    "Crea una cuenta en replit.com",
+    "Describe la app que quieres",
+    "Deja que el agente la construya"
+  ],
+  "orden": 45
+}

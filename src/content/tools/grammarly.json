@@ -1,0 +1,23 @@
+{
+  "name": "Grammarly",
+  "cat": "Escritura",
+  "desc": "Corrige y mejora tu escritura.",
+  "price": "Freemium",
+  "rating": "4.5",
+  "color": "#15C39A",
+  "tagline": "Corrige gramática y mejora tu tono.",
+  "ideal": "Profesionales y estudiantes",
+  "url": "https://grammarly.com",
+  "long": "Grammarly corrige gramática y estilo y, con su IA, reescribe y genera texto. Funciona en el navegador y tus apps.",
+  "features": [
+    "Corrección de gramática y tono",
+    "Reescritura con IA",
+    "Funciona en todas tus apps"
+  ],
+  "steps": [
+    "Instala Grammarly en tu navegador",
+    "Escribe en cualquier app",
+    "Acepta las sugerencias"
+  ],
+  "orden": 41
+}

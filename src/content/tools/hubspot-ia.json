@@ -1,0 +1,23 @@
+{
+  "name": "HubSpot IA",
+  "cat": "Marketing",
+  "desc": "CRM, emails y contenido con IA.",
+  "price": "Pago",
+  "rating": "4.5",
+  "color": "#FF7A59",
+  "tagline": "CRM con IA para vender y fidelizar.",
+  "ideal": "Ventas B2B",
+  "url": "https://hubspot.com",
+  "long": "HubSpot organiza tus clientes y oportunidades, y su IA te ayuda a escribir, priorizar y hacer seguimiento para que no se te escape ninguna venta.",
+  "features": [
+    "Gestiona contactos y oportunidades",
+    "Redacta emails con IA",
+    "Automatiza el seguimiento"
+  ],
+  "steps": [
+    "Crea una cuenta en hubspot.com",
+    "Importa tus contactos",
+    "Usa la IA para emails y tareas"
+  ],
+  "orden": 9
+}

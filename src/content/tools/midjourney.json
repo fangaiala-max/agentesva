@@ -1,0 +1,23 @@
+{
+  "name": "Midjourney",
+  "cat": "Diseño",
+  "desc": "Imágenes de alta calidad por texto.",
+  "price": "Pago",
+  "rating": "4.8",
+  "color": "#4A4DE6",
+  "tagline": "Imágenes de alta calidad a partir de texto.",
+  "ideal": "Marca y creatividad",
+  "url": "https://midjourney.com",
+  "long": "Midjourney genera imágenes de gran calidad a partir de descripciones. Perfecta para conceptos de marca, moodboards y piezas visuales con personalidad.",
+  "features": [
+    "Imágenes únicas y artísticas",
+    "Control de estilo y formato",
+    "Ideal para conceptos visuales"
+  ],
+  "steps": [
+    "Únete al Discord de Midjourney",
+    "Escribe /imagine y tu descripción",
+    "Descarga y refina la imagen"
+  ],
+  "orden": 11
+}

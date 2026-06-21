@@ -1,0 +1,23 @@
+{
+  "name": "Runway",
+  "cat": "Vídeo",
+  "desc": "Genera y edita vídeo con IA.",
+  "price": "Freemium",
+  "rating": "4.5",
+  "color": "#00C2A8",
+  "tagline": "Genera vídeo con IA y herramientas mágicas.",
+  "ideal": "Creadores audiovisuales",
+  "url": "https://runwayml.com",
+  "long": "Runway genera vídeo a partir de texto o imágenes y ofrece herramientas de edición con IA (quitar fondos, ampliar escenas).",
+  "features": [
+    "Vídeo desde texto o imagen",
+    "Edición con IA",
+    "Plan gratuito para probar"
+  ],
+  "steps": [
+    "Regístrate en runwayml.com",
+    "Elige una herramienta de vídeo",
+    "Genera y exporta"
+  ],
+  "orden": 35
+}

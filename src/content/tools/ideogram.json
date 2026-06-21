@@ -1,0 +1,23 @@
+{
+  "name": "Ideogram",
+  "cat": "Diseño",
+  "desc": "IA que escribe texto en imágenes.",
+  "price": "Freemium",
+  "rating": "4.5",
+  "color": "#1A1A1A",
+  "tagline": "Genera imágenes con texto legible.",
+  "ideal": "Posts y carteles",
+  "url": "https://ideogram.ai",
+  "long": "Ideogram destaca generando imágenes con texto bien escrito (carteles, logos, posts), algo donde otras IAs fallan.",
+  "features": [
+    "Texto legible en imágenes",
+    "Ideal para carteles y logos",
+    "Plan gratuito disponible"
+  ],
+  "steps": [
+    "Entra en ideogram.ai",
+    "Describe la imagen y el texto",
+    "Genera y descarga"
+  ],
+  "orden": 28
+}

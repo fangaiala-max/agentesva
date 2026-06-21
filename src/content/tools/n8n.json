@@ -1,0 +1,23 @@
+{
+  "name": "n8n",
+  "cat": "Automatización",
+  "desc": "Automatización open-source y flexible.",
+  "price": "Freemium",
+  "rating": "4.6",
+  "color": "#EA4B71",
+  "tagline": "Automatiza flujos con control total (open source).",
+  "ideal": "Equipos técnicos",
+  "url": "https://n8n.io",
+  "long": "n8n es una plataforma de automatización de código abierto: conecta apps y APIs en flujos visuales, con la opción de autoalojarla.",
+  "features": [
+    "Cientos de integraciones",
+    "Open source y autoalojable",
+    "Lógica avanzada con código"
+  ],
+  "steps": [
+    "Crea una cuenta en n8n.io o autoalójalo",
+    "Diseña el flujo con nodos",
+    "Conecta tus apps y publícalo"
+  ],
+  "orden": 18
+}

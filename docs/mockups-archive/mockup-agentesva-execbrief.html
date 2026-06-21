@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informe para dirección · Crédito Ágil · AgentesVA</title>
+<style>
+  :root{
+    --navy:#0B1020; --bg:#EEF0F4; --surface:#FFFFFF; --ink:#0E1116; --slate:#5B6472; --line:#E5E8EE; --mist:#F4F6F9;
+    --green:#16A34A; --green-br:#34D87E; --amber:#E0A52E; --red:#E0483A; --red-soft:#FBE4E1; --red-ink:#9B241A;
+    --sans:"Geist",ui-sans-serif,system-ui,-apple-system,"Helvetica Neue",sans-serif;
+    --mono:"Geist Mono",ui-monospace,"SF Mono","JetBrains Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.55;padding:0 0 50px}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  /* top band */
+  .band{background:var(--navy);color:#fff}
+  .bandin{max-width:760px;margin:0 auto;padding:0 28px;height:54px;display:flex;align-items:center;justify-content:space-between}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:17px;letter-spacing:-.03em}
+  .logo .mk{width:20px;height:20px;border-radius:6px;background:var(--green-br);display:grid;place-items:center;color:#06250F;font-size:11px}
+  .logo .va{color:var(--green-br)}
+  .band .conf{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#aeb6c4}
+  /* document */
+  .doc{max-width:760px;margin:24px auto 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:40px 44px;box-shadow:0 24px 60px -40px rgba(11,16,32,.5)}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate)}
+  h1{font-size:30px;font-weight:800;letter-spacing:-.025em;margin:10px 0 6px;line-height:1.12}
+  .meta{font-size:13px;color:var(--slate);border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:22px}
+  .meta b{color:var(--ink)}
+  /* exec summary */
+  .summary{background:var(--red-soft);border:1px solid var(--red);border-left:4px solid var(--red);border-radius:10px;padding:20px 22px;margin-bottom:26px}
+  .summary .h{font-weight:800;font-size:16px;color:var(--red-ink);margin-bottom:10px;display:flex;align-items:center;gap:9px}
+  .summary .h .ic{width:18px;height:18px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:800}
+  .summary ul{margin:0;padding-left:18px}
+  .summary li{font-size:14px;margin:6px 0;color:var(--ink)}
+  .summary li b{color:var(--red-ink)}
+  /* sections */
+  h2{font-size:13px;font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--slate);font-weight:600;margin:28px 0 12px}
+  .contra{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:14px}
+  .contra > div{padding:15px 18px}
+  .contra .ai{background:var(--red-soft)}.contra .you{background:var(--mist);border-left:1px solid var(--line)}
+  .contra .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--slate);margin-bottom:7px}.contra .ai .lbl{color:var(--red-ink)}
+  .contra .val{font-size:21px;font-weight:800}.contra .ai .val{color:var(--red-ink)}
+  .quote{font-family:var(--mono);font-size:12.5px;line-height:1.6;background:var(--mist);border:1px solid var(--line);border-left:3px solid var(--red);border-radius:6px;padding:12px 14px;color:var(--ink)}
+  .quote .src{display:block;color:var(--slate);font-size:11px;margin-bottom:7px}
+  .quote .hl{background:#F6E6C4;padding:0 2px}
+  .stake li{font-size:14.5px;margin:9px 0;padding-left:22px;position:relative}
+  .stake li::before{content:"▮";position:absolute;left:0;color:var(--red)}
+  .vis{display:flex;align-items:center;gap:18px;background:var(--mist);border:1px solid var(--line);border-radius:10px;padding:16px 18px;font-size:14px;color:var(--ink)}
+  .vis .big{font-size:30px;font-weight:800;color:var(--amber);font-variant-numeric:tabular-nums;line-height:1}
+  /* recommendation + CTA */
+  .reco{margin-top:26px;border-top:1px solid var(--line);padding-top:24px}
+  .reco p{font-size:14.5px;color:var(--ink);margin-bottom:16px}
+  .cta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:var(--navy);color:#fff;border-radius:12px;padding:22px 24px}
+  .cta .t{flex:1;min-width:220px}.cta .t b{font-size:16px}.cta .t span{display:block;color:#aeb6c4;font-size:13px;margin-top:3px}
+  .btn{font-family:var(--sans);font-weight:700;font-size:14px;border:none;cursor:pointer;border-radius:9px;padding:13px 20px;background:var(--green-br);color:#06250F;text-decoration:none;white-space:nowrap}
+  .foot{margin-top:24px;font-size:11.5px;color:var(--slate);line-height:1.6;border-top:1px solid var(--line);padding-top:16px}
+  .foot b{color:var(--ink)}
+  @media(max-width:620px){.doc{padding:28px 22px}.contra{grid-template-columns:1fr}.contra .you{border-left:none;border-top:1px solid var(--line)}h1{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="band"><div class="bandin">
+  <div class="logo"><span class="mk">A</span>Agentes<span class="va">VA</span></div>
+  <span class="conf">Confidencial · enlace privado</span>
+</div></div>
+
+<div class="doc">
+  <div class="eyebrow">Informe · Visibilidad y precisión en IA</div>
+  <h1>Crédito Ágil ante los asistentes de IA</h1>
+  <div class="meta">Preparado para: <b>Dirección de Marca / Cumplimiento</b> · 6 jun 2026 · Idioma analizado: español (es-MX)</div>
+
+  <div class="summary">
+    <div class="h"><span class="ic">!</span> Resumen ejecutivo</div>
+    <ul>
+      <li>ChatGPT y Gemini están comunicando una <b>TAE incorrecta</b> sobre Crédito Ágil a clientes potenciales.</li>
+      <li>La IA dice <b>"TAE desde 5,0%"</b>; la TAE publicada en creditoagil.mx es <b>8,9%</b>.</li>
+      <li>Ocurre en <b>4 de 40 respuestas</b> analizadas (10%), en español, en 2 modelos.</li>
+      <li>Riesgo <b>regulatorio y reputacional</b>: un cliente puede decidir con una cifra falsa.</li>
+    </ul>
+  </div>
+
+  <h2>La evidencia</h2>
+  <div class="contra">
+    <div class="ai"><div class="lbl">La IA dice</div><div class="val">TAE desde 5,0%</div></div>
+    <div class="you"><div class="lbl">creditoagil.mx dice</div><div class="val">TAE 8,9%</div></div>
+  </div>
+  <div class="quote"><span class="src">ChatGPT · GPT-4o · es-MX · 6 jun 2026 — respuesta literal</span>"Para Crédito Ágil, la TAE de sus préstamos personales <span class="hl">comienza desde el 5%</span>, lo que la hace una de las opciones más competitivas para clientes en México…"</div>
+
+  <h2>Qué está en juego</h2>
+  <ul class="stake">
+    <li><b>Cumplimiento.</b> Comunicar una TAE inferior a la real, aunque no sea por nuestra mano, expone a la marca ante el regulador y el cliente.</li>
+    <li><b>Confianza.</b> Si el cliente descubre la diferencia al contratar, se rompe la confianza en el primer punto de contacto.</li>
+    <li><b>Conversión perdida.</b> Y en paralelo, en español casi no nos recomiendan frente a la competencia.</li>
+  </ul>
+
+  <h2>Visibilidad (contexto)</h2>
+  <div class="vis"><div class="big">11%</div><div>de las respuestas en <b>español</b> mencionan a Crédito Ágil, frente al <b>38%</b> en inglés. Kueski (39%) y Creditea (24%) dominan el espacio en español.</div></div>
+
+  <div class="reco">
+    <h2 style="margin-top:0">Recomendación</h2>
+    <p>Corregir las señales que la IA utiliza, datos estructurados (schema), fuentes citables y contenido publicado, para que el dato falso desaparezca y Crédito Ágil recupere presencia en español. Primeros resultados estimados en <b>30–60 días</b>; seguimiento semanal para detectar reapariciones.</p>
+    <div class="cta">
+      <div class="t"><b>Auditoría + plan en 7 días</b><span>Equipo especializado en visibilidad y precisión en IA (servicio de citable).</span></div>
+      <a class="btn" href="#">Solicitar auditoría →</a>
+    </div>
+  </div>
+
+  <div class="foot">
+    <b>Metodología.</b> 40 preguntas reales de comprador ejecutadas en ChatGPT y Gemini (es-MX) el 6 jun 2026. Cada afirmación de la IA se contrasta con el contenido publicado en creditoagil.mx; solo se marca cuando contradice una fuente propia y verificable. Respuestas literales disponibles bajo solicitud.<br>
+    Informe generado con <b>AgentesVA</b> · enlace privado, no indexable.
+  </div>
+</div>
+</body>
+</html>

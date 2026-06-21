@@ -1,0 +1,23 @@
+{
+  "name": "Krea",
+  "cat": "Diseño",
+  "desc": "Imagen y vídeo IA en tiempo real.",
+  "price": "Freemium",
+  "rating": "4.5",
+  "color": "#FF3D00",
+  "tagline": "Crea y edita imágenes con IA en tiempo real.",
+  "ideal": "Diseñadores",
+  "url": "https://krea.ai",
+  "long": "Krea genera y mejora imágenes (y vídeo) en tiempo real, con control creativo y upscaling, ideal para iterar rápido.",
+  "features": [
+    "Generación en tiempo real",
+    "Mejora y amplía imágenes",
+    "Imagen y vídeo IA"
+  ],
+  "steps": [
+    "Regístrate en krea.ai",
+    "Elige imagen o vídeo",
+    "Itera en tiempo real y exporta"
+  ],
+  "orden": 29
+}

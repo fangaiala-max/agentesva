@@ -1,0 +1,23 @@
+{
+  "name": "Murf",
+  "cat": "Voz",
+  "desc": "Voces IA para vídeos y locuciones.",
+  "price": "Freemium",
+  "rating": "4.4",
+  "color": "#5B3DF5",
+  "tagline": "Locuta vídeos y presentaciones con voces IA.",
+  "ideal": "Vídeo y e-learning",
+  "url": "https://murf.ai",
+  "long": "Murf convierte texto en voz natural en muchos idiomas, con un editor de estudio para sincronizar locución, música y vídeo.",
+  "features": [
+    "Voces realistas multilingües",
+    "Editor de estudio",
+    "Sincroniza con tu vídeo"
+  ],
+  "steps": [
+    "Regístrate en murf.ai",
+    "Pega tu guion y elige voz",
+    "Exporta la locución"
+  ],
+  "orden": 31
+}

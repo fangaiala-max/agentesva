@@ -1,0 +1,23 @@
+{
+  "name": "GitHub Copilot",
+  "cat": "Código",
+  "desc": "Autocompletado de código con IA.",
+  "price": "Pago",
+  "rating": "4.6",
+  "color": "#1F2328",
+  "tagline": "Tu copiloto de programación en el editor.",
+  "ideal": "Desarrolladores",
+  "url": "https://github.com/features/copilot",
+  "long": "GitHub Copilot sugiere código y funciones completas mientras programas, y ofrece chat para explicar y refactorizar, integrado en tu editor.",
+  "features": [
+    "Autocompletado de código",
+    "Chat para explicar y arreglar",
+    "Funciona en VS Code y más"
+  ],
+  "steps": [
+    "Activa Copilot en github.com",
+    "Instala la extensión en tu editor",
+    "Escribe y acepta las sugerencias"
+  ],
+  "orden": 43
+}

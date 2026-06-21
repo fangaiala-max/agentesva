@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ToolCard from '../../components/ToolCard.astro';
+import { getCollection } from 'astro:content';
+import { toTool, type Tool } from '../../data/tools';
+
+export async function getStaticPaths() {
+  const tools = (await getCollection('tools')).map(toTool).sort((a, b) => a.orden - b.orden);
+  const cats = await getCollection('categories');
+  return cats.map((cat) => ({
+    params: { categoria: cat.id },
+    props: {
+      nombre: cat.data.nombre,
+      descripcion: cat.data.descripcion,
+      tools: tools.filter((t) => t.cat === cat.data.nombre),
+    },
+  }));
+}
+
+interface Props { nombre: string; descripcion: string; tools: Tool[] }
+const { nombre, descripcion, tools } = Astro.props;
+const site = 'https://agentesva.com';
+const slug = Astro.params.categoria;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      name: `Herramientas de IA · ${nombre}`,
+      description: descripcion,
+      url: `${site}/herramientas/${slug}`,
+      inLanguage: 'es',
+    },
+    {
+      '@type': 'ItemList',
+      itemListElement: tools.map((t, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: `${site}/herramienta/${t.slug}`,
+        name: t.name,
+      })),
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${site}/` },
+        { '@type': 'ListItem', position: 2, name: 'Herramientas', item: `${site}/herramientas` },
+        { '@type': 'ListItem', position: 3, name: nombre, item: `${site}/herramientas/${slug}` },
+      ],
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={`Herramientas de IA de ${nombre} | AgentesVA`}
+  description={`${descripcion} ${tools.length} herramientas de IA de ${nombre} revisadas, en español.`}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <SiteHeader />
+
+  <main style="max-width: 1200px; margin: 0 auto; padding: 40px 32px 64px;">
+    <nav aria-label="Migas" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-5);">
+      <a href="/" class="navlink" style="color: var(--fg-4); text-decoration: none;">Inicio</a> <span aria-hidden="true">/</span>
+      <a href="/herramientas" class="navlink" style="color: var(--fg-4); text-decoration: none;">Herramientas</a> <span aria-hidden="true">/</span> {nombre}
+    </nav>
+
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 18px;">
+      <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(28px, 5vw, 40px); letter-spacing: -0.03em; margin: 0; color: #fff;">Herramientas de IA · {nombre}</h1>
+      <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-5);"><span style="color: var(--accent);">{tools.length}</span> herramientas</span>
+    </div>
+    <p style="font-size: 16px; line-height: 1.6; color: var(--fg-3); margin: 12px 0 0; max-width: 42em;">{descripcion}</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; margin-top: 28px;">
+      {tools.map((tool) => <ToolCard tool={tool} />)}
+    </div>
+
+    <a href="/herramientas" class="navlink" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 36px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-4); text-decoration: none;">← Todas las herramientas</a>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<script>
+  import { initDirectory } from '../../scripts/directory';
+  import { initMotion } from '../../scripts/motion';
+  document.addEventListener('astro:page-load', () => {
+    initDirectory();
+    initMotion();
+  });
+</script>

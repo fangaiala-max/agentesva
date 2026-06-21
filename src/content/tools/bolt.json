@@ -1,0 +1,23 @@
+{
+  "name": "Bolt.new",
+  "cat": "Código",
+  "desc": "Crea apps full-stack desde el chat.",
+  "price": "Freemium",
+  "rating": "4.4",
+  "color": "#1389FD",
+  "tagline": "Apps full-stack en el navegador, por chat.",
+  "ideal": "Prototipos rápidos",
+  "url": "https://bolt.new",
+  "long": "Bolt.new construye y ejecuta aplicaciones full-stack en el navegador a partir de una descripción, con vista previa y despliegue.",
+  "features": [
+    "App full-stack por descripción",
+    "Vista previa en vivo",
+    "Despliegue rápido"
+  ],
+  "steps": [
+    "Abre bolt.new",
+    "Describe tu aplicación",
+    "Edita por chat y despliega"
+  ],
+  "orden": 47
+}

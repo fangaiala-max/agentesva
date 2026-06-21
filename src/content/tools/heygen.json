@@ -1,0 +1,23 @@
+{
+  "name": "HeyGen",
+  "cat": "Vídeo",
+  "desc": "Avatares y vídeos con IA en minutos.",
+  "price": "Pago",
+  "rating": "4.5",
+  "color": "#5B47FB",
+  "tagline": "Avatares y vídeos con IA en minutos.",
+  "ideal": "Contenido en vídeo",
+  "url": "https://heygen.com",
+  "long": "HeyGen crea vídeos con avatares realistas a partir de un guion. Ideal para formación, marketing y comunicación sin necesidad de grabar.",
+  "features": [
+    "Avatares que hablan por ti",
+    "Traduce vídeos a otros idiomas",
+    "Sin cámara ni edición"
+  ],
+  "steps": [
+    "Crea una cuenta en heygen.com",
+    "Elige un avatar y escribe el guion",
+    "Genera y descarga el vídeo"
+  ],
+  "orden": 13
+}

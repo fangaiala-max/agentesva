@@ -1,0 +1,23 @@
+{
+  "name": "Claude",
+  "cat": "Asistentes",
+  "desc": "Textos largos y razonamiento de calidad.",
+  "price": "Freemium",
+  "rating": "4.8",
+  "color": "#D97757",
+  "tagline": "Ideal para textos largos y trabajo que exige criterio.",
+  "ideal": "Servicios profesionales",
+  "url": "https://claude.ai",
+  "long": "Claude destaca redactando y analizando documentos extensos con un tono natural, y mantiene el contexto de conversaciones largas mejor que la media.",
+  "features": [
+    "Analiza contratos y documentos largos",
+    "Redacta con un tono cuidado y natural",
+    "Resume PDFs e informes completos"
+  ],
+  "steps": [
+    "Entra en claude.ai y regístrate",
+    "Sube tu documento o pega el texto",
+    "Pídele un resumen, borrador o análisis"
+  ],
+  "orden": 2
+}

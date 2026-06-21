@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="7" fill="#1A1814"/>
-  <text x="16.5" y="24" text-anchor="middle"
-        font-family="'Fraunces','Cormorant Garamond','EB Garamond',Georgia,serif"
-        font-style="italic" font-weight="500" font-size="22"
-        letter-spacing="-0.02em" fill="#F7F3EC">A</text>
-  <circle cx="25" cy="9" r="2.2" fill="#C2543A"/>
-</svg>

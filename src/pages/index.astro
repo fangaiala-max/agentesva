@@ -1,0 +1,181 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import ToolCard from '../components/ToolCard.astro';
+import { getCollection } from 'astro:content';
+import { toTool } from '../data/tools';
+
+const tools = (await getCollection('tools')).map(toTool).sort((a, b) => a.orden - b.orden);
+const cats = (await getCollection('categories')).sort((a, b) => a.data.orden - b.data.orden);
+const CATEGORIES = ['Todas', ...cats.map((c) => c.data.nombre)];
+
+const site = 'https://agentesva.com';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      name: 'AgentesVA',
+      url: site,
+      logo: `${site}/brand/avatar.png`,
+      description: 'Directorio y medio de inteligencia artificial en español para negocios.',
+    },
+    {
+      '@type': 'WebSite',
+      name: 'AgentesVA',
+      url: site,
+      inLanguage: 'es',
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="AgentesVA — Directorio de herramientas de IA para tu negocio"
+  description="Busca entre +120 herramientas de IA revisadas para vender, automatizar y ahorrar horas. Sin ruido: solo lo que de verdad sirve. En español, para España y Latinoamérica."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <SiteHeader />
+
+  <main>
+  <!-- ===== HERO + SEARCH ===== -->
+  <section style="position: relative; overflow: hidden; border-bottom: 1px solid var(--line);">
+    <div aria-hidden="true" style="position: absolute; inset: -54px; background-color: var(--bg); background-image: linear-gradient(#13131b 1px, transparent 1px), linear-gradient(90deg, #13131b 1px, transparent 1px); background-size: 54px 54px; animation: gridDrift 6s linear infinite; opacity: 0.65;"></div>
+    <div aria-hidden="true" style="position: absolute; top: -160px; left: 50%; transform: translateX(-50%); width: 760px; height: 540px; background: radial-gradient(ellipse, rgba(91,124,255,0.20) 0%, rgba(91,124,255,0) 64%); animation: auroraDrift 15s ease-in-out infinite; pointer-events: none;"></div>
+
+    <div style="position: relative; max-width: 880px; margin: 0 auto; padding: 76px 32px 56px; text-align: center;">
+      <span class="blur-in" style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--line-2); border-radius: 30px; padding: 6px 14px; animation-delay: .05s;">Directorio de IA · sin ruido</span>
+      <h1 class="blur-in" style="font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 7vw, 64px); line-height: 1.02; letter-spacing: -0.035em; margin: 22px 0 0; color: #fff; animation-delay: .14s;">La herramienta de IA<br>para tu negocio, <span style="color: var(--accent);">en segundos</span></h1>
+      <p class="blur-in" style="font-size: 17px; line-height: 1.6; color: var(--fg-3); margin: 20px auto 0; max-width: 30em; animation-delay: .26s;">Busca entre +120 herramientas revisadas para vender, automatizar y ahorrar horas. Nada de listas infinitas: solo lo que de verdad sirve.</p>
+
+      <!-- search -->
+      <form id="search-form" role="search" class="searchwrap blur-in" style="display: flex; align-items: center; gap: 12px; max-width: 560px; margin: 32px auto 0; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 4px; padding: 4px 4px 4px 18px; transition: border-color .25s, box-shadow .25s; animation-delay: .38s;">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--fg-5)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
+        <label for="tool-search" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Buscar herramientas</label>
+        <input id="tool-search" type="search" autocomplete="off" placeholder="Busca: chatbot, automatizar WhatsApp, crear vídeos…" style="flex: 1; background: transparent; border: none; outline: none; color: #fff; font-family: var(--sans); font-size: 15px; padding: 12px 0;">
+        <button type="submit" class="shimmer" style="font-family: var(--mono); font-size: 11px; color: var(--bg); background: var(--accent); padding: 11px 18px; border-radius: 2px; font-weight: 600; border: none; cursor: pointer;">Buscar</button>
+      </form>
+
+      <!-- quick chips -->
+      <div role="group" aria-label="Filtrar por categoría" class="blur-in" style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 18px; animation-delay: .5s;">
+        {CATEGORIES.map((c, i) => (
+          <button
+            type="button"
+            class="chip cat-chip"
+            data-chip={c}
+            aria-pressed={i === 0 ? 'true' : 'false'}
+            style={`font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 14px; border-radius: 30px; ${i === 0 ? 'background: var(--accent); color: var(--bg); border: 1px solid var(--accent);' : 'background: transparent; color: var(--fg-3); border: 1px solid var(--line-2);'}`}
+          >{c}</button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DIRECTORY ===== -->
+  <section id="directorio" style="max-width: 1200px; margin: 0 auto; padding: 44px 32px 64px; scroll-margin-top: 80px;">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 16px; margin-bottom: 28px; gap: 16px; flex-wrap: wrap;">
+      <h2 style="font-family: var(--sans); font-weight: 700; font-size: 22px; letter-spacing: -0.02em; margin: 0; color: #fff;">Herramientas de IA</h2>
+      <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-5);"><span id="result-count" style="color: var(--accent);">{tools.length}</span> resultados · <span id="result-cat">Todas</span></span>
+    </div>
+
+    <div id="tool-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px;">
+      {tools.map((tool) => <ToolCard tool={tool} />)}
+    </div>
+
+    <div id="empty-state" hidden style="border: 1px dashed var(--line-2); border-radius: 8px; padding: 56px 24px; text-align: center;">
+      <p style="font-family: var(--sans); font-weight: 600; font-size: 18px; color: #fff; margin: 0;">Sin resultados para tu búsqueda</p>
+      <p style="font-size: 14px; color: var(--fg-5); margin: 8px 0 0;">Prueba otra palabra o filtra por categoría.</p>
+    </div>
+
+    <div style="text-align: center; margin-top: 36px;">
+      <a href="/herramientas" class="lift shimmer" style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--sans); font-weight: 600; font-size: 14px; color: var(--fg-2); background: var(--panel); border: 1px solid var(--line-2); border-radius: 2px; padding: 12px 22px; text-decoration: none;">Ver el directorio completo →</a>
+    </div>
+  </section>
+
+  <!-- ===== PACK BAND (captura newsletter) ===== -->
+  <section id="pack" style="position: relative; overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg-2); scroll-margin-top: 80px;">
+    <div aria-hidden="true" style="position: absolute; inset: 0; background-image: linear-gradient(#12121a 1px, transparent 1px), linear-gradient(90deg, #12121a 1px, transparent 1px); background-size: 54px 54px; animation: gridDrift 7s linear infinite; opacity: 0.5;"></div>
+    <div aria-hidden="true" style="position: absolute; top: 50%; right: -60px; width: 560px; height: 420px; transform: translateY(-50%); background: radial-gradient(ellipse, rgba(91,124,255,0.16) 0%, rgba(91,124,255,0) 66%); animation: auroraDrift 17s ease-in-out infinite; pointer-events: none;"></div>
+
+    <div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 72px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 56px; align-items: center;">
+      <div>
+        <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent);">Empieza gratis</span>
+        <h2 style="font-family: var(--sans); font-weight: 700; font-size: clamp(28px, 5vw, 38px); line-height: 1.05; letter-spacing: -0.03em; margin: 14px 0 0; color: #fff;">Llévate el Pack de Recursos IA</h2>
+        <p style="font-size: 16px; line-height: 1.6; color: var(--fg-3); margin: 14px 0 0; max-width: 30em;">~30 prompts y plantillas listas para usar hoy. Suscríbete y recibe una idea aplicable cada semana, en español.</p>
+
+        <form id="pack-form" style="display: flex; gap: 8px; margin-top: 26px; max-width: 460px; flex-wrap: wrap;">
+          <label for="pack-email" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Tu email</label>
+          <input id="pack-email" name="email" type="email" required autocomplete="email" placeholder="tu@email.com" style="flex: 1; min-width: 190px; background: var(--panel-3); border: 1px solid var(--line-2); color: #fff; padding: 14px 16px; border-radius: 2px; font-family: var(--sans); font-size: 14.5px; outline: none;">
+          <button type="submit" id="pack-submit" class="lift shimmer" style="background: var(--accent); color: var(--bg); border: none; padding: 14px 26px; border-radius: 2px; font-family: var(--sans); font-weight: 600; font-size: 14.5px; cursor: pointer; white-space: nowrap;">Acceder →</button>
+        </form>
+        <div id="pack-success" hidden role="status" style="border: 1px solid var(--line-2); background: var(--panel-3); border-radius: 2px; padding: 16px 20px; margin-top: 26px; max-width: 460px;">
+          <span style="font-family: var(--mono); font-size: 12px; color: var(--green);">✓ Revisa tu correo</span>
+          <p style="font-size: 13.5px; color: var(--fg-3); margin: 6px 0 0;">Te enviamos el Pack de Recursos IA a tu email.</p>
+        </div>
+        <p id="pack-error" hidden role="alert" style="font-family: var(--mono); font-size: 12px; color: #ff6b6b; margin-top: 12px;"></p>
+        <span style="font-family: var(--mono); font-size: 11px; color: var(--fg-5); display: block; margin-top: 14px;">Leído por +1.200 negocios · baja cuando quieras</span>
+      </div>
+
+      <!-- terminal card -->
+      <div class="animated-border" style="border-radius: 7px; padding: 1px; align-self: start;">
+      <div class="lift" style="background: var(--panel); border-radius: 6px; overflow: hidden;">
+        <div style="display: flex; align-items: center; gap: 7px; padding: 13px 16px; border-bottom: 1px solid var(--line); background: var(--panel-3);">
+          <span style="width: 10px; height: 10px; border-radius: 50%; background: #2a2a36;"></span>
+          <span style="width: 10px; height: 10px; border-radius: 50%; background: #2a2a36;"></span>
+          <span style="width: 10px; height: 10px; border-radius: 50%; background: #2a2a36;"></span>
+          <span style="font-family: var(--mono); font-size: 10px; color: var(--fg-5); margin-left: 8px;">pack-recursos-ia.sh</span>
+        </div>
+        <div style="padding: 24px 22px; font-family: var(--mono); font-size: 12.5px; line-height: 2.05; color: var(--fg-2);">
+          <div><span style="color: var(--accent);">$</span> instalar prompts</div>
+          <div style="color: var(--fg-5);"># 30 prompts listos para tu negocio</div>
+          <div><span style="color: var(--green);">✓</span> Ventas &amp; seguimiento</div>
+          <div><span style="color: var(--green);">✓</span> Atención al cliente 24/7</div>
+          <div><span style="color: var(--green);">✓</span> Contenido para redes</div>
+          <div><span style="color: var(--green);">✓</span> Facturas &amp; presupuestos</div>
+          <div style="margin-top: 6px;"><span style="color: var(--accent);">→</span> <span style="color: #fff;">listo en 30 segundos</span><span aria-hidden="true" style="display: inline-block; width: 8px; height: 15px; background: var(--accent); margin-left: 4px; vertical-align: middle; animation: blink 1.1s step-end infinite;"></span></div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS ===== -->
+  <section style="border-bottom: 1px solid var(--line); background: var(--bg);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+      <div class="reveal" style="padding: 40px 24px; border-right: 1px solid var(--line);">
+        <div style="display: flex; align-items: baseline; gap: 2px;">
+          <span style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em;">+</span>
+          <span data-count="120" style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;">0</span>
+        </div>
+        <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5);">Herramientas revisadas</span>
+      </div>
+      <div class="reveal" style="padding: 40px 24px; border-right: 1px solid var(--line);">
+        <div style="display: flex; align-items: baseline; gap: 2px;">
+          <span data-count="30" style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;">0</span>
+          <span style="font-weight: 700; font-size: 42px; color: var(--accent); letter-spacing: -0.03em;">+</span>
+        </div>
+        <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5);">Prompts en el pack</span>
+      </div>
+      <div class="reveal" style="padding: 40px 24px;">
+        <div style="display: flex; align-items: baseline; gap: 2px;">
+          <span style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em;">+</span>
+          <span data-count="1200" style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;">0</span>
+        </div>
+        <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5);">Negocios suscritos</span>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<script>
+  import { initDirectory } from '../scripts/directory';
+  import { initMotion } from '../scripts/motion';
+  document.addEventListener('astro:page-load', () => {
+    initDirectory();
+    initMotion();
+  });
+</script>

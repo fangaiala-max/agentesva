@@ -1,197 +1,107 @@
-# AgentesVA Design System v2 — Editorial cálido
+# Sistema de diseño — AgentesVA
 
-**Aplicado:** 2026-04-26 (origen: AgentesVA Redesign Standalone.html, Version A)
-**Tono:** humano, profesional, editorial. Antítesis de "AI hype slop".
+> **Fuente de verdad visual.** Sustituye por completo a la marca anterior ("fintech AI-visibility SaaS", verde/ámbar/rojo + Geist) — concepto abandonado en el pivote a **directorio/medio de IA en español** (ver `docs/superpowers/specs/2026-06-21-agentesva-directory-business-brief.md`).
+>
+> Dos artefactos lo definen, ambos de claude.ai/design (proyecto "AgentesVA Newsletter y captación"):
+> - **Identidad de marca** → `AgentesVA - Brand & Social Kit` (logo, tipografía, color, assets sociales).
+> - **Tema web** → `AgentesVA - Futurista` (home oscura del directorio + fichas), implementado en `src/`.
+>
+> Voz y copy: [`docs/brand-guidelines.md`](./docs/brand-guidelines.md).
 
-## 1. Paleta de color
+---
 
-### Neutros (paper / ink)
+## 1. Identidad de marca
+
+### Logotipo
+- **Wordmark:** `AgentesVA` en **DM Serif Display** (peso 400), tracking **−0.025em**.
+- **Glifo:** `[IA]` en **JetBrains Mono** (600), superíndice, **siempre azul** — nunca otro color (`#5B7CFF` sobre oscuro, `#0040FF` sobre claro).
+- **Monograma:** "A" serif + `[IA]`. Para avatares/app icon.
+- **Margen de respeto** = altura de la "A" por los cuatro lados. **Ancho mínimo** del wordmark: 96px.
+
+### Tipografía
+| Rol | Fuente | Uso |
+|---|---|---|
+| Display / titulares / wordmark | **DM Serif Display** | H1 de marca, héroes, OG, banners (`--serif`) |
+| Cuerpo / UI | **DM Sans** | párrafos, botones, tarjetas (`--sans`) |
+| Etiquetas / datos / mono | **JetBrains Mono** | eyebrows, badges, números (`--mono`) |
+
+### Color
 | Token | Hex | Uso |
 |---|---|---|
-| `--paper` | `#F7F3EC` | Fondo principal cálido (cream) |
-| `--paper-2` | `#EFE8DC` | Fondo de secciones secundarias |
-| `--paper-3` | `#E5DCC8` | Acentos sutiles |
-| `--card` | `#FFFEFB` | Tarjetas elevadas |
-| `--ink` | `#1A1814` | Texto principal, fondos oscuros |
-| `--ink-2` | `#3D362C` | Texto secundario |
-| `--ink-3` | `#6B6253` | Texto terciario, eyebrows |
-| `--ink-4` | `#9A8F7C` | Texto deshabilitado |
-| `--line` | `#D9CFB8` | Bordes |
-| `--line-soft` | `#E8DFCC` | Bordes suaves |
+| Negro | `#08080B` | fondo principal (superficie oscura) |
+| Azul primario | `#0040FF` | marca sobre superficies claras (`--blue-deep`) |
+| Azul acento | `#5B7CFF` | acento sobre superficies oscuras (`--accent`) |
+| Claro | `#FAFAF7` | superficie clara |
+| Gris | `#6B6B6B` | texto secundario sobre claro |
+| Verde estado | `#4ec98a` | "en vivo / activo" (`--green`) |
 
-### Acento primario — Clay (terracota cálido)
-| Token | Hex | Uso |
-|---|---|---|
-| `--clay` | `#C2543A` | Acentos primarios, italic emphasis |
-| `--clay-deep` | `#9C3F2A` | Hover |
-| `--clay-soft` | `#E8B5A4` | Underline tones |
-| `--clay-wash` | `#F4DDD2` | Backgrounds suaves |
+---
 
-### Secundarios
-| Token | Hex | Uso |
-|---|---|---|
-| `--forest` | `#2F4A3A` | Estados positivos / "after" |
-| `--forest-soft` | `#5C7868` | Borders forest |
-| `--forest-wash` | `#DFE7E0` | Backgrounds positivos |
-| `--sand` | `#E8C77E` | Highlights amarillos |
-| `--sand-wash` | `#F5E9CC` | Backgrounds sand |
+## 2. Tema web "Futurista" (directorio, tema oscuro)
 
-## 2. Tipografía
+Implementado en `src/styles/global.css` (tokens) + componentes. **Lee `global.css` antes de tocar UI.**
 
-| Familia | Uso | Token |
-|---|---|---|
-| **Fraunces** (serif) | Headings, italic emphasis. **DISPLAY signature.** | `--serif` |
-| **Inter Tight** (sans) | Body, UI | `--sans` |
-| **JetBrains Mono** | Eyebrows, labels, métricas, codes | `--mono` |
+### Superficies (oscuro)
+`--bg #08080B` · `--bg-2 #0a0a0f` · `--panel #0b0b12` · `--panel-2 #0c0c14` · `--panel-3 #0d0d15`
+Líneas: `--line #1c1c24` · `--line-2 #262632` · `--line-3 #3a3a52` (hover).
 
-### Escalas
-- `h1` — clamp(48px, 6vw, 84px), letter-spacing -0.02em, line 1.05
-- `h2` — clamp(36px, 4.2vw, 56px)
-- `h3` — clamp(22px, 2vw, 28px)
-- Body — 15px, line 1.5
-- Eyebrow — 11px, letter-spacing 0.16em, uppercase, mono
+### Texto
+`--fg #ededf0` · `--fg-strong #fff` · `--fg-2 #cfcfda` · `--fg-3 #a5a5b2` · `--fg-4 #8a8a99` · `--fg-5 #6a6a78`.
 
-### Patrón signature
-```html
-<h1 class="serif">
-  Texto normal con
-  <em>énfasis italic clay</em>
-  o
-  <span class="underline">underline soft</span>
-</h1>
-```
+### Componentes (`src/components/`)
+- `SiteHeader` — ticker marquee + cabecera sticky con blur. Logo serif + nav mono.
+- `SiteFooter` — pie minimal.
+- `ToolCard` — tarjeta de herramienta (stretched-link → ficha; botón marcador independiente).
 
-## 3. Espaciado y layout
+### Patrones de interacción (clases en `global.css`)
+- `.lift` — hover: translateY(−5px) + borde claro + glow azul.
+- `.navlink` / `.chip` — transiciones de color/borde.
+- `.searchwrap:focus-within` — borde + glow azul al enfocar la búsqueda.
+- `.reveal` — entrada scroll-driven (`view()`); **no usar en contenido primario** (queda opacity:0 hasta el scroll; el grid del directorio NO lo usa).
 
-- `--max: 1240px` container
-- Padding lateral: 32px desktop, 20px mobile
-- Padding vertical sección: **120px desktop**
-- Gap interno: 48-64px
+### Motion — "Confident, electric, restrained"
 
-## 4. Forma
+Tesis: el movimiento debe leerse como **intencional y vivo, nunca decorativo**. Reglas duras (validar todo contra ellas): solo `transform`/`opacity`/`filter` (GPU, sin animar layout); **sin runtime JS de animación** (mantiene `script-src 'self'` + Lighthouse 100); **todo respeta `prefers-reduced-motion`** (global en `global.css`). Inspiración de patrones modernos (21st.dev) implementada **nativa** (CSS + mínimo vanilla + Astro View Transitions).
 
-- `--r-sm: 6px` chips, tags
-- `--r-md: 10px` cards small
-- `--r-lg: 16px` cards principales
-- `--r-xl: 24px` CTA cards grandes
-- Botones: 999px (pill)
+**Ambiente (de fondo):** `auroraDrift`, `gridDrift`, `glowPulse` (logo/CTA), `marquee` (ticker), count-up de stats, cursor `blink`.
 
-## 5. Sombras
+**Micro-interacciones:**
+- `.lift` — hover de tarjetas (translateY + glow).
+- **Spotlight** — glow radial que sigue al cursor en las fichas (`--mx/--my` desde un `pointermove` delegado; `motion.ts`).
+- **Blur-in / text reveal** — entrada escalonada de eyebrow → H1 → subtítulo → búsqueda en el hero (`@keyframes blurIn`, `animation-delay`); titulares de sección vía scroll (`.reveal`).
+- **Shimmer** — barrido diagonal en hover sobre los CTA primarios (`.shimmer::after`).
+- **Borde animado** — borde conic-gradient giratorio (`@property --bd-angle`) en la tarjeta destacada del Pack (1 sitio).
+- **Magnético** — el CTA del hero se desplaza ligero hacia el cursor (`data-magnetic`, `motion.ts`).
 
-- `--sh-sm` sutil
-- `--sh-md` cards interactivas
-- `--sh-lg` portrait, hero illus
+**Transiciones de página:** **Astro View Transitions** (`<ClientRouter/>`): morph con elemento compartido (el monograma de la herramienta, `transition:name="mono-<slug>"`) entre listado/home y ficha. Los scripts de página se re-inicializan en `astro:page-load`.
 
-## 6. Componentes signature
+**Evitar (mismatch de marca / perf / a11y):** cursor trails, partículas, blobs, parallax, scroll-jacking, overshoot de muelle en todo, animar las 52 tarjetas a la vez, cualquier animación sin ruta de `reduced-motion`.
 
-### Hero block
-- Grid 1.1fr / 0.9fr
-- H1 `clamp(52px, 6.5vw, 96px)` con `<em>` italic-clay
-- Lead 19px ink-2
-- CTA pill ink → paper
-- 3 métricas border-top/bottom con número serif italic
-- Industries row con tags al pie
+### Accesibilidad
+- Foco visible (`:focus-visible` outline azul) en todo interactivo.
+- `aria-label` / `aria-pressed` en botones de icono (marcador, chips).
+- `prefers-reduced-motion` respetado; labels ocultas (sr-only) en inputs.
+- Botones de icono ≥ 44px de área táctil (hit area con padding negativo).
 
-### Stats band (dark)
-- Background `--ink`, color `--paper`
-- 4 columnas con números serif 80px
-- Borders translúcidos blancos
-- `<em>` numerals en `--clay-soft`
+---
 
-### Pain grid (problem)
-- 3 cols
-- Cards `--card` con borde `--line-soft`
-- "PAIN 0X / 06" mono uppercase clay
-- Hover lift translateY(-2px)
+## 3. Assets de marca
 
-### Before/After
-- Grid 1fr auto 1fr con flecha "→" italic clay 48px
-- Card "before" gradient → clay-wash
-- Card "after" gradient → forest-wash
-- Listas con icon circle: − clay / ✓ forest
+Generados y versionados en `public/brand/` (índice + tamaños en `public/brand/README.md`). `public/og.png` (1200×630) es el og:image por defecto (en `BaseLayout`). Fuentes regenerables con `node brand-build/gen.mjs` (gitignored).
 
-### Process steps
-- 4 circles, primero clay, segundo clay-wash, tercero ink, cuarto sand
-- Línea horizontal connector
+| Asset | Tamaño |
+|---|---|
+| `og.png` | 1200 × 630 |
+| `brand/avatar.png` · `avatar-blue.png` | 512 × 512 |
+| `brand/twitter-header.png` | 1500 × 500 |
+| `brand/linkedin-banner.png` | 1584 × 396 |
+| `brand/facebook-cover.png` | 1200 × 630 |
+| `brand/substack-header.png` | 1200 × 400 |
+| `brand/instagram-post.png` | 1080 × 1080 |
+| `brand/instagram-story.png` | 1080 × 1920 |
 
-### Testimonials
-- Featured card dark (ink), regulares card cream
-- Quote serif 22-28px con "" decorativa serif italic
-- Result tag mono pequeño verde forest
+---
 
-### CTA card
-- Dark ink rounded xl
-- Radial gradient clay top-right
-- 1.3fr / 1fr grid
-- Botón paper sobre ink
+## 4. CSP / fuentes
 
-## 7. Reglas de uso
-
-### Voz visual
-- **Italic = clay siempre.** No usar italic sin clay.
-- **Eyebrows = mono uppercase.** No mezclar con sans en su rol.
-- **Números grandes = serif italic.** Especialmente em dentro: `+<em>60</em>%`
-- **No drop shadows random.** Solo los 3 tokens definidos.
-
-### Anti-patrones
-- ❌ Gradientes blue/purple (visto en mil sitios SaaS)
-- ❌ Iconografía geométrica fría
-- ❌ Sans-serif everything
-- ❌ Color primario "vibrante" tipo brand-blue
-- ✅ Editorial calidez, contraste sobrio, italic emphasis
-- ✅ Mono labels para detalles técnicos
-- ✅ Números grandes serif para autoridad
-
-## 8. Aplicación
-
-CSS en `/assets/redesign-v2.css`. Reemplaza Tailwind+M3 anterior por este sistema.
-
-Uso típico:
-```html
-<link rel="stylesheet" href="/assets/redesign-v2.css">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-<div class="dirA">
-  <nav class="dirA-nav">...</nav>
-  <section class="dirA-hero">...</section>
-  <section class="dirA-stats">...</section>
-  ...
-</div>
-```
-
-## 9. Migración del sitio
-
-Aplica primero a:
-1. **/index.html** (homepage) — full redesign
-2. **/sobre/** — adapt to editorial system
-3. **/precios/** — same
-4. **/como-empezar/** — same
-5. **/diagnostico/** — same
-
-Mantener mientras coexiste:
-- HubSpot Forms API integration
-- Mixpanel / GA4 tracking
-- Schema.org JSON-LD
-- Calendly URL: https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min
-
-## 10. Adaptaciones AgentesVA-specific
-
-El mockup original incluye placeholders que NO aplican a AgentesVA:
-- ❌ "Diego Vargas" + foto del founder → **Anónimo + ilustración o block decorativo**
-- ❌ "Casa Grumo Bogotá" → **Restaurante (anonimizado, +60% facturación)**
-- ❌ "Medellín, Buenos Aires, CDMX" → **Madrid, Barcelona + LATAM**
-- ❌ Logos cells "Casa Grumo, Lumina..." → **Industria + ciudad anonimizada o quitar**
-- ❌ Founder section con foto → **Replace por sección "Sobre" con anonimato defendible** (ver /sobre/)
-- ❌ "+40% facturación promedio" → **+60% (caso restaurante real)**
-- ❌ Stack incluye Salesforce, Stripe → **Mantener solo herramientas reales: Make, Claude, HubSpot, WhatsApp Business, OpenAI, Resend**
-
-Casos reales que SÍ aplican:
-- Restaurante +60% facturación (€25k→€40k/mes)
-- Escuela de idiomas +60% alumnos (500→800)
-- Renting de camiones +70% utilización (40%→68%)
-
-Posicionamiento Spain-primary se aplica en:
-- Hero copy
-- Industries badges
-- Footer ("desde España, operación remota a LATAM")
-- Geo meta tags (ya migrado)
+DM Serif Display + DM Sans + JetBrains Mono vía Google Fonts (`display=swap`). La CSP en `vercel.json` permite `fonts.googleapis.com` (style-src) y `fonts.gstatic.com` (font-src). Scripts de cliente externos (`script-src 'self'`; `vite.assetsInlineLimit=0`).

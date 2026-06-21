@@ -1,0 +1,23 @@
+{
+  "name": "Zapier",
+  "cat": "Automatización",
+  "desc": "Automatiza tareas repetitivas al instante.",
+  "price": "Freemium",
+  "rating": "4.6",
+  "color": "#FF4F00",
+  "tagline": "La forma más sencilla de automatizar tareas.",
+  "ideal": "Pymes sin equipo técnico",
+  "url": "https://zapier.com",
+  "long": "Zapier conecta tus aplicaciones para que pasen cosas solas: un formulario que crea un contacto, un pedido que avisa por WhatsApp. Sin escribir código.",
+  "features": [
+    "Más de 6.000 apps integradas",
+    "Plantillas listas para usar",
+    "Dispara acciones automáticas"
+  ],
+  "steps": [
+    "Regístrate en zapier.com",
+    "Elige un disparador (ej: nuevo email)",
+    "Define la acción automática"
+  ],
+  "orden": 5
+}

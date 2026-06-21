@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== AgentesVA — Sistema "Futurista" (directorio de IA, tema oscuro) ===== */
+:root {
+  --bg: #08080b;
+  --bg-2: #0a0a0f;
+  --panel: #0b0b12;
+  --panel-2: #0c0c14;
+  --panel-3: #0d0d15;
+  --line: #1c1c24;
+  --line-2: #262632;
+  --line-3: #3a3a52;
+  --fg: #ededf0;
+  --fg-strong: #ffffff;
+  --fg-2: #cfcfda;
+  --fg-3: #a5a5b2;
+  --fg-4: #8a8a99;
+  --fg-5: #8b8b97;
+  --accent: #5b7cff;
+  --blue-deep: #0040ff;
+  --green: #4ec98a;
+  --serif: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+  --sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+::selection { background: var(--accent); color: var(--bg); }
+input::placeholder { color: var(--fg-5); }
+
+/* ===== Animaciones ===== */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes gridDrift { from { background-position: 0 0; } to { background-position: 54px 54px; } }
+@keyframes glowPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(91,124,255,0.30); } 50% { box-shadow: 0 0 24px 2px rgba(91,124,255,0.55); } }
+@keyframes dotPulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.7); } }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes auroraDrift { 0% { transform: translate(-4%, -2%) scale(1); } 50% { transform: translate(4%, 3%) scale(1.12); } 100% { transform: translate(-4%, -2%) scale(1); } }
+
+/* ===== Clases de interacción ===== */
+.lift { transition: transform .32s cubic-bezier(0.22,0.61,0.36,1), border-color .32s, box-shadow .32s; }
+.lift:hover { transform: translateY(-5px); border-color: var(--line-3) !important; box-shadow: 0 0 28px rgba(91,124,255,0.16); }
+.navlink { transition: color .25s; }
+.navlink:hover { color: #fff !important; }
+.chip { transition: background .2s, border-color .2s, color .2s; cursor: pointer; }
+.chip:hover { border-color: var(--line-3) !important; }
+.reveal { animation: fadeUp both; animation-timeline: view(); animation-range: entry 0% cover 22%; }
+.searchwrap:focus-within { border-color: var(--accent) !important; box-shadow: 0 0 24px rgba(91,124,255,0.22); }
+
+/* ===== Motion (patrones modernos, implementación nativa) ===== */
+@property --bd-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+
+@keyframes blurIn {
+  from { opacity: 0; filter: blur(12px); transform: translateY(10px); }
+  to { opacity: 1; filter: blur(0); transform: none; }
+}
+@keyframes borderSpin { to { --bd-angle: 360deg; } }
+
+/* text reveal — entrada escalonada en carga (delays inline por elemento) */
+.blur-in { animation: blurIn .7s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+
+/* shimmer — barrido diagonal en hover sobre CTAs */
+.shimmer { position: relative; overflow: hidden; isolation: isolate; }
+.shimmer::after {
+  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(120deg, transparent 28%, rgba(255, 255, 255, 0.28) 50%, transparent 72%);
+  transform: translateX(-120%);
+  transition: transform .6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.shimmer:hover::after { transform: translateX(120%); }
+
+/* spotlight — glow radial que sigue al cursor (vars desde motion.ts) */
+.spotlight::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; z-index: 0; pointer-events: none;
+  background: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), rgba(91, 124, 255, 0.14), transparent 60%);
+  opacity: 0; transition: opacity .3s;
+}
+.spotlight:hover::before { opacity: 1; }
+
+/* borde conic giratorio — wrapper (envuelve la tarjeta destacada del Pack) */
+.animated-border {
+  background: conic-gradient(from var(--bd-angle), var(--line-2) 0deg, var(--accent) 50deg, var(--line-2) 115deg, var(--line-2) 360deg);
+  animation: borderSpin 6s linear infinite;
+}
+
+/* magnético — desplazamiento suave hacia el cursor (motion.ts) */
+.magnetic { transition: transform .25s cubic-bezier(0.22, 0.61, 0.36, 1); will-change: transform; }
+
+/* Foco visible accesible para todo elemento interactivo */
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, .reveal { animation: none !important; transition: none !important; }
+}

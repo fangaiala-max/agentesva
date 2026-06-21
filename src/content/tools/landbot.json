@@ -1,0 +1,23 @@
+{
+  "name": "Landbot",
+  "cat": "WhatsApp",
+  "desc": "Chatbots conversacionales sin código.",
+  "price": "Freemium",
+  "rating": "4.5",
+  "color": "#1A6DFF",
+  "tagline": "Chatbots conversacionales sin escribir código.",
+  "ideal": "Captación de leads",
+  "url": "https://landbot.io",
+  "long": "Landbot crea asistentes conversacionales con un editor visual. Ideal para guiar al visitante y captar contactos sin perder el tono humano.",
+  "features": [
+    "Constructor visual de chatbots",
+    "Capta y cualifica leads",
+    "Integra con tu web y WhatsApp"
+  ],
+  "steps": [
+    "Regístrate en landbot.io",
+    "Diseña el bot arrastrando bloques",
+    "Incrústalo en tu web o WhatsApp"
+  ],
+  "orden": 8
+}

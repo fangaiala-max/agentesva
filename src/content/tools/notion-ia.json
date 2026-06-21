@@ -1,0 +1,23 @@
+{
+  "name": "Notion IA",
+  "cat": "Automatización",
+  "desc": "Docs, notas y tareas con IA integrada.",
+  "price": "Pago",
+  "rating": "4.5",
+  "color": "#373530",
+  "tagline": "Tu espacio de trabajo con IA integrada.",
+  "ideal": "Equipos y documentación",
+  "url": "https://notion.so",
+  "long": "Notion reúne notas, tareas y documentos en un solo lugar, con una IA que redacta y resume sin salir de la página.",
+  "features": [
+    "Redacta y resume dentro de tus notas",
+    "Organiza proyectos y tareas",
+    "Crea bases de datos sencillas"
+  ],
+  "steps": [
+    "Abre tu espacio en notion.so",
+    "Activa la IA con la barra espaciadora",
+    "Pídele borradores o resúmenes"
+  ],
+  "orden": 6
+}
