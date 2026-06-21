@@ -10,6 +10,8 @@ export default defineConfig({
   integrations: [
     tailwind({ applyBaseStyles: false }),
     sitemap({
+      // /ir/* es la salida afiliado (no indexable)
+      filter: (page) => !page.includes('/ir/'),
       i18n: {
         defaultLocale: 'es',
         locales: { es: 'es-ES' },

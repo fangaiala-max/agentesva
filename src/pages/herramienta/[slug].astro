@@ -65,7 +65,7 @@ const jsonLd = {
         </div>
       </div>
       <div style="display: flex; flex-direction: column; gap: 10px; flex: none;">
-        <a href={tool.url} target="_blank" rel="sponsored nofollow noopener" class="lift" style="background: var(--accent); color: var(--bg); border: none; padding: 13px 24px; border-radius: 2px; font-family: var(--sans); font-weight: 600; font-size: 14px; text-decoration: none; text-align: center; white-space: nowrap;">Visitar sitio →</a>
+        <a href={`/ir/${tool.slug}`} target="_blank" rel="sponsored nofollow noopener" class="lift" style="background: var(--accent); color: var(--bg); border: none; padding: 13px 24px; border-radius: 2px; font-family: var(--sans); font-weight: 600; font-size: 14px; text-decoration: none; text-align: center; white-space: nowrap;">Visitar sitio →</a>
         <button type="button" id="save-btn" data-slug={tool.slug} aria-pressed="false" style="background: var(--panel-2); color: var(--fg-2); border: 1px solid var(--line-2); padding: 13px 24px; border-radius: 2px; font-family: var(--sans); font-weight: 600; font-size: 14px; cursor: pointer; white-space: nowrap;"><span id="save-label">Guardar</span></button>
       </div>
     </div>
