@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgentesVA · Inteligencia de visibilidad en IA para fintech</title>
+<style>
+  :root{
+    --navy:#0B1020; --navy2:#111935; --bg:#F6F7F9; --surface:#FFFFFF; --ink:#0E1116; --slate:#5B6472; --line:#E5E8EE;
+    --green:#16A34A; --green-br:#34D87E; --amber:#E0A52E; --red:#E0483A; --green-soft:#DCF3E4; --red-soft:#F8DDD9; --mist:#EEF1F6;
+    --sans:"Geist",ui-sans-serif,system-ui,-apple-system,"Helvetica Neue",sans-serif;
+    --mono:"Geist Mono",ui-monospace,"SF Mono","JetBrains Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.5}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+  /* nav */
+  nav{background:var(--navy);position:sticky;top:0;z-index:50}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{display:flex;align-items:center;gap:9px;color:#fff;font-weight:800;font-size:21px;letter-spacing:-.03em}
+  .logo .mk{width:23px;height:23px;border-radius:7px;background:var(--green-br);display:grid;place-items:center;color:#06250F;font-size:13px;font-weight:800}
+  .logo .va{color:var(--green-br)}
+  .nl{display:flex;gap:24px;align-items:center}.nl a{font-size:14px;color:#C4CAD6;text-decoration:none}.nl a:hover{color:#fff}
+  .nr{display:flex;gap:12px;align-items:center}
+  .ghost{color:#fff;background:transparent;border:1px solid #34405e;border-radius:8px;padding:9px 15px;font-size:14px;font-weight:600;cursor:pointer}
+  .btn{background:var(--green-br);color:#06250F;border:none;border-radius:8px;padding:10px 17px;font-size:14px;font-weight:700;cursor:pointer;transition:.15s}
+  .btn:hover{background:#26c46f}
+  .link{color:#C4CAD6;font-size:14px;text-decoration:none}
+  /* hero */
+  .hero{background:var(--navy);color:#fff;padding:64px 0 150px;text-align:center;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(900px 380px at 50% -8%, rgba(52,216,126,.14), transparent 70%);pointer-events:none}
+  .hpill{display:inline-flex;align-items:center;gap:8px;border:1px solid #2c3957;border-radius:999px;padding:6px 14px;font-size:12.5px;color:#C4CAD6;margin-bottom:24px}
+  .hpill .d{width:7px;height:7px;border-radius:50%;background:var(--green-br)}
+  h1{font-size:54px;line-height:1.05;letter-spacing:-.025em;font-weight:800;max-width:16em;margin:0 auto}
+  h1 .g{color:var(--green-br)}
+  .sub{font-size:19px;color:#AEB6C4;max-width:34em;margin:20px auto 30px}
+  /* search bar (the SW-style domain hero) */
+  .search{max-width:620px;margin:0 auto;background:#fff;border-radius:14px;padding:8px;display:flex;align-items:center;gap:8px;box-shadow:0 30px 60px -28px rgba(0,0,0,.6)}
+  .search .ic{padding:0 6px 0 12px;color:var(--slate);font-size:16px}
+  .search input{flex:1;border:none;outline:none;font-family:var(--mono);font-size:16px;color:var(--ink);padding:12px 0}
+  .search .btn{padding:14px 22px;font-size:15px;border-radius:10px;display:flex;align-items:center;gap:8px}
+  .hnote{font-size:13px;color:#8b93a3;margin-top:14px}
+  /* product proof panel overlapping */
+  .proofwrap{margin-top:-110px;position:relative;z-index:2}
+  .proof{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:0 40px 80px -40px rgba(11,16,32,.45);overflow:hidden}
+  .pbar{display:flex;align-items:center;gap:8px;padding:13px 18px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--slate)}
+  .pbar .dot{width:10px;height:10px;border-radius:50%;background:#E2E5Ec}.pbar b{color:var(--ink)}
+  .pgrid{display:grid;grid-template-columns:1.4fr 1fr}
+  .pleft{padding:22px 24px;border-right:1px solid var(--line)}
+  .alert{display:flex;gap:11px;align-items:center;background:var(--red-soft);border:1px solid var(--red);border-radius:9px;padding:10px 13px;font-size:13px;margin-bottom:18px}
+  .alert .tg{font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;background:var(--red);color:#fff;padding:3px 7px;border-radius:5px;white-space:nowrap}
+  .br{margin-bottom:14px}
+  .br .l{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;margin-bottom:6px}
+  .br .l .p{font-weight:700}
+  .trk{height:14px;background:var(--mist);border-radius:4px;overflow:hidden}.fl{height:100%;width:0;border-radius:4px;transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+  .fl.g{background:var(--green)}.fl.a{background:var(--amber)}
+  .gap{display:flex;align-items:center;gap:13px;border-top:1px solid var(--line);margin-top:16px;padding-top:14px}
+  .gap .n{font-size:46px;font-weight:800;color:var(--amber);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}.gap .n .u{font-size:15px;color:var(--slate)}
+  .gap .t{font-size:12.5px;color:var(--slate)}
+  .pright{padding:22px 22px}
+  .pright .rh{font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--slate);margin-bottom:12px}
+  .li{display:flex;align-items:center;gap:10px;font-size:13.5px;padding:7px 0;border-bottom:1px solid var(--line)}
+  .li:last-child{border-bottom:none}.li .i{font-family:var(--mono);font-size:11px;color:var(--slate);width:12px}.li .nm{font-weight:600}.li .nm.you{color:var(--green)}
+  .li .bd{margin-left:auto;font-family:var(--mono);font-size:9px;font-weight:700;padding:2px 7px;border-radius:5px}.bd.g{background:var(--green-soft);color:var(--green)}.bd.a{background:#F6E6C4;color:#8a6a16}
+  /* logos */
+  .logos{padding:34px 0 8px;text-align:center}
+  .logos .t{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);margin-bottom:16px}
+  .logos .row{display:flex;gap:34px;justify-content:center;flex-wrap:wrap;color:#AAB1BF;font-weight:700;font-size:18px;letter-spacing:-.01em}
+  /* pillars */
+  section{padding:74px 0}
+  .seye{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);text-align:center}
+  .sh{font-size:36px;font-weight:800;letter-spacing:-.025em;text-align:center;margin:12px auto 0;max-width:18em}
+  .sh .g{color:var(--green)}
+  .pill2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px}
+  .pc{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px}
+  .pc .tg{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;display:inline-flex;gap:8px;align-items:center}
+  .pc .tg .d{width:10px;height:10px;border-radius:50%}.pc.v .tg .d{background:var(--green)}.pc.p .tg .d{background:var(--red)}
+  .pc h3{font-size:23px;font-weight:800;letter-spacing:-.02em;margin:12px 0 8px}.pc p{font-size:15px;color:var(--slate)}
+  /* final */
+  .final{background:var(--navy);color:#fff;border-radius:20px;padding:60px 32px;text-align:center}
+  .final h2{font-size:34px;font-weight:800;letter-spacing:-.02em;max-width:18em;margin:0 auto 14px}.final h2 .g{color:var(--green-br)}
+  .final p{color:#AEB6C4;max-width:32em;margin:0 auto 24px}
+  footer{padding:34px 0 52px;border-top:1px solid var(--line);margin-top:60px}
+  .ft{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--slate)}
+  @media(max-width:880px){h1{font-size:38px}.pgrid,.pill2{grid-template-columns:1fr}.pleft{border-right:none;border-bottom:1px solid var(--line)}.nl,.nr .ghost,.nr .link{display:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav">
+  <div class="logo"><span class="mk">A</span>Agentes<span class="va">VA</span></div>
+  <div class="nl"><a>Producto</a><a>Soluciones</a><a>Recursos</a><a>Precios</a></div>
+  <div class="nr"><a class="link">Entrar</a><button class="ghost">Solicitar demo</button><button class="btn">Empezar gratis</button></div>
+</div></nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="hpill"><span class="d"></span> Inteligencia de visibilidad en IA · fintech</span>
+    <h1>Gana cuando la IA recomienda un banco, <span class="g">en español</span>.</h1>
+    <p class="sub">ChatGPT, Gemini y Perplexity ya deciden qué fintech recomendar a tus clientes. Mira tu visibilidad por idioma y cada dato falso que circula sobre ti.</p>
+    <form class="search" onsubmit="return false">
+      <span class="ic mono">◎</span>
+      <input value="tuneobanco.mx" spellcheck="false">
+      <button class="btn">Ver mi visibilidad ▸</button>
+    </form>
+    <div class="hnote">Gratis · sin registro · resultado en ~90 s</div>
+  </div>
+</header>
+
+<div class="wrap proofwrap">
+  <div class="proof">
+    <div class="pbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span style="margin-left:8px">Panel · <b>tuneobanco.mx</b> · ES vs EN</span></div>
+    <div class="pgrid">
+      <div class="pleft">
+        <div class="alert"><span class="tg">Precisión</span><span><b>1 dato falso:</b> la IA dice que cobras comisión de mantenimiento (4/40 respuestas, ES).</span></div>
+        <div class="br"><div class="l"><span>Share of Answer · Inglés</span><span class="p" style="color:var(--green)">38%</span></div><div class="trk"><div class="fl g" data-w="38"></div></div></div>
+        <div class="br"><div class="l"><span>Share of Answer · Español</span><span class="p" style="color:var(--amber)">11%</span></div><div class="trk"><div class="fl a" data-w="11"></div></div></div>
+        <div class="gap"><div class="n" id="g">27<span class="u"> pts</span></div><div class="t">Brecha ES↔EN. En el idioma de tus clientes, casi no te recomiendan.</div></div>
+      </div>
+      <div class="pright">
+        <div class="rh">Te gana en español</div>
+        <div class="li"><span class="i">1</span><span class="nm">Nu</span><span class="bd a">44%</span></div>
+        <div class="li"><span class="i">2</span><span class="nm">Revolut</span><span class="bd a">26%</span></div>
+        <div class="li"><span class="i">3</span><span class="nm">Klar</span><span class="bd a">19%</span></div>
+        <div class="li"><span class="i">7</span><span class="nm you">TuNeobanco</span><span class="bd g">11%</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap logos"><div class="t">Medimos en</div><div class="row"><span>ChatGPT</span><span>Gemini</span><span>Perplexity</span><span>Claude</span><span>AI Overviews</span></div></div>
+
+<section class="wrap" id="pilares">
+  <div class="seye">Dos preguntas que tu equipo no puede responder hoy</div>
+  <h2 class="sh">La IA ya habla de tu fintech. <span class="g">¿Sabes qué dice?</span></h2>
+  <div class="pill2">
+    <div class="pc v"><span class="tg"><span class="d"></span> Visibilidad</span><h3>¿Te recomiendan?</h3><p>Share of Answer por idioma y producto. Qué competidores aparecen en tu lugar, y dónde eres invisible en español.</p></div>
+    <div class="pc p"><span class="tg"><span class="d"></span> Precisión</span><h3>¿Se equivocan sobre ti?</h3><p>Detectamos cuando la IA afirma algo falso o desactualizado sobre tu producto regulado, antes de que le cueste a tu marca.</p></div>
+  </div>
+</section>
+
+<section class="wrap" style="padding-top:0">
+  <div class="final">
+    <h2>Tus clientes ya le preguntan a la IA. Que te <span class="g">recomiende</span>, y no se equivoque.</h2>
+    <p>Escaneo gratis de 90 segundos. Tu dominio, dos idiomas, tu brecha y los datos falsos que circulan.</p>
+    <button class="btn" style="padding:14px 24px;font-size:15px">Escanear mi fintech gratis</button>
+  </div>
+</section>
+
+<footer class="wrap"><div class="ft"><span class="logo" style="font-size:17px;color:var(--ink)"><span class="mk" style="width:19px;height:19px;font-size:10px">A</span>Agentes<span class="va" style="color:var(--green)">VA</span></span><span>Visibilidad &amp; precisión de marca en IA · fintech · ES / EN</span><span>© 2026</span></div></footer>
+
+<script>
+function cu(id,to){const e=document.getElementById(id);if(!e)return;const u=e.querySelector('.u');const us=u?u.outerHTML:'';const s=performance.now();(function t(n){const p=Math.min(1,(n-s)/900);e.innerHTML=Math.round(to*(1-Math.pow(1-p,3)))+us;if(p<1)requestAnimationFrame(t)})(s)}
+window.addEventListener('load',()=>{cu('g',27);setTimeout(()=>document.querySelectorAll('.fl').forEach(f=>f.style.width=f.dataset.w+'%'),250)});
+</script>
+</body>
+</html>

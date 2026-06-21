@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgentesVA — Gestiona lo que la IA dice de tu marca</title>
+<meta name="description" content="ChatGPT, Gemini y Perplexity ya hablan de tu marca con tus clientes. Descubre gratis en qué se equivocan sobre ti —y arréglalo. Escaneo en 90 segundos.">
+<meta property="og:title" content="AgentesVA — Gestiona lo que la IA dice de tu marca">
+<meta property="og:description" content="Descubre gratis qué dato falso repite la IA sobre tu marca, con la prueba. Escaneo en 90 segundos.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2334D87E'/%3E%3Ctext x='16' y='23' font-family='Arial' font-size='20' font-weight='bold' text-anchor='middle' fill='%2306250F'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B1020; --bg:#F6F7F9; --surface:#FFFFFF; --ink:#0E1116; --slate:#5B6472; --line:#E5E8EE; --mist:#EEF1F6;
+    --green:#16A34A; --green-br:#34D87E; --amber:#E0A52E; --red:#E0483A; --red-soft:#FBE4E1; --red-ink:#9B241A;
+    --sans:"Geist",ui-sans-serif,system-ui,-apple-system,"Helvetica Neue",sans-serif;
+    --mono:"Geist Mono",ui-monospace,"SF Mono","JetBrains Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.5}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 26px}
+  a{color:inherit}
+  nav{background:var(--navy);position:sticky;top:0;z-index:50}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:14px}
+  .logo{display:flex;align-items:center;gap:9px;color:#fff;font-weight:800;font-size:20px;letter-spacing:-.03em;text-decoration:none}
+  .logo .mk{width:23px;height:23px;border-radius:7px;background:var(--green-br);display:grid;place-items:center;color:#06250F;font-size:13px}
+  .logo .va{color:var(--green-br)}
+  .nl{display:flex;gap:22px;align-items:center;margin-left:18px}.nl a{font-size:14px;color:#C4CAD6;text-decoration:none}.nl a:hover{color:#fff}
+  .nr{display:flex;gap:12px;align-items:center;margin-left:auto}
+  .langsw{display:flex;gap:2px;font-family:var(--mono);font-size:12px;border:1px solid #2c3957;border-radius:7px;overflow:hidden}
+  .langsw a{padding:5px 9px;color:#aeb6c4;text-decoration:none}.langsw a.on{background:var(--green-br);color:#06250F;font-weight:700}
+  .btn{font-weight:700;font-size:14px;border:none;cursor:pointer;border-radius:8px;padding:11px 17px;transition:.15s;font-family:var(--sans);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+  .btn.g{background:var(--green-br);color:#06250F}.btn.g:hover{background:#26c46f}
+  .btn.solid{background:var(--green);color:#fff}.btn.solid:hover{background:#0f7a3f}
+  .hero{background:var(--navy);color:#fff;padding:62px 0 150px;text-align:center;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(900px 360px at 50% -10%, rgba(224,72,58,.12), transparent 70%);pointer-events:none}
+  .hpill{display:inline-flex;align-items:center;gap:8px;border:1px solid #2c3957;border-radius:999px;padding:6px 14px;font-size:12.5px;color:#C4CAD6;margin-bottom:22px}
+  .hpill .d{width:7px;height:7px;border-radius:50%;background:var(--red)}
+  h1{font-size:52px;line-height:1.05;letter-spacing:-.025em;font-weight:800;max-width:15em;margin:0 auto}
+  h1 em{font-style:normal;color:#FBE4E1}
+  .sub{font-size:19px;color:#AEB6C4;max-width:33em;margin:20px auto 30px}
+  .search{max-width:600px;margin:0 auto;background:#fff;border-radius:14px;padding:8px;display:flex;align-items:center;gap:8px;box-shadow:0 30px 60px -28px rgba(0,0,0,.6)}
+  .search .ic{padding:0 4px 0 12px;color:var(--slate);font-size:16px}
+  .search input{flex:1;border:none;outline:none;font-family:var(--mono);font-size:16px;color:var(--ink);padding:12px 0}
+  .search .btn{padding:14px 22px;font-size:15px;border-radius:10px}
+  .hnote{font-size:13px;color:#8b93a3;margin-top:14px}
+  .proofwrap{margin-top:-108px;position:relative;z-index:2}
+  .proof{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:0 40px 80px -40px rgba(11,16,32,.45);overflow:hidden;max-width:760px;margin:0 auto;text-decoration:none;color:inherit;display:block}
+  .pbar{display:flex;align-items:center;gap:8px;padding:13px 18px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--slate)}
+  .pbar .dot{width:10px;height:10px;border-radius:50%;background:#E2E5EC}.pbar b{color:var(--ink)}
+  .pbody{padding:22px 24px}
+  .vtag{display:inline-flex;align-items:center;gap:8px;background:var(--red-soft);color:var(--red-ink);font-weight:700;font-size:11px;letter-spacing:.04em;text-transform:uppercase;padding:5px 11px;border-radius:999px;font-family:var(--mono)}
+  .vtag .ic{width:16px;height:16px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:11px;font-weight:800}
+  .vh{font-size:18px;font-weight:700;margin:12px 0 14px;letter-spacing:-.01em}
+  .contra{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .contra > div{padding:14px 16px}.contra .ai{background:var(--red-soft)}.contra .you{background:var(--mist);border-left:1px solid var(--line)}
+  .contra .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--slate);margin-bottom:6px}.contra .ai .lbl{color:var(--red-ink)}
+  .contra .val{font-size:19px;font-weight:800}.contra .ai .val{color:var(--red-ink)}
+  .psub{display:flex;justify-content:space-between;align-items:center;margin-top:14px;flex-wrap:wrap;gap:10px}
+  .psub .vis{font-family:var(--mono);font-size:12px;color:var(--slate)}.psub .vis b{color:var(--ink)}
+  .strip{padding:30px 0 6px;text-align:center}
+  .strip .t{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);margin-bottom:14px}
+  .strip .row{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;color:#9aa1af;font-weight:700;font-size:17px}
+  section{padding:70px 0}
+  .seye{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);text-align:center}
+  .sh{font-size:34px;font-weight:800;letter-spacing:-.025em;text-align:center;margin:12px auto 0;max-width:18em}.sh em{font-style:normal;color:var(--red)}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px}
+  .pc{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px}
+  .pc .tg{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;display:inline-flex;gap:8px;align-items:center}
+  .pc .tg .d{width:10px;height:10px;border-radius:50%}.pc.p .tg .d{background:var(--red)}.pc.v .tg .d{background:var(--green)}
+  .pc h3{font-size:22px;font-weight:800;letter-spacing:-.02em;margin:12px 0 8px}.pc p{font-size:15px;color:var(--slate)}
+  .pc .tag2{font-family:var(--mono);font-size:10px;color:var(--slate);margin-top:14px}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px}
+  .st .n{font-family:var(--mono);font-size:13px;color:var(--green);letter-spacing:.08em}
+  .st h4{font-size:18px;font-weight:700;margin:12px 0 8px;border-top:1px solid var(--ink);padding-top:14px;letter-spacing:-.01em}
+  .st p{font-size:14px;color:var(--slate)}
+  .handoff{background:var(--navy);color:#fff;border-radius:20px;padding:48px 36px;display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+  .handoff h3{font-size:26px;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}.handoff p{color:#aeb6c4;font-size:15px;max-width:36em}
+  .handoff .by{font-family:var(--mono);font-size:11px;color:#8b93a3;margin-top:10px}
+  .final{text-align:center;padding:74px 0}
+  .final h2{font-size:36px;font-weight:800;letter-spacing:-.025em;max-width:20em;margin:0 auto 14px}.final h2 em{font-style:normal;color:var(--green)}
+  .final p{color:var(--slate);max-width:34em;margin:0 auto 26px;font-size:16px}
+  footer{background:var(--navy);color:#aeb6c4;padding:46px 0 40px;margin-top:10px}
+  .fcols{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;padding-bottom:26px;border-bottom:1px solid #1d2740}
+  .fcols .logo{color:#fff;font-size:18px}
+  .fcol h5{color:#fff;font-size:12px;font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+  .fcol a{display:block;font-size:14px;color:#aeb6c4;text-decoration:none;margin-bottom:8px}.fcol a:hover{color:#fff}
+  .fbot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:20px;font-family:var(--mono);font-size:12px;color:#6f7890}
+  @media(max-width:880px){h1{font-size:38px}.two,.steps{grid-template-columns:1fr}.nl{display:none}.handoff{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav">
+  <a class="logo" href="#"><span class="mk">A</span>Agentes<span class="va">VA</span></a>
+  <div class="nl"><a href="#producto">Producto</a><a href="#como">Cómo funciona</a><a href="#por-que">Por qué</a></div>
+  <div class="nr">
+    <div class="langsw"><a class="on">ES</a><a href="#">EN</a><a href="#">RU</a></div>
+    <a class="btn g" href="mockup-agentesva-results.html">Escanear gratis</a>
+  </div>
+</div></nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="hpill"><span class="d"></span> Reputación de marca en IA · ES · EN · RU</span>
+    <h1>Gestiona lo que la IA <em>dice de tu marca</em>.</h1>
+    <p class="sub">ChatGPT, Gemini y Perplexity ya hablan de ti con tus clientes. Descubre en qué se equivocan sobre ti, y arréglalo.</p>
+    <form id="leadform" class="search" style="flex-wrap:wrap">
+      <span class="ic mono">◎</span>
+      <input name="domain" placeholder="tudominio.com" spellcheck="false" required aria-label="Tu dominio" style="flex:1;min-width:150px">
+      <input name="email" type="email" placeholder="tu@email.com" required aria-label="Tu email" style="flex:1;min-width:150px;border-left:1px solid var(--line);padding-left:12px">
+      <button class="btn solid" type="submit">Pídelo gratis →</button>
+    </form>
+    <div id="leadok" class="hnote" style="display:none;color:var(--green-br);font-weight:600">✓ Recibido. Te enviamos tu informe de reputación en IA en menos de 24 h.</div>
+    <div id="leadnote" class="hnote">Informe gratis en menos de 24 h · sin tarjeta · <a href="mockup-agentesva-results.html" style="color:#C4CAD6;text-decoration:underline">ver un ejemplo de informe</a></div>
+  </div>
+</header>
+
+<div class="wrap proofwrap">
+  <a class="proof" href="mockup-agentesva-results.html">
+    <div class="pbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span style="margin-left:6px">Ejemplo de informe · <b>tumarca.com</b></span><span style="margin-left:auto">ES + EN</span></div>
+    <div class="pbody">
+      <span class="vtag"><span class="ic">!</span> Dato falso detectado</span>
+      <div class="vh">ChatGPT le dice a tus clientes una comisión que no es la tuya.</div>
+      <div class="contra">
+        <div class="ai"><div class="lbl">La IA dice</div><div class="val">Comisión 0€</div></div>
+        <div class="you"><div class="lbl">Tu web dice</div><div class="val">Comisión 2,90€/mes</div></div>
+      </div>
+      <div class="psub">
+        <span class="vis">Y además: te recomiendan en el <b style="color:var(--amber)">11%</b> de las respuestas en español vs <b style="color:var(--green)">38%</b> en inglés.</span>
+        <span class="mono" style="font-size:12px;color:var(--green)">Ver informe completo →</span>
+      </div>
+    </div>
+  </a>
+</div>
+
+<div class="wrap strip">
+  <div class="t">Analizamos en</div>
+  <div class="row"><span>ChatGPT</span><span>Gemini</span><span>Perplexity</span><span>Claude</span><span>AI Overviews</span></div>
+</div>
+
+<section id="producto" class="wrap" style="padding-top:34px">
+  <div class="seye">Dos preguntas que tu equipo no puede responder hoy</div>
+  <h2 class="sh">La IA ya habla de tu marca. <em>¿Sabes qué dice?</em></h2>
+  <div class="two">
+    <div class="pc p">
+      <span class="tg"><span class="d"></span> Precisión</span>
+      <h3>¿Se equivocan sobre ti?</h3>
+      <p>Detectamos cuándo la IA afirma algo falso o desactualizado sobre tu marca, comisiones, condiciones, cobertura, contrastándolo con lo que publicas en tu propia web. Con la respuesta literal como prueba.</p>
+      <div class="tag2">El núcleo · reputación en IA</div>
+    </div>
+    <div class="pc v">
+      <span class="tg"><span class="d"></span> Visibilidad</span>
+      <h3>¿Te recomiendan?</h3>
+      <p>Tu share of answer por idioma y quién aparece en tu lugar cuando un cliente pregunta. Dónde eres invisible, sobre todo en español.</p>
+      <div class="tag2">El contexto</div>
+    </div>
+  </div>
+</section>
+
+<section id="como" class="wrap" style="padding-top:0">
+  <div class="seye">Cómo funciona</div>
+  <h2 class="sh">Tu dominio. 90 segundos. Cero configuración.</h2>
+  <div class="steps">
+    <div class="st"><div class="n">01</div><h4>Pegas tu dominio</h4><p>Identificamos tu marca y tus competidores desde señales públicas. Sin registro.</p></div>
+    <div class="st"><div class="n">02</div><h4>Preguntamos a la IA</h4><p>Lanzamos preguntas reales de cliente a ChatGPT, Gemini y Perplexity, en cada idioma. Nativas, no traducidas.</p></div>
+    <div class="st"><div class="n">03</div><h4>Reputación + prueba</h4><p>Qué dato falso repite la IA sobre ti (con la cita literal), dónde no te recomiendan, y el informe listo para reenviar a dirección.</p></div>
+  </div>
+</section>
+
+<section class="wrap" style="padding-top:0">
+  <div class="handoff">
+    <div>
+      <h3>¿Quieres que lo gestionemos por ti?</h3>
+      <p>Corregimos cómo te describe la IA, datos estructurados, fuentes y contenido, hasta que el dato falso desaparezca, y vigilamos que no vuelva. Auditoría y plan en 7 días.</p>
+      <div class="by">Servicio de citable · gestión de reputación de marca en IA</div>
+    </div>
+    <a class="btn g" href="#" style="padding:14px 24px;font-size:15px">Hablar con un experto →</a>
+  </div>
+</section>
+
+<section id="por-que" class="wrap final">
+  <div class="seye">Reputación de marca en la era de la IA</div>
+  <h2 class="sh" style="margin-top:14px">Lo que la IA dice de ti es tu nueva <em>primera impresión</em>.</h2>
+  <p>Y ahora mismo no sabes cuál es. Escanéalo gratis en 90 segundos.</p>
+  <a class="btn solid" href="mockup-agentesva-results.html" style="padding:14px 26px;font-size:15px">Escanear mi marca gratis</a>
+</section>
+
+<footer><div class="wrap">
+  <div class="fcols">
+    <div class="fcol" style="max-width:280px">
+      <a class="logo" href="#" style="margin-bottom:12px"><span class="mk">A</span>Agentes<span class="va">VA</span></a>
+      <p style="font-size:13px;color:#8b93a3">Gestiona lo que la IA dice de tu marca. Visibilidad y precisión en ChatGPT, Gemini y Perplexity. ES · EN · RU.</p>
+    </div>
+    <div class="fcol"><h5>Producto</h5><a href="#como">Cómo funciona</a><a href="mockup-agentesva-results.html">Escaneo gratis</a><a href="#producto">Precisión</a><a href="#producto">Visibilidad</a></div>
+    <div class="fcol"><h5>Empresa</h5><a href="sobre.html">Sobre AgentesVA</a><a href="sobre.html#manifiesto">Manifiesto</a><a href="mailto:hola@agentesva.com">Contacto</a></div>
+    <div class="fcol"><h5>Legal</h5><a href="privacidad.html">Privacidad</a><a href="privacidad.html#terminos">Términos</a></div>
+  </div>
+  <div class="fbot"><span>© 2026 AgentesVA</span><span>hola@agentesva.com · LinkedIn</span></div>
+</div></footer>
+<script>
+  // Lead capture → fulfilled manually (you run the scan + send the report within 24h).
+  // Wire it: replace YOUR_WEB3FORMS_KEY with a free key from web3forms.com, OR point to Brevo/Formspree.
+  var f=document.getElementById('leadform');
+  if(f){f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var data=new FormData(f);
+    data.append('access_key','YOUR_WEB3FORMS_KEY');
+    data.append('subject','Nuevo escaneo AgentesVA');
+    fetch('https://api.web3forms.com/submit',{method:'POST',body:data}).catch(function(){});
+    document.getElementById('leadnote').style.display='none';
+    f.style.display='none';
+    document.getElementById('leadok').style.display='block';
+  });}
+</script>
+</body>
+</html>

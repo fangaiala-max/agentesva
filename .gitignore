@@ -41,3 +41,12 @@ npm-debug.log*
 audit-*.png
 .playwright-mcp/
 live-*.jpg
+
+# Astro build output
+dist/
+.astro/
+
+# Scratch / reference binaries (kept on disk, never committed)
+/growwithai-ref.png
+/og.png
+/dist-agentesva/

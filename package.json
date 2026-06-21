@@ -1,29 +1,22 @@
 {
-  "name": "05-agentesva",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
+  "name": "agentesva-astro",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "css:build": "tailwindcss -i src/input.css -o assets/tailwind.css --minify",
-    "css:watch": "tailwindcss -i src/input.css -o assets/tailwind.css --watch"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fangaiala-max/agentesva.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/fangaiala-max/agentesva/issues"
-  },
-  "homepage": "https://github.com/fangaiala-max/agentesva#readme",
-  "devDependencies": {
-    "@tailwindcss/forms": "^0.5.11",
-    "tailwindcss": "^3.4.19"
+  "dependencies": {
+    "astro": "^5.1.0",
+    "@astrojs/tailwind": "^5.1.4",
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/rss": "^4.0.10",
+    "@astrojs/vercel": "^8.0.4",
+    "astro-icon": "^1.1.5",
+    "tailwindcss": "^3.4.17"
   }
 }

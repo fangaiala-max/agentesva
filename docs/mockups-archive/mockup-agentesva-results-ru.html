@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgentesVA · Отчёт сканирования · creditagil.ru</title>
+<style>
+  :root{
+    --navy:#0B1020; --bg:#F6F7F9; --surface:#FFFFFF; --ink:#0E1116; --slate:#5B6472; --line:#E5E8EE; --mist:#EEF1F6;
+    --green:#16A34A; --green-br:#34D87E; --green-soft:#DCF3E4; --amber:#E0A52E; --amber-soft:#F6E6C4;
+    --red:#E0483A; --red-soft:#FBE4E1; --red-ink:#9B241A;
+    --sans:"Geist",ui-sans-serif,system-ui,-apple-system,"Helvetica Neue",sans-serif;
+    --mono:"Geist Mono",ui-monospace,"SF Mono","JetBrains Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.5}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
+  .top{background:var(--navy);color:#fff}
+  .topin{max-width:880px;margin:0 auto;padding:0 24px;height:58px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:18px;letter-spacing:-.03em}
+  .logo .mk{width:21px;height:21px;border-radius:6px;background:var(--green-br);display:grid;place-items:center;color:#06250F;font-size:12px}
+  .logo .va{color:var(--green-br)}
+  .topmeta{font-family:var(--mono);font-size:12px;color:#aeb6c4;margin-left:auto}.topmeta b{color:#fff}
+  .langsw{display:flex;gap:2px;font-family:var(--mono);font-size:12px;border:1px solid #2c3957;border-radius:7px;overflow:hidden}
+  .langsw a{padding:5px 9px;color:#aeb6c4;text-decoration:none}
+  .langsw a.on{background:var(--green-br);color:#06250F;font-weight:700}
+  .verdict{background:var(--surface);border:1px solid var(--red);border-top:4px solid var(--red);border-radius:14px;padding:24px;margin-top:26px;box-shadow:0 18px 44px -30px rgba(224,72,58,.5)}
+  .vtag{display:inline-flex;align-items:center;gap:9px;background:var(--red-soft);color:var(--red-ink);font-weight:700;font-size:12px;letter-spacing:.04em;text-transform:uppercase;padding:6px 12px;border-radius:999px;font-family:var(--mono)}
+  .vtag .ic{width:18px;height:18px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:800}
+  .vh{font-size:26px;font-weight:800;letter-spacing:-.02em;margin:14px 0 4px;line-height:1.18}
+  .vh em{color:var(--red);font-style:normal}
+  .vsub{font-size:14px;color:var(--slate);margin-bottom:18px}
+  .contra{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .contra > div{padding:16px 18px}
+  .contra .ai{background:var(--red-soft)}.contra .you{background:var(--mist);border-left:1px solid var(--line)}
+  .contra .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--slate);margin-bottom:8px}
+  .contra .ai .lbl{color:var(--red-ink)}
+  .contra .val{font-size:22px;font-weight:800;letter-spacing:-.01em}.contra .ai .val{color:var(--red-ink)}
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px}
+  .chip{font-family:var(--mono);font-size:11px;padding:4px 10px;border-radius:6px;border:1px solid var(--line);background:var(--mist);color:var(--slate)}
+  .chip.risk{background:var(--red-soft);border-color:var(--red);color:var(--red-ink);font-weight:700}
+  .receipts{margin-top:14px;border:1px solid var(--line);border-radius:10px;background:var(--mist)}
+  .rhead{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;font-family:var(--mono);font-size:12px;color:var(--slate)}.rhead b{color:var(--ink)}
+  .rquote{padding:0 14px 14px}
+  .rquote .q{font-family:var(--mono);font-size:12.5px;color:var(--ink);line-height:1.6;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--red);border-radius:6px;padding:11px 13px}
+  .rquote .hl{background:var(--amber-soft);padding:0 2px}
+  .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+  .btn{font-family:var(--sans);font-weight:700;font-size:14px;border:none;cursor:pointer;border-radius:9px;padding:13px 18px;display:inline-flex;align-items:center;gap:8px;transition:.15s}
+  .btn.primary{background:var(--green);color:#fff}.btn.primary:hover{background:#0f7a3f}
+  .btn.ghost{background:var(--surface);color:var(--ink);border:1px solid var(--line)}.btn.ghost:hover{border-color:var(--slate)}
+  .cta-note{font-size:12px;color:var(--slate);margin-top:9px}
+  .sec{margin-top:30px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+  .sec h2{font-size:13px;font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--slate);font-weight:600;display:flex;align-items:center;gap:8px}
+  .sec h2 .dot{width:9px;height:9px;border-radius:50%}
+  .sec .lead{font-size:18px;font-weight:700;letter-spacing:-.01em;margin:8px 0 16px}
+  .bar{margin-bottom:14px}.bl{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;margin-bottom:6px}.bl .p{font-weight:700}
+  .trk{height:14px;background:var(--mist);border-radius:4px;overflow:hidden}.fl{height:100%;border-radius:4px;width:0;transition:width 1s cubic-bezier(.2,.7,.2,1)}
+  .fl.g{background:var(--green)}.fl.a{background:var(--amber)}
+  .gap{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);margin-top:14px;padding-top:14px}
+  .gap .n{font-size:40px;font-weight:800;color:var(--amber);line-height:1;font-variant-numeric:tabular-nums}.gap .n .u{font-size:15px;color:var(--slate)}
+  .gap .t{font-size:13px;color:var(--slate)}
+  .li{display:flex;align-items:center;gap:10px;font-size:14px;padding:9px 0;border-bottom:1px solid var(--line)}.li:last-child{border-bottom:none}
+  .li .i{font-family:var(--mono);font-size:12px;color:var(--slate);width:14px}.li .nm{font-weight:600}.li .nm.you{color:var(--green)}.li .pc{margin-left:auto;font-family:var(--mono);font-weight:700}
+  .handoff{margin-top:30px;background:var(--navy);color:#fff;border-radius:16px;padding:30px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .handoff h3{font-size:22px;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}.handoff p{color:#aeb6c4;font-size:14px;max-width:36em}
+  .handoff .btn.primary{background:var(--green-br);color:#06250F}.handoff .by{font-family:var(--mono);font-size:11px;color:#8b93a3;margin-top:10px}
+  .alerts{margin-top:18px;border:1px dashed var(--line);border-radius:12px;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;background:var(--surface)}
+  .alerts .t{font-size:14px}.alerts .t b{font-weight:700}.alerts .f{display:flex;gap:8px}
+  .alerts input{border:1px solid var(--line);border-radius:8px;padding:11px 12px;font-family:var(--mono);font-size:14px;outline:none;min-width:210px}.alerts input:focus{border-color:var(--green)}
+  footer{margin:36px 0 50px;text-align:center;font-family:var(--mono);font-size:12px;color:var(--slate)}
+  @media(max-width:620px){.contra{grid-template-columns:1fr}.contra .you{border-left:none;border-top:1px solid var(--line)}.handoff{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+<div class="top"><div class="topin">
+  <div class="logo"><span class="mk">A</span>Agentes<span class="va">VA</span></div>
+  <span class="topmeta">Отчёт · <b>creditagil.ru</b> · 6 июн 2026</span>
+  <div class="langsw"><a href="mockup-agentesva-results.html">ES</a><a href="mockup-agentesva-results-en.html">EN</a><a class="on">RU</a></div>
+</div></div>
+
+<div class="wrap">
+  <div class="verdict">
+    <span class="vtag"><span class="ic">!</span> Обнаружены ложные данные</span>
+    <div class="vh">ChatGPT сообщает клиентам ставку, <em>которой у вас нет</em>.</div>
+    <div class="vsub">Когда кто-то спрашивает о вашем продукте, ИИ называет цифру, которая противоречит вашему сайту. Для регулируемого продукта это риск для комплаенса.</div>
+    <div class="contra">
+      <div class="ai"><div class="lbl">▮ ИИ говорит</div><div class="val">ставка от 5,0%</div></div>
+      <div class="you"><div class="lbl">▮ Ваш сайт</div><div class="val">ставка 8,9%</div></div>
+    </div>
+    <div class="meta-row">
+      <span class="chip risk">Риск: высокий · регуляторный</span>
+      <span class="chip">В 4 из 40 ответов (RU)</span>
+      <span class="chip">2 модели: ChatGPT, Gemini</span>
+    </div>
+    <div class="receipts">
+      <div class="rhead"><span>Доказательство — дословный ответ ИИ</span><b>ChatGPT · GPT-4o · ru-RU · 6 июн ▾</b></div>
+      <div class="rquote"><div class="q">"У CreditAgil ставка по потребительским кредитам <span class="hl">начинается от 5%</span>, что делает его одним из самых выгодных вариантов для заёмщиков…"</div></div>
+    </div>
+    <div class="cta-row">
+      <button class="btn primary">✉ Отправить руководителю</button>
+      <button class="btn ghost">⤓ Скачать отчёт (PDF)</button>
+    </div>
+    <div class="cta-note">🔒 Приватная ссылка. Видят только те, кому вы её отправите. Не индексируется.</div>
+  </div>
+
+  <div class="sec">
+    <h2><span class="dot" style="background:var(--green)"></span> Видимость · контекст</h2>
+    <div class="lead">И ещё: на языке ваших клиентов ИИ почти вас не рекомендует.</div>
+    <div class="bar"><div class="bl"><span>Доля ответов · Английский</span><span class="p" style="color:var(--green)">38%</span></div><div class="trk"><div class="fl g" data-w="38"></div></div></div>
+    <div class="bar"><div class="bl"><span>Доля ответов · Русский</span><span class="p" style="color:var(--amber)">11%</span></div><div class="trk"><div class="fl a" data-w="11"></div></div></div>
+    <div class="gap"><div class="n">27<span class="u"> пт</span></div><div class="t">Ваш разрыв между языками, на которых говорят ваши клиенты.</div></div>
+  </div>
+
+  <div class="sec">
+    <h2><span class="dot" style="background:var(--amber)"></span> Кого ИИ рекомендует вместо вас</h2>
+    <div class="li"><span class="i">1</span><span class="nm">Тинькофф</span><span class="pc">39%</span></div>
+    <div class="li"><span class="i">2</span><span class="nm">Сбер</span><span class="pc">24%</span></div>
+    <div class="li"><span class="i">3</span><span class="nm">Совкомбанк</span><span class="pc">17%</span></div>
+    <div class="li"><span class="i">9</span><span class="nm you">CreditAgil</span><span class="pc" style="color:var(--green)">11%</span></div>
+  </div>
+
+  <div class="handoff">
+    <div>
+      <h3>Хотите, чтобы мы это исправили?</h3>
+      <p>Мы корректируем то, как ИИ описывает вас — schema, источники, контент — пока ложные данные не исчезнут, а вы не подниметесь в выдаче. Аудит и план за 7 дней.</p>
+      <div class="by">Сервис citable · специалисты по видимости в ИИ</div>
+    </div>
+    <button class="btn primary">Поговорить с экспертом →</button>
+  </div>
+
+  <div class="alerts">
+    <div class="t"><b>Следите бесплатно.</b> Сообщим на email, как только ИИ снова ошибётся о вас.</div>
+    <div class="f"><input placeholder="you@email.com"><button class="btn primary">Включить оповещения</button></div>
+  </div>
+
+  <footer>AgentesVA · Видимость и точность бренда в ИИ · бесплатное сканирование</footer>
+</div>
+<script>window.addEventListener('load',()=>{setTimeout(()=>document.querySelectorAll('.fl').forEach(f=>f.style.width=f.dataset.w+'%'),250)});</script>
+</body>
+</html>

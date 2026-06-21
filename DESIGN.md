@@ -1,197 +1,71 @@
-# AgentesVA Design System v2 — Editorial cálido
+# Design System — AgentesVA
 
-**Aplicado:** 2026-04-26 (origen: AgentesVA Redesign Standalone.html, Version A)
-**Tono:** humano, profesional, editorial. Antítesis de "AI hype slop".
+> Replaces the previous "Editorial cálido" consulting brand. AgentesVA is now a **product brand** for a fintech AI-visibility + accuracy SaaS. Reference mockups: `mockup-agentesva-sw.html` (chosen direction), `mockup-agentesva-dashboard.html` (app).
 
-## 1. Paleta de color
+## Product Context
+- **What this is:** AgentesVA — a self-serve SaaS that monitors how AI agents (ChatGPT, Gemini, Perplexity, Claude) **recommend** (visibility / Share of Answer) and **describe** (accuracy / risk on regulated claims) a fintech's products vs competitors, in Spanish + English (LATAM + Spain), and helps fix it.
+- **Name:** AgentesVA = "Agentes Virtuales" (the AI agents the product monitors). Two pillars: **Visibilidad** + **Precisión**.
+- **Who it's for:** Heads of Growth/Brand/Marketing + Compliance/Comms at LATAM & Spain neobanks, payments, lending, B2B fintech.
+- **Space:** AI search visibility / GEO-AEO, data-intelligence SaaS (peer reference for *language only*: SimilarWeb). Differentiator vs horizontal tools: vertical fintech + bilingual LATAM depth + the **accuracy** pillar.
+- **Brand posture:** product brand, **no public founder face** (founder restricted). Sister brand: **citable** (the done-for-you agency, light editorial/citation-blue). AgentesVA must read as *related in rigor, distinct in face* — bolder, data-SaaS, green.
 
-### Neutros (paper / ink)
-| Token | Hex | Uso |
+## Aesthetic Direction
+- **Direction:** confident data-intelligence SaaS. Dark hero → domain-search as the hero action → product dashboard as proof → clean light body. Evidence-led, modern, trustworthy. (SimilarWeb design *language*, not a clone.)
+- **Decoration:** minimal-to-intentional. Rounded cards, soft shadows, one subtle radial glow on the dark hero. No gradients as accents, no AI-brain imagery, no stock photos, no purple.
+- **Mood:** "a credible instrument a fintech CMO and a compliance lead both trust."
+- **Reference:** `mockup-agentesva-sw.html`.
+
+## Typography
+- **Display/Hero:** Geist (700/800), tight tracking (-0.02 to -0.025em). Fallback: "Helvetica Neue", system-ui.
+- **Body/UI:** Geist (400/500/600).
+- **Data/Mono:** Geist Mono — scores, prompts, domains, metrics. Always `font-variant-numeric: tabular-nums`.
+- **Loading:** self-host or Google/Bunny Fonts for Geist + Geist Mono.
+- **Scale (16px base):** Display 54/56 · H1 42/44 · H2 36 · H3 23 · Body-lg 19 · Body 16 · Caption 13 · Mono 12-14.
+
+## Color
+Light body, dark hero/CTA. Green is the brand (visibility); amber + red are the other two verdicts.
+- **Navy (hero/CTA bg):** `#0B1020` · deep variant `#111935`
+- **Body bg:** `#F6F7F9` · **Surface:** `#FFFFFF` · **Mist (tracks/fills bg):** `#EEF1F6`
+- **Ink (text):** `#0E1116` · **Slate (secondary):** `#5B6472` · **Line:** `#E5E8EE`
+- **Green (PRIMARY — visibility):** `#16A34A` · bright (on dark) `#34D87E` · soft `#DCF3E4`
+- **Amber (the gap / attention):** `#E0A52E`
+- **Red (accuracy / false claim):** `#E0483A` · soft `#F8DDD9`
+- **Semantic = brand:** green/amber/red are not generic states, they ARE the product's three verdicts (recommended / gap / false). Use them consistently with that meaning.
+- **Ratio:** ~70% neutral (bg/surface), green as the confident accent, amber/red only on data verdicts.
+- **Contrast:** Ink on body ≥ 14:1; bright green `#34D87E` on navy for dark-surface accents/CTAs.
+
+## Spacing
+- **Base:** 4px. **Density:** comfortable (it's a data product but must breathe).
+- **Scale:** 4 · 8 · 12 · 16 · 24 · 32 · 48 · 64.
+
+## Layout
+- **Pattern:** dark hero (centered headline + domain search) → product-proof panel overlapping up into the page (`margin-top: -110px`) → "Medimos en" logo strip → light card-based sections → dark CTA block.
+- **Hero action = the grader:** a white rounded search bar with a domain input + green button is the signature hero element. Always present.
+- **Max content width:** 1180px. **Grid:** 12-col responsive; app dashboards use a 228px sidebar + fluid main.
+- **Border radius:** sm 8px · md 10-12px · lg 14-16px · pill 999px.
+
+## Motion
+- **Approach:** intentional. Count-ups on metrics, bar-fill transitions (1.1s cubic-bezier(.2,.7,.2,1)), live-scan pulse dot. No decorative/scroll-jacking motion.
+- **Easing:** enter ease-out · move ease-in-out. **Duration:** micro 80ms · short 150-250ms · data 900-1100ms.
+
+## Components
+- **Domain search (hero):** white pill, mono input, green primary button "Ver mi visibilidad ▸".
+- **Product-proof panel:** white card, browser-dot bar, ES-vs-EN bars (green/amber), big amber gap number, ranked-competitor list, red accuracy alert row.
+- **Accuracy alert:** red-soft bg, red border, mono uppercase "Precisión" tag. The signature differentiator — surface it prominently.
+- **Buttons:** primary = green; on navy = bright green `#34D87E` with dark text `#06250F`; secondary = ghost with 1px border.
+- **Lens nav (app):** dark sidebar; Visibilidad (green dot, active) + Precisión (red dot) as the two pillars.
+
+## Brand vs citable (keep distinct)
+| | AgentesVA (product) | citable (agency) |
 |---|---|---|
-| `--paper` | `#F7F3EC` | Fondo principal cálido (cream) |
-| `--paper-2` | `#EFE8DC` | Fondo de secciones secundarias |
-| `--paper-3` | `#E5DCC8` | Acentos sutiles |
-| `--card` | `#FFFEFB` | Tarjetas elevadas |
-| `--ink` | `#1A1814` | Texto principal, fondos oscuros |
-| `--ink-2` | `#3D362C` | Texto secundario |
-| `--ink-3` | `#6B6253` | Texto terciario, eyebrows |
-| `--ink-4` | `#9A8F7C` | Texto deshabilitado |
-| `--line` | `#D9CFB8` | Bordes |
-| `--line-soft` | `#E8DFCC` | Bordes suaves |
+| Face | bold data-SaaS, dark hero, green | light editorial "research paper", citation-blue |
+| Type | Geist / Geist Mono | Inter / IBM Plex Mono |
+| Feel | live instrument | calm authority |
 
-### Acento primario — Clay (terracota cálido)
-| Token | Hex | Uso |
-|---|---|---|
-| `--clay` | `#C2543A` | Acentos primarios, italic emphasis |
-| `--clay-deep` | `#9C3F2A` | Hover |
-| `--clay-soft` | `#E8B5A4` | Underline tones |
-| `--clay-wash` | `#F4DDD2` | Backgrounds suaves |
-
-### Secundarios
-| Token | Hex | Uso |
-|---|---|---|
-| `--forest` | `#2F4A3A` | Estados positivos / "after" |
-| `--forest-soft` | `#5C7868` | Borders forest |
-| `--forest-wash` | `#DFE7E0` | Backgrounds positivos |
-| `--sand` | `#E8C77E` | Highlights amarillos |
-| `--sand-wash` | `#F5E9CC` | Backgrounds sand |
-
-## 2. Tipografía
-
-| Familia | Uso | Token |
-|---|---|---|
-| **Fraunces** (serif) | Headings, italic emphasis. **DISPLAY signature.** | `--serif` |
-| **Inter Tight** (sans) | Body, UI | `--sans` |
-| **JetBrains Mono** | Eyebrows, labels, métricas, codes | `--mono` |
-
-### Escalas
-- `h1` — clamp(48px, 6vw, 84px), letter-spacing -0.02em, line 1.05
-- `h2` — clamp(36px, 4.2vw, 56px)
-- `h3` — clamp(22px, 2vw, 28px)
-- Body — 15px, line 1.5
-- Eyebrow — 11px, letter-spacing 0.16em, uppercase, mono
-
-### Patrón signature
-```html
-<h1 class="serif">
-  Texto normal con
-  <em>énfasis italic clay</em>
-  o
-  <span class="underline">underline soft</span>
-</h1>
-```
-
-## 3. Espaciado y layout
-
-- `--max: 1240px` container
-- Padding lateral: 32px desktop, 20px mobile
-- Padding vertical sección: **120px desktop**
-- Gap interno: 48-64px
-
-## 4. Forma
-
-- `--r-sm: 6px` chips, tags
-- `--r-md: 10px` cards small
-- `--r-lg: 16px` cards principales
-- `--r-xl: 24px` CTA cards grandes
-- Botones: 999px (pill)
-
-## 5. Sombras
-
-- `--sh-sm` sutil
-- `--sh-md` cards interactivas
-- `--sh-lg` portrait, hero illus
-
-## 6. Componentes signature
-
-### Hero block
-- Grid 1.1fr / 0.9fr
-- H1 `clamp(52px, 6.5vw, 96px)` con `<em>` italic-clay
-- Lead 19px ink-2
-- CTA pill ink → paper
-- 3 métricas border-top/bottom con número serif italic
-- Industries row con tags al pie
-
-### Stats band (dark)
-- Background `--ink`, color `--paper`
-- 4 columnas con números serif 80px
-- Borders translúcidos blancos
-- `<em>` numerals en `--clay-soft`
-
-### Pain grid (problem)
-- 3 cols
-- Cards `--card` con borde `--line-soft`
-- "PAIN 0X / 06" mono uppercase clay
-- Hover lift translateY(-2px)
-
-### Before/After
-- Grid 1fr auto 1fr con flecha "→" italic clay 48px
-- Card "before" gradient → clay-wash
-- Card "after" gradient → forest-wash
-- Listas con icon circle: − clay / ✓ forest
-
-### Process steps
-- 4 circles, primero clay, segundo clay-wash, tercero ink, cuarto sand
-- Línea horizontal connector
-
-### Testimonials
-- Featured card dark (ink), regulares card cream
-- Quote serif 22-28px con "" decorativa serif italic
-- Result tag mono pequeño verde forest
-
-### CTA card
-- Dark ink rounded xl
-- Radial gradient clay top-right
-- 1.3fr / 1fr grid
-- Botón paper sobre ink
-
-## 7. Reglas de uso
-
-### Voz visual
-- **Italic = clay siempre.** No usar italic sin clay.
-- **Eyebrows = mono uppercase.** No mezclar con sans en su rol.
-- **Números grandes = serif italic.** Especialmente em dentro: `+<em>60</em>%`
-- **No drop shadows random.** Solo los 3 tokens definidos.
-
-### Anti-patrones
-- ❌ Gradientes blue/purple (visto en mil sitios SaaS)
-- ❌ Iconografía geométrica fría
-- ❌ Sans-serif everything
-- ❌ Color primario "vibrante" tipo brand-blue
-- ✅ Editorial calidez, contraste sobrio, italic emphasis
-- ✅ Mono labels para detalles técnicos
-- ✅ Números grandes serif para autoridad
-
-## 8. Aplicación
-
-CSS en `/assets/redesign-v2.css`. Reemplaza Tailwind+M3 anterior por este sistema.
-
-Uso típico:
-```html
-<link rel="stylesheet" href="/assets/redesign-v2.css">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-<div class="dirA">
-  <nav class="dirA-nav">...</nav>
-  <section class="dirA-hero">...</section>
-  <section class="dirA-stats">...</section>
-  ...
-</div>
-```
-
-## 9. Migración del sitio
-
-Aplica primero a:
-1. **/index.html** (homepage) — full redesign
-2. **/sobre/** — adapt to editorial system
-3. **/precios/** — same
-4. **/como-empezar/** — same
-5. **/diagnostico/** — same
-
-Mantener mientras coexiste:
-- HubSpot Forms API integration
-- Mixpanel / GA4 tracking
-- Schema.org JSON-LD
-- Calendly URL: https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min
-
-## 10. Adaptaciones AgentesVA-specific
-
-El mockup original incluye placeholders que NO aplican a AgentesVA:
-- ❌ "Diego Vargas" + foto del founder → **Anónimo + ilustración o block decorativo**
-- ❌ "Casa Grumo Bogotá" → **Restaurante (anonimizado, +60% facturación)**
-- ❌ "Medellín, Buenos Aires, CDMX" → **Madrid, Barcelona + LATAM**
-- ❌ Logos cells "Casa Grumo, Lumina..." → **Industria + ciudad anonimizada o quitar**
-- ❌ Founder section con foto → **Replace por sección "Sobre" con anonimato defendible** (ver /sobre/)
-- ❌ "+40% facturación promedio" → **+60% (caso restaurante real)**
-- ❌ Stack incluye Salesforce, Stripe → **Mantener solo herramientas reales: Make, Claude, HubSpot, WhatsApp Business, OpenAI, Resend**
-
-Casos reales que SÍ aplican:
-- Restaurante +60% facturación (€25k→€40k/mes)
-- Escuela de idiomas +60% alumnos (500→800)
-- Renting de camiones +70% utilización (40%→68%)
-
-Posicionamiento Spain-primary se aplica en:
-- Hero copy
-- Industries badges
-- Footer ("desde España, operación remota a LATAM")
-- Geo meta tags (ya migrado)
+## Decisions Log
+| Date | Decision | Rationale |
+|------|----------|-----------|
+| 2026-06-05 | New AgentesVA product-brand design system (replaces consulting "Editorial cálido") | Repositioned to fintech AI-visibility+accuracy SaaS; product brand, no founder face |
+| 2026-06-05 | SimilarWeb design *language* (dark hero + domain-search + dashboard proof) | Best-in-class data-intelligence SaaS pattern; domain-input = the grader. Adapted, not cloned (trade-dress/IP). |
+| 2026-06-05 | Green primary (not SimilarWeb blue / not citable blue) | Green = "visible" (the product's promise) + finance; differentiates from sister brand citable |
+| 2026-06-05 | Green/amber/red as semantic brand colors | They are the product's three verdicts: recommended / gap / false |

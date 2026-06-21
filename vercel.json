@@ -1,6 +1,4 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
   "headers": [
     {
       "source": "/(.*)",
@@ -31,25 +29,16 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.mxpnl.com https://*.mxpnl.com https://js-eu1.hs-scripts.com https://*.hs-scripts.com https://*.hs-analytics.net https://*.hs-banner.com https://*.hscollectedforms.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://api-eu.mixpanel.com https://*.mxpnl.com https://js-eu1.hs-scripts.com https://*.hs-analytics.net https://api-eu1.hubapi.com https://hook.eu1.make.com https://api.hsforms.com https://*.hs-banner.com https://*.hscollectedforms.net https://forms-eu1.hsforms.com https://*.hsforms.net; frame-src 'self' https://calendly.com https://*.calendly.com; object-src 'none'; base-uri 'self'; form-action 'self' https://calendly.com https://*.calendly.com; frame-ancestors 'self'; upgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
         }
       ]
     },
     {
-      "source": "/assets/(.*)",
+      "source": "/_astro/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/(.*\\.html)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
         }
       ]
     }
@@ -58,10 +47,6 @@
     {
       "source": "/api/subscribe",
       "destination": "/api/subscribe.js"
-    },
-    {
-      "source": "/wh/wa",
-      "destination": "/api/wa.js"
     }
   ]
 }
