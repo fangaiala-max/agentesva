@@ -60,6 +60,45 @@ input::placeholder { color: var(--fg-5); }
 .reveal { animation: fadeUp both; animation-timeline: view(); animation-range: entry 0% cover 22%; }
 .searchwrap:focus-within { border-color: var(--accent) !important; box-shadow: 0 0 24px rgba(91,124,255,0.22); }
 
+/* ===== Motion (patrones modernos, implementación nativa) ===== */
+@property --bd-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+
+@keyframes blurIn {
+  from { opacity: 0; filter: blur(12px); transform: translateY(10px); }
+  to { opacity: 1; filter: blur(0); transform: none; }
+}
+@keyframes borderSpin { to { --bd-angle: 360deg; } }
+
+/* text reveal — entrada escalonada en carga (delays inline por elemento) */
+.blur-in { animation: blurIn .7s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+
+/* shimmer — barrido diagonal en hover sobre CTAs */
+.shimmer { position: relative; overflow: hidden; isolation: isolate; }
+.shimmer::after {
+  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(120deg, transparent 28%, rgba(255, 255, 255, 0.28) 50%, transparent 72%);
+  transform: translateX(-120%);
+  transition: transform .6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.shimmer:hover::after { transform: translateX(120%); }
+
+/* spotlight — glow radial que sigue al cursor (vars desde motion.ts) */
+.spotlight::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; z-index: 0; pointer-events: none;
+  background: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), rgba(91, 124, 255, 0.14), transparent 60%);
+  opacity: 0; transition: opacity .3s;
+}
+.spotlight:hover::before { opacity: 1; }
+
+/* borde conic giratorio — wrapper (envuelve la tarjeta destacada del Pack) */
+.animated-border {
+  background: conic-gradient(from var(--bd-angle), var(--line-2) 0deg, var(--accent) 50deg, var(--line-2) 115deg, var(--line-2) 360deg);
+  animation: borderSpin 6s linear infinite;
+}
+
+/* magnético — desplazamiento suave hacia el cursor (motion.ts) */
+.magnetic { transition: transform .25s cubic-bezier(0.22, 0.61, 0.36, 1); will-change: transform; }
+
 /* Foco visible accesible para todo elemento interactivo */
 a:focus-visible, button:focus-visible, input:focus-visible {
   outline: 2px solid var(--accent);

@@ -10,7 +10,7 @@ const search = `${tool.name} ${tool.desc} ${tool.cat}`.toLowerCase();
 ---
 
 <article
-  class="lift tool-card"
+  class="lift tool-card spotlight"
   data-cat={tool.cat}
   data-search={search}
   style="position: relative; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 14px;"
@@ -21,7 +21,7 @@ const search = `${tool.name} ${tool.desc} ${tool.cat}`.toLowerCase();
     style="position: absolute; inset: 0; z-index: 1; border-radius: 8px;"
   ></a>
   <div style="display: flex; align-items: flex-start; gap: 13px;">
-    <div style={`width: 42px; height: 42px; border-radius: 9px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 19px; color: #fff; background: ${tool.color};`}>{initial}</div>
+    <div transition:name={`mono-${tool.slug}`} style={`width: 42px; height: 42px; border-radius: 9px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 19px; color: #fff; background: ${tool.color};`}>{initial}</div>
     <div style="flex: 1; min-width: 0;">
       <div style="font-family: var(--sans); font-weight: 600; font-size: 16px; color: #fff;">{tool.name}</div>
       <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5); margin-top: 3px;">{tool.cat}</div>

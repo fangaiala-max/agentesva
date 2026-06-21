@@ -59,8 +59,23 @@ Líneas: `--line #1c1c24` · `--line-2 #262632` · `--line-3 #3a3a52` (hover).
 - `.searchwrap:focus-within` — borde + glow azul al enfocar la búsqueda.
 - `.reveal` — entrada scroll-driven (`view()`); **no usar en contenido primario** (queda opacity:0 hasta el scroll; el grid del directorio NO lo usa).
 
-### Motion
-Aurora (`auroraDrift`), rejilla (`gridDrift`), glow (`glowPulse`), marquee, count-up de stats, cursor `blink`. Todo bajo `@media (prefers-reduced-motion: reduce)` → desactivado.
+### Motion — "Confident, electric, restrained"
+
+Tesis: el movimiento debe leerse como **intencional y vivo, nunca decorativo**. Reglas duras (validar todo contra ellas): solo `transform`/`opacity`/`filter` (GPU, sin animar layout); **sin runtime JS de animación** (mantiene `script-src 'self'` + Lighthouse 100); **todo respeta `prefers-reduced-motion`** (global en `global.css`). Inspiración de patrones modernos (21st.dev) implementada **nativa** (CSS + mínimo vanilla + Astro View Transitions).
+
+**Ambiente (de fondo):** `auroraDrift`, `gridDrift`, `glowPulse` (logo/CTA), `marquee` (ticker), count-up de stats, cursor `blink`.
+
+**Micro-interacciones:**
+- `.lift` — hover de tarjetas (translateY + glow).
+- **Spotlight** — glow radial que sigue al cursor en las fichas (`--mx/--my` desde un `pointermove` delegado; `motion.ts`).
+- **Blur-in / text reveal** — entrada escalonada de eyebrow → H1 → subtítulo → búsqueda en el hero (`@keyframes blurIn`, `animation-delay`); titulares de sección vía scroll (`.reveal`).
+- **Shimmer** — barrido diagonal en hover sobre los CTA primarios (`.shimmer::after`).
+- **Borde animado** — borde conic-gradient giratorio (`@property --bd-angle`) en la tarjeta destacada del Pack (1 sitio).
+- **Magnético** — el CTA del hero se desplaza ligero hacia el cursor (`data-magnetic`, `motion.ts`).
+
+**Transiciones de página:** **Astro View Transitions** (`<ClientRouter/>`): morph con elemento compartido (el monograma de la herramienta, `transition:name="mono-<slug>"`) entre listado/home y ficha. Los scripts de página se re-inicializan en `astro:page-load`.
+
+**Evitar (mismatch de marca / perf / a11y):** cursor trails, partículas, blobs, parallax, scroll-jacking, overshoot de muelle en todo, animar las 52 tarjetas a la vez, cualquier animación sin ruta de `reduced-motion`.
 
 ### Accesibilidad
 - Foco visible (`:focus-visible` outline azul) en todo interactivo.

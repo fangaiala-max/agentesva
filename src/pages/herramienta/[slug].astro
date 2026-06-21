@@ -54,7 +54,7 @@ const jsonLd = {
     <a href="/#directorio" class="navlink" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-4); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">← Volver al directorio</a>
 
     <div style="display: flex; align-items: flex-start; gap: 22px; margin-top: 26px; border-bottom: 1px solid var(--line); padding-bottom: 32px; flex-wrap: wrap;">
-      <div style={`width: 74px; height: 74px; border-radius: 16px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 33px; color: #fff; background: ${tool.color};`}>{initial}</div>
+      <div transition:name={`mono-${tool.slug}`} style={`width: 74px; height: 74px; border-radius: 16px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 33px; color: #fff; background: ${tool.color};`}>{initial}</div>
       <div style="flex: 1; min-width: 220px;">
         <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);">{tool.cat}</div>
         <h1 style="font-family: var(--sans); font-weight: 700; font-size: clamp(30px, 6vw, 40px); letter-spacing: -0.03em; margin: 6px 0 0; color: #fff;">{tool.name}</h1>
@@ -65,7 +65,7 @@ const jsonLd = {
         </div>
       </div>
       <div style="display: flex; flex-direction: column; gap: 10px; flex: none;">
-        <a href={`/ir/${tool.slug}`} target="_blank" rel="sponsored nofollow noopener" class="lift" style="background: var(--accent); color: var(--bg); border: none; padding: 13px 24px; border-radius: 2px; font-family: var(--sans); font-weight: 600; font-size: 14px; text-decoration: none; text-align: center; white-space: nowrap;">Visitar sitio →</a>
+        <a href={`/ir/${tool.slug}`} target="_blank" rel="sponsored nofollow noopener" class="lift shimmer" style="background: var(--accent); color: var(--bg); border: none; padding: 13px 24px; border-radius: 2px; font-family: var(--sans); font-weight: 600; font-size: 14px; text-decoration: none; text-align: center; white-space: nowrap;">Visitar sitio →</a>
         <button type="button" id="save-btn" data-slug={tool.slug} aria-pressed="false" style="background: var(--panel-2); color: var(--fg-2); border: 1px solid var(--line-2); padding: 13px 24px; border-radius: 2px; font-family: var(--sans); font-weight: 600; font-size: 14px; cursor: pointer; white-space: nowrap;"><span id="save-label">Guardar</span></button>
       </div>
     </div>
@@ -139,5 +139,9 @@ const jsonLd = {
 
 <script>
   import { initToolDetail } from '../../scripts/tool-detail';
-  initToolDetail();
+  import { initMotion } from '../../scripts/motion';
+  document.addEventListener('astro:page-load', () => {
+    initToolDetail();
+    initMotion();
+  });
 </script>
