@@ -1,0 +1,23 @@
+{
+  "name": "ManyChat",
+  "cat": "WhatsApp",
+  "desc": "Bots de WhatsApp e Instagram para vender.",
+  "price": "Freemium",
+  "rating": "4.6",
+  "color": "#2BC3A8",
+  "tagline": "Bots de WhatsApp e Instagram que venden por ti.",
+  "ideal": "Tiendas y servicios locales",
+  "url": "https://manychat.com",
+  "long": "ManyChat automatiza la conversación con tus clientes en WhatsApp e Instagram: responde, capta datos y agenda sin que tengas que estar pendiente.",
+  "features": [
+    "Responde mensajes 24/7",
+    "Capta clientes desde Instagram",
+    "Envía campañas por WhatsApp"
+  ],
+  "steps": [
+    "Conecta tu cuenta en manychat.com",
+    "Diseña el flujo de conversación",
+    "Activa las respuestas automáticas"
+  ],
+  "orden": 7
+}

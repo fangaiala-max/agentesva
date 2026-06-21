@@ -2,17 +2,21 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
-import { TOOLS, getAlternatives, PRICE_COLOR, type Tool } from '../../data/tools';
+import { getCollection } from 'astro:content';
+import { toTool, getAlternatives, PRICE_COLOR, type Tool } from '../../data/tools';
 
-export function getStaticPaths() {
-  return TOOLS.map((tool) => ({ params: { slug: tool.slug }, props: { tool } }));
+export async function getStaticPaths() {
+  const tools = (await getCollection('tools')).map(toTool).sort((a, b) => a.orden - b.orden);
+  return tools.map((tool) => ({
+    params: { slug: tool.slug },
+    props: { tool, alts: getAlternatives(tools, tool) },
+  }));
 }
 
-interface Props { tool: Tool }
-const { tool } = Astro.props;
+interface Props { tool: Tool; alts: Tool[] }
+const { tool, alts } = Astro.props;
 const initial = tool.name.charAt(0);
 const priceColor = PRICE_COLOR[tool.price];
-const alts = getAlternatives(tool);
 const site = 'https://agentesva.com';
 
 const jsonLd = {

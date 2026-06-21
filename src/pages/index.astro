@@ -3,7 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import ToolCard from '../components/ToolCard.astro';
-import { TOOLS, CATEGORIES } from '../data/tools';
+import { getCollection } from 'astro:content';
+import { toTool } from '../data/tools';
+
+const tools = (await getCollection('tools')).map(toTool).sort((a, b) => a.orden - b.orden);
+const cats = (await getCollection('categories')).sort((a, b) => a.data.orden - b.data.orden);
+const CATEGORIES = ['Todas', ...cats.map((c) => c.data.nombre)];
 ---
 
 <BaseLayout
@@ -49,11 +54,11 @@ import { TOOLS, CATEGORIES } from '../data/tools';
   <section id="directorio" style="max-width: 1200px; margin: 0 auto; padding: 44px 32px 64px; scroll-margin-top: 80px;">
     <div style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 16px; margin-bottom: 28px; gap: 16px; flex-wrap: wrap;">
       <h2 style="font-family: var(--sans); font-weight: 700; font-size: 22px; letter-spacing: -0.02em; margin: 0; color: #fff;">Herramientas de IA</h2>
-      <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-5);"><span id="result-count" style="color: var(--accent);">{TOOLS.length}</span> resultados · <span id="result-cat">Todas</span></span>
+      <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-5);"><span id="result-count" style="color: var(--accent);">{tools.length}</span> resultados · <span id="result-cat">Todas</span></span>
     </div>
 
     <div id="tool-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px;">
-      {TOOLS.map((tool) => <ToolCard tool={tool} />)}
+      {tools.map((tool) => <ToolCard tool={tool} />)}
     </div>
 
     <div id="empty-state" hidden style="border: 1px dashed var(--line-2); border-radius: 8px; padding: 56px 24px; text-align: center;">

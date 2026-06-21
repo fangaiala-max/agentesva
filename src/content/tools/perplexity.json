@@ -1,0 +1,23 @@
+{
+  "name": "Perplexity",
+  "cat": "Asistentes",
+  "desc": "Respuestas con fuentes citadas.",
+  "price": "Freemium",
+  "rating": "4.7",
+  "color": "#20808D",
+  "tagline": "Buscador con IA que responde citando sus fuentes.",
+  "ideal": "Investigación y contenido",
+  "url": "https://perplexity.ai",
+  "long": "Perplexity combina buscador y asistente: responde tus preguntas y enlaza las fuentes para que verifiques. Muy útil para investigar mercado y competencia.",
+  "features": [
+    "Respuestas con fuentes citadas",
+    "Investigación de mercado rápida",
+    "Resúmenes de temas complejos"
+  ],
+  "steps": [
+    "Abre perplexity.ai",
+    "Haz tu pregunta en español",
+    "Revisa las fuentes enlazadas"
+  ],
+  "orden": 3
+}

@@ -1,0 +1,23 @@
+{
+  "name": "ElevenLabs",
+  "cat": "Voz",
+  "desc": "Voces de IA naturales en español.",
+  "price": "Freemium",
+  "rating": "4.6",
+  "color": "#111827",
+  "tagline": "Voces de IA naturales en español.",
+  "ideal": "Vídeo y podcast",
+  "url": "https://elevenlabs.io",
+  "long": "ElevenLabs convierte texto en voz natural en español. Útil para locutar vídeos, anuncios o tutoriales sin un estudio de grabación.",
+  "features": [
+    "Voces realistas para vídeos",
+    "Locuta textos y guiones",
+    "Clona tu propia voz"
+  ],
+  "steps": [
+    "Regístrate en elevenlabs.io",
+    "Pega tu texto y elige una voz",
+    "Descarga el audio generado"
+  ],
+  "orden": 12
+}

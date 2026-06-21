@@ -1,0 +1,23 @@
+{
+  "name": "Canva IA",
+  "cat": "Diseño",
+  "desc": "Posts e imágenes de marca al instante.",
+  "price": "Freemium",
+  "rating": "4.7",
+  "color": "#7D2AE8",
+  "tagline": "Diseña posts e imágenes de marca al instante.",
+  "ideal": "Marketing visual",
+  "url": "https://canva.com",
+  "long": "Canva pone el diseño al alcance de cualquiera: plantillas, generación de imágenes con IA y edición sencilla para que tus redes luzcan profesionales.",
+  "features": [
+    "Plantillas para redes y anuncios",
+    "Genera imágenes por texto",
+    "Quita fondos y edita rápido"
+  ],
+  "steps": [
+    "Entra en canva.com",
+    "Elige una plantilla o pide una imagen",
+    "Ajusta colores y texto a tu marca"
+  ],
+  "orden": 10
+}
