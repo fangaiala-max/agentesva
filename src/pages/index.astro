@@ -9,14 +9,36 @@ import { toTool } from '../data/tools';
 const tools = (await getCollection('tools')).map(toTool).sort((a, b) => a.orden - b.orden);
 const cats = (await getCollection('categories')).sort((a, b) => a.data.orden - b.data.orden);
 const CATEGORIES = ['Todas', ...cats.map((c) => c.data.nombre)];
+
+const site = 'https://agentesva.com';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      name: 'AgentesVA',
+      url: site,
+      logo: `${site}/brand/avatar.png`,
+      description: 'Directorio y medio de inteligencia artificial en español para negocios.',
+    },
+    {
+      '@type': 'WebSite',
+      name: 'AgentesVA',
+      url: site,
+      inLanguage: 'es',
+    },
+  ],
+};
 ---
 
 <BaseLayout
   title="AgentesVA — Directorio de herramientas de IA para tu negocio"
   description="Busca entre +120 herramientas de IA revisadas para vender, automatizar y ahorrar horas. Sin ruido: solo lo que de verdad sirve. En español, para España y Latinoamérica."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <SiteHeader />
 
+  <main>
   <!-- ===== HERO + SEARCH ===== -->
   <section style="position: relative; overflow: hidden; border-bottom: 1px solid var(--line);">
     <div aria-hidden="true" style="position: absolute; inset: -54px; background-color: var(--bg); background-image: linear-gradient(#13131b 1px, transparent 1px), linear-gradient(90deg, #13131b 1px, transparent 1px); background-size: 54px 54px; animation: gridDrift 6s linear infinite; opacity: 0.65;"></div>
@@ -142,6 +164,7 @@ const CATEGORIES = ['Todas', ...cats.map((c) => c.data.nombre)];
       </div>
     </div>
   </section>
+  </main>
 
   <SiteFooter />
 </BaseLayout>
