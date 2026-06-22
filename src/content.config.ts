@@ -37,4 +37,36 @@ const categories = defineCollection({
   }),
 });
 
-export const collections = { tools, categories };
+// Estudios — comparativas/análisis originales en español (formato respuesta, GEO).
+const estudios = defineCollection({
+  loader: glob({ pattern: '*.md', base: './src/content/estudios' }),
+  schema: z.object({
+    titulo: z.string(),
+    descripcion: z.string(),
+    fecha: z.coerce.date(),
+    actualizado: z.coerce.date().optional(),
+    tema: z.string(),
+    etiquetas: z.array(z.string()).default([]),
+    // slugs de herramientas del directorio mencionadas (cruce + salida afiliado)
+    herramientas: z.array(z.string()).default([]),
+    destacado: z.boolean().default(false),
+    faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
+  }),
+});
+
+// Noticias — actualidad de IA curada, resumida en español original con atribución.
+const noticias = defineCollection({
+  loader: glob({ pattern: '*.md', base: './src/content/noticias' }),
+  schema: z.object({
+    titulo: z.string(),
+    descripcion: z.string(),
+    fecha: z.coerce.date(),
+    tema: z.string(),
+    etiquetas: z.array(z.string()).default([]),
+    // fuente primaria (obligatoria): de dónde sale el dato, para atribución
+    fuente: z.object({ nombre: z.string(), url: z.string().url() }),
+    herramientas: z.array(z.string()).default([]),
+  }),
+});
+
+export const collections = { tools, categories, estudios, noticias };

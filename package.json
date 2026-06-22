@@ -9,7 +9,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "ai:faqs": "node --env-file-if-exists=.env.local scripts/generate-faqs.mjs"
+    "ai:faqs": "node --env-file-if-exists=.env.local scripts/generate-faqs.mjs",
+    "ai:estudios": "node --env-file-if-exists=.env.local scripts/generate-estudios.mjs"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.10",
