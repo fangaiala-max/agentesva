@@ -22,6 +22,9 @@ const tools = defineCollection({
     steps: z.array(z.string()).min(1),
     orden: z.number().int(),
     destacado: z.boolean().default(false),
+    // FAQs (opcional) — generadas por scripts/generate-faqs.mjs (AI Gateway);
+    // si faltan, la ficha usa un fallback derivado de los datos.
+    faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
   }),
 });
 
