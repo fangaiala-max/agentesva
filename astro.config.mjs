@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel';
 
@@ -8,7 +7,6 @@ export default defineConfig({
   output: 'static',
   adapter: vercel(),
   integrations: [
-    tailwind({ applyBaseStyles: false }),
     sitemap({
       // /ir/* es la salida afiliado (no indexable)
       filter: (page) => !page.includes('/ir/'),
