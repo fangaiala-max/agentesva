@@ -25,5 +25,9 @@
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
     "zod": "^4.4.3"
+  },
+  "overrides": {
+    "esbuild": "^0.28.1",
+    "path-to-regexp": "^6.3.0"
   }
 }
