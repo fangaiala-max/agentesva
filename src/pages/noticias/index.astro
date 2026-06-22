@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+
+const noticias = (await getCollection('noticias')).sort(
+  (a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf(),
+);
+const site = 'https://agentesva.com';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'CollectionPage', name: 'Noticias de IA', description: 'Actualidad de la inteligencia artificial, curada y resumida en español.', url: `${site}/noticias`, inLanguage: 'es' },
+    {
+      '@type': 'ItemList',
+      itemListElement: noticias.map((n, i) => ({ '@type': 'ListItem', position: i + 1, url: `${site}/noticias/${n.id}`, name: n.data.titulo })),
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${site}/` },
+        { '@type': 'ListItem', position: 2, name: 'Noticias', item: `${site}/noticias` },
+      ],
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Noticias de IA en español — AgentesVA"
+  description="Actualidad de la inteligencia artificial curada y resumida en español para PyMEs. Solo lo que puedes aplicar."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <SiteHeader />
+
+  <main style="max-width: 1200px; margin: 0 auto; padding: 40px 32px 64px;">
+    <nav aria-label="Migas" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-5);">
+      <a href="/" class="navlink" style="color: var(--fg-4); text-decoration: none;">Inicio</a> <span aria-hidden="true">/</span> Noticias
+    </nav>
+    <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 5vw, 44px); letter-spacing: -0.03em; margin: 18px 0 0; color: #fff;">Noticias de IA</h1>
+    <p style="font-size: 16px; line-height: 1.6; color: var(--fg-3); margin: 12px 0 0; max-width: 42em;">Actualidad de la IA curada y resumida en español. Sin ruido: solo lo que puedes aplicar en tu negocio, con la fuente a un clic.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; margin-top: 32px;">
+      {noticias.map((n) => (
+        <ArticleCard href={`/noticias/${n.id}`} titulo={n.data.titulo} descripcion={n.data.descripcion} fecha={n.data.fecha} tema={n.data.tema} tipo="Noticia" />
+      ))}
+    </div>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<script>
+  import { initMotion } from '../../scripts/motion';
+  document.addEventListener('astro:page-load', () => initMotion());
+</script>

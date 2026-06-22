@@ -1,0 +1,67 @@
+[
+  {
+    "slug": "mejores-herramientas-ia-para-redes-sociales",
+    "tema": "Marketing",
+    "tituloSugerido": "Las mejores herramientas de IA para redes sociales",
+    "pregunta": "¿Qué herramientas de IA ayudan a crear, escribir y programar contenido para redes sociales?",
+    "herramientas": ["jasper", "copy-ai", "canva-ia", "writesonic", "ideogram"],
+    "puntos": [
+      "Crear textos y captions para Instagram, LinkedIn y X",
+      "Generar imágenes y plantillas de publicaciones",
+      "Adaptar el tono al de la marca",
+      "Cuáles son gratis o tienen plan gratuito"
+    ]
+  },
+  {
+    "slug": "mejores-herramientas-ia-gratis",
+    "tema": "Productividad",
+    "tituloSugerido": "Las mejores herramientas de IA gratis para empezar",
+    "pregunta": "¿Cuáles son las mejores herramientas de IA gratuitas para un negocio que empieza?",
+    "herramientas": ["chatgpt", "gemini", "claude", "perplexity", "canva-ia", "deepseek"],
+    "puntos": [
+      "Qué se puede hacer sin pagar nada",
+      "Límites del plan gratuito de cada una",
+      "Cuándo merece la pena pasar a pago",
+      "Combinaciones útiles para una PyME"
+    ]
+  },
+  {
+    "slug": "ia-para-atencion-al-cliente",
+    "tema": "WhatsApp",
+    "tituloSugerido": "Cómo usar la IA para atención al cliente en tu negocio",
+    "pregunta": "¿Qué herramientas de IA sirven para automatizar la atención al cliente por WhatsApp y chat?",
+    "herramientas": ["manychat", "landbot", "tidio", "wati", "chatfuel"],
+    "puntos": [
+      "Responder preguntas frecuentes automáticamente",
+      "Atender 24/7 sin ampliar el equipo",
+      "Pasar a un humano cuando hace falta",
+      "Cuáles funcionan con WhatsApp Business"
+    ]
+  },
+  {
+    "slug": "mejores-herramientas-ia-para-crear-imagenes",
+    "tema": "Diseño",
+    "tituloSugerido": "Las mejores herramientas de IA para crear imágenes",
+    "pregunta": "¿Qué herramientas de IA generan imágenes para marketing y redes de una PyME?",
+    "herramientas": ["midjourney", "leonardo-ai", "ideogram", "adobe-firefly", "krea", "canva-ia"],
+    "puntos": [
+      "Crear imágenes de producto y publicidad",
+      "Generar logos, fondos y banners",
+      "Cuáles permiten texto dentro de la imagen",
+      "Precio y uso comercial de cada una"
+    ]
+  },
+  {
+    "slug": "herramientas-ia-para-automatizar-tareas",
+    "tema": "Automatización",
+    "tituloSugerido": "Las mejores herramientas de IA para automatizar tareas",
+    "pregunta": "¿Qué herramientas conectan apps y automatizan tareas repetitivas con IA?",
+    "herramientas": ["make", "zapier", "n8n", "bardeen"],
+    "puntos": [
+      "Conectar el CRM, el email y las hojas de cálculo",
+      "Automatizar sin saber programar",
+      "Diferencias entre Make, Zapier y n8n",
+      "Cuáles tienen plan gratuito para empezar"
+    ]
+  }
+]

@@ -101,6 +101,21 @@ input::placeholder { color: var(--fg-5); }
 /* magnético — desplazamiento suave hacia el cursor (motion.ts) */
 .magnetic { transition: transform .25s cubic-bezier(0.22, 0.61, 0.36, 1); will-change: transform; }
 
+/* ===== Prose — cuerpo de artículos (estudios/noticias) ===== */
+.prose { color: var(--fg-2); font-size: 16px; line-height: 1.75; max-width: 42em; }
+.prose h2 { font-family: var(--serif); font-weight: 400; font-size: 26px; color: #fff; letter-spacing: -0.02em; margin: 40px 0 0; }
+.prose h3 { font-family: var(--sans); font-weight: 600; font-size: 18px; color: #fff; margin: 28px 0 0; }
+.prose p { margin: 16px 0 0; }
+.prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.prose a:hover { color: #fff; }
+.prose strong { color: #fff; font-weight: 600; }
+.prose ul, .prose ol { margin: 16px 0 0; padding-left: 22px; }
+.prose li { margin: 8px 0 0; }
+.prose table { width: 100%; border-collapse: collapse; margin: 24px 0 0; font-size: 14.5px; }
+.prose th, .prose td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; }
+.prose th { color: #fff; font-weight: 600; background: var(--panel); }
+.prose td { color: var(--fg-2); }
+
 /* Foco visible accesible para todo elemento interactivo */
 a:focus-visible, button:focus-visible, input:focus-visible {
   outline: 2px solid var(--accent);

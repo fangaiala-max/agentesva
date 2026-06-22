@@ -1,0 +1,27 @@
+---
+interface Props {
+  href: string;
+  titulo: string;
+  descripcion: string;
+  fecha: Date;
+  tema: string;
+  tipo: string;
+}
+const { href, titulo, descripcion, fecha, tema, tipo } = Astro.props;
+const fechaFmt = fecha.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<a
+  href={href}
+  class="lift spotlight"
+  style="position: relative; display: flex; flex-direction: column; gap: 12px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 22px; text-decoration: none;"
+>
+  <div style="display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;">
+    <span style="color: var(--accent);">{tipo}</span>
+    <span style="color: var(--fg-5);">·</span>
+    <span style="color: var(--fg-5);">{tema}</span>
+  </div>
+  <h3 style="font-family: var(--serif); font-weight: 400; font-size: 22px; line-height: 1.15; letter-spacing: -0.02em; color: #fff; margin: 0;">{titulo}</h3>
+  <p style="font-size: 14px; line-height: 1.55; color: var(--fg-3); margin: 0;">{descripcion}</p>
+  <span style="font-family: var(--mono); font-size: 11px; color: var(--fg-5); margin-top: auto;">{fechaFmt}</span>
+</a>
