@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 ---
 
 <BaseLayout
@@ -7,23 +9,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="La página que buscas no existe o se ha movido."
   noindex={true}
 >
-  <main
-    class="mx-auto flex min-h-screen max-w-2xl flex-col items-start justify-center px-6 py-20"
-  >
-    <p class="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-amber-400">
-      Error 404
-    </p>
-    <h1 class="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-      Página no encontrada
-    </h1>
-    <p class="mt-6 text-lg text-slate-300">
-      La página que buscas no existe o se ha movido.
-    </p>
-    <a
-      href="/"
-      class="mt-8 inline-flex items-center gap-2 rounded-lg bg-emerald-500 px-5 py-2.5 font-medium text-slate-950 transition hover:bg-emerald-400"
-    >
-      ← Volver al inicio
-    </a>
+  <SiteHeader />
+  <main style="max-width: 640px; margin: 0 auto; padding: 80px 32px; min-height: 60vh;">
+    <p style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin: 0;">Error 404</p>
+    <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(34px, 6vw, 48px); letter-spacing: -0.03em; color: #fff; margin: 14px 0 0;">Página no encontrada</h1>
+    <p style="font-size: 17px; line-height: 1.6; color: var(--fg-3); margin: 16px 0 0;">La página que buscas no existe o se ha movido.</p>
+    <a href="/" class="lift shimmer" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 32px; font-family: var(--sans); font-weight: 600; font-size: 14px; color: var(--bg); background: var(--accent); border-radius: 2px; padding: 12px 22px; text-decoration: none;">← Volver al inicio</a>
   </main>
+  <SiteFooter />
 </BaseLayout>
+
+<script>
+  import { initMotion } from '../scripts/motion';
+  document.addEventListener('astro:page-load', () => initMotion());
+</script>

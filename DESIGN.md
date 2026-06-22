@@ -28,12 +28,12 @@
 ### Color
 | Token | Hex | Uso |
 |---|---|---|
-| Negro | `#08080B` | fondo principal (superficie oscura) |
+| Navy "Confianza" | `#0A1A33` | fondo principal (superficie oscura) |
 | Azul primario | `#0040FF` | marca sobre superficies claras (`--blue-deep`) |
 | Azul acento | `#5B7CFF` | acento sobre superficies oscuras (`--accent`) |
 | Claro | `#FAFAF7` | superficie clara |
 | Gris | `#6B6B6B` | texto secundario sobre claro |
-| Verde estado | `#4ec98a` | "en vivo / activo" (`--green`) |
+| Verde estado | `#4FD39A` | "en vivo / activo" (`--green`) |
 
 ---
 
@@ -41,12 +41,12 @@
 
 Implementado en `src/styles/global.css` (tokens) + componentes. **Lee `global.css` antes de tocar UI.**
 
-### Superficies (oscuro)
-`--bg #08080B` · `--bg-2 #0a0a0f` · `--panel #0b0b12` · `--panel-2 #0c0c14` · `--panel-3 #0d0d15`
-Líneas: `--line #1c1c24` · `--line-2 #262632` · `--line-3 #3a3a52` (hover).
+### Superficies (navy "Confianza")
+`--bg #0A1A33` · `--bg-2 #0C1E3C` · `--panel #0E2444` · `--panel-2 #122B52` · `--panel-3 #0E2342` · `--grid #16315C`
+Líneas: `--line #1E365F` · `--line-2 #2A4877` · `--line-3 #3E5E90` (hover).
 
 ### Texto
-`--fg #ededf0` · `--fg-strong #fff` · `--fg-2 #cfcfda` · `--fg-3 #a5a5b2` · `--fg-4 #8a8a99` · `--fg-5 #6a6a78`.
+`--fg #EAEEF6` · `--fg-strong #fff` · `--fg-2 #C7D3E9` · `--fg-3 #94A4C2` · `--fg-4 #7F92B4` · `--fg-5 #8094B7`.
 
 ### Componentes (`src/components/`)
 - `SiteHeader` — ticker marquee + cabecera sticky con blur. Logo serif + nav mono.
