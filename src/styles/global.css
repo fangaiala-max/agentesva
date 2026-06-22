@@ -4,23 +4,25 @@
 
 /* ===== AgentesVA — Sistema "Futurista" (directorio de IA, tema oscuro) ===== */
 :root {
-  --bg: #08080b;
-  --bg-2: #0a0a0f;
-  --panel: #0b0b12;
-  --panel-2: #0c0c14;
-  --panel-3: #0d0d15;
-  --line: #1c1c24;
-  --line-2: #262632;
-  --line-3: #3a3a52;
-  --fg: #ededf0;
+  /* Paleta "Confianza" (navy) */
+  --bg: #0a1a33;
+  --bg-2: #0c1e3c;
+  --panel: #0e2444;
+  --panel-2: #122b52;
+  --panel-3: #0e2342;
+  --line: #1e365f;
+  --line-2: #2a4877;
+  --line-3: #3e5e90;
+  --fg: #eaeef6;
   --fg-strong: #ffffff;
-  --fg-2: #cfcfda;
-  --fg-3: #a5a5b2;
-  --fg-4: #8a8a99;
-  --fg-5: #8b8b97;
+  --fg-2: #c7d3e9;
+  --fg-3: #94a4c2;
+  --fg-4: #7f92b4;
+  --fg-5: #8094b7; /* del diseño (#6E81A4) subido para contraste AA sobre navy */
+  --grid: #16315c;
   --accent: #5b7cff;
   --blue-deep: #0040ff;
-  --green: #4ec98a;
+  --green: #4fd39a;
   --serif: 'DM Serif Display', Georgia, 'Times New Roman', serif;
   --sans: 'DM Sans', system-ui, -apple-system, sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
