@@ -1,8 +1,11 @@
 # Archivo histórico / Next.js app
 _archive/
 
-# Claude Code (memoria local, no va al repo)
-.claude/
+# Claude Code (memoria local, no va al repo) — salvo skills versionadas
+.claude/*
+!.claude/skills/
+.claude/skills/*
+!.claude/skills/tom-4pass/
 
 # Superpowers brainstorm sessions
 .superpowers/
