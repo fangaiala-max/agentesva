@@ -4,6 +4,13 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import { getCollection, render } from 'astro:content';
 import { toTool } from '../../data/tools';
+import EstudioResumen from '../../components/EstudioResumen.astro';
+import EstudioResumirIA from '../../components/EstudioResumirIA.astro';
+import EstudioNota from '../../components/EstudioNota.astro';
+import EstudioComparativa from '../../components/EstudioComparativa.astro';
+import EstudioWorkflow from '../../components/EstudioWorkflow.astro';
+import EstudioFaq from '../../components/EstudioFaq.astro';
+import EstudioFuentes from '../../components/EstudioFuentes.astro';
 
 export async function getStaticPaths() {
   const estudios = await getCollection('estudios');
@@ -19,6 +26,20 @@ const allTools = (await getCollection('tools')).map(toTool);
 const related = d.herramientas
   .map((slug) => allTools.find((t) => t.slug === slug))
   .filter((t): t is NonNullable<typeof t> => Boolean(t));
+
+const canonical = `${site}/estudios/${entry.id}`;
+const noticias = await getCollection('noticias');
+const relatedNoticias = noticias
+  .map((n) => {
+    const tagOverlap = n.data.etiquetas.filter((t) => d.etiquetas.includes(t)).length;
+    const toolOverlap = (n.data.herramientas ?? []).filter((h) => d.herramientas.includes(h)).length;
+    const temaMatch = n.data.tema === d.tema ? 2 : 0;
+    return { n, score: temaMatch + tagOverlap + toolOverlap };
+  })
+  .filter((x) => x.score > 0)
+  .sort((a, b) => b.score - a.score)
+  .slice(0, 3)
+  .map((x) => x.n);
 
 const fechaFmt = d.fecha.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
 
@@ -49,6 +70,9 @@ if (d.faq?.length) {
     mainEntity: d.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
   });
 }
+if (d.fuentes?.length) {
+  graph[0].citation = d.fuentes.map((f) => ({ '@type': 'CreativeWork', name: f.titulo, url: f.url }));
+}
 const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
 ---
 
@@ -67,9 +91,18 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
     <p style="font-size: 18px; line-height: 1.55; color: var(--fg-3); margin: 16px 0 0;">{d.descripcion}</p>
     <p style="font-family: var(--mono); font-size: 11px; color: var(--fg-5); margin: 16px 0 0;">AgentesVA · {fechaFmt}</p>
 
+    <EstudioResumen puntos={d.resumen} />
+    <EstudioResumirIA url={canonical} titulo={d.titulo} prompt={d.iaPrompt} />
+    <EstudioNota texto={d.porQueImporta} />
+    <EstudioComparativa criterios={d.comparativa?.criterios} filas={d.comparativa?.filas} />
+
     <article class="prose" style="margin-top: 36px;">
       <Content />
     </article>
+
+    <EstudioWorkflow titulo={d.workflow?.titulo} pasos={d.workflow?.pasos} />
+    <EstudioFaq items={d.faq} />
+    <EstudioFuentes items={d.fuentes} />
 
     {related.length > 0 && (
       <section style="margin-top: 48px; border-top: 1px solid var(--line); padding-top: 28px;">
@@ -79,6 +112,20 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
             <a href={`/herramienta/${t.slug}`} class="lift" style="display: inline-flex; align-items: center; gap: 9px; background: var(--panel); border: 1px solid var(--line); border-radius: 30px; padding: 8px 14px 8px 8px; text-decoration: none;">
               <span style={`width: 26px; height: 26px; border-radius: 7px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 13px; color: #fff; background: ${t.color};`}>{t.name.charAt(0)}</span>
               <span style="font-family: var(--sans); font-size: 13.5px; font-weight: 600; color: #fff;">{t.name}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {relatedNoticias.length > 0 && (
+      <section style="margin-top: 40px; border-top: 1px solid var(--line); padding-top: 28px;">
+        <h2 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0;">Noticias relacionadas</h2>
+        <div style="display: grid; gap: 10px; margin-top: 16px;">
+          {relatedNoticias.map((n) => (
+            <a href={`/noticias/${n.id}`} class="lift" style="display: block; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; text-decoration: none;">
+              <span style="font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent);">{n.data.tema}</span>
+              <span style="display: block; font-family: var(--sans); font-weight: 600; font-size: 15px; color: #fff; margin-top: 4px;">{n.data.titulo}</span>
             </a>
           ))}
         </div>
