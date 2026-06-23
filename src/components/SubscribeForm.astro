@@ -1,0 +1,53 @@
+---
+// Formulario de suscripción reutilizable (landing + inline). Lo cablea
+// src/scripts/subscribe.ts vía [data-subscribe-root] (DOI + honeypot + consentimiento).
+interface Props {
+  variant?: 'landing' | 'inline';
+  list?: string;
+  cta?: string;
+}
+const { variant = 'inline', list = 'newsletter', cta = 'Suscríbete' } = Astro.props;
+const landing = variant === 'landing';
+const pad = landing ? '15px 18px' : '12px 14px';
+const fs = landing ? '15.5px' : '14px';
+const maxw = landing ? '480px' : '420px';
+---
+
+<div data-subscribe-root style={`max-width: ${maxw};`}>
+  <form data-subscribe data-list={list} novalidate style="display: flex; gap: 8px; flex-wrap: wrap;">
+    <!-- honeypot anti-bots: oculto a humanos, lo rellenan los bots -->
+    <div aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">
+      <label>No rellenar este campo
+        <input type="text" name="company" tabindex="-1" autocomplete="off" data-subscribe-hp />
+      </label>
+    </div>
+
+    <input
+      type="email"
+      name="email"
+      required
+      autocomplete="email"
+      placeholder="tu@email.com"
+      aria-label="Tu email"
+      data-subscribe-email
+      style={`flex: 1; min-width: 190px; background: var(--panel-3); border: 1px solid var(--line-2); color: #fff; padding: ${pad}; border-radius: 2px; font-family: var(--sans); font-size: ${fs}; outline: none;`}
+    />
+    <button
+      type="submit"
+      data-subscribe-submit
+      class="lift shimmer"
+      style={`background: var(--accent); color: var(--bg); border: none; padding: ${pad}; border-radius: 2px; font-family: var(--sans); font-weight: 600; font-size: ${fs}; cursor: pointer; white-space: nowrap;`}
+    >{cta} →</button>
+
+    <label style="flex-basis: 100%; display: flex; align-items: flex-start; gap: 9px; margin-top: 12px; cursor: pointer;">
+      <input type="checkbox" name="consent" required data-subscribe-consent style="margin-top: 3px; accent-color: var(--accent); flex: none;" />
+      <span style="font-family: var(--sans); font-size: 12.5px; line-height: 1.5; color: var(--fg-4);">Acepto recibir la newsletter de AgentesVA y la <a href="/privacidad" style="color: var(--fg-3); text-decoration: underline;">política de privacidad</a>.</span>
+    </label>
+  </form>
+
+  <div data-subscribe-success hidden role="status" style="border: 1px solid var(--line-2); background: var(--panel-3); border-radius: 2px; padding: 16px 20px; margin-top: 18px;">
+    <span style="font-family: var(--mono); font-size: 12px; color: var(--green);">✓ Revisa tu correo</span>
+    <p style="font-size: 13.5px; color: var(--fg-3); margin: 6px 0 0;">Te hemos enviado un email para <strong style="color: var(--fg-2);">confirmar tu suscripción</strong>. Al confirmar recibirás el Pack de 30 prompts.</p>
+  </div>
+  <p data-subscribe-error hidden role="alert" style="font-family: var(--mono); font-size: 12px; color: #ff6b6b; margin-top: 12px;"></p>
+</div>

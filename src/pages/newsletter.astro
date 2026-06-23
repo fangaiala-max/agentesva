@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SubscribeForm from '../components/SubscribeForm.astro';
+
+const beneficios = [
+  'Ahorra horas, no las pierdas aprendiendo IA.',
+  'En español, con ejemplos de PyMEs reales (España + LATAM).',
+  'Gratis y sin spam.',
+];
+---
+
+<BaseLayout
+  title="Newsletter de IA para tu negocio | AgentesVA"
+  description="La IA que tu negocio sí puede usar. Cada semana, una idea de IA lista para aplicar en tu PyME, en español y sin tecnicismos. Suscríbete gratis."
+>
+  <SiteHeader />
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section style="position: relative; overflow: hidden; border-bottom: 1px solid var(--line);">
+      <div aria-hidden="true" style="position: absolute; inset: 0; background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 54px 54px; opacity: 0.4;"></div>
+      <div aria-hidden="true" style="position: absolute; top: -80px; right: -80px; width: 560px; height: 460px; background: radial-gradient(ellipse, rgba(91,124,255,0.16) 0%, rgba(91,124,255,0) 66%); pointer-events: none;"></div>
+
+      <div style="position: relative; max-width: 720px; margin: 0 auto; padding: 72px 32px 80px; text-align: center;">
+        <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent);">Newsletter · AgentesVA</span>
+        <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(34px, 6.5vw, 56px); line-height: 1.04; letter-spacing: -0.03em; color: #fff; margin: 18px 0 0;">La IA que tu negocio sí puede usar</h1>
+        <p style="font-size: 19px; line-height: 1.55; color: var(--fg-3); margin: 20px auto 0; max-width: 30em;">Cada semana, una idea de IA lista para aplicar en tu PyME. En español y sin tecnicismos.</p>
+        <p style="font-size: 15px; line-height: 1.55; color: var(--fg-4); margin: 16px auto 0; max-width: 30em;">Suscríbete y recibe gratis el <strong style="color: var(--fg-2);">Pack: 30 prompts de IA para tu negocio</strong>.</p>
+
+        <div style="display: flex; justify-content: center; margin-top: 30px;">
+          <SubscribeForm variant="landing" list="newsletter" />
+        </div>
+
+        <p style="font-family: var(--mono); font-size: 11.5px; color: var(--fg-5); margin: 18px 0 0;">Gratis. Una edición por semana. Cero spam, te das de baja cuando quieras.</p>
+        <p style="font-size: 13.5px; color: var(--fg-4); margin: 22px auto 0; max-width: 26em;">Únete a <strong style="color: var(--fg-3);">+1.200 negocios</strong> que ya usan la IA mejor que su competencia.</p>
+      </div>
+    </section>
+
+    <!-- ===== QUÉ RECIBES ===== -->
+    <section style="border-bottom: 1px solid var(--line); background: var(--bg-2);">
+      <div style="max-width: 720px; margin: 0 auto; padding: 56px 32px;">
+        <h2 style="font-family: var(--sans); font-weight: 700; font-size: clamp(22px, 4vw, 28px); line-height: 1.1; letter-spacing: -0.02em; color: #fff; margin: 0; text-align: center;">Recibe una idea de IA aplicable, cada semana</h2>
+        <p style="font-size: 15.5px; line-height: 1.6; color: var(--fg-3); margin: 14px auto 0; max-width: 32em; text-align: center;">Sin ruido ni noticias que no vas a usar. Solo lo que puedes aplicar hoy en tu negocio.</p>
+
+        <ul style="list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 12px; max-width: 30em; margin-inline: auto;">
+          {beneficios.map((b) => (
+            <li style="display: flex; align-items: flex-start; gap: 12px; font-size: 15.5px; line-height: 1.5; color: var(--fg-2);">
+              <span aria-hidden="true" style="font-family: var(--mono); color: var(--green); flex: none;">✓</span>
+              <span>{b}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== CTA FINAL ===== -->
+    <section style="border-bottom: 1px solid var(--line);">
+      <div style="max-width: 720px; margin: 0 auto; padding: 56px 32px; text-align: center;">
+        <p style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent);">Empieza gratis</p>
+        <h2 style="font-family: var(--serif); font-weight: 400; font-size: clamp(26px, 5vw, 36px); line-height: 1.08; letter-spacing: -0.03em; color: #fff; margin: 12px 0 26px;">Tu próxima idea de IA, en tu bandeja</h2>
+        <div style="display: flex; justify-content: center;">
+          <SubscribeForm variant="landing" list="newsletter" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>

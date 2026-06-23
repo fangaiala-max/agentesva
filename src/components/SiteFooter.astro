@@ -1,9 +1,35 @@
 ---
-// Pie del directorio "Futurista".
+// Pie del directorio "Futurista" + captación de newsletter (inline).
+import SubscribeForm from './SubscribeForm.astro';
 ---
 
-<footer style="border-top: 1px solid var(--line);">
-  <div style="max-width: 1200px; margin: 0 auto; padding: 44px 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+<footer style="border-top: 1px solid var(--line); background: var(--bg-2);">
+  <!-- Captación inline -->
+  <div style="border-bottom: 1px solid var(--line);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 48px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 36px; align-items: center;">
+      <div>
+        <h2 style="font-family: var(--sans); font-weight: 700; font-size: clamp(20px, 3.5vw, 26px); line-height: 1.1; letter-spacing: -0.02em; color: #fff; margin: 0;">Recibe una idea de IA aplicable, cada semana</h2>
+        <p style="font-size: 14.5px; line-height: 1.55; color: var(--fg-3); margin: 12px 0 0; max-width: 34em;">Sin ruido ni noticias que no vas a usar. Solo lo que puedes aplicar hoy en tu negocio. Gratis.</p>
+      </div>
+      <div style="justify-self: stretch;">
+        <SubscribeForm variant="inline" list="newsletter" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Enlaces -->
+  <div style="border-bottom: 1px solid var(--line);">
+    <nav aria-label="Pie" style="max-width: 1200px; margin: 0 auto; padding: 22px 32px; display: flex; gap: 22px; flex-wrap: wrap; font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;">
+      <a class="navlink" href="/herramientas" style="color: var(--fg-4); text-decoration: none;">Herramientas</a>
+      <a class="navlink" href="/estudios" style="color: var(--fg-4); text-decoration: none;">Estudios</a>
+      <a class="navlink" href="/noticias" style="color: var(--fg-4); text-decoration: none;">Noticias</a>
+      <a class="navlink" href="/newsletter" style="color: var(--fg-4); text-decoration: none;">Newsletter</a>
+      <a class="navlink" href="/privacidad" style="color: var(--fg-4); text-decoration: none;">Privacidad</a>
+    </nav>
+  </div>
+
+  <!-- Marca + copyright -->
+  <div style="max-width: 1200px; margin: 0 auto; padding: 28px 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
     <a href="/" style="display: flex; align-items: baseline; gap: 3px; text-decoration: none;">
       <span style="font-family: var(--serif); font-weight: 400; font-size: 21px; letter-spacing: -0.025em; color: #fff;">AgentesVA</span>
       <sup style="font-family: var(--mono); font-size: 9px; color: var(--accent); top: -0.7em;">[IA]</sup>
@@ -11,3 +37,8 @@
     <span style="font-family: var(--mono); font-size: 11px; color: var(--fg-5);">© 2026 · Directorio de IA para negocios hispanos · agentesva.com</span>
   </div>
 </footer>
+
+<script>
+  import { initSubscribe } from '../scripts/subscribe';
+  document.addEventListener('astro:page-load', () => initSubscribe());
+</script>

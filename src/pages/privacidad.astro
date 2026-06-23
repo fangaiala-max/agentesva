@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const actualizado = '22 de junio de 2026';
+---
+
+<BaseLayout
+  title="Política de privacidad | AgentesVA"
+  description="Cómo trata AgentesVA tus datos: qué recogemos, para qué, base legal, tus derechos y cómo darte de baja. Conforme al RGPD."
+>
+  <SiteHeader />
+
+  <main style="max-width: 760px; margin: 0 auto; padding: 40px 32px 64px;">
+    <p style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0;">Legal</p>
+    <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 5.5vw, 44px); line-height: 1.08; letter-spacing: -0.03em; color: #fff; margin: 10px 0 0;">Política de privacidad</h1>
+    <p style="font-family: var(--mono); font-size: 11px; color: var(--fg-5); margin: 14px 0 0;">Última actualización: {actualizado}</p>
+
+    <article class="prose" style="margin-top: 32px;">
+      <p>En AgentesVA nos tomamos en serio tus datos: solo pedimos lo justo, te decimos para qué, y puedes irte cuando quieras. Esta página explica cómo tratamos tu información cuando te suscribes a la newsletter.</p>
+
+      <h2>Quién es el responsable</h2>
+      <p>El responsable del tratamiento de tus datos es <strong>AgentesVA</strong> (agentesva.com). Para cualquier cuestión sobre privacidad puedes escribir a <a href="mailto:hola@agentesva.com">hola@agentesva.com</a>.</p>
+
+      <h2>Qué datos recogemos</h2>
+      <p>Cuando te suscribes a la newsletter recogemos tu <strong>dirección de email</strong> y, si lo facilitas, tu <strong>nombre</strong>. No recogemos más datos personales para este fin, ni te pedimos información de pago.</p>
+
+      <h2>Para qué los usamos</h2>
+      <p>Usamos tu email únicamente para enviarte la newsletter de AgentesVA (una edición por semana), el recurso gratuito que descargas al suscribirte (el Pack de prompts) y comunicaciones relacionadas con la propia newsletter. <strong>No vendemos ni cedemos tus datos</strong> a terceros con fines comerciales.</p>
+
+      <h2>Base legal</h2>
+      <p>La base legal es tu <strong>consentimiento</strong>, que das de forma expresa al marcar la casilla del formulario y confirmar tu alta por email (doble opt-in). Puedes retirarlo en cualquier momento, sin que ello afecte a la licitud del tratamiento previo.</p>
+
+      <h2>Quién trata tus datos por nosotros</h2>
+      <p>Gestionamos la lista y los envíos con <strong>Brevo</strong> (Sendinblue SAS), que actúa como <em>encargado del tratamiento</em> y almacena los datos de la lista en su plataforma. La web está alojada en <strong>Vercel</strong>. Ambos proveedores ofrecen garantías de protección de datos conforme a la normativa europea.</p>
+
+      <h2>Cuánto tiempo los conservamos</h2>
+      <p>Conservamos tu email mientras sigas suscrito. Si te das de baja, dejamos de usarlo para envíos y lo eliminamos o anonimizamos en un plazo razonable.</p>
+
+      <h2>Tus derechos</h2>
+      <p>Puedes ejercer en cualquier momento tus derechos de <strong>acceso, rectificación, supresión, oposición, limitación y portabilidad</strong>. Para ello, escribe a <a href="mailto:hola@agentesva.com">hola@agentesva.com</a>. También tienes derecho a reclamar ante la autoridad de control que corresponda (en España, la AEPD).</p>
+
+      <h2>Cómo darte de baja</h2>
+      <p>Cada email incluye un enlace de <strong>baja</strong> al final. Un clic y dejas de recibir la newsletter al instante. También puedes pedirlo por email.</p>
+
+      <h2>Cambios en esta política</h2>
+      <p>Si actualizamos esta política, cambiaremos la fecha del encabezado. Los cambios relevantes se comunicarán por la propia newsletter.</p>
+    </article>
+
+    <a href="/" class="navlink" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 36px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-4); text-decoration: none;">← Volver al inicio</a>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>

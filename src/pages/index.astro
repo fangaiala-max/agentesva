@@ -104,16 +104,25 @@ const jsonLd = {
         <h2 style="font-family: var(--sans); font-weight: 700; font-size: clamp(28px, 5vw, 38px); line-height: 1.05; letter-spacing: -0.03em; margin: 14px 0 0; color: #fff;">Llévate el Pack de Recursos IA</h2>
         <p style="font-size: 16px; line-height: 1.6; color: var(--fg-3); margin: 14px 0 0; max-width: 30em;">~30 prompts y plantillas listas para usar hoy. Suscríbete y recibe una idea aplicable cada semana, en español.</p>
 
-        <form id="pack-form" style="display: flex; gap: 8px; margin-top: 26px; max-width: 460px; flex-wrap: wrap;">
-          <label for="pack-email" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Tu email</label>
-          <input id="pack-email" name="email" type="email" required autocomplete="email" placeholder="tu@email.com" style="flex: 1; min-width: 190px; background: var(--panel-3); border: 1px solid var(--line-2); color: #fff; padding: 14px 16px; border-radius: 2px; font-family: var(--sans); font-size: 14.5px; outline: none;">
-          <button type="submit" id="pack-submit" class="lift shimmer" style="background: var(--accent); color: var(--bg); border: none; padding: 14px 26px; border-radius: 2px; font-family: var(--sans); font-weight: 600; font-size: 14.5px; cursor: pointer; white-space: nowrap;">Acceder →</button>
-        </form>
-        <div id="pack-success" hidden role="status" style="border: 1px solid var(--line-2); background: var(--panel-3); border-radius: 2px; padding: 16px 20px; margin-top: 26px; max-width: 460px;">
-          <span style="font-family: var(--mono); font-size: 12px; color: var(--green);">✓ Revisa tu correo</span>
-          <p style="font-size: 13.5px; color: var(--fg-3); margin: 6px 0 0;">Te enviamos el Pack de Recursos IA a tu email.</p>
+        <div data-subscribe-root style="max-width: 460px;">
+          <form id="pack-form" data-subscribe data-list="newsletter" novalidate style="display: flex; gap: 8px; margin-top: 26px; flex-wrap: wrap;">
+            <div aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">
+              <label>No rellenar este campo<input type="text" name="company" tabindex="-1" autocomplete="off" data-subscribe-hp /></label>
+            </div>
+            <label for="pack-email" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Tu email</label>
+            <input id="pack-email" name="email" type="email" required autocomplete="email" placeholder="tu@email.com" data-subscribe-email style="flex: 1; min-width: 190px; background: var(--panel-3); border: 1px solid var(--line-2); color: #fff; padding: 14px 16px; border-radius: 2px; font-family: var(--sans); font-size: 14.5px; outline: none;">
+            <button type="submit" id="pack-submit" data-subscribe-submit class="lift shimmer" style="background: var(--accent); color: var(--bg); border: none; padding: 14px 26px; border-radius: 2px; font-family: var(--sans); font-weight: 600; font-size: 14.5px; cursor: pointer; white-space: nowrap;">Acceder →</button>
+            <label style="flex-basis: 100%; display: flex; align-items: flex-start; gap: 9px; margin-top: 12px; cursor: pointer;">
+              <input type="checkbox" name="consent" required data-subscribe-consent style="margin-top: 3px; accent-color: var(--accent); flex: none;" />
+              <span style="font-family: var(--sans); font-size: 12.5px; line-height: 1.5; color: var(--fg-4);">Acepto recibir la newsletter de AgentesVA y la <a href="/privacidad" style="color: var(--fg-3); text-decoration: underline;">política de privacidad</a>.</span>
+            </label>
+          </form>
+          <div id="pack-success" data-subscribe-success hidden role="status" style="border: 1px solid var(--line-2); background: var(--panel-3); border-radius: 2px; padding: 16px 20px; margin-top: 26px;">
+            <span style="font-family: var(--mono); font-size: 12px; color: var(--green);">✓ Revisa tu correo</span>
+            <p style="font-size: 13.5px; color: var(--fg-3); margin: 6px 0 0;">Te hemos enviado un email para <strong style="color: var(--fg-2);">confirmar tu suscripción</strong>. Al confirmar recibirás el Pack de Recursos IA.</p>
+          </div>
+          <p id="pack-error" data-subscribe-error hidden role="alert" style="font-family: var(--mono); font-size: 12px; color: #ff6b6b; margin-top: 12px;"></p>
         </div>
-        <p id="pack-error" hidden role="alert" style="font-family: var(--mono); font-size: 12px; color: #ff6b6b; margin-top: 12px;"></p>
         <span style="font-family: var(--mono); font-size: 11px; color: var(--fg-5); display: block; margin-top: 14px;">Leído por +1.200 negocios · baja cuando quieras</span>
       </div>
 

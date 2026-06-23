@@ -103,39 +103,9 @@ function setupBookmarks() {
   });
 }
 
-function setupNewsletter() {
-  const form = document.getElementById('pack-form') as HTMLFormElement | null;
-  if (!form) return;
-  const email = document.getElementById('pack-email') as HTMLInputElement;
-  const submit = document.getElementById('pack-submit') as HTMLButtonElement;
-  const ok = document.getElementById('pack-success');
-  const err = document.getElementById('pack-error');
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (err) err.hidden = true;
-    submit.disabled = true;
-    const original = submit.textContent;
-    submit.textContent = 'Enviando…';
-    try {
-      const res = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.value.trim(), list: 'newsletter' }),
-      });
-      if (!res.ok) throw new Error((await res.json().catch(() => ({}))).error || 'No se pudo completar la suscripción.');
-      form.hidden = true;
-      if (ok) ok.hidden = false;
-    } catch (e2) {
-      submit.disabled = false;
-      submit.textContent = original;
-      if (err) { err.hidden = false; err.textContent = (e2 as Error).message; }
-    }
-  });
-}
-
 export function initDirectory() {
   setupFilter();
   setupCounters();
   setupBookmarks();
-  setupNewsletter();
+  // La suscripción del #pack la gestiona src/scripts/subscribe.ts (DOI + honeypot + consentimiento).
 }
