@@ -1,0 +1,31 @@
+---
+// Botonera "resume este estudio con tu IA". Deep-link con prompt + URL canónica.
+interface Props { url: string; titulo: string; prompt?: string; }
+const { url, prompt } = Astro.props;
+const text = prompt ?? `Resume este artículo y dime lo más importante: ${url}`;
+const q = encodeURIComponent(text);
+const targets = [
+  { name: 'ChatGPT', href: `https://chatgpt.com/?q=${q}` },
+  { name: 'Claude', href: `https://claude.ai/new?q=${q}` },
+  { name: 'Perplexity', href: `https://www.perplexity.ai/search?q=${q}` },
+];
+const pill = 'font-family: var(--sans); font-size: 13px; font-weight: 600; color: #fff; background: var(--panel); border: 1px solid var(--line-2); border-radius: 30px; padding: 7px 14px; text-decoration: none; cursor: pointer;';
+---
+<section aria-label="Resumir con IA" style="margin-top: 22px; display: flex; align-items: center; flex-wrap: wrap; gap: 10px;">
+  <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-5);">Resúmelo con tu IA</span>
+  {targets.map((t) => (
+    <a href={t.href} target="_blank" rel="noopener" class="lift" style={pill}>{t.name}</a>
+  ))}
+  <button type="button" data-ia-gemini data-prompt={text} class="lift" style={pill}>Gemini</button>
+</section>
+<script>
+  document.addEventListener('astro:page-load', () => {
+    document.querySelectorAll('[data-ia-gemini]').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const p = btn.getAttribute('data-prompt') || '';
+        try { await navigator.clipboard.writeText(p); } catch {}
+        window.open('https://gemini.google.com/app', '_blank', 'noopener');
+      });
+    });
+  });
+</script>
