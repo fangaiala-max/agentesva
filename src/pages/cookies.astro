@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const site = 'https://agentesva.com';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Política de cookies',
+  url: `${site}/cookies`,
+  inLanguage: 'es',
+  isPartOf: { '@type': 'WebSite', name: 'AgentesVA', url: site },
+};
+---
+
+<BaseLayout
+  title="Política de cookies | AgentesVA"
+  description="Qué cookies utiliza AgentesVA y cómo gestionarlas. Hoy no usamos cookies de seguimiento ni publicidad."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <SiteHeader />
+
+  <main style="max-width: 760px; margin: 0 auto; padding: 40px 32px 72px; font-family: var(--sans);">
+    <nav aria-label="Migas" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-5);">
+      <a href="/" style="color: var(--fg-5); text-decoration: none;">Inicio</a> / Política de cookies
+    </nav>
+
+    <h1 style="font-family: var(--serif); font-weight: 400; font-size: 36px; letter-spacing: -0.02em; color: #fff; margin: 16px 0 6px;">Política de cookies</h1>
+    <p style="font-family: var(--mono); font-size: 12px; color: var(--fg-5); border-bottom: 1px solid var(--line); padding-bottom: 18px; margin-bottom: 28px;">Última actualización: junio de 2026</p>
+
+    <div class="legal-body">
+      <h2>1. Qué son las cookies</h2>
+      <p>
+        Las cookies son pequeños archivos que un sitio web guarda en tu dispositivo para recordar
+        información sobre tu visita.
+      </p>
+
+      <h2>2. Qué cookies usamos</h2>
+      <p>
+        <strong>AgentesVA no utiliza cookies de seguimiento, analítica ni publicidad.</strong> No
+        instalamos cookies de terceros con fines de perfilado, por lo que no es necesario un banner de
+        consentimiento de cookies.
+      </p>
+      <p>
+        Únicamente pueden emplearse cookies o almacenamiento técnico estrictamente necesarios para el
+        funcionamiento del sitio. Cuando te suscribes mediante un formulario, tus datos se procesan a
+        través de <strong>Brevo</strong> (ver la <a href="/privacidad">política de privacidad</a>);
+        ese envío puntual no instala cookies de seguimiento en tu navegación.
+      </p>
+
+      <h2>3. Cómo gestionarlas</h2>
+      <p>
+        Puedes configurar o eliminar las cookies desde los ajustes de tu navegador (Chrome, Firefox,
+        Safari, Edge). Al no usar cookies de seguimiento, bloquearlas no afecta a la experiencia de
+        lectura del sitio.
+      </p>
+
+      <h2>4. Cambios en esta política</h2>
+      <p>
+        Si en el futuro incorporamos herramientas de analítica u otras cookies no esenciales,
+        actualizaremos esta política y, cuando proceda, solicitaremos tu consentimiento previo.
+      </p>
+
+      <p class="legal-note">
+        Documento de partida. Si se añade analítica (p. ej. Google Analytics, Plausible) o publicidad,
+        revisa esta política y la necesidad de un mecanismo de consentimiento con tu asesoría legal.
+      </p>
+
+      <p style="margin-top: 28px;"><a href="/" style="font-family: var(--mono); font-size: 13px; color: var(--accent);">← Volver al inicio</a></p>
+    </div>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<style>
+  .legal-body h2 { font-family: var(--sans); font-weight: 600; font-size: 18px; color: #fff; margin: 28px 0 8px; letter-spacing: -0.01em; }
+  .legal-body p, .legal-body li { font-size: 15px; line-height: 1.65; color: var(--fg-3, #c7d0dd); margin-bottom: 10px; }
+  .legal-body ul { padding-left: 20px; margin-bottom: 12px; }
+  .legal-body strong { color: #fff; font-weight: 600; }
+  .legal-body a { color: var(--accent); }
+  .legal-body .legal-note { margin-top: 28px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 4px; font-size: 13px; color: var(--fg-5); }
+</style>

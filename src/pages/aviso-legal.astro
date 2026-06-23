@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const site = 'https://agentesva.com';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Aviso legal',
+  url: `${site}/aviso-legal`,
+  inLanguage: 'es',
+  isPartOf: { '@type': 'WebSite', name: 'AgentesVA', url: site },
+};
+---
+
+<BaseLayout
+  title="Aviso legal | AgentesVA"
+  description="Aviso legal y condiciones de uso de AgentesVA, directorio y medio de inteligencia artificial en español."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <SiteHeader />
+
+  <main style="max-width: 760px; margin: 0 auto; padding: 40px 32px 72px; font-family: var(--sans);">
+    <nav aria-label="Migas" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-5);">
+      <a href="/" style="color: var(--fg-5); text-decoration: none;">Inicio</a> / Aviso legal
+    </nav>
+
+    <h1 style="font-family: var(--serif); font-weight: 400; font-size: 36px; letter-spacing: -0.02em; color: #fff; margin: 16px 0 6px;">Aviso legal</h1>
+    <p style="font-family: var(--mono); font-size: 12px; color: var(--fg-5); border-bottom: 1px solid var(--line); padding-bottom: 18px; margin-bottom: 28px;">Última actualización: junio de 2026</p>
+
+    <div class="legal-body">
+      <h2>1. Datos identificativos</h2>
+      <p>
+        En cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la
+        Información y de Comercio Electrónico (LSSI-CE), se informa de los siguientes datos del
+        titular de este sitio web:
+      </p>
+      <ul>
+        <li><strong>Titular:</strong> [PENDIENTE — confirmar nombre o razón social]</li>
+        <li><strong>NIF/CIF:</strong> [PENDIENTE — confirmar]</li>
+        <li><strong>Domicilio:</strong> [PENDIENTE — confirmar]</li>
+        <li><strong>Correo de contacto:</strong> hola@agentesva.com [confirmar]</li>
+        <li><strong>Sitio web:</strong> agentesva.com</li>
+      </ul>
+
+      <h2>2. Objeto</h2>
+      <p>
+        AgentesVA es un directorio y medio de contenidos sobre inteligencia artificial en español,
+        dirigido a PyMEs y autónomos hispanohablantes. Ofrece fichas de herramientas, comparativas,
+        estudios y noticias con fines informativos y divulgativos. El acceso al contenido es
+        gratuito para la persona usuaria.
+      </p>
+
+      <h2>3. Condiciones de uso</h2>
+      <p>
+        La persona usuaria se compromete a hacer un uso adecuado de los contenidos y a no emplearlos
+        para actividades ilícitas o contrarias a la buena fe. El acceso al sitio no implica relación
+        comercial, contractual ni profesional alguna con el titular.
+      </p>
+
+      <h2>4. Enlaces de afiliación</h2>
+      <p>
+        Algunos enlaces a herramientas de terceros son enlaces de afiliación: si contratas un
+        producto a través de ellos, AgentesVA puede percibir una comisión sin coste adicional para
+        ti. Esto no condiciona nuestras valoraciones: el contenido es editorial e independiente. Los
+        precios, planes y características de las herramientas pertenecen a sus respectivos
+        proveedores y pueden cambiar sin previo aviso; verifícalos siempre en la fuente oficial.
+      </p>
+
+      <h2>5. Propiedad intelectual</h2>
+      <p>
+        Los contenidos originales de AgentesVA (textos, comparativas, diseño y marca) son propiedad
+        de su titular o se utilizan con autorización, y están protegidos por la normativa de
+        propiedad intelectual. Las marcas, logotipos y nombres de las herramientas de terceros
+        pertenecen a sus respectivos propietarios y se citan con fines identificativos.
+      </p>
+
+      <h2>6. Exención de responsabilidad</h2>
+      <p>
+        La información se ofrece «tal cual», con fines orientativos. AgentesVA no garantiza la
+        disponibilidad continua del sitio ni se responsabiliza de los contenidos, políticas o
+        prácticas de los sitios de terceros enlazados.
+      </p>
+
+      <h2>7. Legislación aplicable</h2>
+      <p>
+        Esta relación se rige por la legislación española. Para cualquier controversia, las partes se
+        someten a los juzgados y tribunales que correspondan conforme a derecho.
+      </p>
+
+      <p class="legal-note">
+        Documento de partida. Antes de publicar, revísalo con tu asesoría legal y completa los datos
+        marcados como pendientes (RGPD/LOPDGDD y LSSI-CE).
+      </p>
+
+      <p style="margin-top: 28px;"><a href="/" style="font-family: var(--mono); font-size: 13px; color: var(--accent);">← Volver al inicio</a></p>
+    </div>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<style>
+  .legal-body h2 { font-family: var(--sans); font-weight: 600; font-size: 18px; color: #fff; margin: 28px 0 8px; letter-spacing: -0.01em; }
+  .legal-body p, .legal-body li { font-size: 15px; line-height: 1.65; color: var(--fg-3, #c7d0dd); margin-bottom: 10px; }
+  .legal-body ul { padding-left: 20px; margin-bottom: 12px; }
+  .legal-body strong { color: #fff; font-weight: 600; }
+  .legal-body a { color: var(--accent); }
+  .legal-body .legal-note { margin-top: 28px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 4px; font-size: 13px; color: var(--fg-5); }
+</style>
