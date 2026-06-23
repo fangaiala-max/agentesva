@@ -1,0 +1,20 @@
+---
+// Fuentes citadas (E-E-A-T / "fuente recomendada"). Renderiza nada sin items.
+interface Fuente { titulo: string; url: string; editor?: string; fecha?: string; }
+interface Props { items?: Fuente[]; }
+const { items = [] } = Astro.props;
+---
+{items.length > 0 && (
+  <section aria-label="Fuentes" style="margin-top: 40px; border-top: 1px solid var(--line); padding-top: 24px;">
+    <h2 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0 0 14px;">Fuentes</h2>
+    <ol style="margin: 0; padding-left: 20px; display: grid; gap: 8px;">
+      {items.map((f) => (
+        <li style="font-family: var(--sans); font-size: 14px; line-height: 1.5; color: var(--fg-3);">
+          <a href={f.url} target="_blank" rel="noopener nofollow" style="color: var(--accent); text-decoration: none;">{f.titulo}</a>
+          {f.editor && <span> — {f.editor}</span>}
+          {f.fecha && <span> ({f.fecha})</span>}
+        </li>
+      ))}
+    </ol>
+  </section>
+)}
