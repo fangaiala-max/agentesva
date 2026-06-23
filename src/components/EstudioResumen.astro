@@ -1,0 +1,15 @@
+---
+// TL;DR / puntos clave de un estudio. Renderiza nada si no hay puntos.
+interface Props { puntos?: string[]; }
+const { puntos = [] } = Astro.props;
+---
+{puntos.length > 0 && (
+  <aside aria-label="Resumen" style="margin-top: 32px; background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 6px; padding: 22px 24px;">
+    <p style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0 0 12px;">En resumen</p>
+    <ul style="margin: 0; padding-left: 18px; display: grid; gap: 8px;">
+      {puntos.map((p) => (
+        <li style="font-family: var(--sans); font-size: 15px; line-height: 1.55; color: var(--fg-2);">{p}</li>
+      ))}
+    </ul>
+  </aside>
+)}
