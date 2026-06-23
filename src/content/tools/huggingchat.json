@@ -1,0 +1,23 @@
+{
+  "name": "HuggingChat",
+  "cat": "Asistentes",
+  "desc": "Chat gratis con modelos de IA abiertos.",
+  "price": "Gratis",
+  "rating": "4.3",
+  "color": "#FFD21E",
+  "tagline": "Ideal para probar modelos de IA open source sin pagar.",
+  "ideal": "Equipos con perfil técnico",
+  "url": "https://huggingface.co/chat/",
+  "long": "HuggingChat, de Hugging Face, da acceso gratuito a un amplio catálogo de modelos de IA de código abierto (Llama, Mistral, Qwen, DeepSeek y más) desde una sola interfaz, sin coste ni tarjeta.",
+  "features": [
+    "Prueba decenas de modelos open source",
+    "Sin coste y sin tarjeta de crédito",
+    "Cambia de modelo según la tarea"
+  ],
+  "steps": [
+    "Entra en huggingface.co/chat",
+    "Elige el modelo que quieras probar",
+    "Escribe tu pregunta en español"
+  ],
+  "orden": 54
+}
