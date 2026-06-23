@@ -75,6 +75,9 @@ Pass 4 before publish. The skill is the human-verified path.
     Fuentes + el `citation` del Article JSON-LD).
   - Las **noticias relacionadas** se autogeneran por `tema`/`etiquetas`/`herramientas`;
     elige `tema`/`etiquetas` que conecten con noticias reales del sitio.
+  - **`bonus` ("One more thing").** Cierra con un bloque bonus de alternativas
+    **emergentes / menos obvias** (no las más mencionadas): 2–3 cross-linkeadas a
+    fichas del directorio + el resto nombradas en `nota` con enlace oficial.
 
 ---
 

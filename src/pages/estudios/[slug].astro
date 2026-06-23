@@ -11,6 +11,7 @@ import EstudioComparativa from '../../components/EstudioComparativa.astro';
 import EstudioWorkflow from '../../components/EstudioWorkflow.astro';
 import EstudioFaq from '../../components/EstudioFaq.astro';
 import EstudioFuentes from '../../components/EstudioFuentes.astro';
+import EstudioBonus from '../../components/EstudioBonus.astro';
 
 export async function getStaticPaths() {
   const estudios = await getCollection('estudios');
@@ -102,6 +103,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
 
     <EstudioWorkflow titulo={d.workflow?.titulo} pasos={d.workflow?.pasos} />
     <EstudioFaq items={d.faq} />
+    <EstudioBonus titulo={d.bonus?.titulo} intro={d.bonus?.intro} herramientas={d.bonus?.herramientas} nota={d.bonus?.nota} />
     <EstudioFuentes items={d.fuentes} />
 
     {related.length > 0 && (

@@ -1,0 +1,30 @@
+---
+// "One more thing" — bloque bonus que revela herramientas emergentes / menos
+// obvias al final de un estudio. Resuelve nombre/color desde la colección tools.
+import { getCollection } from 'astro:content';
+import { toTool } from '../data/tools';
+
+interface Props { titulo?: string; intro?: string; herramientas?: string[]; nota?: string; }
+const { titulo = 'One more thing', intro, herramientas = [], nota } = Astro.props;
+
+const tools = (await getCollection('tools')).map(toTool);
+const items = herramientas.map((slug) => tools.find((t) => t.slug === slug)).filter(Boolean);
+const show = items.length > 0 || Boolean(nota);
+---
+{show && (
+  <section aria-label="One more thing" style="margin-top: 44px; background: linear-gradient(135deg, var(--panel), var(--bg-2)); border: 1px solid var(--line-2); border-radius: 10px; padding: 26px;">
+    <p style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin: 0 0 6px;">✦ {titulo}</p>
+    {intro && <p style="font-family: var(--sans); font-size: 15.5px; line-height: 1.6; color: var(--fg-2); margin: 0 0 16px;">{intro}</p>}
+    {items.length > 0 && (
+      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        {items.map((t) => (
+          <a href={`/herramienta/${t.slug}`} class="lift" style="display: inline-flex; align-items: center; gap: 9px; background: var(--panel); border: 1px solid var(--line-2); border-radius: 30px; padding: 8px 14px 8px 8px; text-decoration: none;">
+            <span style={`width: 26px; height: 26px; border-radius: 7px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 13px; color: #fff; background: ${t.color};`}>{t.name.charAt(0)}</span>
+            <span style="font-family: var(--sans); font-size: 13.5px; font-weight: 600; color: #fff;">{t.name}</span>
+          </a>
+        ))}
+      </div>
+    )}
+    {nota && <p style="font-family: var(--sans); font-size: 14px; line-height: 1.6; color: var(--fg-3); margin: 16px 0 0;">{nota}</p>}
+  </section>
+)}

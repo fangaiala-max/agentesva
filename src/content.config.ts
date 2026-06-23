@@ -82,6 +82,14 @@ const estudios = defineCollection({
       )
       .default([]),
     iaPrompt: z.string().optional(),
+    bonus: z
+      .object({
+        titulo: z.string().optional(),
+        intro: z.string().optional(),
+        herramientas: z.array(z.string()).default([]),
+        nota: z.string().optional(),
+      })
+      .optional(),
   }),
 });
 
