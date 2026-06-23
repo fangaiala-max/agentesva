@@ -51,6 +51,37 @@ const estudios = defineCollection({
     herramientas: z.array(z.string()).default([]),
     destacado: z.boolean().default(false),
     faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
+    resumen: z.array(z.string()).default([]),
+    porQueImporta: z.string().optional(),
+    comparativa: z
+      .object({
+        criterios: z.array(z.string()),
+        filas: z.array(
+          z.object({
+            herramienta: z.string(),
+            celdas: z.array(z.string()),
+            score: z.number().min(0).max(100).optional(),
+          }),
+        ),
+      })
+      .optional(),
+    workflow: z
+      .object({
+        titulo: z.string().optional(),
+        pasos: z.array(z.object({ titulo: z.string(), detalle: z.string() })),
+      })
+      .optional(),
+    fuentes: z
+      .array(
+        z.object({
+          titulo: z.string(),
+          url: z.string().url(),
+          editor: z.string().optional(),
+          fecha: z.string().optional(),
+        }),
+      )
+      .default([]),
+    iaPrompt: z.string().optional(),
   }),
 });
 
