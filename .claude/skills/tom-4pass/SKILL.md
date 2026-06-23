@@ -63,6 +63,21 @@ Pass 4 before publish. The skill is the human-verified path.
 - **Spanish-only, native.** Idiomatic Spanish, not translated. No EN twin. Watch
   ES/LATAM register where the audience spans both markets.
 - **Validation gate before publish.** `npm run build` (0 errors) from the **repo root**.
+- **Estudio depth standard (estudios only).** An estudio is a deep, citable
+  asset, not a blurb. Required before publish (GATE 3):
+  - **~1,200–1,800 words** of original prose (per-tool analysis: qué hace bien /
+    límites / precio+fuente+fecha / español / mejor-para).
+  - **`resumen`** (4–6 puntos clave / TL;DR) and **`porQueImporta`** (por qué importa).
+  - **`comparativa`** (criterios + filas con herramienta/celdas/score) — la infografía.
+  - **`workflow`** (pasos para elegir/empezar).
+  - **`faq`** (ahora visible) y **veredicto** en la prosa.
+  - **`fuentes`** — ≥2 fuentes oficiales/primarias citadas (alimentan el bloque
+    Fuentes + el `citation` del Article JSON-LD).
+  - Las **noticias relacionadas** se autogeneran por `tema`/`etiquetas`/`herramientas`;
+    elige `tema`/`etiquetas` que conecten con noticias reales del sitio.
+  - **`bonus` ("One more thing").** Cierra con un bloque bonus de alternativas
+    **emergentes / menos obvias** (no las más mencionadas): 2–3 cross-linkeadas a
+    fichas del directorio + el resto nombradas en `nota` con enlace oficial.
 
 ---
 

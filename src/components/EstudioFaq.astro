@@ -1,0 +1,19 @@
+---
+// Renderiza el faq visiblemente (hasta ahora solo iba en JSON-LD).
+interface Faq { q: string; a: string; }
+interface Props { items?: Faq[]; }
+const { items = [] } = Astro.props;
+---
+{items.length > 0 && (
+  <section aria-label="Preguntas frecuentes" style="margin-top: 40px;">
+    <h2 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0 0 16px;">Preguntas frecuentes</h2>
+    <div style="display: grid; gap: 10px;">
+      {items.map((f) => (
+        <details style="background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px;">
+          <summary style="font-family: var(--sans); font-weight: 600; font-size: 15px; color: #fff; cursor: pointer;">{f.q}</summary>
+          <p style="font-family: var(--sans); font-size: 14.5px; line-height: 1.6; color: var(--fg-3); margin: 10px 0 0;">{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+)}

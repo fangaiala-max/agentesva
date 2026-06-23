@@ -1,0 +1,58 @@
+---
+// Matriz comparativa = la infografía. Resuelve icono/nombre/color de cada
+// herramienta desde la colección tools por slug.
+import { getCollection } from 'astro:content';
+import { toTool } from '../data/tools';
+
+interface Fila { herramienta: string; celdas: string[]; score?: number; }
+interface Props { criterios?: string[]; filas?: Fila[]; }
+const { criterios = [], filas = [] } = Astro.props;
+
+const tools = (await getCollection('tools')).map(toTool);
+const rows = filas.map((f) => ({ ...f, tool: tools.find((t) => t.slug === f.herramienta) }));
+const hasScore = rows.some((r) => typeof r.score === 'number');
+
+const th = 'font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-5); text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line-2); white-space: nowrap;';
+const td = 'font-family: var(--sans); font-size: 14px; color: var(--fg-2); padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: middle;';
+---
+{criterios.length > 0 && rows.length > 0 && (
+  <section aria-label="Comparativa" style="margin-top: 40px;">
+    <h2 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0 0 16px;">Comparativa</h2>
+    <div style="overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--panel);">
+      <table style="width: 100%; border-collapse: collapse; min-width: 520px;">
+        <thead>
+          <tr>
+            <th style={th}>Herramienta</th>
+            {criterios.map((c) => <th style={th}>{c}</th>)}
+            {hasScore && <th style={th}>Valoración</th>}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr>
+              <td style={td}>
+                <span style="display: inline-flex; align-items: center; gap: 9px;">
+                  <span style={`width: 24px; height: 24px; border-radius: 6px; flex: none; display: inline-flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 12px; color: #fff; background: ${r.tool?.color ?? 'var(--line-3)'};`}>{(r.tool?.name ?? r.herramienta).charAt(0)}</span>
+                  <span style="font-weight: 600; color: #fff;">{r.tool?.name ?? r.herramienta}</span>
+                </span>
+              </td>
+              {r.celdas.map((c) => <td style={td}>{c}</td>)}
+              {hasScore && (
+                <td style={td}>
+                  {typeof r.score === 'number' ? (
+                    <span style="display: inline-flex; align-items: center; gap: 8px;">
+                      <span style="width: 64px; height: 6px; border-radius: 3px; background: var(--line-2); overflow: hidden; display: inline-block;">
+                        <span style={`display: block; height: 100%; width: ${r.score}%; background: var(--accent);`}></span>
+                      </span>
+                      <span style="font-family: var(--mono); font-size: 12px; color: var(--fg-3);">{r.score}</span>
+                    </span>
+                  ) : '—'}
+                </td>
+              )}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+)}

@@ -1,0 +1,22 @@
+---
+// Pasos numerados ("cómo elegir / cómo empezar"). Renderiza nada sin pasos.
+interface Paso { titulo: string; detalle: string; }
+interface Props { titulo?: string; pasos?: Paso[]; }
+const { titulo = 'Cómo elegir', pasos = [] } = Astro.props;
+---
+{pasos.length > 0 && (
+  <section aria-label={titulo} style="margin-top: 40px;">
+    <h2 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0 0 16px;">{titulo}</h2>
+    <ol style="list-style: none; padding: 0; margin: 0; display: grid; gap: 12px;">
+      {pasos.map((p, i) => (
+        <li style="display: flex; gap: 14px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px;">
+          <span style="flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: var(--bg); font-family: var(--sans); font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center;">{i + 1}</span>
+          <div>
+            <p style="font-family: var(--sans); font-weight: 600; font-size: 15px; color: #fff; margin: 2px 0 4px;">{p.titulo}</p>
+            <p style="font-family: var(--sans); font-size: 14px; line-height: 1.55; color: var(--fg-3); margin: 0;">{p.detalle}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+)}
