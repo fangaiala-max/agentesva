@@ -60,7 +60,7 @@ const ctaLabel = curso.tipo === 'propio'
 
 <BaseLayout
   title={`${curso.titulo} — ${curso.tagline} | AgentesVA`}
-  description={`${curso.titulo}: ${curso.long.slice(0, 150)}`}
+  description={`${curso.desc} Curso de ${curso.proveedor}, nivel ${nivelLabel(curso.nivel)}.`}
 >
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <SiteHeader />
