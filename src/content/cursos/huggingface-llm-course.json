@@ -1,0 +1,17 @@
+{
+  "titulo": "Curso de LLM de Hugging Face",
+  "proveedor": "Hugging Face",
+  "categoria": "Automatización y agentes",
+  "nivel": "avanzado",
+  "desc": "Curso gratuito para construir con modelos de lenguaje usando las librerías de Hugging Face.",
+  "long": "Curso abierto de Hugging Face sobre modelos de lenguaje y procesamiento de texto. Cubre los fundamentos de los Transformers, cómo afinar modelos y cómo desplegarlos, con las librerías Transformers, Datasets y Tokenizers. Es técnico: necesitas saber Python y, a ser posible, algo de deep learning. Está en inglés (con traducciones de la comunidad), es completamente gratis y sin anuncios.",
+  "tagline": "Pasa de usar la IA a construir con ella, sin pagar nada.",
+  "ideal": "Perfiles técnicos que quieren crear sus propias aplicaciones con IA",
+  "precio": "Gratis",
+  "idioma": "Inglés",
+  "certificado": false,
+  "officialUrl": "https://huggingface.co/learn/nlp-course",
+  "color": "#0A84FF",
+  "orden": 51,
+  "actualizado": "2026-06-25"
+}

@@ -1,0 +1,18 @@
+{
+  "titulo": "Introducción a la generación de imágenes",
+  "proveedor": "Google Cloud",
+  "categoria": "Imagen y generativa",
+  "nivel": "principiante",
+  "desc": "Microcurso gratuito de Google Cloud sobre cómo la IA genera imágenes.",
+  "long": "Microcurso de Google Cloud Skills Boost que explica cómo funcionan los modelos de difusión, la técnica detrás de la generación de imágenes con IA. Cubre la idea general y un ejemplo práctico en Vertex AI. Es corto, dura unos 30 minutos. Está en inglés.",
+  "tagline": "Entiende cómo la IA crea imágenes, en media hora.",
+  "ideal": "Quien tiene curiosidad por cómo la IA genera imágenes",
+  "precio": "Gratis",
+  "idioma": "Inglés",
+  "duracion": "Aprox. 30 minutos",
+  "certificado": false,
+  "officialUrl": "https://www.skills.google/course_templates/541",
+  "color": "#0040FF",
+  "orden": 40,
+  "actualizado": "2026-06-25"
+}

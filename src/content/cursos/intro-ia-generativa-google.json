@@ -1,0 +1,18 @@
+{
+  "titulo": "Introducción a la IA generativa",
+  "proveedor": "Google Cloud",
+  "categoria": "Fundamentos de IA",
+  "nivel": "principiante",
+  "desc": "Microcurso gratuito de Google Cloud que explica qué es la IA generativa.",
+  "long": "Microcurso de Google Cloud Skills Boost que explica de forma sencilla qué es la IA generativa, para qué se usa y en qué se diferencia del aprendizaje automático tradicional. Dura menos de una hora y es un buen primer paso antes de profundizar. Está en inglés.",
+  "tagline": "En menos de una hora entiendes qué es la IA generativa.",
+  "ideal": "Quien quiere una explicación rápida y clara de la IA generativa",
+  "precio": "Gratis",
+  "idioma": "Inglés",
+  "duracion": "Aprox. 45 minutos",
+  "certificado": false,
+  "officialUrl": "https://www.skills.google/course_templates/536",
+  "color": "#0A84FF",
+  "orden": 13,
+  "actualizado": "2026-06-25"
+}

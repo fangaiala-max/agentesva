@@ -1,0 +1,18 @@
+{
+  "titulo": "ChatGPT Prompt Engineering para desarrolladores",
+  "proveedor": "DeepLearning.AI",
+  "categoria": "Prompts e ingeniería de prompts",
+  "nivel": "intermedio",
+  "desc": "Curso corto y gratuito para escribir prompts que de verdad funcionan con la API de ChatGPT.",
+  "long": "Curso breve de DeepLearning.AI con OpenAI, impartido por Isa Fulford y Andrew Ng. Aprendes a redactar prompts claros, a resumir, clasificar y transformar texto, y a usar la API de ChatGPT con ejemplos prácticos en cuadernos. Va al grano: poca teoría y mucho probar. Está en inglés.",
+  "tagline": "Aprende a pedirle bien a ChatGPT, con ejemplos que puedes ejecutar.",
+  "ideal": "Quien ya programa un poco y quiere sacarle más partido a la API de ChatGPT",
+  "precio": "Gratis",
+  "idioma": "Inglés",
+  "duracion": "Aprox. 1,5 horas",
+  "certificado": false,
+  "officialUrl": "https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/",
+  "color": "#5B7CFF",
+  "orden": 30,
+  "actualizado": "2026-06-25"
+}

@@ -1,0 +1,17 @@
+{
+  "titulo": "Tutorial interactivo de ingeniería de prompts (Anthropic)",
+  "proveedor": "Anthropic",
+  "categoria": "Prompts e ingeniería de prompts",
+  "nivel": "intermedio",
+  "desc": "Tutorial gratuito y paso a paso para dominar los prompts con Claude.",
+  "long": "Tutorial abierto de Anthropic, los creadores de Claude. Recorre la estructura de un buen prompt, los errores más típicos y las técnicas que más impacto tienen, organizado por niveles: básico, intermedio y avanzado. Son cuadernos interactivos que practicas a tu ritmo. Está en inglés y es gratis.",
+  "tagline": "De los propios creadores de Claude: aprende a escribir prompts a fondo.",
+  "ideal": "Quien usa Claude o cualquier IA de texto y quiere prompts más fiables",
+  "precio": "Gratis",
+  "idioma": "Inglés",
+  "certificado": false,
+  "officialUrl": "https://github.com/anthropics/prompt-eng-interactive-tutorial",
+  "color": "#0040FF",
+  "orden": 31,
+  "actualizado": "2026-06-25"
+}

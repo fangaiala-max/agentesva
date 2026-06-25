@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import CourseCard from '../../components/CourseCard.astro';
+import { getCollection } from 'astro:content';
+import { toCurso, assertNoSlugCollision } from '../../data/cursos';
+
+const cursos = (await getCollection('cursos'))
+  .map(toCurso)
+  .sort((a, b) => Number(b.destacado) - Number(a.destacado) || a.orden - b.orden);
+const cats = (await getCollection('cursosCategorias')).sort((a, b) => a.data.orden - b.data.orden);
+
+// Guard de build: ningún slug de curso puede chocar con uno de herramienta (comparten /ir/[slug]).
+const toolSlugs = (await getCollection('tools')).map((t) => t.id);
+assertNoSlugCollision(toolSlugs, cursos.map((c) => c.slug));
+
+const CATEGORIES = ['Todas', ...cats.map((c) => c.data.nombre)];
+const NIVELES = [
+  { v: 'Todos', label: 'Todos' },
+  { v: 'principiante', label: 'Principiante' },
+  { v: 'intermedio', label: 'Intermedio' },
+  { v: 'avanzado', label: 'Avanzado' },
+];
+const PRECIOS = ['Todos', 'Gratis', 'Pago'];
+const site = 'https://agentesva.com';
+
+const chipBase = 'font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 14px; border-radius: 30px;';
+const chipOn = 'background: var(--accent); color: var(--bg); border: 1px solid var(--accent);';
+const chipOff = 'background: transparent; color: var(--fg-3); border: 1px solid var(--line-2);';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      name: 'Cursos de IA',
+      description: 'Directorio de cursos de IA en español, gratis y de pago.',
+      url: `${site}/cursos`,
+      inLanguage: 'es',
+    },
+    {
+      '@type': 'ItemList',
+      itemListElement: cursos.map((c, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: `${site}/curso/${c.slug}`,
+        name: c.titulo,
+      })),
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${site}/` },
+        { '@type': 'ListItem', position: 2, name: 'Cursos', item: `${site}/cursos` },
+      ],
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Cursos de IA — gratis y de pago | AgentesVA"
+  description="Directorio de cursos de IA en español. Filtra por nivel y precio; lidera con los gratuitos. Aprende a usar la IA en tu negocio sin gastar de más."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <SiteHeader />
+
+  <main style="max-width: 1200px; margin: 0 auto; padding: 40px 32px 64px;">
+    <nav aria-label="Migas" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-5);">
+      <a href="/" class="navlink" style="color: var(--fg-4); text-decoration: none;">Inicio</a> <span aria-hidden="true">/</span> Cursos
+    </nav>
+
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 18px;">
+      <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 5vw, 44px); letter-spacing: -0.03em; margin: 0; color: #fff;">Cursos de IA</h1>
+      <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-5);"><span id="curso-count" style="color: var(--accent);">{cursos.length}</span> resultados</span>
+    </div>
+    <p style="font-size: 16px; line-height: 1.6; color: var(--fg-3); margin: 12px 0 0; max-width: 42em;">Cursos de IA en español, gratis y de pago, para empezar hoy. Sin relleno: solo lo que de verdad te enseña a usarla.</p>
+
+    <!-- search -->
+    <form id="curso-search-form" role="search" class="searchwrap" style="display: flex; align-items: center; gap: 12px; max-width: 560px; margin: 24px 0 0; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 4px; padding: 4px 4px 4px 18px; transition: border-color .25s, box-shadow .25s;">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--fg-5)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
+      <label for="curso-search" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Buscar cursos</label>
+      <input id="curso-search" type="search" autocomplete="off" placeholder="Busca: prompts, ChatGPT, automatizar…" style="flex: 1; background: transparent; border: none; outline: none; color: #fff; font-family: var(--sans); font-size: 15px; padding: 12px 0;">
+    </form>
+
+    <!-- filtro: categoría -->
+    <div role="group" aria-label="Filtrar por categoría" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px;">
+      {CATEGORIES.map((c, i) => (
+        <button type="button" class="chip cat-chip" data-chip={c} aria-pressed={i === 0 ? 'true' : 'false'} style={`${chipBase} ${i === 0 ? chipOn : chipOff}`}>{c}</button>
+      ))}
+    </div>
+
+    <!-- filtros: nivel + precio -->
+    <div style="display: flex; flex-wrap: wrap; gap: 18px 28px; margin-top: 12px;">
+      <div role="group" aria-label="Filtrar por nivel" style="display: flex; flex-wrap: wrap; gap: 8px;">
+        {NIVELES.map((n, i) => (
+          <button type="button" class="chip nivel-chip" data-chip={n.v} aria-pressed={i === 0 ? 'true' : 'false'} style={`${chipBase} ${i === 0 ? chipOn : chipOff}`}>{n.label}</button>
+        ))}
+      </div>
+      <div role="group" aria-label="Filtrar por precio" style="display: flex; flex-wrap: wrap; gap: 8px;">
+        {PRECIOS.map((p, i) => (
+          <button type="button" class="chip precio-chip" data-chip={p} aria-pressed={i === 0 ? 'true' : 'false'} style={`${chipBase} ${i === 0 ? chipOn : chipOff}`}>{p}</button>
+        ))}
+      </div>
+    </div>
+
+    <div id="curso-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; margin-top: 28px;">
+      {cursos.map((curso) => <CourseCard curso={curso} />)}
+    </div>
+
+    <div id="curso-empty" hidden style="border: 1px dashed var(--line-2); border-radius: 8px; padding: 56px 24px; text-align: center; margin-top: 28px;">
+      <p style="font-family: var(--sans); font-weight: 600; font-size: 18px; color: #fff; margin: 0;">Sin resultados</p>
+      <p style="font-size: 14px; color: var(--fg-5); margin: 8px 0 0;">Prueba otra palabra o cambia los filtros.</p>
+    </div>
+
+    <!-- categorías (SEO: enlaces a las páginas de categoría) -->
+    <section style="margin-top: 56px; border-top: 1px solid var(--line); padding-top: 28px;">
+      <h2 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0;">Explora por categoría</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px;">
+        {cats.map((c) => (
+          <a href={`/cursos/${c.id}`} class="lift" style="font-family: var(--mono); font-size: 12px; color: var(--fg-2); background: var(--panel); border: 1px solid var(--line); border-radius: 30px; padding: 9px 16px; text-decoration: none;">{c.data.nombre}</a>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<script>
+  import { initCursos } from '../../scripts/cursos';
+  import { initMotion } from '../../scripts/motion';
+  document.addEventListener('astro:page-load', () => {
+    initCursos();
+    initMotion();
+  });
+</script>
