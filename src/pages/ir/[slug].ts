@@ -26,7 +26,13 @@ export const GET: APIRoute = async ({ params }) => {
   if (tool) return redirect(tool.data.affiliateUrl || tool.data.url, 'tool', slug);
 
   const curso = (await getCollection('cursos')).find((c) => c.id === slug);
-  if (curso) return redirect(curso.data.affiliateUrl || curso.data.officialUrl, 'curso', slug);
+  if (curso) {
+    // propio → Gumroad (officialUrl es su propia ficha, evita bucle 302); externo → afiliado||oficial.
+    const dest = curso.data.tipo === 'propio'
+      ? (curso.data.gumroadUrl || curso.data.officialUrl)
+      : (curso.data.affiliateUrl || curso.data.officialUrl);
+    return redirect(dest, 'curso', slug);
+  }
 
   return new Response('No encontrado', { status: 404 });
 };
