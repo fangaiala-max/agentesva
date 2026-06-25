@@ -1,6 +1,6 @@
 ---
 // Botonera "resume este estudio con tu IA". Deep-link con prompt + URL canónica.
-interface Props { url: string; titulo: string; prompt?: string; }
+interface Props { url: string; prompt?: string; }
 const { url, prompt } = Astro.props;
 const text = prompt ?? `Resume este artículo y dime lo más importante: ${url}`;
 const q = encodeURIComponent(text);
@@ -23,7 +23,12 @@ const pill = 'font-family: var(--sans); font-size: 13px; font-weight: 600; color
     document.querySelectorAll('[data-ia-gemini]').forEach((btn) => {
       btn.addEventListener('click', async () => {
         const p = btn.getAttribute('data-prompt') || '';
-        try { await navigator.clipboard.writeText(p); } catch {}
+        try {
+          await navigator.clipboard.writeText(p);
+          const orig = btn.textContent;
+          btn.textContent = 'Copiado — pégalo en Gemini';
+          setTimeout(() => { btn.textContent = orig; }, 2000);
+        } catch {}
         window.open('https://gemini.google.com/app', '_blank', 'noopener');
       });
     });
