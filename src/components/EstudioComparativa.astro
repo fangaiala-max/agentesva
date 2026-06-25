@@ -22,9 +22,9 @@ const td = 'font-family: var(--sans); font-size: 14px; color: var(--fg-2); paddi
       <table style="width: 100%; border-collapse: collapse; min-width: 520px;">
         <thead>
           <tr>
-            <th style={th}>Herramienta</th>
-            {criterios.map((c) => <th style={th}>{c}</th>)}
-            {hasScore && <th style={th}>Valoración</th>}
+            <th scope="col" style={th}>Herramienta</th>
+            {criterios.map((c) => <th scope="col" style={th}>{c}</th>)}
+            {hasScore && <th scope="col" style={th}>Valoración</th>}
           </tr>
         </thead>
         <tbody>

@@ -93,7 +93,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
     <p style="font-family: var(--mono); font-size: 11px; color: var(--fg-5); margin: 16px 0 0;">AgentesVA · {fechaFmt}</p>
 
     <EstudioResumen puntos={d.resumen} />
-    <EstudioResumirIA url={canonical} titulo={d.titulo} prompt={d.iaPrompt} />
+    <EstudioResumirIA url={canonical} prompt={d.iaPrompt} />
     <EstudioNota texto={d.porQueImporta} />
     <EstudioComparativa criterios={d.comparativa?.criterios} filas={d.comparativa?.filas} />
 
