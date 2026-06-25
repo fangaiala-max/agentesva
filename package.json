@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "ai": "^6.0.208",
-    "autoprefixer": "^10.4.20",
+    "autoprefixer": "^10.5.2",
     "postcss": "^8.4.49",
     "zod": "^4.4.3"
   },
