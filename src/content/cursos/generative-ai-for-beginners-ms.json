@@ -1,0 +1,17 @@
+{
+  "titulo": "IA generativa para principiantes",
+  "proveedor": "Microsoft",
+  "categoria": "IA para tu negocio",
+  "nivel": "principiante",
+  "desc": "Curso gratuito y abierto de Microsoft con 21 lecciones para empezar con la IA generativa.",
+  "long": "Curso abierto de Microsoft, creado por su equipo de Cloud Advocates. Son 21 lecciones que te llevan desde los conceptos básicos de la IA generativa hasta construir tus primeras aplicaciones, con ejemplos en Python y TypeScript. Está alojado en GitHub con licencia MIT, así que es libre y gratuito. Las lecciones están en inglés.",
+  "tagline": "21 lecciones gratis para entender y aplicar la IA generativa.",
+  "ideal": "Quien quiere una ruta ordenada y gratis para iniciarse en la IA generativa",
+  "precio": "Gratis",
+  "idioma": "Inglés",
+  "certificado": false,
+  "officialUrl": "https://github.com/microsoft/generative-ai-for-beginners",
+  "color": "#0040FF",
+  "orden": 21,
+  "actualizado": "2026-06-25"
+}

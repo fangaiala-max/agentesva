@@ -1,0 +1,17 @@
+{
+  "titulo": "Practical Deep Learning for Coders",
+  "proveedor": "fast.ai",
+  "categoria": "Automatización y agentes",
+  "nivel": "avanzado",
+  "desc": "Curso gratuito de fast.ai para aplicar deep learning a problemas reales programando.",
+  "long": "Curso de fast.ai pensado para gente que ya programa y quiere aplicar deep learning a problemas prácticos. Va de lo aplicado a lo teórico: en pocas lecciones entrenas modelos de visión, texto y datos tabulares, y aprendes a desplegarlos. El curso y el libro que lo acompaña son gratis y están online. En inglés.",
+  "tagline": "Del primer modelo entrenado al despliegue, sin coste.",
+  "ideal": "Quien ya sabe programar y quiere construir modelos de IA de verdad",
+  "precio": "Gratis",
+  "idioma": "Inglés",
+  "certificado": false,
+  "officialUrl": "https://course.fast.ai/",
+  "color": "#5B7CFF",
+  "orden": 52,
+  "actualizado": "2026-06-25"
+}

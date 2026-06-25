@@ -1,0 +1,18 @@
+{
+  "titulo": "Curso gratis de introducción a la inteligencia artificial",
+  "proveedor": "Platzi",
+  "categoria": "IA para tu negocio",
+  "nivel": "principiante",
+  "desc": "Curso gratuito y en español para empezar a entender y usar la IA.",
+  "long": "Curso de introducción de Platzi, en español y sin coste. Explica qué es la inteligencia artificial, para qué sirve y cómo empezar a usarla en el día a día, sin necesidad de conocimientos previos. Son unas pocas horas de clases en vídeo. Para acceder al resto del catálogo de Platzi sí hace falta suscripción de pago, pero este curso es gratis.",
+  "tagline": "Empieza con la IA en español, sin pagar y desde cero.",
+  "ideal": "Quien quiere una primera toma de contacto con la IA en español",
+  "precio": "Gratis",
+  "idioma": "Español",
+  "duracion": "Aprox. 2 horas",
+  "certificado": false,
+  "officialUrl": "https://platzi.com/cursos/ia/",
+  "color": "#5B7CFF",
+  "orden": 22,
+  "actualizado": "2026-06-25"
+}

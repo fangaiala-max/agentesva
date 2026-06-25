@@ -1,0 +1,22 @@
+{
+  "titulo": "Curso Express: IA para tu negocio en un fin de semana",
+  "proveedor": "AgentesVA",
+  "categoria": "IA para tu negocio",
+  "nivel": "principiante",
+  "desc": "Nuestro curso práctico para implementar IA en tu negocio sin tecnicismos.",
+  "long": "Un curso express y muy práctico de AgentesVA: en un fin de semana montas tus primeros flujos de IA para vender más, atender mejor y ahorrar horas. Sin teoría de relleno, con plantillas y prompts listos para copiar.",
+  "tagline": "De cero a tu primera automatización con IA, en un fin de semana.",
+  "ideal": "Dueños de PyME y autónomos que quieren resultados rápidos sin programar",
+  "precio": "Pago",
+  "precioDesde": "49 €",
+  "idioma": "Español",
+  "duracion": "Aprox. 6 horas",
+  "certificado": false,
+  "tipo": "propio",
+  "officialUrl": "https://agentesva.com/curso/curso-express-ia-negocio",
+  "gumroadUrl": "https://agentesva.gumroad.com/l/PLACEHOLDER",
+  "color": "#0040FF",
+  "orden": 1,
+  "destacado": true,
+  "actualizado": "2026-06-25"
+}
