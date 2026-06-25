@@ -1,0 +1,167 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import { getCollection } from 'astro:content';
+import { toCurso, getAlternativesCursos, fallbackFaqsCurso, PRECIO_COLOR, nivelLabel, type Curso } from '../../data/cursos';
+
+export async function getStaticPaths() {
+  const cursos = (await getCollection('cursos')).map(toCurso).sort((a, b) => a.orden - b.orden);
+  return cursos.map((curso) => ({
+    params: { slug: curso.slug },
+    props: { curso, alts: getAlternativesCursos(cursos, curso) },
+  }));
+}
+
+interface Props { curso: Curso; alts: Curso[] }
+const { curso, alts } = Astro.props;
+const initial = curso.titulo.charAt(0);
+const precioColor = PRECIO_COLOR[curso.precio];
+const site = 'https://agentesva.com';
+const faqs = curso.faq?.length ? curso.faq : fallbackFaqsCurso(curso);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Course',
+      name: curso.titulo,
+      description: curso.long,
+      provider: { '@type': 'Organization', name: curso.proveedor },
+      inLanguage: 'es',
+      educationalLevel: curso.nivel,
+      url: `${site}/curso/${curso.slug}`,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${site}/` },
+        { '@type': 'ListItem', position: 2, name: 'Cursos', item: `${site}/cursos` },
+        { '@type': 'ListItem', position: 3, name: curso.titulo, item: `${site}/curso/${curso.slug}` },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+  ],
+};
+
+const ctaLabel = curso.tipo === 'propio'
+  ? 'Comprar curso →'
+  : curso.precio === 'Gratis'
+    ? 'Ir al curso (gratis) →'
+    : 'Ir al curso →';
+---
+
+<BaseLayout
+  title={`${curso.titulo} — ${curso.tagline} | AgentesVA`}
+  description={`${curso.titulo}: ${curso.long.slice(0, 150)}`}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <SiteHeader />
+
+  <main style="max-width: 1080px; margin: 0 auto; padding: 32px 32px 64px;">
+    <a href="/cursos" class="navlink" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-4); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">← Volver a cursos</a>
+
+    <div style="display: flex; align-items: flex-start; gap: 22px; margin-top: 26px; border-bottom: 1px solid var(--line); padding-bottom: 32px; flex-wrap: wrap;">
+      <div transition:name={`mono-curso-${curso.slug}`} style={`width: 74px; height: 74px; border-radius: 16px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 33px; color: #fff; background: ${curso.color};`}>{initial}</div>
+      <div style="flex: 1; min-width: 220px;">
+        <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);">{curso.categoria}</div>
+        <h1 style="font-family: var(--sans); font-weight: 700; font-size: clamp(30px, 6vw, 40px); letter-spacing: -0.03em; margin: 6px 0 0; color: #fff;">{curso.titulo}</h1>
+        <p style="font-size: 16.5px; line-height: 1.5; color: var(--fg-3); margin: 8px 0 0; max-width: 34em;">{curso.tagline}</p>
+        <div style="display: flex; gap: 14px; align-items: center; margin-top: 16px; flex-wrap: wrap;">
+          <span style="font-family: var(--mono); font-size: 12px; color: var(--fg-2);">{nivelLabel(curso.nivel)}</span>
+          <span style={`font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: ${precioColor}; border: 1px solid var(--line-2); padding: 4px 10px; border-radius: 20px;`}>{curso.precio}{curso.precioDesde ? ` · ${curso.precioDesde}` : ''}</span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; flex: none;">
+        {curso.tipo === 'propio' ? (
+          <a href={curso.gumroadUrl} target="_blank" rel="noopener" class="lift shimmer" style="background: var(--accent); color: var(--bg); border: none; padding: 13px 24px; border-radius: 2px; font-family: var(--sans); font-weight: 600; font-size: 14px; text-decoration: none; text-align: center; white-space: nowrap;">{ctaLabel}</a>
+        ) : (
+          <a href={`/ir/${curso.slug}`} target="_blank" rel="sponsored nofollow noopener" class="lift shimmer" style="background: var(--accent); color: var(--bg); border: none; padding: 13px 24px; border-radius: 2px; font-family: var(--sans); font-weight: 600; font-size: 14px; text-decoration: none; text-align: center; white-space: nowrap;">{ctaLabel}</a>
+        )}
+        <button type="button" id="save-btn" data-slug={curso.slug} aria-pressed="false" style="background: var(--panel-2); color: var(--fg-2); border: 1px solid var(--line-2); padding: 13px 24px; border-radius: 2px; font-family: var(--sans); font-weight: 600; font-size: 14px; cursor: pointer; white-space: nowrap;"><span id="save-label">Guardar</span></button>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 44px; margin-top: 38px;">
+      <div>
+        <h2 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0;">Sobre el curso</h2>
+        <p style="font-size: 16px; line-height: 1.7; color: var(--fg-2); margin: 14px 0 0;">{curso.long}</p>
+
+        <h2 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 36px 0 0;">Para quién es</h2>
+        <p style="font-size: 16px; line-height: 1.7; color: var(--fg-2); margin: 14px 0 0;">{curso.ideal}.</p>
+
+        <h2 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 36px 0 0;">Preguntas frecuentes</h2>
+        <div style="display: flex; flex-direction: column; gap: 18px; margin-top: 18px;">
+          {faqs.map((f) => (
+            <div>
+              <h3 style="font-family: var(--sans); font-weight: 600; font-size: 15px; color: #fff; margin: 0;">{f.q}</h3>
+              <p style="font-size: 14.5px; line-height: 1.6; color: var(--fg-2); margin: 8px 0 0;">{f.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <aside style="display: flex; flex-direction: column; gap: 18px;">
+        <div style="border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 22px;">
+          <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-5);">Resumen</span>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 13px 0; border-bottom: 1px solid var(--line); margin-top: 8px;">
+            <span style="font-size: 13px; color: var(--fg-4);">Proveedor</span><span style="font-size: 13.5px; color: #fff;">{curso.proveedor}</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 13px 0; border-bottom: 1px solid var(--line);">
+            <span style="font-size: 13px; color: var(--fg-4);">Nivel</span><span style="font-size: 13.5px; color: #fff;">{nivelLabel(curso.nivel)}</span>
+          </div>
+          {curso.duracion && (
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 13px 0; border-bottom: 1px solid var(--line);">
+              <span style="font-size: 13px; color: var(--fg-4);">Duración</span><span style="font-size: 13.5px; color: #fff;">{curso.duracion}</span>
+            </div>
+          )}
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 13px 0; border-bottom: 1px solid var(--line);">
+            <span style="font-size: 13px; color: var(--fg-4);">Precio</span><span style="font-size: 13.5px; color: #fff;">{curso.precio}{curso.precioDesde ? ` · ${curso.precioDesde}` : ''}</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 13px 0; border-bottom: 1px solid var(--line);">
+            <span style="font-size: 13px; color: var(--fg-4);">Idioma</span><span style="font-size: 13.5px; color: #fff;">{curso.idioma}</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 13px 0;">
+            <span style="font-size: 13px; color: var(--fg-4);">Certificado</span><span style="font-size: 13.5px; color: #fff;">{curso.certificado ? 'Sí' : '—'}</span>
+          </div>
+        </div>
+
+        {alts.length > 0 && (
+          <div style="border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 22px;">
+            <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-5);">Otros cursos</span>
+            <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
+              {alts.map((a) => (
+                <a href={`/curso/${a.slug}`} class="lift" style="display: flex; align-items: center; gap: 12px; background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 12px; text-decoration: none;">
+                  <span style={`width: 34px; height: 34px; border-radius: 8px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 15px; color: #fff; background: ${a.color};`}>{a.titulo.charAt(0)}</span>
+                  <span style="flex: 1;">
+                    <span style="display: block; font-family: var(--sans); font-weight: 600; font-size: 14px; color: #fff;">{a.titulo}</span>
+                    <span style="display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-5); margin-top: 2px;">{nivelLabel(a.nivel)} · {a.precio}</span>
+                  </span>
+                  <span aria-hidden="true" style="color: var(--fg-5); font-family: var(--mono); font-size: 13px;">→</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+      </aside>
+    </div>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<script>
+  import { initToolDetail } from '../../scripts/tool-detail';
+  import { initMotion } from '../../scripts/motion';
+  document.addEventListener('astro:page-load', () => {
+    initToolDetail();
+    initMotion();
+  });
+</script>
