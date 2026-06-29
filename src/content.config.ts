@@ -108,4 +108,54 @@ const noticias = defineCollection({
   }),
 });
 
-export const collections = { tools, categories, estudios, noticias };
+// Directorio de cursos de IA (#54). Clona el patrón de `tools`: el `id` = nombre
+// de archivo = slug. El build falla si un JSON no cumple el esquema.
+const cursos = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/content/cursos' }),
+  schema: z
+    .object({
+      titulo: z.string(),
+      proveedor: z.string(),
+      categoria: z.string(),
+      nivel: z.enum(['principiante', 'intermedio', 'avanzado']),
+      desc: z.string(),
+      long: z.string(),
+      tagline: z.string(),
+      ideal: z.string(),
+      precio: z.enum(['Gratis', 'Pago']),
+      precioDesde: z.string().optional(),
+      idioma: z.string(),
+      duracion: z.string().optional(),
+      certificado: z.boolean().optional(),
+      tipo: z.enum(['externo', 'propio']).default('externo'),
+      // officialUrl — obligatoria, validada como URL
+      officialUrl: z.string().url(),
+      affiliateUrl: z.string().url().optional(),
+      gumroadUrl: z.string().url().optional(),
+      color: z.string().regex(/^#[0-9A-Fa-f]{6}$/),
+      orden: z.number().int(),
+      destacado: z.boolean().default(false),
+      actualizado: z.string(),
+      faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
+    })
+    .superRefine((d, ctx) => {
+      if (d.tipo === 'propio' && !d.gumroadUrl) {
+        ctx.addIssue({
+          code: 'custom',
+          message: 'Un curso propio (tipo: "propio") requiere gumroadUrl.',
+          path: ['gumroadUrl'],
+        });
+      }
+    }),
+});
+
+const cursosCategorias = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/content/cursos-categorias' }),
+  schema: z.object({
+    nombre: z.string(),
+    descripcion: z.string(),
+    orden: z.number().int(),
+  }),
+});
+
+export const collections = { tools, categories, estudios, noticias, cursos, cursosCategorias };

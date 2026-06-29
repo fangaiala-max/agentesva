@@ -1,0 +1,18 @@
+{
+  "titulo": "AI for Everyone",
+  "proveedor": "DeepLearning.AI (Coursera)",
+  "categoria": "Fundamentos de IA",
+  "nivel": "principiante",
+  "desc": "El curso de Andrew Ng para entender la IA sin ser técnico.",
+  "long": "Curso no técnico de DeepLearning.AI impartido por Andrew Ng. Explica qué es la IA, qué puede y qué no puede hacer, y cómo detectar oportunidades para aplicarla en una organización. Pensado para directivos, mandos y cualquier persona que tome decisiones, no para programadores. Hay doblaje al español. En Coursera, para acceder a los materiales y ejercicios y obtener el certificado hay que pagar la matrícula.",
+  "tagline": "La IA explicada para quien decide, no para quien programa.",
+  "ideal": "Directivos y responsables que quieren entender la IA antes de invertir en ella",
+  "precio": "Pago",
+  "idioma": "Inglés (doblaje ES)",
+  "duracion": "Aprox. 7 horas",
+  "certificado": true,
+  "officialUrl": "https://www.coursera.org/learn/ai-for-everyone",
+  "color": "#5B7CFF",
+  "orden": 14,
+  "actualizado": "2026-06-25"
+}

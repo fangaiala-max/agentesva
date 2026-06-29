@@ -1,0 +1,20 @@
+{
+  "titulo": "Elementos de IA",
+  "proveedor": "Universidad de Helsinki",
+  "categoria": "Fundamentos de IA",
+  "nivel": "principiante",
+  "desc": "Curso introductorio gratuito sobre qué es la IA y qué puede (y no puede) hacer.",
+  "long": "Elementos de IA es un curso online gratuito creado por la Universidad de Helsinki y MinnaLearn para explicar la inteligencia artificial a cualquiera, sin necesidad de programar. Cubre qué es la IA, cómo funciona el aprendizaje automático y qué implicaciones tiene en el día a día y en los negocios. Disponible en español.",
+  "tagline": "Entiende la IA desde cero, sin programar y en español.",
+  "ideal": "Personas y dueños de negocio que quieren entender la IA antes de aplicarla",
+  "precio": "Gratis",
+  "idioma": "Español",
+  "duracion": "Aprox. 30 horas (a tu ritmo)",
+  "certificado": true,
+  "tipo": "externo",
+  "officialUrl": "https://www.elementsofai.com/es",
+  "color": "#0040FF",
+  "orden": 10,
+  "destacado": false,
+  "actualizado": "2026-06-25"
+}

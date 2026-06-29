@@ -1,0 +1,17 @@
+{
+  "titulo": "Curso intensivo de Machine Learning",
+  "proveedor": "Google",
+  "categoria": "Fundamentos de IA",
+  "nivel": "intermedio",
+  "desc": "El curso gratuito de Google para entender cómo aprende una máquina.",
+  "long": "Curso intensivo de Google for Developers sobre aprendizaje automático. Combina vídeos animados, visualizaciones interactivas y ejercicios prácticos para entender desde la regresión y la clasificación hasta redes neuronales y modelos de lenguaje. Conviene tener algo de base de programación. Está en inglés (con la interfaz en varios idiomas) y es gratis.",
+  "tagline": "Entiende de verdad cómo funciona el machine learning, gratis.",
+  "ideal": "Quien tiene algo de base técnica y quiere fundamentos sólidos de IA",
+  "precio": "Gratis",
+  "idioma": "Inglés",
+  "certificado": false,
+  "officialUrl": "https://developers.google.com/machine-learning/crash-course",
+  "color": "#5B7CFF",
+  "orden": 12,
+  "actualizado": "2026-06-25"
+}

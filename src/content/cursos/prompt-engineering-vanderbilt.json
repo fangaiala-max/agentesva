@@ -1,0 +1,17 @@
+{
+  "titulo": "Prompt Engineering Specialization",
+  "proveedor": "Vanderbilt University (Coursera)",
+  "categoria": "Prompts e ingeniería de prompts",
+  "nivel": "principiante",
+  "desc": "Especialización de la Universidad Vanderbilt para escribir mejores prompts.",
+  "long": "Especialización de tres cursos de la Universidad Vanderbilt en Coursera. Enseña a estructurar prompts, a iterar sobre ellos y a usar la IA generativa para tareas concretas, desde redactar hasta resolver problemas. No requiere experiencia previa. Es de pago (suscripción de Coursera) y requiere acceso a ChatGPT Plus (de pago); hay ayuda económica para quien la necesite. En inglés, con doblaje al español.",
+  "tagline": "Una ruta universitaria para dominar la escritura de prompts.",
+  "ideal": "Quien quiere una formación estructurada y con certificado sobre prompts",
+  "precio": "Pago",
+  "idioma": "Inglés (doblaje ES)",
+  "certificado": true,
+  "officialUrl": "https://www.coursera.org/specializations/prompt-engineering",
+  "color": "#5B7CFF",
+  "orden": 32,
+  "actualizado": "2026-06-25"
+}

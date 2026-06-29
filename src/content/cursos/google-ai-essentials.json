@@ -1,0 +1,17 @@
+{
+  "titulo": "Google AI Essentials",
+  "proveedor": "Google (Coursera)",
+  "categoria": "IA para tu negocio",
+  "nivel": "principiante",
+  "desc": "Curso de Google para usar la IA en el trabajo del día a día.",
+  "long": "Curso de Google en Coursera, creado por su equipo de IA, sobre cómo aprovechar la inteligencia artificial en tareas cotidianas del trabajo: redactar, organizar ideas, automatizar pequeñas tareas y usar la IA de forma responsable. No requiere experiencia previa. Es de pago (no se puede auditar gratis), aunque hay prueba gratuita de 7 días. En inglés, con doblaje al español.",
+  "tagline": "Usa la IA en tu trabajo diario, paso a paso y con buenas prácticas.",
+  "ideal": "Profesionales que quieren ganar tiempo en su trabajo con la IA",
+  "precio": "Pago",
+  "idioma": "Inglés (doblaje ES)",
+  "certificado": true,
+  "officialUrl": "https://www.coursera.org/learn/google-ai-essentials",
+  "color": "#0040FF",
+  "orden": 23,
+  "actualizado": "2026-06-25"
+}

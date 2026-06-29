@@ -2,23 +2,12 @@ import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 
 // Salida afiliado: ruta on-demand (no se prerenderiza). 302 → afiliado||oficial.
-// Permite cambiar links centralmente, medir EPC y aplicar rel=sponsored en el origen.
+// Resuelve primero herramientas (#50), luego cursos (#54). Los slugs son únicos
+// entre ambas colecciones (guard de build en /cursos).
 export const prerender = false;
 
-export const GET: APIRoute = async ({ params }) => {
-  const slug = params.slug;
-  if (!slug) return new Response('No encontrado', { status: 404 });
-
-  const tools = await getCollection('tools');
-  const tool = tools.find((t) => t.id === slug);
-  if (!tool) {
-    return new Response('Herramienta no encontrada', { status: 404 });
-  }
-
-  const dest = tool.data.affiliateUrl || tool.data.url;
-  // Log de clic — MVP: visible en los logs de Vercel (sin UI de analítica).
-  console.log(`[ir] click ${slug} → ${dest}`);
-
+function redirect(dest: string, kind: string, slug: string): Response {
+  console.log(`[ir] click ${kind} ${slug} → ${dest}`);
   return new Response(null, {
     status: 302,
     headers: {
@@ -27,4 +16,23 @@ export const GET: APIRoute = async ({ params }) => {
       'Referrer-Policy': 'no-referrer-when-downgrade',
     },
   });
+}
+
+export const GET: APIRoute = async ({ params }) => {
+  const slug = params.slug;
+  if (!slug) return new Response('No encontrado', { status: 404 });
+
+  const tool = (await getCollection('tools')).find((t) => t.id === slug);
+  if (tool) return redirect(tool.data.affiliateUrl || tool.data.url, 'tool', slug);
+
+  const curso = (await getCollection('cursos')).find((c) => c.id === slug);
+  if (curso) {
+    // propio → Gumroad (officialUrl es su propia ficha, evita bucle 302); externo → afiliado||oficial.
+    const dest = curso.data.tipo === 'propio'
+      ? (curso.data.gumroadUrl || curso.data.officialUrl)
+      : (curso.data.affiliateUrl || curso.data.officialUrl);
+    return redirect(dest, 'curso', slug);
+  }
+
+  return new Response('No encontrado', { status: 404 });
 };

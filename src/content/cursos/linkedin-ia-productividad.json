@@ -1,0 +1,17 @@
+{
+  "titulo": "Cursos de IA en LinkedIn Learning",
+  "proveedor": "LinkedIn Learning",
+  "categoria": "IA para tu negocio",
+  "nivel": "principiante",
+  "desc": "Catálogo de cursos de IA y productividad con suscripción de LinkedIn Learning.",
+  "long": "Catálogo de cursos de inteligencia artificial de LinkedIn Learning: productividad con IA, herramientas generativas, prompts y aplicaciones para el trabajo. Las formaciones son cortas y orientadas a la práctica profesional. El acceso es de pago, mediante suscripción (suele incluirse en LinkedIn Premium), y muchos cursos tienen subtítulos o versiones en español.",
+  "tagline": "Cursos cortos de IA para el trabajo, dentro de tu suscripción.",
+  "ideal": "Profesionales que ya tienen LinkedIn Premium y quieren aplicar IA",
+  "precio": "Pago",
+  "idioma": "Inglés (subtítulos ES)",
+  "certificado": true,
+  "officialUrl": "https://www.linkedin.com/learning/topics/artificial-intelligence",
+  "color": "#5B7CFF",
+  "orden": 24,
+  "actualizado": "2026-06-25"
+}
