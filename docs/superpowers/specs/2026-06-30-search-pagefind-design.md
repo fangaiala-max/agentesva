@@ -15,7 +15,8 @@ Añadir **búsqueda global estática** al sitio con **Pagefind**: índice genera
 | Integración | **`astro-pagefind`** (auto en build) · **fallback** `postbuild`: `pagefind --site .vercel/output/static` | encaja con el build estático; el fallback elimina el riesgo de orden de hooks con el adaptador Vercel |
 | Alcance del índice | **solo plantillas de detalle/artículo** (`/herramienta/[slug]`, `/curso/[slug]`, estudios, noticias) vía `data-pagefind-body` | resultados = ítems individuales; las páginas de listado/home/legales/`/ir` quedan fuera automáticamente (sin `data-pagefind-ignore`) |
 | UI | **propia con tokens Futurista** (no la skin por defecto de Pagefind) | coherencia de marca |
-| Superficie | **modal en cabecera** (icono + ⌘K opcional) **+** página `/buscar?q=` | descubrible (modal, sin recargar) + compartible (deep-link) |
+| Superficie | **modal en cabecera** (icono 🔍 + atajo **⌘/Ctrl-K**) **+** página `/buscar?q=` | descubrible (modal, sin recargar) + compartible (deep-link) |
+| Resultados | lista única mixta con **badge de tipo con color** (noticia=ámbar, estudio=azul/accent, herramienta=verde, curso=púrpura) + resaltado del término | escaneable de un vistazo en una lista de tipos mezclados (validado en maqueta) |
 | Lógica compartida | un único `src/scripts/search.ts` → `createSearch(rootEl)` que montan **modal y página** | DRY: el comportamiento vive en un sitio |
 | Carga del JS | **lazy** — `import('/pagefind/pagefind.js')` solo al abrir/usar | sin coste en el first load |
 | Facetas | `data-pagefind-filter="tipo:…"` + `categoria:…` | facetado nativo de Pagefind |
@@ -37,7 +38,7 @@ En `/herramienta/[slug]`, `/curso/[slug]`, y las plantillas de estudios/noticias
 
 ### UI
 - **`SiteHeader.astro`** — botón-icono de búsqueda (lupa) que abre el modal; atajo ⌘/Ctrl-K opcional.
-- **`src/components/SearchModal.astro`** — overlay con backdrop blur (estilo de la cabecera sticky): input, chips de filtro por tipo, lista de resultados. a11y: `role="dialog"` + `aria-modal="true"`, foco atrapado, `Esc` cierra, resultados navegables por teclado, input etiquetado. Monta `createSearch` sobre su contenedor.
+- **`src/components/SearchModal.astro`** — overlay con backdrop blur (estilo de la cabecera sticky): input, chips de filtro por tipo, lista de resultados con **badge de tipo coloreado** + resaltado del término, y pie con atajos de teclado. a11y: `role="dialog"` + `aria-modal="true"`, foco atrapado, `Esc` cierra, resultados navegables por teclado (↑/↓/↵), input etiquetado. Atajo **⌘/Ctrl-K** abre el modal. Monta `createSearch` sobre su contenedor.
 - **`src/pages/buscar.astro`** — página completa con la misma experiencia; lee `?q=` al cargar (deep-link), ejecuta la búsqueda y pinta resultados + filtros; estados claros de **vacío** ("Escribe para buscar…") y **sin resultados**.
 - **`src/scripts/search.ts`** — `createSearch(rootEl, opts)`: importa Pagefind de forma perezosa, ejecuta `pagefind.search(q)` (con filtros), debouncea el input, renderiza resultados con tokens Futurista. Único punto de la lógica; modal y página solo le pasan su DOM.
 
