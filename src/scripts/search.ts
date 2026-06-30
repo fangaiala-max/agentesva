@@ -27,7 +27,7 @@ function esc(s: string): string {
   return s.replace(/[&<>"']/g, (c) => (({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c] as string));
 }
 
-function renderResult(d: ResultData): string {
+function renderResult(d: ResultData, i: number): string {
   const tipo = d.meta.tipo ?? '';
   const tm = TYPE_META[tipo];
   const color = tm?.color ?? 'var(--accent)';
@@ -35,7 +35,7 @@ function renderResult(d: ResultData): string {
   const badge = tm
     ? `<span class="sr-badge" style="color:${tm.color};border-color:${tm.border}">${esc(tm.label)}</span>`
     : '';
-  return `<a class="sr-row" href="${esc(d.url)}" role="option">
+  return `<a class="sr-row" id="sr-row-${i}" href="${esc(d.url)}" role="option" aria-selected="false">
       <span class="sr-mono" style="background:${color}">${esc((title || '?').charAt(0).toUpperCase())}</span>
       <span class="sr-rowmain">
         <span class="sr-top"><span class="sr-title">${esc(title)}</span>${badge}</span>
@@ -66,6 +66,29 @@ export function createSearch(root: HTMLElement): SearchEngine {
   let activeFilter = '';
   let timer: number | undefined;
   let seq = 0;
+  let sel = -1; // índice del resultado seleccionado por teclado (-1 = ninguno)
+
+  // Anclas de resultado actualmente renderizadas (se recalcula tras cada render).
+  const rows = (): HTMLAnchorElement[] =>
+    Array.from(results.querySelectorAll<HTMLAnchorElement>('.sr-row'));
+
+  const setSel = (next: number) => {
+    const rs = rows();
+    if (!rs.length) {
+      sel = -1;
+      input.removeAttribute('aria-activedescendant');
+      return;
+    }
+    const i = Math.max(0, Math.min(next, rs.length - 1)); // clamp en los extremos
+    rs.forEach((r, idx) => {
+      const on = idx === i;
+      r.classList.toggle('sel', on);
+      r.setAttribute('aria-selected', String(on));
+    });
+    sel = i;
+    input.setAttribute('aria-activedescendant', rs[i].id);
+    rs[i].scrollIntoView({ block: 'nearest' });
+  };
 
   const setState = (s: 'empty' | 'results' | 'none' | 'error') => {
     empty.hidden = s !== 'empty';
@@ -75,6 +98,8 @@ export function createSearch(root: HTMLElement): SearchEngine {
   };
 
   const run = async () => {
+    sel = -1; // cada render reinicia la selección por teclado
+    input.removeAttribute('aria-activedescendant');
     const q = input.value.trim();
     if (!q) { results.innerHTML = ''; count.textContent = ''; setState('empty'); return; }
     const my = ++seq;
@@ -99,6 +124,25 @@ export function createSearch(root: HTMLElement): SearchEngine {
   input.addEventListener('input', () => {
     window.clearTimeout(timer);
     timer = window.setTimeout(run, 160);
+  });
+
+  // Navegación con teclado entre resultados (↑ ↓ · ↵). El footer del modal lo anuncia.
+  input.addEventListener('keydown', (e) => {
+    const rs = rows();
+    if (e.key === 'ArrowDown') {
+      if (!rs.length) return;
+      e.preventDefault();
+      setSel(sel < 0 ? 0 : sel + 1);
+    } else if (e.key === 'ArrowUp') {
+      if (!rs.length) return;
+      e.preventDefault();
+      setSel(sel < 0 ? 0 : sel - 1);
+    } else if (e.key === 'Enter') {
+      if (!rs.length) return;
+      e.preventDefault();
+      const target = sel >= 0 ? rs[sel] : rs[0]; // sin selección: abre el primero
+      if (target) location.assign(target.href);
+    }
   });
 
   filters.forEach((chip) => {
