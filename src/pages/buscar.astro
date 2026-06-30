@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const FILTERS = [
+  { v: '', label: 'Todo' },
+  { v: 'Herramienta', label: 'Herramientas' },
+  { v: 'Curso', label: 'Cursos' },
+  { v: 'Estudio', label: 'Estudios' },
+  { v: 'Noticia', label: 'Noticias' },
+];
+---
+
+<BaseLayout
+  title="Buscar | AgentesVA"
+  description="Busca en todo AgentesVA: herramientas, cursos, estudios y noticias de IA en español."
+  noindex={true}
+>
+  <SiteHeader />
+
+  <main id="buscar-root" style="max-width: 1000px; margin: 0 auto; padding: 40px 32px 64px;">
+    <nav aria-label="Migas" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-5);">
+      <a href="/" class="navlink" style="color: var(--fg-4); text-decoration: none;">Inicio</a> <span aria-hidden="true">/</span> Buscar
+    </nav>
+
+    <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(32px, 5vw, 46px); letter-spacing: -0.03em; margin: 16px 0 0; color: #fff;">Buscar</h1>
+    <p style="font-size: 16px; line-height: 1.6; color: var(--fg-3); margin: 10px 0 0;">Busca en todo AgentesVA: herramientas, cursos, estudios y noticias.</p>
+
+    <form role="search" onsubmit="return false" class="searchwrap" style="display: flex; align-items: center; gap: 13px; max-width: 620px; margin: 26px 0 0; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 6px; padding: 6px 6px 6px 18px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--fg-4)" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
+      <label for="buscar-input" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Buscar en el sitio</label>
+      <input id="buscar-input" data-search-input type="search" autocomplete="off" placeholder="Busca: prompts, ChatGPT, automatizar WhatsApp…" style="flex: 1; background: transparent; border: none; outline: none; color: #fff; font-family: var(--sans); font-size: 17px; padding: 11px 0;">
+    </form>
+
+    <div role="group" aria-label="Filtrar por tipo" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px;">
+      {FILTERS.map((f, i) => (
+        <button type="button" class={`sr-chip${i === 0 ? ' on' : ''}`} data-search-filter data-value={f.v} aria-pressed={i === 0 ? 'true' : 'false'}>{f.label}</button>
+      ))}
+    </div>
+
+    <p data-search-count hidden style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-5); margin: 24px 0 0;"></p>
+
+    <div data-search-results role="listbox" aria-label="Resultados" hidden style="display: flex; flex-direction: column; gap: 6px; margin-top: 14px;"></div>
+
+    <p data-search-empty style="font-size: 15px; color: var(--fg-4); margin-top: 28px;">Escribe arriba para buscar en todo el sitio.</p>
+    <div data-search-noresults hidden style="border: 1px dashed var(--line-2); border-radius: 8px; padding: 48px 24px; text-align: center; margin-top: 24px;">
+      <p style="font-family: var(--sans); font-weight: 600; font-size: 18px; color: #fff; margin: 0;">Sin resultados</p>
+      <p style="font-size: 14px; color: var(--fg-5); margin: 8px 0 0;">Prueba otra palabra o quita los filtros.</p>
+    </div>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<script>
+  import { createSearch } from '../scripts/search';
+  document.addEventListener('astro:page-load', () => {
+    const root = document.getElementById('buscar-root');
+    if (!root) return;
+    const engine = createSearch(root);
+    const input = root.querySelector<HTMLInputElement>('[data-search-input]');
+    const q = new URLSearchParams(location.search).get('q');
+    if (q && input) { input.value = q; engine.run(); }
+    input?.focus();
+    let t: number | undefined;
+    input?.addEventListener('input', () => {
+      window.clearTimeout(t);
+      t = window.setTimeout(() => {
+        const u = new URL(location.href);
+        const val = input.value.trim();
+        if (val) u.searchParams.set('q', val); else u.searchParams.delete('q');
+        history.replaceState(null, '', u);
+      }, 300);
+    });
+  });
+</script>
