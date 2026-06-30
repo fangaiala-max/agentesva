@@ -1,5 +1,6 @@
 ---
 // Ticker + cabecera sticky del directorio "Futurista".
+import SearchModal from './SearchModal.astro';
 const tickerItems =
   '+120 herramientas de IA revisadas  ·  Sin ruido, solo lo que funciona  ·  Asistentes  ·  Automatización  ·  WhatsApp  ·  Marketing  ·  Pack de Recursos IA gratis  ·  ';
 ---
@@ -34,6 +35,13 @@ const tickerItems =
       <a class="navlink" href="/noticias" style="color: var(--fg-4); text-decoration: none;">Noticias</a>
       <a class="navlink" href="/#pack" style="color: var(--fg-4); text-decoration: none;">Pack gratis</a>
     </nav>
-    <a href="/newsletter" class="shimmer magnetic" data-magnetic style="font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--bg); background: var(--accent); padding: 9px 18px; border-radius: 2px; text-decoration: none; animation: glowPulse 3.4s ease-in-out infinite;">Suscríbete</a>
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <button type="button" data-search-open aria-label="Buscar en el sitio (⌘K)" style="display: flex; align-items: center; gap: 8px; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 6px; padding: 8px 11px; cursor: pointer;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--fg-3)" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
+        <span style="font-family: var(--mono); font-size: 10px; color: var(--fg-5); border: 1px solid var(--line-2); border-radius: 4px; padding: 2px 6px;">⌘K</span>
+      </button>
+      <a href="/newsletter" class="shimmer magnetic" data-magnetic style="font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--bg); background: var(--accent); padding: 9px 18px; border-radius: 2px; text-decoration: none; animation: glowPulse 3.4s ease-in-out infinite;">Suscríbete</a>
+    </div>
   </div>
 </header>
+<SearchModal />
