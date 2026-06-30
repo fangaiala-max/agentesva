@@ -126,7 +126,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
     )}
 
     {relatedNoticias.length > 0 && (
-      <section style="margin-top: 40px; border-top: 1px solid var(--line); padding-top: 28px;">
+      <section data-pagefind-ignore style="margin-top: 40px; border-top: 1px solid var(--line); padding-top: 28px;">
         <h2 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0;">Noticias relacionadas</h2>
         <div style="display: grid; gap: 10px; margin-top: 16px;">
           {relatedNoticias.map((n) => (
@@ -139,7 +139,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
       </section>
     )}
 
-    <a href="/estudios" class="navlink" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 36px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-4); text-decoration: none;">← Todos los estudios</a>
+    <a href="/estudios" data-pagefind-ignore class="navlink" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 36px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-4); text-decoration: none;">← Todos los estudios</a>
   </main>
 
   <SiteFooter />
