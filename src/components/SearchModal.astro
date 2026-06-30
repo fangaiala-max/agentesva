@@ -1,0 +1,101 @@
+---
+const FILTERS = [
+  { v: '', label: 'Todo' },
+  { v: 'Herramienta', label: 'Herramientas' },
+  { v: 'Curso', label: 'Cursos' },
+  { v: 'Estudio', label: 'Estudios' },
+  { v: 'Noticia', label: 'Noticias' },
+];
+---
+
+<div id="search-modal" hidden>
+  <div data-search-backdrop style="position: fixed; inset: 0; z-index: 90; background: rgba(6,16,33,.72); backdrop-filter: blur(3px);"></div>
+  <div data-search-dialog role="dialog" aria-modal="true" aria-label="Buscar en AgentesVA" style="position: fixed; z-index: 91; top: 90px; left: 50%; transform: translateX(-50%); width: min(680px, 92vw); background: var(--panel); border: 1px solid var(--line-2); border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,.5); overflow: hidden;">
+    <div style="display: flex; align-items: center; gap: 13px; padding: 16px 18px; border-bottom: 1px solid var(--line);">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--fg-4)" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
+      <label for="search-modal-input" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Buscar en el sitio</label>
+      <input id="search-modal-input" data-search-input type="search" autocomplete="off" placeholder="Busca en todo el sitio…" style="flex: 1; background: transparent; border: none; outline: none; color: #fff; font-family: var(--sans); font-size: 18px;">
+      <button type="button" data-search-close aria-label="Cerrar búsqueda" style="font-family: var(--mono); font-size: 10px; color: var(--fg-5); background: none; border: 1px solid var(--line-2); border-radius: 4px; padding: 4px 8px; cursor: pointer;">esc</button>
+    </div>
+
+    <div role="group" aria-label="Filtrar por tipo" style="display: flex; gap: 8px; flex-wrap: wrap; padding: 14px 18px 6px;">
+      {FILTERS.map((f, i) => (
+        <button type="button" class={`sr-chip${i === 0 ? ' on' : ''}`} data-search-filter data-value={f.v} aria-pressed={i === 0 ? 'true' : 'false'}>{f.label}</button>
+      ))}
+    </div>
+
+    <p data-search-count hidden style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5); padding: 8px 18px 4px;"></p>
+    <div data-search-results role="listbox" aria-label="Resultados" hidden style="padding: 4px 10px 8px; max-height: 46vh; overflow: auto;"></div>
+    <p data-search-empty style="font-size: 14px; color: var(--fg-4); padding: 16px 18px 22px;">Escribe para buscar herramientas, cursos, estudios y noticias.</p>
+    <div data-search-noresults hidden style="padding: 28px 18px; text-align: center;">
+      <p style="font-family: var(--sans); font-weight: 600; font-size: 16px; color: #fff; margin: 0;">Sin resultados</p>
+      <p style="font-size: 13px; color: var(--fg-5); margin: 6px 0 0;">Prueba otra palabra o quita los filtros.</p>
+    </div>
+
+    <div style="display: flex; gap: 18px; padding: 11px 18px; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 10.5px; color: var(--fg-5);">
+      <span><b style="color: var(--fg-3);">↑ ↓</b> navegar</span><span><b style="color: var(--fg-3);">↵</b> abrir</span><span><b style="color: var(--fg-3);">esc</b> cerrar</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { createSearch } from '../scripts/search';
+
+  // ClientRouter dispara `astro:page-load` en cada navegación cliente. El listener
+  // de `keydown` se enlaza a `document` (que persiste entre navegaciones), así que
+  // guardamos la referencia actual para quitar la anterior antes de añadir la nueva
+  // y evitar que se acumulen. Los listeners por-elemento (open/close/backdrop) se
+  // enlazan a DOM nuevo que se reemplaza en cada navegación, así que no hace falta.
+  let currentKeydown: ((e: KeyboardEvent) => void) | null = null;
+
+  function trapFocus(e: KeyboardEvent, container: HTMLElement) {
+    const f = Array.from(
+      container.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), input, [tabindex]:not([tabindex="-1"])'),
+    ).filter((el) => el.offsetParent !== null);
+    if (!f.length) return;
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+
+  function initSearchModal() {
+    const modal = document.getElementById('search-modal');
+    const dialog = modal?.querySelector<HTMLElement>('[data-search-dialog]');
+    if (!modal || !dialog) return;
+    const backdrop = modal.querySelector<HTMLElement>('[data-search-backdrop]');
+    const closeBtn = modal.querySelector<HTMLElement>('[data-search-close]');
+    let engine: { focus: () => void } | null = null;
+    let lastFocused: HTMLElement | null = null;
+
+    const open = () => {
+      if (!modal.hasAttribute('hidden')) return;
+      modal.removeAttribute('hidden');
+      lastFocused = document.activeElement as HTMLElement;
+      document.body.style.overflow = 'hidden';
+      if (!engine) engine = createSearch(dialog);
+      requestAnimationFrame(() => engine?.focus());
+    };
+    const close = () => {
+      if (modal.hasAttribute('hidden')) return;
+      modal.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      lastFocused?.focus?.();
+    };
+
+    document.querySelectorAll('[data-search-open]').forEach((b) => b.addEventListener('click', open));
+    closeBtn?.addEventListener('click', close);
+    backdrop?.addEventListener('click', close);
+
+    // Exactamente un listener `keydown` en `document` en todo momento: quitamos el
+    // de la navegación anterior y enlazamos un cierre nuevo sobre el modal actual.
+    if (currentKeydown) document.removeEventListener('keydown', currentKeydown);
+    currentKeydown = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); open(); }
+      else if (e.key === 'Escape' && !modal.hasAttribute('hidden')) { e.preventDefault(); close(); }
+      else if (e.key === 'Tab' && !modal.hasAttribute('hidden')) trapFocus(e, dialog);
+    };
+    document.addEventListener('keydown', currentKeydown);
+  }
+
+  document.addEventListener('astro:page-load', initSearchModal);
+</script>

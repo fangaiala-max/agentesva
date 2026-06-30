@@ -81,8 +81,13 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <SiteHeader />
 
-  <main style="max-width: 760px; margin: 0 auto; padding: 40px 32px 64px;">
-    <nav aria-label="Migas" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-5);">
+  <main
+    data-pagefind-body
+    data-pagefind-filter="tipo:Estudio"
+    data-pagefind-meta="tipo:Estudio"
+    style="max-width: 760px; margin: 0 auto; padding: 40px 32px 64px;"
+  >
+    <nav aria-label="Migas" data-pagefind-ignore style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-5);">
       <a href="/" class="navlink" style="color: var(--fg-4); text-decoration: none;">Inicio</a> <span aria-hidden="true">/</span>
       <a href="/estudios" class="navlink" style="color: var(--fg-4); text-decoration: none;">Estudios</a> <span aria-hidden="true">/</span> {d.tema}
     </nav>
@@ -121,7 +126,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
     )}
 
     {relatedNoticias.length > 0 && (
-      <section style="margin-top: 40px; border-top: 1px solid var(--line); padding-top: 28px;">
+      <section data-pagefind-ignore style="margin-top: 40px; border-top: 1px solid var(--line); padding-top: 28px;">
         <h2 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0;">Noticias relacionadas</h2>
         <div style="display: grid; gap: 10px; margin-top: 16px;">
           {relatedNoticias.map((n) => (
@@ -134,7 +139,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
       </section>
     )}
 
-    <a href="/estudios" class="navlink" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 36px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-4); text-decoration: none;">← Todos los estudios</a>
+    <a href="/estudios" data-pagefind-ignore class="navlink" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 36px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-4); text-decoration: none;">← Todos los estudios</a>
   </main>
 
   <SiteFooter />

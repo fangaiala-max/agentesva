@@ -56,3 +56,4 @@ dist/
 
 # Brand asset generator (source HTML; outputs go to public/brand)
 brand-build/
+.gstack/
