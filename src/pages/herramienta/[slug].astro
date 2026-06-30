@@ -59,8 +59,13 @@ const jsonLd = {
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <SiteHeader />
 
-  <main style="max-width: 1080px; margin: 0 auto; padding: 32px 32px 64px;">
-    <a href="/#directorio" class="navlink" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-4); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">← Volver al directorio</a>
+  <main
+    data-pagefind-body
+    data-pagefind-filter={`tipo:Herramienta, categoria:${tool.cat}`}
+    data-pagefind-meta="tipo:Herramienta"
+    style="max-width: 1080px; margin: 0 auto; padding: 32px 32px 64px;"
+  >
+    <a href="/#directorio" data-pagefind-ignore class="navlink" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-4); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">← Volver al directorio</a>
 
     <div style="display: flex; align-items: flex-start; gap: 22px; margin-top: 26px; border-bottom: 1px solid var(--line); padding-bottom: 32px; flex-wrap: wrap;">
       <div transition:name={`mono-${tool.slug}`} style={`width: 74px; height: 74px; border-radius: 16px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 33px; color: #fff; background: ${tool.color};`}>{initial}</div>
