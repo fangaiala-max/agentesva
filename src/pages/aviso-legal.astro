@@ -2,15 +2,15 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import { jsonLdSerialize, SITE as site, WEBSITE_ID } from '../data/schema';
 
-const site = 'https://agentesva.com';
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
   name: 'Aviso legal',
-  url: `${site}/aviso-legal`,
+  url: `${site}/aviso-legal/`,
   inLanguage: 'es',
-  isPartOf: { '@type': 'WebSite', name: 'AgentesVA', url: site },
+  isPartOf: { '@id': WEBSITE_ID },
 };
 ---
 
@@ -18,7 +18,7 @@ const jsonLd = {
   title="Aviso legal | AgentesVA"
   description="Aviso legal y condiciones de uso de AgentesVA, directorio y medio de inteligencia artificial en español."
 >
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
   <SiteHeader />
 
   <main style="max-width: 760px; margin: 0 auto; padding: 40px 32px 72px; font-family: var(--sans);">
