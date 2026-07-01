@@ -4,6 +4,7 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import { getCollection, render } from 'astro:content';
 import { toTool } from '../../data/tools';
+import { jsonLdSerialize, organization, person, SITE as site } from '../../data/schema';
 import EstudioResumen from '../../components/EstudioResumen.astro';
 import EstudioResumirIA from '../../components/EstudioResumirIA.astro';
 import EstudioNota from '../../components/EstudioNota.astro';
@@ -21,14 +22,13 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 const d = entry.data;
-const site = 'https://agentesva.com';
 
 const allTools = (await getCollection('tools')).map(toTool);
 const related = d.herramientas
   .map((slug) => allTools.find((t) => t.slug === slug))
   .filter((t): t is NonNullable<typeof t> => Boolean(t));
 
-const canonical = `${site}/estudios/${entry.id}`;
+const canonical = `${site}/estudios/${entry.id}/`;
 const noticias = await getCollection('noticias');
 const relatedNoticias = noticias
   .map((n) => {
@@ -52,16 +52,18 @@ const graph: any[] = [
     datePublished: d.fecha.toISOString(),
     dateModified: (d.actualizado ?? d.fecha).toISOString(),
     inLanguage: 'es',
-    author: { '@type': 'Organization', name: 'AgentesVA', url: site },
-    publisher: { '@type': 'Organization', name: 'AgentesVA', url: site, logo: `${site}/brand/avatar.png` },
-    mainEntityOfPage: `${site}/estudios/${entry.id}`,
+    author: person,
+    publisher: organization,
+    mainEntityOfPage: canonical,
+    url: canonical,
+    image: `${site}/og.png`,
   },
   {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${site}/` },
-      { '@type': 'ListItem', position: 2, name: 'Estudios', item: `${site}/estudios` },
-      { '@type': 'ListItem', position: 3, name: d.titulo, item: `${site}/estudios/${entry.id}` },
+      { '@type': 'ListItem', position: 2, name: 'Estudios', item: `${site}/estudios/` },
+      { '@type': 'ListItem', position: 3, name: d.titulo, item: canonical },
     ],
   },
 ];
@@ -78,7 +80,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
 ---
 
 <BaseLayout title={`${d.titulo} | AgentesVA`} description={d.descripcion}>
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
   <SiteHeader />
 
   <main
@@ -95,7 +97,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
     <p style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 24px 0 0;">{d.tema}</p>
     <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 5.5vw, 46px); line-height: 1.08; letter-spacing: -0.03em; color: #fff; margin: 10px 0 0;">{d.titulo}</h1>
     <p style="font-size: 18px; line-height: 1.55; color: var(--fg-3); margin: 16px 0 0;">{d.descripcion}</p>
-    <p style="font-family: var(--mono); font-size: 11px; color: var(--fg-5); margin: 16px 0 0;">AgentesVA · {fechaFmt}</p>
+    <p style="font-family: var(--mono); font-size: 11px; color: var(--fg-5); margin: 16px 0 0;">Por Fernando Angulo · AgentesVA · {fechaFmt}</p>
 
     <EstudioResumen puntos={d.resumen} />
     <EstudioResumirIA url={canonical} prompt={d.iaPrompt} />
