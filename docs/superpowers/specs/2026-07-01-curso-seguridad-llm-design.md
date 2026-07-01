@@ -40,7 +40,7 @@ Investigación competitiva completa en el [anexo](./2026-07-01-curso-propio-comp
 | ★ | **Mini-capstone: de vulnerable a defendida** — la app de la lección 4 endurecida con las 3 capas; la suite de la lección 7 demuestra el antes/después | código | screencast |
 
 **Decisiones técnicas fijadas:**
-- Python 3.12+, dependencias mínimas; cliente **OpenAI-compatible** como primario (funciona con Ollama local gratis, OpenAI, DeepSeek…); anexo breve con el SDK de Anthropic. Al escribir contenido específico de Anthropic, verificar contra la documentación actual de la API (skill `claude-api`).
+- Python 3.9+ (compatibilidad amplia; verificado en 3.9.6), dependencias mínimas; cliente **OpenAI-compatible** como primario (funciona con Ollama local gratis, OpenAI, DeepSeek…); anexo breve con el SDK de Anthropic. Al escribir contenido específico de Anthropic, verificar contra la documentación actual de la API (skill `claude-api`).
 - **Mecanismo de verificación determinista:** canary tokens en system prompt y documentos RAG — un ataque "tiene éxito" si el canary aparece en la salida (asertable por string-match, robusto a la variabilidad del modelo).
 - Guardrails implementados **desde primeros principios** (el alumno entiende el mecanismo); las librerías (Guardrails AI, LLM Guard, Rebuff…) se presentan como panorama, no como dependencia.
 - Evals: pytest + judge propio; sin vendor lock-in (promptfoo/RAGAS mencionados como panorama).
