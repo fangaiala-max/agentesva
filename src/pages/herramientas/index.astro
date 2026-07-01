@@ -5,6 +5,7 @@ import SiteFooter from '../../components/SiteFooter.astro';
 import ToolCard from '../../components/ToolCard.astro';
 import { getCollection } from 'astro:content';
 import { toTool } from '../../data/tools';
+import { jsonLdSerialize } from '../../data/schema';
 
 const tools = (await getCollection('tools')).map(toTool).sort((a, b) => a.orden - b.orden);
 const cats = (await getCollection('categories')).sort((a, b) => a.data.orden - b.data.orden);
@@ -45,7 +46,7 @@ const jsonLd = {
   title="Herramientas de IA — Directorio | AgentesVA"
   description="Directorio de +120 herramientas de IA revisadas para vender, automatizar y ahorrar horas. Filtra por categoría. En español, lidera con las gratis."
 >
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
   <SiteHeader />
 
   <main style="max-width: 1200px; margin: 0 auto; padding: 40px 32px 64px;">

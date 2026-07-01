@@ -10,32 +10,12 @@ const tools = (await getCollection('tools')).map(toTool).sort((a, b) => a.orden 
 const cats = (await getCollection('categories')).sort((a, b) => a.data.orden - b.data.orden);
 const CATEGORIES = ['Todas', ...cats.map((c) => c.data.nombre)];
 
-const site = 'https://agentesva.com';
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'Organization',
-      name: 'AgentesVA',
-      url: site,
-      logo: `${site}/brand/avatar.png`,
-      description: 'Directorio y medio de inteligencia artificial en español para negocios.',
-    },
-    {
-      '@type': 'WebSite',
-      name: 'AgentesVA',
-      url: site,
-      inLanguage: 'es',
-    },
-  ],
-};
 ---
 
 <BaseLayout
   title="AgentesVA — Directorio de herramientas de IA para tu negocio"
   description="Busca entre +120 herramientas de IA revisadas para vender, automatizar y ahorrar horas. Sin ruido: solo lo que de verdad sirve. En español, para España y Latinoamérica."
 >
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <SiteHeader />
 
   <main>

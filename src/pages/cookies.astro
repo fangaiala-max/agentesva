@@ -2,15 +2,15 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import { jsonLdSerialize, SITE as site, WEBSITE_ID } from '../data/schema';
 
-const site = 'https://agentesva.com';
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
   name: 'Política de cookies',
-  url: `${site}/cookies`,
+  url: `${site}/cookies/`,
   inLanguage: 'es',
-  isPartOf: { '@type': 'WebSite', name: 'AgentesVA', url: site },
+  isPartOf: { '@id': WEBSITE_ID },
 };
 ---
 
@@ -18,7 +18,7 @@ const jsonLd = {
   title="Política de cookies | AgentesVA"
   description="Qué cookies utiliza AgentesVA y cómo gestionarlas. Hoy no usamos cookies de seguimiento ni publicidad."
 >
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
   <SiteHeader />
 
   <main style="max-width: 760px; margin: 0 auto; padding: 40px 32px 72px; font-family: var(--sans);">
