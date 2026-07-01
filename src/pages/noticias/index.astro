@@ -4,6 +4,7 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import { getCollection } from 'astro:content';
+import { jsonLdSerialize } from '../../data/schema';
 
 const noticias = (await getCollection('noticias')).sort(
   (a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf(),
@@ -33,7 +34,7 @@ const jsonLd = {
   title="Noticias de IA en español — AgentesVA"
   description="Actualidad de la inteligencia artificial curada y resumida en español para PyMEs. Solo lo que puedes aplicar."
 >
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
   <SiteHeader />
 
   <main style="max-width: 1200px; margin: 0 auto; padding: 40px 32px 64px;">

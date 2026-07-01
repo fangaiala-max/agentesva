@@ -5,6 +5,7 @@ import SiteFooter from '../../components/SiteFooter.astro';
 import CourseCard from '../../components/CourseCard.astro';
 import { getCollection } from 'astro:content';
 import { toCurso, assertNoSlugCollision } from '../../data/cursos';
+import { jsonLdSerialize } from '../../data/schema';
 
 const cursos = (await getCollection('cursos'))
   .map(toCurso)
@@ -63,7 +64,7 @@ const jsonLd = {
   title="Cursos de IA — gratis y de pago | AgentesVA"
   description="Directorio de cursos de IA en español. Filtra por nivel y precio; lidera con los gratuitos. Aprende a usar la IA en tu negocio sin gastar de más."
 >
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
   <SiteHeader />
 
   <main style="max-width: 1200px; margin: 0 auto; padding: 40px 32px 64px;">

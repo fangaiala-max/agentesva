@@ -4,6 +4,7 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import { getCollection } from 'astro:content';
 import { toCurso, getAlternativesCursos, fallbackFaqsCurso, PRECIO_COLOR, nivelLabel, type Curso } from '../../data/cursos';
+import { jsonLdSerialize } from '../../data/schema';
 
 export async function getStaticPaths() {
   const cursos = (await getCollection('cursos')).map(toCurso).sort((a, b) => a.orden - b.orden);
@@ -62,7 +63,7 @@ const ctaLabel = curso.tipo === 'propio'
   title={`${curso.titulo} — ${curso.tagline} | AgentesVA`}
   description={`${curso.desc} Curso de ${curso.proveedor}, nivel ${nivelLabel(curso.nivel)}.`}
 >
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
   <SiteHeader />
 
   <main

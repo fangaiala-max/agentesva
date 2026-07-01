@@ -5,6 +5,7 @@ import SiteFooter from '../../components/SiteFooter.astro';
 import ToolCard from '../../components/ToolCard.astro';
 import { getCollection } from 'astro:content';
 import { toTool, type Tool } from '../../data/tools';
+import { jsonLdSerialize } from '../../data/schema';
 
 export async function getStaticPaths() {
   const tools = (await getCollection('tools')).map(toTool).sort((a, b) => a.orden - b.orden);
@@ -59,7 +60,7 @@ const jsonLd = {
   title={`Herramientas de IA de ${nombre} | AgentesVA`}
   description={`${descripcion} ${tools.length} herramientas de IA de ${nombre} revisadas, en español.`}
 >
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
   <SiteHeader />
 
   <main style="max-width: 1200px; margin: 0 auto; padding: 40px 32px 64px;">

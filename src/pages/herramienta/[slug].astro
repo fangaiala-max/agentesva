@@ -4,6 +4,7 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import { getCollection } from 'astro:content';
 import { toTool, getAlternatives, fallbackFaqs, PRICE_COLOR, type Tool } from '../../data/tools';
+import { jsonLdSerialize } from '../../data/schema';
 
 export async function getStaticPaths() {
   const tools = (await getCollection('tools')).map(toTool).sort((a, b) => a.orden - b.orden);
@@ -56,7 +57,7 @@ const jsonLd = {
   title={`${tool.name} — ${tool.tagline} | AgentesVA`}
   description={`${tool.name}: ${tool.long.slice(0, 150)}`}
 >
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
   <SiteHeader />
 
   <main
