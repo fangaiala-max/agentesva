@@ -14,9 +14,9 @@
   "certificado": false,
   "tipo": "propio",
   "officialUrl": "https://agentesva.com/curso/seguridad-llm",
-  "gumroadUrl": "https://agentesva.gumroad.com/l/PLACEHOLDER",
+  "gumroadUrl": "https://fangaiala.gumroad.com/l/seguridad-llm",
   "color": "#5B7CFF",
   "orden": 1,
-  "destacado": false,
-  "actualizado": "2026-07-02"
+  "destacado": true,
+  "actualizado": "2026-07-03"
 }
