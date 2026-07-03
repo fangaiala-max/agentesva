@@ -1,0 +1,17 @@
+{
+  "titulo": "Curso: Seguridad de LLMs (defensa contra prompt injection)",
+  "tipo": "curso",
+  "categoria": "Desarrollo con IA",
+  "desc": "El único curso en español dedicado a proteger tus apps de IA del prompt injection.",
+  "long": "Mini-curso práctico para desarrolladores: ataca una app RAG en un laboratorio y apréndela a defender en tres capas, con código Python que puedes copiar. 8 lecciones + laboratorio, entrega en Gumroad. Ficha completa en /curso/seguridad-llm.",
+  "tagline": "Protege tu app de IA antes de que un usuario la rompa.",
+  "ideal": "Desarrolladores que ya construyen chatbots, RAG o agentes con LLMs",
+  "formato": "Curso · 8 lecciones + laboratorio",
+  "precio": "Pago",
+  "precioDesde": "19 €",
+  "gumroadUrl": "https://fangaiala.gumroad.com/l/seguridad-llm",
+  "color": "#5B7CFF",
+  "orden": 1,
+  "destacado": true,
+  "actualizado": "2026-07-03"
+}

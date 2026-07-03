@@ -10,6 +10,7 @@ const TYPE_META: Record<string, { label: string; color: string; border: string }
   Curso: { label: 'Curso', color: '#c08bff', border: '#43306a' },
   Estudio: { label: 'Estudio', color: '#5b7cff', border: 'var(--line-2)' },
   Noticia: { label: 'Noticia', color: '#ffb86b', border: '#5a4326' },
+  Recurso: { label: 'Recurso', color: '#4ec98a', border: '#235' },
 };
 
 let pagefindPromise: Promise<any> | null = null;

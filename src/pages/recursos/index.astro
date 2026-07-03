@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import RecursoCard from '../../components/RecursoCard.astro';
+import { getCollection } from 'astro:content';
+import { toRecurso, assertNoSlugCollision } from '../../data/recursos';
+import { jsonLdSerialize } from '../../data/schema';
+
+const recursos = (await getCollection('recursos'))
+  .map(toRecurso)
+  .sort((a, b) => Number(b.destacado) - Number(a.destacado) || a.orden - b.orden);
+const cats = (await getCollection('recursosCategorias')).sort((a, b) => a.data.orden - b.data.orden);
+
+// Guard de build: slugs de recursos únicos frente a herramientas + cursos (comparten /ir).
+const toolSlugs = (await getCollection('tools')).map((t) => t.id);
+const cursoSlugs = (await getCollection('cursos')).map((c) => c.id);
+assertNoSlugCollision([...toolSlugs, ...cursoSlugs], recursos.map((r) => r.slug));
+
+const CATEGORIES = ['Todas', ...cats.map((c) => c.data.nombre)];
+const TIPOS = [
+  { v: 'Todos', label: 'Todos' },
+  { v: 'prompts', label: 'Prompts' },
+  { v: 'skill', label: 'Skills' },
+  { v: 'plantilla', label: 'Plantillas' },
+  { v: 'curso', label: 'Cursos' },
+];
+const PRECIOS = ['Todos', 'Gratis', 'Pago'];
+const site = 'https://agentesva.com';
+
+const chipBase = 'font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 14px; border-radius: 30px;';
+const chipOn = 'background: var(--accent); color: var(--bg); border: 1px solid var(--accent);';
+const chipOff = 'background: transparent; color: var(--fg-3); border: 1px solid var(--line-2);';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'CollectionPage', name: 'Recursos de IA', description: 'Packs de prompts, skills y plantillas de IA en español, gratis y de pago.', url: `${site}/recursos`, inLanguage: 'es' },
+    { '@type': 'ItemList', itemListElement: recursos.map((r, i) => ({ '@type': 'ListItem', position: i + 1, url: `${site}/recurso/${r.slug}`, name: r.titulo })) },
+    { '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${site}/` },
+      { '@type': 'ListItem', position: 2, name: 'Recursos', item: `${site}/recursos` },
+    ] },
+  ],
+};
+---
+
+<BaseLayout
+  title="Recursos de IA — packs de prompts, skills y plantillas | AgentesVA"
+  description="Packs de prompts, skills y plantillas de IA en español, gratis y de pago. Copia, pega y aplica hoy en tu negocio."
+>
+  <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
+  <SiteHeader />
+
+  <main style="max-width: 1200px; margin: 0 auto; padding: 40px 32px 64px;">
+    <nav aria-label="Migas" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-5);">
+      <a href="/" class="navlink" style="color: var(--fg-4); text-decoration: none;">Inicio</a> <span aria-hidden="true">/</span> Recursos
+    </nav>
+
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 18px;">
+      <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 5vw, 44px); letter-spacing: -0.03em; margin: 0; color: #fff;">Recursos de IA</h1>
+      <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-5);"><span id="recurso-count" style="color: var(--accent);">{recursos.length}</span> resultados</span>
+    </div>
+    <p style="font-size: 16px; line-height: 1.6; color: var(--fg-3); margin: 12px 0 0; max-width: 42em;">Packs de prompts, skills y plantillas para usar la IA hoy. Empieza con los gratis; sube de nivel con los de pago.</p>
+
+    <form id="recurso-search-form" role="search" class="searchwrap" style="display: flex; align-items: center; gap: 12px; max-width: 560px; margin: 24px 0 0; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 4px; padding: 4px 4px 4px 18px; transition: border-color .25s, box-shadow .25s;">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--fg-5)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
+      <label for="recurso-search" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Buscar recursos</label>
+      <input id="recurso-search" type="search" autocomplete="off" placeholder="Busca: prompts de ventas, skill de atención…" style="flex: 1; background: transparent; border: none; outline: none; color: #fff; font-family: var(--sans); font-size: 15px; padding: 12px 0;">
+    </form>
+
+    <div role="group" aria-label="Filtrar por categoría" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px;">
+      {CATEGORIES.map((c, i) => (
+        <button type="button" class="chip cat-chip" data-chip={c} aria-pressed={i === 0 ? 'true' : 'false'} style={`${chipBase} ${i === 0 ? chipOn : chipOff}`}>{c}</button>
+      ))}
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 18px 28px; margin-top: 12px;">
+      <div role="group" aria-label="Filtrar por tipo" style="display: flex; flex-wrap: wrap; gap: 8px;">
+        {TIPOS.map((t, i) => (
+          <button type="button" class="chip tipo-chip" data-chip={t.v} aria-pressed={i === 0 ? 'true' : 'false'} style={`${chipBase} ${i === 0 ? chipOn : chipOff}`}>{t.label}</button>
+        ))}
+      </div>
+      <div role="group" aria-label="Filtrar por precio" style="display: flex; flex-wrap: wrap; gap: 8px;">
+        {PRECIOS.map((p, i) => (
+          <button type="button" class="chip precio-chip" data-chip={p} aria-pressed={i === 0 ? 'true' : 'false'} style={`${chipBase} ${i === 0 ? chipOn : chipOff}`}>{p}</button>
+        ))}
+      </div>
+    </div>
+
+    <div id="recurso-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; margin-top: 28px;">
+      {recursos.map((recurso) => <RecursoCard recurso={recurso} />)}
+    </div>
+    <div id="recurso-empty" hidden style="border: 1px dashed var(--line-2); border-radius: 8px; padding: 56px 24px; text-align: center; margin-top: 28px;">
+      <p style="font-family: var(--sans); font-weight: 600; font-size: 18px; color: #fff; margin: 0;">Sin resultados</p>
+      <p style="font-size: 14px; color: var(--fg-5); margin: 8px 0 0;">Prueba otra palabra o cambia los filtros.</p>
+    </div>
+
+    <section style="margin-top: 56px; border-top: 1px solid var(--line); padding-top: 28px;">
+      <h2 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0;">Explora por categoría</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px;">
+        {cats.map((c) => (
+          <a href={`/recursos/${c.id}`} class="lift" style="font-family: var(--mono); font-size: 12px; color: var(--fg-2); background: var(--panel); border: 1px solid var(--line); border-radius: 30px; padding: 9px 16px; text-decoration: none;">{c.data.nombre}</a>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<script>
+  import { initRecursos } from '../../scripts/recursos';
+  import { initMotion } from '../../scripts/motion';
+  document.addEventListener('astro:page-load', () => { initRecursos(); initMotion(); });
+</script>

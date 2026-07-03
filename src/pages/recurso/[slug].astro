@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import { getCollection } from 'astro:content';
+import { toRecurso, getAlternativesRecursos, fallbackFaqsRecurso, PRECIO_COLOR, tipoLabel, type Recurso } from '../../data/recursos';
+import { jsonLdSerialize } from '../../data/schema';
+
+export async function getStaticPaths() {
+  const recursos = (await getCollection('recursos')).map(toRecurso).sort((a, b) => a.orden - b.orden);
+  return recursos.map((recurso) => ({
+    params: { slug: recurso.slug },
+    props: { recurso, alts: getAlternativesRecursos(recursos, recurso) },
+  }));
+}
+
+interface Props { recurso: Recurso; alts: Recurso[] }
+const { recurso, alts } = Astro.props;
+const initial = recurso.titulo.charAt(0);
+const precioColor = PRECIO_COLOR[recurso.precio];
+const site = 'https://agentesva.com';
+const faqs = recurso.faq?.length ? recurso.faq : fallbackFaqsRecurso(recurso);
+// Precio numérico para offers (real; "0" para gratis).
+// Asume formato europeo (coma decimal) y precio < 1000; los tiers son 4,99/14,99/29,99/19 €.
+const priceNum = recurso.precio === 'Gratis' ? '0' : (recurso.precioDesde || '').replace(/[^0-9,.]/g, '').replace(',', '.') || '0';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Product',
+      name: recurso.titulo,
+      description: recurso.long,
+      brand: { '@type': 'Organization', name: 'AgentesVA' },
+      category: recurso.categoria,
+      offers: {
+        '@type': 'Offer',
+        price: priceNum,
+        priceCurrency: 'EUR',
+        availability: 'https://schema.org/InStock',
+        url: `${site}/recurso/${recurso.slug}`,
+      },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${site}/` },
+        { '@type': 'ListItem', position: 2, name: 'Recursos', item: `${site}/recursos` },
+        { '@type': 'ListItem', position: 3, name: recurso.titulo, item: `${site}/recurso/${recurso.slug}` },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    },
+  ],
+};
+
+// CTA por vía de entrega.
+const cta =
+  recurso.precio === 'Pago'
+    ? { href: recurso.gumroadUrl, label: `Comprar${recurso.precioDesde ? ` · ${recurso.precioDesde}` : ''} →`, rel: 'noopener', download: false, newtab: true }
+    : recurso.downloadUrl
+      ? { href: recurso.downloadUrl, label: 'Descargar gratis →', rel: 'noopener', download: true, newtab: false }
+      : { href: '/newsletter', label: 'Descárgalo gratis · Suscríbete →', rel: '', download: false, newtab: false };
+---
+
+<BaseLayout
+  title={`${recurso.titulo} — ${recurso.tagline} | AgentesVA`}
+  description={`${recurso.desc} ${tipoLabel(recurso.tipo)} de AgentesVA.`}
+>
+  <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
+  <SiteHeader />
+
+  <main
+    data-pagefind-body
+    data-pagefind-filter="tipo:Recurso"
+    data-pagefind-meta="tipo:Recurso"
+    style="max-width: 1080px; margin: 0 auto; padding: 32px 32px 64px;"
+  >
+    <a href="/recursos" data-pagefind-ignore class="navlink" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-4); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">← Volver a recursos</a>
+
+    <div style="display: flex; align-items: flex-start; gap: 22px; margin-top: 26px; border-bottom: 1px solid var(--line); padding-bottom: 32px; flex-wrap: wrap;">
+      <div transition:name={`mono-recurso-${recurso.slug}`} style={`width: 74px; height: 74px; border-radius: 16px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 33px; color: #fff; background: ${recurso.color};`}>{initial}</div>
+      <div style="flex: 1; min-width: 220px;">
+        <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);">{recurso.categoria}</div>
+        <h1 style="font-family: var(--sans); font-weight: 700; font-size: clamp(30px, 6vw, 40px); letter-spacing: -0.03em; margin: 6px 0 0; color: #fff;">{recurso.titulo}</h1>
+        <p style="font-size: 16.5px; line-height: 1.5; color: var(--fg-3); margin: 8px 0 0; max-width: 34em;">{recurso.tagline}</p>
+        <div style="display: flex; gap: 14px; align-items: center; margin-top: 16px; flex-wrap: wrap;">
+          <span style="font-family: var(--mono); font-size: 12px; color: var(--fg-2);">{tipoLabel(recurso.tipo)} · {recurso.formato}</span>
+          <span style={`font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: ${precioColor}; border: 1px solid var(--line-2); padding: 4px 10px; border-radius: 20px;`}>{recurso.precio}{recurso.precioDesde ? ` · ${recurso.precioDesde}` : ''}</span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; flex: none;">
+        <a href={cta.href} target={cta.newtab ? '_blank' : undefined} rel={cta.rel || undefined} download={cta.download || undefined} class="lift shimmer" style="background: var(--accent); color: var(--bg); border: none; padding: 13px 24px; border-radius: 2px; font-family: var(--sans); font-weight: 600; font-size: 14px; text-decoration: none; text-align: center; white-space: nowrap;">{cta.label}</a>
+        <button type="button" id="save-btn" data-slug={recurso.slug} aria-pressed="false" style="background: var(--panel-2); color: var(--fg-2); border: 1px solid var(--line-2); padding: 13px 24px; border-radius: 2px; font-family: var(--sans); font-weight: 600; font-size: 14px; cursor: pointer; white-space: nowrap;"><span id="save-label">Guardar</span></button>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 44px; margin-top: 38px;">
+      <div>
+        <h2 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0;">Qué es</h2>
+        <p style="font-size: 16px; line-height: 1.7; color: var(--fg-2); margin: 14px 0 0;">{recurso.long}</p>
+
+        <h2 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 36px 0 0;">Para quién es</h2>
+        <p style="font-size: 16px; line-height: 1.7; color: var(--fg-2); margin: 14px 0 0;">{recurso.ideal}.</p>
+
+        <h2 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 36px 0 0;">Preguntas frecuentes</h2>
+        <div style="display: flex; flex-direction: column; gap: 18px; margin-top: 18px;">
+          {faqs.map((f) => (
+            <div>
+              <h3 style="font-family: var(--sans); font-weight: 600; font-size: 15px; color: #fff; margin: 0;">{f.q}</h3>
+              <p style="font-size: 14.5px; line-height: 1.6; color: var(--fg-2); margin: 8px 0 0;">{f.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <aside style="display: flex; flex-direction: column; gap: 18px;">
+        <div style="border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 22px;">
+          <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-5);">Resumen</span>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 13px 0; border-bottom: 1px solid var(--line); margin-top: 8px;">
+            <span style="font-size: 13px; color: var(--fg-4);">Tipo</span><span style="font-size: 13.5px; color: #fff;">{tipoLabel(recurso.tipo)}</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 13px 0; border-bottom: 1px solid var(--line);">
+            <span style="font-size: 13px; color: var(--fg-4);">Formato</span><span style="font-size: 13.5px; color: #fff;">{recurso.formato}</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 13px 0;">
+            <span style="font-size: 13px; color: var(--fg-4);">Precio</span><span style="font-size: 13.5px; color: #fff;">{recurso.precio}{recurso.precioDesde ? ` · ${recurso.precioDesde}` : ''}</span>
+          </div>
+        </div>
+
+        {alts.length > 0 && (
+          <div data-pagefind-ignore style="border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 22px;">
+            <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-5);">Otros recursos</span>
+            <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
+              {alts.map((a) => (
+                <a href={`/recurso/${a.slug}`} class="lift" style="display: flex; align-items: center; gap: 12px; background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 12px; text-decoration: none;">
+                  <span style={`width: 34px; height: 34px; border-radius: 8px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 15px; color: #fff; background: ${a.color};`}>{a.titulo.charAt(0)}</span>
+                  <span style="flex: 1;">
+                    <span style="display: block; font-family: var(--sans); font-weight: 600; font-size: 14px; color: #fff;">{a.titulo}</span>
+                    <span style="display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-5); margin-top: 2px;">{tipoLabel(a.tipo)} · {a.precio}</span>
+                  </span>
+                  <span aria-hidden="true" style="color: var(--fg-5); font-family: var(--mono); font-size: 13px;">→</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+      </aside>
+    </div>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<script>
+  import { initToolDetail } from '../../scripts/tool-detail';
+  import { initMotion } from '../../scripts/motion';
+  document.addEventListener('astro:page-load', () => {
+    initToolDetail();
+    initMotion();
+  });
+</script>
