@@ -158,4 +158,46 @@ const cursosCategorias = defineCollection({
   }),
 });
 
-export const collections = { tools, categories, estudios, noticias, cursos, cursosCategorias };
+const recursos = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/content/recursos' }),
+  schema: z
+    .object({
+      titulo: z.string(),
+      tipo: z.enum(['prompts', 'skill', 'plantilla', 'curso']),
+      categoria: z.string(),
+      desc: z.string(),
+      long: z.string(),
+      tagline: z.string(),
+      ideal: z.string(),
+      formato: z.string(),
+      precio: z.enum(['Gratis', 'Pago']),
+      precioDesde: z.string().optional(),
+      gumroadUrl: z.string().url().optional(),
+      downloadUrl: z.string().optional(),
+      gated: z.boolean().default(false),
+      color: z.string().regex(/^#[0-9A-Fa-f]{6}$/),
+      orden: z.number().int(),
+      destacado: z.boolean().default(false),
+      actualizado: z.string(),
+      faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
+    })
+    .superRefine((d, ctx) => {
+      if (d.precio === 'Pago' && !d.gumroadUrl) {
+        ctx.addIssue({ code: 'custom', message: 'Un recurso de pago requiere gumroadUrl.', path: ['gumroadUrl'] });
+      }
+      if (d.precio === 'Gratis' && !d.downloadUrl && !d.gated) {
+        ctx.addIssue({ code: 'custom', message: 'Un recurso gratis requiere downloadUrl o gated:true.', path: ['downloadUrl'] });
+      }
+    }),
+});
+
+const recursosCategorias = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/content/recursos-categorias' }),
+  schema: z.object({
+    nombre: z.string(),
+    descripcion: z.string(),
+    orden: z.number().int(),
+  }),
+});
+
+export const collections = { tools, categories, estudios, noticias, cursos, cursosCategorias, recursos, recursosCategorias };
