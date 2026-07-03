@@ -7,7 +7,6 @@ const { recurso } = Astro.props;
 const initial = recurso.titulo.charAt(0);
 const precioColor = PRECIO_COLOR[recurso.precio];
 const priceLabel = recurso.precio === 'Pago' && recurso.precioDesde ? recurso.precioDesde : recurso.precio;
-const meta = `${tipoLabel(recurso.tipo)} · ${recurso.formato}`;
 const search = `${recurso.titulo} ${recurso.desc} ${recurso.formato} ${recurso.categoria}`.toLowerCase();
 ---
 

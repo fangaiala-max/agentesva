@@ -185,6 +185,9 @@ const recursos = defineCollection({
       if (d.precio === 'Pago' && !d.gumroadUrl) {
         ctx.addIssue({ code: 'custom', message: 'Un recurso de pago requiere gumroadUrl.', path: ['gumroadUrl'] });
       }
+      if (d.precio === 'Pago' && !d.precioDesde) {
+        ctx.addIssue({ code: 'custom', message: 'Un recurso de pago requiere precioDesde (para el precio del Offer).', path: ['precioDesde'] });
+      }
       if (d.precio === 'Gratis' && !d.downloadUrl && !d.gated) {
         ctx.addIssue({ code: 'custom', message: 'Un recurso gratis requiere downloadUrl o gated:true.', path: ['downloadUrl'] });
       }

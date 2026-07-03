@@ -21,6 +21,7 @@ const precioColor = PRECIO_COLOR[recurso.precio];
 const site = 'https://agentesva.com';
 const faqs = recurso.faq?.length ? recurso.faq : fallbackFaqsRecurso(recurso);
 // Precio numérico para offers (real; "0" para gratis).
+// Asume formato europeo (coma decimal) y precio < 1000; los tiers son 4,99/14,99/29,99/19 €.
 const priceNum = recurso.precio === 'Gratis' ? '0' : (recurso.precioDesde || '').replace(/[^0-9,.]/g, '').replace(',', '.') || '0';
 
 const jsonLd = {
