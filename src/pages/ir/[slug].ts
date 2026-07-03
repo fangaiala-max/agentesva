@@ -2,8 +2,8 @@ import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 
 // Salida afiliado: ruta on-demand (no se prerenderiza). 302 → afiliado||oficial.
-// Resuelve primero herramientas (#50), luego cursos (#54). Los slugs son únicos
-// entre ambas colecciones (guard de build en /cursos).
+// Resuelve primero herramientas (#50), luego cursos (#54), luego recursos (#57).
+// Los slugs son únicos entre las tres colecciones (guard de build en /cursos y /recursos).
 export const prerender = false;
 
 function redirect(dest: string, kind: string, slug: string): Response {
@@ -32,6 +32,16 @@ export const GET: APIRoute = async ({ params }) => {
       ? (curso.data.gumroadUrl || curso.data.officialUrl)
       : (curso.data.affiliateUrl || curso.data.officialUrl);
     return redirect(dest, 'curso', slug);
+  }
+
+  const recurso = (await getCollection('recursos')).find((r) => r.id === slug);
+  if (recurso) {
+    // pago → Gumroad; gratis → descarga directa o /newsletter (con puerta).
+    const dest =
+      recurso.data.precio === 'Pago'
+        ? (recurso.data.gumroadUrl as string)
+        : (recurso.data.downloadUrl || '/newsletter');
+    return redirect(dest, 'recurso', slug);
   }
 
   return new Response('No encontrado', { status: 404 });
