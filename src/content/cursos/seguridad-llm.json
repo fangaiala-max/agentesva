@@ -1,0 +1,22 @@
+{
+  "titulo": "Seguridad de LLMs: defensa contra prompt injection",
+  "proveedor": "AgentesVA",
+  "categoria": "Prompts e ingeniería de prompts",
+  "nivel": "intermedio",
+  "desc": "El único curso en español dedicado a proteger tus apps de IA del prompt injection.",
+  "long": "Un mini-curso práctico para desarrolladores: ataca una app RAG en un laboratorio y apréndela a defender en tres capas (diseño, guardrails y evals de seguridad), con código Python que puedes copiar. Cubre inyección directa e indirecta, OWASP Top 10 para LLM, y una suite de evals de regresión. Corre gratis en local con Ollama o contra cualquier API compatible.",
+  "tagline": "Protege tu app de IA antes de que un usuario la rompa.",
+  "ideal": "Desarrolladores que ya construyen chatbots, RAG o agentes con LLMs",
+  "precio": "Pago",
+  "precioDesde": "19 €",
+  "idioma": "Español",
+  "duracion": "8 lecciones + laboratorio",
+  "certificado": false,
+  "tipo": "propio",
+  "officialUrl": "https://agentesva.com/curso/seguridad-llm",
+  "gumroadUrl": "https://fangaiala.gumroad.com/l/seguridad-llm",
+  "color": "#5B7CFF",
+  "orden": 1,
+  "destacado": true,
+  "actualizado": "2026-07-03"
+}
