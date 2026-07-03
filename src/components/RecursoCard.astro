@@ -1,0 +1,38 @@
+---
+import type { Recurso } from '../data/recursos';
+import { PRECIO_COLOR, tipoLabel } from '../data/recursos';
+
+interface Props { recurso: Recurso }
+const { recurso } = Astro.props;
+const initial = recurso.titulo.charAt(0);
+const precioColor = PRECIO_COLOR[recurso.precio];
+const priceLabel = recurso.precio === 'Pago' && recurso.precioDesde ? recurso.precioDesde : recurso.precio;
+const meta = `${tipoLabel(recurso.tipo)} · ${recurso.formato}`;
+const search = `${recurso.titulo} ${recurso.desc} ${recurso.formato} ${recurso.categoria}`.toLowerCase();
+---
+
+<article
+  class="lift recurso-card spotlight"
+  data-cat={recurso.categoria}
+  data-tipo={recurso.tipo}
+  data-precio={recurso.precio}
+  data-search={search}
+  style="position: relative; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 14px;"
+>
+  <a href={`/recurso/${recurso.slug}`} aria-label={`Ver ${recurso.titulo}`} style="position: absolute; inset: 0; z-index: 1; border-radius: 8px;"></a>
+  <div style="display: flex; align-items: flex-start; gap: 13px;">
+    <div transition:name={`mono-recurso-${recurso.slug}`} style={`width: 42px; height: 42px; border-radius: 9px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 19px; color: #fff; background: ${recurso.color};`}>{initial}</div>
+    <div style="flex: 1; min-width: 0;">
+      <div style="font-family: var(--sans); font-weight: 600; font-size: 16px; color: #fff;">{recurso.titulo}</div>
+      <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5); margin-top: 3px;">{tipoLabel(recurso.tipo)}</div>
+    </div>
+    <button type="button" class="bookmark-btn" data-bookmark={recurso.slug} aria-label={`Guardar ${recurso.titulo}`} aria-pressed="false" style="position: relative; z-index: 2; background: none; border: none; cursor: pointer; padding: 6px; margin: -6px; display: flex;">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--fg-5)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+    </button>
+  </div>
+  <p style="margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--fg-3);">{recurso.desc}</p>
+  <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto;">
+    <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-4);">{recurso.formato}</span>
+    <span style={`font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: ${precioColor}; border: 1px solid var(--line-2); padding: 4px 9px; border-radius: 20px;`}>{priceLabel}</span>
+  </div>
+</article>
