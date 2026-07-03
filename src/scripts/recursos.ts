@@ -1,5 +1,5 @@
-// Interactividad del directorio de cursos (CSP-safe: sin onclick inline).
-// Filtra por categoría + nivel + precio + búsqueda y gestiona los bookmarks
+// Interactividad de la tienda de recursos (CSP-safe: sin onclick inline).
+// Filtra por categoría + tipo + precio + búsqueda y gestiona los bookmarks
 // (mismo localStorage que el directorio de herramientas).
 const SAVED_KEY = 'agentesva:saved';
 
@@ -34,7 +34,7 @@ function setupFilter() {
   if (!grid) return;
 
   let activeCat = 'Todas';
-  let activeNivel = 'Todos';
+  let activeTipo = 'Todos';
   let activePrecio = 'Todos';
 
   const filter = () => {
@@ -43,7 +43,7 @@ function setupFilter() {
     cards.forEach((card) => {
       const match =
         (activeCat === 'Todas' || (card.dataset.cat || '') === activeCat) &&
-        (activeNivel === 'Todos' || (card.dataset.tipo || '') === activeNivel) &&
+        (activeTipo === 'Todos' || (card.dataset.tipo || '') === activeTipo) &&
         (activePrecio === 'Todos' || (card.dataset.precio || '') === activePrecio) &&
         (!q || (card.dataset.search || '').includes(q));
       card.style.display = match ? 'flex' : 'none';
@@ -58,7 +58,7 @@ function setupFilter() {
   document.getElementById('recurso-search-form')?.addEventListener('submit', (e) => e.preventDefault());
 
   setupChipGroup('.cat-chip', (v) => { activeCat = v || 'Todas'; filter(); });
-  setupChipGroup('.tipo-chip', (v) => { activeNivel = v || 'Todos'; filter(); });
+  setupChipGroup('.tipo-chip', (v) => { activeTipo = v || 'Todos'; filter(); });
   setupChipGroup('.precio-chip', (v) => { activePrecio = v || 'Todos'; filter(); });
 }
 
