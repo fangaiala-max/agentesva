@@ -7,30 +7,36 @@ import SiteFooter from '../components/SiteFooter.astro';
 export const prerender = false;
 
 const sessionId = Astro.url.searchParams.get('session_id') ?? '';
-const key = import.meta.env.STRIPE_SECRET_KEY ?? '';
+// process.env (NO import.meta.env): los secretos se leen en runtime en la
+// función serverless — import.meta.env los inlinaría en el bundle en build.
+const key = process.env.STRIPE_SECRET_KEY ?? '';
 let mapa: Record<string, string> = {};
-try { mapa = JSON.parse(import.meta.env.DESCARGAS_JSON ?? '{}'); } catch { /* mapa vacío → estado error */ }
+try { mapa = JSON.parse(process.env.DESCARGAS_JSON ?? '{}'); } catch { /* mapa vacío → estado error */ }
 
 type Descarga = { nombre: string; url: string };
 let estado: 'ok' | 'pendiente' | 'error' = 'error';
 const descargas: Descarga[] = [];
 
 if (sessionId && key) {
-  const res = await fetch(
-    `https://api.stripe.com/v1/checkout/sessions/${encodeURIComponent(sessionId)}?expand[]=line_items.data.price.product`,
-    { headers: { Authorization: `Bearer ${key}` } },
-  );
-  if (res.ok) {
-    const sesion = await res.json();
-    if (sesion.payment_status === 'paid') {
-      for (const item of sesion.line_items?.data ?? []) {
-        const slug = item.price?.product?.metadata?.slug;
-        if (slug && mapa[slug]) descargas.push({ nombre: item.description ?? slug, url: mapa[slug] });
+  try {
+    const res = await fetch(
+      `https://api.stripe.com/v1/checkout/sessions/${encodeURIComponent(sessionId)}?expand[]=line_items.data.price.product`,
+      { headers: { Authorization: `Bearer ${key}` } },
+    );
+    if (res.ok) {
+      const sesion = await res.json();
+      if (sesion.payment_status === 'paid') {
+        for (const item of sesion.line_items?.data ?? []) {
+          const slug = item.price?.product?.metadata?.slug;
+          if (slug && mapa[slug]) descargas.push({ nombre: item.description ?? slug, url: mapa[slug] });
+        }
+        estado = descargas.length ? 'ok' : 'error';
+      } else {
+        estado = 'pendiente';
       }
-      estado = descargas.length ? 'ok' : 'error';
-    } else {
-      estado = 'pendiente';
     }
+  } catch {
+    // Fallo de red hacia Stripe → estado error amable, nunca un 500.
   }
 }
 Astro.response.headers.set('Cache-Control', 'no-store');
