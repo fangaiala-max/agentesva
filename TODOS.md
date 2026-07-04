@@ -1,8 +1,22 @@
+# TODOS
 
-## Newsletter AgentesVA — diferidos de la revisión CEO (2026-06-21)
-Fuente: docs/superpowers/specs/2026-06-21-agentesva-newsletter-business-brief.md
+## Newsletter
+Fuente: docs/superpowers/specs/2026-06-21-agentesva-newsletter-business-brief.md (revisión CEO 2026-06-21)
 
-- [ ] **Programa de referidos** (tipo SparkLoop) — motor de volumen viral. Retomar al arrancar la lista.
-- [ ] **Secuencia de bienvenida en Brevo** — email de entrega del lead magnet + 3-5 de onboarding.
-- [ ] **Sub-ángulo anti-incumbente** — voz/formato distintivo vs 'IA en Español' (50k subs).
-- [ ] **Fase 2: tienda de packs** (modelo Authority.md) — BLOQUEADA hasta validar disposición a pagar.
+### Secuencia de bienvenida en Brevo
+**Priority:** P1
+Email de entrega del lead magnet + 3-5 emails de onboarding.
+
+### Programa de referidos (tipo SparkLoop)
+**Priority:** P2
+Motor de volumen viral. Retomar al arrancar la lista.
+
+### Sub-ángulo anti-incumbente
+**Priority:** P3
+Voz/formato distintivo vs "IA en Español" (50k subs).
+
+## Completed
+
+### Fase 2: tienda de packs (modelo Authority.md)
+Estaba bloqueada hasta validar disposición a pagar; se lanzó como /recursos con Stripe Payment Links + entrega en /descarga.
+**Completed:** PRs #108/#109 (2026-07-04)
