@@ -4,11 +4,12 @@ import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 
 const PACK = '/pack-30-prompts-ia.pdf';
+const SKILL = '/skill-atencion-cliente-ia.zip';
 ---
 
 <BaseLayout
   title="¡Ya estás dentro! | AgentesVA"
-  description="Suscripción confirmada. Descarga tu Pack de 30 prompts de IA para tu negocio."
+  description="Suscripción confirmada. Descarga tu Pack de 30 prompts de IA y la Skill de atención al cliente para tu negocio."
   noindex={true}
 >
   <SiteHeader />
@@ -17,7 +18,7 @@ const PACK = '/pack-30-prompts-ia.pdf';
     <span aria-hidden="true" style="display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: rgba(79,211,154,0.12); border: 1px solid var(--green); color: var(--green); font-size: 26px;">✓</span>
 
     <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 6vw, 46px); line-height: 1.06; letter-spacing: -0.03em; color: #fff; margin: 22px 0 0;">¡Ya estás dentro!</h1>
-    <p style="font-size: 18px; line-height: 1.55; color: var(--fg-3); margin: 16px auto 0; max-width: 28em;">Has confirmado tu suscripción a la newsletter de AgentesVA. Aquí tienes tu regalo de bienvenida.</p>
+    <p style="font-size: 18px; line-height: 1.55; color: var(--fg-3); margin: 16px auto 0; max-width: 28em;">Has confirmado tu suscripción a la newsletter de AgentesVA. Aquí tienes tus dos regalos de bienvenida.</p>
 
     <div class="animated-border" style="border-radius: 9px; padding: 1px; margin: 36px auto 0; max-width: 460px;">
       <div style="background: var(--panel); border-radius: 8px; padding: 28px 26px;">
@@ -28,7 +29,16 @@ const PACK = '/pack-30-prompts-ia.pdf';
       </div>
     </div>
 
-    <p style="font-size: 14px; line-height: 1.55; color: var(--fg-4); margin: 28px auto 0; max-width: 28em;">También te lo hemos enviado por email. La primera edición de la newsletter te llega esta semana.</p>
+    <div class="animated-border" style="border-radius: 9px; padding: 1px; margin: 20px auto 0; max-width: 460px;">
+      <div style="background: var(--panel); border-radius: 8px; padding: 28px 26px;">
+        <p style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0;">Bonus</p>
+        <h2 style="font-family: var(--sans); font-weight: 700; font-size: 21px; line-height: 1.2; color: #fff; margin: 10px 0 0;">Skill: Asistente de atención al cliente</h2>
+        <p style="font-size: 14.5px; line-height: 1.55; color: var(--fg-3); margin: 10px 0 22px;">Una Claude Skill que redacta respuestas on-brand para email, WhatsApp y reseñas. Descomprime y sigue el README para instalarla.</p>
+        <a href={SKILL} download class="lift shimmer" style="display: inline-block; background: var(--accent); color: var(--bg); padding: 14px 28px; border-radius: 2px; font-family: var(--sans); font-weight: 600; font-size: 15px; text-decoration: none;">Descargar la Skill (.zip) ↓</a>
+      </div>
+    </div>
+
+    <p style="font-size: 14px; line-height: 1.55; color: var(--fg-4); margin: 28px auto 0; max-width: 28em;">Descárgalos ahora o guarda esta página para volver cuando quieras. La primera edición de la newsletter te llega esta semana.</p>
 
     <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 36px;">
       <a href="/herramientas" class="lift" style="display: inline-flex; align-items: center; background: var(--panel); border: 1px solid var(--line-2); border-radius: 2px; padding: 11px 20px; font-family: var(--sans); font-size: 14px; font-weight: 600; color: #fff; text-decoration: none;">Explorar herramientas</a>
