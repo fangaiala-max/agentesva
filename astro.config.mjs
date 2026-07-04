@@ -8,8 +8,9 @@ export default defineConfig({
   adapter: vercel(),
   integrations: [
     sitemap({
-      // /ir/* es la salida afiliado; /buscar es noindex (búsqueda cliente) — fuera del sitemap
-      filter: (page) => !page.includes('/ir/') && !page.includes('/buscar'),
+      // /ir/* es la salida afiliado; /buscar es noindex (búsqueda cliente);
+      // /descarga es la entrega post-pago (noindex, SSR) — fuera del sitemap
+      filter: (page) => !page.includes('/ir/') && !page.includes('/buscar') && !page.includes('/descarga'),
       i18n: {
         defaultLocale: 'es',
         locales: { es: 'es-ES' },

@@ -1,0 +1,103 @@
+---
+// Entrega post-pago (Stripe Payment Links). Verifica la sesión de Checkout y
+// muestra el enlace de descarga del pack comprado. noindex + no-store.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+export const prerender = false;
+
+const sessionId = Astro.url.searchParams.get('session_id') ?? '';
+// process.env (NO import.meta.env): los secretos se leen en runtime en la
+// función serverless — import.meta.env los inlinaría en el bundle en build.
+const key = process.env.STRIPE_SECRET_KEY ?? '';
+let mapa: Record<string, string> = {};
+try { mapa = JSON.parse(process.env.DESCARGAS_JSON ?? '{}'); } catch { /* mapa vacío → estado error */ }
+
+type Descarga = { nombre: string; url: string };
+let estado: 'ok' | 'pendiente' | 'error' = 'error';
+const descargas: Descarga[] = [];
+
+if (sessionId && key) {
+  try {
+    const res = await fetch(
+      `https://api.stripe.com/v1/checkout/sessions/${encodeURIComponent(sessionId)}?expand[]=line_items.data.price.product`,
+      { headers: { Authorization: `Bearer ${key}` } },
+    );
+    if (res.ok) {
+      const sesion = await res.json();
+      if (sesion.payment_status === 'paid') {
+        for (const item of sesion.line_items?.data ?? []) {
+          const slug = item.price?.product?.metadata?.slug;
+          if (slug && mapa[slug]) descargas.push({ nombre: item.description ?? slug, url: mapa[slug] });
+        }
+        estado = descargas.length ? 'ok' : 'error';
+      } else {
+        estado = 'pendiente';
+      }
+    }
+  } catch {
+    // Fallo de red hacia Stripe → estado error amable, nunca un 500.
+  }
+}
+Astro.response.headers.set('Cache-Control', 'no-store');
+---
+
+<BaseLayout
+  title="Tu descarga | AgentesVA"
+  description="Entrega de tu compra en AgentesVA: descarga el pack de skills que acabas de comprar."
+  noindex={true}
+>
+  <SiteHeader />
+
+  <main style="max-width: 640px; margin: 0 auto; padding: 64px 32px 80px; text-align: center;">
+    {estado === 'ok' && (
+      <>
+        <span aria-hidden="true" style="display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: rgba(79,211,154,0.12); border: 1px solid var(--green); color: var(--green); font-size: 26px;">✓</span>
+
+        <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 6vw, 46px); line-height: 1.06; letter-spacing: -0.03em; color: #fff; margin: 22px 0 0;">¡Gracias por tu compra!</h1>
+        <p style="font-size: 18px; line-height: 1.55; color: var(--fg-3); margin: 16px auto 0; max-width: 28em;">Tu pago está confirmado. Aquí tienes tu descarga, lista para instalar.</p>
+
+        {descargas.map((d) => (
+          <div class="animated-border" style="border-radius: 9px; padding: 1px; margin: 36px auto 0; max-width: 460px;">
+            <div style="background: var(--panel); border-radius: 8px; padding: 28px 26px;">
+              <p style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0;">Tu descarga</p>
+              <h2 style="font-family: var(--sans); font-weight: 700; font-size: 21px; line-height: 1.2; color: #fff; margin: 10px 0 0;">{d.nombre}</h2>
+              <p style="font-size: 14.5px; line-height: 1.55; color: var(--fg-3); margin: 10px 0 22px;">Descomprime el zip y sigue el README para instalarla en Claude.</p>
+              <a href={d.url} download class="lift shimmer" style="display: inline-block; background: var(--accent); color: var(--bg); padding: 14px 28px; border-radius: 2px; font-family: var(--sans); font-weight: 600; font-size: 15px; text-decoration: none;">Descargar (.zip) ↓</a>
+            </div>
+          </div>
+        ))}
+
+        <p style="font-size: 14px; line-height: 1.55; color: var(--fg-4); margin: 28px auto 0; max-width: 28em;">Guarda esta página o tu recibo de Stripe: este enlace es tu acceso a la descarga.</p>
+
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 36px;">
+          <a href="/recursos" class="lift" style="display: inline-flex; align-items: center; background: var(--panel); border: 1px solid var(--line-2); border-radius: 2px; padding: 11px 20px; font-family: var(--sans); font-size: 14px; font-weight: 600; color: #fff; text-decoration: none;">Explorar más recursos</a>
+        </div>
+      </>
+    )}
+
+    {estado === 'pendiente' && (
+      <>
+        <span aria-hidden="true" style="display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: rgba(91,124,255,0.12); border: 1px solid var(--accent); color: var(--accent); font-size: 26px;">…</span>
+
+        <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 6vw, 46px); line-height: 1.06; letter-spacing: -0.03em; color: #fff; margin: 22px 0 0;">Pago aún no confirmado</h1>
+        <p style="font-size: 18px; line-height: 1.55; color: var(--fg-3); margin: 16px auto 0; max-width: 28em;">Tu pago está procesándose. Espera unos segundos y recarga esta página: en cuanto Stripe lo confirme, verás aquí tu descarga.</p>
+      </>
+    )}
+
+    {estado === 'error' && (
+      <>
+        <span aria-hidden="true" style="display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: rgba(91,124,255,0.12); border: 1px solid var(--line-2); color: var(--fg-3); font-size: 26px;">?</span>
+
+        <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 6vw, 46px); line-height: 1.06; letter-spacing: -0.03em; color: #fff; margin: 22px 0 0;">No encontramos tu compra</h1>
+        <p style="font-size: 18px; line-height: 1.55; color: var(--fg-3); margin: 16px auto 0; max-width: 28em;">Este enlace no corresponde a ninguna compra confirmada. Revisa el enlace de tu recibo de Stripe o escríbenos a <a href="mailto:hola@agentesva.com" style="color: var(--accent); text-decoration: underline;">hola@agentesva.com</a> y lo resolvemos.</p>
+
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 36px;">
+          <a href="/recursos" class="lift" style="display: inline-flex; align-items: center; background: var(--panel); border: 1px solid var(--line-2); border-radius: 2px; padding: 11px 20px; font-family: var(--sans); font-size: 14px; font-weight: 600; color: #fff; text-decoration: none;">Ver recursos</a>
+        </div>
+      </>
+    )}
+  </main>
+
+  <SiteFooter />
+</BaseLayout>

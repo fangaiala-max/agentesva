@@ -1,0 +1,21 @@
+{
+  "titulo": "Skill: Asistente de atención al cliente con IA",
+  "tipo": "skill",
+  "categoria": "Atención al cliente",
+  "desc": "Skill de Claude que redacta respuestas on-brand para email, WhatsApp y reseñas, en el tono de tu negocio.",
+  "long": "Una Claude Skill lista para instalar que redacta respuestas de atención al cliente en tu voz: email, WhatsApp, reseñas de Google y reclamaciones. Le das el mensaje del cliente y una breve guía de tono, y te devuelve dos variantes listas para enviar (una breve, una completa) marcando entre corchetes lo que debes personalizar. Incluye plantillas por canal, una guía de tono y ejemplos trabajados. No inventa datos: si falta un precio o un plazo, lo deja señalado.",
+  "tagline": "Responde a tus clientes rápido y con tu propia voz, sin sonar a robot.",
+  "ideal": "PyMEs y autónomos que responden a clientes cada día y quieren hacerlo rápido y con su marca",
+  "formato": "Claude Skill · SKILL.md + plantillas + ejemplos",
+  "precio": "Gratis",
+  "gated": true,
+  "color": "#4ec98a",
+  "orden": 15,
+  "destacado": false,
+  "actualizado": "2026-07-04",
+  "faq": [
+    { "q": "¿Qué es una Claude Skill?", "a": "Una carpeta con un archivo SKILL.md de instrucciones y recursos que Claude carga cuando la necesita. La instalas una vez y la invocas cuando quieras responder a un cliente." },
+    { "q": "¿Cómo la instalo?", "a": "Descomprime el zip y coloca la carpeta en tu directorio de skills de Claude. Dentro del pack tienes un README con los pasos exactos." },
+    { "q": "¿Cómo la consigo?", "a": "Es gratis: suscríbete a la newsletter y te la enviamos junto con el pack de 30 prompts. Cero coste." }
+  ]
+}
