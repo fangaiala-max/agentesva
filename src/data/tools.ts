@@ -42,9 +42,9 @@ export function fallbackFaqs(tool: Tool): { q: string; a: string }[] {
 }
 
 export const PRICE_COLOR: Record<Price, string> = {
-  Gratis: '#4ec98a',
+  Gratis: '#4FD39A',
   Freemium: '#5B7CFF',
-  Pago: '#a5a5b2',
+  Pago: '#94A4C2',
 };
 
 // Normaliza una entrada de la colección `tools` a Tool (id → slug).

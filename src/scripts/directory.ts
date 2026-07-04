@@ -55,7 +55,7 @@ function setupFilter() {
   });
 }
 
-function setupCounters() {
+export function setupCounters() {
   const els = Array.from(document.querySelectorAll<HTMLElement>('[data-count]'));
   const run = (el: HTMLElement) => {
     const target = parseFloat(el.getAttribute('data-count') || '0');
@@ -81,7 +81,7 @@ function loadSaved(): Set<string> {
   try { return new Set(JSON.parse(localStorage.getItem(SAVED_KEY) || '[]')); }
   catch { return new Set(); }
 }
-function setupBookmarks() {
+export function setupBookmarks() {
   const saved = loadSaved();
   const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-bookmark]'));
   const paint = (btn: HTMLButtonElement, on: boolean) => {
@@ -92,12 +92,16 @@ function setupBookmarks() {
     }
     btn.setAttribute('aria-pressed', String(on));
   };
+  // Pinta todas las instancias del mismo slug (la home duplica tarjetas en estantes + grid).
+  const paintSlug = (slug: string, on: boolean) => {
+    buttons.forEach((b) => { if (b.dataset.bookmark === slug) paint(b, on); });
+  };
   buttons.forEach((btn) => {
     const slug = btn.dataset.bookmark || '';
     paint(btn, saved.has(slug));
     btn.addEventListener('click', () => {
       if (saved.has(slug)) saved.delete(slug); else saved.add(slug);
-      paint(btn, saved.has(slug));
+      paintSlug(slug, saved.has(slug));
       try { localStorage.setItem(SAVED_KEY, JSON.stringify([...saved])); } catch { /* ignore */ }
     });
   });
