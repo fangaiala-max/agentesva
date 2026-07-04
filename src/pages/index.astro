@@ -4,9 +4,11 @@ import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import ToolCard from '../components/ToolCard.astro';
 import { getCollection } from 'astro:content';
-import { toTool, PRICE_COLOR } from '../data/tools';
+import { toTool, PRICE_COLOR, priceRank } from '../data/tools';
 
 const tools = (await getCollection('tools')).map(toTool).sort((a, b) => a.orden - b.orden);
+// Claim honesto derivado del dato real (redondeado a la baja): "+50" con 54 herramientas.
+const toolsClaim = Math.floor(tools.length / 10) * 10;
 const cats = (await getCollection('categories')).sort((a, b) => a.data.orden - b.data.orden);
 const CATEGORIES = ['Todas', ...cats.map((c) => c.data.nombre)];
 const catIdByName = new Map(cats.map((c) => [c.data.nombre, c.id]));
@@ -16,7 +18,6 @@ const countByCat = (nombre: string) => tools.filter((t) => t.cat === nombre).len
 const featured = tools.find((t) => t.destacado) ?? tools[0];
 
 // Estantes del layout "Escaparate" (derivados de datos reales: orden = curaduría).
-const priceRank = (p: string) => (p === 'Gratis' ? 0 : p === 'Freemium' ? 1 : 2);
 const shelves = [
   { emoji: '🔥', title: 'En tendencia', sub: 'Lo más usado ahora', items: tools.slice(0, 8) },
   {
@@ -52,7 +53,7 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
 
 <BaseLayout
   title="AgentesVA — Directorio de herramientas de IA para tu negocio"
-  description="Compara +120 herramientas de IA revisadas para vender, automatizar y ahorrar horas. Filtra, guarda y elige sin perderte en listas infinitas. En español, para España y Latinoamérica."
+  description={`Compara +${toolsClaim} herramientas de IA revisadas para vender, automatizar y ahorrar horas. Filtra, guarda y elige sin perderte en listas infinitas. En español, para España y Latinoamérica.`}
 >
   <SiteHeader />
 
@@ -66,7 +67,7 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
       <div>
         <span class="blur-in" style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--line-2); border-radius: 30px; padding: 6px 14px; animation-delay: .05s;">Directorio de IA · sin ruido</span>
         <h1 class="blur-in" style="font-family: var(--serif); font-weight: 400; font-size: clamp(38px, 5.5vw, 54px); line-height: 1.03; letter-spacing: -0.035em; margin: 20px 0 0; color: #fff; animation-delay: .14s;">La herramienta de IA<br>para tu negocio, <span style="color: var(--accent);">en segundos</span></h1>
-        <p class="blur-in" style="font-size: 16.5px; line-height: 1.6; color: var(--fg-3); margin: 18px 0 0; max-width: 32em; animation-delay: .26s;">Compara +120 herramientas revisadas para vender, automatizar y ahorrar horas. Filtra, guarda y elige sin perderte en listas infinitas.</p>
+        <p class="blur-in" style="font-size: 16.5px; line-height: 1.6; color: var(--fg-3); margin: 18px 0 0; max-width: 32em; animation-delay: .26s;">Compara +{toolsClaim} herramientas revisadas para vender, automatizar y ahorrar horas. Filtra, guarda y elige sin perderte en listas infinitas.</p>
 
         <!-- search -->
         <form id="search-form" role="search" class="searchwrap blur-in" style="display: flex; align-items: center; gap: 12px; max-width: 520px; margin: 26px 0 0; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 4px; padding: 4px 4px 4px 18px; transition: border-color .25s, box-shadow .25s; animation-delay: .38s;">
@@ -83,14 +84,14 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
           ))}
         </div>
 
-        <!-- social proof -->
+        <!-- social proof (monogramas = herramientas destacadas, no avatares de usuarios) -->
         <div class="blur-in" style="display: flex; align-items: center; gap: 18px; margin-top: 24px; animation-delay: .6s;">
           <div style="display: flex;" aria-hidden="true">
             {heroAvatars.map((t) => (
               <span style={`width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--bg); margin-left: -8px; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 12px; color: #fff; background: ${t.color};`}>{t.name.charAt(0)}</span>
             ))}
           </div>
-          <span style="font-family: var(--mono); font-size: 11px; color: var(--fg-4); line-height: 1.5;">+1.200 negocios ya eligen aquí</span>
+          <span style="font-family: var(--mono); font-size: 11px; color: var(--fg-4); line-height: 1.5;">Lo más destacado del directorio · Leído por +1.200 negocios</span>
         </div>
       </div>
 
@@ -113,17 +114,13 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
     </div>
   </section>
 
-  <!-- ===== OFERTA / PACK BANNER ===== -->
+  <!-- ===== PACK BANNER (sin countdown: el pack es gratis siempre, sin falsa urgencia) ===== -->
   <a href="#pack" style="text-decoration: none; display: block; max-width: 1240px; margin: 22px auto 0; padding: 0 32px;">
     <section class="banner" style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; background: #10233F; border: 1px solid var(--line-2); border-left: 3px solid var(--gold); border-radius: 10px; padding: 18px 24px; cursor: pointer;">
       <span style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold);">
-        <span aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: var(--gold); animation: dotPulse 1.4s ease-in-out infinite;"></span>Oferta activa
+        <span aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: var(--gold); animation: dotPulse 1.4s ease-in-out infinite;"></span>Pack gratis
       </span>
-      <span style="font-family: var(--sans); font-size: 15.5px; color: #fff; font-weight: 600; flex: 1; min-width: 220px;">Pack de Recursos IA <span style="color: var(--fg-3); font-weight: 400;">— 30 prompts y plantillas, gratis por tiempo limitado.</span></span>
-      <span style="display: flex; align-items: center; gap: 8px;">
-        <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5);">Termina en</span>
-        <span data-countdown style="font-family: var(--mono); font-size: 16px; font-weight: 600; color: var(--gold); background: var(--bg); border: 1px solid var(--line-2); border-radius: 4px; padding: 6px 12px; letter-spacing: 0.05em; font-variant-numeric: tabular-nums;">--:--:--</span>
-      </span>
+      <span style="font-family: var(--sans); font-size: 15.5px; color: #fff; font-weight: 600; flex: 1; min-width: 220px;">Pack de Recursos IA <span style="color: var(--fg-3); font-weight: 400;">— 30 prompts y plantillas listas para tu negocio.</span></span>
       <span style="font-family: var(--sans); font-weight: 600; font-size: 13.5px; color: var(--bg); background: var(--gold); padding: 10px 18px; border-radius: 2px; white-space: nowrap;">Conseguir gratis →</span>
     </section>
   </a>
@@ -178,7 +175,7 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
     <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--line); padding-bottom: 16px; margin-bottom: 24px; flex-wrap: wrap;">
       <div>
         <h2 style="font-family: var(--sans); font-weight: 700; font-size: 22px; letter-spacing: -0.02em; margin: 0; color: #fff;">Directorio de herramientas</h2>
-        <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-5);"><span id="result-count" style="color: var(--accent);">{tools.length}</span> resultados · <span id="result-cat">Todas</span></span>
+        <span role="status" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-5);"><span id="result-count" style="color: var(--accent);">{tools.length}</span> resultados · <span id="result-cat">Todas</span></span>
       </div>
       <div role="group" aria-label="Tipo de vista" style="display: flex; align-items: center; gap: 6px; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 6px; padding: 4px;">
         <button type="button" class="seg" data-layout="shelf" aria-pressed="true" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; border: none; border-radius: 4px; padding: 8px 14px; background: var(--accent); color: var(--bg); font-weight: 600;">▤ Escaparate</button>
@@ -271,12 +268,19 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
           </div>
         </div>
 
-        <!-- pool de tarjetas (grid filtrado en Escaparate / resultados en Tienda) -->
+        <!-- pool de tarjetas (grid filtrado en Escaparate / resultados en Tienda).
+             Sin JS: el noscript revela el grid completo (los estantes duplican contenido). -->
+        <noscript>
+          <style>
+            #tool-grid[hidden] { display: grid !important; }
+            #shelves { display: none !important; }
+          </style>
+        </noscript>
         <div id="tool-grid" hidden style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; align-items: stretch;">
           {tools.map((tool) => <ToolCard tool={tool} compare />)}
         </div>
 
-        <div id="empty-state" hidden style="border: 1px dashed var(--line-2); border-radius: 8px; padding: 56px 24px; text-align: center;">
+        <div id="empty-state" hidden role="status" style="border: 1px dashed var(--line-2); border-radius: 8px; padding: 56px 24px; text-align: center;">
           <p style="font-family: var(--sans); font-weight: 600; font-size: 18px; color: #fff; margin: 0;">Sin resultados para tu búsqueda</p>
           <p style="font-size: 14px; color: var(--fg-5); margin: 8px 0 0;">Prueba otra palabra o quita algún filtro.</p>
         </div>
@@ -350,7 +354,7 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
       <div class="reveal" style="padding: 40px 24px; border-right: 1px solid var(--line);">
         <div style="display: flex; align-items: baseline; gap: 2px;">
           <span style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em;">+</span>
-          <span data-count="120" style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;">0</span>
+          <span data-count={toolsClaim} style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;">0</span>
         </div>
         <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5);">Herramientas revisadas</span>
       </div>
@@ -374,11 +378,11 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
 
   <SiteFooter />
 
-  <!-- ===== BARRA CTA FIJA ===== -->
-  <div id="cta-bar" hidden style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: rgba(12,30,60,0.92); backdrop-filter: blur(10px); border-top: 1px solid var(--line-2); animation: slideUp .4s cubic-bezier(0.22,0.61,0.36,1) both;">
+  <!-- ===== BARRA CTA FIJA (fondo sólido: sin backdrop-filter permanente) ===== -->
+  <div id="cta-bar" hidden style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: var(--bg-2); border-top: 1px solid var(--line-2); animation: slideUp .4s cubic-bezier(0.22,0.61,0.36,1) both;">
     <div style="max-width: 1240px; margin: 0 auto; padding: 12px 32px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap;">
       <span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: var(--gold); animation: dotPulse 1.4s ease-in-out infinite; flex: none;"></span>
-      <span style="font-family: var(--sans); font-size: 14.5px; color: #fff; font-weight: 600; flex: 1; min-width: 200px;">Pack de Recursos IA gratis <span style="color: var(--fg-3); font-weight: 400;">— 30 prompts. Termina en <span data-countdown style="font-family: var(--mono); color: var(--gold); font-variant-numeric: tabular-nums;">--:--:--</span></span></span>
+      <span style="font-family: var(--sans); font-size: 14.5px; color: #fff; font-weight: 600; flex: 1; min-width: 200px;">Pack de Recursos IA gratis <span style="color: var(--fg-3); font-weight: 400;">— 30 prompts y plantillas para tu negocio.</span></span>
       <a href="#pack" style="font-family: var(--sans); font-weight: 600; font-size: 13.5px; color: var(--bg); background: var(--accent); padding: 10px 20px; border-radius: 2px; text-decoration: none; white-space: nowrap;">Conseguir gratis →</a>
       <button type="button" id="cta-dismiss" aria-label="Cerrar aviso" style="background: none; border: none; cursor: pointer; color: var(--fg-5); padding: 6px; display: flex;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
     </div>

@@ -1,23 +1,14 @@
 // Interactividad de la home "marketplace" (diseño AgentesVA - Home web):
 // countdown, vistas Escaparate/Tienda, filtros, ordenación, comparador y CTA fija.
 // CSP-safe (sin handlers inline) e idempotente entre navegaciones (View Transitions).
-import { setupCounters, setupBookmarks } from './directory';
+import { setupCounters, setupBookmarks, applyChipStyle, REDUCE } from './directory';
+import { priceRank, type Price } from '../data/tools';
 
-type Price = 'Gratis' | 'Freemium' | 'Pago';
-
-const REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const CTA_KEY = 'agentesva:cta-dismissed';
+const MAX_COMPARE = 3;
 
-const CHIP_ACTIVE = { background: 'var(--accent)', color: 'var(--bg)', borderColor: 'var(--accent)' };
-const CHIP_IDLE = { background: 'transparent', color: 'var(--fg-3)', borderColor: 'var(--line-2)' };
-
-function paintChip(el: HTMLElement, active: boolean) {
-  const s = active ? CHIP_ACTIVE : CHIP_IDLE;
-  el.style.background = s.background;
-  el.style.color = s.color;
-  el.style.borderColor = s.borderColor;
-  el.setAttribute('aria-pressed', String(active));
-}
+// Búsqueda insensible a tildes: "video" debe encontrar "Vídeo".
+const fold = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '');
 
 function paintSideCat(el: HTMLElement, active: boolean) {
   el.style.background = active ? 'var(--panel-2)' : 'transparent';
@@ -33,35 +24,19 @@ function paintSeg(el: HTMLElement, active: boolean) {
   el.setAttribute('aria-pressed', String(active));
 }
 
-const priceRank = (p: string) => (p === 'Gratis' ? 0 : p === 'Freemium' ? 1 : 2);
-
-// ===== Countdown (oferta del pack: termina a medianoche local) =====
-let countdownTimer: ReturnType<typeof setInterval> | undefined;
-// Listener global de Escape del modal: se reemplaza en cada init (View
-// Transitions re-ejecuta initHome por navegación; sin esto se acumulan).
+// Listener global de teclado del modal (Escape + trampa de Tab): se retira en
+// cada init (View Transitions re-ejecuta initHome por navegación; sin esto se
+// acumulan reteniendo el DOM desanclado).
 let escHandler: ((e: KeyboardEvent) => void) | undefined;
 
-function setupCountdown() {
-  const els = Array.from(document.querySelectorAll<HTMLElement>('[data-countdown]'));
-  if (countdownTimer) clearInterval(countdownTimer);
-  if (!els.length) return;
-  const pad = (n: number) => String(n).padStart(2, '0');
-  const tick = () => {
-    const now = new Date();
-    const end = new Date(now);
-    end.setHours(23, 59, 59, 999);
-    let s = Math.max(0, Math.floor((end.getTime() - now.getTime()) / 1000));
-    const h = Math.floor(s / 3600);
-    s -= h * 3600;
-    const m = Math.floor(s / 60);
-    const text = `${pad(h)}:${pad(m)}:${pad(s - m * 60)}`;
-    els.forEach((el) => (el.textContent = text));
-  };
-  tick();
-  countdownTimer = setInterval(tick, 1000);
-}
-
 export function initHome() {
+  // Limpieza de la visita anterior ANTES del guard: este init también corre
+  // al navegar a páginas sin directorio.
+  if (escHandler) {
+    document.removeEventListener('keydown', escHandler);
+    escHandler = undefined;
+  }
+
   const grid = document.getElementById('tool-grid');
   const dirBody = document.getElementById('dir-body');
   if (!grid || !dirBody) return;
@@ -94,14 +69,15 @@ export function initHome() {
 
   // ===== Filtro + render de visibilidad =====
   const render = () => {
-    const q = (search?.value || '').trim().toLowerCase();
+    const q = fold((search?.value || '').trim().toLowerCase());
     let visible = 0;
     cards.forEach((card) => {
       const match =
         (activeCat === 'Todas' || card.dataset.cat === activeCat) &&
         (prices.size === 0 || prices.has(card.dataset.price as Price)) &&
-        (!q || (card.dataset.search || '').includes(q));
-      card.style.display = match ? 'flex' : 'none';
+        (!q || fold(card.dataset.search || '').includes(q));
+      const display = match ? 'flex' : 'none';
+      if (card.style.display !== display) card.style.display = display;
       if (match) visible++;
     });
     if (countEl) countEl.textContent = String(visible);
@@ -116,7 +92,7 @@ export function initHome() {
 
   const setCat = (cat: string) => {
     activeCat = cat;
-    chips.forEach((c) => paintChip(c, c.dataset.chip === cat));
+    chips.forEach((c) => applyChipStyle(c, c.dataset.chip === cat));
     sideCats.forEach((c) => paintSideCat(c, c.dataset.sideCat === cat));
     render();
   };
@@ -216,6 +192,9 @@ export function initHome() {
   const updateBars = () => {
     if (compareBar) compareBar.hidden = compare.length === 0;
     if (ctaBar) ctaBar.hidden = ctaDismissed || compare.length > 0;
+    // Las barras fijas no deben ocluir el final de la página (footer/legales).
+    const activeBar = compareBar && !compareBar.hidden ? compareBar : ctaBar && !ctaBar.hidden ? ctaBar : null;
+    document.body.style.paddingBottom = activeBar ? `${activeBar.offsetHeight}px` : '';
   };
 
   const paintCompareBtns = () => {
@@ -251,14 +230,16 @@ export function initHome() {
       chip.append(mono, name, remove);
       compareChipsEl.appendChild(chip);
     });
-    if (compareHint) compareHint.textContent = compare.length >= 3 ? 'Máximo 3' : 'Añade hasta 3';
+    if (compareHint)
+      compareHint.textContent =
+        compare.length >= MAX_COMPARE ? `Máximo ${MAX_COMPARE}` : `Añade hasta ${MAX_COMPARE}`;
     if (compareOpenBtn) compareOpenBtn.textContent = `Comparar ${compare.length} →`;
   };
 
   const toggleCompare = (slug: string) => {
     const i = compare.indexOf(slug);
     if (i >= 0) compare.splice(i, 1);
-    else if (compare.length < 3) compare.push(slug);
+    else if (compare.length < MAX_COMPARE) compare.push(slug);
     paintCompareBtns();
     renderCompareBar();
     updateBars();
@@ -336,16 +317,19 @@ export function initHome() {
   };
 
   const closeBtn = document.getElementById('compare-close');
+  const dialog = overlay?.querySelector<HTMLElement>('[role="dialog"]');
   const openModal = () => {
     if (!overlay || compare.length === 0) return;
     buildModal();
     overlay.hidden = false;
+    document.body.style.overflow = 'hidden';
     if (compareBar) compareBar.hidden = true;
     closeBtn?.focus();
   };
   const closeModal = () => {
     if (!overlay) return;
     overlay.hidden = true;
+    document.body.style.overflow = '';
     updateBars();
     compareOpenBtn?.focus();
   };
@@ -355,15 +339,34 @@ export function initHome() {
   overlay?.addEventListener('click', (e) => {
     if (e.target === overlay) closeModal();
   });
-  if (escHandler) document.removeEventListener('keydown', escHandler);
+  // Escape cierra; Tab queda atrapado dentro del diálogo (aria-modal real).
   escHandler = (e) => {
-    if (e.key === 'Escape' && overlay && !overlay.hidden) closeModal();
+    if (!overlay || overlay.hidden) return;
+    if (e.key === 'Escape') {
+      closeModal();
+      return;
+    }
+    if (e.key === 'Tab' && dialog) {
+      const focusables = Array.from(
+        dialog.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'),
+      );
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+      if (e.shiftKey && (active === first || !dialog.contains(active))) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && (active === last || !dialog.contains(active))) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
   };
   document.addEventListener('keydown', escHandler);
 
   applyLayout();
   updateBars();
-  setupCountdown();
   setupCounters();
   setupBookmarks();
 }

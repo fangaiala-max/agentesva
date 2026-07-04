@@ -41,11 +41,16 @@ export function fallbackFaqs(tool: Tool): { q: string; a: string }[] {
   ];
 }
 
+// Tokens del sistema (global.css) — un solo sitio para retocar la paleta.
+// Solo para contextos CSS (atributos style); no usar donde no resuelva var().
 export const PRICE_COLOR: Record<Price, string> = {
-  Gratis: '#4FD39A',
-  Freemium: '#5B7CFF',
-  Pago: '#94A4C2',
+  Gratis: 'var(--green)',
+  Freemium: 'var(--accent)',
+  Pago: 'var(--fg-3)',
 };
+
+// Orden "Gratis primero" compartido por la home (estantes y ordenación).
+export const priceRank = (p: string) => (p === 'Gratis' ? 0 : p === 'Freemium' ? 1 : 2);
 
 // Normaliza una entrada de la colección `tools` a Tool (id → slug).
 export function toTool(entry: CollectionEntry<'tools'>): Tool {

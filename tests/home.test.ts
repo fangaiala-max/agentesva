@@ -62,13 +62,13 @@ function mountHome() {
         </div>
       </div>
     </section>
-    <div id="cta-bar" hidden><span data-countdown></span><button id="cta-dismiss"></button></div>
+    <div id="cta-bar" hidden><button id="cta-dismiss"></button></div>
     <div id="compare-bar" hidden>
       <div id="compare-chips"></div><span id="compare-hint"></span>
       <button id="compare-clear"></button><button id="compare-open"></button>
     </div>
     <div id="compare-overlay" hidden>
-      <div><span id="compare-count"></span><button id="compare-close"></button><div id="compare-table"></div></div>
+      <div role="dialog"><span id="compare-count"></span><button id="compare-close"></button><div id="compare-table"></div></div>
     </div>`;
   initHome();
 }
@@ -92,9 +92,6 @@ describe('estado inicial (Escaparate)', () => {
     expect(byId('result-count').textContent).toBe('4');
   });
 
-  it('el countdown pinta HH:MM:SS en todos los [data-countdown]', () => {
-    expect(document.querySelector('[data-countdown]')!.textContent).toMatch(/^\d{2}:\d{2}:\d{2}$/);
-  });
 });
 
 describe('filtros', () => {
@@ -115,11 +112,30 @@ describe('filtros', () => {
     expect(byId('result-count').textContent).toBe('0');
   });
 
-  it('el filtro de precio se combina con la categoría', () => {
+  it('el filtro de precio solo deja las gratis', () => {
     const gratis = document.querySelector('[data-price-filter="Gratis"]') as HTMLInputElement;
     gratis.checked = true;
     gratis.dispatchEvent(new Event('change', { bubbles: true }));
     expect(visibleGridCards().map((c) => c.dataset.slug)).toEqual(['gemini']);
+  });
+
+  it('precio y categoría se intersectan de verdad', () => {
+    (document.querySelector('.cat-chip[data-chip="Asistentes"]') as HTMLElement).click();
+    const gratis = document.querySelector('[data-price-filter="Gratis"]') as HTMLInputElement;
+    gratis.checked = true;
+    gratis.dispatchEvent(new Event('change', { bubbles: true }));
+    expect(visibleGridCards().map((c) => c.dataset.slug)).toEqual(['gemini']);
+    expect(byId('result-cat').textContent).toBe('Asistentes');
+    (document.querySelector('.cat-chip[data-chip="Vídeo"]') as HTMLElement).click();
+    expect(byId('result-count').textContent).toBe('0');
+    expect(byId('empty-state').hidden).toBe(false);
+  });
+
+  it('la búsqueda sin tilde encuentra herramientas con tilde', () => {
+    const input = byId('tool-search') as HTMLInputElement;
+    input.value = 'video';
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    expect(visibleGridCards().map((c) => c.dataset.slug)).toEqual(['heygen']);
   });
 
   it('limpiar filtros restaura estantes y contador', () => {
@@ -340,6 +356,29 @@ describe('modal — cierre y contenido', () => {
     expect(text).toContain('★ 4.6');
     expect(text).toContain('Negocios');
   });
+
+  it('abrir bloquea el scroll del body y cerrar lo restaura', () => {
+    compareBtn('chatgpt').click();
+    byId('compare-open').click();
+    expect(document.body.style.overflow).toBe('hidden');
+    byId('compare-close').click();
+    expect(document.body.style.overflow).toBe('');
+  });
+
+  it('Tab queda atrapado dentro del diálogo', () => {
+    compareBtn('chatgpt').click();
+    byId('compare-open').click();
+    const dialog = document.querySelector('#compare-overlay [role="dialog"]')!;
+    const focusables = dialog.querySelectorAll<HTMLElement>('a[href], button');
+    const last = focusables[focusables.length - 1];
+    last.focus();
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab', bubbles: true, cancelable: true }));
+    expect(document.activeElement).toBe(byId('compare-close'));
+    document.dispatchEvent(
+      new KeyboardEvent('keydown', { key: 'Tab', shiftKey: true, bubbles: true, cancelable: true }),
+    );
+    expect(document.activeElement).toBe(last);
+  });
 });
 
 describe('re-inicialización (View Transitions)', () => {
@@ -363,8 +402,11 @@ describe('re-inicialización (View Transitions)', () => {
     expect(byId('compare-overlay').hidden).toBe(true);
   });
 
-  it('el countdown sigue pintando tras re-init', () => {
+  it('navegar fuera de la home retira el listener global (limpieza antes del guard)', () => {
     mountHome();
-    expect(document.querySelector('[data-countdown]')!.textContent).toMatch(/^\d{2}:\d{2}:\d{2}$/);
+    const removeSpy = vi.spyOn(document, 'removeEventListener');
+    document.body.innerHTML = '<div></div>';
+    initHome();
+    expect(removeSpy.mock.calls.some(([type]) => type === 'keydown')).toBe(true);
   });
 });

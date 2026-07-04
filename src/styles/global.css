@@ -69,15 +69,16 @@ input::placeholder { color: var(--fg-5); }
 .shelfscroll::-webkit-scrollbar { height: 8px; }
 .shelfscroll::-webkit-scrollbar-thumb { background: var(--line-2); border-radius: 8px; }
 
-/* vista lista del directorio (toggle en la home): misma tarjeta, layout en fila */
+/* vista lista del directorio (toggle en la home): misma tarjeta, layout en fila.
+   .tc-head/.tc-foot son clases estables de ToolCard (no acoplar a posición). */
 .view-list { grid-template-columns: 1fr !important; }
 .view-list .tool-card { flex-direction: row; align-items: center; gap: 18px; }
 .view-list .tool-card > p { flex: 1; min-width: 0; }
-.view-list .tool-card > div:first-of-type { flex: none; width: 250px; min-width: 0; }
-.view-list .tool-card > div:last-of-type { margin-top: 0; gap: 14px; flex: none; }
+.view-list .tool-card .tc-head { flex: none; width: 250px; min-width: 0; }
+.view-list .tool-card .tc-foot { margin-top: 0; gap: 14px; flex: none; }
 @media (max-width: 720px) {
   .view-list .tool-card { flex-direction: column; align-items: stretch; }
-  .view-list .tool-card > div:first-of-type { width: auto; }
+  .view-list .tool-card .tc-head { width: auto; }
 }
 
 /* ===== Motion (patrones modernos, implementación nativa) ===== */

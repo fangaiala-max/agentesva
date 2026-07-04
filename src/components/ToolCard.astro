@@ -33,7 +33,7 @@ const search = `${tool.name} ${tool.desc} ${tool.cat}`.toLowerCase();
     aria-label={`Ver ${tool.name}`}
     style="position: absolute; inset: 0; z-index: 1; border-radius: 8px;"
   ></a>
-  <div style="display: flex; align-items: flex-start; gap: 13px;">
+  <div class="tc-head" style="display: flex; align-items: flex-start; gap: 13px;">
     <div transition:name={morph ? `mono-${tool.slug}` : undefined} style={`width: 42px; height: 42px; border-radius: 9px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 19px; color: #fff; background: ${tool.color};`}>{initial}</div>
     <div style="flex: 1; min-width: 0;">
       <div style="display: flex; align-items: center; gap: 7px; flex-wrap: wrap;">
@@ -70,7 +70,7 @@ const search = `${tool.name} ${tool.desc} ${tool.cat}`.toLowerCase();
     </div>
   </div>
   <p style="margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--fg-3);">{tool.desc}</p>
-  <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto;">
+  <div class="tc-foot" style="display: flex; align-items: center; justify-content: space-between; margin-top: auto;">
     <span style="font-family: var(--mono); font-size: 12px; color: var(--fg-2);"><span style="color: var(--gold);">★</span> {tool.rating}</span>
     <span style={`font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: ${priceColor}; border: 1px solid var(--line-2); padding: 4px 9px; border-radius: 20px;`}>{tool.price}</span>
   </div>

@@ -1,10 +1,10 @@
 // Interactividad del directorio "Futurista" (CSP-safe: sin onclick inline).
-const REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+export const REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const CHIP_ACTIVE = { background: 'var(--accent)', color: 'var(--bg)', borderColor: 'var(--accent)' };
 const CHIP_IDLE = { background: 'transparent', color: 'var(--fg-3)', borderColor: 'var(--line-2)' };
 
-function applyChipStyle(el: HTMLElement, active: boolean) {
+export function applyChipStyle(el: HTMLElement, active: boolean) {
   const s = active ? CHIP_ACTIVE : CHIP_IDLE;
   el.style.background = s.background;
   el.style.color = s.color;
@@ -78,8 +78,10 @@ export function setupCounters() {
 
 const SAVED_KEY = 'agentesva:saved';
 function loadSaved(): Set<string> {
-  try { return new Set(JSON.parse(localStorage.getItem(SAVED_KEY) || '[]')); }
-  catch { return new Set(); }
+  try {
+    const v = JSON.parse(localStorage.getItem(SAVED_KEY) || '[]');
+    return new Set(Array.isArray(v) ? v : []);
+  } catch { return new Set(); }
 }
 export function setupBookmarks() {
   const saved = loadSaved();
@@ -108,6 +110,16 @@ export function setupBookmarks() {
 }
 
 export function initDirectory() {
+  // Con View Transitions los listeners de astro:page-load de CADA página
+  // visitada persisten y se disparan en todas las navegaciones:
+  // 1) la home tiene su propio motor (home.ts) y comparte ids/clases con el
+  //    directorio — #dir-body solo existe en la home, así que aquí se cede;
+  // 2) /herramientas y /herramientas/[categoria] registran cada una este init;
+  //    el marcador en el DOM (fresco tras cada swap) evita el doble cableado.
+  if (document.getElementById('dir-body')) return;
+  const grid = document.getElementById('tool-grid');
+  if (grid?.dataset.dirWired) return;
+  if (grid) grid.dataset.dirWired = '1';
   setupFilter();
   setupCounters();
   setupBookmarks();

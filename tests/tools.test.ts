@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { fallbackFaqs, getAlternatives, PRICE_COLOR, type Tool } from '../src/data/tools';
+import { fallbackFaqs, getAlternatives, PRICE_COLOR, priceRank, type Tool } from '../src/data/tools';
 
 const tool = (over: Partial<Tool>): Tool => ({
   slug: 'demo',
@@ -55,9 +55,15 @@ describe('getAlternatives', () => {
 });
 
 describe('PRICE_COLOR', () => {
-  it('cubre los tres precios con la paleta Confianza', () => {
-    expect(PRICE_COLOR.Gratis).toBe('#4FD39A');
-    expect(PRICE_COLOR.Freemium).toBe('#5B7CFF');
-    expect(PRICE_COLOR.Pago).toBe('#94A4C2');
+  it('cubre los tres precios con tokens del sistema (un solo sitio de verdad)', () => {
+    expect(PRICE_COLOR.Gratis).toBe('var(--green)');
+    expect(PRICE_COLOR.Freemium).toBe('var(--accent)');
+    expect(PRICE_COLOR.Pago).toBe('var(--fg-3)');
+  });
+});
+
+describe('priceRank', () => {
+  it('ordena Gratis < Freemium < Pago', () => {
+    expect([priceRank('Pago'), priceRank('Gratis'), priceRank('Freemium')]).toEqual([2, 0, 1]);
   });
 });
