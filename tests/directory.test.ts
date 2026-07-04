@@ -41,4 +41,12 @@ describe('setupBookmarks', () => {
     expect(buttons()[0].getAttribute('aria-pressed')).toBe('false');
     expect(JSON.parse(localStorage.getItem('agentesva:saved')!)).toEqual([]);
   });
+
+  it('localStorage corrupto no rompe la inicialización (loadSaved catch)', () => {
+    localStorage.setItem('agentesva:saved', '{not-json');
+    expect(() => mount()).not.toThrow();
+    expect(buttons()[0].getAttribute('aria-pressed')).toBe('false');
+    buttons()[0].click();
+    expect(JSON.parse(localStorage.getItem('agentesva:saved')!)).toEqual(['claude']);
+  });
 });

@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { initHome } from '../src/scripts/home';
 
 interface CardSpec {
@@ -213,5 +213,158 @@ describe('CTA fija', () => {
     expect(sessionStorage.getItem('agentesva:cta-dismissed')).toBe('1');
     mountHome();
     expect(byId('cta-bar').hidden).toBe(true);
+  });
+
+  it('sessionStorage que lanza no rompe el dismiss (Safari privado)', () => {
+    const spy = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new Error('QuotaExceededError');
+    });
+    byId('cta-dismiss').click();
+    expect(byId('cta-bar').hidden).toBe(true);
+    spy.mockRestore();
+  });
+});
+
+describe('controles de deshacer (ramas else)', () => {
+  it('desmarcar el checkbox de precio restaura los resultados', () => {
+    const gratis = document.querySelector('[data-price-filter="Gratis"]') as HTMLInputElement;
+    gratis.checked = true;
+    gratis.dispatchEvent(new Event('change', { bubbles: true }));
+    expect(byId('result-count').textContent).toBe('1');
+    gratis.checked = false;
+    gratis.dispatchEvent(new Event('change', { bubbles: true }));
+    expect(byId('result-count').textContent).toBe('4');
+  });
+
+  it('volver de Tienda a Escaparate restaura estantes y chips', () => {
+    (document.querySelector('.seg[data-layout="shop"]') as HTMLElement).click();
+    (document.querySelector('.seg[data-layout="shelf"]') as HTMLElement).click();
+    expect(byId('dir-body').classList.contains('shop')).toBe(false);
+    expect(byId('shelves').hidden).toBe(false);
+    expect(byId('dir-sidebar').hidden).toBe(true);
+    expect(byId('chips-row').hidden).toBe(false);
+  });
+
+  it('volver de lista a cuadrícula quita la clase view-list', () => {
+    (document.querySelector('.view-btn[data-view="list"]') as HTMLElement).click();
+    (document.querySelector('.view-btn[data-view="grid"]') as HTMLElement).click();
+    expect(byId('tool-grid').classList.contains('view-list')).toBe(false);
+  });
+
+  it('la categoría del sidebar (Tienda) filtra igual que los chips', () => {
+    (document.querySelector('.seg[data-layout="shop"]') as HTMLElement).click();
+    (document.querySelector('.side-cat[data-side-cat="Vídeo"]') as HTMLElement).click();
+    expect(byId('result-cat').textContent).toBe('Vídeo');
+    expect(visibleGridCards().map((c) => c.dataset.slug)).toEqual(['heygen']);
+  });
+
+  it('ordenar por valoración y por popularidad', () => {
+    const sel = byId('sort-select') as HTMLSelectElement;
+    sel.value = 'rating';
+    sel.dispatchEvent(new Event('change', { bubbles: true }));
+    expect(gridCards()[0].dataset.slug).toBe('chatgpt');
+    expect(gridCards()[3].dataset.slug).toBe('heygen');
+    sel.value = 'pop';
+    sel.dispatchEvent(new Event('change', { bubbles: true }));
+    expect(gridCards().map((c) => c.dataset.orden)).toEqual(['1', '2', '3', '4']);
+  });
+
+  it('el submit del buscador no navega (preventDefault)', () => {
+    const ev = new Event('submit', { bubbles: true, cancelable: true });
+    byId('search-form').dispatchEvent(ev);
+    expect(ev.defaultPrevented).toBe(true);
+  });
+});
+
+describe('comparador — deshacer y textos', () => {
+  const compareBtn = (slug: string) =>
+    document.querySelector(`#tool-grid [data-compare="${slug}"]`) as HTMLElement;
+
+  it('re-clicar la tarjeta quita la herramienta (toggle-off)', () => {
+    compareBtn('chatgpt').click();
+    compareBtn('chatgpt').click();
+    expect(byId('compare-bar').hidden).toBe(true);
+    expect(compareBtn('chatgpt').getAttribute('aria-pressed')).toBe('false');
+  });
+
+  it('el chip ✕ de la barra quita solo esa herramienta', () => {
+    compareBtn('chatgpt').click();
+    compareBtn('claude').click();
+    const removeBtn = byId('compare-chips').querySelector('button') as HTMLElement;
+    removeBtn.click();
+    expect(byId('compare-chips').children).toHaveLength(1);
+    expect(compareBtn('chatgpt').getAttribute('aria-pressed')).toBe('false');
+    expect(compareBtn('claude').getAttribute('aria-pressed')).toBe('true');
+  });
+
+  it('los textos de la barra reflejan el estado', () => {
+    compareBtn('chatgpt').click();
+    expect(byId('compare-hint').textContent).toBe('Añade hasta 3');
+    expect(byId('compare-open').textContent).toBe('Comparar 1 →');
+  });
+});
+
+describe('modal — cierre y contenido', () => {
+  const compareBtn = (slug: string) =>
+    document.querySelector(`#tool-grid [data-compare="${slug}"]`) as HTMLElement;
+
+  it('no abre con 0 seleccionadas', () => {
+    byId('compare-open').click();
+    expect(byId('compare-overlay').hidden).toBe(true);
+  });
+
+  it('Escape cierra el modal y restaura la barra', () => {
+    compareBtn('chatgpt').click();
+    byId('compare-open').click();
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+    expect(byId('compare-overlay').hidden).toBe(true);
+    expect(byId('compare-bar').hidden).toBe(false);
+  });
+
+  it('clic en el backdrop cierra; clic dentro no', () => {
+    compareBtn('chatgpt').click();
+    byId('compare-open').click();
+    byId('compare-table').dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    expect(byId('compare-overlay').hidden).toBe(false);
+    byId('compare-overlay').dispatchEvent(new MouseEvent('click', { bubbles: false }));
+    expect(byId('compare-overlay').hidden).toBe(true);
+  });
+
+  it('la tabla pinta los valores de las filas', () => {
+    compareBtn('gemini').click();
+    byId('compare-open').click();
+    const text = byId('compare-table').textContent!;
+    expect(text).toContain('Categoría');
+    expect(text).toContain('Asistentes');
+    expect(text).toContain('Gratis');
+    expect(text).toContain('★ 4.6');
+    expect(text).toContain('Negocios');
+  });
+});
+
+describe('re-inicialización (View Transitions)', () => {
+  it('initHome sin #tool-grid (otra página) no lanza', () => {
+    document.body.innerHTML = '<div></div>';
+    expect(() => initHome()).not.toThrow();
+  });
+
+  it('re-init reemplaza el listener global de Escape (no se acumulan)', () => {
+    const removeSpy = vi.spyOn(document, 'removeEventListener');
+    mountHome();
+    expect(removeSpy.mock.calls.some(([type]) => type === 'keydown')).toBe(true);
+    removeSpy.mockRestore();
+  });
+
+  it('tras re-init, Escape sigue cerrando el modal nuevo', () => {
+    mountHome();
+    (document.querySelector('#tool-grid [data-compare="claude"]') as HTMLElement).click();
+    byId('compare-open').click();
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+    expect(byId('compare-overlay').hidden).toBe(true);
+  });
+
+  it('el countdown sigue pintando tras re-init', () => {
+    mountHome();
+    expect(document.querySelector('[data-countdown]')!.textContent).toMatch(/^\d{2}:\d{2}:\d{2}$/);
   });
 });

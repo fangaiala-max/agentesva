@@ -13,3 +13,8 @@ if (typeof globalThis.IntersectionObserver === 'undefined') {
   // @ts-expect-error — stub parcial a propósito
   globalThis.IntersectionObserver = IOStub;
 }
+
+// scrollIntoView puede faltar según versión de happy-dom; el submit de búsqueda lo usa.
+if (typeof Element !== 'undefined' && !Element.prototype.scrollIntoView) {
+  Element.prototype.scrollIntoView = () => {};
+}

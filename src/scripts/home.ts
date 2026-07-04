@@ -37,6 +37,9 @@ const priceRank = (p: string) => (p === 'Gratis' ? 0 : p === 'Freemium' ? 1 : 2)
 
 // ===== Countdown (oferta del pack: termina a medianoche local) =====
 let countdownTimer: ReturnType<typeof setInterval> | undefined;
+// Listener global de Escape del modal: se reemplaza en cada init (View
+// Transitions re-ejecuta initHome por navegación; sin esto se acumulan).
+let escHandler: ((e: KeyboardEvent) => void) | undefined;
 
 function setupCountdown() {
   const els = Array.from(document.querySelectorAll<HTMLElement>('[data-countdown]'));
@@ -352,9 +355,11 @@ export function initHome() {
   overlay?.addEventListener('click', (e) => {
     if (e.target === overlay) closeModal();
   });
-  document.addEventListener('keydown', (e) => {
+  if (escHandler) document.removeEventListener('keydown', escHandler);
+  escHandler = (e) => {
     if (e.key === 'Escape' && overlay && !overlay.hidden) closeModal();
-  });
+  };
+  document.addEventListener('keydown', escHandler);
 
   applyLayout();
   updateBars();
