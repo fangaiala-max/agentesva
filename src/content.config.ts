@@ -172,7 +172,7 @@ const recursos = defineCollection({
       formato: z.string(),
       precio: z.enum(['Gratis', 'Pago']),
       precioDesde: z.string().optional(),
-      gumroadUrl: z.string().url().optional(),
+      compraUrl: z.string().url().optional(),
       downloadUrl: z.string().optional(),
       gated: z.boolean().default(false),
       color: z.string().regex(/^#[0-9A-Fa-f]{6}$/),
@@ -182,8 +182,8 @@ const recursos = defineCollection({
       faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
     })
     .superRefine((d, ctx) => {
-      if (d.precio === 'Pago' && !d.gumroadUrl) {
-        ctx.addIssue({ code: 'custom', message: 'Un recurso de pago requiere gumroadUrl.', path: ['gumroadUrl'] });
+      if (d.precio === 'Pago' && !d.compraUrl) {
+        ctx.addIssue({ code: 'custom', message: 'Un recurso de pago requiere compraUrl.', path: ['compraUrl'] });
       }
       if (d.precio === 'Pago' && !d.precioDesde) {
         ctx.addIssue({ code: 'custom', message: 'Un recurso de pago requiere precioDesde (para el precio del Offer).', path: ['precioDesde'] });

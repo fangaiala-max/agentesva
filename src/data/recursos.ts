@@ -17,7 +17,7 @@ export interface Recurso {
   formato: string;
   precio: Precio;
   precioDesde?: string;
-  gumroadUrl?: string;
+  compraUrl?: string;
   downloadUrl?: string;
   gated: boolean;
   color: string;

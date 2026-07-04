@@ -59,7 +59,7 @@ const jsonLd = {
 // CTA por vía de entrega.
 const cta =
   recurso.precio === 'Pago'
-    ? { href: recurso.gumroadUrl, label: `Comprar${recurso.precioDesde ? ` · ${recurso.precioDesde}` : ''} →`, rel: 'noopener', download: false, newtab: true }
+    ? { href: recurso.compraUrl, label: `Comprar${recurso.precioDesde ? ` · ${recurso.precioDesde}` : ''} →`, rel: 'noopener', download: false, newtab: true }
     : recurso.downloadUrl
       ? { href: recurso.downloadUrl, label: 'Descargar gratis →', rel: 'noopener', download: true, newtab: false }
       : { href: '/newsletter', label: 'Descárgalo gratis · Suscríbete →', rel: '', download: false, newtab: false };

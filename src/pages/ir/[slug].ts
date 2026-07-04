@@ -36,10 +36,10 @@ export const GET: APIRoute = async ({ params }) => {
 
   const recurso = (await getCollection('recursos')).find((r) => r.id === slug);
   if (recurso) {
-    // pago → Gumroad; gratis → descarga directa o /newsletter (con puerta).
+    // pago → compraUrl (Gumroad/Stripe); gratis → descarga directa o /newsletter (con puerta).
     const dest =
       recurso.data.precio === 'Pago'
-        ? (recurso.data.gumroadUrl as string)
+        ? (recurso.data.compraUrl as string)
         : (recurso.data.downloadUrl || '/newsletter');
     return redirect(dest, 'recurso', slug);
   }
