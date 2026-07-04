@@ -134,4 +134,18 @@ agentesva-skills/
 - Traducciones/variantes fuera de español ES/LATAM.
 
 ---
+
+## ADDENDUM (2026-07-04) — Cobro por Stripe Payment Links (sustituye a Gumroad en §D/§E/§F para los packs)
+
+**Decisión del usuario** (tras conocer los trade-offs): los skill packs de pago se cobran con **Stripe Payment Links**, no Gumroad. Implicaciones aceptadas: AgentesVA es vendedor directo (IVA UE → alta en OSS y declaraciones a cargo del usuario con su gestor; se recomienda activar **Stripe Tax** en los links) y la entrega de archivos es infraestructura propia. **El curso de 19 € sigue en Gumroad** (producto vivo con URL publicada); ambos conviven.
+
+- **Cobro:** 3 Payment Links (auditor 4,99 · arquitecto 4,99 · bundle 7,99). Cada producto Stripe lleva `metadata.slug` = slug del zip (`auditor-seguridad-prompts`, `arquitecto-rag`, `pack-dev-ia`). `after_completion` → redirect a `https://agentesva.com/descarga?session_id={CHECKOUT_SESSION_ID}`.
+- **Entrega:** los zips de pago NO pueden vivir en el repo del sitio (**es público**). Se suben a **Vercel Blob** con URL no adivinable (sufijo aleatorio); el mapa slug→URL vive en la env var **`DESCARGAS_JSON`**. Nueva ruta serverless **`/descarga`** (`prerender = false`, como `/ir`): verifica la sesión con la API de Stripe (`payment_status === 'paid'`, `STRIPE_SECRET_KEY`, `fetch` plano sin SDK), resuelve el slug desde `metadata`, y muestra una página Futurista (noindex, no-store) con el botón de descarga. Riesgo aceptado: el enlace es compartible por el comprador (equivalente al recibo de Gumroad); mitigable más adelante.
+- **Schema:** `gumroadUrl` → **`compraUrl`** en la colección `recursos` (neutral: contiene la URL de Gumroad en el curso cross-listado y las de Stripe en los packs). superRefine igual (Pago ⇒ `compraUrl` + `precioDesde`). No cambia la colección `cursos`.
+- **Gratis sin cambios:** newsletter + `public/` (§D).
+- **⛔ HUMANO:** activación de la cuenta Stripe (identidad/banco/fiscal), pegar secretos en Vercel (`STRIPE_SECRET_KEY`, `DESCARGAS_JSON`), activar Stripe Tax, y la decisión fiscal (OSS) con su gestor. El repo pasa de `gumroad/` a **`stripe/`** (copy de productos + guion de setup + script `crear-links.sh` que el usuario ejecuta con su clave).
+
+Los criterios de aceptación de Gumroad se sustituyen por: script `crear-links.sh` funcional (crea producto+precio+link con metadata y redirect), ruta `/descarga` con los 3 caminos (paid → botones; no paid → pendiente; sesión inválida/ausente → error con soporte), y fichas de pago con `compraUrl` = Payment Links reales.
+
+---
 _Generado con [Claude Code](https://claude.com/claude-code). Voz: `docs/brand-guidelines.md`. Fact-checking: `docs/blog-fact-checking-protocol.md`._

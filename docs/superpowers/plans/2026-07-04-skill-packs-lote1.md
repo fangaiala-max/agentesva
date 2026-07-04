@@ -563,6 +563,152 @@ git push
 
 ---
 
+## ADDENDUM (2026-07-04) — Stripe en lugar de Gumroad (revisa Tasks 5 y 8; añade Task 6b)
+
+Per the spec addendum: paid checkout = **Stripe Payment Links**; delivery = **Vercel Blob + serverless `/descarga`**; `recursos.gumroadUrl` → **`compraUrl`**. The course stays on Gumroad. Task 5 below REPLACES the original Task 5 (gumroad/ → stripe/). Task 6 (free ficha) is unchanged. Task 6b is NEW (site delivery infra). Task 8's fichas use `compraUrl` with Stripe URLs.
+
+### Task 5 (REVISED): Stripe assets + generate zips + copy free zip to site
+
+**Files:** `agentesva-skills/stripe/{productos.md,setup-stripe.md,crear-links.sh}`; generated `dist/*.zip`; copied `../05-agentesva/public/skill-atencion-cliente-ia.zip`
+
+- [ ] **Step 1: Write `stripe/productos.md`** — el copy de los 3 productos (para el dashboard o el script): por producto: **nombre**, **descripción** (1–2 frases ES, aparece en el checkout), **precio** (4,99 € / 4,99 € / 7,99 €), **`metadata.slug`** (`auditor-seguridad-prompts` / `arquitecto-rag` / `pack-dev-ia` — DEBE igualar el nombre del zip en `dist/`), y qué zip corresponde. Voz de marca.
+
+- [ ] **Step 2: Write `stripe/crear-links.sh`** (exact content):
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+# Crea en Stripe los 3 productos de pago (producto + precio + Payment Link).
+# Requiere STRIPE_SECRET_KEY en el entorno (clave restringida con escritura en
+# Products, Prices y Payment Links). El script NO guarda la clave.
+#   STRIPE_SECRET_KEY=rk_... ./stripe/crear-links.sh
+: "${STRIPE_SECRET_KEY:?Define STRIPE_SECRET_KEY en el entorno}"
+API="https://api.stripe.com/v1"
+REDIRECT="https://agentesva.com/descarga?session_id={CHECKOUT_SESSION_ID}"
+
+json_get() { python3 -c 'import sys,json;print(json.load(sys.stdin)["'"$1"'"])'; }
+
+crear() { # $1 nombre · $2 descripcion · $3 precio_centimos · $4 slug
+  local prod price link
+  prod=$(curl -sS "$API/products" -u "$STRIPE_SECRET_KEY:" \
+    --data-urlencode "name=$1" --data-urlencode "description=$2" \
+    -d "metadata[slug]=$4" | json_get id)
+  price=$(curl -sS "$API/prices" -u "$STRIPE_SECRET_KEY:" \
+    -d "product=$prod" -d "currency=eur" -d "unit_amount=$3" | json_get id)
+  link=$(curl -sS "$API/payment_links" -u "$STRIPE_SECRET_KEY:" \
+    -d "line_items[0][price]=$price" -d "line_items[0][quantity]=1" \
+    -d "after_completion[type]=redirect" \
+    --data-urlencode "after_completion[redirect][url]=$REDIRECT" | json_get url)
+  echo "$4 → $link"
+}
+
+crear "Skill: Auditor de seguridad de prompts (OWASP LLM Top 10)" \
+  "Claude Skill en español: audita tu system prompt o app de LLM contra el OWASP LLM Top 10 y emite un informe con severidad, evidencia y corrección." \
+  499 "auditor-seguridad-prompts"
+crear "Skill: Arquitecto de RAG en español" \
+  "Claude Skill en español: diseña tu pipeline RAG (chunking, embeddings, recuperación, reranking y evals) con decisiones justificadas." \
+  499 "arquitecto-rag"
+crear "Pack Dev IA: Auditor de seguridad + Arquitecto de RAG" \
+  "Las dos Claude Skills de desarrollo con IA en un pack: seguridad OWASP + arquitectura RAG. Ahorra ~2 €." \
+  799 "pack-dev-ia"
+```
+`chmod +x stripe/crear-links.sh`. Do NOT run it (needs the user's key).
+
+- [ ] **Step 3: Write `stripe/setup-stripe.md`** — guion para el usuario (⛔ HUMANO en cada paso sensible):
+  1. ⛔ Crear/activar cuenta Stripe (identidad, banco, datos fiscales) — solo el humano.
+  2. ⛔ Consultar con su gestor el alta en **OSS (ventanilla única)** para IVA UE de servicios digitales, y activar **Stripe Tax**.
+  3. Crear una **clave restringida** (Products/Prices/Payment Links: escritura; Checkout Sessions: lectura) — ⛔ el humano copia la clave.
+  4. Ejecutar `STRIPE_SECRET_KEY=rk_... ./stripe/crear-links.sh` (o crear los 3 productos a mano en el dashboard con `productos.md`, incluyendo `metadata.slug` y el redirect post-pago). Guardar las 3 URLs `buy.stripe.com/...`.
+  5. Subir los zips de pago a **Vercel Blob**: `vercel blob put dist/auditor-seguridad-prompts.zip` (×3, desde este repo) — guardar las URLs resultantes.
+  6. ⛔ En Vercel (proyecto 05-agentesva → Settings → Environment Variables): añadir `STRIPE_SECRET_KEY` (la misma clave restringida, para verificar sesiones) y `DESCARGAS_JSON` = `{"auditor-seguridad-prompts":"<url-blob>","arquitecto-rag":"<url-blob>","pack-dev-ia":"<url-blob>"}`.
+  7. Probar en modo test (tarjeta `4242 4242 4242 4242`) el flujo completo link→pago→/descarga antes de pasar a live.
+  8. Pasar las 3 URLs live al agente para las fichas (Task 8).
+
+- [ ] **Step 4: Generate the zips + copy the free one** (unchanged from original Task 5):
+```bash
+cd "/Users/fernandoangulo/Sitios web/agentesva-skills" && ./scripts/package.sh
+unzip -l dist/pack-dev-ia.zip | grep -c SKILL.md   # expect 2
+cp dist/atencion-cliente-ia.zip "/Users/fernandoangulo/Sitios web/05-agentesva/public/skill-atencion-cliente-ia.zip"
+```
+
+- [ ] **Step 5: Commit (monorepo, local only)**
+```bash
+cd "/Users/fernandoangulo/Sitios web/agentesva-skills"
+git add stripe && git commit -q -m "docs(stripe): productos, guion de setup con paradas HUMANO y script de Payment Links
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
+```
+
+### Task 6b (NEW, site repo): `compraUrl` rename + `/descarga` delivery route
+
+**Files (site, branch `feat/skill-packs-lote1`):**
+- Modify: `src/content.config.ts` (recursos schema), `src/data/recursos.ts`, `src/pages/recurso/[slug].astro`, `src/pages/ir/[slug].ts`, `src/content/recursos/curso-seguridad-llm.json`, `astro.config.mjs` (sitemap filter + `/descarga`)
+- Create: `src/pages/descarga.astro`
+
+- [ ] **Step 1: Rename `gumroadUrl` → `compraUrl`** in the `recursos` collection only (schema field + superRefine messages), in the `Recurso` type/`toRecurso` (`src/data/recursos.ts`), in the ficha CTA (`src/pages/recurso/[slug].astro`), in the `/ir` recursos branch (`src/pages/ir/[slug].ts`), and in `src/content/recursos/curso-seguridad-llm.json` (same Gumroad URL, new key). Do NOT touch the `cursos` collection.
+
+- [ ] **Step 2: Verify rename** — `npm run build` green; `grep -rn "gumroadUrl" src/content/recursos src/data/recursos.ts src/pages/recurso src/pages/ir` returns nothing recursos-related (cursos keeps its own field).
+
+- [ ] **Step 3: Create `src/pages/descarga.astro`** (SSR, mirrors `/ir` style):
+
+```astro
+---
+// Entrega post-pago (Stripe Payment Links). Verifica la sesión de Checkout y
+// muestra el enlace de descarga del pack comprado. noindex + no-store.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+export const prerender = false;
+
+const sessionId = Astro.url.searchParams.get('session_id') ?? '';
+const key = import.meta.env.STRIPE_SECRET_KEY ?? '';
+let mapa: Record<string, string> = {};
+try { mapa = JSON.parse(import.meta.env.DESCARGAS_JSON ?? '{}'); } catch { /* mapa vacío → error */ }
+
+type Descarga = { nombre: string; url: string };
+let estado: 'ok' | 'pendiente' | 'error' = 'error';
+const descargas: Descarga[] = [];
+
+if (sessionId && key) {
+  const res = await fetch(
+    `https://api.stripe.com/v1/checkout/sessions/${encodeURIComponent(sessionId)}?expand[]=line_items.data.price.product`,
+    { headers: { Authorization: `Bearer ${key}` } },
+  );
+  if (res.ok) {
+    const sesion = await res.json();
+    if (sesion.payment_status === 'paid') {
+      for (const item of sesion.line_items?.data ?? []) {
+        const slug = item.price?.product?.metadata?.slug;
+        if (slug && mapa[slug]) descargas.push({ nombre: item.description ?? slug, url: mapa[slug] });
+      }
+      estado = descargas.length ? 'ok' : 'error';
+    } else {
+      estado = 'pendiente';
+    }
+  }
+}
+Astro.response.headers.set('Cache-Control', 'no-store');
+---
+```
+Body (same BaseLayout with `noindex={true}` + Futurista styling as `gracias.astro`): `estado==='ok'` → card per descarga with "Descargar (.zip) ↓" button + note "guarda este enlace; también tienes el recibo de Stripe"; `'pendiente'` → "pago aún no confirmado, espera un momento y recarga"; `'error'` → "no encontramos tu compra" + mailto soporte. Reuse the gift-card markup pattern from `gracias.astro`.
+
+- [ ] **Step 4: Sitemap/robots** — `/descarga` is a server route (not prerendered) so it won't enter the sitemap, but add it to the `astro.config.mjs` sitemap filter alongside `/ir` for explicitness, and confirm `noindex={true}` renders the meta.
+
+- [ ] **Step 5: Verify** — `npm run build` green. `npx astro dev` + `curl -s "http://localhost:4321/descarga"` → renders the error state (no session_id, no key) with HTTP 200 and noindex meta; no crash without env vars.
+
+- [ ] **Step 6: Commit**
+```bash
+cd "/Users/fernandoangulo/Sitios web/05-agentesva"
+git add src/content.config.ts src/data/recursos.ts src/pages/recurso/[slug].astro src/pages/ir/[slug].ts src/content/recursos/curso-seguridad-llm.json src/pages/descarga.astro astro.config.mjs
+git commit -q -m "feat(recursos): compraUrl neutral + ruta /descarga para entrega Stripe
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
+```
+
+### Task 8 (REVISED): the 3 paid fichas use `compraUrl` = real Stripe Payment Links
+
+Same ficha JSONs as the original Task 8 but with `"compraUrl": "<https://buy.stripe.com/...>"` instead of `gumroadUrl`. **Precondition:** user completed `setup-stripe.md` (account live, links created, blobs uploaded, env vars set, test purchase verified end-to-end on /descarga). FAQ answers mentioning "Gumroad" change to "pago seguro con Stripe; recibes el enlace de descarga al instante y el recibo por email".
+
 ## Self-Review (completed against spec)
 
 **Spec coverage:** §A the 3 skills + bundle → Tasks 2/3/4 + bundle packaging in Task 5. §B anatomy → each pack task authors SKILL.md+referencia+plantillas+ejemplos+README + a verify step. §C monorepo+package.sh → Task 1. §D delivery: Gumroad → Task 5 (listings + setup + zips); free/newsletter → Task 6 (ficha gated + gracias/newsletter wiring). §E 4 fichas → Task 6 (free, live) + Task 8 (3 paid, staged). §F sequence → Tasks 1→8 in order. Acceptance criteria: skills tested (verify steps), Tier A/B (Task 3 Step 1, Task 4 Step 1 + FUENTES.md), package.sh zips (Task 5), free ficha live + delivery (Tasks 6/7), build green + JSON-LD + search (Tasks 6/7), paid staged behind superRefine (Task 8 precondition).
