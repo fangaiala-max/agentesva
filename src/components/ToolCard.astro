@@ -13,6 +13,7 @@ const { tool, morph = true, compare = false } = Astro.props;
 const initial = tool.name.charAt(0);
 const priceColor = PRICE_COLOR[tool.price];
 const search = `${tool.name} ${tool.desc} ${tool.cat}`.toLowerCase();
+const monoStyle = `width: 42px; height: 42px; border-radius: 9px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 19px; color: #fff; background: ${tool.color};`;
 ---
 
 <article
@@ -34,7 +35,14 @@ const search = `${tool.name} ${tool.desc} ${tool.cat}`.toLowerCase();
     style="position: absolute; inset: 0; z-index: 1; border-radius: 8px;"
   ></a>
   <div class="tc-head" style="display: flex; align-items: flex-start; gap: 13px;">
-    <div transition:name={morph ? `mono-${tool.slug}` : undefined} style={`width: 42px; height: 42px; border-radius: 9px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 19px; color: #fff; background: ${tool.color};`}>{initial}</div>
+    {/* Dos ramas: pasar undefined a transition:name AÚN registra una capa de
+        View Transition con nombre autogenerado (verificado en el build); las
+        tarjetas duplicadas de los estantes no deben crear capas. */}
+    {morph ? (
+      <div transition:name={`mono-${tool.slug}`} style={monoStyle}>{initial}</div>
+    ) : (
+      <div style={monoStyle}>{initial}</div>
+    )}
     <div style="flex: 1; min-width: 0;">
       <div style="display: flex; align-items: center; gap: 7px; flex-wrap: wrap;">
         <span style="font-family: var(--sans); font-weight: 600; font-size: 16px; color: #fff;">{tool.name}</span>

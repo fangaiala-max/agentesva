@@ -4,11 +4,10 @@ import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import ToolCard from '../components/ToolCard.astro';
 import { getCollection } from 'astro:content';
-import { toTool, PRICE_COLOR, priceRank } from '../data/tools';
+import { toTool, PRICE_COLOR, priceRank, toolsClaim } from '../data/tools';
 
 const tools = (await getCollection('tools')).map(toTool).sort((a, b) => a.orden - b.orden);
-// Claim honesto derivado del dato real (redondeado a la baja): "+50" con 54 herramientas.
-const toolsClaim = Math.floor(tools.length / 10) * 10;
+const claim = toolsClaim(tools.length);
 const cats = (await getCollection('categories')).sort((a, b) => a.data.orden - b.data.orden);
 const CATEGORIES = ['Todas', ...cats.map((c) => c.data.nombre)];
 const catIdByName = new Map(cats.map((c) => [c.data.nombre, c.id]));
@@ -19,7 +18,7 @@ const featured = tools.find((t) => t.destacado) ?? tools[0];
 
 // Estantes del layout "Escaparate" (derivados de datos reales: orden = curaduría).
 const shelves = [
-  { emoji: '🔥', title: 'En tendencia', sub: 'Lo más usado ahora', items: tools.slice(0, 8) },
+  { emoji: '🔥', title: 'Destacadas', sub: 'La selección de la redacción', items: tools.slice(0, 8) },
   {
     emoji: '🎁',
     title: 'Gratis y freemium',
@@ -53,7 +52,7 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
 
 <BaseLayout
   title="AgentesVA — Directorio de herramientas de IA para tu negocio"
-  description={`Compara +${toolsClaim} herramientas de IA revisadas para vender, automatizar y ahorrar horas. Filtra, guarda y elige sin perderte en listas infinitas. En español, para España y Latinoamérica.`}
+  description={`Compara +${claim} herramientas de IA revisadas para vender, automatizar y ahorrar horas. Filtra, guarda y elige sin perderte en listas infinitas. En español, para España y Latinoamérica.`}
 >
   <SiteHeader />
 
@@ -67,7 +66,7 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
       <div>
         <span class="blur-in" style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--line-2); border-radius: 30px; padding: 6px 14px; animation-delay: .05s;">Directorio de IA · sin ruido</span>
         <h1 class="blur-in" style="font-family: var(--serif); font-weight: 400; font-size: clamp(38px, 5.5vw, 54px); line-height: 1.03; letter-spacing: -0.035em; margin: 20px 0 0; color: #fff; animation-delay: .14s;">La herramienta de IA<br>para tu negocio, <span style="color: var(--accent);">en segundos</span></h1>
-        <p class="blur-in" style="font-size: 16.5px; line-height: 1.6; color: var(--fg-3); margin: 18px 0 0; max-width: 32em; animation-delay: .26s;">Compara +{toolsClaim} herramientas revisadas para vender, automatizar y ahorrar horas. Filtra, guarda y elige sin perderte en listas infinitas.</p>
+        <p class="blur-in" style="font-size: 16.5px; line-height: 1.6; color: var(--fg-3); margin: 18px 0 0; max-width: 32em; animation-delay: .26s;">Compara +{claim} herramientas revisadas para vender, automatizar y ahorrar horas. Filtra, guarda y elige sin perderte en listas infinitas.</p>
 
         <!-- search -->
         <form id="search-form" role="search" class="searchwrap blur-in" style="display: flex; align-items: center; gap: 12px; max-width: 520px; margin: 26px 0 0; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 4px; padding: 4px 4px 4px 18px; transition: border-color .25s, box-shadow .25s; animation-delay: .38s;">
@@ -272,8 +271,10 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
              Sin JS: el noscript revela el grid completo (los estantes duplican contenido). -->
         <noscript>
           <style>
-            #tool-grid[hidden] { display: grid !important; }
-            #shelves { display: none !important; }
+            /* Debe ganar al scoped compilado de Astro (#tool-grid[data-astro-cid][hidden],
+               especificidad 1-2-0): el doble ID (2-1-0) decide por columna de IDs. */
+            #dir-body #tool-grid[hidden] { display: grid !important; }
+            #dir-body #shelves { display: none !important; }
           </style>
         </noscript>
         <div id="tool-grid" hidden style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; align-items: stretch;">
@@ -354,7 +355,7 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
       <div class="reveal" style="padding: 40px 24px; border-right: 1px solid var(--line);">
         <div style="display: flex; align-items: baseline; gap: 2px;">
           <span style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em;">+</span>
-          <span data-count={toolsClaim} style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;">0</span>
+          <span data-count={claim} style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;">0</span>
         </div>
         <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5);">Herramientas revisadas</span>
       </div>
@@ -393,7 +394,7 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
     <div style="max-width: 1240px; margin: 0 auto; padding: 12px 32px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap;">
       <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); flex: none;">Comparar</span>
       <div id="compare-chips" style="display: flex; align-items: center; gap: 8px; flex: 1; flex-wrap: wrap;"></div>
-      <span id="compare-hint" style="font-family: var(--mono); font-size: 11px; color: var(--fg-5);">Añade hasta 3</span>
+      <span id="compare-hint" aria-live="polite" style="font-family: var(--mono); font-size: 11px; color: var(--fg-5);">Añade hasta 3</span>
       <div style="display: flex; align-items: center; gap: 10px; flex: none;">
         <button type="button" id="compare-clear" style="background: none; border: 1px solid var(--line-2); border-radius: 2px; cursor: pointer; color: var(--fg-3); font-family: var(--sans); font-size: 13px; padding: 10px 14px;">Vaciar</button>
         <button type="button" id="compare-open" class="lift" style="background: var(--accent); color: var(--bg); border: none; padding: 10px 20px; border-radius: 2px; font-family: var(--sans); font-weight: 600; font-size: 13.5px; cursor: pointer; white-space: nowrap;">Comparar →</button>

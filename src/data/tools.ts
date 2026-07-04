@@ -52,6 +52,10 @@ export const PRICE_COLOR: Record<Price, string> = {
 // Orden "Gratis primero" compartido por la home (estantes y ordenación).
 export const priceRank = (p: string) => (p === 'Gratis' ? 0 : p === 'Freemium' ? 1 : 2);
 
+// Claim honesto "+N herramientas": redondeo a la baja a decenas (54 → "+50");
+// por debajo de 10, el número exacto (nunca "+0" ni sobreclamar).
+export const toolsClaim = (n: number) => (n >= 10 ? Math.floor(n / 10) * 10 : n);
+
 // Normaliza una entrada de la colección `tools` a Tool (id → slug).
 export function toTool(entry: CollectionEntry<'tools'>): Tool {
   return { slug: entry.id, ...entry.data };

@@ -78,4 +78,11 @@ describe('initDirectory — colisiones entre páginas (View Transitions)', () =>
     (document.querySelector('[data-bookmark]') as HTMLElement).click();
     expect(JSON.parse(localStorage.getItem('agentesva:saved')!)).toEqual(['claude']);
   });
+
+  it('sin #tool-grid (página ajena: fichas, /recursos…) no engancha nada', () => {
+    document.body.innerHTML = '<button data-bookmark="claude"><svg></svg></button>';
+    initDirectory();
+    (document.querySelector('[data-bookmark]') as HTMLElement).click();
+    expect(localStorage.getItem('agentesva:saved')).toBeNull();
+  });
 });

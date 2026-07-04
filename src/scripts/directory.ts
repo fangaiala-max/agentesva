@@ -1,6 +1,9 @@
 // Interactividad del directorio "Futurista" (CSP-safe: sin onclick inline).
 export const REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// Búsqueda insensible a tildes: "video" debe encontrar "Vídeo" (home y directorio).
+export const fold = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '');
+
 const CHIP_ACTIVE = { background: 'var(--accent)', color: 'var(--bg)', borderColor: 'var(--accent)' };
 const CHIP_IDLE = { background: 'transparent', color: 'var(--fg-3)', borderColor: 'var(--line-2)' };
 
@@ -25,11 +28,11 @@ function setupFilter() {
   let activeCat = 'Todas';
 
   const filter = () => {
-    const q = (search?.value || '').trim().toLowerCase();
+    const q = fold((search?.value || '').trim().toLowerCase());
     let visible = 0;
     cards.forEach((card) => {
       const cat = card.dataset.cat || '';
-      const hay = card.dataset.search || '';
+      const hay = fold(card.dataset.search || '');
       const match = (activeCat === 'Todas' || cat === activeCat) && (!q || hay.includes(q));
       card.style.display = match ? 'flex' : 'none';
       if (match) visible++;
@@ -117,9 +120,11 @@ export function initDirectory() {
   // 2) /herramientas y /herramientas/[categoria] registran cada una este init;
   //    el marcador en el DOM (fresco tras cada swap) evita el doble cableado.
   if (document.getElementById('dir-body')) return;
+  // Sin #tool-grid tampoco hay nada que cablear (páginas ajenas: fichas,
+  // /recursos, /cursos… tienen sus propios scripts de marcadores).
   const grid = document.getElementById('tool-grid');
-  if (grid?.dataset.dirWired) return;
-  if (grid) grid.dataset.dirWired = '1';
+  if (!grid || grid.dataset.dirWired) return;
+  grid.dataset.dirWired = '1';
   setupFilter();
   setupCounters();
   setupBookmarks();

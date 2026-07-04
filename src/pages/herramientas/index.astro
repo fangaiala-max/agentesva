@@ -4,7 +4,7 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import ToolCard from '../../components/ToolCard.astro';
 import { getCollection } from 'astro:content';
-import { toTool } from '../../data/tools';
+import { toTool, toolsClaim } from '../../data/tools';
 import { jsonLdSerialize } from '../../data/schema';
 
 const tools = (await getCollection('tools')).map(toTool).sort((a, b) => a.orden - b.orden);
@@ -44,7 +44,7 @@ const jsonLd = {
 
 <BaseLayout
   title="Herramientas de IA — Directorio | AgentesVA"
-  description={`Directorio de +${Math.floor(tools.length / 10) * 10} herramientas de IA revisadas para vender, automatizar y ahorrar horas. Filtra por categoría. En español, lidera con las gratis.`}
+  description={`Directorio de +${toolsClaim(tools.length)} herramientas de IA revisadas para vender, automatizar y ahorrar horas. Filtra por categoría. En español, lidera con las gratis.`}
 >
   <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
   <SiteHeader />

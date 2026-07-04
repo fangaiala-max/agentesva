@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { fallbackFaqs, getAlternatives, PRICE_COLOR, priceRank, type Tool } from '../src/data/tools';
+import { fallbackFaqs, getAlternatives, PRICE_COLOR, priceRank, toolsClaim, type Tool } from '../src/data/tools';
 
 const tool = (over: Partial<Tool>): Tool => ({
   slug: 'demo',
@@ -65,5 +65,15 @@ describe('PRICE_COLOR', () => {
 describe('priceRank', () => {
   it('ordena Gratis < Freemium < Pago', () => {
     expect([priceRank('Pago'), priceRank('Gratis'), priceRank('Freemium')]).toEqual([2, 0, 1]);
+  });
+});
+
+describe('toolsClaim', () => {
+  it('redondea a la baja a decenas y nunca dice "+0"', () => {
+    expect(toolsClaim(54)).toBe(50);
+    expect(toolsClaim(120)).toBe(120);
+    expect(toolsClaim(10)).toBe(10);
+    expect(toolsClaim(9)).toBe(9);
+    expect(toolsClaim(0)).toBe(0);
   });
 });

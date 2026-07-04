@@ -1,14 +1,11 @@
 // Interactividad de la home "marketplace" (diseño AgentesVA - Home web):
 // countdown, vistas Escaparate/Tienda, filtros, ordenación, comparador y CTA fija.
 // CSP-safe (sin handlers inline) e idempotente entre navegaciones (View Transitions).
-import { setupCounters, setupBookmarks, applyChipStyle, REDUCE } from './directory';
+import { setupCounters, setupBookmarks, applyChipStyle, fold, REDUCE } from './directory';
 import { priceRank, type Price } from '../data/tools';
 
 const CTA_KEY = 'agentesva:cta-dismissed';
 const MAX_COMPARE = 3;
-
-// Búsqueda insensible a tildes: "video" debe encontrar "Vídeo".
-const fold = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '');
 
 function paintSideCat(el: HTMLElement, active: boolean) {
   el.style.background = active ? 'var(--panel-2)' : 'transparent';
@@ -24,10 +21,11 @@ function paintSeg(el: HTMLElement, active: boolean) {
   el.setAttribute('aria-pressed', String(active));
 }
 
-// Listener global de teclado del modal (Escape + trampa de Tab): se retira en
-// cada init (View Transitions re-ejecuta initHome por navegación; sin esto se
-// acumulan reteniendo el DOM desanclado).
+// Listeners globales de la home (teclado del modal y resize de las barras):
+// se retiran en cada init (View Transitions re-ejecuta initHome por
+// navegación; sin esto se acumulan reteniendo el DOM desanclado).
 let escHandler: ((e: KeyboardEvent) => void) | undefined;
+let resizeHandler: (() => void) | undefined;
 
 export function initHome() {
   // Limpieza de la visita anterior ANTES del guard: este init también corre
@@ -35,6 +33,10 @@ export function initHome() {
   if (escHandler) {
     document.removeEventListener('keydown', escHandler);
     escHandler = undefined;
+  }
+  if (resizeHandler) {
+    window.removeEventListener('resize', resizeHandler);
+    resizeHandler = undefined;
   }
 
   const grid = document.getElementById('tool-grid');
@@ -196,6 +198,9 @@ export function initHome() {
     const activeBar = compareBar && !compareBar.hidden ? compareBar : ctaBar && !ctaBar.hidden ? ctaBar : null;
     document.body.style.paddingBottom = activeBar ? `${activeBar.offsetHeight}px` : '';
   };
+  // Las barras hacen wrap en viewports estrechos: recalcular al redimensionar.
+  resizeHandler = updateBars;
+  window.addEventListener('resize', resizeHandler);
 
   const paintCompareBtns = () => {
     document.querySelectorAll<HTMLElement>('[data-compare]').forEach((btn) => {
