@@ -9,6 +9,7 @@
     "build": "astro build",
     "postbuild": "pagefind --site .vercel/output/static",
     "preview": "astro preview",
+    "test": "vitest run",
     "astro": "astro",
     "ai:faqs": "node --env-file-if-exists=.env.local scripts/generate-faqs.mjs",
     "ai:estudios": "node --env-file-if-exists=.env.local scripts/generate-estudios.mjs"
@@ -24,8 +25,10 @@
   "devDependencies": {
     "ai": "^6.0.208",
     "autoprefixer": "^10.4.20",
+    "happy-dom": "^20.10.6",
     "pagefind": "^1.5.2",
     "postcss": "^8.4.49",
+    "vitest": "^4.1.9",
     "zod": "^4.4.3"
   },
   "overrides": {

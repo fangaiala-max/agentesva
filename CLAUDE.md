@@ -29,3 +29,9 @@ Key routing rules:
 - Architecture review → invoke plan-eng-review
 - Save progress, checkpoint, resume → invoke checkpoint
 - Code quality, health check → invoke health
+
+## Testing
+
+- `npm run test` — Vitest + happy-dom sobre `tests/` (ver [`TESTING.md`](./TESTING.md)). CI: `.github/workflows/test.yml`.
+- 100% de cobertura es la meta: función nueva → test nuevo; bug → test de regresión; condicional → ambas ramas.
+- Los esquemas Zod de `src/content.config.ts` validan el contenido en build — nunca commitees código que rompa tests o build.
