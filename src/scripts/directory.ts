@@ -1,10 +1,13 @@
 // Interactividad del directorio "Futurista" (CSP-safe: sin onclick inline).
-const REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+export const REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Búsqueda insensible a tildes: "video" debe encontrar "Vídeo" (home y directorio).
+export const fold = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '');
 
 const CHIP_ACTIVE = { background: 'var(--accent)', color: 'var(--bg)', borderColor: 'var(--accent)' };
 const CHIP_IDLE = { background: 'transparent', color: 'var(--fg-3)', borderColor: 'var(--line-2)' };
 
-function applyChipStyle(el: HTMLElement, active: boolean) {
+export function applyChipStyle(el: HTMLElement, active: boolean) {
   const s = active ? CHIP_ACTIVE : CHIP_IDLE;
   el.style.background = s.background;
   el.style.color = s.color;
@@ -25,11 +28,11 @@ function setupFilter() {
   let activeCat = 'Todas';
 
   const filter = () => {
-    const q = (search?.value || '').trim().toLowerCase();
+    const q = fold((search?.value || '').trim().toLowerCase());
     let visible = 0;
     cards.forEach((card) => {
       const cat = card.dataset.cat || '';
-      const hay = card.dataset.search || '';
+      const hay = fold(card.dataset.search || '');
       const match = (activeCat === 'Todas' || cat === activeCat) && (!q || hay.includes(q));
       card.style.display = match ? 'flex' : 'none';
       if (match) visible++;
@@ -55,7 +58,7 @@ function setupFilter() {
   });
 }
 
-function setupCounters() {
+export function setupCounters() {
   const els = Array.from(document.querySelectorAll<HTMLElement>('[data-count]'));
   const run = (el: HTMLElement) => {
     const target = parseFloat(el.getAttribute('data-count') || '0');
@@ -78,10 +81,12 @@ function setupCounters() {
 
 const SAVED_KEY = 'agentesva:saved';
 function loadSaved(): Set<string> {
-  try { return new Set(JSON.parse(localStorage.getItem(SAVED_KEY) || '[]')); }
-  catch { return new Set(); }
+  try {
+    const v = JSON.parse(localStorage.getItem(SAVED_KEY) || '[]');
+    return new Set(Array.isArray(v) ? v : []);
+  } catch { return new Set(); }
 }
-function setupBookmarks() {
+export function setupBookmarks() {
   const saved = loadSaved();
   const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-bookmark]'));
   const paint = (btn: HTMLButtonElement, on: boolean) => {
@@ -92,18 +97,34 @@ function setupBookmarks() {
     }
     btn.setAttribute('aria-pressed', String(on));
   };
+  // Pinta todas las instancias del mismo slug (la home duplica tarjetas en estantes + grid).
+  const paintSlug = (slug: string, on: boolean) => {
+    buttons.forEach((b) => { if (b.dataset.bookmark === slug) paint(b, on); });
+  };
   buttons.forEach((btn) => {
     const slug = btn.dataset.bookmark || '';
     paint(btn, saved.has(slug));
     btn.addEventListener('click', () => {
       if (saved.has(slug)) saved.delete(slug); else saved.add(slug);
-      paint(btn, saved.has(slug));
+      paintSlug(slug, saved.has(slug));
       try { localStorage.setItem(SAVED_KEY, JSON.stringify([...saved])); } catch { /* ignore */ }
     });
   });
 }
 
 export function initDirectory() {
+  // Con View Transitions los listeners de astro:page-load de CADA página
+  // visitada persisten y se disparan en todas las navegaciones:
+  // 1) la home tiene su propio motor (home.ts) y comparte ids/clases con el
+  //    directorio — #dir-body solo existe en la home, así que aquí se cede;
+  // 2) /herramientas y /herramientas/[categoria] registran cada una este init;
+  //    el marcador en el DOM (fresco tras cada swap) evita el doble cableado.
+  if (document.getElementById('dir-body')) return;
+  // Sin #tool-grid tampoco hay nada que cablear (páginas ajenas: fichas,
+  // /recursos, /cursos… tienen sus propios scripts de marcadores).
+  const grid = document.getElementById('tool-grid');
+  if (!grid || grid.dataset.dirWired) return;
+  grid.dataset.dirWired = '1';
   setupFilter();
   setupCounters();
   setupBookmarks();

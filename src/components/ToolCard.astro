@@ -2,17 +2,31 @@
 import type { Tool } from '../data/tools';
 import { PRICE_COLOR } from '../data/tools';
 
-interface Props { tool: Tool }
-const { tool } = Astro.props;
+interface Props {
+  tool: Tool;
+  /** transition:name del monograma — desactivar en renders duplicados (estantes/destacada) */
+  morph?: boolean;
+  /** botón "Añadir a comparar" (solo donde exista la barra de comparación, ej. home) */
+  compare?: boolean;
+}
+const { tool, morph = true, compare = false } = Astro.props;
 const initial = tool.name.charAt(0);
 const priceColor = PRICE_COLOR[tool.price];
 const search = `${tool.name} ${tool.desc} ${tool.cat}`.toLowerCase();
+const monoStyle = `width: 42px; height: 42px; border-radius: 9px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 19px; color: #fff; background: ${tool.color};`;
 ---
 
 <article
   class="lift tool-card spotlight"
   data-cat={tool.cat}
   data-search={search}
+  data-slug={tool.slug}
+  data-name={tool.name}
+  data-price={tool.price}
+  data-rating={tool.rating}
+  data-orden={tool.orden}
+  data-ideal={tool.ideal}
+  data-color={tool.color}
   style="position: relative; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 14px;"
 >
   <a
@@ -20,26 +34,52 @@ const search = `${tool.name} ${tool.desc} ${tool.cat}`.toLowerCase();
     aria-label={`Ver ${tool.name}`}
     style="position: absolute; inset: 0; z-index: 1; border-radius: 8px;"
   ></a>
-  <div style="display: flex; align-items: flex-start; gap: 13px;">
-    <div transition:name={`mono-${tool.slug}`} style={`width: 42px; height: 42px; border-radius: 9px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 19px; color: #fff; background: ${tool.color};`}>{initial}</div>
+  <div class="tc-head" style="display: flex; align-items: flex-start; gap: 13px;">
+    {/* Dos ramas: pasar undefined a transition:name AÚN registra una capa de
+        View Transition con nombre autogenerado (verificado en el build); las
+        tarjetas duplicadas de los estantes no deben crear capas. */}
+    {morph ? (
+      <div transition:name={`mono-${tool.slug}`} style={monoStyle}>{initial}</div>
+    ) : (
+      <div style={monoStyle}>{initial}</div>
+    )}
     <div style="flex: 1; min-width: 0;">
-      <div style="font-family: var(--sans); font-weight: 600; font-size: 16px; color: #fff;">{tool.name}</div>
+      <div style="display: flex; align-items: center; gap: 7px; flex-wrap: wrap;">
+        <span style="font-family: var(--sans); font-weight: 600; font-size: 16px; color: #fff;">{tool.name}</span>
+        {tool.destacado && (
+          <span style="font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); background: rgba(245,196,81,0.12); border: 1px solid rgba(245,196,81,0.4); border-radius: 20px; padding: 2px 8px;">★ Editor</span>
+        )}
+      </div>
       <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5); margin-top: 3px;">{tool.cat}</div>
     </div>
-    <button
-      type="button"
-      class="bookmark-btn"
-      data-bookmark={tool.slug}
-      aria-label={`Guardar ${tool.name}`}
-      aria-pressed="false"
-      style="position: relative; z-index: 2; background: none; border: none; cursor: pointer; padding: 6px; margin: -6px; display: flex;"
-    >
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--fg-5)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-    </button>
+    <div style="display: flex; gap: 2px; flex: none;">
+      {compare && (
+        <button
+          type="button"
+          class="compare-btn"
+          data-compare={tool.slug}
+          aria-label={`Añadir ${tool.name} a comparar`}
+          aria-pressed="false"
+          style="position: relative; z-index: 2; background: none; border: 1px solid transparent; border-radius: 6px; cursor: pointer; padding: 6px; margin: -6px 0 -6px -6px; display: flex;"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--fg-5)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3v18M15 3v18"></path><rect x="3" y="3" width="18" height="18" rx="2"></rect></svg>
+        </button>
+      )}
+      <button
+        type="button"
+        class="bookmark-btn"
+        data-bookmark={tool.slug}
+        aria-label={`Guardar ${tool.name}`}
+        aria-pressed="false"
+        style="position: relative; z-index: 2; background: none; border: none; cursor: pointer; padding: 6px; margin: -6px; display: flex;"
+      >
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--fg-5)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+      </button>
+    </div>
   </div>
   <p style="margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--fg-3);">{tool.desc}</p>
-  <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto;">
-    <span style="font-family: var(--mono); font-size: 12px; color: var(--fg-2);"><span style="color: var(--accent);">★</span> {tool.rating}</span>
+  <div class="tc-foot" style="display: flex; align-items: center; justify-content: space-between; margin-top: auto;">
+    <span style="font-family: var(--mono); font-size: 12px; color: var(--fg-2);"><span style="color: var(--gold);">★</span> {tool.rating}</span>
     <span style={`font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: ${priceColor}; border: 1px solid var(--line-2); padding: 4px 9px; border-radius: 20px;`}>{tool.price}</span>
   </div>
 </article>

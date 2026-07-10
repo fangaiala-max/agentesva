@@ -19,5 +19,6 @@
     "Sube tu documento o pega el texto",
     "Pídele un resumen, borrador o análisis"
   ],
-  "orden": 2
+  "orden": 2,
+  "destacado": true
 }

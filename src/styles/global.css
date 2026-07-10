@@ -23,6 +23,7 @@
   --accent: #5b7cff;
   --blue-deep: #0040ff;
   --green: #4fd39a;
+  --gold: #f5c451;
   --serif: 'DM Serif Display', Georgia, 'Times New Roman', serif;
   --sans: 'DM Sans', system-ui, -apple-system, sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
@@ -61,6 +62,24 @@ input::placeholder { color: var(--fg-5); }
 .chip:hover { border-color: var(--line-3) !important; }
 .reveal { animation: fadeUp both; animation-timeline: view(); animation-range: entry 0% cover 22%; }
 .searchwrap:focus-within { border-color: var(--accent) !important; box-shadow: 0 0 24px rgba(91,124,255,0.22); }
+.banner { transition: transform .32s cubic-bezier(0.22,0.61,0.36,1), border-color .32s, box-shadow .32s; }
+.banner:hover { transform: translateY(-3px); border-color: var(--line-3) !important; box-shadow: 0 0 30px rgba(91,124,255,0.14); }
+.seg { transition: background .2s, color .2s; cursor: pointer; }
+.shelfscroll { overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--line-2) transparent; }
+.shelfscroll::-webkit-scrollbar { height: 8px; }
+.shelfscroll::-webkit-scrollbar-thumb { background: var(--line-2); border-radius: 8px; }
+
+/* vista lista del directorio (toggle en la home): misma tarjeta, layout en fila.
+   .tc-head/.tc-foot son clases estables de ToolCard (no acoplar a posición). */
+.view-list { grid-template-columns: 1fr !important; }
+.view-list .tool-card { flex-direction: row; align-items: center; gap: 18px; }
+.view-list .tool-card > p { flex: 1; min-width: 0; }
+.view-list .tool-card .tc-head { flex: none; width: 250px; min-width: 0; }
+.view-list .tool-card .tc-foot { margin-top: 0; gap: 14px; flex: none; }
+@media (max-width: 720px) {
+  .view-list .tool-card { flex-direction: column; align-items: stretch; }
+  .view-list .tool-card .tc-head { width: auto; }
+}
 
 /* ===== Motion (patrones modernos, implementación nativa) ===== */
 @property --bd-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }

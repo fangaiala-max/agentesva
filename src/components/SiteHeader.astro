@@ -1,8 +1,12 @@
 ---
 // Ticker + cabecera sticky del directorio "Futurista".
 import SearchModal from './SearchModal.astro';
-const tickerItems =
-  '+120 herramientas de IA revisadas  ·  Sin ruido, solo lo que funciona  ·  Asistentes  ·  Automatización  ·  WhatsApp  ·  Marketing  ·  Pack de Recursos IA gratis  ·  ';
+import { getCollection } from 'astro:content';
+import { toolsClaim } from '../data/tools';
+
+// Claim del ticker derivado del dato real (redondeado a la baja).
+const claim = toolsClaim((await getCollection('tools')).length);
+const tickerItems = `+${claim} herramientas de IA revisadas  ·  Sin ruido, solo lo que funciona  ·  Asistentes  ·  Automatización  ·  WhatsApp  ·  Marketing  ·  Pack de Recursos IA gratis  ·  `;
 ---
 
 <!-- ===== TICKER ===== -->

@@ -41,11 +41,20 @@ export function fallbackFaqs(tool: Tool): { q: string; a: string }[] {
   ];
 }
 
+// Tokens del sistema (global.css) — un solo sitio para retocar la paleta.
+// Solo para contextos CSS (atributos style); no usar donde no resuelva var().
 export const PRICE_COLOR: Record<Price, string> = {
-  Gratis: '#4ec98a',
-  Freemium: '#5B7CFF',
-  Pago: '#a5a5b2',
+  Gratis: 'var(--green)',
+  Freemium: 'var(--accent)',
+  Pago: 'var(--fg-3)',
 };
+
+// Orden "Gratis primero" compartido por la home (estantes y ordenación).
+export const priceRank = (p: string) => (p === 'Gratis' ? 0 : p === 'Freemium' ? 1 : 2);
+
+// Claim honesto "+N herramientas": redondeo a la baja a decenas (54 → "+50");
+// por debajo de 10, el número exacto (nunca "+0" ni sobreclamar).
+export const toolsClaim = (n: number) => (n >= 10 ? Math.floor(n / 10) * 10 : n);
 
 // Normaliza una entrada de la colección `tools` a Tool (id → slug).
 export function toTool(entry: CollectionEntry<'tools'>): Tool {

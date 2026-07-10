@@ -4,72 +4,292 @@ import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import ToolCard from '../components/ToolCard.astro';
 import { getCollection } from 'astro:content';
-import { toTool } from '../data/tools';
+import { toTool, PRICE_COLOR, priceRank, toolsClaim } from '../data/tools';
 
 const tools = (await getCollection('tools')).map(toTool).sort((a, b) => a.orden - b.orden);
+const claim = toolsClaim(tools.length);
 const cats = (await getCollection('categories')).sort((a, b) => a.data.orden - b.data.orden);
 const CATEGORIES = ['Todas', ...cats.map((c) => c.data.nombre)];
+const catIdByName = new Map(cats.map((c) => [c.data.nombre, c.id]));
+const countByCat = (nombre: string) => tools.filter((t) => t.cat === nombre).length;
 
+// Destacada del hero — "Elección del editor" (destacado: true en la colección).
+const featured = tools.find((t) => t.destacado) ?? tools[0];
+
+// Estantes del layout "Escaparate" (derivados de datos reales: orden = curaduría).
+const shelves = [
+  { emoji: '🔥', title: 'Destacadas', sub: 'La selección de la redacción', items: tools.slice(0, 8) },
+  {
+    emoji: '🎁',
+    title: 'Gratis y freemium',
+    sub: 'Empieza sin pagar',
+    items: tools.filter((t) => t.price !== 'Pago').sort((a, b) => priceRank(a.price) - priceRank(b.price) || a.orden - b.orden).slice(0, 8),
+  },
+  {
+    emoji: '⭐',
+    title: 'Mejor valoradas',
+    sub: 'Por puntuación',
+    items: [...tools].sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating)).slice(0, 8),
+  },
+];
+
+// Avatares (monogramas reales del directorio).
+const heroAvatars = tools.slice(0, 5);
+const collAvatars = tools.filter((t) => ['WhatsApp', 'Marketing', 'Asistentes'].includes(t.cat)).slice(0, 5);
+
+// Banners "Explora por objetivo" — 6 categorías curadas del diseño, con conteos reales.
+const CAT_BANNERS = [
+  { nombre: 'Asistentes', sub: 'Redactar y responder', icon: '✎', iconBg: '#10A37F', bg: 'linear-gradient(150deg,#0F2B4E,#0C1E3C)', glow: 'rgba(16,163,127,0.20)' },
+  { nombre: 'Automatización', sub: 'Menos tareas a mano', icon: '⚙', iconBg: '#6D5EF7', bg: 'linear-gradient(150deg,#152449,#0C1E3C)', glow: 'rgba(109,94,247,0.20)' },
+  { nombre: 'WhatsApp', sub: 'Vender por chat', icon: '💬', iconBg: '#2BC3A8', bg: 'linear-gradient(150deg,#0E2E44,#0C1E3C)', glow: 'rgba(43,195,168,0.20)' },
+  { nombre: 'Marketing', sub: 'Captar y fidelizar', icon: '📈', iconBg: '#FF7A59', bg: 'linear-gradient(150deg,#2A2238,#0C1E3C)', glow: 'rgba(255,122,89,0.18)' },
+  { nombre: 'Diseño', sub: 'Imágenes y marca', icon: '✦', iconBg: '#7D2AE8', bg: 'linear-gradient(150deg,#221A44,#0C1E3C)', glow: 'rgba(125,42,232,0.20)' },
+  { nombre: 'Vídeo', sub: 'Contenido en vídeo', icon: '▶', iconBg: '#5B47FB', bg: 'linear-gradient(150deg,#1B1E4A,#0C1E3C)', glow: 'rgba(91,71,251,0.20)' },
+].filter((b) => catIdByName.has(b.nombre));
+
+const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
 ---
 
 <BaseLayout
   title="AgentesVA — Directorio de herramientas de IA para tu negocio"
-  description="Busca entre +120 herramientas de IA revisadas para vender, automatizar y ahorrar horas. Sin ruido: solo lo que de verdad sirve. En español, para España y Latinoamérica."
+  description={`Compara +${claim} herramientas de IA revisadas para vender, automatizar y ahorrar horas. Filtra, guarda y elige sin perderte en listas infinitas. En español, para España y Latinoamérica.`}
 >
   <SiteHeader />
 
   <main>
-  <!-- ===== HERO + SEARCH ===== -->
+  <!-- ===== HERO + BUSCADOR + DESTACADA ===== -->
   <section style="position: relative; overflow: hidden; border-bottom: 1px solid var(--line);">
-    <div aria-hidden="true" style="position: absolute; inset: -54px; background-color: var(--bg); background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 54px 54px; animation: gridDrift 6s linear infinite; opacity: 0.65;"></div>
-    <div aria-hidden="true" style="position: absolute; top: -160px; left: 50%; transform: translateX(-50%); width: 760px; height: 540px; background: radial-gradient(ellipse, rgba(91,124,255,0.20) 0%, rgba(91,124,255,0) 64%); animation: auroraDrift 15s ease-in-out infinite; pointer-events: none;"></div>
+    <div aria-hidden="true" style="position: absolute; inset: -54px; background-color: var(--bg); background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 54px 54px; animation: gridDrift 6s linear infinite; opacity: 0.55;"></div>
+    <div aria-hidden="true" style="position: absolute; top: -180px; left: 32%; width: 720px; height: 520px; background: radial-gradient(ellipse, rgba(91,124,255,0.18) 0%, rgba(91,124,255,0) 64%); animation: auroraDrift 15s ease-in-out infinite; pointer-events: none;"></div>
 
-    <div style="position: relative; max-width: 880px; margin: 0 auto; padding: 76px 32px 56px; text-align: center;">
-      <span class="blur-in" style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--line-2); border-radius: 30px; padding: 6px 14px; animation-delay: .05s;">Directorio de IA · sin ruido</span>
-      <h1 class="blur-in" style="font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 7vw, 64px); line-height: 1.02; letter-spacing: -0.035em; margin: 22px 0 0; color: #fff; animation-delay: .14s;">La herramienta de IA<br>para tu negocio, <span style="color: var(--accent);">en segundos</span></h1>
-      <p class="blur-in" style="font-size: 17px; line-height: 1.6; color: var(--fg-3); margin: 20px auto 0; max-width: 30em; animation-delay: .26s;">Busca entre +120 herramientas revisadas para vender, automatizar y ahorrar horas. Nada de listas infinitas: solo lo que de verdad sirve.</p>
+    <div class="hero-grid" style="position: relative; max-width: 1240px; margin: 0 auto; padding: 56px 32px 48px;">
+      <div>
+        <span class="blur-in" style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--line-2); border-radius: 30px; padding: 6px 14px; animation-delay: .05s;">Directorio de IA · sin ruido</span>
+        <h1 class="blur-in" style="font-family: var(--serif); font-weight: 400; font-size: clamp(38px, 5.5vw, 54px); line-height: 1.03; letter-spacing: -0.035em; margin: 20px 0 0; color: #fff; animation-delay: .14s;">La herramienta de IA<br>para tu negocio, <span style="color: var(--accent);">en segundos</span></h1>
+        <p class="blur-in" style="font-size: 16.5px; line-height: 1.6; color: var(--fg-3); margin: 18px 0 0; max-width: 32em; animation-delay: .26s;">Compara +{claim} herramientas revisadas para vender, automatizar y ahorrar horas. Filtra, guarda y elige sin perderte en listas infinitas.</p>
 
-      <!-- search -->
-      <form id="search-form" role="search" class="searchwrap blur-in" style="display: flex; align-items: center; gap: 12px; max-width: 560px; margin: 32px auto 0; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 4px; padding: 4px 4px 4px 18px; transition: border-color .25s, box-shadow .25s; animation-delay: .38s;">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--fg-5)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
-        <label for="tool-search" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Buscar herramientas</label>
-        <input id="tool-search" type="search" autocomplete="off" placeholder="Busca: chatbot, automatizar WhatsApp, crear vídeos…" style="flex: 1; background: transparent; border: none; outline: none; color: #fff; font-family: var(--sans); font-size: 15px; padding: 12px 0;">
-        <button type="submit" class="shimmer" style="font-family: var(--mono); font-size: 11px; color: var(--bg); background: var(--accent); padding: 11px 18px; border-radius: 2px; font-weight: 600; border: none; cursor: pointer;">Buscar</button>
-      </form>
+        <!-- search -->
+        <form id="search-form" role="search" class="searchwrap blur-in" style="display: flex; align-items: center; gap: 12px; max-width: 520px; margin: 26px 0 0; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 4px; padding: 4px 4px 4px 18px; transition: border-color .25s, box-shadow .25s; animation-delay: .38s;">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--fg-5)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
+          <label for="tool-search" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Buscar herramientas</label>
+          <input id="tool-search" type="search" autocomplete="off" placeholder="Busca: chatbot, automatizar WhatsApp, crear vídeos…" style="flex: 1; min-width: 0; background: transparent; border: none; outline: none; color: #fff; font-family: var(--sans); font-size: 15px; padding: 12px 0;">
+          <button type="submit" class="shimmer" style="font-family: var(--mono); font-size: 11px; color: var(--bg); background: var(--accent); padding: 11px 18px; border-radius: 2px; font-weight: 600; border: none; cursor: pointer;">Buscar</button>
+        </form>
 
-      <!-- quick chips -->
-      <div role="group" aria-label="Filtrar por categoría" class="blur-in" style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 18px; animation-delay: .5s;">
-        {CATEGORIES.map((c, i) => (
-          <button
-            type="button"
-            class="chip cat-chip"
-            data-chip={c}
-            aria-pressed={i === 0 ? 'true' : 'false'}
-            style={`font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 14px; border-radius: 30px; ${i === 0 ? 'background: var(--accent); color: var(--bg); border: 1px solid var(--accent);' : 'background: transparent; color: var(--fg-3); border: 1px solid var(--line-2);'}`}
-          >{c}</button>
-        ))}
+        <!-- quick chips -->
+        <div role="group" aria-label="Explorar por categoría" class="blur-in" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; animation-delay: .5s;">
+          {QUICK_CHIPS.map((c) => (
+            <button type="button" class="chip quick-chip" data-quick={c} style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 14px; border-radius: 30px; background: transparent; color: var(--fg-3); border: 1px solid var(--line-2);">{c}</button>
+          ))}
+        </div>
+
+        <!-- social proof (monogramas = herramientas destacadas, no avatares de usuarios) -->
+        <div class="blur-in" style="display: flex; align-items: center; gap: 18px; margin-top: 24px; animation-delay: .6s;">
+          <div style="display: flex;" aria-hidden="true">
+            {heroAvatars.map((t) => (
+              <span style={`width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--bg); margin-left: -8px; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 12px; color: #fff; background: ${t.color};`}>{t.name.charAt(0)}</span>
+            ))}
+          </div>
+          <span style="font-family: var(--mono); font-size: 11px; color: var(--fg-4); line-height: 1.5;">Lo más destacado del directorio · Leído por +1.200 negocios</span>
+        </div>
       </div>
+
+      <!-- Destacada: Elección del editor -->
+      <a href={`/herramienta/${featured.slug}`} class="lift blur-in" style="display: block; position: relative; background: linear-gradient(160deg, #12315E 0%, var(--panel-3) 60%); border: 1px solid var(--line-2); border-radius: 12px; padding: 24px; text-decoration: none; animation-delay: .32s;">
+        <span style="display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(245,196,81,0.4); border-radius: 20px; padding: 5px 11px;">★ Elección del editor</span>
+        <div style="display: flex; align-items: center; gap: 14px; margin-top: 18px;">
+          <div style={`width: 54px; height: 54px; border-radius: 12px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 24px; color: #fff; background: ${featured.color};`}>{featured.name.charAt(0)}</div>
+          <div>
+            <div style="font-family: var(--serif); font-size: 26px; letter-spacing: -0.02em; color: #fff;">{featured.name}</div>
+            <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5); margin-top: 2px;">{featured.cat}</div>
+          </div>
+        </div>
+        <p style="font-size: 14.5px; line-height: 1.55; color: var(--fg-2); margin: 16px 0 0;">{featured.tagline}</p>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line);">
+          <span style="font-family: var(--mono); font-size: 12px; color: var(--fg-2);"><span style="color: var(--gold);">★</span> {featured.rating} · <span style={`color: ${PRICE_COLOR[featured.price]};`}>{featured.price}</span></span>
+          <span style="font-family: var(--sans); font-weight: 600; font-size: 13px; color: var(--accent);">Ver ficha →</span>
+        </div>
+      </a>
     </div>
   </section>
 
-  <!-- ===== DIRECTORY ===== -->
-  <section id="directorio" style="max-width: 1200px; margin: 0 auto; padding: 44px 32px 64px; scroll-margin-top: 80px;">
-    <div style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 16px; margin-bottom: 28px; gap: 16px; flex-wrap: wrap;">
-      <h2 style="font-family: var(--sans); font-weight: 700; font-size: 22px; letter-spacing: -0.02em; margin: 0; color: #fff;">Herramientas de IA</h2>
-      <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-5);"><span id="result-count" style="color: var(--accent);">{tools.length}</span> resultados · <span id="result-cat">Todas</span></span>
+  <!-- ===== PACK BANNER (sin countdown: el pack es gratis siempre, sin falsa urgencia) ===== -->
+  <a href="#pack" style="text-decoration: none; display: block; max-width: 1240px; margin: 22px auto 0; padding: 0 32px;">
+    <section class="banner" style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; background: #10233F; border: 1px solid var(--line-2); border-left: 3px solid var(--gold); border-radius: 10px; padding: 18px 24px; cursor: pointer;">
+      <span style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold);">
+        <span aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: var(--gold); animation: dotPulse 1.4s ease-in-out infinite;"></span>Pack gratis
+      </span>
+      <span style="font-family: var(--sans); font-size: 15.5px; color: #fff; font-weight: 600; flex: 1; min-width: 220px;">Pack de Recursos IA <span style="color: var(--fg-3); font-weight: 400;">— 30 prompts y plantillas listas para tu negocio.</span></span>
+      <span style="font-family: var(--sans); font-weight: 600; font-size: 13.5px; color: var(--bg); background: var(--gold); padding: 10px 18px; border-radius: 2px; white-space: nowrap;">Conseguir gratis →</span>
+    </section>
+  </a>
+
+  <!-- ===== EXPLORA POR OBJETIVO ===== -->
+  <section style="max-width: 1240px; margin: 40px auto 0; padding: 0 32px;">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 18px;">
+      <h2 style="font-family: var(--sans); font-weight: 700; font-size: 20px; letter-spacing: -0.02em; margin: 0; color: #fff;">Explora por objetivo</h2>
+      <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-5);">{cats.length} categorías</span>
+    </div>
+    <div class="cat-grid">
+      {CAT_BANNERS.map((b) => (
+        <a href={`/herramientas/${catIdByName.get(b.nombre)}`} class="banner" style={`position: relative; overflow: hidden; background: ${b.bg}; border: 1px solid #22406E; border-radius: 12px; padding: 22px; text-decoration: none; min-height: 116px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px;`}>
+          <div aria-hidden="true" style={`position: absolute; top: -30px; right: -20px; width: 130px; height: 130px; border-radius: 50%; background: radial-gradient(circle, ${b.glow}, transparent 70%); pointer-events: none;`}></div>
+          <div style="position: relative; display: flex; align-items: center; justify-content: space-between;">
+            <span aria-hidden="true" style={`width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: ${b.iconBg}; color: #fff; font-size: 17px;`}>{b.icon}</span>
+            <span style="font-family: var(--mono); font-size: 11px; color: var(--fg-2); background: rgba(10,26,51,0.5); border: 1px solid #22406E; border-radius: 20px; padding: 3px 10px;">{countByCat(b.nombre)} herramientas</span>
+          </div>
+          <div style="position: relative;">
+            <div style="font-family: var(--sans); font-weight: 700; font-size: 17px; color: #fff;">{b.nombre}</div>
+            <div style="font-size: 13px; color: #B3C1DC; margin-top: 3px;">{b.sub}</div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- ===== COLECCIÓN CURADA ===== -->
+  <section style="max-width: 1240px; margin: 40px auto 0; padding: 0 32px;">
+    <a href="/herramientas" class="banner coll-grid" style="position: relative; overflow: hidden; background: var(--bg-2); border: 1px solid var(--line-2); border-radius: 14px; padding: 32px 34px; text-decoration: none;">
+      <div aria-hidden="true" style="position: absolute; inset: 0; background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 44px 44px; opacity: 0.4; pointer-events: none;"></div>
+      <div aria-hidden="true" style="position: absolute; top: 50%; right: 12%; width: 380px; height: 300px; transform: translateY(-50%); background: radial-gradient(ellipse, rgba(91,124,255,0.14) 0%, rgba(91,124,255,0) 66%); pointer-events: none;"></div>
+      <div style="position: relative;">
+        <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent);">Colección curada</span>
+        <h2 style="font-family: var(--serif); font-weight: 400; font-size: clamp(24px, 4vw, 30px); letter-spacing: -0.025em; margin: 10px 0 0; color: #fff;">Las herramientas para vender más este mes</h2>
+        <p style="font-size: 15px; line-height: 1.55; color: var(--fg-3); margin: 10px 0 0; max-width: 40em;">Las que están cerrando ventas por WhatsApp, redes y email — revisadas y ordenadas por lo que aportan.</p>
+        <span style="display: inline-block; margin-top: 18px; font-family: var(--sans); font-weight: 600; font-size: 14px; color: var(--bg); background: var(--accent); padding: 11px 20px; border-radius: 2px;">Ver el directorio →</span>
+      </div>
+      <div style="position: relative; display: flex; flex-direction: column; gap: 10px; align-items: flex-end;">
+        <div style="display: flex;" aria-hidden="true">
+          {collAvatars.map((t) => (
+            <span style={`width: 46px; height: 46px; border-radius: 12px; border: 2px solid var(--bg-2); margin-left: -10px; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 17px; color: #fff; background: ${t.color};`}>{t.name.charAt(0)}</span>
+          ))}
+        </div>
+        <span style="font-family: var(--mono); font-size: 11px; color: var(--fg-5);">+ herramientas seleccionadas</span>
+      </div>
+    </a>
+  </section>
+
+  <!-- ===== DIRECTORIO ===== -->
+  <section id="directorio" style="max-width: 1240px; margin: 48px auto 0; padding: 0 32px 64px; scroll-margin-top: 80px;">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--line); padding-bottom: 16px; margin-bottom: 24px; flex-wrap: wrap;">
+      <div>
+        <h2 style="font-family: var(--sans); font-weight: 700; font-size: 22px; letter-spacing: -0.02em; margin: 0; color: #fff;">Directorio de herramientas</h2>
+        <span role="status" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-5);"><span id="result-count" style="color: var(--accent);">{tools.length}</span> resultados · <span id="result-cat">Todas</span></span>
+      </div>
+      <div role="group" aria-label="Tipo de vista" style="display: flex; align-items: center; gap: 6px; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 6px; padding: 4px;">
+        <button type="button" class="seg" data-layout="shelf" aria-pressed="true" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; border: none; border-radius: 4px; padding: 8px 14px; background: var(--accent); color: var(--bg); font-weight: 600;">▤ Escaparate</button>
+        <button type="button" class="seg" data-layout="shop" aria-pressed="false" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; border: none; border-radius: 4px; padding: 8px 14px; background: transparent; color: var(--fg-3);">▥ Tienda</button>
+      </div>
     </div>
 
-    <div id="tool-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px;">
-      {tools.map((tool) => <ToolCard tool={tool} />)}
+    <!-- chips de categoría (vista Escaparate) -->
+    <div id="chips-row" role="group" aria-label="Filtrar por categoría" style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 24px;">
+      {CATEGORIES.map((c, i) => (
+        <button
+          type="button"
+          class="chip cat-chip"
+          data-chip={c}
+          aria-pressed={i === 0 ? 'true' : 'false'}
+          style={`font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 14px; border-radius: 30px; ${i === 0 ? 'background: var(--accent); color: var(--bg); border: 1px solid var(--accent);' : 'background: transparent; color: var(--fg-3); border: 1px solid var(--line-2);'}`}
+        >{c}</button>
+      ))}
     </div>
 
-    <div id="empty-state" hidden style="border: 1px dashed var(--line-2); border-radius: 8px; padding: 56px 24px; text-align: center;">
-      <p style="font-family: var(--sans); font-weight: 600; font-size: 18px; color: #fff; margin: 0;">Sin resultados para tu búsqueda</p>
-      <p style="font-size: 14px; color: var(--fg-5); margin: 8px 0 0;">Prueba otra palabra o filtra por categoría.</p>
-    </div>
+    <div id="dir-body" class="dir-body">
+      <!-- sidebar (vista Tienda) -->
+      <aside id="dir-sidebar" hidden class="dir-sidebar">
+        <div>
+          <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-5);">Categoría</span>
+          <div style="display: flex; flex-direction: column; gap: 2px; margin-top: 12px;">
+            {CATEGORIES.map((c, i) => (
+              <button
+                type="button"
+                class="chip side-cat"
+                data-side-cat={c}
+                aria-pressed={i === 0 ? 'true' : 'false'}
+                style={`display: flex; align-items: center; justify-content: space-between; font-family: var(--sans); font-size: 14px; padding: 9px 12px; border-radius: 6px; text-align: left; ${i === 0 ? 'background: var(--panel-2); color: #fff; border: 1px solid var(--line-2);' : 'background: transparent; color: var(--fg-2); border: 1px solid transparent;'}`}
+              >
+                <span>{c}</span>
+                <span style="font-family: var(--mono); font-size: 11px; color: var(--fg-5);">{c === 'Todas' ? tools.length : countByCat(c)}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+        <div>
+          <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-5);">Precio</span>
+          <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
+            {(['Gratis', 'Freemium', 'Pago'] as const).map((p) => (
+              <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 14px; color: var(--fg-2);">
+                <input type="checkbox" data-price-filter={p} style="width: 16px; height: 16px; accent-color: var(--accent); flex: none;" />
+                {p}
+              </label>
+            ))}
+          </div>
+        </div>
+        <button type="button" id="clear-filters" class="chip" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-4); background: transparent; border: 1px solid var(--line-2); border-radius: 4px; padding: 9px; text-align: center;">Limpiar filtros</button>
+      </aside>
 
-    <div style="text-align: center; margin-top: 36px;">
-      <a href="/herramientas" class="lift shimmer" style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--sans); font-weight: 600; font-size: 14px; color: var(--fg-2); background: var(--panel); border: 1px solid var(--line-2); border-radius: 2px; padding: 12px 22px; text-decoration: none;">Ver el directorio completo →</a>
+      <div style="min-width: 0;">
+        <!-- estantes (vista Escaparate sin filtros) -->
+        <div id="shelves" style="display: flex; flex-direction: column; gap: 40px;">
+          {shelves.map((shelf) => (
+            <div>
+              <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                <span aria-hidden="true" style="font-size: 18px;">{shelf.emoji}</span>
+                <h3 style="font-family: var(--sans); font-weight: 700; font-size: 18px; letter-spacing: -0.01em; margin: 0; color: #fff;">{shelf.title}</h3>
+                <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5);">{shelf.sub}</span>
+              </div>
+              <div class="shelfscroll" style="display: flex; gap: 16px; padding-bottom: 12px;">
+                {shelf.items.map((tool) => (
+                  <div style="min-width: 290px; max-width: 290px; display: flex;">
+                    <ToolCard tool={tool} morph={false} compare />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- barra de ordenación (vista Tienda) -->
+        <div id="shop-toolbar" hidden style="display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-bottom: 18px; flex-wrap: wrap;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <label for="sort-select" style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5);">Ordenar</label>
+            <select id="sort-select" style="background: var(--panel-2); border: 1px solid var(--line-2); color: var(--fg-2); font-family: var(--sans); font-size: 13px; padding: 8px 12px; border-radius: 4px; cursor: pointer;">
+              <option value="pop">Popularidad</option>
+              <option value="rating">Mejor valoradas</option>
+              <option value="price">Gratis primero</option>
+              <option value="name">Nombre A–Z</option>
+            </select>
+          </div>
+          <div role="group" aria-label="Vista de resultados" style="display: flex; gap: 4px; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 6px; padding: 3px;">
+            <button type="button" class="seg view-btn" data-view="grid" title="Cuadrícula" aria-pressed="true" style="display: flex; align-items: center; justify-content: center; border: none; border-radius: 4px; padding: 7px; background: var(--accent); color: var(--bg);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></button>
+            <button type="button" class="seg view-btn" data-view="list" title="Lista" aria-pressed="false" style="display: flex; align-items: center; justify-content: center; border: none; border-radius: 4px; padding: 7px; background: transparent; color: var(--fg-3);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></button>
+          </div>
+        </div>
+
+        <!-- pool de tarjetas (grid filtrado en Escaparate / resultados en Tienda).
+             Sin JS: el noscript revela el grid completo (los estantes duplican contenido). -->
+        <noscript>
+          <style>
+            /* Debe ganar al scoped compilado de Astro (#tool-grid[data-astro-cid][hidden],
+               especificidad 1-2-0): el doble ID (2-1-0) decide por columna de IDs. */
+            #dir-body #tool-grid[hidden] { display: grid !important; }
+            #dir-body #shelves { display: none !important; }
+          </style>
+        </noscript>
+        <div id="tool-grid" hidden style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; align-items: stretch;">
+          {tools.map((tool) => <ToolCard tool={tool} compare />)}
+        </div>
+
+        <div id="empty-state" hidden role="status" style="border: 1px dashed var(--line-2); border-radius: 8px; padding: 56px 24px; text-align: center;">
+          <p style="font-family: var(--sans); font-weight: 600; font-size: 18px; color: #fff; margin: 0;">Sin resultados para tu búsqueda</p>
+          <p style="font-size: 14px; color: var(--fg-5); margin: 8px 0 0;">Prueba otra palabra o quita algún filtro.</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 36px;">
+          <a href="/herramientas" class="lift shimmer" style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--sans); font-weight: 600; font-size: 14px; color: var(--fg-2); background: var(--panel); border: 1px solid var(--line-2); border-radius: 2px; padding: 12px 22px; text-decoration: none;">Ver el directorio completo →</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -78,10 +298,10 @@ const CATEGORIES = ['Todas', ...cats.map((c) => c.data.nombre)];
     <div aria-hidden="true" style="position: absolute; inset: 0; background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 54px 54px; animation: gridDrift 7s linear infinite; opacity: 0.5;"></div>
     <div aria-hidden="true" style="position: absolute; top: 50%; right: -60px; width: 560px; height: 420px; transform: translateY(-50%); background: radial-gradient(ellipse, rgba(91,124,255,0.16) 0%, rgba(91,124,255,0) 66%); animation: auroraDrift 17s ease-in-out infinite; pointer-events: none;"></div>
 
-    <div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 72px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 56px; align-items: center;">
+    <div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 72px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 56px; align-items: center;">
       <div>
         <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent);">Empieza gratis</span>
-        <h2 style="font-family: var(--sans); font-weight: 700; font-size: clamp(28px, 5vw, 38px); line-height: 1.05; letter-spacing: -0.03em; margin: 14px 0 0; color: #fff;">Llévate el Pack de Recursos IA</h2>
+        <h2 style="font-family: var(--serif); font-weight: 400; font-size: clamp(28px, 5vw, 38px); line-height: 1.06; letter-spacing: -0.025em; margin: 14px 0 0; color: #fff;">Llévate el Pack de Recursos IA</h2>
         <p style="font-size: 16px; line-height: 1.6; color: var(--fg-3); margin: 14px 0 0; max-width: 30em;">~30 prompts y plantillas listas para usar hoy. Suscríbete y recibe una idea aplicable cada semana, en español.</p>
 
         <div data-subscribe-root style="max-width: 460px;">
@@ -131,11 +351,11 @@ const CATEGORIES = ['Todas', ...cats.map((c) => c.data.nombre)];
 
   <!-- ===== STATS ===== -->
   <section style="border-bottom: 1px solid var(--line); background: var(--bg);">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
       <div class="reveal" style="padding: 40px 24px; border-right: 1px solid var(--line);">
         <div style="display: flex; align-items: baseline; gap: 2px;">
           <span style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em;">+</span>
-          <span data-count="120" style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;">0</span>
+          <span data-count={claim} style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;">0</span>
         </div>
         <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5);">Herramientas revisadas</span>
       </div>
@@ -158,13 +378,81 @@ const CATEGORIES = ['Todas', ...cats.map((c) => c.data.nombre)];
   </main>
 
   <SiteFooter />
+
+  <!-- ===== BARRA CTA FIJA (fondo sólido: sin backdrop-filter permanente) ===== -->
+  <div id="cta-bar" hidden style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: var(--bg-2); border-top: 1px solid var(--line-2); animation: slideUp .4s cubic-bezier(0.22,0.61,0.36,1) both;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 12px 32px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap;">
+      <span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: var(--gold); animation: dotPulse 1.4s ease-in-out infinite; flex: none;"></span>
+      <span style="font-family: var(--sans); font-size: 14.5px; color: #fff; font-weight: 600; flex: 1; min-width: 200px;">Pack de Recursos IA gratis <span style="color: var(--fg-3); font-weight: 400;">— 30 prompts y plantillas para tu negocio.</span></span>
+      <a href="#pack" style="font-family: var(--sans); font-weight: 600; font-size: 13.5px; color: var(--bg); background: var(--accent); padding: 10px 20px; border-radius: 2px; text-decoration: none; white-space: nowrap;">Conseguir gratis →</a>
+      <button type="button" id="cta-dismiss" aria-label="Cerrar aviso" style="background: none; border: none; cursor: pointer; color: var(--fg-5); padding: 6px; display: flex;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+  </div>
+
+  <!-- ===== BARRA DE COMPARACIÓN ===== -->
+  <div id="compare-bar" hidden style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 61; background: rgba(12,30,60,0.95); backdrop-filter: blur(10px); border-top: 1px solid var(--accent); animation: slideUp .4s cubic-bezier(0.22,0.61,0.36,1) both;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 12px 32px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap;">
+      <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); flex: none;">Comparar</span>
+      <div id="compare-chips" style="display: flex; align-items: center; gap: 8px; flex: 1; flex-wrap: wrap;"></div>
+      <span id="compare-hint" aria-live="polite" style="font-family: var(--mono); font-size: 11px; color: var(--fg-5);">Añade hasta 3</span>
+      <div style="display: flex; align-items: center; gap: 10px; flex: none;">
+        <button type="button" id="compare-clear" style="background: none; border: 1px solid var(--line-2); border-radius: 2px; cursor: pointer; color: var(--fg-3); font-family: var(--sans); font-size: 13px; padding: 10px 14px;">Vaciar</button>
+        <button type="button" id="compare-open" class="lift" style="background: var(--accent); color: var(--bg); border: none; padding: 10px 20px; border-radius: 2px; font-family: var(--sans); font-weight: 600; font-size: 13.5px; cursor: pointer; white-space: nowrap;">Comparar →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MODAL DE COMPARACIÓN ===== -->
+  <div id="compare-overlay" hidden style="position: fixed; inset: 0; z-index: 80; background: rgba(6,16,32,0.72); backdrop-filter: blur(4px); display: flex; align-items: flex-start; justify-content: center; padding: 48px 24px; overflow-y: auto; animation: fadeIn .2s both;">
+    <div role="dialog" aria-modal="true" aria-label="Comparativa de herramientas" style="width: 100%; max-width: 980px; background: var(--bg-2); border: 1px solid var(--line-2); border-radius: 14px; overflow: hidden; animation: fadeUp .3s cubic-bezier(0.22,0.61,0.36,1) both;">
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px 26px; border-bottom: 1px solid var(--line);">
+        <div style="display: flex; align-items: baseline; gap: 10px;">
+          <h2 style="font-family: var(--serif); font-weight: 400; font-size: 24px; letter-spacing: -0.02em; margin: 0; color: #fff;">Comparativa</h2>
+          <span id="compare-count" style="font-family: var(--mono); font-size: 11px; color: var(--fg-5);"></span>
+        </div>
+        <button type="button" id="compare-close" aria-label="Cerrar comparativa" style="background: none; border: 1px solid var(--line-2); border-radius: 4px; cursor: pointer; color: var(--fg-3); padding: 8px; display: flex;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+      </div>
+      <div style="padding: 8px 26px 26px; overflow-x: auto;">
+        <div id="compare-table" style="display: grid; min-width: 640px;"></div>
+      </div>
+    </div>
+  </div>
 </BaseLayout>
 
+<style>
+  .hero-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; }
+  .cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .coll-grid { display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: center; }
+  .dir-body { display: block; }
+  .dir-body.shop { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 28px; align-items: start; }
+  .dir-sidebar { position: sticky; top: 84px; display: flex; flex-direction: column; gap: 26px; }
+  /* los elementos con display inline (flex/grid) necesitan !important para que `hidden` gane */
+  .dir-sidebar[hidden],
+  #shop-toolbar[hidden],
+  #shelves[hidden],
+  #chips-row[hidden],
+  #tool-grid[hidden],
+  #cta-bar[hidden],
+  #compare-bar[hidden],
+  #compare-overlay[hidden] { display: none !important; }
+
+  @media (max-width: 960px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+    .cat-grid { grid-template-columns: repeat(2, 1fr); }
+    .coll-grid { grid-template-columns: 1fr; }
+    .dir-body.shop { grid-template-columns: 1fr; }
+    .dir-sidebar { position: static; }
+  }
+  @media (max-width: 560px) {
+    .cat-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
 <script>
-  import { initDirectory } from '../scripts/directory';
+  import { initHome } from '../scripts/home';
   import { initMotion } from '../scripts/motion';
   document.addEventListener('astro:page-load', () => {
-    initDirectory();
+    initHome();
     initMotion();
   });
 </script>

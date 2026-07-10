@@ -1,7 +1,7 @@
 {
   "name": "agentesva-astro",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.2.0.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -9,6 +9,7 @@
     "build": "astro build",
     "postbuild": "pagefind --site .vercel/output/static",
     "preview": "astro preview",
+    "test": "vitest run",
     "astro": "astro",
     "ai:faqs": "node --env-file-if-exists=.env.local scripts/generate-faqs.mjs",
     "ai:estudios": "node --env-file-if-exists=.env.local scripts/generate-estudios.mjs"
@@ -24,8 +25,10 @@
   "devDependencies": {
     "ai": "^7.0.19",
     "autoprefixer": "^10.5.2",
+    "happy-dom": "^20.10.6",
     "pagefind": "^1.5.2",
     "postcss": "^8.5.16",
+    "vitest": "^4.1.9",
     "zod": "^4.4.3"
   },
   "overrides": {
