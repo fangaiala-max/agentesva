@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import {
   CONSENT_KEY,
   getConsent,
@@ -7,6 +7,7 @@ import {
   grantConsent,
   denyConsent,
   initConsentMode,
+  initConsent,
 } from '../src/scripts/consent';
 
 const GA_ID = 'G-TEST123';
@@ -80,5 +81,57 @@ describe('grant / deny', () => {
         (e[2] as Record<string, string>).analytics_storage === 'granted',
     );
     expect(hasUpdateGranted).toBe(true);
+  });
+});
+
+function mountBanner(): HTMLElement {
+  document.body.innerHTML = `
+    <div data-consent-banner hidden>
+      <button data-consent-accept>Aceptar</button>
+      <button data-consent-reject>Rechazar</button>
+    </div>`;
+  return document.querySelector('[data-consent-banner]') as HTMLElement;
+}
+
+describe('initConsent (wiring del banner)', () => {
+  it('muestra el banner si no hay elección previa', () => {
+    const banner = mountBanner();
+    initConsent('G-TEST123');
+    expect(banner.hidden).toBe(false);
+    expect(isGA4Loaded()).toBe(false);
+  });
+
+  it('aceptar carga GA4, persiste granted y oculta el banner', () => {
+    const banner = mountBanner();
+    initConsent('G-TEST123');
+    banner.querySelector<HTMLButtonElement>('[data-consent-accept]')!.click();
+    expect(getConsent()).toBe('granted');
+    expect(isGA4Loaded()).toBe(true);
+    expect(banner.hidden).toBe(true);
+  });
+
+  it('rechazar persiste denied, no carga GA4 y oculta el banner', () => {
+    const banner = mountBanner();
+    initConsent('G-TEST123');
+    banner.querySelector<HTMLButtonElement>('[data-consent-reject]')!.click();
+    expect(getConsent()).toBe('denied');
+    expect(isGA4Loaded()).toBe(false);
+    expect(banner.hidden).toBe(true);
+  });
+
+  it('si ya había granted, carga GA4 sin mostrar el banner', () => {
+    const banner = mountBanner();
+    setConsent('granted');
+    initConsent('G-TEST123');
+    expect(isGA4Loaded()).toBe(true);
+    expect(banner.hidden).toBe(true);
+  });
+
+  it('si ya había denied, ni carga GA4 ni muestra el banner', () => {
+    const banner = mountBanner();
+    setConsent('denied');
+    initConsent('G-TEST123');
+    expect(isGA4Loaded()).toBe(false);
+    expect(banner.hidden).toBe(true);
   });
 });

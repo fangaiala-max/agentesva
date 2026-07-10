@@ -66,3 +66,37 @@ export function denyConsent(): void {
   setConsent('denied');
   gtag('consent', 'update', { analytics_storage: 'denied' });
 }
+
+function wireBanner(banner: HTMLElement, id: string): void {
+  const accept = banner.querySelector<HTMLButtonElement>('[data-consent-accept]');
+  const reject = banner.querySelector<HTMLButtonElement>('[data-consent-reject]');
+  accept?.addEventListener('click', () => {
+    grantConsent(id);
+    banner.hidden = true;
+  });
+  reject?.addEventListener('click', () => {
+    denyConsent();
+    banner.hidden = true;
+  });
+}
+
+// Punto de entrada de página: fija el default denegado, respeta la elección previa
+// (carga GA4 si ya se aceptó) y, si no hay elección, muestra y cablea el banner.
+export function initConsent(id: string): void {
+  initConsentMode();
+  const banner = document.querySelector<HTMLElement>('[data-consent-banner]');
+  const prior = getConsent();
+  if (prior === 'granted') {
+    grantConsent(id);
+    if (banner) banner.hidden = true;
+    return;
+  }
+  if (prior === 'denied') {
+    if (banner) banner.hidden = true;
+    return;
+  }
+  if (banner) {
+    banner.hidden = false;
+    wireBanner(banner, id);
+  }
+}
