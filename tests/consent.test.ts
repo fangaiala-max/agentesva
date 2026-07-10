@@ -43,6 +43,17 @@ describe('initConsentMode', () => {
     );
     expect(hasDefaultDenied).toBe(true);
   });
+
+  it('es idempotente: no re-empuja consent default aunque se llame dos veces', () => {
+    initConsentMode();
+    initConsentMode();
+    // @ts-expect-error dataLayer inyectado
+    const events = window.dataLayer as unknown[];
+    const defaults = events.filter(
+      (e) => Array.isArray(e) && e[0] === 'consent' && e[1] === 'default',
+    );
+    expect(defaults.length).toBe(1);
+  });
 });
 
 describe('grant / deny', () => {
@@ -81,6 +92,18 @@ describe('grant / deny', () => {
         (e[2] as Record<string, string>).analytics_storage === 'granted',
     );
     expect(hasUpdateGranted).toBe(true);
+  });
+
+  it('grantConsent NO concede señales de ads (sólo analítica)', () => {
+    initConsentMode();
+    grantConsent(GA_ID);
+    // @ts-expect-error dataLayer inyectado
+    const events = window.dataLayer as unknown[];
+    const grantsAds = events.some(
+      (e) => Array.isArray(e) && e[0] === 'consent' && e[1] === 'update' &&
+        (e[2] as Record<string, string>).ad_storage === 'granted',
+    );
+    expect(grantsAds).toBe(false);
   });
 });
 

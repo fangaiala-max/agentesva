@@ -38,7 +38,12 @@ const gaId = import.meta.env.PUBLIC_GA4_ID;
 <script>
   // NOTA Astro: los <script> se bundlean siempre (no son condicionales), por eso
   // va FUERA del `{gaId && ...}`. El guard `if (id)` evita hacer nada sin GA4 ID.
+  // El cuerpo del módulo sólo corre una vez por carga completa; con View Transitions
+  // (ClientRouter) el banner se re-renderiza en cada navegación, así que re-cableamos
+  // en `astro:page-load` (mismo patrón que SiteFooter.astro).
   import { initConsent } from '../scripts/consent';
-  const id = import.meta.env.PUBLIC_GA4_ID;
-  if (id) initConsent(id);
+  document.addEventListener('astro:page-load', () => {
+    const id = import.meta.env.PUBLIC_GA4_ID;
+    if (id) initConsent(id);
+  });
 </script>

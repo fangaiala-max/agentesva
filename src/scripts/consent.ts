@@ -30,8 +30,14 @@ export function isGA4Loaded(): boolean {
   return document.head.querySelector('script[data-ga4]') !== null;
 }
 
-// Estado por defecto: todo denegado. Se llama en cada carga, antes de nada.
+// Estado por defecto: todo denegado. Se llama en cada carga (incluidas las
+// navegaciones View Transitions), pero el `default` de Consent Mode debe fijarse
+// una sola vez: si ya hay un `consent default` en el dataLayer, no lo re-empujamos.
 export function initConsentMode(): void {
+  const already = dataLayer().some(
+    (e) => Array.isArray(e) && e[0] === 'consent' && e[1] === 'default',
+  );
+  if (already) return;
   gtag('consent', 'default', {
     ad_storage: 'denied',
     ad_user_data: 'denied',
@@ -51,14 +57,12 @@ function loadGA4(id: string): void {
   gtag('config', id);
 }
 
+// Sólo concedemos analítica: el banner divulga únicamente GA4 y el sitio no carga
+// ningún píxel publicitario, así que las señales de ads se mantienen denegadas (GDPR:
+// el consentimiento debe ser específico a lo divulgado).
 export function grantConsent(id: string): void {
   setConsent('granted');
-  gtag('consent', 'update', {
-    ad_storage: 'granted',
-    ad_user_data: 'granted',
-    ad_personalization: 'granted',
-    analytics_storage: 'granted',
-  });
+  gtag('consent', 'update', { analytics_storage: 'granted' });
   loadGA4(id);
 }
 
