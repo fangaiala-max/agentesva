@@ -13,7 +13,7 @@ export default defineConfig({
       filter: (page) => !page.includes('/ir/') && !page.includes('/buscar') && !page.includes('/descarga'),
       i18n: {
         defaultLocale: 'es',
-        locales: { es: 'es-ES' },
+        locales: { es: 'es' },
       },
     }),
   ],
