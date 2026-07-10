@@ -25,8 +25,8 @@
   --green: #4fd39a;
   --gold: #f5c451;
   --serif: 'DM Serif Display', Georgia, 'Times New Roman', serif;
-  --sans: 'DM Sans', system-ui, -apple-system, sans-serif;
-  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+  --sans: 'DM Sans Variable', 'DM Sans', system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
 }
 
 * { box-sizing: border-box; }

@@ -60,7 +60,7 @@ Third-party (browser-side)
 | Header | Value |
 |---|---|
 | `Strict-Transport-Security` | `max-age=63072000; includeSubDomains; preload` |
-| `Content-Security-Policy` | strict allowlist (script-src GA + Mixpanel + HubSpot only; frame-ancestors 'self'; upgrade-insecure-requests) |
+| `Content-Security-Policy` | strict allowlist (script-src 'self' + googletagmanager para GA4; connect-src dominios GA4; fuentes self-hosted, sin Google Fonts; frame-ancestors 'self'; upgrade-insecure-requests) |
 | `X-Content-Type-Options` | `nosniff` |
 | `X-Frame-Options` | `SAMEORIGIN` |
 | `Referrer-Policy` | `strict-origin-when-cross-origin` |
@@ -80,6 +80,7 @@ Production: Vercel Project → Settings → Environment Variables.
 | `BREVO_LIST_VOICE_WAITLIST` | `/api/subscribe.js` | Voice waitlist (id 10) |
 | `TWILIO_AUTH_TOKEN` | `/api/wa.js` | WhatsApp webhook signature |
 | `WA_VERIFY_TOKEN` | `/api/wa.js` | Twilio challenge-response |
+| `PUBLIC_GA4_ID` | `ConsentBanner.astro` / `consent.ts` | GA4 Measurement ID (`G-…`); gatea el banner de consentimiento + analytics. Vacío = feature desactivada |
 
 Make.com webhook URL is **client-side fetched** (inline in `/diagnostico/`), so it lives in the codebase, not as a secret. Anyone with the URL can ping it; treat it as public.
 
