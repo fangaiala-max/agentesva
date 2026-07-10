@@ -104,4 +104,4 @@ Generados y versionados en `public/brand/` (índice + tamaños en `public/brand/
 
 ## 4. CSP / fuentes
 
-DM Serif Display + DM Sans + JetBrains Mono vía Google Fonts (`display=swap`). La CSP en `vercel.json` permite `fonts.googleapis.com` (style-src) y `fonts.gstatic.com` (font-src). Scripts de cliente externos (`script-src 'self'`; `vite.assetsInlineLimit=0`).
+DM Serif Display + DM Sans Variable + JetBrains Mono Variable **self-hosted** vía `@fontsource` / `@fontsource-variable` (woff2 desde el propio bundle, `font-display: swap`), importadas en `BaseLayout.astro`. La CSP en `vercel.json` **no** permite dominios de fuentes externos (`style-src 'self' 'unsafe-inline'`; `font-src 'self' data:`). Scripts de cliente externos (`script-src 'self'`; `vite.assetsInlineLimit=0`).
