@@ -180,6 +180,7 @@ const recursos = defineCollection({
       destacado: z.boolean().default(false),
       actualizado: z.string(),
       faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
+      biblioteca: z.boolean().default(false),
     })
     .superRefine((d, ctx) => {
       if (d.precio === 'Pago' && !d.compraUrl) {
@@ -188,8 +189,8 @@ const recursos = defineCollection({
       if (d.precio === 'Pago' && !d.precioDesde) {
         ctx.addIssue({ code: 'custom', message: 'Un recurso de pago requiere precioDesde (para el precio del Offer).', path: ['precioDesde'] });
       }
-      if (d.precio === 'Gratis' && !d.downloadUrl && !d.gated) {
-        ctx.addIssue({ code: 'custom', message: 'Un recurso gratis requiere downloadUrl o gated:true.', path: ['downloadUrl'] });
+      if (d.precio === 'Gratis' && !d.downloadUrl && !d.gated && !d.biblioteca) {
+        ctx.addIssue({ code: 'custom', message: 'Un recurso gratis requiere downloadUrl, gated:true o biblioteca:true.', path: ['downloadUrl'] });
       }
     }),
 });
