@@ -1,182 +1,190 @@
-# Guía de 100 prompts de IA — diseño
+# Biblioteca de IA + Equipos de IA (freemium) — diseño
 
 **Fecha:** 2026-07-15
-**Estado:** Aprobado (dirección) — pendiente de plan de implementación
+**Estado:** Aprobado — pendiente de plan de implementación
 **Autor:** Fernando + Claude
+
+> Documento vivo. El alcance evolucionó en la sesión: de "100 prompts" a una
+> **biblioteca freemium** con 3 catálogos (300 recursos) y monetización por
+> **"equipos de IA"** (bundles). Esta es la versión final acordada.
 
 ## Objetivo
 
-Publicar en AgentesVA una **biblioteca navegable y gratuita de 100 prompts de IA**
-de alta calidad para PyMEs hispanohablantes (España + LATAM), como nuevo recurso de
-la tienda (`/recursos`). Los prompts se ven, se filtran y se copian directamente en
-la web — sin PDF ni muro de email.
+Publicar en AgentesVA una **biblioteca de IA freemium**, en una sola página navegable
+(nuevo recurso de `/recursos`), para PyMEs hispanohablantes (España + LATAM):
 
-Sirve a dos fines: aportar valor inmediato (herramienta útil de verdad) y SEO
-(100 prompts = mucho contenido indexable y long-tail).
+- **Regala** 100 prompts listos para copiar (gancho + SEO).
+- **Vende** 200 blueprints (recetas de IA ejecutables) mostrando su beneficio/alcance como
+  teaser, empaquetados como **"equipos de IA"** (bundles) y también sueltos.
 
-## Decisiones (confirmadas con el usuario)
+## Modelo de negocio (freemium)
 
-1. **Formato:** página navegable con filtros por categoría y botón *Copiar* por prompt.
-2. **Precio:** Gratis, sin gate de email.
-3. **Recurso:** nuevo. Se mantiene el `pack-30-prompts` existente (dos escalones: 30 rápido / 100 completo).
-4. **Contenido:** los prompts NO se copian de la lista de Gemini tal cual — se
-   **reescriben y mejoran estructuralmente** a un estándar de alta calidad.
+| Capa | Contenido | En la web |
+|---|---|---|
+| Gratis | 100 prompts (catálogo A) | Prompt completo, botón *Copiar* |
+| Gratis (teaser) | 200 blueprints (catálogos B + C) | Título + **beneficio** + **alcance** |
+| **De pago** | Blueprint completo (qué hace · modo · pasos · reglas · prompt) | Suelto **1,99 €** o en **bundle "equipo" 3,99 €** |
 
-## Alcance
+- **Canal de cobro:** Stripe Payment Links (uno por SKU). El enlace lo crea el usuario.
+- **Entrega:** Stripe NO aloja archivos → tras pagar se redirige a un **destino de entrega**
+  (página no listada `noindex` / PDF / Notion) con los blueprints comprados. Destino TBD por el usuario.
+- **Precios (config, ajustables):** blueprint suelto `1,99 €`; bundle equipo `3,99 €`.
+- **Arranque recomendado:** lanzar con los **~10 equipos** (pocos Payment Links) y añadir el
+  "suelto a 1,99" después. Botones placeholder hasta tener los enlaces reales.
 
-**Incluye:**
-- 100 prompts reescritos, tipados, agrupados por categoría → subcategoría.
-- Página de recurso que renderiza la biblioteca navegable.
-- Filtrado por categoría (pestañas) y copiar-al-portapapeles (cliente).
-- Ficha del recurso en la tienda (`/recursos`) que enlaza a la biblioteca.
-- Tests de integridad del dataset.
+## Los 3 catálogos
 
-**No incluye (YAGNI):**
-- Buscador de texto dentro de los prompts (los filtros por categoría bastan; Pagefind
-  ya indexa la página para el buscador global del sitio).
-- PDF descargable ni captura de email (decisión explícita: navegable y gratis).
-- Favoritos/guardado de prompts individuales.
-- Paginación (100 tarjetas ligeras renderizan bien en una página estática).
+### A — Prompts de IA para tu negocio (100) · GRATIS
+Prompts para copiar/pegar, reescritos con **Rol + Contexto + Tarea + Restricciones + Formato**.
+Grupos (4): Por industria · Por resultados/KPIs · Mejores casos de uso · Por objetivos.
 
-## Estándar de calidad de los prompts
+### B — IA en tu software (100 blueprints) · teaser gratis / completo de pago
+Del catálogo "100 skills de ingeniería", en su **versión más útil**: cada ítem es un
+**blueprint ejecutable**. En la web se ve beneficio+alcance.
+Grupos/equipos (4): Auditoría de tu software · Mantenimiento y limpieza de código ·
+Calidad y pruebas (QA) · Operaciones y seguridad (DevOps).
 
-Cada prompt se reescribe con la estructura **Rol + Contexto + Tarea + Restricciones +
-Formato**, explícita y limpia:
+### C — Growth con IA (100 blueprints) · teaser gratis / completo de pago
+Del catálogo "100 agentic skills de Growth Engineering", ya vienen en formato blueprint
+(Skill ID · Mode · Routing · Workflow · Rules). Se reescriben claros y útiles.
+Grupos/equipos (6): SEO · Visibilidad en IA (GEO) · Inteligencia competitiva ·
+Publicidad y conversión · Redes sociales y contenido · Diseño y experiencia (UX).
 
-- **Español neutro** apto para España y LATAM (evitar modismos regionales).
-- Placeholders claros entre corchetes: `[producto/servicio]`, `[audiencia]`, etc.
-- Restricciones útiles (tono, longitud, marco de copy, "sin inventar datos").
-- Formato de salida especificado (tabla, lista, nº de variantes…).
-- Sin promesas exageradas ni afirmaciones no verificables (coherente con el tono
-  editorial de AgentesVA, sin AI-hype).
+## Equipos de IA (bundles de pago)
 
-**Ejemplo (antes → después):**
+Un **equipo = un grupo** de los catálogos B/C, empaquetado con gancho de "contrata a tu
+equipo". 10 equipos:
 
-> **Antes (Gemini):** "Actúa como un Copywriter de respuesta directa experto en
-> psicología del consumidor. Redacta un texto de ventas de 300 palabras para
-> [producto/servicio]... Termina con una llamada a la acción clara."
+| Equipo | Grupo origen |
+|---|---|
+| 🔍 Equipo de Auditoría de Software | B · Auditoría |
+| 🧹 Equipo de Mantenimiento de Código | B · Mantenimiento |
+| ✅ Equipo de Calidad (QA) | B · Calidad/pruebas |
+| ⚙️ Equipo de DevOps y Seguridad | B · Operaciones |
+| 🧲 Equipo de SEO | C · SEO |
+| 🤖 Equipo de Visibilidad en IA | C · GEO |
+| 🕵️ Equipo de Inteligencia Competitiva | C · Competencia |
+| 📈 Equipo de Publicidad y Conversión | C · Performance |
+| 📱 Equipo de Redes Sociales | C · Social |
+| 🎨 Equipo de Diseño y Experiencia | C · UI/UX |
 
-> **Después:**
-> **Rol:** Copywriter de respuesta directa con experiencia en psicología del consumidor.
-> **Contexto:** Vendo `[producto/servicio]` a `[audiencia]`. Su dolor principal es
-> `[dolor]` y su mayor deseo es `[resultado deseado]`.
-> **Tarea:** Escribe un texto de ventas de ~300 palabras que agite ese dolor y presente
-> mi producto como la solución evidente.
-> **Restricciones:** Tono cercano, sin tecnicismos; usa la fórmula PAS; nada de promesas
-> que no pueda cumplir.
-> **Formato:** Titular + 3 párrafos + 2 variantes de llamada a la acción.
-
-## Taxonomía (100 prompts = 4 × 5 × 5)
-
-1. **Por industria** (25): Marketing · Ventas B2B/B2C · Tecnología/Software · RR.HH. · Finanzas/Legal
-2. **Por resultados / KPIs** (25): Conversión (CRO) · SEO/Tráfico · Productividad · Retención (LTV) · Captación de leads
-3. **Mejores casos de uso** (25): Análisis de datos · Creatividad · Simulación de roles · Copywriting · Negociación
-4. **Por objetivos estratégicos** (25): Reducción de costes · Expansión/GTM · Aprendizaje · Estrategia · Marca personal
+> Nota de precio a reconciliar en el cableado: el usuario mencionó "bundle de 3–4 a 3,99".
+> Los grupos tienen más de 4 ítems. Default provisional: el **equipo = grupo completo a 3,99 €**
+> (gancho generoso) + **suelto a 1,99 €**. El precio/tamaño es config y se ajusta sin refactor.
 
 ## Arquitectura
 
-Piezas aisladas, cada una con un propósito claro:
+Motor genérico "biblioteca", instanciado con 3 catálogos + equipos. Piezas aisladas:
 
-### `src/data/prompts.ts`
-Fuente de datos tipada. Tipos y helpers; sin JSX.
-
+### `src/data/biblioteca/` (datos tipados, sin JSX)
 ```ts
-export interface Prompt {
-  id: number;               // 1..100, único y estable
-  titulo: string;           // título corto del caso de uso
-  categoria: CategoriaId;   // 'industria' | 'resultados' | 'casos' | 'objetivos'
-  subcategoria: string;     // p. ej. 'Marketing'
-  texto: string;            // prompt reescrito (multilínea, con Rol/Contexto/...)
+// index.ts — tipos + agregados + helpers
+export type CatalogoId = 'prompts' | 'software' | 'growth';
+export interface Catalogo { id: CatalogoId; nombre: string; desc: string; grupos: string[]; gratis: boolean; }
+export interface Blueprint { quePuedeHacer: string; modo: string; pasos: string[]; reglas: string[]; prompt: string; }
+export interface Item {
+  id: string;              // 'p01'.., 'sw01'.., 'gr01'..
+  catalogo: CatalogoId;
+  grupo: string;           // ∈ Catalogo.grupos
+  titulo: string;
+  cuerpo?: string;         // A (prompts): prompt completo copiable
+  beneficio?: string;      // B/C: teaser — qué ganas
+  alcance?: string;        // B/C: teaser — hasta dónde llega
+  blueprint?: Blueprint;   // B/C: contenido de pago (NO se renderiza en la web gratis)
+  precio?: number;         // B/C: € suelto (1.99)
 }
-export type CategoriaId = 'industria' | 'resultados' | 'casos' | 'objetivos';
-export interface Categoria { id: CategoriaId; nombre: string; desc: string; }
-
-export const CATEGORIAS: Categoria[];   // orden de las pestañas
-export const PROMPTS: Prompt[];         // los 100
-export function promptsPorCategoria(id: CategoriaId): Prompt[];
-export function subcategorias(id: CategoriaId): string[];
+export interface Equipo { id: string; nombre: string; desc: string; grupo: string; catalogo: CatalogoId; precio: number; compraUrl?: string; }
+export const CATALOGOS: Catalogo[];
+export const EQUIPOS: Equipo[];
+export const ITEMS: Item[];                       // 300
+export function itemsDeCatalogo(id: CatalogoId): Item[];
+export function gruposDeCatalogo(id: CatalogoId): string[];
+export function itemsDeGrupo(cat: CatalogoId, grupo: string): Item[];
+export function equipoDeGrupo(cat: CatalogoId, grupo: string): Equipo | undefined;
+// prompts.ts / software.ts / growth.ts → cada uno exporta su Item[] (100)
+// equipos.ts → EQUIPOS (10)
 ```
 
-### `src/components/PromptLibrary.astro`
-Render de la biblioteca dentro del sistema "Futurista":
-- Barra de pestañas de categoría (incl. "Todas") — `data-categoria` para el filtro.
-- Prompts agrupados por subcategoría (encabezado mono en mayúsculas, estilo del sitio).
-- Cada prompt = tarjeta con: nº + título, cuerpo en `<pre>`/monoespaciada legible, y
-  botón *Copiar* (`data-prompt-copy`, texto en `data-prompt-text` o leído del DOM).
-- Accesible: pestañas con `aria`, botón con estado (`Copiar` → `¡Copiado!`).
+### `src/components/BibliotecaIA.astro`
+Render (sistema "Futurista"):
+- **Selector de catálogo** (pills): Prompts · Software · Growth. Uno activo (default Prompts).
+- **Filtro de texto** (input) — por el volumen (300 ítems); filtra por título/beneficio/cuerpo.
+- **Chips de grupo** por catálogo.
+- Ítems por grupo (encabezado mono mayúsculas). Para B/C, el grupo muestra su **banner de equipo**
+  con CTA "Contratar equipo · 3,99 €".
+- Tarjeta de ítem:
+  - A: título + prompt (`<pre>`) + botón *Copiar*.
+  - B/C: título + beneficio + alcance + botón "Desbloquear · 1,99 €" (placeholder Stripe).
+- Estado vacío en filtros sin resultados. Accesible (aria en pills/chips/botones, foco visible).
 
-### `src/scripts/prompts.ts`
-Cliente (idempotente, se ata en `astro:page-load` como el resto del sitio):
-- `initPromptFilter()`: filtra tarjetas/grupos según la pestaña activa.
-- `initPromptCopy()`: `navigator.clipboard.writeText`; feedback temporal en el botón;
-  fallback si clipboard no está disponible.
+### `src/scripts/biblioteca.ts` (cliente, idempotente, `astro:page-load`)
+- `initBiblioteca()`: catálogo activo + grupo activo + texto → togglea `hidden` en tarjetas y
+  encabezados; actualiza contador y estado vacío.
+- `initBibliotecaCopy()`: `navigator.clipboard.writeText`; feedback "¡Copiado!"; fallback.
 
-### `src/content/recursos/guia-100-prompts.json`
-Ficha del recurso:
+### `src/content/recursos/biblioteca-ia.json`
+Recurso de la tienda (Gratis para entrar; el pago vive dentro):
 ```json
 {
-  "titulo": "Guía de 100 prompts de IA para tu negocio",
-  "tipo": "prompts",
-  "categoria": "Productividad",
-  "desc": "100 prompts de IA listos para copiar, organizados por industria, resultados y objetivos.",
-  "long": "...",
-  "tagline": "...",
-  "ideal": "...",
-  "formato": "Web · 100 prompts",
-  "precio": "Gratis",
-  "biblioteca": "prompts",
-  "gated": false,
-  "color": "#5B7CFF",
-  "orden": 5,
-  "destacado": true,
-  "actualizado": "2026-07-15"
+  "titulo": "Biblioteca de IA: 100 prompts gratis + 200 blueprints",
+  "tipo": "prompts", "categoria": "Productividad",
+  "desc": "100 prompts para copiar gratis y 200 blueprints de IA por equipos para tu negocio.",
+  "long": "...", "tagline": "...", "ideal": "...",
+  "formato": "Web · 300 recursos", "precio": "Gratis",
+  "biblioteca": true, "gated": false,
+  "color": "#5B7CFF", "orden": 4, "destacado": true, "actualizado": "2026-07-15"
 }
 ```
 
-### `src/content.config.ts` (cambio de schema)
-- Añadir campo opcional `biblioteca: z.enum(['prompts']).optional()`.
-- Relajar el `superRefine`: un recurso **Gratis con `biblioteca`** NO requiere
-  `downloadUrl` ni `gated` (se consume en la propia página). Regla nueva:
-  `if (precio === 'Gratis' && !downloadUrl && !gated && !biblioteca) → error`.
+### `src/content.config.ts` — añadir `biblioteca: z.boolean().default(false)`; relajar `superRefine`
+(Gratis + `biblioteca:true` no requiere `downloadUrl`/`gated`).
 
-### `src/data/recursos.ts` (tipo)
-- Añadir `biblioteca?: 'prompts'` a la interfaz `Recurso`.
+### `src/data/recursos.ts` — añadir `biblioteca?: boolean` a `Recurso`.
 
-### `src/pages/recurso/[slug].astro` (hook de render)
-- Cuando `recurso.biblioteca === 'prompts'`:
-  - Renderizar `<PromptLibrary />` en el cuerpo principal (sustituye/complementa el
-    bloque genérico "Qué es / Para quién / FAQ" — se mantiene una intro breve arriba).
-  - CTA primario del héroe pasa a "Explorar los 100 prompts ↓" (ancla a la biblioteca)
-    en vez del CTA de descarga/newsletter.
-  - Importar y arrancar `initPromptFilter` / `initPromptCopy` junto a los scripts existentes.
+### `src/pages/recurso/[slug].astro` — si `recurso.biblioteca`, renderizar `<BibliotecaIA />`
+como cuerpo (se conserva héroe + intro breve; se omite el bloque genérico de 2 columnas);
+CTA del héroe → "Explorar la biblioteca ↓". Arrancar `initBiblioteca`/`initBibliotecaCopy`.
 
-## Datos / SEO
+## Entrega del contenido de pago (v1)
 
-- `Product` + `offers.price = "0"` ya funciona para Gratis (lógica existente en el template).
-- La página queda indexable (`data-pagefind-body`), aportando 100 bloques de texto long-tail.
+Los blueprints completos (B/C) se generan como **producto**. Entrega tras compra (elige el usuario):
+- **Opción simple:** páginas de entrega no listadas (`/entrega/[equipo]`, `noindex`, slug secreto)
+  a las que Stripe redirige tras el pago. No es un muro real pero basta para 1,99–3,99 €.
+- **Opción PDF/Notion:** un PDF por equipo enlazado en el email/confirmación de Stripe.
+Decisión diferida; no bloquea la capa gratis.
 
 ## Testing (objetivo 100% cobertura)
 
-`tests/prompts.test.ts`:
-- `PROMPTS.length === 100`.
-- Ids únicos y correlativos (1..100).
-- Toda `categoria` ∈ `CATEGORIAS`; toda `subcategoria` no vacía.
-- Cada prompt: `titulo` y `texto` no vacíos; `texto` contiene la estructura mínima
-  (p. ej. incluye "Rol" o los marcadores del framework).
-- 25 prompts por categoría (4 × 25).
-- Helpers: `promptsPorCategoria` devuelve solo la categoría pedida y suma 100 en total;
-  `subcategorias` devuelve 5 por categoría, sin duplicados.
+`tests/biblioteca.test.ts` (datos):
+- `ITEMS.length === 300`; 100 por catálogo; ids únicos con prefijo correcto (`p`/`sw`/`gr`).
+- `item.grupo ∈ gruposDeCatalogo(item.catalogo)`; `titulo` no vacío.
+- A: `cuerpo` presente y con marcadores del framework (p. ej. "Rol"/"Tarea"). B/C: `beneficio`,
+  `alcance`, `blueprint` y `precio` presentes; `cuerpo` ausente.
+- `CATALOGOS` (3) con grupos correctos (4/4/6); `EQUIPOS` (10), uno por grupo de B/C.
+- Helpers: sumas y filtros correctos (`itemsDeCatalogo`, `gruposDeCatalogo`, `itemsDeGrupo`, `equipoDeGrupo`).
 
-## Riesgos / consideraciones
+`tests/biblioteca-ui.test.ts` (happy-dom, `src/scripts/biblioteca.ts`):
+- Cambiar de catálogo muestra solo sus ítems.
+- Filtro de texto oculta lo que no coincide; aparece estado vacío.
+- Copiar invoca `clipboard.writeText` con el `cuerpo` y muestra feedback.
 
-- **Volumen de contenido:** reescribir 100 prompts con calidad es la mayor parte del
-  trabajo. Se hará por lotes/categorías para mantener consistencia de tono.
-- **Peso de página:** 100 tarjetas estáticas; sin JS pesado. El filtro solo togglea
-  `hidden`. Aceptable.
-- **Coherencia de diseño:** reutilizar tokens/variables de `global.css`; no introducir
-  estilos nuevos fuera del sistema.
+## Entrega incremental
+
+1. **Fase 1** — motor + schema/recurso + página + **catálogo A (100 prompts)** + tests → shippable.
+2. **Fase 2** — **catálogo B (100 blueprints software)**: teasers en web + blueprints producto + 4 equipos.
+3. **Fase 3** — **catálogo C (100 blueprints growth)**: teasers + blueprints + 6 equipos.
+4. **Cableado Stripe** — Payment Links reales + entrega, por equipo (y sueltos).
+Cada fase deja tests+build en verde.
+
+## Estándar de calidad / honestidad
+
+- Español neutro (España + LATAM), sin modismos.
+- Prompts: framework explícito, placeholders `[entre corchetes]`.
+- Blueprints: beneficio primero; pasos y reglas claros; un prompt ejecutable por blueprint.
+- **Fact-checking:** B/C son de origen IA; se reescriben como frameworks prácticos; se quitan/suavizan
+  cifras y afirmaciones no verificables. Sin AI-hype ni promesas exageradas (tono editorial AgentesVA).
 
 ## Fuera de alcance / futuro
 
-- Versión PDF descargable como lead magnet aparte (si más adelante se quiere captar email).
-- Búsqueda/etiquetas por herramienta (ChatGPT/Claude/Gemini) dentro de la biblioteca.
+- Muro de pago "real" con auth (el sitio es estático; v1 usa entrega por enlace no listado).
+- Guardado de favoritos; búsqueda avanzada por herramienta.
