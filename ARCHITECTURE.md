@@ -32,7 +32,7 @@ Third-party (browser-side)
 |---|---|---|
 | Framework | Astro | 5.14 |
 | Adapter | @astrojs/vercel | static prerender |
-| Styling | Tailwind 3 + custom CSS tokens | — |
+| Styling | Tailwind 4 (integración PostCSS) + custom CSS tokens | — |
 | Functions runtime | Node.js | 24 LTS (Vercel default) |
 | Hosting | Vercel | Production region: cdg1 (Paris) |
 | Edge / DNS | Cloudflare | DNS only for Brevo records (DKIM CNAMEs un-proxied) |
