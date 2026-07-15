@@ -50,8 +50,10 @@ Actualizar también el comentario de cabecera para reflejar TW4.
 Reemplazar las 3 directivas por:
 
 ```css
-@import "tailwindcss";
+@import "tailwindcss/index.css";
 ```
+
+> **Nota (implementación):** el `@import "tailwindcss";` "pelado" que documenta Tailwind rompe el build en este combo (Astro 7.0.7 → Vite 8 / Rolldown, bug de resolución de specifiers que trata el paquete como ruta relativa: `ENOENT ... open '.../tailwindcss'`). Se usa el subpath explícito `tailwindcss/index.css` — un export público en el `package.json` de Tailwind que resuelve al mismo archivo (CSS generado byte-idéntico) y se mantiene dentro de la integración PostCSS (sin cambiar al plugin de Vite, que está fuera de alcance).
 
 El resto del archivo (CSS vars, reset propio, reglas del tema) queda intacto debajo.
 
