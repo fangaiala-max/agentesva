@@ -1,0 +1,114 @@
+---
+// Biblioteca de IA navegable: selector de catálogo + buscador + tarjetas.
+// Catálogo A (prompts): tarjeta con prompt copiable. B/C: teaser (beneficio+alcance) + CTA de pago.
+import { CATALOGOS, gruposDeCatalogo, itemsDeGrupo, equipoDeGrupo } from '../data/biblioteca';
+
+const fold = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
+const eur = (n: number) => n.toFixed(2).replace('.', ',') + ' €';
+const activo = CATALOGOS[0].id; // 'prompts' por defecto
+---
+
+<section id="biblioteca" data-pagefind-body style="margin-top: 40px;">
+  <!-- Selector de catálogo -->
+  <div role="tablist" aria-label="Catálogos" style="display: flex; flex-wrap: wrap; gap: 8px;">
+    {CATALOGOS.map((c) => (
+      <button
+        type="button"
+        class="bib-cat"
+        role="tab"
+        data-cat={c.id}
+        aria-pressed={c.id === activo ? 'true' : 'false'}
+        style={`font-family: var(--mono); font-size: 12px; letter-spacing: 0.02em; padding: 9px 16px; border-radius: 20px; cursor: pointer; border: 1px solid ${c.id === activo ? 'var(--accent)' : 'var(--line-2)'}; background: ${c.id === activo ? 'var(--accent)' : 'transparent'}; color: ${c.id === activo ? 'var(--bg)' : 'var(--fg-3)'};`}
+      >
+        {c.nombre}{c.gratis ? '' : ' · de pago'}
+      </button>
+    ))}
+  </div>
+
+  <!-- Buscador -->
+  <div style="display: flex; align-items: center; gap: 12px; margin-top: 18px; flex-wrap: wrap;">
+    <input
+      id="bib-search"
+      type="search"
+      placeholder="Buscar en la biblioteca…"
+      aria-label="Buscar"
+      autocomplete="off"
+      style="flex: 1; min-width: 220px; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 2px; padding: 12px 14px; font-family: var(--sans); font-size: 14px; color: var(--fg);"
+    />
+    <span id="bib-count" style="font-family: var(--mono); font-size: 11px; color: var(--fg-5); white-space: nowrap;"></span>
+  </div>
+
+  <!-- Descripción por catálogo -->
+  {CATALOGOS.map((c) => (
+    <p class="bib-desc" data-cat={c.id} hidden={c.id !== activo} style="font-size: 14.5px; color: var(--fg-3); margin: 22px 0 4px;">
+      {c.desc}
+      {!c.gratis && <span style="color: var(--fg-5);"> · Cada blueprint suelto a 1,99 € o contrata el equipo completo.</span>}
+    </p>
+  ))}
+
+  <!-- Grupos + tarjetas -->
+  {CATALOGOS.map((c) =>
+    gruposDeCatalogo(c.id).map((grupo) => {
+      const items = itemsDeGrupo(c.id, grupo);
+      const equipo = equipoDeGrupo(c.id, grupo);
+      return (
+        <section class="bib-grupo" data-cat={c.id} data-grupo={grupo} hidden={c.id !== activo} style="margin-top: 30px;">
+          <header style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 12px;">
+            <h3 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0;">{grupo}</h3>
+            {equipo && (
+              <a
+                class="bib-equipo lift"
+                href="#"
+                data-stripe={equipo.id}
+                style="font-family: var(--sans); font-weight: 600; font-size: 12.5px; text-decoration: none; color: var(--bg); background: var(--accent); padding: 8px 14px; border-radius: 2px; white-space: nowrap;"
+              >
+                Contratar {equipo.nombre} · {eur(equipo.precio)}
+              </a>
+            )}
+          </header>
+
+          <div class="bib-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; margin-top: 16px;">
+            {items.map((it) => (
+              <article
+                class="bib-item"
+                data-cat={c.id}
+                data-grupo={grupo}
+                data-search={fold([it.titulo, it.cuerpo, it.beneficio, it.alcance].filter(Boolean).join(' '))}
+                style="border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; gap: 10px;"
+              >
+                <h4 style="font-family: var(--sans); font-weight: 600; font-size: 15px; color: var(--fg-strong); margin: 0;">{it.titulo}</h4>
+
+                {it.cuerpo ? (
+                  <>
+                    <pre class="bib-body" style="font-family: var(--mono); font-size: 12.5px; line-height: 1.6; color: var(--fg-2); white-space: pre-wrap; word-break: break-word; margin: 0; max-height: 220px; overflow: auto;">{it.cuerpo}</pre>
+                    <button
+                      type="button"
+                      class="bib-copy"
+                      data-copy={it.cuerpo}
+                      style="align-self: flex-start; font-family: var(--sans); font-weight: 600; font-size: 13px; color: var(--fg-2); background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 2px; padding: 8px 14px; cursor: pointer;"
+                    >Copiar</button>
+                  </>
+                ) : (
+                  <>
+                    {it.beneficio && <p style="font-size: 13.5px; line-height: 1.55; color: var(--fg-2); margin: 0;">{it.beneficio}</p>}
+                    {it.alcance && <p style="font-size: 12.5px; line-height: 1.5; color: var(--fg-4); margin: 0;"><span style="color: var(--fg-5); font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em;">Alcance</span> · {it.alcance}</p>}
+                    <a
+                      class="bib-unlock lift"
+                      href="#"
+                      data-stripe={it.id}
+                      style="align-self: flex-start; font-family: var(--sans); font-weight: 600; font-size: 13px; text-decoration: none; color: var(--accent); background: transparent; border: 1px solid var(--accent); border-radius: 2px; padding: 8px 14px;"
+                    >Desbloquear · {eur(it.precio ?? 1.99)}</a>
+                  </>
+                )}
+              </article>
+            ))}
+          </div>
+        </section>
+      );
+    })
+  )}
+
+  <div id="bib-empty" hidden style="text-align: center; color: var(--fg-4); font-size: 14px; padding: 40px 0;">
+    No encontramos nada con esa búsqueda. Prueba con otra palabra.
+  </div>
+</section>
