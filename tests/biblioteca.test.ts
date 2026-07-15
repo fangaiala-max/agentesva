@@ -6,6 +6,8 @@ import {
   itemsDeCatalogo,
   gruposDeCatalogo,
   itemsDeGrupo,
+  temasDeGrupo,
+  itemsDeTema,
   equipoDeGrupo,
 } from '../src/data/biblioteca';
 
@@ -67,5 +69,20 @@ describe('catálogo A — prompts', () => {
       expect(p.blueprint).toBeUndefined();
       expect(p.precio).toBeUndefined();
     }
+  });
+
+  it('cada grupo tiene 5 subtemas de 5 prompts cada uno (evita la wall of cards)', () => {
+    for (const g of ['Por industria', 'Por resultados', 'Mejores casos de uso', 'Por objetivos']) {
+      const temas = temasDeGrupo('prompts', g);
+      expect(temas, `${g} debería tener 5 subtemas`).toHaveLength(5);
+      expect(new Set(temas).size).toBe(5); // sin duplicados
+      for (const tema of temas) {
+        expect(itemsDeTema('prompts', g, tema), `${g} · ${tema}`).toHaveLength(5);
+      }
+    }
+  });
+
+  it('temasDeGrupo devuelve [] para un grupo sin datos de tema', () => {
+    expect(temasDeGrupo('software', 'Auditoría de tu software')).toEqual([]);
   });
 });

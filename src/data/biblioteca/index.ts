@@ -26,6 +26,7 @@ export interface Item {
   id: string;
   catalogo: CatalogoId;
   grupo: string;
+  tema?: string; // subtema dentro del grupo (p. ej. "Marketing" dentro de "Por industria"); evita la "wall of cards"
   titulo: string;
   cuerpo?: string; // A: prompt completo copiable
   beneficio?: string; // B/C: teaser — qué ganas
@@ -93,6 +94,20 @@ export function gruposDeCatalogo(id: CatalogoId): string[] {
 
 export function itemsDeGrupo(cat: CatalogoId, grupo: string): Item[] {
   return ITEMS.filter((i) => i.catalogo === cat && i.grupo === grupo);
+}
+
+// Subtemas de un grupo, en orden de primera aparición (p. ej. Marketing, Ventas... dentro de "Por industria").
+// Devuelve [] si los items de ese grupo no usan `tema` (aún no autorado, p. ej. catálogos B/C).
+export function temasDeGrupo(cat: CatalogoId, grupo: string): string[] {
+  const temas: string[] = [];
+  for (const it of itemsDeGrupo(cat, grupo)) {
+    if (it.tema && !temas.includes(it.tema)) temas.push(it.tema);
+  }
+  return temas;
+}
+
+export function itemsDeTema(cat: CatalogoId, grupo: string, tema: string): Item[] {
+  return itemsDeGrupo(cat, grupo).filter((i) => i.tema === tema);
 }
 
 export function equipoDeGrupo(cat: CatalogoId, grupo: string): Equipo | undefined {

@@ -8,9 +8,11 @@ function dom() {
     <input id="bib-search" />
     <span id="bib-count"></span>
     <div id="bib-empty" hidden></div>
-    <article class="bib-item" data-cat="prompts" data-grupo="Por industria" data-search="ventas pas fola">
-      <button class="bib-copy" data-copy="Rol: hola">Copiar</button>
-    </article>
+    <div class="bib-tema" data-tema="Marketing">
+      <article class="bib-item" data-cat="prompts" data-grupo="Por industria" data-search="ventas pas fola">
+        <button class="bib-copy" data-copy="Rol: hola">Copiar</button>
+      </article>
+    </div>
     <article class="bib-item" data-cat="software" data-grupo="Auditoria de tu software" data-search="arquitectura">x</article>`;
 }
 
@@ -43,6 +45,16 @@ describe('initBiblioteca', () => {
     s.value = 'VÉNTAS';
     s.dispatchEvent(new Event('input'));
     expect(items()[0].hidden).toBe(false);
+  });
+
+  it('oculta el bloque de tema cuando ninguno de sus items queda visible', () => {
+    initBiblioteca();
+    const tema = document.querySelector('.bib-tema') as HTMLElement;
+    expect(tema.hidden).toBe(false);
+    const s = document.getElementById('bib-search') as HTMLInputElement;
+    s.value = 'zzz';
+    s.dispatchEvent(new Event('input'));
+    expect(tema.hidden).toBe(true);
   });
 });
 

@@ -9,6 +9,7 @@ export function initBiblioteca() {
   const search = document.getElementById('bib-search') as HTMLInputElement | null;
   const items = Array.from(document.querySelectorAll<HTMLElement>('.bib-item'));
   const grupos = Array.from(document.querySelectorAll<HTMLElement>('.bib-grupo'));
+  const temas = Array.from(document.querySelectorAll<HTMLElement>('.bib-tema'));
   const descs = Array.from(document.querySelectorAll<HTMLElement>('.bib-desc'));
   const empty = document.getElementById('bib-empty');
   const count = document.getElementById('bib-count');
@@ -27,6 +28,10 @@ export function initBiblioteca() {
       const match = el.dataset.cat === cat && (!q || fold(el.dataset.search || '').includes(q));
       el.hidden = !match;
       if (match) visible++;
+    });
+    temas.forEach((t) => {
+      const anyVisible = Array.from(t.querySelectorAll<HTMLElement>('.bib-item')).some((el) => !el.hidden);
+      t.hidden = !anyVisible;
     });
     grupos.forEach((g) => {
       const anyVisible = Array.from(g.querySelectorAll<HTMLElement>('.bib-item')).some((el) => !el.hidden);
