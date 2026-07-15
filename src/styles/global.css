@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/index.css";
 
 /* ===== AgentesVA — Sistema "Futurista" (directorio de IA, tema oscuro) ===== */
 :root {
