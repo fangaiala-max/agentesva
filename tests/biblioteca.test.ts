@@ -41,3 +41,31 @@ describe('biblioteca — estructura', () => {
     expect(EQUIPOS).toHaveLength(10);
   });
 });
+
+describe('catálogo A — prompts', () => {
+  const prompts = itemsDeCatalogo('prompts');
+
+  it('son 100, con ids p01..p100 correlativos', () => {
+    expect(prompts).toHaveLength(100);
+    prompts.forEach((p, n) => {
+      expect(p.id).toBe(`p${String(n + 1).padStart(2, '0')}`);
+    });
+  });
+
+  it('25 por cada grupo', () => {
+    for (const g of ['Por industria', 'Por resultados', 'Mejores casos de uso', 'Por objetivos']) {
+      expect(prompts.filter((p) => p.grupo === g)).toHaveLength(25);
+    }
+  });
+
+  it('cada prompt tiene cuerpo con el framework y sin campos de pago', () => {
+    for (const p of prompts) {
+      expect(p.cuerpo, `${p.id} sin cuerpo`).toBeTruthy();
+      expect(/Rol:/.test(p.cuerpo || ''), `${p.id} sin "Rol:"`).toBe(true);
+      expect(/Tarea:/.test(p.cuerpo || ''), `${p.id} sin "Tarea:"`).toBe(true);
+      expect(p.beneficio).toBeUndefined();
+      expect(p.blueprint).toBeUndefined();
+      expect(p.precio).toBeUndefined();
+    }
+  });
+});
