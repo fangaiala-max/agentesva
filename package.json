@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "ai": "^7.0.19",
-    "autoprefixer": "^10.5.2",
+    "autoprefixer": "^10.5.4",
     "happy-dom": "^20.10.6",
     "pagefind": "^1.5.2",
     "postcss": "^8.5.16",
