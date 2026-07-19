@@ -83,6 +83,52 @@ describe('catálogo A — prompts', () => {
   });
 
   it('temasDeGrupo devuelve [] para un grupo sin datos de tema', () => {
-    expect(temasDeGrupo('software', 'Auditoría de tu software')).toEqual([]);
+    expect(temasDeGrupo('growth', 'SEO')).toEqual([]);
+  });
+});
+
+describe('catálogo B — software (blueprints)', () => {
+  const software = itemsDeCatalogo('software');
+  const GRUPOS_B = ['Auditoría de tu software', 'Mantenimiento del código', 'Calidad y pruebas', 'Operaciones y seguridad'];
+
+  it('son 100, con ids sw01..sw100 correlativos', () => {
+    expect(software).toHaveLength(100);
+    software.forEach((it, n) => {
+      expect(it.id).toBe(`sw${String(n + 1).padStart(2, '0')}`);
+    });
+  });
+
+  it('25 por cada grupo', () => {
+    for (const g of GRUPOS_B) {
+      expect(software.filter((it) => it.grupo === g)).toHaveLength(25);
+    }
+  });
+
+  it('cada blueprint tiene teaser + blueprint completo, sin cuerpo', () => {
+    for (const it of software) {
+      expect(it.beneficio, `${it.id} sin beneficio`).toBeTruthy();
+      expect(it.alcance, `${it.id} sin alcance`).toBeTruthy();
+      expect(it.precio, `${it.id} precio`).toBe(1.99);
+      expect(it.cuerpo).toBeUndefined();
+
+      const bp = it.blueprint;
+      expect(bp, `${it.id} sin blueprint`).toBeTruthy();
+      expect(bp!.quePuedeHacer.trim().length).toBeGreaterThan(0);
+      expect(bp!.modo.trim().length).toBeGreaterThan(0);
+      expect(bp!.pasos.length).toBeGreaterThanOrEqual(3);
+      expect(bp!.reglas.length).toBeGreaterThanOrEqual(1);
+      expect(bp!.prompt.trim().length).toBeGreaterThan(20);
+    }
+  });
+
+  it('cada grupo tiene 5 subtemas de 5 blueprints cada uno (evita la wall of cards)', () => {
+    for (const g of GRUPOS_B) {
+      const temas = temasDeGrupo('software', g);
+      expect(temas, `${g} debería tener 5 subtemas`).toHaveLength(5);
+      expect(new Set(temas).size).toBe(5);
+      for (const tema of temas) {
+        expect(itemsDeTema('software', g, tema), `${g} · ${tema}`).toHaveLength(5);
+      }
+    }
   });
 });
