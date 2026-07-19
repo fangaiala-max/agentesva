@@ -15,7 +15,7 @@ npm run preview
 ## Stack
 
 - Astro 5 (`output: 'static'`, adapter Vercel)
-- `@astrojs/tailwind` (Tailwind 3, modo no-base)
+- Tailwind 4 (integración PostCSS vía `@tailwindcss/postcss`)
 - `@astrojs/sitemap`, `@astrojs/rss`, `@astrojs/vercel`, `astro-icon`
 - Content Collections: `blog`, `casos`, `industrias`
 
