@@ -66,6 +66,16 @@ retrieved. They compete against established content sites with years of authorit
 Global Semrush rank ~9.3M. Retrieval-based AI cannot cite what search has not yet
 indexed and ranked.
 
+**Indexation status (2026-07-16):** `site:agentesva.com` returns **0 indexed pages**
+in Google. The sitemap (`/sitemap-index.xml` → `/sitemap-0.xml`, **120 URLs** — all
+content surfaces present) and `robots.txt` (plain-text, AI crawlers allowed, Sitemap
+directive present — no Cloudflare regression) are both **live and healthy**. So the
+site is fully **crawlable but not yet indexed** — a young-domain / zero-authority
+state, not a technical defect. Fix: GSC sitemap submit + request-indexing on key
+URLs, plus the authority work in `docs/superpowers/plans/2026-07-16-entity-signals-geo.md`.
+(Confirm the exact count in GSC → Pages; `site:` via a US search proxy is indicative,
+Semrush `es`=1kw corroborates.)
+
 ---
 
 ## Scores
