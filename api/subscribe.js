@@ -9,6 +9,11 @@
 //
 //   company = honeypot anti-bots (oculto en el form). Si llega con valor, respondemos
 //             éxito falso y no damos de alta a nadie.
+//
+//   Defensa anti-bombing: el navegador SIEMPRE manda cabecera Origin en un fetch
+//   POST (mismo origen incluido), así que exigimos un Origin de la lista permitida.
+//   Esto corta los scripts/curl que llaman a la API sin Origin (subscription bombing)
+//   sin afectar al formulario real. El límite de tasa por IP se hace en el WAF de Vercel.
 
 const LIST_MAP = {
   default: () => parseInt(process.env.BREVO_LIST_ID || '8', 10),
@@ -25,6 +30,12 @@ const LIST_MAP = {
 const DOI_TEMPLATE_ID = () => parseInt(process.env.BREVO_DOI_TEMPLATE_ID || '0', 10);
 const DOI_REDIRECT_URL = () => process.env.BREVO_DOI_REDIRECT_URL || 'https://agentesva.com/gracias';
 
+const ALLOWED_ORIGINS = () =>
+  (process.env.SUBSCRIBE_ALLOWED_ORIGINS || 'https://agentesva.com,https://www.agentesva.com')
+    .split(',')
+    .map((o) => o.trim())
+    .filter(Boolean);
+
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', 'https://agentesva.com');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -33,10 +44,16 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
+  // Gate por Origin: filtra bots/scripts que llaman a la API sin un Origin válido.
+  const origin = (req.headers && req.headers.origin) || '';
+  if (!ALLOWED_ORIGINS().includes(origin)) {
+    return res.status(403).json({ error: 'Forbidden' });
+  }
+
   const apiKey = process.env.BREVO_API_KEY;
   if (!apiKey) return res.status(500).json({ error: 'Server misconfiguration' });
 
-  const { email = '', name = '', list = 'default', company = '' } = req.body || {};
+  const { email = '', name = '', list = 'default', company = '', consent } = req.body || {};
 
   // Honeypot: campo oculto que solo rellenan los bots → éxito falso, sin alta.
   if (typeof company === 'string' && company.trim()) {
@@ -58,6 +75,14 @@ export default async function handler(req, res) {
     const [firstName, ...rest] = cleanName.split(' ');
     attributes.FIRSTNAME = firstName;
     if (rest.length) attributes.LASTNAME = rest.join(' ');
+  }
+
+  // Registro de consentimiento (RGPD): momento y origen del opt-in. Atributos
+  // personalizados de Brevo, mismo mecanismo que SOURCE_LIST (crear en el panel
+  // si la cuenta valida el esquema de atributos).
+  if (consent === true) {
+    attributes.OPT_IN_AT = new Date().toISOString();
+    attributes.OPT_IN_SOURCE = list;
   }
 
   const useDoi = list === 'newsletter' && DOI_TEMPLATE_ID() > 0;
@@ -92,6 +117,9 @@ export default async function handler(req, res) {
     return res.status(200).json({ success: true, list, doi: useDoi });
   }
 
-  const body = await upstream.json().catch(() => ({}));
-  return res.status(upstream.status >= 400 ? upstream.status : 500).json({ error: body.message || 'Subscription failed' });
+  // No filtramos el mensaje de Brevo al cliente (puede exponer detalle interno);
+  // lo dejamos en el log del servidor para diagnóstico.
+  const detail = await upstream.json().catch(() => ({}));
+  console.error('[subscribe] Brevo error', upstream.status, (detail && (detail.code || detail.message)) || '');
+  return res.status(upstream.status >= 400 ? upstream.status : 500).json({ error: 'Subscription failed' });
 }
