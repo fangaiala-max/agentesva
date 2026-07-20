@@ -102,6 +102,8 @@ describe('badgesFor', () => {
   it('addedAt dentro de 30 días → badge Nuevo; más antiguo → no', () => {
     expect(badgesFor(tool({ addedAt: new Date('2026-07-05T00:00:00.000Z') }), NOW).some((b) => b.kind === 'nuevo')).toBe(true);
     expect(badgesFor(tool({ addedAt: new Date('2026-05-01T00:00:00.000Z') }), NOW).some((b) => b.kind === 'nuevo')).toBe(false);
+    expect(badgesFor(tool({ addedAt: new Date('2026-06-20T00:00:00.000Z') }), NOW).some((b) => b.kind === 'nuevo')).toBe(true);
+    expect(badgesFor(tool({ addedAt: new Date('2026-08-01T00:00:00.000Z') }), NOW).some((b) => b.kind === 'nuevo')).toBe(false);
   });
 
   it('orden estable: editor, popular, free, nuevo', () => {
