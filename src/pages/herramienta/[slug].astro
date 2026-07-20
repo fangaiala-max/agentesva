@@ -75,7 +75,7 @@ const jsonLd = {
         <h1 style="font-family: var(--sans); font-weight: 700; font-size: clamp(30px, 6vw, 40px); letter-spacing: -0.03em; margin: 6px 0 0; color: #fff;">{tool.name}</h1>
         <p style="font-size: 16.5px; line-height: 1.5; color: var(--fg-3); margin: 8px 0 0; max-width: 34em;">{tool.tagline}</p>
         <div style="display: flex; gap: 14px; align-items: center; margin-top: 16px;">
-          <span style="font-family: var(--mono); font-size: 13px; color: var(--fg-2);"><span style="color: var(--accent);">★</span> {tool.rating}</span>
+          <a href="/metodologia" title="Cómo valoramos las herramientas" style="font-family: var(--mono); font-size: 13px; color: var(--fg-2); text-decoration: none; border-bottom: 1px dotted var(--line-2);"><span style="color: var(--accent);">★</span> {tool.rating}</a>
           <span style={`font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: ${priceColor}; border: 1px solid var(--line-2); padding: 4px 10px; border-radius: 20px;`}>{tool.price}</span>
         </div>
       </div>
@@ -131,7 +131,7 @@ const jsonLd = {
             <span style="font-size: 13px; color: var(--fg-4);">Precio</span><span style="font-size: 13.5px; color: #fff;">{tool.price}</span>
           </div>
           <div style="display: flex; justify-content: space-between; align-items: center; padding: 13px 0; border-bottom: 1px solid var(--line);">
-            <span style="font-size: 13px; color: var(--fg-4);">Valoración</span><span style="font-size: 13.5px; color: #fff;"><span style="color: var(--accent);">★</span> {tool.rating}</span>
+            <a href="/metodologia" style="font-size: 13px; color: var(--fg-4); text-decoration: none; border-bottom: 1px dotted var(--line-2);">Valoración</a><span style="font-size: 13.5px; color: #fff;"><span style="color: var(--accent);">★</span> {tool.rating}</span>
           </div>
           <div style="display: flex; justify-content: space-between; align-items: center; padding: 13px 0;">
             <span style="font-size: 13px; color: var(--fg-4);">Ideal para</span><span style="font-size: 13.5px; color: #fff;">{tool.ideal}</span>
