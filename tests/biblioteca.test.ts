@@ -82,8 +82,8 @@ describe('catálogo A — prompts', () => {
     }
   });
 
-  it('temasDeGrupo devuelve [] para un grupo sin datos de tema', () => {
-    expect(temasDeGrupo('growth', 'SEO')).toEqual([]);
+  it('temasDeGrupo devuelve [] para un grupo que no existe', () => {
+    expect(temasDeGrupo('software', 'Grupo inexistente')).toEqual([]);
   });
 });
 
@@ -129,6 +129,58 @@ describe('catálogo B — software (blueprints)', () => {
       for (const tema of temas) {
         expect(itemsDeTema('software', g, tema), `${g} · ${tema}`).toHaveLength(5);
       }
+    }
+  });
+});
+
+describe('catálogo C — growth (blueprints)', () => {
+  const growth = itemsDeCatalogo('growth');
+  // Reparto desigual y natural del catálogo origen (17/17/17/17/16/16 = 100), no 25 por grupo.
+  const CONTEO_GRUPOS_C: Record<string, number> = {
+    SEO: 17,
+    'Visibilidad en IA': 17,
+    'Inteligencia competitiva': 17,
+    'Publicidad y conversión': 17,
+    'Redes sociales': 16,
+    'Diseño y experiencia': 16,
+  };
+
+  it('son 100, con ids gr01..gr100 correlativos', () => {
+    expect(growth).toHaveLength(100);
+    growth.forEach((it, n) => {
+      expect(it.id).toBe(`gr${String(n + 1).padStart(2, '0')}`);
+    });
+  });
+
+  it('cada grupo tiene el conteo esperado (17/17/17/17/16/16)', () => {
+    for (const [g, n] of Object.entries(CONTEO_GRUPOS_C)) {
+      expect(growth.filter((it) => it.grupo === g), g).toHaveLength(n);
+    }
+  });
+
+  it('cada blueprint tiene teaser + blueprint completo, sin cuerpo', () => {
+    for (const it of growth) {
+      expect(it.beneficio, `${it.id} sin beneficio`).toBeTruthy();
+      expect(it.alcance, `${it.id} sin alcance`).toBeTruthy();
+      expect(it.precio, `${it.id} precio`).toBe(1.99);
+      expect(it.cuerpo).toBeUndefined();
+
+      const bp = it.blueprint;
+      expect(bp, `${it.id} sin blueprint`).toBeTruthy();
+      expect(bp!.quePuedeHacer.trim().length).toBeGreaterThan(0);
+      expect(bp!.modo.trim().length).toBeGreaterThan(0);
+      expect(bp!.pasos.length).toBeGreaterThanOrEqual(3);
+      expect(bp!.reglas.length).toBeGreaterThanOrEqual(1);
+      expect(bp!.prompt.trim().length).toBeGreaterThan(20);
+    }
+  });
+
+  it('cada grupo tiene varios subtemas que suman su total (evita la wall of cards)', () => {
+    for (const [g, n] of Object.entries(CONTEO_GRUPOS_C)) {
+      const temas = temasDeGrupo('growth', g);
+      expect(temas.length, `${g} debería tener varios subtemas`).toBeGreaterThanOrEqual(3);
+      const suma = temas.reduce((acc, t) => acc + itemsDeTema('growth', g, t).length, 0);
+      expect(suma, `${g}: los items de sus temas`).toBe(n);
     }
   });
 });
