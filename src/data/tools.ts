@@ -21,6 +21,11 @@ export interface Tool {
   steps: string[];
   orden: number;
   destacado?: boolean;
+  popular?: boolean;
+  verdict?: string;
+  pros?: string[];
+  cons?: string[];
+  addedAt?: Date;
   faq?: { q: string; a: string }[];
 }
 

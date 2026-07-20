@@ -22,6 +22,12 @@ const tools = defineCollection({
     steps: z.array(z.string()).min(1),
     orden: z.number().int(),
     destacado: z.boolean().default(false),
+    // CRO (todos opcionales; se rellenan de forma incremental):
+    popular: z.boolean().optional(),        // badge "Popular" (curado editorialmente)
+    verdict: z.string().optional(),         // veredicto de una línea ("por qué lo recomendamos")
+    pros: z.array(z.string()).optional(),   // lista de pros en la ficha
+    cons: z.array(z.string()).optional(),   // lista de contras en la ficha
+    addedAt: z.coerce.date().optional(),    // badge "Nuevo" (<30 días) + "en el directorio desde"
     // FAQs (opcional) — generadas por scripts/generate-faqs.mjs (AI Gateway);
     // si faltan, la ficha usa un fallback derivado de los datos.
     faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
