@@ -86,7 +86,9 @@ function searchDe(it: Item): string {
             {equipo && (
               <a
                 class="bib-equipo lift shimmer"
-                href="#"
+                href={equipo.compraUrl || '#'}
+                target={equipo.compraUrl ? '_blank' : undefined}
+                rel={equipo.compraUrl ? 'noopener' : undefined}
                 data-stripe={equipo.id}
                 style="font-family: var(--sans); font-weight: 700; font-size: 13.5px; text-decoration: none; color: var(--bg); background: var(--accent); padding: 10px 18px; border-radius: 2px; white-space: nowrap;"
               >
