@@ -278,7 +278,7 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
           </style>
         </noscript>
         <div id="tool-grid" hidden style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; align-items: stretch;">
-          {tools.map((tool) => <ToolCard tool={tool} compare />)}
+          {tools.map((tool) => <ToolCard tool={tool} compare surface="card-home" />)}
         </div>
 
         <div id="empty-state" hidden role="status" style="border: 1px dashed var(--line-2); border-radius: 8px; padding: 56px 24px; text-align: center;">
