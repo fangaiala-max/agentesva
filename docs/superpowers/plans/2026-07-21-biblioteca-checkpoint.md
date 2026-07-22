@@ -45,41 +45,30 @@ npm install   # NO symlinkear node_modules del repo principal — puede tener
 - **Fase 3** — 100 blueprints de growth (`growth.ts`), catálogo C, 6 grupos con el
   reparto natural 17/17/17/17/16/16 (no forzado a 25). Cifras de precisión sospechosa
   del catálogo origen suavizadas a lenguaje cualitativo (fact-checking).
-- **Fase 4 (parcial)** — página `/entrega.astro`: verifica sesión de Stripe (mismo
+- **Fase 4 — COMPLETA.** Página `/entrega.astro`: verifica sesión de Stripe (mismo
   patrón que `/descarga.astro` ya existente) y renderiza los blueprints completos del
-  equipo comprado. El CTA "Contratar equipo" en `BibliotecaIA.astro` ya usa
-  `equipo.compraUrl` (placeholder `#` hasta tener las URLs reales).
+  equipo comprado. Los 10 Payment Links se crearon primero en modo TEST (validados con
+  una compra real usando tarjeta 4242 — flujo completo confirmado: pago → `/entrega`
+  → blueprints renderizados → botón "Copiar prompt" funcionando) y después replicados
+  en modo LIVE vía API. `equipo.compraUrl` en `src/data/biblioteca/equipos.ts` ya tiene
+  los 10 Payment Links reales — el CTA "Contratar equipo" en `BibliotecaIA.astro` ya
+  compra de verdad.
 
-## Bloqueado / pendiente ahora mismo
+## Pendiente / housekeeping
 
-**Falta crear los 10 Payment Links de Stripe (uno por equipo, 3,99 €) vía API en modo
-TEST.** Se quedó a medias por esto:
-
-- En Doppler (proyecto `agentes-va`) solo existe **un** `STRIPE_SECRET_KEY`, en el
-  config `prd`, y es una clave **`rk_live`** (producción, restringida a lectura de
-  Checkout Sessions). **No usar esa clave para crear nada** — ni tiene permiso de
-  escritura ni se debe arriesgar con una clave live.
-- El usuario iba a pegar una Stripe Secret Key de **test** (`sk_test_...`, con permiso
-  de escritura sobre Payment Links/Products/Prices) para poder crearlos vía API. La
-  sesión se cortó antes de que la pasara.
-
-### Próximo paso exacto al retomar
-
-1. Pedir al usuario la Stripe Secret Key de test (Dashboard → activar "Modo de
-   prueba" → Developers → API keys → Secret key), **o** confirmar si prefiere crear
-   los 10 Payment Links él mismo manualmente (alternativa que ya se le ofreció).
-2. Con la key: crear producto + precio (3,99 €) + Payment Link por cada uno de los 10
-   `EQUIPOS` de `src/data/biblioteca/equipos.ts`, con `metadata.slug = equipo.id`
-   (p. ej. `eq-sw-auditoria`) — así `/entrega.astro` puede identificar qué equipo se
-   compró a partir de la sesión de Stripe verificada, sin depender de la URL.
-3. Rellenar `compraUrl` en `equipos.ts` con las URLs reales devueltas por Stripe.
-4. Probar el flujo completo en test: comprar → redirect a `/entrega?session_id=...` →
-   confirmar que se ven los blueprints del equipo.
-5. Cuando el usuario lo confirme, replicar en modo live (nueva clave `rk_live` o
-   `sk_live` con permiso de escritura — la actual en Doppler prd es de solo lectura,
-   así que probablemente haga falta rotar/ampliar esa clave o crear una nueva).
-6. **Diferido, fuera de esta fase:** Payment Links para los 200 ítems sueltos a
-   1,99 € cada uno — el plan recomienda añadirlos después de validar los equipos.
+- **Revocar `STRIPE_SECRET_KEY_LIVE_SETUP`** (Doppler, proyecto `agentes-va`, config
+  `prd`) desde el dashboard de Stripe — era de un solo uso (crear los 10 Payment
+  Links live) y ya cumplió su función. `STRIPE_SECRET_KEY_TEST` (config `dev`) se
+  puede dejar o revocar también, a discreción.
+- **Diferido, fuera de esta fase:** Payment Links para los 200 ítems sueltos a
+  1,99 € cada uno — el plan recomienda añadirlos después de validar los equipos (ya
+  validados).
+- **Opcional:** no se hizo una compra real en modo live (solo se verificó la creación
+  correcta de los 10 objetos vía API) — si se quiere el 100% de confianza, se puede
+  hacer una compra real de 3,99 € y confirmar que `/entrega` en producción (Vercel,
+  usando el `STRIPE_SECRET_KEY` ya existente, de solo lectura) verifica correctamente
+  una sesión live.
+- El PR de esta rama (`feat/guia-100-prompts`) hacia `main` todavía no se ha abierto.
 
 ## Dónde está todo (mapa de archivos)
 
