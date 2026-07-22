@@ -2,7 +2,7 @@
   "titulo": "Biblioteca de IA: 100 prompts gratis + 200 blueprints",
   "tipo": "prompts",
   "categoria": "Productividad",
-  "desc": "100 prompts de IA para copiar gratis y 200 blueprints por equipos para automatizar tu negocio.",
+  "desc": "100 prompts de IA gratis, listos para copiar, y 200 blueprints de IA por equipos para automatizar tu PyME.",
   "long": "Una biblioteca navegable con 100 prompts listos para copiar y pegar —marketing, ventas, RR.HH., finanzas y más— reescritos con el framework Rol + Contexto + Tarea + Restricciones + Formato para que den resultados a la primera. Además, 200 blueprints de IA organizados por 'equipos': desde SEO, redes sociales y publicidad hasta calidad de software. Los prompts son gratis; cada blueprint puedes desbloquearlo suelto o contratar el equipo completo.",
   "tagline": "Tu arsenal de IA: 100 prompts gratis y 200 blueprints por equipos.",
   "ideal": "Dueños de PyME y autónomos que quieren aplicar la IA en su negocio sin ser expertos",
@@ -13,5 +13,12 @@
   "color": "#5B7CFF",
   "orden": 4,
   "destacado": true,
-  "actualizado": "2026-07-15"
+  "actualizado": "2026-07-15",
+  "faq": [
+    { "q": "¿Los 100 prompts son gratis de verdad?", "a": "Sí. Se ven completos en esta página y se copian con un clic, sin registro ni límite de uso." },
+    { "q": "¿Cuál es la diferencia entre un prompt y un blueprint?", "a": "Los prompts (catálogo A) son gratis y se copian directo. Los blueprints (B y C) son recetas más completas —qué hacen, cómo, pasos y reglas— y su contenido completo es de pago; en la web ves gratis el beneficio y el alcance de cada uno." },
+    { "q": "¿Cómo se compra un equipo de IA?", "a": "Cada equipo agrupa los blueprints de un mismo grupo a un precio único. Al pulsar «Contratar equipo» pagas con Stripe y accedes de inmediato a los blueprints completos." },
+    { "q": "¿Necesito saber programar para usar los blueprints de software?", "a": "No. Cada blueprint incluye un prompt ya redactado y listo para pegar en un asistente de IA que trabaje sobre tu código." },
+    { "q": "¿Puedo comprar un blueprint suelto en vez del equipo completo?", "a": "Por ahora se venden agrupados por equipo. La compra individual está planeada para más adelante." }
+  ]
 }
