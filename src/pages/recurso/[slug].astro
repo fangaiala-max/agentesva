@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
+import BibliotecaIA from '../../components/BibliotecaIA.astro';
 import { getCollection } from 'astro:content';
 import { toRecurso, getAlternativesRecursos, fallbackFaqsRecurso, PRECIO_COLOR, tipoLabel, type Recurso } from '../../data/recursos';
 import { jsonLdSerialize } from '../../data/schema';
@@ -57,8 +58,9 @@ const jsonLd = {
 };
 
 // CTA por vía de entrega.
-const cta =
-  recurso.precio === 'Pago'
+const cta = recurso.biblioteca
+  ? { href: '#biblioteca', label: 'Explorar la biblioteca ↓', rel: '', download: false, newtab: false }
+  : recurso.precio === 'Pago'
     ? { href: recurso.compraUrl, label: `Comprar${recurso.precioDesde ? ` · ${recurso.precioDesde}` : ''} →`, rel: 'noopener', download: false, newtab: true }
     : recurso.downloadUrl
       ? { href: recurso.downloadUrl, label: 'Descargar gratis →', rel: 'noopener', download: true, newtab: false }
@@ -97,6 +99,14 @@ const cta =
       </div>
     </div>
 
+    {recurso.biblioteca && (
+      <>
+        <p style="font-size: 16px; line-height: 1.7; color: var(--fg-2); margin: 34px 0 0; max-width: 62ch;">{recurso.long}</p>
+        <BibliotecaIA />
+      </>
+    )}
+
+    {!recurso.biblioteca && (
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 44px; margin-top: 38px;">
       <div>
         <h2 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0;">Qué es</h2>
@@ -149,6 +159,7 @@ const cta =
         )}
       </aside>
     </div>
+    )}
   </main>
 
   <SiteFooter />
@@ -157,8 +168,11 @@ const cta =
 <script>
   import { initToolDetail } from '../../scripts/tool-detail';
   import { initMotion } from '../../scripts/motion';
+  import { initBiblioteca, initBibliotecaCopy } from '../../scripts/biblioteca';
   document.addEventListener('astro:page-load', () => {
     initToolDetail();
     initMotion();
+    initBiblioteca();
+    initBibliotecaCopy();
   });
 </script>

@@ -1,0 +1,150 @@
+---
+// Entrega post-pago de equipos de la Biblioteca de IA (Stripe Payment Links).
+// Mismo patrón que /descarga.astro (verifica la sesión de Checkout), pero en vez
+// de un link a un zip, renderiza los blueprints completos directamente desde
+// nuestros propios datos (ya viven en software.ts/growth.ts, sin infraestructura
+// nueva). La identidad del equipo comprado sale de la sesión verificada de
+// Stripe (metadata.slug del producto), nunca de la URL — no es adivinable.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { EQUIPOS, itemsDeGrupo, type Equipo, type Item } from '../data/biblioteca';
+export const prerender = false;
+
+const sessionId = Astro.url.searchParams.get('session_id') ?? '';
+// process.env (NO import.meta.env): el secreto se lee en runtime en la función
+// serverless — import.meta.env lo inlinaría en el bundle en build.
+const key = process.env.STRIPE_SECRET_KEY ?? '';
+
+interface Entrega { equipo: Equipo; items: Item[] }
+let estado: 'ok' | 'pendiente' | 'error' = 'error';
+const entregas: Entrega[] = [];
+
+if (sessionId && key) {
+  try {
+    const res = await fetch(
+      `https://api.stripe.com/v1/checkout/sessions/${encodeURIComponent(sessionId)}?expand[]=line_items.data.price.product`,
+      { headers: { Authorization: `Bearer ${key}` } },
+    );
+    if (res.ok) {
+      const sesion = await res.json();
+      if (sesion.payment_status === 'paid') {
+        for (const li of sesion.line_items?.data ?? []) {
+          const slug = li.price?.product?.metadata?.slug;
+          const equipo = EQUIPOS.find((e) => e.id === slug);
+          if (equipo) entregas.push({ equipo, items: itemsDeGrupo(equipo.catalogo, equipo.grupo) });
+        }
+        estado = entregas.length ? 'ok' : 'error';
+      } else {
+        estado = 'pendiente';
+      }
+    }
+  } catch {
+    // Fallo de red hacia Stripe → estado error amable, nunca un 500.
+  }
+}
+Astro.response.headers.set('Cache-Control', 'no-store');
+---
+
+<BaseLayout
+  title="Tu equipo de IA | AgentesVA"
+  description="Entrega de tu compra en AgentesVA: los blueprints completos de tu equipo de IA."
+  noindex={true}
+>
+  <SiteHeader />
+
+  <main style="max-width: 780px; margin: 0 auto; padding: 64px 32px 80px;">
+    {estado === 'ok' && (
+      <>
+        <div style="text-align: center;">
+          <span aria-hidden="true" style="display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: rgba(79,211,154,0.12); border: 1px solid var(--green); color: var(--green); font-size: 26px;">✓</span>
+          <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 6vw, 46px); line-height: 1.06; letter-spacing: -0.03em; color: #fff; margin: 22px 0 0;">Tu equipo de IA está listo</h1>
+          <p style="font-size: 18px; line-height: 1.55; color: var(--fg-3); margin: 16px auto 0; max-width: 30em;">Tu pago está confirmado. Aquí tienes cada blueprint completo: qué puede hacer, cómo, y el prompt listo para usar.</p>
+        </div>
+
+        {entregas.map(({ equipo, items }) => (
+          <section style="margin-top: 48px;">
+            <header style="border-bottom: 1px solid var(--line); padding-bottom: 13px;">
+              <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);">{equipo.grupo}</span>
+              <h2 style="font-family: var(--serif); font-weight: 400; font-size: 26px; letter-spacing: -0.02em; color: #fff; margin: 8px 0 0;">{equipo.nombre}</h2>
+            </header>
+
+            <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 24px;">
+              {items.map((it, i) => (
+                <article style="border: 1px solid var(--line); background: var(--panel); border-radius: 10px; padding: 22px;">
+                  <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--accent);">{String(i + 1).padStart(2, '0')}</span>
+                  <h3 style="font-family: var(--serif); font-weight: 400; font-size: 19.5px; line-height: 1.22; letter-spacing: -0.02em; color: #fff; margin: 6px 0 0;">{it.titulo}</h3>
+                  <p style="font-size: 14px; line-height: 1.55; color: var(--fg-3); margin: 10px 0 0;">{it.blueprint?.quePuedeHacer}</p>
+
+                  <div style="display: flex; gap: 14px; margin: 14px 0 0; flex-wrap: wrap;">
+                    <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-5); border: 1px solid var(--line-2); border-radius: 20px; padding: 4px 10px;">{it.blueprint?.modo}</span>
+                  </div>
+
+                  <div style="margin-top: 16px;">
+                    <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5);">Pasos</span>
+                    <ol style="margin: 8px 0 0; padding-left: 20px; color: var(--fg-2); font-size: 14px; line-height: 1.65;">
+                      {it.blueprint?.pasos.map((p) => <li>{p}</li>)}
+                    </ol>
+                  </div>
+
+                  <div style="margin-top: 14px;">
+                    <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5);">Reglas</span>
+                    <ul style="margin: 8px 0 0; padding-left: 20px; color: var(--fg-2); font-size: 14px; line-height: 1.65;">
+                      {it.blueprint?.reglas.map((r) => <li>{r}</li>)}
+                    </ul>
+                  </div>
+
+                  <div style="margin-top: 16px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+                    <button
+                      type="button"
+                      class="bib-copy shimmer"
+                      data-copy={it.blueprint?.prompt}
+                      style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--sans); font-weight: 700; font-size: 13px; color: var(--bg); background: var(--accent); border: none; border-radius: 2px; padding: 10px 16px; cursor: pointer;"
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                      <span class="bib-copy-label">Copiar prompt</span>
+                    </button>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        ))}
+
+        <p style="font-size: 14px; line-height: 1.55; color: var(--fg-4); margin: 36px auto 0; max-width: 30em; text-align: center;">Guarda esta página o tu recibo de Stripe: este enlace es tu acceso al equipo completo.</p>
+
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 28px;">
+          <a href="/recurso/biblioteca-ia" class="lift" style="display: inline-flex; align-items: center; background: var(--panel); border: 1px solid var(--line-2); border-radius: 2px; padding: 11px 20px; font-family: var(--sans); font-size: 14px; font-weight: 600; color: #fff; text-decoration: none;">Volver a la biblioteca</a>
+        </div>
+      </>
+    )}
+
+    {estado === 'pendiente' && (
+      <div style="text-align: center;">
+        <span aria-hidden="true" style="display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: rgba(91,124,255,0.12); border: 1px solid var(--accent); color: var(--accent); font-size: 26px;">…</span>
+        <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 6vw, 46px); line-height: 1.06; letter-spacing: -0.03em; color: #fff; margin: 22px 0 0;">Pago aún no confirmado</h1>
+        <p style="font-size: 18px; line-height: 1.55; color: var(--fg-3); margin: 16px auto 0; max-width: 28em;">Tu pago está procesándose. Espera unos segundos y recarga esta página: en cuanto Stripe lo confirme, verás aquí tu equipo completo.</p>
+      </div>
+    )}
+
+    {estado === 'error' && (
+      <div style="text-align: center;">
+        <span aria-hidden="true" style="display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: rgba(91,124,255,0.12); border: 1px solid var(--line-2); color: var(--fg-3); font-size: 26px;">?</span>
+        <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 6vw, 46px); line-height: 1.06; letter-spacing: -0.03em; color: #fff; margin: 22px 0 0;">No encontramos tu compra</h1>
+        <p style="font-size: 18px; line-height: 1.55; color: var(--fg-3); margin: 16px auto 0; max-width: 28em;">Este enlace no corresponde a ninguna compra confirmada. Revisa el enlace de tu recibo de Stripe o escríbenos a <a href="mailto:hola@agentesva.com" style="color: var(--accent); text-decoration: underline;">hola@agentesva.com</a> y lo resolvemos.</p>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 36px;">
+          <a href="/recurso/biblioteca-ia" class="lift" style="display: inline-flex; align-items: center; background: var(--panel); border: 1px solid var(--line-2); border-radius: 2px; padding: 11px 20px; font-family: var(--sans); font-size: 14px; font-weight: 600; color: #fff; text-decoration: none;">Ver la biblioteca</a>
+        </div>
+      </div>
+    )}
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<script>
+  import { initBibliotecaCopy } from '../scripts/biblioteca';
+  document.addEventListener('astro:page-load', () => {
+    initBibliotecaCopy();
+  });
+</script>

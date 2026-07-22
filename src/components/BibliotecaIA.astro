@@ -1,0 +1,172 @@
+---
+// Biblioteca de IA navegable: selector de catálogo + buscador + fichas.
+// Cada grupo se agrupa en tema (subtemas, evita la "wall of cards"); si un grupo no
+// tiene tema asignado, se renderiza como un único bloque plano (fallback genérico).
+import { CATALOGOS, gruposDeCatalogo, itemsDeGrupo, temasDeGrupo, itemsDeTema, equipoDeGrupo, type CatalogoId, type Item } from '../data/biblioteca';
+
+const fold = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
+const eur = (n: number) => n.toFixed(2).replace('.', ',') + ' €';
+const activo = CATALOGOS[0].id; // 'prompts' por defecto
+
+// Título corto para la pestaña de catálogo (el nombre completo va en la descripción de abajo).
+const NOMBRE_CORTO: Record<CatalogoId, string> = { prompts: 'Prompts', software: 'Software', growth: 'Growth' };
+
+// Extrae una línea de beneficio de un prompt A (lo que hace, en una frase) a partir de "Tarea: ...".
+function teaserDePrompt(cuerpo: string): string {
+  const m = cuerpo.match(/Tarea:\s*([^\n]+)/);
+  return (m ? m[1] : cuerpo.split('\n')[0]).trim();
+}
+
+function searchDe(it: Item): string {
+  return fold([it.titulo, it.tema, it.cuerpo, it.beneficio, it.alcance].filter(Boolean).join(' '));
+}
+---
+
+<section id="biblioteca" data-pagefind-body style="margin-top: 44px;">
+  <!-- Selector de catálogo -->
+  <div role="tablist" aria-label="Catálogos" style="display: flex; flex-wrap: wrap; gap: 10px;">
+    {CATALOGOS.map((c) => (
+      <button
+        type="button"
+        class="bib-cat"
+        role="tab"
+        data-cat={c.id}
+        aria-pressed={c.id === activo ? 'true' : 'false'}
+        style={`font-family: var(--sans); font-weight: 700; font-size: 14.5px; letter-spacing: -0.01em; padding: 11px 20px; border-radius: 30px; cursor: pointer; border: 1px solid ${c.id === activo ? 'var(--accent)' : 'var(--line-2)'}; background: ${c.id === activo ? 'var(--accent)' : 'transparent'}; color: ${c.id === activo ? 'var(--bg)' : 'var(--fg-2)'}; transition: border-color .25s, background .25s, color .25s;`}
+      >
+        {NOMBRE_CORTO[c.id]}{!c.gratis && <span style={`font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.06em; text-transform: uppercase; margin-left: 6px; opacity: .75;`}>· de pago</span>}
+      </button>
+    ))}
+  </div>
+
+  <!-- Buscador -->
+  <form
+    role="search"
+    onsubmit="return false"
+    class="searchwrap"
+    style="display: flex; align-items: center; gap: 12px; max-width: 620px; margin: 22px 0 0; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 6px; padding: 4px 4px 4px 18px; transition: border-color .25s, box-shadow .25s;"
+  >
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--fg-5)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
+    <label for="bib-search" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Buscar en la biblioteca</label>
+    <input
+      id="bib-search"
+      type="search"
+      placeholder="Busca: ventas, SEO, atención al cliente…"
+      autocomplete="off"
+      style="flex: 1; min-width: 220px; background: transparent; border: none; outline: none; color: #fff; font-family: var(--sans); font-size: 15px; padding: 12px 0;"
+    />
+    <span id="bib-count" style="font-family: var(--mono); font-size: 11px; color: var(--fg-5); white-space: nowrap; padding-right: 14px;"></span>
+  </form>
+
+  <!-- Descripción por catálogo -->
+  {CATALOGOS.map((c) => (
+    <p class="bib-desc" data-cat={c.id} hidden={c.id !== activo} style="font-size: 15px; line-height: 1.6; color: var(--fg-3); margin: 22px 0 0; max-width: 56ch;">
+      <strong style="color: var(--fg-2); font-weight: 600;">{c.nombre}.</strong> {c.desc}
+      {!c.gratis && <span style="color: var(--fg-5);"> Cada blueprint suelto a 1,99 € o contrata el equipo completo.</span>}
+    </p>
+  ))}
+
+  <!-- Grupos + temas + fichas -->
+  {CATALOGOS.map((c) =>
+    gruposDeCatalogo(c.id).map((grupo) => {
+      const todos = itemsDeGrupo(c.id, grupo);
+      const temas = temasDeGrupo(c.id, grupo);
+      const equipo = equipoDeGrupo(c.id, grupo);
+      const unidad = c.gratis ? 'prompts' : 'blueprints';
+
+      // Cada "bloque" a renderizar: un tema con sus items, o (si el catálogo aún no tiene tema) el grupo entero.
+      const bloques = temas.length ? temas.map((tema) => ({ tema, items: itemsDeTema(c.id, grupo, tema) })) : [{ tema: null, items: todos }];
+
+      return (
+        <section class="bib-grupo" data-cat={c.id} data-grupo={grupo} hidden={c.id !== activo} style="margin-top: 34px;">
+          <header style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 13px;">
+            <h3 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0;">
+              {grupo} <span style="color: var(--fg-5);">· {todos.length} {unidad}</span>
+            </h3>
+            {equipo && (
+              <a
+                class="bib-equipo lift shimmer"
+                href={equipo.compraUrl || '#'}
+                target={equipo.compraUrl ? '_blank' : undefined}
+                rel={equipo.compraUrl ? 'noopener' : undefined}
+                data-stripe={equipo.id}
+                style="font-family: var(--sans); font-weight: 700; font-size: 13.5px; text-decoration: none; color: var(--bg); background: var(--accent); padding: 10px 18px; border-radius: 2px; white-space: nowrap;"
+              >
+                Contratar {equipo.nombre} · {eur(equipo.precio)}
+              </a>
+            )}
+          </header>
+
+          {bloques.map((bloque) => (
+            <div class="bib-tema" data-tema={bloque.tema || ''} style="margin-top: 26px;">
+              {bloque.tema && (
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+                  <span style="display: inline-flex; font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(91,124,255,0.35); background: rgba(91,124,255,0.08); padding: 5px 12px; border-radius: 20px;">{bloque.tema}</span>
+                  <span style="font-family: var(--mono); font-size: 11px; color: var(--fg-5);">{bloque.items.length}</span>
+                </div>
+              )}
+
+              <div class="bib-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;">
+                {bloque.items.map((it, i) => (
+                  <article
+                    class="bib-item lift spotlight"
+                    data-cat={c.id}
+                    data-grupo={grupo}
+                    data-search={searchDe(it)}
+                    style="position: relative; border: 1px solid var(--line); background: var(--panel); border-radius: 10px; padding: 22px; display: flex; flex-direction: column; gap: 13px;"
+                  >
+                    <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--accent);">{String(i + 1).padStart(2, '0')}</span>
+
+                    <h4 style="font-family: var(--serif); font-weight: 400; font-size: 19.5px; line-height: 1.22; letter-spacing: -0.02em; color: #fff; margin: 0;">{it.titulo}</h4>
+
+                    {it.cuerpo ? (
+                      <>
+                        <p style="font-size: 14px; line-height: 1.55; color: var(--fg-3); margin: 0;">{teaserDePrompt(it.cuerpo)}</p>
+                        <div style="display: flex; align-items: center; gap: 14px; margin-top: auto; padding-top: 4px; flex-wrap: wrap;">
+                          <button
+                            type="button"
+                            class="bib-copy shimmer"
+                            data-copy={it.cuerpo}
+                            style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--sans); font-weight: 700; font-size: 13px; color: var(--bg); background: var(--accent); border: none; border-radius: 2px; padding: 10px 16px; cursor: pointer;"
+                          >
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            <span class="bib-copy-label">Copiar prompt</span>
+                          </button>
+                          <details class="bib-details">
+                            <summary style="cursor: pointer; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; color: var(--fg-4); list-style: none;">Ver el prompt completo</summary>
+                            <pre class="bib-body" style="font-family: var(--mono); font-size: 12.5px; line-height: 1.6; color: var(--fg-2); white-space: pre-wrap; word-break: break-word; margin: 12px 0 0; max-height: 240px; overflow: auto; border-top: 1px solid var(--line); padding-top: 12px;">{it.cuerpo}</pre>
+                          </details>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        {it.beneficio && <p style="font-size: 14px; line-height: 1.55; color: var(--fg-3); margin: 0;">{it.beneficio}</p>}
+                        {it.alcance && <p style="font-size: 12.5px; line-height: 1.5; color: var(--fg-4); margin: 0;"><span style="color: var(--fg-5); font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em;">Alcance</span> · {it.alcance}</p>}
+                        <a
+                          class="bib-unlock lift"
+                          href="#"
+                          data-stripe={it.id}
+                          style="align-self: flex-start; margin-top: auto; padding-top: 4px; font-family: var(--sans); font-weight: 700; font-size: 13px; text-decoration: none; color: var(--accent); background: transparent; border: 1px solid var(--accent); border-radius: 2px; padding: 9px 16px;"
+                        >Desbloquear · {eur(it.precio ?? 1.99)}</a>
+                      </>
+                    )}
+                  </article>
+                ))}
+              </div>
+            </div>
+          ))}
+        </section>
+      );
+    })
+  )}
+
+  <div id="bib-empty" hidden style="text-align: center; color: var(--fg-4); font-size: 14px; padding: 44px 0;">
+    No encontramos nada con esa búsqueda. Prueba con otra palabra.
+  </div>
+</section>
+
+<style>
+  .bib-details summary::-webkit-details-marker { display: none; }
+  .bib-details summary:hover { color: var(--fg-2); }
+  .bib-details[open] summary { color: var(--accent); }
+</style>

@@ -1,0 +1,17 @@
+{
+  "titulo": "Biblioteca de IA: 100 prompts gratis + 200 blueprints",
+  "tipo": "prompts",
+  "categoria": "Productividad",
+  "desc": "100 prompts de IA para copiar gratis y 200 blueprints por equipos para automatizar tu negocio.",
+  "long": "Una biblioteca navegable con 100 prompts listos para copiar y pegar —marketing, ventas, RR.HH., finanzas y más— reescritos con el framework Rol + Contexto + Tarea + Restricciones + Formato para que den resultados a la primera. Además, 200 blueprints de IA organizados por 'equipos': desde SEO, redes sociales y publicidad hasta calidad de software. Los prompts son gratis; cada blueprint puedes desbloquearlo suelto o contratar el equipo completo.",
+  "tagline": "Tu arsenal de IA: 100 prompts gratis y 200 blueprints por equipos.",
+  "ideal": "Dueños de PyME y autónomos que quieren aplicar la IA en su negocio sin ser expertos",
+  "formato": "Web · 300 recursos",
+  "precio": "Gratis",
+  "biblioteca": true,
+  "gated": false,
+  "color": "#5B7CFF",
+  "orden": 4,
+  "destacado": true,
+  "actualizado": "2026-07-15"
+}
