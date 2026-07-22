@@ -1,7 +1,7 @@
 ---
 // Biblioteca de IA navegable: selector de catálogo + buscador + fichas.
-// Catálogo A (prompts): agrupado en grupo → tema (5 subtemas de 5) para evitar la "wall of cards".
-// Catálogos B/C (software/growth): sin tema aún — grid plano dentro del grupo hasta que se autoren.
+// Cada grupo se agrupa en tema (subtemas, evita la "wall of cards"); si un grupo no
+// tiene tema asignado, se renderiza como un único bloque plano (fallback genérico).
 import { CATALOGOS, gruposDeCatalogo, itemsDeGrupo, temasDeGrupo, itemsDeTema, equipoDeGrupo, type CatalogoId, type Item } from '../data/biblioteca';
 
 const fold = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
