@@ -143,3 +143,76 @@ Estas confusiones habrían generado enlaces de afiliado **hacia el producto equi
 | **Total** | **54** |
 
 **Siguiente paso recomendado:** crea la cuenta de **PartnerStack** y solicita los 6 del Tier 1. Con eso cubres las categorías de mayor intención de tu directorio (email marketing, CRM, SEO, automatización y WhatsApp) antes de tocar la larga cola.
+
+---
+
+# Kit de alta — los 6 del Tier 1
+
+> Estas altas hay que hacerlas tú (piden tu identidad, método de pago y aceptar sus términos legales). Este kit las convierte en copiar-pegar. Orden sugerido: **PartnerStack (1 cuenta → 4 programas) → Make → HubSpot**.
+
+## Ten esto a mano antes de empezar (10 min)
+
+- **Nombre del titular** (persona o empresa) + **país** (España) + **NIF/NIE**.
+- **Formulario fiscal:** PartnerStack e Impact son empresas de EE. UU., así que te pedirán un **W-8BEN** (persona física) o **W-8BEN-E** (empresa) por ser no-estadounidense. Es un formulario corto; ten el NIF/NIE a mano.
+- **Método de cobro:** **PayPal** es el más aceptado (PartnerStack, Rewardful). **Make paga solo por Wise** → si no tienes Wise, ábrete una cuenta (gratis) antes.
+- **Cifras reales de audiencia:** visitas/mes y suscriptores del newsletter. Sé honesto — muchos programas aceptan sitios nuevos/pequeños. Si me las das, te afino la respuesta de "tamaño de audiencia".
+
+## Respuestas pre-escritas (pégalas en los formularios)
+
+**"Website URL":** `https://agentesva.com`
+
+**"About your site / describe your audience" (EN):**
+> AgentesVA (agentesva.com) is an editorial directory and media site that reviews AI tools for Spanish-speaking SMBs across Spain and Latin America. We publish in-depth tool profiles, side-by-side comparisons, and curated AI news, plus a weekly newsletter. Our audience is business owners and operators actively evaluating AI tools — high commercial intent. Traffic is SEO/content-led.
+
+**"Sobre tu sitio" (ES, por si el formulario está en español):**
+> AgentesVA (agentesva.com) es un directorio editorial y medio sobre herramientas de IA para PyMEs hispanohablantes de España y LATAM. Publicamos fichas de herramientas, comparativas y noticias curadas de IA, además de una newsletter semanal. Nuestra audiencia son responsables de negocio evaluando herramientas de IA, con alta intención de compra. El tráfico es orgánico/de contenido.
+
+**"How will you promote [product]?" (EN):**
+> A dedicated editorial profile page, inclusion in the relevant category comparison, and a mention in our newsletter — each with a clear recommendation and a tracked outbound link (rel=sponsored, disclosed).
+
+**"Promotional channels":** Content website (SEO) · Email newsletter · Editorial reviews & comparisons.
+
+**Disclosure/compliance:** los enlaces de afiliado salen marcados `rel="sponsored nofollow"` vía `/ir/{slug}` y se divulgan. (Si algún programa exige una nota de divulgación visible, dímelo y añado un aviso en la ficha/footer.)
+
+---
+
+## Paso a paso por programa
+
+### ① PartnerStack — una cuenta, cuatro programas (Brevo, Surfer, ManyChat, Landbot)
+1. Crea cuenta en **[partnerstack.com](https://partnerstack.com)** (perfil de *affiliate/partner*).
+2. Completa perfil + método de cobro (PayPal) + W-8BEN.
+3. En el marketplace, **solicita** cada uno (o entra por su enlace, que redirige a PartnerStack):
+   - **Brevo** → [brevo.com/partners/affiliates](https://www.brevo.com/partners/affiliates/) — *el de mayor prioridad: 5 €/registro + 100 €/pago.*
+   - **Surfer SEO** → [surferseo.com/affiliate-program](https://surferseo.com/affiliate-program/)
+   - **ManyChat** → [affiliate.manychat.com](https://affiliate.manychat.com/)
+   - **Landbot** → [landbot.io/affiliates](https://landbot.io/affiliates)
+4. Aprobación típica: pocos días. Cobro mensual desde PartnerStack.
+
+### ② Make — alta directa (payout solo por Wise)
+1. Ve a **[make.com/en/affiliate](https://www.make.com/en/affiliate)**, entra con tu cuenta Make (o créala).
+2. Rellena la solicitud (usa las respuestas de arriba).
+3. **Ojo:** cobro **solo por Wise**; hace falta **3 referidos de pago únicos** y **100 $ mínimos** antes del primer pago. 35 % durante 12 meses.
+
+### ③ HubSpot — vía Impact (algo más de setup)
+1. Ve a **[hubspot.com/partners/affiliates](https://www.hubspot.com/partners/affiliates)** → te lleva a crear/entrar en **Impact.com**.
+2. Crea la cuenta de *media partner* en Impact: perfil de empresa + método de pago + formulario fiscal (W-8BEN/-E).
+3. Dentro de Impact, **solicita la marca "HubSpot"**. 30 % recurrente 12 meses, cookie 180 d (históricamente 80 $ de bono de bienvenida).
+
+---
+
+## Cuando estés aprobado
+
+Cada programa te dará un **enlace de seguimiento** (tu ID de afiliado). Pásamelos así:
+
+```
+brevo     → https://tu-enlace-brevo
+surfer-seo → https://tu-enlace-surfer
+manychat  → https://tu-enlace-manychat
+landbot   → https://tu-enlace-landbot
+make      → https://tu-enlace-make
+hubspot-ia → https://tu-enlace-hubspot
+```
+
+…y yo relleno `affiliateUrl` en cada JSON, corro el build y hago push. En cuanto se despliegue, esos 6 empiezan a **generar comisión** y sus clicks pasan a marcar `hasAffiliate: true` en los logs y en GA4.
+
+> No hace falta esperar a tener los 6 — mándame los que te vayan aprobando y los voy incorporando de uno en uno.
