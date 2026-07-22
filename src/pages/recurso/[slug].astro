@@ -65,10 +65,14 @@ const cta = recurso.biblioteca
     : recurso.downloadUrl
       ? { href: recurso.downloadUrl, label: 'Descargar gratis →', rel: 'noopener', download: true, newtab: false }
       : { href: '/newsletter', label: 'Descárgalo gratis · Suscríbete →', rel: '', download: false, newtab: false };
+
+// Para recursos de biblioteca, el titulo ya es autoexplicativo — repetir el
+// tagline en el <title> lo duplica y lo trunca en SERP (>140 caracteres).
+const pageTitle = recurso.biblioteca ? `${recurso.titulo} | AgentesVA` : `${recurso.titulo} — ${recurso.tagline} | AgentesVA`;
 ---
 
 <BaseLayout
-  title={`${recurso.titulo} — ${recurso.tagline} | AgentesVA`}
+  title={pageTitle}
   description={`${recurso.desc} ${tipoLabel(recurso.tipo)} de AgentesVA.`}
 >
   <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
