@@ -60,10 +60,13 @@ function searchDe(it: Item): string {
 
   <!-- Descripción por catálogo -->
   {CATALOGOS.map((c) => (
-    <p class="bib-desc" data-cat={c.id} hidden={c.id !== activo} style="font-size: 15px; line-height: 1.6; color: var(--fg-3); margin: 22px 0 0; max-width: 56ch;">
-      <strong style="color: var(--fg-2); font-weight: 600;">{c.nombre}.</strong> {c.desc}
-      {!c.gratis && <span style="color: var(--fg-5);"> Cada blueprint suelto a 1,99 € o contrata el equipo completo.</span>}
-    </p>
+    <>
+      <h2 class="bib-desc" data-cat={c.id} hidden={c.id !== activo} style="font-family: var(--sans); font-weight: 700; font-size: 19px; letter-spacing: -0.01em; color: #fff; margin: 22px 0 0;">{c.nombre}</h2>
+      <p class="bib-desc" data-cat={c.id} hidden={c.id !== activo} style="font-size: 15px; line-height: 1.6; color: var(--fg-3); margin: 8px 0 0; max-width: 56ch;">
+        {c.desc}
+        {!c.gratis && <span style="color: var(--fg-5);"> Cada blueprint suelto a 1,99 € o contrata el equipo completo.</span>}
+      </p>
+    </>
   ))}
 
   <!-- Grupos + temas + fichas -->
