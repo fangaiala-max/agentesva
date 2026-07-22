@@ -13,5 +13,12 @@
   "color": "#5B7CFF",
   "orden": 4,
   "destacado": true,
-  "actualizado": "2026-07-15"
+  "actualizado": "2026-07-15",
+  "faq": [
+    { "q": "¿Los 100 prompts son gratis de verdad?", "a": "Sí. Se ven completos en esta página y se copian con un clic, sin registro ni límite de uso." },
+    { "q": "¿Cuál es la diferencia entre un prompt y un blueprint?", "a": "Los prompts (catálogo A) son gratis y se copian directo. Los blueprints (B y C) son recetas más completas —qué hacen, cómo, pasos y reglas— y su contenido completo es de pago; en la web ves gratis el beneficio y el alcance de cada uno." },
+    { "q": "¿Cómo se compra un equipo de IA?", "a": "Cada equipo agrupa los blueprints de un mismo grupo a un precio único. Al pulsar «Contratar equipo» pagas con Stripe y accedes de inmediato a los blueprints completos." },
+    { "q": "¿Necesito saber programar para usar los blueprints de software?", "a": "No. Cada blueprint incluye un prompt ya redactado y listo para pegar en un asistente de IA que trabaje sobre tu código." },
+    { "q": "¿Puedo comprar un blueprint suelto en vez del equipo completo?", "a": "Por ahora se venden agrupados por equipo. La compra individual está planeada para más adelante." }
+  ]
 }

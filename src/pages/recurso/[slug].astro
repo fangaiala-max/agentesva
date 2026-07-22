@@ -107,6 +107,18 @@ const pageTitle = recurso.biblioteca ? `${recurso.titulo} | AgentesVA` : `${recu
       <>
         <p style="font-size: 16px; line-height: 1.7; color: var(--fg-2); margin: 34px 0 0; max-width: 62ch;">{recurso.long}</p>
         <BibliotecaIA />
+
+        <div style="margin-top: 48px; max-width: 62ch;">
+          <h2 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0;">Preguntas frecuentes</h2>
+          <div style="display: flex; flex-direction: column; gap: 18px; margin-top: 18px;">
+            {faqs.map((f) => (
+              <div>
+                <h3 style="font-family: var(--sans); font-weight: 600; font-size: 15px; color: #fff; margin: 0;">{f.q}</h3>
+                <p style="font-size: 14.5px; line-height: 1.6; color: var(--fg-2); margin: 8px 0 0;">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </>
     )}
 
