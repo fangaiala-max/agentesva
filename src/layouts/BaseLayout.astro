@@ -69,3 +69,12 @@ const {
     <ConsentBanner />
   </body>
 </html>
+
+<script>
+  import { initTracking, fireViewEvents } from '../scripts/track';
+  document.addEventListener('astro:page-load', () => {
+    initTracking();
+    fireViewEvents();
+  });
+</script>
+

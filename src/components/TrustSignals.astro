@@ -1,0 +1,29 @@
+---
+// Señales de confianza honestas para la ficha. Cada fila se renderiza sólo si hay dato.
+import type { Tool } from '../data/tools';
+interface Props {
+  tool: Tool;
+  altsCount?: number;
+}
+const { tool, altsCount = 0 } = Astro.props;
+
+const fechaAlta = tool.addedAt
+  ? new Date(tool.addedAt).toLocaleDateString('es-ES', { month: 'long', year: 'numeric' })
+  : null;
+
+const rows: { label: string; value: string; accent?: boolean }[] = [
+  { label: 'Valoración editorial', value: `★ ${tool.rating}`, accent: true },
+  { label: 'Modelo de precio', value: tool.price },
+  ...(altsCount > 0 ? [{ label: 'Alternativas comparadas', value: String(altsCount) }] : []),
+  ...(fechaAlta ? [{ label: 'En el directorio desde', value: fechaAlta }] : []),
+];
+---
+
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px;">
+  {rows.map((r) => (
+    <span style="display: inline-flex; align-items: baseline; gap: 6px; font-family: var(--mono); font-size: 11px; color: var(--fg-3); background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 20px; padding: 5px 11px;">
+      <span style="color: var(--fg-5); text-transform: uppercase; letter-spacing: 0.06em; font-size: 9.5px;">{r.label}</span>
+      <span style={r.accent ? 'color: var(--accent);' : 'color: var(--fg-2);'}>{r.value}</span>
+    </span>
+  ))}
+</div>

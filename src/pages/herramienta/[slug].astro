@@ -3,7 +3,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import { getCollection } from 'astro:content';
-import { toTool, getAlternatives, fallbackFaqs, PRICE_COLOR, type Tool } from '../../data/tools';
+import { toTool, getAlternatives, fallbackFaqs, badgesFor, type Tool } from '../../data/tools';
+import AffiliateCTA from '../../components/AffiliateCTA.astro';
+import Badge from '../../components/Badge.astro';
+import TrustSignals from '../../components/TrustSignals.astro';
 import { jsonLdSerialize } from '../../data/schema';
 
 export async function getStaticPaths() {
@@ -17,7 +20,8 @@ export async function getStaticPaths() {
 interface Props { tool: Tool; alts: Tool[] }
 const { tool, alts } = Astro.props;
 const initial = tool.name.charAt(0);
-const priceColor = PRICE_COLOR[tool.price];
+const badges = badgesFor(tool);
+const hasAffiliate = Boolean(tool.affiliateUrl);
 const site = 'https://agentesva.com';
 const faqs = tool.faq?.length ? tool.faq : fallbackFaqs(tool);
 
@@ -64,6 +68,9 @@ const jsonLd = {
     data-pagefind-body
     data-pagefind-filter="tipo:Herramienta"
     data-pagefind-meta="tipo:Herramienta"
+    data-track-view="view_ficha"
+    data-track-slug={tool.slug}
+    data-track-category={tool.cat}
     style="max-width: 1080px; margin: 0 auto; padding: 32px 32px 64px;"
   >
     <a href="/#directorio" data-pagefind-ignore class="navlink" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-4); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">← Volver al directorio</a>
@@ -71,16 +78,19 @@ const jsonLd = {
     <div style="display: flex; align-items: flex-start; gap: 22px; margin-top: 26px; border-bottom: 1px solid var(--line); padding-bottom: 32px; flex-wrap: wrap;">
       <div transition:name={`mono-${tool.slug}`} style={`width: 74px; height: 74px; border-radius: 16px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 33px; color: #fff; background: ${tool.color};`}>{initial}</div>
       <div style="flex: 1; min-width: 220px;">
-        <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);">{tool.cat}</div>
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+          <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);">{tool.cat}</span>
+          {badges.map((b) => <Badge badge={b} />)}
+        </div>
         <h1 style="font-family: var(--sans); font-weight: 700; font-size: clamp(30px, 6vw, 40px); letter-spacing: -0.03em; margin: 6px 0 0; color: #fff;">{tool.name}</h1>
         <p style="font-size: 16.5px; line-height: 1.5; color: var(--fg-3); margin: 8px 0 0; max-width: 34em;">{tool.tagline}</p>
-        <div style="display: flex; gap: 14px; align-items: center; margin-top: 16px;">
-          <span style="font-family: var(--mono); font-size: 13px; color: var(--fg-2);"><span style="color: var(--accent);">★</span> {tool.rating}</span>
-          <span style={`font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: ${priceColor}; border: 1px solid var(--line-2); padding: 4px 10px; border-radius: 20px;`}>{tool.price}</span>
-        </div>
+        {tool.verdict && (
+          <p style="font-size: 15px; line-height: 1.55; color: var(--fg-2); margin: 12px 0 0; max-width: 40em; border-left: 2px solid var(--accent); padding-left: 12px;"><strong style="color: #fff;">Por qué lo recomendamos:</strong> {tool.verdict}</p>
+        )}
+        <TrustSignals tool={tool} altsCount={alts.length} />
       </div>
       <div style="display: flex; flex-direction: column; gap: 10px; flex: none;">
-        <a href={`/ir/${tool.slug}`} target="_blank" rel="sponsored nofollow noopener" class="lift shimmer" style="background: var(--accent); color: var(--bg); border: none; padding: 13px 24px; border-radius: 2px; font-family: var(--sans); font-weight: 600; font-size: 14px; text-decoration: none; text-align: center; white-space: nowrap;">Visitar sitio →</a>
+        <AffiliateCTA slug={tool.slug} src="ficha-hero" hasAffiliate={hasAffiliate} />
         <button type="button" id="save-btn" data-slug={tool.slug} aria-pressed="false" style="background: var(--panel-2); color: var(--fg-2); border: 1px solid var(--line-2); padding: 13px 24px; border-radius: 2px; font-family: var(--sans); font-weight: 600; font-size: 14px; cursor: pointer; white-space: nowrap;"><span id="save-label">Guardar</span></button>
       </div>
     </div>
@@ -89,6 +99,31 @@ const jsonLd = {
       <div>
         <h2 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0;">Qué es</h2>
         <p style="font-size: 16px; line-height: 1.7; color: var(--fg-2); margin: 14px 0 0;">{tool.long}</p>
+
+        {Boolean(tool.pros?.length || tool.cons?.length) && (
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 28px;">
+            {Boolean(tool.pros?.length) && (
+              <div style="border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 18px;">
+                <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green);">A favor</span>
+                <div style="display: flex; flex-direction: column; gap: 9px; margin-top: 12px;">
+                  {tool.pros.map((p) => (
+                    <div style="display: flex; gap: 9px; align-items: flex-start;"><span aria-hidden="true" style="color: var(--green); font-family: var(--mono); font-size: 13px;">+</span><span style="font-size: 14px; line-height: 1.5; color: var(--fg-2);">{p}</span></div>
+                  ))}
+                </div>
+              </div>
+            )}
+            {Boolean(tool.cons?.length) && (
+              <div style="border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 18px;">
+                <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-4);">A tener en cuenta</span>
+                <div style="display: flex; flex-direction: column; gap: 9px; margin-top: 12px;">
+                  {tool.cons.map((c) => (
+                    <div style="display: flex; gap: 9px; align-items: flex-start;"><span aria-hidden="true" style="color: var(--fg-4); font-family: var(--mono); font-size: 13px;">−</span><span style="font-size: 14px; line-height: 1.5; color: var(--fg-2);">{c}</span></div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
 
         <h2 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 36px 0 0;">Para qué sirve</h2>
         <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
@@ -143,24 +178,43 @@ const jsonLd = {
             <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-5);">Alternativas</span>
             <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
               {alts.map((a) => (
-                <a href={`/herramienta/${a.slug}`} class="lift" style="display: flex; align-items: center; gap: 12px; background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 12px; text-decoration: none;">
-                  <span style={`width: 34px; height: 34px; border-radius: 8px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 15px; color: #fff; background: ${a.color};`}>{a.name.charAt(0)}</span>
-                  <span style="flex: 1;">
-                    <span style="display: block; font-family: var(--sans); font-weight: 600; font-size: 14px; color: #fff;">{a.name}</span>
-                    <span style="display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-5); margin-top: 2px;"><span style="color: var(--accent);">★</span> {a.rating} · {a.cat}</span>
-                  </span>
-                  <span aria-hidden="true" style="color: var(--fg-5); font-family: var(--mono); font-size: 13px;">→</span>
-                </a>
+                <div style="display: flex; align-items: center; gap: 10px; background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 12px;">
+                  <a href={`/herramienta/${a.slug}`} class="lift" style="display: flex; align-items: center; gap: 12px; text-decoration: none; flex: 1; min-width: 0;">
+                    <span style={`width: 34px; height: 34px; border-radius: 8px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 15px; color: #fff; background: ${a.color};`}>{a.name.charAt(0)}</span>
+                    <span style="flex: 1; min-width: 0;">
+                      <span style="display: block; font-family: var(--sans); font-weight: 600; font-size: 14px; color: #fff;">{a.name}</span>
+                      <span style="display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-5); margin-top: 2px;"><span style="color: var(--accent);">★</span> {a.rating} · {a.cat}</span>
+                    </span>
+                  </a>
+                  <AffiliateCTA slug={a.slug} src="ficha-compare" variant="inline" label="Visitar ↗" hasAffiliate={Boolean(a.affiliateUrl)} />
+                </div>
               ))}
             </div>
           </div>
         )}
       </aside>
     </div>
+
+    <div style="margin-top: 44px; border-top: 1px solid var(--line); padding-top: 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+      <p style="margin: 0; font-size: 15px; color: var(--fg-3);">¿Listo para probar <strong style="color: #fff;">{tool.name}</strong>?</p>
+      <AffiliateCTA slug={tool.slug} src="ficha-bottom" hasAffiliate={hasAffiliate} />
+    </div>
+
+    <div class="ficha-sticky-cta" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; background: var(--bg-2); border-top: 1px solid var(--line-2); padding: 10px 16px; box-shadow: 0 -6px 24px rgba(0,0,0,0.35);">
+      <AffiliateCTA slug={tool.slug} src="ficha-sticky" variant="sticky" hasAffiliate={hasAffiliate} label={`Visitar ${tool.name} →`} />
+    </div>
   </main>
 
   <SiteFooter />
 </BaseLayout>
+
+<style>
+  .ficha-sticky-cta { display: none; }
+  @media (max-width: 767px) {
+    .ficha-sticky-cta { display: block; }
+    main { padding-bottom: 96px !important; }
+  }
+</style>
 
 <script>
   import { initToolDetail } from '../../scripts/tool-detail';

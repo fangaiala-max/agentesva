@@ -1,0 +1,20 @@
+---
+// Tarjeta de recomendación in-content (estudios/noticias): logo + pitch + CTA tracked.
+// Cierra la brecha "el contenido no convierte" con salida afiliado directa.
+import type { Tool } from '../data/tools';
+import AffiliateCTA from './AffiliateCTA.astro';
+interface Props {
+  tool: Tool;
+  src: string;
+}
+const { tool, src } = Astro.props;
+---
+
+<div style="display: flex; align-items: center; gap: 14px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; flex-wrap: wrap;">
+  <span style={`width: 40px; height: 40px; border-radius: 9px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 18px; color: #fff; background: ${tool.color};`}>{tool.name.charAt(0)}</span>
+  <div style="flex: 1; min-width: 180px;">
+    <a href={`/herramienta/${tool.slug}`} style="font-family: var(--sans); font-weight: 600; font-size: 15px; color: #fff; text-decoration: none;">{tool.name}</a>
+    <p style="margin: 3px 0 0; font-size: 13px; line-height: 1.45; color: var(--fg-3);">{tool.tagline}</p>
+  </div>
+  <AffiliateCTA slug={tool.slug} src={src} variant="inline" label="Visitar ↗" hasAffiliate={Boolean(tool.affiliateUrl)} />
+</div>
