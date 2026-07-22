@@ -66,4 +66,25 @@ describe('initBibliotecaCopy', () => {
     (document.querySelector('.bib-copy') as HTMLElement).click();
     expect(writeText).toHaveBeenCalledWith('Rol: hola');
   });
+
+  it('conserva el icono SVG tras copiar y restaurar (regresión: no debe pisar el botón entero)', async () => {
+    document.body.innerHTML = `
+      <button class="bib-copy" data-copy="Rol: hola">
+        <svg><rect></rect></svg>
+        <span class="bib-copy-label">Copiar prompt</span>
+      </button>`;
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, 'clipboard', { value: { writeText }, configurable: true });
+    vi.useFakeTimers();
+    initBibliotecaCopy();
+    const btn = document.querySelector('.bib-copy') as HTMLElement;
+    btn.click();
+    await Promise.resolve(); // deja resolver la promesa de writeText
+    expect(document.querySelector('.bib-copy svg')).not.toBeNull();
+    expect(btn.querySelector('.bib-copy-label')!.textContent).toBe('¡Copiado!');
+    vi.advanceTimersByTime(1500);
+    expect(document.querySelector('.bib-copy svg')).not.toBeNull();
+    expect(btn.querySelector('.bib-copy-label')!.textContent).toBe('Copiar prompt');
+    vi.useRealTimers();
+  });
 });

@@ -64,16 +64,16 @@ export function initBiblioteca() {
 export function initBibliotecaCopy() {
   const btns = Array.from(document.querySelectorAll<HTMLButtonElement>('.bib-copy'));
   btns.forEach((btn) => {
+    // El label vive en un <span> dedicado: tocar solo su texto conserva el icono SVG del botón.
+    const label = btn.querySelector<HTMLElement>('.bib-copy-label') || btn;
     btn.addEventListener('click', () => {
       const text = btn.dataset.copy || '';
-      const restore = btn.textContent;
+      const restore = label.textContent;
       Promise.resolve(navigator.clipboard?.writeText(text))
         .then(() => {
-          btn.textContent = '¡Copiado!';
-          btn.style.color = 'var(--accent)';
+          label.textContent = '¡Copiado!';
           setTimeout(() => {
-            btn.textContent = restore;
-            btn.style.color = 'var(--fg-2)';
+            label.textContent = restore;
           }, 1500);
         })
         .catch(() => {
