@@ -30,6 +30,7 @@
     "happy-dom": "^20.10.6",
     "pagefind": "^1.5.2",
     "postcss": "^8.5.19",
+    "rss-parser": "^3.13.0",
     "tailwindcss": "^4.3.3",
     "vitest": "^4.1.9",
     "zod": "^4.4.3"
