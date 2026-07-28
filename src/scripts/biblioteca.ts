@@ -58,6 +58,11 @@ export function initBiblioteca() {
     }),
   );
   search?.addEventListener('input', apply);
+
+  // El buscador filtra en cliente: un submit nativo recargaría la página y
+  // perdería el filtro. No puede ser un onsubmit inline — la CSP del sitio
+  // (script-src 'self', sin 'unsafe-inline') bloquea los handlers inline.
+  document.getElementById('bib-search-form')?.addEventListener('submit', (e) => e.preventDefault());
   apply();
 }
 
