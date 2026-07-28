@@ -1,7 +1,7 @@
 {
   "name": "agentesva-astro",
   "type": "module",
-  "version": "0.3.1.0",
+  "version": "0.3.1.1",
   "private": true,
   "scripts": {
     "dev": "astro dev",
