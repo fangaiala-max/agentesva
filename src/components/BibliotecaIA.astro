@@ -2,7 +2,7 @@
 // Biblioteca de IA navegable: selector de catálogo + buscador + fichas.
 // Cada grupo se agrupa en tema (subtemas, evita la "wall of cards"); si un grupo no
 // tiene tema asignado, se renderiza como un único bloque plano (fallback genérico).
-import { CATALOGOS, gruposDeCatalogo, itemsDeGrupo, temasDeGrupo, itemsDeTema, equipoDeGrupo, type CatalogoId, type Item } from '../data/biblioteca';
+import { CATALOGOS, gruposDeCatalogo, itemsDeGrupo, temasDeGrupo, itemsDeTema, equipoDeGrupo, compraUrlDeItem, type CatalogoId, type Item } from '../data/biblioteca';
 
 const fold = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
 const eur = (n: number) => n.toFixed(2).replace('.', ',') + ' €';
@@ -147,7 +147,9 @@ function searchDe(it: Item): string {
                         {it.alcance && <p style="font-size: 12.5px; line-height: 1.5; color: var(--fg-4); margin: 0;"><span style="color: var(--fg-5); font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em;">Alcance</span> · {it.alcance}</p>}
                         <a
                           class="bib-unlock lift"
-                          href="#"
+                          href={compraUrlDeItem(it.id) || '#'}
+                          target={compraUrlDeItem(it.id) ? '_blank' : undefined}
+                          rel={compraUrlDeItem(it.id) ? 'noopener' : undefined}
                           data-stripe={it.id}
                           style="align-self: flex-start; margin-top: auto; padding-top: 4px; font-family: var(--sans); font-weight: 700; font-size: 13px; text-decoration: none; color: var(--accent); background: transparent; border: 1px solid var(--accent); border-radius: 2px; padding: 9px 16px;"
                         >Desbloquear · {eur(it.precio ?? 1.99)}</a>
