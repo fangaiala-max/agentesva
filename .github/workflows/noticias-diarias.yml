@@ -1,0 +1,63 @@
+name: Noticias diarias — candidatos
+on:
+  schedule:
+    - cron: '0 5 * * 1-5'   # 05:00 UTC = 06:00 Europe/Madrid, lun–vie
+  workflow_dispatch: {}      # permite lanzarlo a mano para probar
+
+# Sin secretos ni API key: sólo curación (RSS + señales sociales). La REDACCIÓN
+# de cada noticia la hace un humano en una sesión de Claude Code (tom-4pass),
+# no un proceso headless. Así no hay coste de API ni superficie de inyección.
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  candidatos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Variables de fecha y rama
+        id: vars
+        run: |
+          echo "date=$(date -u +%F)" >> "$GITHUB_OUTPUT"
+          echo "branch=noticias/candidatos-$(date -u +%F)" >> "$GITHUB_OUTPUT"
+
+      - name: Etapa A — News radar
+        env:
+          DATE: ${{ steps.vars.outputs.date }}
+        run: node scripts/ai/news-radar.mjs --date="$DATE"
+
+      - name: Etapa B — Selección (hasta 4, temas diversos)
+        env:
+          DATE: ${{ steps.vars.outputs.date }}
+        run: node scripts/ai/select-noticias.mjs --date="$DATE" --n=4
+
+      - name: Abrir PR con los candidatos del día
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DATE: ${{ steps.vars.outputs.date }}
+          BRANCH: ${{ steps.vars.outputs.branch }}
+        run: |
+          COUNT=$(node -e "console.log(require('./docs/content/news-queue/'+process.env.DATE+'.selected.json').count)" 2>/dev/null || echo 0)
+          if [ "$COUNT" -eq 0 ]; then
+            echo "Sin candidatos de calidad hoy; no se abre PR (no se rellena)."
+            exit 0
+          fi
+          git config user.name "agentesva-bot"
+          git config user.email "bot@agentesva.com"
+          git checkout -b "$BRANCH"
+          git add docs/content/news-queue/
+          git commit -m "chore(noticias): cola de candidatos $DATE"
+          git push -u origin "$BRANCH"
+          BODY=$(node scripts/ai/pr-body.mjs --date="$DATE")
+          gh pr create --title "📰 Noticias — candidatos $DATE ($COUNT)" --body "$BODY" \
+            --label noticias --label candidatos --draft

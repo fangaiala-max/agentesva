@@ -4,6 +4,15 @@
 **Estado:** Aprobado para plan de implementación
 **Repo:** `fangaiala-max/agentesva` (Astro + Vercel)
 
+> **Actualización (2026-07-28) — pivote a "candidatos + sesión viva".** No hay
+> API key de Anthropic disponible, y la redacción headless (`claude -p`) era la
+> parte cara y con superficie de inyección. Decisión: el workflow **solo cura**
+> (Etapas A+B, sin key ni coste) y abre un PR draft con los candidatos del día;
+> la **redacción (Etapa C) la hace un humano en una sesión de Claude Code** con
+> el skill tom-4pass. Se elimina `claude -p`, `ANTHROPIC_API_KEY` y la validación
+> automática del contenido generado. El resto del diseño (radar, scoring,
+> selección, gate humano, sin relleno) se mantiene igual.
+
 ---
 
 ## 1. Problema
