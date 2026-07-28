@@ -19,11 +19,18 @@ export function buildPrompt(item, fecha) {
     ``,
     `Requisitos de salida (obligatorios):`,
     `1. Ejecuta los 4 pasos de tom-4pass. Research real de la fuente con WebSearch/WebFetch; verifica cada dato Tier-B con su URL oficial + fecha.`,
-    `2. Escribe el fichero en \`src/content/noticias/${item.slugSugerido}.md\` con el frontmatter del schema noticia: titulo, descripcion, fecha: ${fecha}, tema, etiquetas, fuente {nombre, url}, herramientas.`,
-    `3. \`herramientas[]\` SOLO con slugs que existan como fichero en \`src/content/tools/\`. Enlaza cada herramienta mencionada como [Nombre](/herramienta/<slug>).`,
-    `4. Voz editorial AgentesVA (humano, directo, sin humo). Cierra con línea "Fuente: …".`,
-    `5. Deja un worklog en \`docs/content/worklogs/${item.slugSugerido}.md\` con la tabla claim→fuente→tier y cualquier [SIN VERIFICAR].`,
-    `6. NO hagas commit. Solo escribe los ficheros.`,
+    `2. Deriva el SLUG del título en español que escribas, no del titular original.`,
+    `   El sitio posiciona en búsquedas en español: la URL es señal de SEO, y un`,
+    `   slug en inglés ("${item.slugSugerido}") la desperdicia.`,
+    `   Formato: minúsculas, sin tildes, palabras separadas por guiones, 3-8`,
+    `   palabras con sentido completo — nunca cortado a media palabra.`,
+    `   Ejemplos publicados: \`cuidado-al-compartir-chats-de-ia-pueden-acabar-en-google\`,`,
+    `   \`ia-potente-y-gratis-modelos-abiertos-de-china\`.`,
+    `3. Escribe el fichero en \`src/content/noticias/<slug>.md\` con el frontmatter del schema noticia: titulo, descripcion, fecha: ${fecha}, tema, etiquetas, fuente {nombre, url}, herramientas.`,
+    `4. \`herramientas[]\` SOLO con slugs que existan como fichero en \`src/content/tools/\`. Enlaza cada herramienta mencionada como [Nombre](/herramienta/<slug>).`,
+    `5. Voz editorial AgentesVA (humano, directo, sin humo). Cierra con línea "Fuente: …".`,
+    `6. Deja un worklog en \`docs/content/worklogs/<slug>.md\` (mismo slug) con la tabla claim→fuente→tier y cualquier [SIN VERIFICAR].`,
+    `7. NO hagas commit. Solo escribe los ficheros.`,
   ].join('\n');
 }
 
