@@ -12,7 +12,9 @@
     "test": "vitest run",
     "astro": "astro",
     "ai:faqs": "node --env-file-if-exists=.env.local scripts/generate-faqs.mjs",
-    "ai:estudios": "node --env-file-if-exists=.env.local scripts/generate-estudios.mjs"
+    "ai:estudios": "node --env-file-if-exists=.env.local scripts/generate-estudios.mjs",
+    "ai:radar": "node scripts/ai/news-radar.mjs",
+    "ai:select": "node scripts/ai/select-noticias.mjs"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.19",
