@@ -1,0 +1,126 @@
+{
+  "date": "2026-07-28",
+  "generatedAt": "2026-07-28T08:56:56.643Z",
+  "candidates": [
+    {
+      "titulo": "PSA: Your Claude shared chats and Artifacts may have ended up on Google",
+      "url": "https://techcrunch.com/2026/07/27/psa-your-claude-shared-chats-and-artifacts-may-have-ended-up-on-google/",
+      "fecha": "2026-07-27T20:19:42.000Z",
+      "resumen": "The issue appears to have originated from Claude’s “share chat” feature, which allows users to create links that enable anyone with the assigned URL view a conversation or project.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "psa-your-claude-shared-chats-and-artifacts-may-have-ended-up",
+      "signals": {
+        "hn": 29,
+        "reddit": 0,
+        "social": 0.4474434100386835,
+        "relevance": 1,
+        "freshness": 0.6494240509259259,
+        "authority": 0.9
+      },
+      "score": 0.6888
+    },
+    {
+      "titulo": "Building the enterprise environment for agentic AI",
+      "url": "https://www.technologyreview.com/2026/07/27/1140668/building-the-enterprise-environment-for-agentic-ai/",
+      "fecha": "2026-07-27T11:32:58.000Z",
+      "resumen": "For the enterprise, the promise of agentic AI is much more than just a better chatbot. It is software agents that execute business tasks end-to-end across people, business workflows, data, and systems. The platform best-suited to run agents is built with proper CPU capacity, resilient data access, policy-aware tool use, observability, memory management, and the…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "building-the-enterprise-environment-for-agentic-ai",
+      "signals": {
+        "hn": 148,
+        "reddit": 0,
+        "social": 0.6582925209969805,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.40556602623456794,
+        "authority": 0.95
+      },
+      "score": 0.6521
+    },
+    {
+      "titulo": "Why China is giving away its best AI models",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/971444/how-chinese-open-weight-ai-models-impact-us-companies",
+      "fecha": "2026-07-27T16:51:50.000Z",
+      "resumen": "People visit the booth of Kimi, an LLM developed by the Chinese startup Moonshot, during the World AI Conference in Shanghai, China, July 20th. | Image: LONG WEI/ Feature China/Future Publishing via Getty Images\t\n\nSilicon Valley has spent much of the past week on red alert, digesting the arrival of Moonshot AI's Kimi K3, a Chinese AI model that can allegedly beat some of the best systems built by ",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "why-china-is-giving-away-its-best-ai-models",
+      "signals": {
+        "hn": 1,
+        "reddit": 0,
+        "social": 0.09118675081917017,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5531894830246913,
+        "authority": 0.9
+      },
+      "score": 0.414
+    },
+    {
+      "titulo": "Microsoft launches its first cybersecurity model, plus a new agentic cybersecurity system",
+      "url": "https://techcrunch.com/2026/07/27/microsoft-launches-its-first-cyber-model-and-a-new-agentic-cybersecurity-system/",
+      "fecha": "2026-07-27T18:32:11.000Z",
+      "resumen": "Microsoft bolstered its AI cybersecurity offerings this week with the launch of its first AI security model and a new security platform.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "microsoft-launches-its-first-cybersecurity-model-plus-a-new-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5996478163580247,
+        "authority": 0.9
+      },
+      "score": 0.3799
+    },
+    {
+      "titulo": "Google’s AI search is rapidly becoming the default, new data shows",
+      "url": "https://techcrunch.com/2026/07/27/googles-ai-search-is-rapidly-becoming-the-default-new-data-shows/",
+      "fecha": "2026-07-27T15:57:12.000Z",
+      "resumen": "Google’s AI Overviews now appear in 43% of searches, underscoring how quickly AI-generated answers are becoming the default way people discover information online.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "google-s-ai-search-is-rapidly-becoming-the-default-new-data-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5278962731481482,
+        "authority": 0.9
+      },
+      "score": 0.3692
+    },
+    {
+      "titulo": "Nvidia, Microsoft launch open AI security alliance — without OpenAI, Google, or Anthropic",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/971281/nvidia-open-secure-ai-alliance-cybersecurity",
+      "fecha": "2026-07-27T12:06:22.000Z",
+      "resumen": "Nvidia on Monday said it is joining forces with Microsoft, SpaceX, IBM, and other tech companies to build and share open-source AI security tools. \nThe new Open Secure AI Alliance said open tools are required to effectively defend against attacks from frontier models. The initiative is a direct response to mounting concerns over the safety of advanced AI systems after a rogue OpenAI model escaped ",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "nvidia-microsoft-launch-open-ai-security-alliance-without-op",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.42102898919753085,
+        "authority": 0.9
+      },
+      "score": 0.3532
+    }
+  ]
+}
