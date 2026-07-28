@@ -5,7 +5,8 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync } from 'node:fs';
 import { fetchFeed, hnSignal, redditSignal } from './lib/feeds.mjs';
 import {
-  normalizeSocial, freshnessScore, relevanceScore, combinedScore, dedupeByTitle, slugify,
+  normalizeSocial, freshnessScore, relevanceScore, combinedScore, dedupeByTitle,
+  dedupeBySourceUrl, slugify,
 } from './lib/scoring.mjs';
 
 const cfg = JSON.parse(readFileSync(new URL('./news-sources.json', import.meta.url), 'utf8'));
@@ -17,18 +18,31 @@ const now = new Date();
 const noticiasDir = new URL('../../src/content/noticias/', import.meta.url);
 const queueDir = new URL('../../docs/content/news-queue/', import.meta.url);
 
-// Títulos ya publicados → anti-canibalización.
-function existingTitles() {
-  const out = [];
+// Ya publicado → anti-canibalización. Se leen DOS señales del frontmatter:
+//
+//   fuente.url  la que de verdad empareja. El radar ve titulares en inglés y
+//               las noticias se publican en español, así que comparar títulos
+//               no puede acertar nunca; la URL es independiente del idioma.
+//               (Sin esto, el radar reofreció la historia de los chats de
+//               Claude en Google al día siguiente de haberla publicado.)
+//   titulo      red de seguridad para cuando el titular original ya viene en
+//               español y sí es comparable.
+function existingPublished() {
+  const titulos = [];
+  const urls = [];
   for (const f of readdirSync(noticiasDir)) {
     if (!f.endsWith('.md')) continue;
-    const m = readFileSync(new URL(f, noticiasDir), 'utf8').match(/^titulo:\s*["']?(.+?)["']?\s*$/m);
-    if (m) out.push(m[1].toLowerCase());
+    const src = readFileSync(new URL(f, noticiasDir), 'utf8');
+    const t = src.match(/^titulo:\s*["']?(.+?)["']?\s*$/m);
+    if (t) titulos.push(t[1].toLowerCase());
+    // `fuente:` es un mapa anidado: la url va indentada debajo.
+    const u = src.match(/^fuente:\s*\n(?:[ \t]+\w+:.*\n)*?[ \t]+url:\s*["']?(\S+?)["']?\s*$/m);
+    if (u) urls.push(u[1]);
   }
-  return out;
+  return { titulos, urls };
 }
 
-const published = existingTitles();
+const published = existingPublished();
 
 // 1) Recolectar feeds (en paralelo, tolerante a fallos).
 const raw = (await Promise.all(cfg.feeds.map(fetchFeed))).flat();
@@ -38,11 +52,16 @@ const fresh = raw.filter((it) => {
   if (!it.fecha || !it.titulo || !it.url) return false;
   if (freshnessScore(it.fecha, cfg.windowHours, now) <= 0) return false;
   if (relevanceScore(`${it.titulo} ${it.resumen}`, cfg.relevanceKeywords, cfg.relevanceExclude) <= 0) return false;
-  if (published.some((p) => p.includes(it.titulo.toLowerCase().slice(0, 25)))) return false;
+  if (published.titulos.some((p) => p.includes(it.titulo.toLowerCase().slice(0, 25)))) return false;
   return true;
 });
 
-const deduped = dedupeByTitle(fresh);
+const sinPublicar = dedupeBySourceUrl(fresh, published.urls);
+if (sinPublicar.length < fresh.length) {
+  console.log(`[radar] ${fresh.length - sinPublicar.length} candidato(s) descartado(s): su fuente ya está publicada.`);
+}
+
+const deduped = dedupeByTitle(sinPublicar);
 
 // 3) Enriquecer con señales sociales EN PARALELO. Cada llamada tiene su propio
 //    timeout (feeds.mjs) y devuelve 0 si falla, así que el tiempo total queda

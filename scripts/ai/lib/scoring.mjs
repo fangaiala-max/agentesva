@@ -76,3 +76,38 @@ export function slugify(s) {
     .replace(/^-+|-+$/g, '')
     .slice(0, 60);
 }
+
+// Parámetros de campaña que los feeds RSS cuelgan de la URL: no identifican el
+// artículo, así que dos URLs que solo difieran en esto son la misma noticia.
+const TRACKING_PARAMS = /^(utm_|fbclid$|gclid$|mc_cid$|mc_eid$|ref$|source$)/i;
+
+// Forma canónica de una URL para comparar artículos entre sí. Independiente del
+// idioma, a diferencia del título: el radar ve titulares en inglés y las
+// noticias se publican en español, así que la URL es lo único que empareja.
+export function normalizeUrl(u) {
+  if (!u || typeof u !== 'string') return '';
+  let parsed;
+  try {
+    parsed = new URL(u);
+  } catch {
+    return u.trim(); // no es una URL: se compara tal cual, sin reventar
+  }
+  const params = [...parsed.searchParams.entries()]
+    .filter(([k]) => !TRACKING_PARAMS.test(k))
+    .sort(([a], [b]) => a.localeCompare(b));
+  const query = params.length ? `?${params.map(([k, v]) => `${k}=${v}`).join('&')}` : '';
+  const host = parsed.host.replace(/^www\./, '');
+  const path = parsed.pathname.replace(/\/+$/, '');
+  return `${host}${path}${query}`; // sin protocolo ni fragmento
+}
+
+// Descarta los candidatos cuya fuente ya se publicó. `publishedUrls` sale del
+// frontmatter `fuente.url` de src/content/noticias/.
+export function dedupeBySourceUrl(items, publishedUrls) {
+  const vistas = new Set((publishedUrls || []).map(normalizeUrl).filter(Boolean));
+  if (!vistas.size) return items;
+  return items.filter((it) => {
+    const u = normalizeUrl(it.url);
+    return !u || !vistas.has(u);
+  });
+}
