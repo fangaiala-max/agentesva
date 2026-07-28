@@ -12,9 +12,10 @@ jobs:
   noticias:
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    env:
-      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-      AI_GATEWAY_API_KEY: ${{ secrets.AI_GATEWAY_API_KEY }}
+    # SEGURIDAD: los secretos NO se exponen a nivel de job. La API key sólo se
+    # inyecta en la Etapa C (el subproceso Claude que la necesita); las etapas de
+    # build y PR corren sin ella, así que aunque un feed malicioso inyecte
+    # instrucciones, no hay secreto que exfiltrar en esos pasos.
     steps:
       - uses: actions/checkout@v4
 
@@ -45,8 +46,17 @@ jobs:
         run: node scripts/ai/select-noticias.mjs --date="$DATE" --n=4
 
       - name: Etapa C — Redacción tom-4pass (headless)
+        # SEGURIDAD: el prompt incorpora texto de feeds externos (NO fiable), así
+        # que se trata como superficie de inyección. Mitigaciones:
+        #  1. La API key sólo se expone en este paso (no en build/PR).
+        #  2. Sin `Bash` en --allowedTools → el agente no puede leer variables de
+        #     entorno ni ejecutar comandos; la key no es exfiltrables por prompt.
+        #  3. Write/Edit acotados a las carpetas de CONTENIDO — el agente no puede
+        #     tocar el workflow, package.json, scripts ni la config de build.
+        #  4. PR draft + revisión humana obligatoria (Pass 4): nada se publica solo.
         env:
           DATE: ${{ steps.vars.outputs.date }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           COUNT=$(node -e "console.log(require('./docs/content/news-queue/'+process.env.DATE+'.selected.json').count)" 2>/dev/null || echo 0)
           echo "Seleccionadas: $COUNT"
@@ -55,7 +65,7 @@ jobs:
             [ -z "$PROMPT" ] && continue
             echo "::group::Noticia $i"
             claude -p "$PROMPT" \
-              --allowedTools "WebSearch,WebFetch,Read,Write,Edit,Glob,Grep" \
+              --allowedTools "Read,Glob,Grep,WebSearch,WebFetch,Write(src/content/noticias/**),Edit(src/content/noticias/**),Write(docs/content/worklogs/**),Edit(docs/content/worklogs/**)" \
               --permission-mode acceptEdits || echo "Fallo en noticia $i (continúa)"
             echo "::endgroup::"
           done
