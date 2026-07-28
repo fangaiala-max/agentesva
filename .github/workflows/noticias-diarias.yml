@@ -1,21 +1,20 @@
-name: Noticias diarias
+name: Noticias diarias — candidatos
 on:
   schedule:
     - cron: '0 5 * * 1-5'   # 05:00 UTC = 06:00 Europe/Madrid, lun–vie
   workflow_dispatch: {}      # permite lanzarlo a mano para probar
 
+# Sin secretos ni API key: sólo curación (RSS + señales sociales). La REDACCIÓN
+# de cada noticia la hace un humano en una sesión de Claude Code (tom-4pass),
+# no un proceso headless. Así no hay coste de API ni superficie de inyección.
 permissions:
   contents: write
   pull-requests: write
 
 jobs:
-  noticias:
+  candidatos:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
-    # SEGURIDAD: los secretos NO se exponen a nivel de job. La API key sólo se
-    # inyecta en la Etapa C (el subproceso Claude que la necesita); las etapas de
-    # build y PR corren sin ella, así que aunque un feed malicioso inyecte
-    # instrucciones, no hay secreto que exfiltrar en esos pasos.
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
 
@@ -26,70 +25,39 @@ jobs:
 
       - run: npm ci
 
-      - name: Instalar Claude Code CLI
-        run: npm install -g @anthropic-ai/claude-code
-
       - name: Variables de fecha y rama
         id: vars
         run: |
           echo "date=$(date -u +%F)" >> "$GITHUB_OUTPUT"
-          echo "branch=noticias/auto-$(date -u +%F)" >> "$GITHUB_OUTPUT"
+          echo "branch=noticias/candidatos-$(date -u +%F)" >> "$GITHUB_OUTPUT"
 
       - name: Etapa A — News radar
         env:
           DATE: ${{ steps.vars.outputs.date }}
         run: node scripts/ai/news-radar.mjs --date="$DATE"
 
-      - name: Etapa B — Selección
+      - name: Etapa B — Selección (hasta 4, temas diversos)
         env:
           DATE: ${{ steps.vars.outputs.date }}
         run: node scripts/ai/select-noticias.mjs --date="$DATE" --n=4
 
-      - name: Etapa C — Redacción tom-4pass (headless)
-        # SEGURIDAD: el prompt incorpora texto de feeds externos (NO fiable), así
-        # que se trata como superficie de inyección. Mitigaciones:
-        #  1. La API key sólo se expone en este paso (no en build/PR).
-        #  2. Sin `Bash` en --allowedTools → el agente no puede leer variables de
-        #     entorno ni ejecutar comandos; la key no es exfiltrables por prompt.
-        #  3. Write/Edit acotados a las carpetas de CONTENIDO — el agente no puede
-        #     tocar el workflow, package.json, scripts ni la config de build.
-        #  4. PR draft + revisión humana obligatoria (Pass 4): nada se publica solo.
-        env:
-          DATE: ${{ steps.vars.outputs.date }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: |
-          COUNT=$(node -e "console.log(require('./docs/content/news-queue/'+process.env.DATE+'.selected.json').count)" 2>/dev/null || echo 0)
-          echo "Seleccionadas: $COUNT"
-          for i in $(seq 0 $((COUNT-1))); do
-            PROMPT=$(node scripts/ai/build-prompt.mjs --date="$DATE" --index="$i")
-            [ -z "$PROMPT" ] && continue
-            echo "::group::Noticia $i"
-            claude -p "$PROMPT" \
-              --allowedTools "Read,Glob,Grep,WebSearch,WebFetch,Write(src/content/noticias/**),Edit(src/content/noticias/**),Write(docs/content/worklogs/**),Edit(docs/content/worklogs/**)" \
-              --permission-mode acceptEdits || echo "Fallo en noticia $i (continúa)"
-            echo "::endgroup::"
-          done
-
-      - name: Etapa D — Validación (Zod build)
-        id: build
-        run: npm run build
-        continue-on-error: true
-
-      - name: Etapa E — Abrir PR
-        if: ${{ hashFiles('src/content/noticias/**') != '' }}
+      - name: Abrir PR con los candidatos del día
         env:
           GH_TOKEN: ${{ github.token }}
           DATE: ${{ steps.vars.outputs.date }}
           BRANCH: ${{ steps.vars.outputs.branch }}
-          DRAFT: ${{ steps.build.outcome == 'failure' && '--draft' || '' }}
         run: |
+          COUNT=$(node -e "console.log(require('./docs/content/news-queue/'+process.env.DATE+'.selected.json').count)" 2>/dev/null || echo 0)
+          if [ "$COUNT" -eq 0 ]; then
+            echo "Sin candidatos de calidad hoy; no se abre PR (no se rellena)."
+            exit 0
+          fi
           git config user.name "agentesva-bot"
           git config user.email "bot@agentesva.com"
           git checkout -b "$BRANCH"
-          git add src/content/noticias/ docs/content/
-          if git diff --cached --quiet; then echo "Sin cambios; no se abre PR."; exit 0; fi
-          git commit -m "feat(noticias): borradores automáticos $DATE"
+          git add docs/content/news-queue/
+          git commit -m "chore(noticias): cola de candidatos $DATE"
           git push -u origin "$BRANCH"
           BODY=$(node scripts/ai/pr-body.mjs --date="$DATE")
-          gh pr create --title "📰 Noticias diarias — $DATE" --body "$BODY" \
-            --label noticias --label automated $DRAFT
+          gh pr create --title "📰 Noticias — candidatos $DATE ($COUNT)" --body "$BODY" \
+            --label noticias --label candidatos --draft

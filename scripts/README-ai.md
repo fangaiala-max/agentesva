@@ -38,14 +38,21 @@ Luego **revisa** el contenido (`docs/blog-fact-checking-protocol.md`) y commitea
 ## Coste / observabilidad
 Cada llamada va etiquetada (`project:agentesva`, `feature:tool-faqs`, `tool:<slug>`). Mira gasto y trazas en Vercel → AI Gateway → Observability. Tokens a precio de proveedor, sin markup.
 
-## Noticias diarias (automatización)
+## Noticias diarias (candidatos)
 
 `ai:radar` + `ai:select` alimentan el workflow `.github/workflows/noticias-diarias.yml`
-(cron lun–vie 06:00 Madrid). El workflow ejecuta el skill **tom-4pass** vía
-`claude -p` por cada noticia seleccionada, valida con `npm run build` y abre un PR
-para revisión humana (Pass 4). Nunca publica directo; nunca rellena en días flojos.
+(cron lun–vie 06:00 Madrid). El workflow **solo cura**: descarga RSS + señales sociales
+(HN/Reddit), puntúa y selecciona hasta 4 candidatos con temas diversos, y abre un **PR
+draft** con la lista sobre la rama `noticias/candidatos-<fecha>`. **No redacta nada
+automáticamente → sin API key, sin coste, sin superficie de inyección.**
 
-- Probar localmente: `npm run ai:radar && npm run ai:select`
-- Lanzar el workflow a mano: pestaña **Actions → Noticias diarias → Run workflow**.
-- Secret requerido: `ANTHROPIC_API_KEY` (Settings → Secrets → Actions).
+La **redacción** de cada noticia la hace un humano en una **sesión de Claude Code**
+ejecutando el skill **tom-4pass** (research + verificación + voz editorial), y la commitea
+a esa rama; luego se marca el PR como *ready*, se revisa (Pass 4) y se mergea. Nada se
+publica solo; nunca rellena en días flojos.
+
+- Probar la curación localmente: `npm run ai:radar && npm run ai:select`
+- Escribir un candidato: `node scripts/ai/build-prompt.mjs --date=<fecha> --index=<i>` → tom-4pass.
+- Lanzar el workflow a mano: **Actions → Noticias diarias — candidatos → Run workflow**.
+- **Sin secretos**: el workflow no usa ninguna API key.
 - Ajustar fuentes/pesos/umbral: `scripts/ai/news-sources.json`.
