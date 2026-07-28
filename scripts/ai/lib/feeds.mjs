@@ -28,6 +28,7 @@ export async function hnSignal(titulo) {
     const q = encodeURIComponent(titulo.slice(0, 80));
     const r = await fetch(`https://hn.algolia.com/api/v1/search?query=${q}&tags=story&hitsPerPage=3`, {
       headers: { 'User-Agent': UA },
+      signal: AbortSignal.timeout(7000),
     });
     if (!r.ok) return 0;
     const data = await r.json();
@@ -46,7 +47,7 @@ export async function redditSignal(titulo, subreddits) {
     const subs = subreddits.join('+');
     const r = await fetch(
       `https://www.reddit.com/r/${subs}/search.json?q=${q}&restrict_sr=1&sort=top&t=week&limit=5`,
-      { headers: { 'User-Agent': UA } },
+      { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(7000) },
     );
     if (!r.ok) return 0;
     const data = await r.json();
