@@ -29,7 +29,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.2",
     "ai": "^7.0.31",
-    "happy-dom": "^20.10.6",
+    "happy-dom": "^20.11.1",
     "pagefind": "^1.5.2",
     "postcss": "^8.5.23",
     "rss-parser": "^3.13.0",
