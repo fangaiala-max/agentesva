@@ -113,3 +113,5 @@ export function itemsDeTema(cat: CatalogoId, grupo: string, tema: string): Item[
 export function equipoDeGrupo(cat: CatalogoId, grupo: string): Equipo | undefined {
   return EQUIPOS.find((e) => e.catalogo === cat && e.grupo === grupo);
 }
+
+export { compraUrlDeItem, COMPRA_URLS } from './compra-urls';
