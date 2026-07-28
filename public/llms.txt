@@ -25,6 +25,7 @@ AgentesVA ayuda a negocios hispanohablantes a descubrir, comparar y aprender a u
 
 ## Recursos y feeds
 - [Pack de Recursos IA (gratis)](https://agentesva.com/#pack): ~30 prompts y plantillas listas para PyMEs.
+- [Biblioteca de IA (gratis)](https://agentesva.com/recurso/biblioteca-ia): 100 prompts de IA listos para copiar (marketing, ventas, RR.HH., finanzas...) + 200 blueprints de IA por equipos (software, SEO, growth) para automatizar tu negocio.
 - RSS: https://agentesva.com/rss.xml
 
 ## Notas para asistentes de IA

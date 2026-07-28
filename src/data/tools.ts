@@ -21,6 +21,11 @@ export interface Tool {
   steps: string[];
   orden: number;
   destacado?: boolean;
+  popular?: boolean;
+  verdict?: string;
+  pros?: string[];
+  cons?: string[];
+  addedAt?: Date;
   faq?: { q: string; a: string }[];
 }
 
@@ -64,4 +69,25 @@ export function toTool(entry: CollectionEntry<'tools'>): Tool {
 // Mismas categorías, ≠ slug; máx 3.
 export function getAlternatives(all: Tool[], tool: Tool): Tool[] {
   return all.filter((t) => t.cat === tool.cat && t.slug !== tool.slug).slice(0, 3);
+}
+
+// Badges honestos del directorio: cada uno mapea a un campo real (nunca inventados).
+export type BadgeKind = 'editor' | 'popular' | 'free' | 'nuevo';
+export interface Badge {
+  kind: BadgeKind;
+  label: string;
+}
+
+const NUEVO_DIAS = 30;
+
+export function badgesFor(t: Tool, now: Date = new Date()): Badge[] {
+  const badges: Badge[] = [];
+  if (t.destacado) badges.push({ kind: 'editor', label: '★ Editor' });
+  if (t.popular) badges.push({ kind: 'popular', label: 'Popular' });
+  if (t.price === 'Freemium') badges.push({ kind: 'free', label: 'Plan gratis' });
+  if (t.addedAt) {
+    const dias = (now.getTime() - new Date(t.addedAt).getTime()) / 86_400_000;
+    if (dias >= 0 && dias <= NUEVO_DIAS) badges.push({ kind: 'nuevo', label: 'Nuevo' });
+  }
+  return badges;
 }

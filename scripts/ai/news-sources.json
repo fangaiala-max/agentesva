@@ -1,0 +1,20 @@
+{
+  "windowHours": 36,
+  "weights": { "social": 0.45, "relevance": 0.30, "freshness": 0.15, "authority": 0.10 },
+  "minScore": 0.35,
+  "feeds": [
+    { "url": "https://techcrunch.com/category/artificial-intelligence/feed/", "nombre": "TechCrunch", "authority": 0.9 },
+    { "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml", "nombre": "The Verge", "authority": 0.9 },
+    { "url": "https://venturebeat.com/category/ai/feed/", "nombre": "VentureBeat", "authority": 0.8 },
+    { "url": "https://www.technologyreview.com/feed/", "nombre": "MIT Technology Review", "authority": 0.95 },
+    { "url": "https://www.artificialintelligence-news.com/feed/", "nombre": "AI News", "authority": 0.6 }
+  ],
+  "subreddits": ["artificial", "ChatGPT", "OpenAI", "smallbusiness", "SaaS"],
+  "relevanceKeywords": [
+    "chatgpt", "gpt", "claude", "gemini", "copilot", "agent", "agente", "automation",
+    "automatiz", "whatsapp", "assistant", "asistente", "no-code", "nocode", "saas",
+    "marketing", "crm", "small business", "pyme", "startup", "productivity", "api",
+    "free tier", "pricing", "launch", "feature", "tool", "app"
+  ],
+  "relevanceExclude": ["research paper", "arxiv", "gpu shortage", "datacenter", "chip", "fab", "quantum"]
+}

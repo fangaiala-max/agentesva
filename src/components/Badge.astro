@@ -1,0 +1,20 @@
+---
+import type { Badge } from '../data/tools';
+interface Props {
+  badge: Badge;
+}
+const { badge } = Astro.props;
+
+// Color por tipo, siempre con tokens del sistema.
+const palette: Record<Badge['kind'], { fg: string; bg: string; border: string }> = {
+  editor: { fg: 'var(--gold)', bg: 'rgba(245,196,81,0.12)', border: 'rgba(245,196,81,0.4)' },
+  popular: { fg: 'var(--accent)', bg: 'rgba(91,124,255,0.12)', border: 'rgba(91,124,255,0.4)' },
+  free: { fg: 'var(--green)', bg: 'rgba(79,211,154,0.12)', border: 'rgba(79,211,154,0.4)' },
+  nuevo: { fg: 'var(--fg-3)', bg: 'var(--panel-2)', border: 'var(--line-2)' },
+};
+const c = palette[badge.kind];
+---
+
+<span
+  style={`font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: ${c.fg}; background: ${c.bg}; border: 1px solid ${c.border}; border-radius: 20px; padding: 2px 8px; white-space: nowrap;`}
+>{badge.label}</span>

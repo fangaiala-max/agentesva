@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { fallbackFaqs, getAlternatives, PRICE_COLOR, priceRank, toolsClaim, type Tool } from '../src/data/tools';
+import { badgesFor, fallbackFaqs, getAlternatives, PRICE_COLOR, priceRank, toolsClaim, type Tool } from '../src/data/tools';
 
 const tool = (over: Partial<Tool>): Tool => ({
   slug: 'demo',
@@ -75,5 +75,39 @@ describe('toolsClaim', () => {
     expect(toolsClaim(10)).toBe(10);
     expect(toolsClaim(9)).toBe(9);
     expect(toolsClaim(0)).toBe(0);
+  });
+});
+
+describe('badgesFor', () => {
+  const NOW = new Date('2026-07-20T00:00:00.000Z');
+
+  it('sin campos → sin badges', () => {
+    expect(badgesFor(tool({}), NOW)).toEqual([]);
+  });
+
+  it('destacado → badge editor', () => {
+    expect(badgesFor(tool({ destacado: true }), NOW)).toEqual([{ kind: 'editor', label: '★ Editor' }]);
+  });
+
+  it('popular → badge popular', () => {
+    expect(badgesFor(tool({ popular: true }), NOW)).toEqual([{ kind: 'popular', label: 'Popular' }]);
+  });
+
+  it('price Freemium → badge "Plan gratis"; Gratis y Pago no lo emiten', () => {
+    expect(badgesFor(tool({ price: 'Freemium' }), NOW)).toContainEqual({ kind: 'free', label: 'Plan gratis' });
+    expect(badgesFor(tool({ price: 'Gratis' }), NOW).some((b) => b.kind === 'free')).toBe(false);
+    expect(badgesFor(tool({ price: 'Pago' }), NOW).some((b) => b.kind === 'free')).toBe(false);
+  });
+
+  it('addedAt dentro de 30 días → badge Nuevo; más antiguo → no', () => {
+    expect(badgesFor(tool({ addedAt: new Date('2026-07-05T00:00:00.000Z') }), NOW).some((b) => b.kind === 'nuevo')).toBe(true);
+    expect(badgesFor(tool({ addedAt: new Date('2026-05-01T00:00:00.000Z') }), NOW).some((b) => b.kind === 'nuevo')).toBe(false);
+    expect(badgesFor(tool({ addedAt: new Date('2026-06-20T00:00:00.000Z') }), NOW).some((b) => b.kind === 'nuevo')).toBe(true);
+    expect(badgesFor(tool({ addedAt: new Date('2026-08-01T00:00:00.000Z') }), NOW).some((b) => b.kind === 'nuevo')).toBe(false);
+  });
+
+  it('orden estable: editor, popular, free, nuevo', () => {
+    const b = badgesFor(tool({ destacado: true, popular: true, price: 'Freemium', addedAt: NOW }), NOW);
+    expect(b.map((x) => x.kind)).toEqual(['editor', 'popular', 'free', 'nuevo']);
   });
 });

@@ -9,8 +9,8 @@ export default defineConfig({
   integrations: [
     sitemap({
       // /ir/* es la salida afiliado; /buscar es noindex (búsqueda cliente);
-      // /descarga es la entrega post-pago (noindex, SSR) — fuera del sitemap
-      filter: (page) => !page.includes('/ir/') && !page.includes('/buscar') && !page.includes('/descarga'),
+      // /descarga y /entrega son la entrega post-pago (noindex, SSR) — fuera del sitemap
+      filter: (page) => !page.includes('/ir/') && !page.includes('/buscar') && !page.includes('/descarga') && !page.includes('/entrega'),
       i18n: {
         defaultLocale: 'es',
         locales: { es: 'es' },

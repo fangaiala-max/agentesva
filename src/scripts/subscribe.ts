@@ -10,6 +10,7 @@
 //     button[data-subscribe-submit]
 //   [data-subscribe-success]         (oculto; se muestra tras enviar)
 //   [data-subscribe-error]           (oculto; mensaje de error)
+import { track } from './track';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -70,6 +71,7 @@ function wire(root: HTMLElement) {
       }
       form.hidden = true;
       if (ok) ok.hidden = false;
+      track('newsletter_submit', { list });
     } catch (e2) {
       submit.disabled = false;
       submit.textContent = original;

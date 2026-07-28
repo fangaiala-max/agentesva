@@ -5,6 +5,7 @@ import SiteFooter from '../../components/SiteFooter.astro';
 import { getCollection, render } from 'astro:content';
 import { toTool } from '../../data/tools';
 import { jsonLdSerialize, organization, person, SITE as site } from '../../data/schema';
+import ToolCallout from '../../components/ToolCallout.astro';
 
 export async function getStaticPaths() {
   const noticias = await getCollection('noticias');
@@ -78,12 +79,9 @@ const jsonLd = {
     {related.length > 0 && (
       <section data-pagefind-ignore style="margin-top: 40px; border-top: 1px solid var(--line); padding-top: 24px;">
         <h2 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0;">Herramientas relacionadas</h2>
-        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
           {related.map((t) => (
-            <a href={`/herramienta/${t.slug}`} class="lift" style="display: inline-flex; align-items: center; gap: 9px; background: var(--panel); border: 1px solid var(--line); border-radius: 30px; padding: 8px 14px 8px 8px; text-decoration: none;">
-              <span style={`width: 26px; height: 26px; border-radius: 7px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 13px; color: #fff; background: ${t.color};`}>{t.name.charAt(0)}</span>
-              <span style="font-family: var(--sans); font-size: 13.5px; font-weight: 600; color: #fff;">{t.name}</span>
-            </a>
+            <ToolCallout tool={t} src="noticia-callout" />
           ))}
         </div>
       </section>

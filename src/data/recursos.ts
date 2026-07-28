@@ -25,6 +25,7 @@ export interface Recurso {
   destacado: boolean;
   actualizado: string;
   faq?: { q: string; a: string }[];
+  biblioteca?: boolean;
 }
 
 export const PRECIO_COLOR: Record<Precio, string> = {
