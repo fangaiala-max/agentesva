@@ -1,0 +1,45 @@
+---
+import type { Item } from '../data/biblioteca';
+
+interface Props {
+  item: Item;
+  index?: number;
+}
+const { item, index } = Astro.props;
+---
+
+<article style="border: 1px solid var(--line); background: var(--panel); border-radius: 10px; padding: 22px;">
+  {index !== undefined && <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--accent);">{String(index + 1).padStart(2, '0')}</span>}
+  <h3 style="font-family: var(--serif); font-weight: 400; font-size: 19.5px; line-height: 1.22; letter-spacing: -0.02em; color: #fff; margin: 6px 0 0;">{item.titulo}</h3>
+  <p style="font-size: 14px; line-height: 1.55; color: var(--fg-3); margin: 10px 0 0;">{item.blueprint?.quePuedeHacer}</p>
+
+  <div style="display: flex; gap: 14px; margin: 14px 0 0; flex-wrap: wrap;">
+    <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-5); border: 1px solid var(--line-2); border-radius: 20px; padding: 4px 10px;">{item.blueprint?.modo}</span>
+  </div>
+
+  <div style="margin-top: 16px;">
+    <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5);">Pasos</span>
+    <ol style="margin: 8px 0 0; padding-left: 20px; color: var(--fg-2); font-size: 14px; line-height: 1.65;">
+      {item.blueprint?.pasos.map((p) => <li>{p}</li>)}
+    </ol>
+  </div>
+
+  <div style="margin-top: 14px;">
+    <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5);">Reglas</span>
+    <ul style="margin: 8px 0 0; padding-left: 20px; color: var(--fg-2); font-size: 14px; line-height: 1.65;">
+      {item.blueprint?.reglas.map((r) => <li>{r}</li>)}
+    </ul>
+  </div>
+
+  <div style="margin-top: 16px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+    <button
+      type="button"
+      class="bib-copy shimmer"
+      data-copy={item.blueprint?.prompt}
+      style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--sans); font-weight: 700; font-size: 13px; color: var(--bg); background: var(--accent); border: none; border-radius: 2px; padding: 10px 16px; cursor: pointer;"
+    >
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      <span class="bib-copy-label">Copiar prompt</span>
+    </button>
+  </div>
+</article>
