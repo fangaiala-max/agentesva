@@ -1,0 +1,66 @@
+{
+  "date": "2026-07-28",
+  "generatedAt": "2026-07-28T23:59:35.503Z",
+  "candidates": [
+    {
+      "titulo": "Perplexity’s Personal Computer turns Windows PCs into AI agents",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/971750/perplexity-personal-computer-windows-ai-agents",
+      "fecha": "2026-07-28T12:30:00.000Z",
+      "resumen": "Perplexity has expanded its agentic Personal Computer tool to Windows, allowing computers running the world's most popular OS to be used as a locally run AI system. Like the Mac version that Perplexity launched in April, Personal Computer for Windows operates like a \"general-purpose digital worker\" that can access local files and apps to perform actions on your behalf, such as creating documents a",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "perplexity-s-personal-computer-turns-windows-pcs-into-ai-age",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.680744575617284,
+        "authority": 0.9
+      },
+      "score": 0.4921
+    },
+    {
+      "titulo": "Fish Audio raises $52M seed to build AI voice models for creators and enterprises",
+      "url": "https://techcrunch.com/2026/07/28/fish-audio-raises-50m-seed-to-build-ai-voice-models-for-creators-and-enterprises/",
+      "fecha": "2026-07-28T14:00:00.000Z",
+      "resumen": "Since launching last year, the startup today has more than 8 million people using the open source or hosted version of its models, and now generates annual recurring revenue of $21 million.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "fish-audio-raises-52m-seed-to-build-ai-voice-models-for-crea",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.7224112422839506,
+        "authority": 0.9
+      },
+      "score": 0.3984
+    },
+    {
+      "titulo": "Smart rings are looking like my kind of AI gadget",
+      "url": "https://www.theverge.com/gadgets/971744/smart-ring-ai-gadget-stream-index",
+      "fecha": "2026-07-28T12:00:00.000Z",
+      "resumen": "Over the last few months, I've spent a lot of time talking to my computer. One underrated feature of the LLM revolution has been a remarkable leap in all kinds of dictation technology - even the fastest, cheapest models are getting very good at understanding and processing speech. I've tested lots of these apps, from WisprFlow to Monologue to Spokenly to Handy to so many others, and have found the",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "smart-rings-are-looking-like-my-kind-of-ai-gadget",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.666855686728395,
+        "authority": 0.9
+      },
+      "score": 0.39
+    }
+  ]
+}
