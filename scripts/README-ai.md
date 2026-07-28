@@ -37,3 +37,15 @@ Luego **revisa** el contenido (`docs/blog-fact-checking-protocol.md`) y commitea
 
 ## Coste / observabilidad
 Cada llamada va etiquetada (`project:agentesva`, `feature:tool-faqs`, `tool:<slug>`). Mira gasto y trazas en Vercel → AI Gateway → Observability. Tokens a precio de proveedor, sin markup.
+
+## Noticias diarias (automatización)
+
+`ai:radar` + `ai:select` alimentan el workflow `.github/workflows/noticias-diarias.yml`
+(cron lun–vie 06:00 Madrid). El workflow ejecuta el skill **tom-4pass** vía
+`claude -p` por cada noticia seleccionada, valida con `npm run build` y abre un PR
+para revisión humana (Pass 4). Nunca publica directo; nunca rellena en días flojos.
+
+- Probar localmente: `npm run ai:radar && npm run ai:select`
+- Lanzar el workflow a mano: pestaña **Actions → Noticias diarias → Run workflow**.
+- Secret requerido: `ANTHROPIC_API_KEY` (Settings → Secrets → Actions).
+- Ajustar fuentes/pesos/umbral: `scripts/ai/news-sources.json`.
