@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { jsonLdSerialize, SITE as site, WEBSITE_ID } from '../data/schema';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Metodología de valoración',
+  url: `${site}/metodologia/`,
+  inLanguage: 'es',
+  isPartOf: { '@id': WEBSITE_ID },
+};
+---
+
+<BaseLayout
+  title="Metodología de valoración | AgentesVA"
+  description="Cómo valoramos las herramientas de IA del directorio: de dónde sale la información, qué miramos, qué no influye en la puntuación y qué limitaciones tiene."
+>
+  <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
+  <SiteHeader />
+
+  <main style="max-width: 760px; margin: 0 auto; padding: 40px 32px 72px; font-family: var(--sans);">
+    <nav aria-label="Migas" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-5);">
+      <a href="/" style="color: var(--fg-5); text-decoration: none;">Inicio</a> / Metodología
+    </nav>
+
+    <h1 style="font-family: var(--serif); font-weight: 400; font-size: 36px; letter-spacing: -0.02em; color: #fff; margin: 16px 0 6px;">Cómo valoramos las herramientas</h1>
+    <p style="font-family: var(--mono); font-size: 12px; color: var(--fg-5); border-bottom: 1px solid var(--line); padding-bottom: 18px; margin-bottom: 28px;">Última revisión: julio de 2026</p>
+
+    <div class="legal-body">
+      <p style="font-size: 16px; color: var(--fg-2);">
+        Cada ficha del directorio lleva una puntuación sobre 5. Esta página explica exactamente de
+        dónde sale ese número, para que puedas decidir cuánto peso darle.
+      </p>
+
+      <div class="legal-note" style="margin-top: 20px; margin-bottom: 8px; border-color: var(--line-2);">
+        <strong style="color: #fff;">En una línea:</strong> es una valoración editorial basada en
+        investigación de fuentes públicas. No son pruebas de laboratorio ni reseñas de usuarios de
+        AgentesVA.
+      </div>
+
+      <h2>1. Qué es la puntuación — y qué no es</h2>
+      <p>
+        La puntuación resume nuestro criterio editorial sobre lo bien que una herramienta encaja con
+        una pyme hispanohablante. Es un punto de partida para descartar rápido, no un veredicto
+        técnico.
+      </p>
+      <p>Conviene ser claro sobre lo que <strong>no</strong> es:</p>
+      <ul>
+        <li>
+          <strong>No es una prueba de laboratorio.</strong> No ejecutamos baterías de test
+          controladas ni medimos rendimiento con métricas propias.
+        </li>
+        <li>
+          <strong>No son reseñas de usuarios.</strong> AgentesVA no recoge valoraciones de sus
+          lectores, y la puntuación no representa el voto de nadie más que el nuestro. Por eso
+          tampoco la publicamos como datos estructurados de valoración agregada.
+        </li>
+        <li>
+          <strong>No es objetiva.</strong> Dos analistas razonables pueden discrepar en dos o tres
+          décimas. Si la diferencia entre dos herramientas es de 0,1, trátalas como equivalentes.
+        </li>
+      </ul>
+
+      <h2>2. De dónde sale la información</h2>
+      <p>
+        La valoración se construye con investigación de escritorio sobre fuentes públicas. En la
+        práctica, esto significa:
+      </p>
+      <ul>
+        <li>Documentación oficial del producto y notas de versión.</li>
+        <li>Las páginas de precios y los límites reales de cada plan.</li>
+        <li>Reseñas públicas agregadas en plataformas de terceros (G2, Capterra y similares).</li>
+        <li>Cobertura y análisis de medios especializados.</li>
+      </ul>
+      <p>
+        Cuando un dato concreto sostiene una afirmación en un estudio o comparativa, lo citamos en
+        la propia pieza para que puedas comprobarlo.
+      </p>
+
+      <h2>3. Qué miramos</h2>
+      <p>
+        No hay una fórmula con pesos: es un juicio ponderado sobre estos factores, en este orden de
+        importancia aproximado.
+      </p>
+      <ul>
+        <li>
+          <strong>Encaje con una pyme.</strong> Que lo pueda poner en marcha un equipo pequeño sin
+          departamento técnico.
+        </li>
+        <li>
+          <strong>Relación precio/valor.</strong> Qué se obtiene en el plan gratuito o de entrada, y
+          cómo escala el coste al crecer.
+        </li>
+        <li>
+          <strong>Facilidad de arranque.</strong> Cuánto se tarda desde registrarse hasta el primer
+          resultado útil.
+        </li>
+        <li>
+          <strong>Soporte del español.</strong> Interfaz, documentación y calidad real en nuestro
+          idioma — no siempre coinciden.
+        </li>
+        <li>
+          <strong>Integraciones y salida.</strong> Si conecta con lo que ya usas y si puedes
+          llevarte tus datos.
+        </li>
+        <li>
+          <strong>Madurez.</strong> Trayectoria, ritmo de actualizaciones y señales de continuidad.
+        </li>
+      </ul>
+
+      <h2>4. Por qué casi ninguna baja de 4</h2>
+      <p>
+        Es la pregunta razonable al ver el directorio, y la respuesta es que
+        <strong>el filtro está en la entrada, no en la nota</strong>. Solo publicamos herramientas
+        que recomendaríamos a alguien en alguna situación concreta; las que no superan ese listón
+        sencillamente no tienen ficha. Un directorio de 54 herramientas curadas no es una muestra
+        representativa del mercado, y su distribución de notas no debería parecerlo.
+      </p>
+      <p>Dicho eso, así se lee el número:</p>
+      <ul>
+        <li><strong>4,7 – 5,0</strong> — referencia en su categoría; la opción por defecto salvo que tengas una razón para otra cosa.</li>
+        <li><strong>4,3 – 4,6</strong> — sólida y recomendable, con alguna limitación que conviene conocer antes.</li>
+        <li><strong>4,0 – 4,2</strong> — cumple en su nicho, pero con concesiones claras en precio, idioma o madurez.</li>
+        <li><strong>Por debajo de 4,0</strong> — no entra en el directorio.</li>
+      </ul>
+
+      <h2>5. Qué no influye en la puntuación</h2>
+      <p>
+        Algunos enlaces del directorio son de afiliación: si contratas a través de ellos, AgentesVA
+        puede percibir una comisión sin coste adicional para ti. <strong>Que una herramienta tenga
+        o no programa de afiliados no altera su nota ni su posición</strong>, y hay herramientas
+        muy bien valoradas que no nos generan ningún ingreso.
+      </p>
+      <p>
+        Tampoco aceptamos pago por reseñar, por puntuar mejor ni por aparecer en el directorio. Si
+        alguna vez publicamos contenido patrocinado, irá identificado como tal en la propia pieza.
+        Puedes leer el detalle en el <a href="/aviso-legal">aviso legal</a>.
+      </p>
+
+      <h2>6. Limitaciones que deberías conocer</h2>
+      <ul>
+        <li>
+          <strong>Los precios caducan.</strong> Cambian sin avisar y son lo primero que se queda
+          obsoleto. Verifícalos siempre en la web oficial antes de comprometer presupuesto.
+        </li>
+        <li>
+          <strong>Las notas se quedan atrás.</strong> Una herramienta puede mejorar mucho —o
+          estancarse— entre dos revisiones nuestras.
+        </li>
+        <li>
+          <strong>La cobertura es horizontal.</strong> Valoramos herramientas transversales para
+          pymes. Si necesitas software específico de tu sector, este directorio es un punto de
+          partida, no una comparativa vertical.
+        </li>
+      </ul>
+
+      <h2>7. Errores y correcciones</h2>
+      <p>
+        Si detectas un dato incorrecto, un precio desactualizado o crees que una valoración no se
+        sostiene, dínoslo: lo revisamos y corregimos la ficha. Escríbenos a
+        <a href="mailto:hola@agentesva.com">hola@agentesva.com</a> indicando la herramienta y qué
+        habría que corregir.
+      </p>
+
+      <p style="margin-top: 28px;"><a href="/herramientas" style="font-family: var(--mono); font-size: 13px; color: var(--accent);">← Ver el directorio</a></p>
+    </div>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<style>
+  .legal-body h2 { font-family: var(--sans); font-weight: 600; font-size: 18px; color: #fff; margin: 28px 0 8px; letter-spacing: -0.01em; }
+  .legal-body p, .legal-body li { font-size: 15px; line-height: 1.65; color: var(--fg-3, #c7d0dd); margin-bottom: 10px; }
+  .legal-body ul { padding-left: 20px; margin-bottom: 12px; }
+  .legal-body strong { color: #fff; font-weight: 600; }
+  .legal-body a { color: var(--accent); }
+  .legal-body .legal-note { margin-top: 28px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 4px; font-size: 13px; color: var(--fg-5); }
+</style>

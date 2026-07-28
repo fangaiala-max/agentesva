@@ -5,7 +5,7 @@ function dom() {
   document.body.innerHTML = `
     <button class="bib-cat" data-cat="prompts" aria-pressed="true">Prompts</button>
     <button class="bib-cat" data-cat="software" aria-pressed="false">Software</button>
-    <input id="bib-search" />
+    <form id="bib-search-form"><input id="bib-search" /></form>
     <span id="bib-count"></span>
     <div id="bib-empty" hidden></div>
     <div class="bib-tema" data-tema="Marketing">
@@ -55,6 +55,13 @@ describe('initBiblioteca', () => {
     s.value = 'zzz';
     s.dispatchEvent(new Event('input'));
     expect(tema.hidden).toBe(true);
+  });
+
+  it('el submit del buscador no navega (preventDefault)', () => {
+    initBiblioteca();
+    const ev = new Event('submit', { bubbles: true, cancelable: true });
+    document.getElementById('bib-search-form')!.dispatchEvent(ev);
+    expect(ev.defaultPrevented).toBe(true);
   });
 });
 

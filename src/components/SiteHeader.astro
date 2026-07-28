@@ -3,19 +3,42 @@
 import SearchModal from './SearchModal.astro';
 import { getCollection } from 'astro:content';
 import { toolsClaim } from '../data/tools';
+import { frescura, ultimaActualizacion } from '../data/frescura';
+
+const [tools, estudios, noticias] = await Promise.all([
+  getCollection('tools'),
+  getCollection('estudios'),
+  getCollection('noticias'),
+]);
 
 // Claim del ticker derivado del dato real (redondeado a la baja).
-const claim = toolsClaim((await getCollection('tools')).length);
+const claim = toolsClaim(tools.length);
+
+// Frescura real del sitio: última fecha editorial publicada. Cuando exista
+// `addedAt` en tools, añadir aquí las altas del directorio como señal.
+const fresca = frescura(
+  ultimaActualizacion([
+    ...estudios.map((e) => e.data.actualizado ?? e.data.fecha),
+    ...noticias.map((n) => n.data.fecha),
+  ]),
+);
 const tickerItems = `+${claim} herramientas de IA revisadas  ·  Sin ruido, solo lo que funciona  ·  Asistentes  ·  Automatización  ·  WhatsApp  ·  Marketing  ·  Pack de Recursos IA gratis  ·  `;
 ---
 
 <!-- ===== TICKER ===== -->
 <div style="border-bottom: 1px solid var(--line); overflow: hidden; background: var(--bg-2);">
   <div style="display: flex; align-items: center;">
-    <div style="flex: none; display: flex; align-items: center; gap: 8px; padding: 9px 18px; border-right: 1px solid var(--line); background: var(--panel-3);">
-      <span style="width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: dotPulse 1.6s ease-in-out infinite;"></span>
-      <span style="font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-2);">Actualizado hoy</span>
-    </div>
+    {fresca && (
+      <div style="flex: none; display: flex; align-items: center; gap: 8px; padding: 9px 18px; border-right: 1px solid var(--line); background: var(--panel-3);">
+        <span
+          style={`width: 7px; height: 7px; border-radius: 50%; background: ${fresca.fresco ? 'var(--green)' : 'var(--fg-4)'};${fresca.fresco ? ' animation: dotPulse 1.6s ease-in-out infinite;' : ''}`}
+        ></span>
+        <time
+          datetime={fresca.iso}
+          style="font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-2); white-space: nowrap;"
+        >{fresca.label}</time>
+      </div>
+    )}
     <div style="overflow: hidden; flex: 1; white-space: nowrap;">
       <div style="display: inline-flex; animation: marquee 28s linear infinite; will-change: transform;">
         <span style="font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5); padding: 9px 0;">{tickerItems}</span>

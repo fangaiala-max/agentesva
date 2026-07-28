@@ -2,6 +2,15 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [0.3.1.0] - 2026-07-28
+
+### Fixed
+- Pulsar Enter en el buscador de la Biblioteca de IA ya no borra lo escrito ni resetea el filtro: la búsqueda se mantiene. Antes recargaba la ficha y volvías a ver los 100 recursos de golpe.
+- Pulsar Enter en `/buscar` ya no recarga la página. Los dos formularios dependían de un `onsubmit` en línea que la CSP del sitio (`script-src 'self'`) bloquea, así que el navegador acababa enviando el formulario de verdad.
+
+### Changed
+- El script de la página `/buscar` vive ahora en `src/scripts/buscar.ts`, como el resto de páginas, con tests que cubren la precarga de `?q=`, el sincronizado de la URL y el guard de envío.
+
 ## [0.3.0.0] - 2026-07-20
 
 ### Added
