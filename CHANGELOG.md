@@ -2,6 +2,14 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [0.3.1.2] - 2026-07-29
+
+### Fixed
+- El pipeline diario de noticias ya no falla al final. Empujaba la cola de candidatos correctamente pero moría al crear el PR, porque el repositorio tiene desactivado que Actions abra pull requests. Ahora empuja la rama y deja en el resumen del run un enlace para abrir el PR con título y etiquetas ya rellenados. Cada ejecución fallida dejaba además una rama suelta sin PR.
+
+### Changed
+- El workflow de noticias pierde el permiso `pull-requests: write`, que ya no necesita.
+
 ## [0.3.1.1] - 2026-07-28
 
 ### Added
