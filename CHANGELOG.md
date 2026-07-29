@@ -2,6 +2,25 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [0.3.1.3] - 2026-07-29
+
+### Fixed
+- El radar de noticias ya no vuelve a proponer historias que ya están publicadas. Comparaba el título español publicado contra el titular original en inglés, así que no podía emparejarlas nunca; ahora compara la URL de la fuente, que no depende del idioma. En la cola de hoy, 3 de 6 candidatos eran repeticiones.
+- Las noticias nuevas dejan de nacer con la URL en inglés y cortada a media palabra (`perplexity-s-personal-computer-turns-windows-pcs-into-ai-age`). El slug se deriva ahora del título en español, que es lo que posiciona.
+
+## [0.3.1.2] - 2026-07-29
+
+### Fixed
+- El pipeline diario de noticias ya no falla al final. Empujaba la cola de candidatos correctamente pero moría al crear el PR, porque el repositorio tiene desactivado que Actions abra pull requests. Ahora empuja la rama y deja en el resumen del run un enlace para abrir el PR con título y etiquetas ya rellenados. Cada ejecución fallida dejaba además una rama suelta sin PR.
+
+### Changed
+- El workflow de noticias pierde el permiso `pull-requests: write`, que ya no necesita.
+
+## [0.3.1.1] - 2026-07-28
+
+### Added
+- Guard en tests que impide volver a romper un formulario con un handler de evento en línea (`onsubmit`, `onclick`…). La CSP del sitio los bloquea en producción pero no en local, así que el fallo era invisible hasta desplegar; ahora la suite falla en el sitio y señala fichero y línea.
+
 ## [0.3.1.0] - 2026-07-28
 
 ### Fixed
