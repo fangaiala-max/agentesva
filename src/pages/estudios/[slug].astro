@@ -43,7 +43,9 @@ const relatedNoticias = noticias
   .slice(0, 3)
   .map((x) => x.n);
 
-const fechaFmt = d.fecha.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
+// UTC, igual que la tarjeta que enlaza aquí: si no, en una máquina de build con
+// desfase negativo la ficha anuncia un día distinto que el listado.
+const fechaFmt = d.fecha.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
 
 const graph: any[] = [
   {

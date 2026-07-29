@@ -16,13 +16,17 @@ Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](
 - La agrupación por mes y el cálculo de distintivos salen del `.astro` a `src/data/`, donde se pueden testear como funciones puras.
 
 ### Fixed
-- Las fechas se formatean en UTC. Las del frontmatter llegan a medianoche UTC, así que una máquina de build con desfase negativo mostraba el día anterior y metía las noticias del día 1 en el mes anterior.
-- La portada ya no depende del orden del glob cuando varias noticias comparten fecha: el orden se desempata por `id`. La pipeline publica en tandas del mismo día, así que el empate es el caso normal.
-- El H1 deja de entrar con `blur-in`. Al arrancar en `opacity: 0` quedaba fuera de la candidatura a LCP durante los primeros ~780 ms de la página.
-- Un desliz de mayúsculas o un espacio de más en `tema` ya no parte el recuento de tendencia en silencio.
+- Todas las fechas se formatean en UTC: listado y ficha, tanto en `/noticias` como en `/estudios`. Las fechas del frontmatter llegan a medianoche UTC, así que en una máquina de build con desfase negativo las páginas mostraban el día anterior, y la ficha podía anunciar un día distinto que la tarjeta que enlazaba a ella. Venía de antes de este release.
+
+### Hardening
+Lo que sigue corrige código introducido en esta misma versión, no regresiones de 0.3.1.3. Se lista porque salió de la revisión previa al merge y explica por qué el código es como es:
+
+- La portada no depende del orden del glob cuando varias noticias comparten fecha: el orden se desempata por `id`. La pipeline publica en tandas del mismo día, así que el empate es el caso normal.
+- El H1 no entra con `blur-in`. Al arrancar en `opacity: 0` quedaba fuera de la candidatura a LCP durante los primeros ~780 ms de la página.
+- Un desliz de mayúsculas o un espacio de más en `tema` no parte el recuento de tendencia en silencio.
 - El pulso verde de "en vivo" solo se enciende si la última noticia es realmente reciente, en vez de prometer frescura sobre un listado congelado.
-- `de IA` ya no desaparece del H1 en modo de alto contraste de Windows (`forced-colors`).
-- Las secciones de mes dejan de anunciarse como landmarks `region`, que crecían sin límite: uno por mes.
+- `de IA` no desaparece del H1 en modo de alto contraste de Windows (`forced-colors`).
+- Las secciones de mes no se anuncian como landmarks `region`, que crecerían sin límite: uno por mes.
 
 ## [0.3.1.3] - 2026-07-29
 
