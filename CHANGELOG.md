@@ -2,6 +2,28 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [0.3.2.0] - 2026-07-29
+
+### Added
+- Distintivos en las fichas de noticias: **Nuevo** (publicada en los últimos 7 días) y **Tendencia** (el tema vuelve en 2+ días distintos dentro de 30). Se calculan en el build a partir del propio contenido, sin analítica ni base de datos. Cada noticia lleva como máximo uno: "Tendencia" no se pinta sobre algo que ya es "Nuevo", porque las dos píldoras dirían lo mismo; su trabajo es empujar clics hacia el archivo caliente.
+- Portada editorial en `/noticias`: la noticia más reciente pasa a tarjeta a todo el ancho, y el resto se agrupa por mes con rótulos y filete.
+- Estado vacío en `/noticias` para cuando la colección no tiene noticias.
+
+### Changed
+- Jerarquía tipográfica de `/noticias`, sobre el mismo sistema de marca y sin fuentes nuevas: cabecera con eyebrow de datos vivos, H1 de hasta 72px con "de IA" en itálica y degradado azul, entradilla a 19px sobre medida acotada.
+- `ArticleCard` gana escala y ritmo (cuerpo 14→15px, interlineado, tracking, `text-wrap`), fechas con cifras tabulares y `<time>` semántico, y una afordancia "Leer →". Al ser un componente compartido, `/estudios` hereda la misma mejora tipográfica.
+- La píldora de distintivo adopta la receta de `Badge.astro` (9px, 2px 8px, borde al 40% del color), para que el sitio tenga una sola forma de píldora.
+- La agrupación por mes y el cálculo de distintivos salen del `.astro` a `src/data/`, donde se pueden testear como funciones puras.
+
+### Fixed
+- Las fechas se formatean en UTC. Las del frontmatter llegan a medianoche UTC, así que una máquina de build con desfase negativo mostraba el día anterior y metía las noticias del día 1 en el mes anterior.
+- La portada ya no depende del orden del glob cuando varias noticias comparten fecha: el orden se desempata por `id`. La pipeline publica en tandas del mismo día, así que el empate es el caso normal.
+- El H1 deja de entrar con `blur-in`. Al arrancar en `opacity: 0` quedaba fuera de la candidatura a LCP durante los primeros ~780 ms de la página.
+- Un desliz de mayúsculas o un espacio de más en `tema` ya no parte el recuento de tendencia en silencio.
+- El pulso verde de "en vivo" solo se enciende si la última noticia es realmente reciente, en vez de prometer frescura sobre un listado congelado.
+- `de IA` ya no desaparece del H1 en modo de alto contraste de Windows (`forced-colors`).
+- Las secciones de mes dejan de anunciarse como landmarks `region`, que crecían sin límite: uno por mes.
+
 ## [0.3.1.3] - 2026-07-29
 
 ### Fixed
