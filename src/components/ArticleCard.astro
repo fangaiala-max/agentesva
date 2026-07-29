@@ -6,22 +6,176 @@ interface Props {
   fecha: Date;
   tema: string;
   tipo: string;
+  /** Portada editorial: escala tipográfica mayor y ocupa todo el ancho del grid. */
+  destacada?: boolean;
+  /** Distintivos CRO: novedad reciente y/o tema con momentum. */
+  badges?: ('nuevo' | 'tendencia')[];
 }
-const { href, titulo, descripcion, fecha, tema, tipo } = Astro.props;
+const { href, titulo, descripcion, fecha, tema, tipo, destacada = false, badges = [] } = Astro.props;
+const ETIQUETA_BADGE = { nuevo: 'Nuevo', tendencia: 'Tendencia' } as const;
 const fechaFmt = fecha.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
+const fechaISO = fecha.toISOString().slice(0, 10);
 ---
 
 <a
   href={href}
-  class="lift spotlight"
-  style="position: relative; display: flex; flex-direction: column; gap: 12px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 22px; text-decoration: none;"
+  class:list={['lift', 'spotlight', 'article-card', { 'article-card--destacada': destacada }]}
 >
-  <div style="display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;">
-    <span style="color: var(--accent);">{tipo}</span>
-    <span style="color: var(--fg-5);">·</span>
-    <span style="color: var(--fg-5);">{tema}</span>
+  <div class="article-card__kicker">
+    <span class="article-card__tipo">{tipo}</span>
+    <span aria-hidden="true">·</span>
+    <span>{tema}</span>
+    {badges.length > 0 && (
+      <span class="article-card__badges">
+        {badges.map((b) => (
+          <span class:list={['article-card__badge', `article-card__badge--${b}`]}>{ETIQUETA_BADGE[b]}</span>
+        ))}
+      </span>
+    )}
   </div>
-  <h3 style="font-family: var(--serif); font-weight: 400; font-size: 22px; line-height: 1.15; letter-spacing: -0.02em; color: #fff; margin: 0;">{titulo}</h3>
-  <p style="font-size: 14px; line-height: 1.55; color: var(--fg-3); margin: 0;">{descripcion}</p>
-  <span style="font-family: var(--mono); font-size: 11px; color: var(--fg-5); margin-top: auto;">{fechaFmt}</span>
+  <h3 class="article-card__titulo">{titulo}</h3>
+  <p class="article-card__entradilla">{descripcion}</p>
+  <div class="article-card__pie">
+    <time class="article-card__fecha" datetime={fechaISO}>{fechaFmt}</time>
+    <span class="article-card__leer" aria-hidden="true">Leer <span class="article-card__flecha">→</span></span>
+  </div>
 </a>
+
+<style>
+  .article-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 22px;
+    text-decoration: none;
+  }
+
+  .article-card__kicker {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    row-gap: 7px;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-5);
+  }
+  .article-card__tipo { color: var(--accent); }
+
+  .article-card__badges {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: none;
+  }
+  .article-card__badge {
+    flex: none;
+    padding: 4px 8px;
+    border-radius: 20px;
+    border: 1px solid currentColor;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+  }
+  .article-card__badge--nuevo {
+    color: var(--green);
+    background: rgba(79, 211, 154, 0.1);
+  }
+  .article-card__badge--tendencia {
+    color: var(--gold);
+    background: rgba(245, 196, 81, 0.1);
+  }
+
+  .article-card__titulo {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.12;
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+    color: #fff;
+    margin: 0;
+  }
+
+  .article-card__entradilla {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--fg-3);
+    text-wrap: pretty;
+    margin: 0;
+    max-width: 62ch;
+  }
+
+  .article-card__pie {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 4px;
+    font-family: var(--mono);
+    font-size: 11px;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .article-card__fecha {
+    color: var(--fg-5);
+    letter-spacing: 0.01em;
+  }
+  .article-card__leer {
+    color: var(--fg-4);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 10px;
+    transition: color .2s ease;
+  }
+  .article-card__flecha {
+    display: inline-block;
+    transition: transform .2s ease;
+  }
+  .article-card:hover .article-card__leer,
+  .article-card:focus-visible .article-card__leer { color: var(--accent); }
+  .article-card:hover .article-card__flecha { transform: translateX(3px); }
+
+  /* Portada: mismo sistema, un escalón más arriba en la escala. */
+  .article-card--destacada {
+    grid-column: 1 / -1;
+    gap: 16px;
+    padding: clamp(24px, 3.4vw, 38px);
+  }
+  .article-card--destacada .article-card__kicker {
+    font-size: 11px;
+    max-width: 56ch;
+  }
+  .article-card--destacada .article-card__titulo {
+    font-size: clamp(27px, 4vw, 48px);
+    line-height: 1.04;
+    letter-spacing: -0.032em;
+    max-width: 22ch;
+  }
+  .article-card--destacada .article-card__entradilla {
+    font-size: clamp(16px, 1.5vw, 18px);
+    line-height: 1.55;
+    color: var(--fg-2);
+    max-width: 56ch;
+  }
+  /* La columna de lectura no se estira a todo el ancho: el pie acompaña al texto. */
+  .article-card--destacada .article-card__pie {
+    font-size: 12px;
+    max-width: 56ch;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .article-card__flecha,
+    .article-card__leer { transition: none; }
+    .article-card:hover .article-card__flecha { transform: none; }
+  }
+</style>
