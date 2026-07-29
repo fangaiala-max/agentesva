@@ -17,6 +17,8 @@ CI: `.github/workflows/test.yml` ejecuta la suite en cada push a `main` y en cad
 
 ## Capas
 
+La columna "Dónde" nombra ejemplos representativos de cada capa, no el índice completo: `ls tests/` es la lista real.
+
 | Capa | Qué cubre | Dónde |
 |---|---|---|
 | Unit | Helpers puros (`src/data/*.ts`: FAQs derivadas, alternativas, paleta) | `tests/tools.test.ts` |

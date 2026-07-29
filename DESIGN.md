@@ -53,7 +53,11 @@ Líneas: `--line #1E365F` · `--line-2 #2A4877` · `--line-3 #3E5E90` (hover).
 - `SiteHeader` — ticker marquee + cabecera sticky con blur. Logo serif + nav mono.
 - `SiteFooter` — pie minimal.
 - `ToolCard` — tarjeta de herramienta (stretched-link → ficha; botón marcador independiente).
-- `ArticleCard` — tarjeta de artículo, compartida por `/noticias` y `/estudios`. Props opcionales `destacada` (portada a todo el ancho, escala tipográfica mayor) y `badges` (distintivos calculados en build por `src/data/noticias-badges.ts`).
+- `ArticleCard` — tarjeta de artículo, compartida por `/noticias` y `/estudios`. Props opcionales `destacada` (portada a todo el ancho, escala tipográfica mayor) y `badges: Badge[]` (distintivos calculados en build por `src/data/noticias-badges.ts`). Lleva la afordancia "Leer →" y fechas con cifras tabulares en `<time>` semántico.
+
+La lógica del listado vive fuera del `.astro`, como funciones puras testeables:
+- `src/data/noticias-badges.ts` — `badgesDeNoticias` / `temasEnTendencia`, con las ventanas `DIAS_NUEVO` (7), `DIAS_TENDENCIA` (30) y `MIN_DIAS_TENDENCIA` (2 días distintos).
+- `src/data/noticias-meses.ts` — `agruparPorMes` / `etiquetaDeMes`, rótulos de mes en es-ES **resueltos en UTC** (las fechas del frontmatter llegan a medianoche UTC; resolverlas en la zona de la máquina de build metería el día 1 en el mes anterior).
 - `Badge` — píldora del directorio (`src/data/tools.ts` → `badgesFor`). Es la **receta canónica** de píldora del sitio: mono 9px, `letter-spacing 0.08em`, mayúsculas, `padding 2px 8px`, `border-radius 20px`, color al 100% / borde al 40% / fondo al 12%. Cualquier píldora nueva copia esta receta y solo cambia el token de color.
 
 ### Píldoras (badges) — semántica por dominio
@@ -69,7 +73,7 @@ Líneas: `--line #1E365F` · `--line-2 #2A4877` · `--line-3 #3E5E90` (hover).
 
 Reglas al añadir una píldora nueva:
 - No mezcles dominios en una misma tarjeta: dentro de un contexto, un color significa una sola cosa.
-- Máximo un distintivo por noticia. "Tendencia" nunca se pinta sobre algo que ya es "Nuevo" (dirían lo mismo; el valor está en marcar el archivo caliente).
+- Máximo un distintivo por noticia. El prop `badges` es un array (contrato genérico del componente), pero el cálculo de `noticias-badges.ts` emite 0 o 1: "Tendencia" nunca se pinta sobre algo que ya es "Nuevo" (dirían lo mismo; el valor está en marcar el archivo caliente).
 - Los distintivos de noticias se derivan del contenido en build, sin analítica ni BD (`src/data/noticias-badges.ts`).
 
 ### Patrones de interacción (clases en `global.css`)
@@ -87,7 +91,8 @@ Tesis: el movimiento debe leerse como **intencional y vivo, nunca decorativo**. 
 **Micro-interacciones:**
 - `.lift` — hover de tarjetas (translateY + glow).
 - **Spotlight** — glow radial que sigue al cursor en las fichas (`--mx/--my` desde un `pointermove` delegado; `motion.ts`).
-- **Blur-in / text reveal** — entrada escalonada de eyebrow → H1 → subtítulo → búsqueda en el hero (`@keyframes blurIn`, `animation-delay`); titulares de sección vía scroll (`.reveal`).
+- **Blur-in / text reveal** — entrada escalonada de eyebrow → H1 → subtítulo → búsqueda en el hero (`@keyframes blurIn`, `animation-delay`); titulares de sección vía scroll (`.reveal`). **Nunca sobre el elemento LCP** (normalmente el H1): arranca en `opacity: 0`, así que lo saca de la candidatura a LCP mientras dura el retardo. Anima lo que lo rodea, no el titular que mide Lighthouse.
+- **"Leer →"** — hover/focus de `ArticleCard`: el texto pasa a `--accent` y la flecha se desplaza 3px (`translateX`), con rama de `prefers-reduced-motion`.
 - **Shimmer** — barrido diagonal en hover sobre los CTA primarios (`.shimmer::after`).
 - **Borde animado** — borde conic-gradient giratorio (`@property --bd-angle`) en la tarjeta destacada del Pack (1 sitio).
 - **Magnético** — el CTA del hero se desplaza ligero hacia el cursor (`data-magnetic`, `motion.ts`).
