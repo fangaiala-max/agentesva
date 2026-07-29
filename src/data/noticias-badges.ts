@@ -5,16 +5,23 @@
  * se derivan de forma determinista del propio contenido:
  *
  * - `nuevo`      → publicada en los últimos {@link DIAS_NUEVO} días.
- * - `tendencia`  → su `tema` acumula ≥ {@link MIN_TEMA_TENDENCIA} noticias en la
- *                  ventana de {@link DIAS_TENDENCIA} días (momentum del tema).
+ * - `tendencia`  → su `tema` aparece en ≥ {@link MIN_DIAS_TENDENCIA} **días
+ *                  distintos** dentro de la ventana de {@link DIAS_TENDENCIA}.
  *
- * Son independientes: una noticia puede llevar los dos. Se devuelven siempre en
- * orden `nuevo` → `tendencia`.
+ * Se cuentan días y no noticias porque la pipeline publica en tandas: tres
+ * noticias del mismo día no son momentum, son una tanda. Un tema que vuelve
+ * otro día sí lo es.
+ *
+ * Además, `tendencia` no se pinta sobre una noticia que ya es `nuevo`: dos
+ * píldoras a la vez dirían lo mismo. El valor está en marcar la noticia
+ * antigua de un tema caliente, que es la que necesita el empujón al clic. Por
+ * eso cada noticia lleva **como máximo un distintivo**.
  */
 
 export const DIAS_NUEVO = 7;
 export const DIAS_TENDENCIA = 30;
-export const MIN_TEMA_TENDENCIA = 2;
+/** Días distintos con publicación que hacen "tendencia" a un tema. */
+export const MIN_DIAS_TENDENCIA = 2;
 
 const DIA_MS = 86_400_000;
 
@@ -28,30 +35,50 @@ export interface NoticiaBadgeInput {
 
 const diasDesde = (fecha: Date, ahora: Date): number => (ahora.getTime() - fecha.getTime()) / DIA_MS;
 
-/** Temas con momentum: ≥ MIN_TEMA_TENDENCIA noticias en los últimos DIAS_TENDENCIA días. */
+/**
+ * Clave de tema. `tema` es texto libre en el frontmatter (`z.string()`), así que
+ * un "Asistentes " con espacio o un "asistentes" en minúscula romperían el
+ * recuento en silencio. La etiqueta visible sigue siendo la original.
+ */
+export const claveDeTema = (tema: string): string => tema.trim().toLocaleLowerCase('es');
+
+/** Día natural en UTC (`2026-07-28`), para que la tanda de un día cuente una vez. */
+const diaUTC = (fecha: Date): string => fecha.toISOString().slice(0, 10);
+
+/**
+ * Temas con momentum: publicados en ≥ MIN_DIAS_TENDENCIA días distintos dentro
+ * de la ventana de DIAS_TENDENCIA. Devuelve claves normalizadas.
+ */
 export function temasEnTendencia(noticias: NoticiaBadgeInput[], ahora: Date): Set<string> {
-  const conteo = new Map<string, number>();
+  const diasPorTema = new Map<string, Set<string>>();
   for (const n of noticias) {
     const dias = diasDesde(n.fecha, ahora);
     if (dias < 0 || dias > DIAS_TENDENCIA) continue;
-    conteo.set(n.tema, (conteo.get(n.tema) ?? 0) + 1);
+    const clave = claveDeTema(n.tema);
+    const vistos = diasPorTema.get(clave) ?? new Set<string>();
+    vistos.add(diaUTC(n.fecha));
+    diasPorTema.set(clave, vistos);
   }
   const tendencia = new Set<string>();
-  for (const [tema, n] of conteo) if (n >= MIN_TEMA_TENDENCIA) tendencia.add(tema);
+  for (const [clave, dias] of diasPorTema) {
+    if (dias.size >= MIN_DIAS_TENDENCIA) tendencia.add(clave);
+  }
   return tendencia;
 }
 
-/** Distintivos de una noticia (0, 1 o 2), en orden `nuevo` → `tendencia`. */
+/**
+ * Distintivos de una noticia (0 o 1), en orden de prioridad `nuevo` → `tendencia`.
+ * `tendencias` debe venir de {@link temasEnTendencia}: contiene claves normalizadas.
+ */
 export function badgesDeNoticia(
   noticia: NoticiaBadgeInput,
   tendencias: Set<string>,
   ahora: Date,
 ): Badge[] {
-  const badges: Badge[] = [];
   const dias = diasDesde(noticia.fecha, ahora);
-  if (dias >= 0 && dias <= DIAS_NUEVO) badges.push('nuevo');
-  if (tendencias.has(noticia.tema)) badges.push('tendencia');
-  return badges;
+  if (dias >= 0 && dias <= DIAS_NUEVO) return ['nuevo'];
+  if (dias >= 0 && tendencias.has(claveDeTema(noticia.tema))) return ['tendencia'];
+  return [];
 }
 
 /** Calcula los distintivos de cada noticia en una sola pasada, en el mismo orden. */
