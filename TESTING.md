@@ -17,10 +17,14 @@ CI: `.github/workflows/test.yml` ejecuta la suite en cada push a `main` y en cad
 
 ## Capas
 
+La columna "Dónde" nombra ejemplos representativos de cada capa, no el índice completo: `ls tests/` es la lista real.
+
 | Capa | Qué cubre | Dónde |
 |---|---|---|
 | Unit | Helpers puros (`src/data/*.ts`: FAQs derivadas, alternativas, paleta) | `tests/tools.test.ts` |
+| Unit | Distintivos "Nuevo"/"Tendencia" y agrupación por mes de `/noticias` | `tests/noticias-badges.test.ts`, `tests/noticias-meses.test.ts` |
 | DOM/integración | Scripts de cliente sobre fixtures de DOM (filtros, vistas, comparador, CTA, marcadores) | `tests/home.test.ts`, `tests/directory.test.ts` |
+| Guards de fuente | Lo que no se puede ejercitar sin arrancar Astro: leen el `.astro` y fallan si se pierde el cableado (props de `ArticleCard`) o si vuelve un handler en línea que la CSP bloquea | `tests/noticias-listado.test.ts`, `tests/csp-inline-handlers.test.ts` |
 | Build | Esquemas Zod de content collections — un JSON inválido rompe `npm run build` | `src/content.config.ts` |
 | Smoke manual | Flujos reales en navegador (dev/preview) antes de shippear | /qa, /verify |
 

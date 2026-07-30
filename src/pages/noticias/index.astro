@@ -5,20 +5,55 @@ import SiteFooter from '../../components/SiteFooter.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import { getCollection } from 'astro:content';
 import { jsonLdSerialize } from '../../data/schema';
+import { badgesDeNoticias } from '../../data/noticias-badges';
+import { agruparPorMes } from '../../data/noticias-meses';
 
+// Desempate por `id`: la pipeline publica varias noticias el mismo día, y sin
+// clave secundaria la portada la decidiría el orden del glob (distinto entre builds).
 const noticias = (await getCollection('noticias')).sort(
-  (a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf(),
+  (a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf() || a.id.localeCompare(b.id),
 );
 const site = 'https://agentesva.com';
+
+// Distintivos CRO ("Nuevo" / "Tendencia") calculados en build sobre el propio
+// contenido. Ojo: el sitio es estático y solo se despliega al mergear, así que la
+// frescura se congela hasta el siguiente deploy (ver TODOS.md, P1).
+const ahora = new Date();
+const badges = badgesDeNoticias(
+  noticias.map((n) => ({ fecha: n.data.fecha, tema: n.data.tema })),
+  ahora,
+);
+const badgesPorId = new Map(noticias.map((n, i) => [n.id, badges[i]]));
+
+const [portada, ...resto] = noticias;
+
+// El resto se agrupa por mes, preservando el orden descendente.
+const meses = agruparPorMes(resto.map((n) => ({ fecha: n.data.fecha, noticia: n })));
+
+// UTC como en las fichas: si no, la cabecera puede anunciar un día distinto al
+// que muestra la tarjeta de debajo.
+const ultimaFecha = portada?.data.fecha.toLocaleDateString('es-ES', {
+  day: 'numeric',
+  month: 'short',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+
+// El pulso verde solo se enciende si el radar está de verdad al día: prometer
+// "en vivo" sobre un listado congelado es justo lo que le cuesta credibilidad.
+const radarAlDia = (badgesPorId.get(portada?.id ?? '') ?? []).includes('nuevo');
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     { '@type': 'CollectionPage', name: 'Noticias de IA', description: 'Actualidad de la inteligencia artificial, curada y resumida en español.', url: `${site}/noticias`, inLanguage: 'es' },
-    {
-      '@type': 'ItemList',
-      itemListElement: noticias.map((n, i) => ({ '@type': 'ListItem', position: i + 1, url: `${site}/noticias/${n.id}`, name: n.data.titulo })),
-    },
+    // Un ItemList vacío es un defecto de datos estructurados: mejor no emitirlo.
+    ...(noticias.length > 0
+      ? [{
+          '@type': 'ItemList',
+          itemListElement: noticias.map((n, i) => ({ '@type': 'ListItem', position: i + 1, url: `${site}/noticias/${n.id}`, name: n.data.titulo })),
+        }]
+      : []),
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
@@ -37,22 +72,204 @@ const jsonLd = {
   <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
   <SiteHeader />
 
-  <main style="max-width: 1200px; margin: 0 auto; padding: 40px 32px 64px;">
-    <nav aria-label="Migas" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-5);">
-      <a href="/" class="navlink" style="color: var(--fg-4); text-decoration: none;">Inicio</a> <span aria-hidden="true">/</span> Noticias
+  <main class="noticias">
+    <nav aria-label="Migas" class="migas">
+      <a href="/" class="navlink">Inicio</a> <span aria-hidden="true">/</span> <span class="migas__actual">Noticias</span>
     </nav>
-    <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 5vw, 44px); letter-spacing: -0.03em; margin: 18px 0 0; color: #fff;">Noticias de IA</h1>
-    <p style="font-size: 16px; line-height: 1.6; color: var(--fg-3); margin: 12px 0 0; max-width: 42em;">Actualidad de la IA curada y resumida en español. Sin ruido: solo lo que puedes aplicar en tu negocio, con la fuente a un clic.</p>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; margin-top: 32px;">
-      {noticias.map((n) => (
-        <ArticleCard href={`/noticias/${n.id}`} titulo={n.data.titulo} descripcion={n.data.descripcion} fecha={n.data.fecha} tema={n.data.tema} tipo="Noticia" />
-      ))}
-    </div>
+    <header class="masthead">
+      <p class="masthead__eyebrow blur-in">
+        {radarAlDia && <span class="masthead__pulso" aria-hidden="true"></span>}
+        Radar de IA
+        <span class="masthead__sep" aria-hidden="true">/</span>
+        <span class="masthead__dato">{noticias.length}</span> publicadas
+        {ultimaFecha && (
+          <>
+            <span class="masthead__sep" aria-hidden="true">/</span>
+            <span>última: <span class="masthead__dato">{ultimaFecha}</span></span>
+          </>
+        )}
+      </p>
+      <!-- El H1 es el elemento LCP: sin `.blur-in`, que arranca en opacity 0 y lo
+           dejaría fuera de candidatura durante los primeros ~780ms. -->
+      <h1 class="masthead__titulo">
+        Noticias <span class="masthead__acento">de&nbsp;IA</span>
+      </h1>
+      <p class="masthead__lead blur-in" style="animation-delay:.08s">
+        Actualidad de la IA curada y resumida en español. Sin ruido: solo lo que puedes
+        aplicar en tu negocio, <span class="masthead__enfasis">con la fuente a un clic</span>.
+      </p>
+    </header>
+
+    {noticias.length === 0 && (
+      <p class="vacio">Todavía no hay noticias publicadas. Vuelve pronto: el radar se actualiza cada día laborable.</p>
+    )}
+
+    {portada && (
+      <section class="seccion" aria-labelledby="portada-label">
+        <h2 class="seccion__label" id="portada-label"><span>Lo último</span></h2>
+        <div class="grid">
+          <ArticleCard
+            href={`/noticias/${portada.id}`}
+            titulo={portada.data.titulo}
+            descripcion={portada.data.descripcion}
+            fecha={portada.data.fecha}
+            tema={portada.data.tema}
+            tipo="Noticia"
+            badges={badgesPorId.get(portada.id)}
+            destacada
+          />
+        </div>
+      </section>
+    )}
+
+    {/* Las secciones de mes van sin `aria-label` a propósito: nombrarlas las
+        convertiría en landmarks `region`, uno por mes, sin límite. */}
+    {meses.map((mes) => (
+      <section class="seccion">
+        <h2 class="seccion__label"><span>{mes.etiqueta}</span></h2>
+        <div class="grid">
+          {mes.items.map(({ noticia: n }) => (
+            <ArticleCard href={`/noticias/${n.id}`} titulo={n.data.titulo} descripcion={n.data.descripcion} fecha={n.data.fecha} tema={n.data.tema} tipo="Noticia" badges={badgesPorId.get(n.id)} />
+          ))}
+        </div>
+      </section>
+    ))}
   </main>
 
   <SiteFooter />
 </BaseLayout>
+
+<style>
+  .noticias {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 32px 64px;
+  }
+
+  .migas {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg-5);
+  }
+  .migas a { color: var(--fg-4); text-decoration: none; }
+  .migas__actual { color: var(--fg-3); }
+
+  /* ===== Cabecera editorial ===== */
+  .masthead {
+    padding: 22px 0 34px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .masthead__eyebrow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+    color: var(--fg-5);
+    margin: 0;
+  }
+  .masthead__dato { color: var(--fg-2); }
+  .masthead__sep { color: var(--fg-5); opacity: 0.55; }
+  .masthead__pulso {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--green) 15%, transparent);
+  }
+
+  .masthead__titulo {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(38px, 7.5vw, 72px);
+    line-height: 0.95;
+    letter-spacing: -0.038em;
+    text-wrap: balance;
+    color: #fff;
+    margin: 16px 0 0;
+  }
+  .masthead__acento {
+    font-style: italic;
+    background: linear-gradient(96deg, var(--accent), #a9bcff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  /* Alto contraste (Windows HCM): el degradado se elimina pero el relleno
+     transparente no, así que "de IA" desaparecería del H1. */
+  @media (forced-colors: active) {
+    .masthead__acento {
+      background: none;
+      -webkit-text-fill-color: currentColor;
+      color: CanvasText;
+    }
+  }
+
+  .masthead__lead {
+    font-size: clamp(16px, 1.5vw, 19px);
+    line-height: 1.6;
+    color: var(--fg-2);
+    text-wrap: pretty;
+    margin: 18px 0 0;
+    max-width: 34em;
+  }
+  .masthead__enfasis {
+    color: #fff;
+    box-shadow: inset 0 -1px 0 var(--line-3);
+  }
+
+  .vacio {
+    margin: 40px 0 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--fg-3);
+    max-width: 34em;
+  }
+
+  /* ===== Secciones por mes ===== */
+  .seccion { margin-top: 40px; }
+
+  .seccion__label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-4);
+    margin: 0 0 16px;
+  }
+  .seccion__label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--line-2), transparent);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 18px;
+  }
+
+  @media (max-width: 640px) {
+    .noticias { padding: 28px 20px 56px; }
+    .masthead__titulo { letter-spacing: -0.03em; }
+  }
+</style>
 
 <script>
   import { initMotion } from '../../scripts/motion';
