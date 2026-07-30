@@ -1,0 +1,146 @@
+{
+  "date": "2026-07-30",
+  "generatedAt": "2026-07-30T07:33:57.331Z",
+  "candidates": [
+    {
+      "titulo": "Claude Opus 5 became downright ruthless when tasked with running a vending machine",
+      "url": "https://techcrunch.com/2026/07/29/claude-opus-5-became-downright-ruthless-when-tasked-with-running-a-vending-machine/",
+      "fecha": "2026-07-29T18:45:27.000Z",
+      "resumen": "Andon Labs' latest vending machine simulation shows Opus 5 lied and colluded its way to become the best AI capitalist ever.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "claude-opus-5-became-downright-ruthless-when-tasked-with-run",
+      "signals": {
+        "hn": 16,
+        "reddit": 0,
+        "social": 0.372722455587712,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.6442104089506173,
+        "authority": 0.9
+      },
+      "score": 0.5544
+    },
+    {
+      "titulo": "Microsoft confirms Copilot ‘super app’ coming this year",
+      "url": "https://www.theverge.com/tech/972927/microsoft-copilot-super-app-confirmed",
+      "fecha": "2026-07-29T22:17:38.000Z",
+      "resumen": "Microsoft is working on an AI \"super app\" that combines Copilot's chat, coding, and agentic capabilities. During an earnings call on Wednesday, Microsoft CEO Satya Nadella said the app will span \"both consumer and commercial experiences\" when it launches this year.\n\"Copilot is evolving rapidly from chat to Cowork to Autopilots,\" Nadella said. \"This quarter, we are bringing these Copilot experience",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "microsoft-confirms-copilot-super-app-coming-this-year",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.7424434336419753,
+        "authority": 0.9
+      },
+      "score": 0.5014
+    },
+    {
+      "titulo": "Discover what’s next for AI, from the SaaS reckoning to the agent security gap, at TechCrunch Disrupt 2026",
+      "url": "https://techcrunch.com/2026/07/29/discover-whats-next-for-ai-from-the-saas-reckoning-to-the-agent-security-gap-at-techcrunch-disrupt-2026/",
+      "fecha": "2026-07-29T21:16:39.000Z",
+      "resumen": "At TechCrunch Disrupt 2026, the AI Stage is back to dig into the single hottest topic in the community for the past few years, presented by Google for Startups.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "discover-what-s-next-for-ai-from-the-saas-reckoning-to-the-a",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.7142104089506173,
+        "authority": 0.9
+      },
+      "score": 0.4971
+    },
+    {
+      "titulo": "Hint, a new AI startup co-founded by Martha Stewart, offers an AI assistant for homeowners",
+      "url": "https://techcrunch.com/2026/07/29/hint-a-new-ai-startup-co-founded-by-martha-stewart-offers-an-ai-assistant-for-homeowners/",
+      "fecha": "2026-07-29T15:35:09.000Z",
+      "resumen": "AI home management startup Hint, co-founded by Martha Stewart, wants to become an “AI for your home,” combining property records, maintenance schedules, home documents, and an AI assistant into a single app.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "hint-a-new-ai-startup-co-founded-by-martha-stewart-offers-an",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5561085570987654,
+        "authority": 0.9
+      },
+      "score": 0.4734
+    },
+    {
+      "titulo": "Encore AI raises $30M to build AI agents that learn from customer calls",
+      "url": "https://techcrunch.com/2026/07/29/encore-ai-raises-30m-to-build-ai-agents-that-learn-from-customer-calls/",
+      "fecha": "2026-07-29T14:41:06.000Z",
+      "resumen": "The startup analyzes calls, messages, and CRM data to identify effective sales techniques and turn them into playbooks for AI agents.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "encore-ai-raises-30m-to-build-ai-agents-that-learn-from-cust",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5310854089506173,
+        "authority": 0.9
+      },
+      "score": 0.4697
+    },
+    {
+      "titulo": "Zuckerberg says Meta’s enterprise AI opportunity extends beyond agents",
+      "url": "https://techcrunch.com/2026/07/29/zuckerberg-says-metas-enterprise-ai-opportunity-extends-beyond-agents/",
+      "fecha": "2026-07-29T22:23:12.000Z",
+      "resumen": "On the company’s second-quarter earnings call Wednesday, CEO Mark Zuckerberg said Meta sees a “large enterprise opportunity” spanning AI agents, APIs, compute, and internal software.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "zuckerberg-says-meta-s-enterprise-ai-opportunity-extends-bey",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.7450205941358025,
+        "authority": 0.9
+      },
+      "score": 0.4018
+    },
+    {
+      "titulo": "xAI’s last-minute scramble to stop Minnesota’s anti-nudification app law",
+      "url": "https://www.theverge.com/policy/972850/xai-grok-minnesota-nudification-lawsuit",
+      "fecha": "2026-07-29T21:06:52.000Z",
+      "resumen": "xAI is suing Minnesota Attorney General Keith Ellison over a law passed back in May that broadly targets \"nudification\" apps, claiming that the statute's punitive provisions leave the company with \"no practical choice but to restrict Grok Imagine's image-editing features in various ways.\" The law, the company argues, violates the First Amendment. \nBack in January, Grok flooded the internet with mi",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "xai-s-last-minute-scramble-to-stop-minnesota-s-anti-nudifica",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.7096810879629629,
+        "authority": 0.9
+      },
+      "score": 0.3965
+    }
+  ]
+}
