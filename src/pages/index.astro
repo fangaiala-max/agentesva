@@ -233,13 +233,23 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
         <!-- estantes (vista Escaparate sin filtros) -->
         <div id="shelves" style="display: flex; flex-direction: column; gap: 40px;">
           {shelves.map((shelf) => (
-            <div>
+            <div class="shelf" data-shelf>
               <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                 <span aria-hidden="true" style="font-size: 18px;">{shelf.emoji}</span>
                 <h3 style="font-family: var(--sans); font-weight: 700; font-size: 18px; letter-spacing: -0.01em; margin: 0; color: #fff;">{shelf.title}</h3>
-                <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5);">{shelf.sub}</span>
+                <span style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-5);">{shelf.sub}</span>
+                {/* Cada estante lleva 8 fichas y solo se ven ~4: sin estas flechas
+                    la mitad de la selección editorial era invisible con ratón. */}
+                <span class="shelf__nav" data-shelf-nav hidden>
+                  <button type="button" class="shelf__arrow" data-shelf-prev aria-label={`Ver anteriores de ${shelf.title}`}>
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>
+                  </button>
+                  <button type="button" class="shelf__arrow" data-shelf-next aria-label={`Ver siguientes de ${shelf.title}`}>
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
+                  </button>
+                </span>
               </div>
-              <div class="shelfscroll" style="display: flex; gap: 16px; padding-bottom: 12px;">
+              <div class="shelfscroll" data-shelf-scroll style="display: flex; gap: 16px; padding-bottom: 12px;">
                 {shelf.items.map((tool) => (
                   <div style="min-width: 290px; max-width: 290px; display: flex;">
                     <ToolCard tool={tool} morph={false} compare />
@@ -281,9 +291,26 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
           {tools.map((tool) => <ToolCard tool={tool} compare surface="card-home" />)}
         </div>
 
-        <div id="empty-state" hidden role="status" style="border: 1px dashed var(--line-2); border-radius: 8px; padding: 56px 24px; text-align: center;">
-          <p style="font-family: var(--sans); font-weight: 600; font-size: 18px; color: #fff; margin: 0;">Sin resultados para tu búsqueda</p>
-          <p style="font-size: 14px; color: var(--fg-5); margin: 8px 0 0;">Prueba otra palabra o quita algún filtro.</p>
+        {/* Antes esto era un callejón sin salida: solo decía "prueba otra
+            palabra". Ahora ofrece por dónde seguir, que es lo que hace falta
+            justo cuando la búsqueda ha fallado. */}
+        <div id="empty-state" hidden role="status" style="border: 1px dashed var(--line-2); border-radius: 8px; padding: 44px 24px; text-align: center;">
+          <p style="font-family: var(--sans); font-weight: 600; font-size: 18px; color: #fff; margin: 0;">No encontramos nada para <span data-empty-query style="color: var(--accent);">tu búsqueda</span></p>
+          <p style="font-size: 15px; color: var(--fg-4); margin: 8px 0 0;">Prueba con lo que quieres conseguir, no con el nombre de la herramienta.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 22px 0 0;">
+            {['atender clientes', 'automatizar WhatsApp', 'crear imágenes', 'facturas', 'redactar textos', 'crear vídeos'].map((sug) => (
+              <button
+                type="button"
+                class="chip"
+                data-empty-suggestion={sug}
+                style="font-family: var(--sans); font-size: 14px; color: var(--fg-2); background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 20px; padding: 9px 16px;"
+              >{sug}</button>
+            ))}
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; margin: 24px 0 0;">
+            <a href="/herramientas" style="font-family: var(--sans); font-size: 14px; color: var(--accent); text-decoration: none;">Ver las 10 categorías →</a>
+            <a href="/estudios" style="font-family: var(--sans); font-size: 14px; color: var(--accent); text-decoration: none;">Leer las comparativas →</a>
+          </div>
         </div>
 
         <div style="text-align: center; margin-top: 36px;">
@@ -355,13 +382,13 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
       <div class="reveal" style="padding: 40px 24px; border-right: 1px solid var(--line);">
         <div style="display: flex; align-items: baseline; gap: 2px;">
           <span style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em;">+</span>
-          <span data-count={claim} style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;">0</span>
+          <span data-count={claim} style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;">{claim.toLocaleString('es-ES')}</span>
         </div>
         <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5);">Herramientas revisadas</span>
       </div>
       <div class="reveal" style="padding: 40px 24px; border-right: 1px solid var(--line);">
         <div style="display: flex; align-items: baseline; gap: 2px;">
-          <span data-count="30" style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;">0</span>
+          <span data-count="30" style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;">30</span>
           <span style="font-weight: 700; font-size: 42px; color: var(--accent); letter-spacing: -0.03em;">+</span>
         </div>
         <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5);">Prompts en el pack</span>
@@ -369,7 +396,7 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
       <div class="reveal" style="padding: 40px 24px;">
         <div style="display: flex; align-items: baseline; gap: 2px;">
           <span style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em;">+</span>
-          <span data-count="1200" style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;">0</span>
+          <span data-count="1200" style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;">1.200</span>
         </div>
         <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5);">Negocios suscritos</span>
       </div>
@@ -451,8 +478,15 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
 <script>
   import { initHome } from '../scripts/home';
   import { initMotion } from '../scripts/motion';
+  import { setupShelves } from '../scripts/shelves';
+
+  // setupShelves observa y escucha scroll: hay que soltar lo anterior en cada
+  // navegación cliente para no acumular observers entre páginas.
+  let teardownShelves: (() => void) | null = null;
   document.addEventListener('astro:page-load', () => {
     initHome();
     initMotion();
+    teardownShelves?.();
+    teardownShelves = setupShelves();
   });
 </script>

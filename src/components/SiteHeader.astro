@@ -55,7 +55,7 @@ const tickerItems = `+${claim} herramientas de IA revisadas  ·  Sin ruido, 
       <span style="font-family: var(--serif); font-weight: 400; font-size: 24px; letter-spacing: -0.025em; color: #fff;">AgentesVA</span>
       <sup style="font-family: var(--mono); font-size: 10px; font-weight: 600; color: var(--accent); top: -0.7em; animation: glowPulse 3s ease-in-out infinite; border-radius: 3px;">[IA]</sup>
     </a>
-    <nav aria-label="Principal" style="display: flex; gap: 24px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">
+    <nav id="site-nav" class="sitenav" aria-label="Principal" style="display: flex; gap: 24px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;">
       <a class="navlink" href="/herramientas" style="color: #fff; text-decoration: none;">Herramientas</a>
       <a class="navlink" href="/cursos" style="color: var(--fg-4); text-decoration: none;">Cursos</a>
       <a class="navlink" href="/recursos" style="color: var(--fg-4); text-decoration: none;">Recursos</a>
@@ -64,6 +64,16 @@ const tickerItems = `+${claim} herramientas de IA revisadas  ·  Sin ruido, 
       <a class="navlink" href="/#pack" style="color: var(--fg-4); text-decoration: none;">Pack gratis</a>
     </nav>
     <div style="display: flex; align-items: center; gap: 14px;">
+      <button
+        type="button"
+        class="navtoggle"
+        data-nav-toggle
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        <span class="navtoggle__bars" aria-hidden="true"></span>
+      </button>
       <button type="button" data-search-open aria-label="Buscar en el sitio (⌘K)" style="display: flex; align-items: center; gap: 8px; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 6px; padding: 8px 11px; cursor: pointer;">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--fg-3)" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
         <span style="font-family: var(--mono); font-size: 10px; color: var(--fg-5); border: 1px solid var(--line-2); border-radius: 4px; padding: 2px 6px;">⌘K</span>
@@ -73,3 +83,16 @@ const tickerItems = `+${claim} herramientas de IA revisadas  ·  Sin ruido, 
   </div>
 </header>
 <SearchModal />
+
+<script>
+  import { setupNav } from '../scripts/nav';
+
+  // Los listeners van a `document`, que sobrevive a las navegaciones cliente de
+  // ClientRouter, así que hay que soltar los de la página anterior antes de
+  // cablear los nuevos para que no se acumulen (mismo patrón que SearchModal).
+  let teardown: (() => void) | null = null;
+  document.addEventListener('astro:page-load', () => {
+    teardown?.();
+    teardown = setupNav();
+  });
+</script>

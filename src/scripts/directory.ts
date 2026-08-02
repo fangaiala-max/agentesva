@@ -4,6 +4,21 @@ export const REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matc
 // Búsqueda insensible a tildes: "video" debe encontrar "Vídeo" (home y directorio).
 export const fold = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '');
 
+// Parte la consulta en términos normalizados (sin tildes, minúsculas, sin vacíos).
+export const tokenize = (q: string) =>
+  fold(q.trim().toLowerCase()).split(/\s+/).filter(Boolean);
+
+// Coincidencia por términos: cada palabra de la consulta debe aparecer en el
+// texto indexado, en cualquier orden. Antes era `hay.includes(q)` —subcadena
+// contigua— y eso dejaba a cero cualquier frase natural: "automatizar WhatsApp"
+// y "crear vídeos" daban 0 resultados siendo los ejemplos que sugiere el propio
+// placeholder del buscador. `hay` llega ya en minúsculas desde data-search.
+export function matchesQuery(hay: string, terms: string[]): boolean {
+  if (terms.length === 0) return true;
+  const h = fold(hay);
+  return terms.every((t) => h.includes(t));
+}
+
 const CHIP_ACTIVE = { background: 'var(--accent)', color: 'var(--bg)', borderColor: 'var(--accent)' };
 const CHIP_IDLE = { background: 'transparent', color: 'var(--fg-3)', borderColor: 'var(--line-2)' };
 
@@ -28,12 +43,13 @@ function setupFilter() {
   let activeCat = 'Todas';
 
   const filter = () => {
-    const q = fold((search?.value || '').trim().toLowerCase());
+    const terms = tokenize(search?.value || '');
     let visible = 0;
     cards.forEach((card) => {
       const cat = card.dataset.cat || '';
-      const hay = fold(card.dataset.search || '');
-      const match = (activeCat === 'Todas' || cat === activeCat) && (!q || hay.includes(q));
+      const match =
+        (activeCat === 'Todas' || cat === activeCat) &&
+        matchesQuery(card.dataset.search || '', terms);
       card.style.display = match ? 'flex' : 'none';
       if (match) visible++;
     });
@@ -72,6 +88,11 @@ export function setupCounters() {
     requestAnimationFrame(tick);
   };
   els.forEach((el) => {
+    // El HTML trae ya el valor final, para que sin JS (o si algo falla) nunca
+    // se lea "+0 negocios suscritos" encima del formulario. La cuenta atrás es
+    // mejora progresiva: se pone a 0 al cablear —muy por encima del pliegue,
+    // así que no se ve el salto— y se anima al entrar en pantalla.
+    if (!REDUCE) el.textContent = '0';
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => { if (e.isIntersecting) { run(el); io.disconnect(); } });
     }, { threshold: 0.4 });

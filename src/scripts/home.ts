@@ -1,7 +1,14 @@
 // Interactividad de la home "marketplace" (diseño AgentesVA - Home web):
 // countdown, vistas Escaparate/Tienda, filtros, ordenación, comparador y CTA fija.
 // CSP-safe (sin handlers inline) e idempotente entre navegaciones (View Transitions).
-import { setupCounters, setupBookmarks, applyChipStyle, fold, REDUCE } from './directory';
+import {
+  setupCounters,
+  setupBookmarks,
+  applyChipStyle,
+  tokenize,
+  matchesQuery,
+  REDUCE,
+} from './directory';
 import { priceRank, type Price } from '../data/tools';
 
 const CTA_KEY = 'agentesva:cta-dismissed';
@@ -71,13 +78,14 @@ export function initHome() {
 
   // ===== Filtro + render de visibilidad =====
   const render = () => {
-    const q = fold((search?.value || '').trim().toLowerCase());
+    const terms = tokenize(search?.value || '');
+    const q = terms.join(' ');
     let visible = 0;
     cards.forEach((card) => {
       const match =
         (activeCat === 'Todas' || card.dataset.cat === activeCat) &&
         (prices.size === 0 || prices.has(card.dataset.price as Price)) &&
-        (!q || fold(card.dataset.search || '').includes(q));
+        matchesQuery(card.dataset.search || '', terms);
       const display = match ? 'flex' : 'none';
       if (card.style.display !== display) card.style.display = display;
       if (match) visible++;
@@ -90,6 +98,10 @@ export function initHome() {
     if (shelvesEl) shelvesEl.hidden = !showShelves;
     grid.hidden = showShelves || visible === 0;
     if (empty) empty.hidden = showShelves || visible !== 0;
+
+    // Eco de la consulta en el estado vacío: "No encontramos nada para X".
+    const echo = document.querySelector<HTMLElement>('[data-empty-query]');
+    if (echo) echo.textContent = search?.value.trim() || 'tu búsqueda';
   };
 
   const setCat = (cat: string) => {
@@ -110,6 +122,20 @@ export function initHome() {
   };
 
   search?.addEventListener('input', render);
+
+  // Sugerencias del estado vacío: rellenan el buscador y relanzan el filtro,
+  // para que fallar una búsqueda no obligue a volver atrás.
+  document.querySelectorAll<HTMLButtonElement>('[data-empty-suggestion]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (!search) return;
+      search.value = btn.dataset.emptySuggestion || '';
+      prices.clear();
+      priceInputs.forEach((i) => { i.checked = false; });
+      setCat('Todas');
+      search.focus();
+    });
+  });
+
   document.getElementById('search-form')?.addEventListener('submit', (e) => {
     e.preventDefault();
     scrollToDir();

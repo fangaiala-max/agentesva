@@ -156,3 +156,121 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .sr-msg { font-size: 14px; color: var(--fg-3); padding: 12px; }
 .sr-chip { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 7px 13px; border-radius: 30px; background: transparent; color: var(--fg-3); border: 1px solid var(--line-2); cursor: pointer; }
 .sr-chip.on { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+
+/* ===== Navegación móvil (AGV-14) =====
+   Hasta 900px el <nav> inline no cabe: medía 479px y empujaba el documento a
+   511px de ancho, así que "Noticias" y "Pack gratis" quedaban fuera de pantalla
+   en TODOS los anchos de teléfono (320–414px) y la página se desplazaba en
+   horizontal. Debajo de ese punto la nav pasa a panel desplegable. */
+.navtoggle { display: none; }
+
+@media (max-width: 900px) {
+  .navtoggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: var(--panel-2);
+    border: 1px solid var(--line-2);
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .navtoggle__bars,
+  .navtoggle__bars::before,
+  .navtoggle__bars::after {
+    display: block;
+    width: 18px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--fg-2);
+    transition: transform .22s ease, opacity .18s ease;
+  }
+  .navtoggle__bars { position: relative; }
+  .navtoggle__bars::before,
+  .navtoggle__bars::after { content: ''; position: absolute; left: 0; }
+  .navtoggle__bars::before { top: -6px; }
+  .navtoggle__bars::after { top: 6px; }
+
+  .navtoggle[aria-expanded='true'] .navtoggle__bars { background: transparent; }
+  .navtoggle[aria-expanded='true'] .navtoggle__bars::before { transform: translateY(6px) rotate(45deg); }
+  .navtoggle[aria-expanded='true'] .navtoggle__bars::after { transform: translateY(-6px) rotate(-45deg); }
+
+  /* El panel se saca del flujo para que su ancho no vuelva a estirar el
+     documento; por eso el desbordamiento horizontal desaparece aunque el
+     contenido sea más ancho que el viewport. */
+  .sitenav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none !important;
+    flex-direction: column;
+    gap: 0 !important;
+    padding: 8px 20px 16px;
+    background: var(--bg-2);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, .45);
+  }
+  .sitenav[data-open] { display: flex !important; }
+  .sitenav .navlink {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    font-size: 13px;
+    border-bottom: 1px solid var(--line);
+  }
+  .sitenav .navlink:last-child { border-bottom: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navtoggle__bars,
+  .navtoggle__bars::before,
+  .navtoggle__bars::after { transition: none; }
+}
+
+/* ===== Objetivos táctiles (AGV-15) =====
+   En pantallas táctiles los botones de guardar/comparar quedaban en ~29px
+   (icono 16px + 6px de padding). El mínimo recomendado es 44x44. Se amplía el
+   área pulsable con padding y se compensa con margen negativo para no mover
+   la maquetación de la tarjeta. */
+@media (pointer: coarse) {
+  .bookmark-btn,
+  .compare-btn {
+    padding: 13px !important;
+    margin: -13px !important;
+  }
+  .compare-btn { margin-right: -7px !important; }
+}
+
+/* ===== Flechas de los estantes (AGV-10) =====
+   Cada estante mide ~2432px dentro de ~1176px visibles: el 52% del contenido
+   quedaba oculto sin ninguna señal de que hubiera más. */
+.shelf__nav { display: inline-flex; gap: 6px; margin-left: auto; }
+.shelf__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  background: var(--panel-2);
+  border: 1px solid var(--line-2);
+  color: var(--fg-3);
+  cursor: pointer;
+  transition: color .2s, border-color .2s, opacity .2s;
+}
+.shelf__arrow:hover:not(:disabled) { color: #fff; border-color: var(--line-3); }
+.shelf__arrow:disabled { opacity: .35; cursor: default; }
+.shelf__arrow:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.shelfscroll { scroll-behavior: smooth; scroll-snap-type: x proximity; }
+.shelfscroll > * { scroll-snap-align: start; }
+@media (pointer: coarse) {
+  /* En táctil el gesto de arrastre ya es evidente: las flechas sobran. */
+  .shelf__nav { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shelfscroll { scroll-behavior: auto; }
+  .shelf__arrow { transition: none; }
+}
