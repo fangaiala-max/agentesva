@@ -1,6 +1,7 @@
 ---
 import type { Tool } from '../data/tools';
 import { PRICE_COLOR, badgesFor } from '../data/tools';
+import { crumbPath } from '../data/breadcrumbs';
 import { buildSearchIndex } from '../data/search-intents';
 import Badge from './Badge.astro';
 import AffiliateCTA from './AffiliateCTA.astro';
@@ -38,7 +39,7 @@ const monoStyle = `width: 42px; height: 42px; border-radius: 9px; flex: none; di
   style="position: relative; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 14px;"
 >
   <a
-    href={`/herramienta/${tool.slug}`}
+    href={crumbPath(`/herramienta/${tool.slug}`)}
     aria-label={`Ver ${tool.name}`}
     style="position: absolute; inset: 0; z-index: 1; border-radius: 8px;"
   ></a>

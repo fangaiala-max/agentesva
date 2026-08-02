@@ -3,20 +3,23 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import BibliotecaIA from '../../components/BibliotecaIA.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
 import { toRecurso, getAlternativesRecursos, fallbackFaqsRecurso, PRECIO_COLOR, tipoLabel, type Recurso } from '../../data/recursos';
 import { jsonLdSerialize } from '../../data/schema';
+import { crumbPath, breadcrumbList, crumbUrl, fichaTrail, SECCIONES, type CatEntry } from '../../data/breadcrumbs';
 
 export async function getStaticPaths() {
   const recursos = (await getCollection('recursos')).map(toRecurso).sort((a, b) => a.orden - b.orden);
+  const cats = (await getCollection('recursosCategorias')).map(({ id, data }) => ({ id, data: { nombre: data.nombre } }));
   return recursos.map((recurso) => ({
     params: { slug: recurso.slug },
-    props: { recurso, alts: getAlternativesRecursos(recursos, recurso) },
+    props: { recurso, alts: getAlternativesRecursos(recursos, recurso), cats },
   }));
 }
 
-interface Props { recurso: Recurso; alts: Recurso[] }
-const { recurso, alts } = Astro.props;
+interface Props { recurso: Recurso; alts: Recurso[]; cats: CatEntry[] }
+const { recurso, alts, cats } = Astro.props;
 const initial = recurso.titulo.charAt(0);
 const precioColor = PRECIO_COLOR[recurso.precio];
 const site = 'https://agentesva.com';
@@ -24,6 +27,15 @@ const faqs = recurso.faq?.length ? recurso.faq : fallbackFaqsRecurso(recurso);
 // Precio numérico para offers (real; "0" para gratis).
 // Asume formato europeo (coma decimal) y precio < 1000; los tiers son 4,99/14,99/29,99/19 €.
 const priceNum = recurso.precio === 'Gratis' ? '0' : (recurso.precioDesde || '').replace(/[^0-9,.]/g, '').replace(',', '.') || '0';
+
+const trail = fichaTrail({
+  seccion: SECCIONES.recursos,
+  categoriaBase: '/recursos',
+  cats,
+  categoria: recurso.categoria,
+  titulo: recurso.titulo,
+  url: `/recurso/${recurso.slug}`,
+});
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -39,17 +51,10 @@ const jsonLd = {
         price: priceNum,
         priceCurrency: 'EUR',
         availability: 'https://schema.org/InStock',
-        url: `${site}/recurso/${recurso.slug}`,
+        url: crumbUrl(`/recurso/${recurso.slug}`),
       },
     },
-    {
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${site}/` },
-        { '@type': 'ListItem', position: 2, name: 'Recursos', item: `${site}/recursos` },
-        { '@type': 'ListItem', position: 3, name: recurso.titulo, item: `${site}/recurso/${recurso.slug}` },
-      ],
-    },
+    breadcrumbList(trail),
     {
       '@type': 'FAQPage',
       mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
@@ -84,7 +89,7 @@ const pageTitle = recurso.biblioteca ? `${recurso.titulo} | AgentesVA` : `${recu
     data-pagefind-meta="tipo:Recurso"
     style="max-width: 1080px; margin: 0 auto; padding: 32px 32px 64px;"
   >
-    <a href="/recursos" data-pagefind-ignore class="navlink" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-4); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">← Volver a recursos</a>
+    <Breadcrumb trail={trail} />
 
     <div style="display: flex; align-items: flex-start; gap: 22px; margin-top: 26px; border-bottom: 1px solid var(--line); padding-bottom: 32px; flex-wrap: wrap;">
       <div transition:name={`mono-recurso-${recurso.slug}`} style={`width: 74px; height: 74px; border-radius: 16px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 33px; color: #fff; background: ${recurso.color};`}>{initial}</div>
@@ -161,7 +166,7 @@ const pageTitle = recurso.biblioteca ? `${recurso.titulo} | AgentesVA` : `${recu
             <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-5);">Otros recursos</span>
             <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
               {alts.map((a) => (
-                <a href={`/recurso/${a.slug}`} class="lift" style="display: flex; align-items: center; gap: 12px; background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 12px; text-decoration: none;">
+                <a href={crumbPath(`/recurso/${a.slug}`)} class="lift" style="display: flex; align-items: center; gap: 12px; background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 12px; text-decoration: none;">
                   <span style={`width: 34px; height: 34px; border-radius: 8px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 15px; color: #fff; background: ${a.color};`}>{a.titulo.charAt(0)}</span>
                   <span style="flex: 1;">
                     <span style="display: block; font-family: var(--sans); font-weight: 600; font-size: 14px; color: #fff;">{a.titulo}</span>

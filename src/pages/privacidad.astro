@@ -2,18 +2,39 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { jsonLdSerialize, SITE as site, WEBSITE_ID } from '../data/schema';
+import { breadcrumbList, trail as buildTrail } from '../data/breadcrumbs';
 
 const actualizado = '10 de julio de 2026';
+const trail = buildTrail({ name: 'Política de privacidad', url: '/privacidad' });
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      name: 'Política de privacidad',
+      url: `${site}/privacidad/`,
+      inLanguage: 'es',
+      isPartOf: { '@id': WEBSITE_ID },
+    },
+    breadcrumbList(trail),
+  ],
+};
 ---
 
 <BaseLayout
   title="Política de privacidad | AgentesVA"
   description="Cómo trata AgentesVA tus datos: qué recogemos, para qué, base legal, tus derechos y cómo darte de baja. Conforme al RGPD."
 >
+  <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
   <SiteHeader />
 
   <main style="max-width: 760px; margin: 0 auto; padding: 40px 32px 64px;">
-    <p style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0;">Legal</p>
+    <Breadcrumb trail={trail} />
+
+    <p style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 18px 0 0;">Legal</p>
     <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 5.5vw, 44px); line-height: 1.08; letter-spacing: -0.03em; color: #fff; margin: 10px 0 0;">Política de privacidad</h1>
     <p style="font-family: var(--mono); font-size: 11px; color: var(--fg-5); margin: 14px 0 0;">Última actualización: {actualizado}</p>
 
@@ -49,7 +70,6 @@ const actualizado = '10 de julio de 2026';
       <p>Si actualizamos esta política, cambiaremos la fecha del encabezado. Los cambios relevantes se comunicarán por la propia newsletter.</p>
     </article>
 
-    <a href="/" class="navlink" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 36px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-4); text-decoration: none;">← Volver al inicio</a>
   </main>
 
   <SiteFooter />

@@ -53,7 +53,7 @@ bonus:
 
 Publicar a diario en redes agota: hay que escribir, diseñar y mantener el tono de la marca, post tras post. La buena noticia es que la IA puede **redactar tus textos, crear las imágenes y ayudarte a publicar más rápido**, sin perder tu estilo. Estas son las herramientas que de verdad funcionan para una PyME, qué hace cada una y cómo combinarlas —sin tecnicismos.
 
-## [Copy.ai](/herramienta/copy-ai), [Jasper](/herramienta/jasper) y [Writesonic](/herramienta/writesonic): escribir captions y textos
+## [Copy.ai](/herramienta/copy-ai/), [Jasper](/herramienta/jasper/) y [Writesonic](/herramienta/writesonic/): escribir captions y textos
 
 **Copy.ai** genera textos de marketing y ventas —captions, anuncios, emails— y automatiza flujos de contenido. Tiene el **mejor plan gratuito** del grupo: 2.000 palabras al mes y entrenamiento de una voz de marca (copy.ai/pricing, jun 2026), suficiente para llevar las redes de un negocio pequeño sin pagar. Le pides "cinco captions para promocionar esta oferta, con gancho y emojis" y eliges el que más te encaje.
 
@@ -61,7 +61,7 @@ Publicar a diario en redes agota: hay que escribir, diseñar y mantener el tono 
 
 **Writesonic** se centra en **artículos largos optimizados para SEO** con datos actualizados de la web. Es la opción más barata para escribir (desde ~20 $/mes) y encaja si tu blog alimenta las redes. **Mejor para:** quien quiere contenido SEO sin gastar mucho.
 
-## [Canva IA](/herramienta/canva-ia) e [Ideogram](/herramienta/ideogram): las imágenes y plantillas
+## [Canva IA](/herramienta/canva-ia/) e [Ideogram](/herramienta/ideogram/): las imágenes y plantillas
 
 **Canva IA** junta plantillas, generación de imágenes con IA y edición sencilla en un mismo sitio: es lo más fácil para que tus posts luzcan profesionales sin saber diseñar. Su plan gratuito incluye unos 50 créditos de IA al mes y, además, te deja programar publicaciones desde la propia plataforma.
 
@@ -95,4 +95,4 @@ Bien usada, la IA no te hace sonar a robot: te quita el trabajo mecánico para q
 - **Posts o carteles con texto dentro** → Ideogram.
 - **Blog SEO que nutre tus redes** → Writesonic.
 
-La combinación más práctica para una PyME es una herramienta de texto (Copy.ai) y una de imagen (Canva IA o Ideogram). Define tu voz de marca, genera varias opciones, **elige y ajusta a mano**: la IA acelera el trabajo, pero el criterio sigue siendo tuyo. Y si quieres profundizar en las imágenes, mira nuestra guía de [herramientas de IA para crear imágenes](/estudios/mejores-herramientas-ia-para-crear-imagenes).
+La combinación más práctica para una PyME es una herramienta de texto (Copy.ai) y una de imagen (Canva IA o Ideogram). Define tu voz de marca, genera varias opciones, **elige y ajusta a mano**: la IA acelera el trabajo, pero el criterio sigue siendo tuyo. Y si quieres profundizar en las imágenes, mira nuestra guía de [herramientas de IA para crear imágenes](/estudios/mejores-herramientas-ia-para-crear-imagenes/).

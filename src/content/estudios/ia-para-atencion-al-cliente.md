@@ -53,13 +53,13 @@ bonus:
 
 Tus clientes esperan respuesta rápida a cualquier hora, pero un equipo pequeño no llega a todo. La IA puede **responder las preguntas que se repiten** —horarios, precios, estado de un pedido— y dejar a tu equipo lo que de verdad necesita una persona. Así se hace, sin tecnicismos, con las herramientas que mejor encajan según por dónde te escriben tus clientes.
 
-## [Tidio](/herramienta/tidio) y [Landbot](/herramienta/landbot): resolver dudas en tu web y tienda
+## [Tidio](/herramienta/tidio/) y [Landbot](/herramienta/landbot/): resolver dudas en tu web y tienda
 
 **Tidio** combina chat en vivo con un bot de IA (Lyro) que responde dudas en tu web, WhatsApp e Instagram, y hasta recupera carritos abandonados. Es una base estupenda si vendes online: contesta al visitante al instante y, si la cosa se complica, te pasa la conversación. Su plan gratuito cubre hasta 50 conversaciones (tidio.com/pricing, jun 2026); a partir de ahí, desde unos 24 $/mes.
 
 **Landbot** va más por el lado de **guiar y captar**: con un editor visual montas asistentes conversacionales que llevan al visitante de la mano y recogen sus datos sin perder el tono humano. Tiene un plan gratuito para chatbots web; los planes con WhatsApp suben bastante de precio. **Mejor para:** captar contactos y cualificar antes de que hablen con tu equipo.
 
-## [ManyChat](/herramienta/manychat) y [Chatfuel](/herramienta/chatfuel): atender por WhatsApp e Instagram
+## [ManyChat](/herramienta/manychat/) y [Chatfuel](/herramienta/chatfuel/): atender por WhatsApp e Instagram
 
 **ManyChat** responde y capta datos en WhatsApp e Instagram 24/7. Tiene plan gratuito (limitado) y un editor visual donde montas el bot arrastrando bloques; el plan Pro arranca en unos 15 $/mes. Es de los más usados para redes y captación.
 
@@ -67,7 +67,7 @@ Tus clientes esperan respuesta rápida a cualquier hora, pero un equipo pequeño
 
 Un ejemplo de lo que resuelven sin tocar nada: alguien comenta «¿precio?» en tu post de Instagram y el bot le manda por mensaje privado la tarifa, le pregunta qué necesita y, si hay interés, te avisa con el contacto ya recogido. De madrugada, en festivo o mientras atiendes a otro cliente.
 
-## [Wati](/herramienta/wati): cuando varias personas atienden el mismo número
+## [Wati](/herramienta/wati/): cuando varias personas atienden el mismo número
 
 **Wati** es una plataforma montada sobre la **API oficial de WhatsApp Business**: bandeja compartida para que todo el equipo atienda desde el mismo número, plantillas aprobadas y chatbots sin código. No tiene plan gratuito (desde ~49 $/mes, wati.io/pricing, jun 2026) porque está pensada para soporte con volumen. **Mejor para:** equipos que reciben muchos mensajes y necesitan repartírselos sin pisarse.
 
@@ -93,4 +93,4 @@ Para que el bot sume y no reste, evita estos tres tropiezos habituales:
 - **WhatsApp + Instagram** → ManyChat o Chatfuel.
 - **Equipo de soporte con volumen** → Wati (API oficial).
 
-Empieza por automatizar tus **5 preguntas más repetidas** y deja clarísimo cómo se llega a un humano. Si tu objetivo es sobre todo **vender** por WhatsApp más que dar soporte, mira también [las mejores herramientas de IA para automatizar WhatsApp](/estudios/mejores-herramientas-ia-whatsapp).
+Empieza por automatizar tus **5 preguntas más repetidas** y deja clarísimo cómo se llega a un humano. Si tu objetivo es sobre todo **vender** por WhatsApp más que dar soporte, mira también [las mejores herramientas de IA para automatizar WhatsApp](/estudios/mejores-herramientas-ia-whatsapp/).

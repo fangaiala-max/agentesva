@@ -2,24 +2,36 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
 import { toCurso, getAlternativesCursos, fallbackFaqsCurso, PRECIO_COLOR, nivelLabel, type Curso } from '../../data/cursos';
 import { jsonLdSerialize } from '../../data/schema';
+import { crumbPath, breadcrumbList, crumbUrl, fichaTrail, SECCIONES, type CatEntry } from '../../data/breadcrumbs';
 
 export async function getStaticPaths() {
   const cursos = (await getCollection('cursos')).map(toCurso).sort((a, b) => a.orden - b.orden);
+  const cats = (await getCollection('cursosCategorias')).map(({ id, data }) => ({ id, data: { nombre: data.nombre } }));
   return cursos.map((curso) => ({
     params: { slug: curso.slug },
-    props: { curso, alts: getAlternativesCursos(cursos, curso) },
+    props: { curso, alts: getAlternativesCursos(cursos, curso), cats },
   }));
 }
 
-interface Props { curso: Curso; alts: Curso[] }
-const { curso, alts } = Astro.props;
+interface Props { curso: Curso; alts: Curso[]; cats: CatEntry[] }
+const { curso, alts, cats } = Astro.props;
 const initial = curso.titulo.charAt(0);
 const precioColor = PRECIO_COLOR[curso.precio];
 const site = 'https://agentesva.com';
 const faqs = curso.faq?.length ? curso.faq : fallbackFaqsCurso(curso);
+
+const trail = fichaTrail({
+  seccion: SECCIONES.cursos,
+  categoriaBase: '/cursos',
+  cats,
+  categoria: curso.categoria,
+  titulo: curso.titulo,
+  url: `/curso/${curso.slug}`,
+});
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -31,16 +43,9 @@ const jsonLd = {
       provider: { '@type': 'Organization', name: curso.proveedor },
       inLanguage: 'es',
       educationalLevel: curso.nivel,
-      url: `${site}/curso/${curso.slug}`,
+      url: crumbUrl(`/curso/${curso.slug}`),
     },
-    {
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${site}/` },
-        { '@type': 'ListItem', position: 2, name: 'Cursos', item: `${site}/cursos` },
-        { '@type': 'ListItem', position: 3, name: curso.titulo, item: `${site}/curso/${curso.slug}` },
-      ],
-    },
+    breadcrumbList(trail),
     {
       '@type': 'FAQPage',
       mainEntity: faqs.map((f) => ({
@@ -72,7 +77,7 @@ const ctaLabel = curso.tipo === 'propio'
     data-pagefind-meta="tipo:Curso"
     style="max-width: 1080px; margin: 0 auto; padding: 32px 32px 64px;"
   >
-    <a href="/cursos" data-pagefind-ignore class="navlink" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-4); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">← Volver a cursos</a>
+    <Breadcrumb trail={trail} />
 
     <div style="display: flex; align-items: flex-start; gap: 22px; margin-top: 26px; border-bottom: 1px solid var(--line); padding-bottom: 32px; flex-wrap: wrap;">
       <div transition:name={`mono-curso-${curso.slug}`} style={`width: 74px; height: 74px; border-radius: 16px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 33px; color: #fff; background: ${curso.color};`}>{initial}</div>
@@ -144,7 +149,7 @@ const ctaLabel = curso.tipo === 'propio'
             <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-5);">Otros cursos</span>
             <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
               {alts.map((a) => (
-                <a href={`/curso/${a.slug}`} class="lift" style="display: flex; align-items: center; gap: 12px; background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 12px; text-decoration: none;">
+                <a href={crumbPath(`/curso/${a.slug}`)} class="lift" style="display: flex; align-items: center; gap: 12px; background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 12px; text-decoration: none;">
                   <span style={`width: 34px; height: 34px; border-radius: 8px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 15px; color: #fff; background: ${a.color};`}>{a.titulo.charAt(0)}</span>
                   <span style="flex: 1;">
                     <span style="display: block; font-family: var(--sans); font-weight: 600; font-size: 14px; color: #fff;">{a.titulo}</span>

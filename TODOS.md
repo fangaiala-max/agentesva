@@ -28,6 +28,20 @@ curso) · `AGV-21` un producto de pago que encaje con el público.
 
 ### Completado
 `AGV-01` GA4 `G-87SBNWCTWZ` en producción, verificado con banner y gating de consentimiento (3 ago 2026).
+Fuente: [docs/qa-backlog-2026-08-03.md](docs/qa-backlog-2026-08-03.md) — 22 tareas (AGV-01…AGV-22)
+ordenadas de más fácil a más difícil. Informe completo en
+`.gstack/qa-reports/qa-report-agentesva-com-2026-08-03.md` (salud 69/100).
+
+### P0 — empezar por aquí
+**Priority:** P0
+`AGV-01` definir `PUBLIC_GA4_ID` en Vercel (sin analítica en producción) ·
+`AGV-03`/`AGV-04` tokenizar la búsqueda, dos cambios de una línea
+(`automatizar WhatsApp` y `crear vídeos`, los ejemplos del propio placeholder,
+devuelven 0 resultados) · `AGV-07` mapa de sinónimos por tarea ·
+`AGV-14` menú móvil: no existe hamburguesa y «Pack gratis» queda fuera de
+pantalla en todos los anchos de teléfono · `AGV-17` poblar `affiliateUrl`
+(0 de 54 herramientas; el código de `/ir/[slug].ts` ya lo soporta) ·
+`AGV-21` un producto de pago que encaje con el público.
 
 ## Newsletter
 Fuente: docs/superpowers/specs/2026-06-21-agentesva-newsletter-business-brief.md (revisión CEO 2026-06-21)
