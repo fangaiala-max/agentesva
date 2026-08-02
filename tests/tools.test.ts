@@ -25,7 +25,10 @@ describe('fallbackFaqs', () => {
     expect(faqs).toHaveLength(4);
     expect(faqs[0].q).toBe('¿Qué es Demo y para qué sirve?');
     expect(faqs[0].a).toBe('descripción larga');
-    expect(faqs[3].a).toBe('paso 1 paso 2');
+    // Los pasos se numeran y se cierran con punto. Antes se concatenaban con un
+    // espacio ('paso 1 paso 2'), y ese pegote sin puntuación acababa dentro del
+    // JSON-LD de FAQPage de las 54 fichas.
+    expect(faqs[3].a).toBe('1) paso 1. 2) paso 2.');
   });
 
   it('adapta la respuesta de precio a cada modelo', () => {

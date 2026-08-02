@@ -41,9 +41,38 @@ export function fallbackFaqs(tool: Tool): { q: string; a: string }[] {
   return [
     { q: `¿Qué es ${tool.name} y para qué sirve?`, a: tool.long },
     { q: `¿${tool.name} es gratis?`, a: precio },
-    { q: `¿Para qué tipo de negocio es ${tool.name}?`, a: `Ideal para ${tool.ideal}.` },
-    { q: `¿Cómo empiezo a usar ${tool.name}?`, a: tool.steps.join(' ') },
+    {
+      q: `¿Para qué tipo de negocio es ${tool.name}?`,
+      a: `${tool.name} encaja sobre todo en ${lowerFirst(tool.ideal)}.`,
+    },
+    { q: `¿Cómo empiezo a usar ${tool.name}?`, a: joinSteps(tool.steps) },
   ];
+}
+
+// Une los pasos como frases de verdad. `steps.join(' ')` los pegaba sin
+// puntuación —"Entra en claude.ai y regístrate Sube tu documento…"— y ese texto
+// no solo se ve en la ficha: viaja dentro del JSON-LD de FAQPage, así que
+// Google y los asistentes de IA ingerían español roto de las 54 fichas.
+export function joinSteps(steps: string[]): string {
+  return steps
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .map((s, i) => {
+      const numbered = `${i + 1}) ${s}`;
+      return /[.!?…]$/.test(numbered) ? numbered : `${numbered}.`;
+    })
+    .join(' ');
+}
+
+// "Servicios profesionales" → "servicios profesionales", para que no quede una
+// mayúscula suelta a media frase. Si la primera palabra lleva alguna mayúscula
+// más allá de la inicial es sigla o nombre propio ("IA", "PyMEs") y se respeta.
+export function lowerFirst(s: string): string {
+  const t = s.trim();
+  if (!t) return t;
+  const firstWord = t.split(/\s/)[0] ?? '';
+  if (/\p{Lu}/u.test(firstWord.slice(1))) return t;
+  return t[0]!.toLowerCase() + t.slice(1);
 }
 
 // Tokens del sistema (global.css) — un solo sitio para retocar la paleta.

@@ -1,5 +1,34 @@
 # TODOS
 
+## QA · agosto 2026
+Fuente: [docs/qa-backlog-2026-08-03.md](docs/qa-backlog-2026-08-03.md) — 23 tareas (AGV-01…AGV-23)
+ordenadas de más fácil a más difícil. Informe completo en
+`.gstack/qa-reports/qa-report-agentesva-com-2026-08-03.md` (salud 69/100).
+Prompts para el agente de navegador: [docs/qa-backlog-prompts-cowork.md](docs/qa-backlog-prompts-cowork.md).
+
+### Hecho en esta rama
+`AGV-02` FAQ con puntuación real (arregla las 54 fichas y su JSON-LD) ·
+`AGV-03`/`AGV-04` búsqueda por palabras en vez de subcadena literal ·
+`AGV-05` destino de `/ir/chatgpt` · `AGV-06` contadores con valor en el HTML ·
+`AGV-07` sinónimos de intención · `AGV-08` estado vacío con salidas ·
+`AGV-09` escala tipográfica · `AGV-10` flechas en los estantes ·
+`AGV-11` tests de regresión · `AGV-14` menú móvil · `AGV-15` objetivos táctiles.
+
+### Pendiente
+**Priority:** P0
+`AGV-17` poblar `affiliateUrl` (0 de 54; el redirector ya lo soporta — altas en
+curso) · `AGV-21` un producto de pago que encaje con el público.
+**Priority:** P1
+`AGV-12` medida de los estudios · `AGV-16` CTA de pack duplicados ·
+`AGV-19` precios reales en las fichas.
+**Priority:** P2
+`AGV-13` respuestas de plantilla del FAQ · `AGV-18` unificar las dos búsquedas ·
+`AGV-20` Pagefind sin tildes · `AGV-22` cadencia de noticias ·
+`AGV-23` voseo en el banner de consentimiento.
+
+### Completado
+`AGV-01` GA4 `G-87SBNWCTWZ` en producción, verificado con banner y gating de consentimiento (3 ago 2026).
+
 ## Newsletter
 Fuente: docs/superpowers/specs/2026-06-21-agentesva-newsletter-business-brief.md (revisión CEO 2026-06-21)
 
