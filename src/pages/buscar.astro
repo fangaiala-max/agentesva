@@ -2,6 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { trail as buildTrail } from '../data/breadcrumbs';
+
+const trail = buildTrail({ name: 'Buscar', url: '/buscar' });
 
 const FILTERS = [
   { v: '', label: 'Todo' },
@@ -21,9 +25,7 @@ const FILTERS = [
   <SiteHeader />
 
   <main id="buscar-root" style="max-width: 1000px; margin: 0 auto; padding: 40px 32px 64px;">
-    <nav aria-label="Migas" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-5);">
-      <a href="/" class="navlink" style="color: var(--fg-4); text-decoration: none;">Inicio</a> <span aria-hidden="true">/</span> Buscar
-    </nav>
+    <Breadcrumb trail={trail} />
 
     <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(32px, 5vw, 46px); letter-spacing: -0.03em; margin: 16px 0 0; color: #fff;">Buscar</h1>
     <p style="font-size: 16px; line-height: 1.6; color: var(--fg-3); margin: 10px 0 0;">Busca en todo AgentesVA: herramientas, cursos, estudios y noticias.</p>

@@ -2,9 +2,11 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection, render } from 'astro:content';
 import { toTool } from '../../data/tools';
 import { jsonLdSerialize, organization, person, SITE as site } from '../../data/schema';
+import { crumbPath, breadcrumbList, SECCIONES, trail as buildTrail } from '../../data/breadcrumbs';
 import EstudioResumen from '../../components/EstudioResumen.astro';
 import EstudioResumirIA from '../../components/EstudioResumirIA.astro';
 import EstudioNota from '../../components/EstudioNota.astro';
@@ -47,6 +49,8 @@ const relatedNoticias = noticias
 // desfase negativo la ficha anuncia un día distinto que el listado.
 const fechaFmt = d.fecha.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
 
+const trail = buildTrail(SECCIONES.estudios, { name: d.titulo, url: `/estudios/${entry.id}` });
+
 const graph: any[] = [
   {
     '@type': 'Article',
@@ -61,14 +65,7 @@ const graph: any[] = [
     url: canonical,
     image: `${site}/og.png`,
   },
-  {
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${site}/` },
-      { '@type': 'ListItem', position: 2, name: 'Estudios', item: `${site}/estudios/` },
-      { '@type': 'ListItem', position: 3, name: d.titulo, item: canonical },
-    ],
-  },
+  breadcrumbList(trail),
 ];
 if (d.faq?.length) {
   graph.push({
@@ -92,10 +89,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
     data-pagefind-meta="tipo:Estudio"
     style="max-width: 760px; margin: 0 auto; padding: 40px 32px 64px;"
   >
-    <nav aria-label="Migas" data-pagefind-ignore style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-5);">
-      <a href="/" class="navlink" style="color: var(--fg-4); text-decoration: none;">Inicio</a> <span aria-hidden="true">/</span>
-      <a href="/estudios" class="navlink" style="color: var(--fg-4); text-decoration: none;">Estudios</a> <span aria-hidden="true">/</span> {d.tema}
-    </nav>
+    <Breadcrumb trail={trail} />
 
     <p style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 24px 0 0;">{d.tema}</p>
     <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 5.5vw, 46px); line-height: 1.08; letter-spacing: -0.03em; color: #fff; margin: 10px 0 0;">{d.titulo}</h1>
@@ -132,7 +126,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
         <h2 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0;">Noticias relacionadas</h2>
         <div style="display: grid; gap: 10px; margin-top: 16px;">
           {relatedNoticias.map((n) => (
-            <a href={`/noticias/${n.id}`} class="lift" style="display: block; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; text-decoration: none;">
+            <a href={crumbPath(`/noticias/${n.id}`)} class="lift" style="display: block; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; text-decoration: none;">
               <span style="font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent);">{n.data.tema}</span>
               <span style="display: block; font-family: var(--sans); font-weight: 600; font-size: 15px; color: #fff; margin-top: 4px;">{n.data.titulo}</span>
             </a>

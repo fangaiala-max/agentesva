@@ -1,0 +1,32 @@
+---
+// Miga de pan visible. Sólo presentación: el mismo array `trail` alimenta el
+// nodo BreadcrumbList del JSON-LD de la página, así que no pueden separarse.
+// Ocupa la ranura de los antiguos enlaces «← Volver a X» y reutiliza su estilo.
+import { crumbPath, type Crumb } from '../data/breadcrumbs';
+
+interface Props { trail: Crumb[] }
+const { trail } = Astro.props;
+---
+
+<nav
+  aria-label="Ruta de navegación"
+  data-pagefind-ignore
+  style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;"
+>
+  <ol style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; list-style: none; margin: 0; padding: 0;">
+    {
+      trail.map((crumb, i) => (
+        <li style="display: flex; align-items: center; gap: 8px;">
+          {i > 0 && <span aria-hidden="true" style="color: var(--fg-5);">/</span>}
+          {i === trail.length - 1 ? (
+            <span aria-current="page" style="color: var(--fg-2);">{crumb.name}</span>
+          ) : (
+            <a class="navlink" href={crumbPath(crumb.url)} style="color: var(--fg-4); text-decoration: none;">
+              {crumb.name}
+            </a>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>

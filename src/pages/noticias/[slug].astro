@@ -2,10 +2,12 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection, render } from 'astro:content';
 import { toTool } from '../../data/tools';
 import { jsonLdSerialize, organization, person, SITE as site } from '../../data/schema';
 import ToolCallout from '../../components/ToolCallout.astro';
+import { crumbPath, breadcrumbList, SECCIONES, trail as buildTrail } from '../../data/breadcrumbs';
 
 export async function getStaticPaths() {
   const noticias = await getCollection('noticias');
@@ -25,6 +27,8 @@ const related = d.herramientas
 // desfase negativo la ficha anuncia un día distinto que el listado.
 const fechaFmt = d.fecha.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
 
+const trail = buildTrail(SECCIONES.noticias, { name: d.titulo, url: `/noticias/${entry.id}` });
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -42,14 +46,7 @@ const jsonLd = {
       image: `${site}/og.png`,
       isBasedOn: d.fuente.url,
     },
-    {
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${site}/` },
-        { '@type': 'ListItem', position: 2, name: 'Noticias', item: `${site}/noticias/` },
-        { '@type': 'ListItem', position: 3, name: d.titulo, item: `${site}/noticias/${entry.id}/` },
-      ],
-    },
+    breadcrumbList(trail),
   ],
 };
 ---
@@ -64,10 +61,7 @@ const jsonLd = {
     data-pagefind-meta="tipo:Noticia"
     style="max-width: 760px; margin: 0 auto; padding: 40px 32px 64px;"
   >
-    <nav aria-label="Migas" data-pagefind-ignore style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-5);">
-      <a href="/" class="navlink" style="color: var(--fg-4); text-decoration: none;">Inicio</a> <span aria-hidden="true">/</span>
-      <a href="/noticias" class="navlink" style="color: var(--fg-4); text-decoration: none;">Noticias</a> <span aria-hidden="true">/</span> {d.tema}
-    </nav>
+    <Breadcrumb trail={trail} />
 
     <p style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 24px 0 0;">{d.tema}</p>
     <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(28px, 5vw, 42px); line-height: 1.1; letter-spacing: -0.03em; color: #fff; margin: 10px 0 0;">{d.titulo}</h1>

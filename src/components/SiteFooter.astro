@@ -1,6 +1,7 @@
 ---
 // Pie del directorio "Futurista" + captación de newsletter (inline).
 import SubscribeForm from './SubscribeForm.astro';
+import { crumbPath, SECCIONES_NAV, PIE_SECUNDARIO } from '../data/breadcrumbs';
 ---
 
 <footer style="border-top: 1px solid var(--line); background: var(--bg-2);">
@@ -17,17 +18,25 @@ import SubscribeForm from './SubscribeForm.astro';
     </div>
   </div>
 
-  <!-- Enlaces -->
+  <!-- Secciones: mismas cinco, mismo orden y mismo texto de ancla que el header -->
   <div style="border-bottom: 1px solid var(--line);">
-    <nav aria-label="Pie" style="max-width: 1200px; margin: 0 auto; padding: 22px 32px; display: flex; gap: 22px; flex-wrap: wrap; font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;">
-      <a class="navlink" href="/herramientas" style="color: var(--fg-4); text-decoration: none;">Herramientas</a>
-      <a class="navlink" href="/estudios" style="color: var(--fg-4); text-decoration: none;">Estudios</a>
-      <a class="navlink" href="/noticias" style="color: var(--fg-4); text-decoration: none;">Noticias</a>
-      <a class="navlink" href="/newsletter" style="color: var(--fg-4); text-decoration: none;">Newsletter</a>
-      <a class="navlink" href="/metodologia" style="color: var(--fg-4); text-decoration: none;">Metodología</a>
-      <a class="navlink" href="/privacidad" style="color: var(--fg-4); text-decoration: none;">Privacidad</a>
-      <a class="navlink" href="/aviso-legal" style="color: var(--fg-4); text-decoration: none;">Aviso legal</a>
-      <a class="navlink" href="/cookies" style="color: var(--fg-4); text-decoration: none;">Cookies</a>
+    <nav aria-label="Secciones" style="max-width: 1200px; margin: 0 auto; padding: 22px 32px; display: flex; gap: 22px; flex-wrap: wrap; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">
+      {
+        SECCIONES_NAV.map((s) => (
+          <a class="navlink" href={crumbPath(s.url)} style="color: var(--fg-4); text-decoration: none;">{s.name}</a>
+        ))
+      }
+    </nav>
+  </div>
+
+  <!-- Secundarios: útiles para la persona, irrelevantes como sitelink -->
+  <div style="border-bottom: 1px solid var(--line);">
+    <nav aria-label="Enlaces secundarios" style="max-width: 1200px; margin: 0 auto; padding: 16px 32px; display: flex; gap: 20px; flex-wrap: wrap; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase;">
+      {
+        PIE_SECUNDARIO.map((s) => (
+          <a class="navlink" href={crumbPath(s.url)} style="color: var(--fg-5); text-decoration: none;">{s.name}</a>
+        ))
+      }
     </nav>
   </div>
 

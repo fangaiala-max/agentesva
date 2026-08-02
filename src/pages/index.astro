@@ -5,6 +5,7 @@ import SiteFooter from '../components/SiteFooter.astro';
 import ToolCard from '../components/ToolCard.astro';
 import { getCollection } from 'astro:content';
 import { toTool, PRICE_COLOR, priceRank, toolsClaim } from '../data/tools';
+import { crumbPath } from '../data/breadcrumbs';
 
 const tools = (await getCollection('tools')).map(toTool).sort((a, b) => a.orden - b.orden);
 const claim = toolsClaim(tools.length);
@@ -95,7 +96,7 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
       </div>
 
       <!-- Destacada: Elección del editor -->
-      <a href={`/herramienta/${featured.slug}`} class="lift blur-in" style="display: block; position: relative; background: linear-gradient(160deg, #12315E 0%, var(--panel-3) 60%); border: 1px solid var(--line-2); border-radius: 12px; padding: 24px; text-decoration: none; animation-delay: .32s;">
+      <a href={crumbPath(`/herramienta/${featured.slug}`)} class="lift blur-in" style="display: block; position: relative; background: linear-gradient(160deg, #12315E 0%, var(--panel-3) 60%); border: 1px solid var(--line-2); border-radius: 12px; padding: 24px; text-decoration: none; animation-delay: .32s;">
         <span style="display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(245,196,81,0.4); border-radius: 20px; padding: 5px 11px;">★ Elección del editor</span>
         <div style="display: flex; align-items: center; gap: 14px; margin-top: 18px;">
           <div style={`width: 54px; height: 54px; border-radius: 12px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 24px; color: #fff; background: ${featured.color};`}>{featured.name.charAt(0)}</div>
@@ -132,7 +133,7 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
     </div>
     <div class="cat-grid">
       {CAT_BANNERS.map((b) => (
-        <a href={`/herramientas/${catIdByName.get(b.nombre)}`} class="banner" style={`position: relative; overflow: hidden; background: ${b.bg}; border: 1px solid #22406E; border-radius: 12px; padding: 22px; text-decoration: none; min-height: 116px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px;`}>
+        <a href={crumbPath(`/herramientas/${catIdByName.get(b.nombre)}`)} class="banner" style={`position: relative; overflow: hidden; background: ${b.bg}; border: 1px solid #22406E; border-radius: 12px; padding: 22px; text-decoration: none; min-height: 116px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px;`}>
           <div aria-hidden="true" style={`position: absolute; top: -30px; right: -20px; width: 130px; height: 130px; border-radius: 50%; background: radial-gradient(circle, ${b.glow}, transparent 70%); pointer-events: none;`}></div>
           <div style="position: relative; display: flex; align-items: center; justify-content: space-between;">
             <span aria-hidden="true" style={`width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: ${b.iconBg}; color: #fff; font-size: 17px;`}>{b.icon}</span>

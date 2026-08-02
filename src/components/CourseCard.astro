@@ -1,6 +1,7 @@
 ---
 import type { Curso } from '../data/cursos';
 import { PRECIO_COLOR, nivelLabel } from '../data/cursos';
+import { crumbPath } from '../data/breadcrumbs';
 
 interface Props { curso: Curso }
 const { curso } = Astro.props;
@@ -19,7 +20,7 @@ const search = `${curso.titulo} ${curso.desc} ${curso.proveedor} ${curso.categor
   style="position: relative; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 14px;"
 >
   <a
-    href={`/curso/${curso.slug}`}
+    href={crumbPath(`/curso/${curso.slug}`)}
     aria-label={`Ver ${curso.titulo}`}
     style="position: absolute; inset: 0; z-index: 1; border-radius: 8px;"
   ></a>

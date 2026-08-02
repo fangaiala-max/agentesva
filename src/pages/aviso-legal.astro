@@ -2,15 +2,24 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
 import { jsonLdSerialize, SITE as site, WEBSITE_ID } from '../data/schema';
+import { breadcrumbList, trail as buildTrail } from '../data/breadcrumbs';
+
+const trail = buildTrail({ name: 'Aviso legal', url: '/aviso-legal' });
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: 'Aviso legal',
-  url: `${site}/aviso-legal/`,
-  inLanguage: 'es',
-  isPartOf: { '@id': WEBSITE_ID },
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      name: 'Aviso legal',
+      url: `${site}/aviso-legal/`,
+      inLanguage: 'es',
+      isPartOf: { '@id': WEBSITE_ID },
+    },
+    breadcrumbList(trail),
+  ],
 };
 ---
 
@@ -22,9 +31,7 @@ const jsonLd = {
   <SiteHeader />
 
   <main style="max-width: 760px; margin: 0 auto; padding: 40px 32px 72px; font-family: var(--sans);">
-    <nav aria-label="Migas" style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-5);">
-      <a href="/" style="color: var(--fg-5); text-decoration: none;">Inicio</a> / Aviso legal
-    </nav>
+    <Breadcrumb trail={trail} />
 
     <h1 style="font-family: var(--serif); font-weight: 400; font-size: 36px; letter-spacing: -0.02em; color: #fff; margin: 16px 0 6px;">Aviso legal</h1>
     <p style="font-family: var(--mono); font-size: 12px; color: var(--fg-5); border-bottom: 1px solid var(--line); padding-bottom: 18px; margin-bottom: 28px;">Última actualización: junio de 2026</p>
@@ -95,7 +102,6 @@ const jsonLd = {
         conviene revisarlo con una asesoría legal (RGPD/LOPDGDD).
       </p>
 
-      <p style="margin-top: 28px;"><a href="/" style="font-family: var(--mono); font-size: 13px; color: var(--accent);">← Volver al inicio</a></p>
     </div>
   </main>
 
