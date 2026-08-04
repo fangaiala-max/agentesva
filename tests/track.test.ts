@@ -1,5 +1,11 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { track, initTracking, fireViewEvents } from '../src/scripts/track';
+import {
+  track,
+  trackGrowthEvent,
+  isGrowthEvent,
+  initTracking,
+  fireViewEvents,
+} from '../src/scripts/track';
 
 // Simula "GA4 cargado" = consentimiento analítico concedido (mismo marcador que consent.ts).
 function loadGA4() {
@@ -42,6 +48,68 @@ describe('track', () => {
   });
 });
 
+describe('trackGrowthEvent', () => {
+  it('reconoce únicamente los eventos comerciales del contrato', () => {
+    expect(isGrowthEvent('service_cta_click')).toBe(true);
+    expect(isGrowthEvent('newsletter_submit')).toBe(false);
+  });
+
+  it('respeta el consentimiento aunque el payload sea válido', () => {
+    const sent = trackGrowthEvent('service_cta_click', {
+      page_type: 'tool_detail',
+      placement: 'tool_detail_midpage',
+    });
+    expect(sent).toBe(false);
+    expect(eventNames()).not.toContain('service_cta_click');
+  });
+
+  it('emite solo propiedades permitidas y descarta PII', () => {
+    loadGA4();
+    const sent = trackGrowthEvent('service_cta_click', {
+      page_type: 'tool_detail',
+      content_slug: 'claude',
+      cluster: 'operations',
+      service: 'process_automation',
+      placement: 'tool_detail_midpage',
+      email: 'persona@example.com',
+    });
+    expect(sent).toBe(true);
+    const last = events().at(-1) as unknown[];
+    expect(last[1]).toBe('service_cta_click');
+    expect(last[2]).toEqual({
+      page_type: 'tool_detail',
+      content_slug: 'claude',
+      cluster: 'operations',
+      service: 'process_automation',
+      placement: 'tool_detail_midpage',
+    });
+  });
+
+  it('rechaza eventos incompletos o valores fuera del vocabulario', () => {
+    loadGA4();
+    expect(trackGrowthEvent('service_cta_click', { page_type: 'home' })).toBe(false);
+    expect(
+      trackGrowthEvent('diagnostic_completed', {
+        result_type: 'qualified_call',
+        qualification_band: 'vip',
+      }),
+    ).toBe(false);
+    expect(eventNames()).toHaveLength(0);
+  });
+
+  it('normaliza el número de paso procedente de data attributes', () => {
+    loadGA4();
+    const sent = trackGrowthEvent('diagnostic_step_completed', {
+      step: '3',
+      step_id: 'business_goal',
+      cluster: 'sales',
+    });
+    expect(sent).toBe(true);
+    const last = events().at(-1) as unknown[];
+    expect(last[2]).toEqual({ step: 3, step_id: 'business_goal', cluster: 'sales' });
+  });
+});
+
 describe('initTracking (click delegado)', () => {
   it('dispara affiliate_click leyendo los data-track-* del CTA', () => {
     loadGA4();
@@ -71,6 +139,25 @@ describe('initTracking (click delegado)', () => {
     initTracking();
     (document.querySelector('a') as HTMLElement).dispatchEvent(new MouseEvent('click', { bubbles: true }));
     expect(eventNames().filter((n) => n === 'affiliate_click')).toHaveLength(1);
+  });
+
+  it('instrumenta un CTA comercial declarativo con el contrato seguro', () => {
+    loadGA4();
+    document.body.innerHTML = `
+      <a href="/diagnostico-automatizacion-ia/"
+         data-track-event="service_cta_click"
+         data-track-page-type="tool_detail"
+         data-track-content-slug="claude"
+         data-track-cluster="operations"
+         data-track-service="process_automation"
+         data-track-placement="tool_detail_midpage"
+         data-track-email="no-debe-salir@example.com">Analizamos tu caso</a>`;
+    initTracking();
+    (document.querySelector('a') as HTMLElement).dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    const last = events().at(-1) as unknown[];
+    expect(last[1]).toBe('service_cta_click');
+    expect(last[2]).not.toHaveProperty('email');
+    expect(last[2]).toHaveProperty('placement', 'tool_detail_midpage');
   });
 });
 

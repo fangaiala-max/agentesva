@@ -1,5 +1,11 @@
 # TODOS
 
+## Crecimiento y captación de servicios
+
+Fuente de verdad priorizada: [GROWTH-BACKLOG.md](GROWTH-BACKLOG.md). La dirección
+actual es captar proyectos de automatización con IA; la afiliación queda
+pospuesta hasta validar tráfico e intención comercial.
+
 ## QA · agosto 2026
 Fuente: [docs/qa-backlog-2026-08-03.md](docs/qa-backlog-2026-08-03.md) — 23 tareas (AGV-01…AGV-23)
 ordenadas de más fácil a más difícil. Informe completo en
