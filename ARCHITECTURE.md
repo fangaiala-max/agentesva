@@ -11,7 +11,8 @@ Browser
   ▼
 Vercel
   ├── Static prerender (Astro `output: 'static'` + @astrojs/vercel adapter)
-  │     └── 73 pages: home, blog, catalogo, servicios, sobre, legal, etc.
+  │     └── 130+ pages: directorio, cursos, recursos, estudios, noticias,
+  │         colecciones de prompts y generador local.
   │
   └── Serverless Functions (Node 24 LTS, Fluid Compute)
         ├── /api/subscribe   → Brevo Contacts API (newsletter / voice waitlist)
@@ -30,7 +31,7 @@ Third-party (browser-side)
 
 | Layer | Tech | Version |
 |---|---|---|
-| Framework | Astro | 5.14 |
+| Framework | Astro | 7.1 |
 | Adapter | @astrojs/vercel | static prerender |
 | Styling | Tailwind 4 (integración PostCSS) + custom CSS tokens | — |
 | Functions runtime | Node.js | 24 LTS (Vercel default) |
@@ -40,10 +41,11 @@ Third-party (browser-side)
 
 ## Content model
 
-- **Blog posts**: Markdown in `astro/src/content/blog/` with Zod schema (`title ≤70`, `description 120–160`, `pillar` enum, optional `faqs` array)
-- **Casos**: `astro/src/content/casos/` — métricas reales bajo NDA
-- **Industrias**: `astro/src/content/industrias/`
-- **Agentes/Prompts catalog**: `astro/src/data/agents.ts` (TypeScript module, not Content Collection)
+- **Herramientas, cursos y recursos**: JSON en `src/content/`, validado por los esquemas Zod de `src/content.config.ts`.
+- **Estudios y noticias**: Markdown en `src/content/`, con páginas de listado y detalle prerenderizadas.
+- **Biblioteca de prompts**: 100 plantillas en `src/data/biblioteca/prompts.ts`.
+- **Colecciones SEO de prompts**: configuración en `src/data/prompt-landings.ts`; genera `/prompts/` y seis rutas temáticas.
+- **Generador de prompts**: `/generador-de-prompts/`; estructura el texto en el navegador mediante `src/scripts/prompt-generator.ts`, sin enviar los campos a un servidor.
 
 ## Funnel paths (source of truth)
 
@@ -97,7 +99,7 @@ Make.com webhook URL is **client-side fetched** (inline in `/diagnostico/`), so 
 
 1. PR opened → Vercel preview deploy (auth-walled)
 2. PR merge to `main` → Vercel production deploy (auto-rolling)
-3. Build: `cd astro && npm run build` → `astro/dist/` → root mirror copied (legacy convention)
+3. Build: `npm run build` → Astro/Vercel en `.vercel/output/` → Pagefind indexa las páginas públicas
 4. Schemas validated at build (Zod blocks invalid frontmatter)
 
 ## Performance budget (target / actual mobile)

@@ -1,70 +1,58 @@
-# AgentesVA — Astro
+# AgentesVA
 
-Astro 5.x scaffold conviviendo con el sitio HTML estático de la raíz del repo. Producción sigue sirviéndose desde `/index.html` en Vercel; este subdirectorio se migrará página a página.
+Directorio y medio de inteligencia artificial en español para PyMEs y autónomos de España y Latinoamérica. El sitio reúne herramientas, cursos, recursos, estudios, noticias y plantillas prácticas de IA.
 
 ## Comandos
 
 ```bash
-cd astro
 npm install
 npm run dev      # http://localhost:4321
-npm run build    # genera ./dist
+npm run test     # Vitest + happy-dom
+npm run build    # Astro + salida de Vercel + índice Pagefind
 npm run preview
 ```
 
 ## Stack
 
-- Astro 5 (`output: 'static'`, adapter Vercel)
-- Tailwind 4 (integración PostCSS vía `@tailwindcss/postcss`)
-- `@astrojs/sitemap`, `@astrojs/rss`, `@astrojs/vercel`, `astro-icon`
-- Content Collections: `blog`, `casos`, `industrias`
+- Astro 7 con salida estática y adaptador de Vercel.
+- Tailwind 4 mediante PostCSS y estilos propios en `src/styles/global.css`.
+- Content Collections para herramientas, cursos, recursos, estudios y noticias.
+- Vitest + happy-dom para pruebas unitarias y de scripts de cliente.
+- Pagefind para la búsqueda global del contenido prerenderizado.
 
-## Añadir un post de blog
+## Superficie pública
 
-Crea `src/content/blog/<slug>.md`:
+- `/herramientas/` — directorio y categorías de herramientas de IA.
+- `/cursos/` — cursos seleccionados y organizados por categoría.
+- `/recursos/` — biblioteca, packs y otros recursos prácticos.
+- `/estudios/` y `/noticias/` — contenido editorial en español.
+- `/prompts/` — seis colecciones de prompts para ChatGPT, marketing, ventas, redes sociales, atención al cliente y PyMEs.
+- `/generador-de-prompts/` — generador local que estructura el prompt sin enviar los campos a un servidor.
 
-```md
----
-title: "Cómo automatizar reservas con WhatsApp + Make"
-description: "Tutorial paso a paso..."
-publishedAt: 2026-05-01
-tags: ["make", "whatsapp", "restaurantes"]
-pillar: "make-tutorial"
-draft: false
----
+## Contenido y datos
 
-Contenido del post en Markdown / MDX...
+- `src/content/tools/` — fichas de herramientas.
+- `src/content/cursos/` y `src/content/recursos/` — catálogo educativo y recursos.
+- `src/content/estudios/` y `src/content/noticias/` — publicaciones Markdown.
+- `src/data/biblioteca/` — prompts y blueprints de la Biblioteca de IA.
+- `src/data/prompt-landings.ts` — metadatos y selección de plantillas de las colecciones SEO.
+
+Los esquemas de `src/content.config.ts` validan el contenido durante `npm run build`.
+
+## Entrega
+
+Las pull requests generan una preview en Vercel. Al fusionar en `main`, Vercel construye y publica producción. Antes de abrir una PR deben pasar:
+
+```bash
+npm run test
+npm run build
 ```
 
-(En Week 2 se añadirá `src/pages/blog/[slug].astro` para renderizar.)
+## Documentación
 
-## Plan de migración Week 2
-
-Páginas pendientes de migrar desde la raíz HTML:
-
-- [ ] `/servicios/`
-- [ ] `/catalogo/`
-- [ ] `/como-funciona/`
-- [ ] `/precios/`
-- [ ] `/diagnostico/`
-- [ ] `/sobre/`
-- [ ] `/faq/`
-- [ ] `/blueprints/`
-- [ ] `/guias/`
-- [ ] `/gracias/`, `/gracias-gratis/`
-- [ ] `/legal/*` (3 páginas)
-- [ ] `/templates/*`
-- [ ] `/api/*` → `src/pages/api/*.ts` (Vercel functions)
-- [ ] `/blog/[slug].astro` + index
-- [ ] `/industrias/[slug].astro` (genera 12 páginas)
-- [ ] `/casos/[slug].astro` (genera 3 páginas)
-- [ ] `MobileNav` real (bottom nav móvil)
-- [ ] Sitemap canónico (vía `@astrojs/sitemap`)
-- [ ] RSS feed para blog (`src/pages/rss.xml.ts`)
-- [ ] Verificar paridad visual con QA + Playwright
-
-## Tracking
-
-- GA4: `G-87SBNWCTWZ`
-- Mixpanel: `8fa5118db89d01d0316661d3b0adcc39` (host EU)
-- Calendly click tracking en `BaseLayout.astro`
+- [`ARCHITECTURE.md`](./ARCHITECTURE.md) — topología, contenido, variables y despliegue.
+- [`DESIGN.md`](./DESIGN.md) — sistema visual y patrones de interacción.
+- [`OPERATIONS.md`](./OPERATIONS.md) — operación, alertas y respuesta a incidentes.
+- [`TESTING.md`](./TESTING.md) — estrategia y convenciones de pruebas.
+- [`CHANGELOG.md`](./CHANGELOG.md) — historial de versiones.
+- [`TODOS.md`](./TODOS.md) — trabajo pendiente priorizado.
