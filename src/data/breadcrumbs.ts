@@ -76,6 +76,7 @@ export const fichaTrail = (opts: {
 export const SECCIONES = {
   herramientas: { name: 'Herramientas', url: '/herramientas' },
   cursos: { name: 'Cursos', url: '/cursos' },
+  prompts: { name: 'Prompts', url: '/prompts' },
   recursos: { name: 'Recursos', url: '/recursos' },
   estudios: { name: 'Estudios', url: '/estudios' },
   noticias: { name: 'Noticias', url: '/noticias' },
@@ -88,14 +89,16 @@ export const SECCIONES = {
 export const SECCIONES_NAV: readonly Crumb[] = [
   SECCIONES.herramientas,
   SECCIONES.cursos,
+  SECCIONES.prompts,
   SECCIONES.recursos,
   SECCIONES.estudios,
   SECCIONES.noticias,
 ];
 
 // Enlaces secundarios del pie: útiles para la persona, irrelevantes como sitelink.
-// Van en una fila aparte para no diluir las cinco secciones de arriba.
+// Van en una fila aparte para no diluir las secciones principales de arriba.
 export const PIE_SECUNDARIO: readonly Crumb[] = [
+  { name: 'Generador de prompts', url: '/generador-de-prompts' },
   { name: 'Newsletter', url: '/newsletter' },
   { name: 'Metodología', url: '/metodologia' },
   { name: 'Privacidad', url: '/privacidad' },
