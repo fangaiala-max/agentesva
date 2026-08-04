@@ -1,5 +1,11 @@
 # TODOS
 
+## Crecimiento y captación de servicios
+
+Fuente de verdad priorizada: [GROWTH-BACKLOG.md](GROWTH-BACKLOG.md). La dirección
+actual es captar proyectos de automatización con IA; la afiliación queda
+pospuesta hasta validar tráfico e intención comercial.
+
 ## QA
 
 Fuente principal: [backlog QA de agosto de 2026](docs/qa-backlog-2026-08-03.md), con prompts operativos en [docs/qa-backlog-prompts-cowork.md](docs/qa-backlog-prompts-cowork.md). El informe original registró una salud de 69/100.
