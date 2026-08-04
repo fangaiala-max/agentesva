@@ -122,6 +122,23 @@ describe('initPromptGenerator', () => {
     vi.useRealTimers();
   });
 
+  it('restaura la etiqueta original después de clics rápidos repetidos', async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, 'clipboard', { value: { writeText }, configurable: true });
+    vi.useFakeTimers();
+    initPromptGenerator();
+    const copy = document.getElementById('prompt-generator-copy') as HTMLButtonElement;
+
+    copy.click();
+    await Promise.resolve();
+    copy.click();
+    await Promise.resolve();
+    vi.advanceTimersByTime(1500);
+
+    expect(copy.textContent).toBe('Copiar prompt');
+    vi.useRealTimers();
+  });
+
   it.each([
     ['no está disponible', undefined],
     ['rechaza el permiso', { writeText: vi.fn().mockRejectedValue(new Error('denied')) }],

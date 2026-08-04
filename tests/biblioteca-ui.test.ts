@@ -94,4 +94,27 @@ describe('initBibliotecaCopy', () => {
     expect(btn.querySelector('.bib-copy-label')!.textContent).toBe('Copiar prompt');
     vi.useRealTimers();
   });
+
+  it('restaura la etiqueta original después de clics rápidos repetidos', async () => {
+    document.body.innerHTML = `
+      <button class="bib-copy" data-copy="Rol: hola">
+        <span class="bib-copy-label">Copiar prompt</span>
+      </button>`;
+    Object.defineProperty(navigator, 'clipboard', {
+      value: { writeText: vi.fn().mockResolvedValue(undefined) },
+      configurable: true,
+    });
+    vi.useFakeTimers();
+    initBibliotecaCopy();
+    const btn = document.querySelector('.bib-copy') as HTMLElement;
+
+    btn.click();
+    await Promise.resolve();
+    btn.click();
+    await Promise.resolve();
+    vi.advanceTimersByTime(1500);
+
+    expect(btn.querySelector('.bib-copy-label')!.textContent).toBe('Copiar prompt');
+    vi.useRealTimers();
+  });
 });

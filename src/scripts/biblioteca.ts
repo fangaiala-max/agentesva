@@ -71,9 +71,9 @@ export function initBibliotecaCopy() {
   btns.forEach((btn) => {
     // El label vive en un <span> dedicado: tocar solo su texto conserva el icono SVG del botón.
     const label = btn.querySelector<HTMLElement>('.bib-copy-label') || btn;
+    const restore = label.textContent;
     btn.addEventListener('click', () => {
       const text = btn.dataset.copy || '';
-      const restore = label.textContent;
       Promise.resolve(navigator.clipboard?.writeText(text))
         .then(() => {
           label.textContent = '¡Copiado!';

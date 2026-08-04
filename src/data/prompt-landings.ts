@@ -107,7 +107,3 @@ export const PROMPT_LANDINGS: PromptLanding[] = [
     ],
   },
 ];
-
-export function promptLanding(slug: string): PromptLanding | undefined {
-  return PROMPT_LANDINGS.find((landing) => landing.slug === slug);
-}

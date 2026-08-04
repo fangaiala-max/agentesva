@@ -50,14 +50,14 @@ export function initPromptGenerator(): void {
   });
 
   form.addEventListener('input', generate);
+  const copyLabel = copy.textContent;
   copy.addEventListener('click', async () => {
     if (!output.value) return;
     try {
       if (!navigator.clipboard?.writeText) throw new Error('Clipboard API unavailable');
       await navigator.clipboard.writeText(output.value);
-      const original = copy.textContent;
       copy.textContent = '¡Copiado!';
-      window.setTimeout(() => { copy.textContent = original; }, 1500);
+      window.setTimeout(() => { copy.textContent = copyLabel; }, 1500);
     } catch {
       if (status) status.textContent = 'No se pudo copiar. Selecciona el texto y cópialo manualmente.';
     }

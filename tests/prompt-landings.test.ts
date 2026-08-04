@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { PROMPTS } from '../src/data/biblioteca/prompts';
-import { PROMPT_LANDINGS, promptLanding } from '../src/data/prompt-landings';
+import { PROMPT_LANDINGS } from '../src/data/prompt-landings';
 
 describe('landings SEO de prompts', () => {
   it('tienen slugs únicos y cubren los clústeres prioritarios', () => {
@@ -32,7 +32,5 @@ describe('landings SEO de prompts', () => {
       expect(landing.description.length).toBeLessThanOrEqual(165);
       expect(landing.faqs.length).toBeGreaterThanOrEqual(3);
     }
-    expect(promptLanding('chatgpt')?.title).toContain('ChatGPT');
-    expect(promptLanding('no-existe')).toBeUndefined();
   });
 });
