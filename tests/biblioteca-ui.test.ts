@@ -117,4 +117,31 @@ describe('initBibliotecaCopy', () => {
     expect(btn.querySelector('.bib-copy-label')!.textContent).toBe('Copiar prompt');
     vi.useRealTimers();
   });
+
+  it.each([
+    ['no está disponible', undefined],
+    ['rechaza el permiso', { writeText: vi.fn().mockRejectedValue(new Error('denied')) }],
+  ])('ofrece copia manual cuando el portapapeles %s', async (_case, clipboard) => {
+    Object.defineProperty(navigator, 'clipboard', { value: clipboard, configurable: true });
+    initBibliotecaCopy();
+    const btn = document.querySelector('.bib-copy') as HTMLElement;
+
+    btn.click();
+    await Promise.resolve();
+    await Promise.resolve();
+
+    expect(btn.textContent).toBe('Selecciona y copia manualmente');
+  });
+
+  it('solo registra una escritura aunque se inicialice dos veces', async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, 'clipboard', { value: { writeText }, configurable: true });
+    initBibliotecaCopy();
+    initBibliotecaCopy();
+
+    (document.querySelector('.bib-copy') as HTMLElement).click();
+    await Promise.resolve();
+
+    expect(writeText).toHaveBeenCalledTimes(1);
+  });
 });
