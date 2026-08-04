@@ -10,7 +10,13 @@ export default defineConfig({
     sitemap({
       // /ir/* es la salida afiliado; /buscar es noindex (búsqueda cliente);
       // /descarga y /entrega son la entrega post-pago (noindex, SSR) — fuera del sitemap
-      filter: (page) => !page.includes('/ir/') && !page.includes('/buscar') && !page.includes('/descarga') && !page.includes('/entrega'),
+      filter: (page) =>
+        !page.includes('/ir/') &&
+        !page.includes('/buscar') &&
+        !page.includes('/descarga') &&
+        !page.includes('/entrega') &&
+        // Diagnóstico en preview hasta conectar el envío seguro (GROW-004).
+        !page.includes('/diagnostico-automatizacion-ia'),
       i18n: {
         defaultLocale: 'es',
         locales: { es: 'es' },

@@ -1,0 +1,241 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { trail as buildTrail } from '../data/breadcrumbs';
+
+const trail = buildTrail({ name: 'Diagnóstico de automatización', url: '/diagnostico-automatizacion-ia' });
+---
+
+<BaseLayout
+  title="Diagnóstico de automatización con IA | AgentesVA"
+  description="Detecta qué proceso de tu negocio conviene automatizar primero y recibe un siguiente paso adaptado a tu situación."
+  noindex={true}
+>
+  <SiteHeader />
+
+  <main class="diagnostic-shell" data-diagnostic-root>
+    <Breadcrumb trail={trail} />
+
+    <header class="diagnostic-intro">
+      <span class="eyebrow">Diagnóstico gratuito · 3 minutos</span>
+      <h1>Encuentra qué proceso merece la pena automatizar primero</h1>
+      <p>Responde ocho preguntas sobre tu negocio. Te mostraremos una prioridad y el siguiente paso más sensato, sin prometer ahorros inventados.</p>
+      <div class="privacy-note">Tus respuestas se procesan primero en este navegador. Solo se envían cuando decides solicitar el siguiente paso y aceptas la política de privacidad.</div>
+    </header>
+
+    <section class="diagnostic-card" aria-labelledby="diagnostic-title">
+      <div class="progress-wrap">
+        <div class="progress-copy">
+          <span id="diagnostic-title">Diagnóstico</span>
+          <span><strong data-step-current>1</strong> de <span data-step-total>8</span></span>
+        </div>
+        <div class="progress-track" role="progressbar" aria-valuemin="1" aria-valuemax="8" aria-valuenow="1" data-progress>
+          <span data-progress-bar></span>
+        </div>
+      </div>
+
+      <p class="form-error" role="alert" hidden data-diagnostic-error></p>
+
+      <form data-diagnostic-form novalidate>
+        <fieldset data-step data-step-id="business_type">
+          <legend>¿Qué tipo de negocio tienes?</legend>
+          <p class="step-help">Una descripción breve nos ayuda a interpretar el proceso.</p>
+          <label class="text-label" for="business-type">Tipo de negocio</label>
+          <input id="business-type" name="businessType" type="text" minlength="3" maxlength="80" required placeholder="Ej.: agencia, clínica, tienda online…" />
+        </fieldset>
+
+        <fieldset data-step data-step-id="team_size" hidden>
+          <legend>¿Cuántas personas trabajan en el negocio?</legend>
+          <div class="options">
+            <label><input type="radio" name="teamSize" value="solo" required /> Solo yo</label>
+            <label><input type="radio" name="teamSize" value="2_5" /> 2–5 personas</label>
+            <label><input type="radio" name="teamSize" value="6_20" /> 6–20 personas</label>
+            <label><input type="radio" name="teamSize" value="21_plus" /> Más de 20</label>
+          </div>
+        </fieldset>
+
+        <fieldset data-step data-step-id="business_goal" hidden>
+          <legend>¿Cuál es tu objetivo principal?</legend>
+          <div class="options">
+            <label><input type="radio" name="goal" value="customer_service" required /> Responder mejor a clientes</label>
+            <label><input type="radio" name="goal" value="sales" /> Captar y seguir oportunidades de venta</label>
+            <label><input type="radio" name="goal" value="operations" /> Reducir tareas administrativas</label>
+            <label><input type="radio" name="goal" value="marketing" /> Crear y distribuir contenido</label>
+            <label><input type="radio" name="goal" value="exploring" /> Todavía estoy explorando</label>
+          </div>
+        </fieldset>
+
+        <fieldset data-step data-step-id="process" hidden>
+          <legend>¿Qué tarea repetitiva quieres mejorar?</legend>
+          <p class="step-help">Describe qué ocurre, quién lo hace y dónde empieza o termina.</p>
+          <label class="text-label" for="process">Proceso actual</label>
+          <textarea id="process" name="process" minlength="12" maxlength="500" required placeholder="Ej.: cada nuevo contacto se copia a mano del formulario a una hoja y después enviamos el seguimiento…"></textarea>
+          <div class="options options--compact">
+            <label><input type="radio" name="currentTools" value="some" required /> Ya usamos alguna herramienta para este proceso</label>
+            <label><input type="radio" name="currentTools" value="none" /> Lo hacemos sin herramientas específicas</label>
+          </div>
+        </fieldset>
+
+        <fieldset data-step data-step-id="frequency" hidden>
+          <legend>¿Con qué frecuencia ocurre?</legend>
+          <div class="options">
+            <label><input type="radio" name="frequency" value="sporadic" required /> Algunas veces al año</label>
+            <label><input type="radio" name="frequency" value="monthly" /> Varias veces al mes</label>
+            <label><input type="radio" name="frequency" value="weekly" /> Todas las semanas</label>
+            <label><input type="radio" name="frequency" value="daily" /> Todos los días</label>
+            <label><input type="radio" name="frequency" value="high_volume" /> Muchas veces al día</label>
+          </div>
+        </fieldset>
+
+        <fieldset data-step data-step-id="budget" hidden>
+          <legend>¿Qué rango de inversión contemplas?</legend>
+          <p class="step-help">No es un presupuesto vinculante. Solo evita recomendarte un siguiente paso que no encaja.</p>
+          <div class="options">
+            <label><input type="radio" name="budget" value="exploring" required /> Todavía no lo sé</label>
+            <label><input type="radio" name="budget" value="under_300" /> Menos de 300 €</label>
+            <label><input type="radio" name="budget" value="300_1500" /> 300–1.500 €</label>
+            <label><input type="radio" name="budget" value="1500_3000" /> 1.500–3.000 €</label>
+            <label><input type="radio" name="budget" value="3000_5000" /> 3.000–5.000 €</label>
+            <label><input type="radio" name="budget" value="more_5000" /> Más de 5.000 €</label>
+          </div>
+        </fieldset>
+
+        <fieldset data-step data-step-id="timeline" hidden>
+          <legend>¿Cuándo te gustaría empezar?</legend>
+          <div class="options">
+            <label><input type="radio" name="timeline" value="now" required /> Cuanto antes</label>
+            <label><input type="radio" name="timeline" value="one_month" /> Durante el próximo mes</label>
+            <label><input type="radio" name="timeline" value="three_months" /> En los próximos tres meses</label>
+            <label><input type="radio" name="timeline" value="later" /> Más adelante</label>
+          </div>
+        </fieldset>
+
+        <fieldset data-step data-step-id="risk" hidden>
+          <legend>¿El proceso incluye alguna de estas situaciones?</legend>
+          <div class="options">
+            <label><input type="radio" name="risk" value="standard" required /> Ninguna de las siguientes</label>
+            <label><input type="radio" name="risk" value="sensitive_data" /> Datos especialmente sensibles</label>
+            <label><input type="radio" name="risk" value="high_impact_decisions" /> Decisiones médicas, legales, financieras o laborales</label>
+            <label><input type="radio" name="risk" value="unsafe_request" /> Envíos masivos, suplantación o acciones sin consentimiento</label>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="button" class="button-secondary" data-back hidden>← Anterior</button>
+          <button type="button" class="button-primary shimmer" data-next>Siguiente →</button>
+          <button type="submit" class="button-primary shimmer" data-finish hidden>Ver mi resultado →</button>
+        </div>
+      </form>
+
+      <div class="diagnostic-result" data-diagnostic-result hidden tabindex="-1">
+        <span class="eyebrow">Tu siguiente paso</span>
+        <div data-result="qualified_call" hidden>
+          <h2>Tu proceso parece listo para una conversación de implementación</h2>
+          <p>La frecuencia, el plazo y el rango de inversión justifican revisar el flujo con detalle y confirmar viabilidad.</p>
+        </div>
+        <div data-result="paid_workshop" hidden>
+          <h2>Primero conviene definir el alcance</h2>
+          <p>Hay una oportunidad razonable, pero un taller de automatización evitaría elegir herramientas antes de entender bien el proceso.</p>
+        </div>
+        <div data-result="self_serve_resources" hidden>
+          <h2>Empieza concretando la oportunidad</h2>
+          <p>Ahora mismo te aportarán más valor ejemplos y recursos prácticos que una implementación a medida.</p>
+        </div>
+        <div data-result="manual_review" hidden>
+          <h2>Este caso necesita revisión humana</h2>
+          <p>Por los datos o decisiones implicadas, no sería responsable recomendar una automatización automática sin revisar controles y supervisión.</p>
+        </div>
+        <ul data-result-reasons></ul>
+        <form class="contact-form" data-diagnostic-contact novalidate>
+          <h3>Recibe el siguiente paso para tu caso</h3>
+          <p>Déjanos tus datos para revisar el diagnóstico y responderte. No añadiremos tu email a la newsletter salvo que te suscribas por separado.</p>
+          <div class="contact-grid">
+            <label>Nombre
+              <input type="text" name="name" minlength="2" maxlength="100" autocomplete="name" required />
+            </label>
+            <label>Email
+              <input type="email" name="email" maxlength="254" autocomplete="email" required />
+            </label>
+          </div>
+          <div class="honeypot" aria-hidden="true">
+            <label>No rellenar este campo <input type="text" name="company" tabindex="-1" autocomplete="off" /></label>
+          </div>
+          <label class="consent-row">
+            <input type="checkbox" name="consent" required />
+            <span>Acepto que AgentesVA trate mis respuestas y datos de contacto para revisar el diagnóstico y responder a mi solicitud, según la <a href="/privacidad/">política de privacidad</a>.</span>
+          </label>
+          <p class="form-error" role="alert" hidden data-contact-error></p>
+          <div class="result-actions">
+            <button type="submit" class="button-primary" data-contact-submit>Enviar diagnóstico →</button>
+            <button type="button" class="button-secondary" data-restart>Repetir diagnóstico</button>
+          </div>
+        </form>
+        <div class="contact-success" data-contact-success hidden role="status" tabindex="-1">
+          <h3>Diagnóstico recibido</h3>
+          <p>Revisaremos el caso y responderemos el siguiente día laborable cuando exista encaje comercial.</p>
+          <a href="/newsletter/" class="button-secondary">Mientras tanto, ver la newsletter →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<style>
+  .diagnostic-shell { max-width: 900px; margin: 0 auto; padding: 40px 32px 80px; }
+  .diagnostic-intro { max-width: 720px; margin: 22px auto 30px; text-align: center; }
+  .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+  h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(34px, 6vw, 52px); line-height: 1.04; letter-spacing: -.035em; color: #fff; margin: 16px 0 0; text-wrap: balance; }
+  .diagnostic-intro > p { max-width: 650px; margin: 18px auto 0; font-size: 17px; line-height: 1.65; color: var(--fg-3); }
+  .privacy-note { margin: 18px auto 0; max-width: 620px; padding: 11px 14px; border: 1px solid var(--line); background: var(--panel-3); color: var(--fg-4); font-size: 12.5px; line-height: 1.5; }
+  .diagnostic-card { background: var(--panel); border: 1px solid var(--line-2); border-radius: 12px; padding: clamp(22px, 5vw, 42px); box-shadow: 0 24px 70px rgba(0,0,0,.18); }
+  .progress-copy { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--fg-4); }
+  .progress-track { height: 5px; margin-top: 10px; overflow: hidden; background: var(--bg); border-radius: 10px; }
+  .progress-track span { display: block; height: 100%; width: 12.5%; background: var(--accent); transition: width .25s ease; }
+  fieldset { border: 0; padding: 0; margin: 34px 0 0; min-width: 0; }
+  legend { font-family: var(--sans); font-weight: 700; font-size: clamp(22px, 4vw, 30px); line-height: 1.15; letter-spacing: -.025em; color: #fff; padding: 0; }
+  .step-help { margin: 9px 0 0; color: var(--fg-3); line-height: 1.55; }
+  .text-label { display: block; margin-top: 24px; font-family: var(--mono); color: var(--fg-3); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
+  input[type='text'], input[type='email'], textarea { width: 100%; box-sizing: border-box; margin-top: 8px; border: 1px solid var(--line-2); background: var(--panel-3); color: #fff; border-radius: 4px; padding: 14px 16px; font: 15px/1.5 var(--sans); }
+  textarea { min-height: 130px; resize: vertical; }
+  .options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 24px; }
+  .options--compact { grid-template-columns: 1fr; margin-top: 14px; }
+  .options label { display: flex; align-items: flex-start; gap: 11px; padding: 15px 16px; border: 1px solid var(--line-2); border-radius: 6px; background: var(--panel-3); color: var(--fg-2); cursor: pointer; line-height: 1.4; }
+  .options label:has(input:checked) { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, var(--panel-3)); color: #fff; }
+  .options input { margin-top: 3px; accent-color: var(--accent); }
+  .form-actions, .result-actions { display: flex; justify-content: space-between; gap: 12px; margin-top: 30px; flex-wrap: wrap; }
+  .button-primary, .button-secondary { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; padding: 11px 20px; border-radius: 3px; font: 600 14px var(--sans); text-decoration: none; cursor: pointer; }
+  .button-primary { margin-left: auto; border: 1px solid var(--accent); background: var(--accent); color: var(--bg); }
+  .button-secondary { border: 1px solid var(--line-2); background: transparent; color: var(--fg-2); }
+  .form-error { margin: 20px 0 -14px; padding: 10px 13px; border-left: 3px solid #ff6b6b; color: #ffb0b0; background: rgba(255,107,107,.08); }
+  .diagnostic-result { margin-top: 28px; }
+  .diagnostic-result h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(28px, 5vw, 40px); line-height: 1.08; color: #fff; margin: 14px 0 0; }
+  .diagnostic-result p, .diagnostic-result li { color: var(--fg-3); line-height: 1.6; }
+  .diagnostic-result ul { padding-left: 20px; margin: 20px 0 0; }
+  .contact-form { margin-top: 28px; padding-top: 26px; border-top: 1px solid var(--line); }
+  .contact-form h3, .contact-success h3 { color: #fff; font: 700 19px var(--sans); margin: 0; }
+  .contact-form > p { margin: 8px 0 0; font-size: 14px; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
+  .contact-grid label { color: var(--fg-3); font: 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+  .consent-row { display: flex; align-items: flex-start; gap: 10px; margin-top: 16px; color: var(--fg-4); font-size: 12.5px; line-height: 1.5; }
+  .consent-row input { margin-top: 3px; flex: none; accent-color: var(--accent); }
+  .consent-row a { color: var(--accent); }
+  .honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .contact-success { margin-top: 28px; padding: 20px; border: 1px solid var(--green); background: color-mix(in srgb, var(--green) 7%, var(--panel-3)); }
+  .contact-success .button-secondary { margin-top: 12px; }
+  @media (max-width: 640px) {
+    .diagnostic-shell { padding: 28px 20px 60px; }
+    .diagnostic-card { padding: 22px 18px; }
+    .options { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .form-actions > *, .result-actions > * { width: 100%; margin-left: 0; }
+  }
+</style>
+
+<script>
+  import { initDiagnostic } from '../scripts/diagnostico';
+  document.addEventListener('astro:page-load', () => initDiagnostic());
+</script>

@@ -61,6 +61,7 @@ For now (2 people) the **Vercel-native env vars are sufficient**. Migrate when t
 | Brevo | Email bounce rate >5% | Medium — sender reputation |
 | Brevo | DKIM/SPF break | High — deliverability |
 | Make.com | Scenario error / disabled | High — diagnostic emails fail silently |
+| Diagnóstico | Respuestas 5xx o entregas fallidas del webhook | High — los leads no llegan al sistema comercial |
 | HubSpot | Daily form submission anomaly | Low |
 
 ### Setup steps (15 min total)
@@ -78,6 +79,13 @@ For now (2 people) the **Vercel-native env vars are sufficient**. Migrate when t
 1. For diagnostico scenario: add **error notification email**
 2. Add `Filter` module that flags inputs with empty `email` field → log
 3. Sequential processing ON to avoid Anthropic rate limit cascade failures
+
+#### Diagnóstico comercial
+
+1. Configurar `DIAGNOSTIC_WEBHOOK_URL` en Vercel antes de retirar `noindex`.
+2. Configurar `DIAGNOSTIC_WEBHOOK_SECRET` y validar el Bearer token en Make/CRM cuando el proveedor lo permita.
+3. Mantener rate limiting distribuido en Vercel WAF; el límite en memoria de la función es una defensa adicional por instancia, no sustituye al WAF.
+4. Probar un lead de cada ruta (`qualified_call`, `paid_workshop`, `self_serve_resources`, `manual_review`) en preview antes de producción.
 
 #### Make.com (Account → Notifications)
 1. Enable: `Scenario disabled due to errors`, `Operations limit approaching`
