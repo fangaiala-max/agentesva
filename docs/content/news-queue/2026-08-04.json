@@ -1,0 +1,86 @@
+{
+  "date": "2026-08-04",
+  "generatedAt": "2026-08-04T07:39:48.566Z",
+  "candidates": [
+    {
+      "titulo": "Apple finally fixed Siri. So why does it feel anticlimactic?",
+      "url": "https://techcrunch.com/2026/08/03/apple-finally-fixed-siri-so-why-does-it-feel-anticlimactic/",
+      "fecha": "2026-08-03T18:43:43.000Z",
+      "resumen": "Apple’s long-awaited AI overhaul finally makes Siri the assistant it was always supposed to be. Yet it arrives at a moment when simply being a capable AI assistant no longer feels revolutionary.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "apple-finally-fixed-siri-so-why-does-it-feel-anticlimactic",
+      "signals": {
+        "hn": 5,
+        "reddit": 0,
+        "social": 0.23571433143015907,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.6406977932098765,
+        "authority": 0.9
+      },
+      "score": 0.4922
+    },
+    {
+      "titulo": "AWS is helping vibe-coding startup Superblocks, and the implications are big",
+      "url": "https://techcrunch.com/2026/08/03/aws-is-helping-vibe-coding-startup-superblocks-and-the-implications-are-big/",
+      "fecha": "2026-08-03T20:00:00.000Z",
+      "resumen": "AWS now allows vibe-coding tool Superblocks to be embedded into the private clouds of AWS customers. It's another step toward decoupling apps from models.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "aws-is-helping-vibe-coding-startup-superblocks-and-the-impli",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.6760141512345679,
+        "authority": 0.9
+      },
+      "score": 0.4914
+    },
+    {
+      "titulo": "Congress’ favorite AI tool? ChatGPT",
+      "url": "https://techcrunch.com/2026/08/03/congresss-favorite-ai-tool-chatgpt/",
+      "fecha": "2026-08-03T16:40:55.000Z",
+      "resumen": "House spending records show OpenAI's ChatGPT dominates paid AI use on Capitol Hill, with congressional offices relying on the chatbot to draft memos, summarize legislation, and assist constituent communications.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "congress-favorite-ai-tool-chatgpt",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5838459413580247,
+        "authority": 0.9
+      },
+      "score": 0.4776
+    },
+    {
+      "titulo": "Here’s why AI agents lie and cheat to reach their goals",
+      "url": "https://www.technologyreview.com/2026/08/03/1141009/heres-why-ai-agents-lie-and-cheat-to-reach-their-goals/",
+      "fecha": "2026-08-03T08:30:05.000Z",
+      "resumen": "MIT Technology Review Explains: Let our writers untangle the complex, messy world of technology to help you understand what’s coming next. You can read more from the series here. When two OpenAI models hacked into the website Hugging Face in July, they weren’t trying to make money or commit sabotage—they were just looking for answers…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "here-s-why-ai-agents-lie-and-cheat-to-reach-their-goals",
+      "signals": {
+        "hn": 5,
+        "reddit": 0,
+        "social": 0.23571433143015907,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.35660828703703695,
+        "authority": 0.95
+      },
+      "score": 0.3546
+    }
+  ]
+}
