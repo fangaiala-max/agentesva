@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { breadcrumbList, trail as buildTrail } from '../../data/breadcrumbs';
+import { jsonLdSerialize, ORG_ID, SITE, WEBSITE_ID } from '../../data/schema';
+
+const trail = buildTrail(
+  { name: 'Servicios', url: '/servicios' },
+  { name: 'Automatización de ventas', url: '/servicios/automatizacion-ventas' },
+);
+
+const useCases = [
+  { title: 'Captación conectada', text: 'Lleva cada lead desde formularios, campañas o mensajería al sistema comercial sin copiar datos.' },
+  { title: 'Cualificación inicial', text: 'Recoge contexto, comprueba criterios acordados y prioriza oportunidades sin fingir certeza.' },
+  { title: 'CRM actualizado', text: 'Crea o completa contactos, empresas y oportunidades con trazabilidad y reglas de duplicados.' },
+  { title: 'Seguimiento oportuno', text: 'Activa tareas, avisos y mensajes aprobados cuando una oportunidad queda sin siguiente paso.' },
+] as const;
+
+const deliverables = [
+  'Mapa del embudo actual y puntos donde se pierden oportunidades.',
+  'Definición de campos, criterios de cualificación y responsables.',
+  'Flujo conectado a formularios, CRM y canales acordados.',
+  'Reglas de asignación, duplicados, consentimiento y excepciones.',
+  'Secuencias o borradores de seguimiento revisados por el equipo.',
+  'Pruebas, documentación, panel mínimo y formación del responsable.',
+] as const;
+
+const faqs = [
+  { question: '¿La IA puede decidir qué lead merece una llamada?', answer: 'Puede aplicar criterios explícitos y ayudar a priorizar, pero no debe inventar datos ni sustituir el criterio comercial. Mostramos por qué se asignó cada prioridad y permitimos revisión humana.' },
+  { question: '¿Se puede conectar con nuestro CRM?', answer: 'Normalmente sí cuando el CRM ofrece API, webhook o una integración fiable. Revisamos permisos, campos, duplicados y límites antes de diseñar el flujo.' },
+  { question: '¿Automatizáis emails y mensajes de seguimiento?', answer: 'Podemos programar mensajes aprobados o preparar borradores. La frecuencia, el consentimiento, la reputación del dominio y la posibilidad de baja forman parte del diseño.' },
+  { question: '¿Cuánto cuesta y cuánto tarda?', answer: 'Una implementación acotada parte de 1.500 € y suele requerir de dos a cuatro semanas. Un flujo con varias fuentes, CRM y secuencias parte de 3.000 € y puede requerir de cuatro a ocho semanas.' },
+  { question: '¿Cómo se mide el resultado?', answer: 'Acordamos una línea base y métricas como tiempo hasta primer contacto, leads con siguiente paso, registros completos, duplicados evitados o oportunidades sin seguimiento.' },
+] as const;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'WebPage', name: 'Automatización de ventas y seguimiento con IA', url: `${SITE}/servicios/automatizacion-ventas/`, description: 'Automatización de captación, cualificación, CRM y seguimiento comercial para PyMEs.', inLanguage: 'es', isPartOf: { '@id': WEBSITE_ID }, about: { '@id': `${SITE}/servicios/automatizacion-ventas/#service` } },
+    { '@type': 'Service', '@id': `${SITE}/servicios/automatizacion-ventas/#service`, name: 'Automatización de ventas y seguimiento', serviceType: 'Diseño e implementación de automatizaciones comerciales con IA', provider: { '@id': ORG_ID }, url: `${SITE}/servicios/automatizacion-ventas/`, areaServed: 'Países hispanohablantes', audience: { '@type': 'BusinessAudience', audienceType: 'PyMEs y profesionales' }, offers: { '@type': 'AggregateOffer', lowPrice: '1500', priceCurrency: 'EUR', offerCount: '2', description: 'Implementación acotada desde 1.500 €; automatización con varias integraciones desde 3.000 €.' } },
+    { '@type': 'FAQPage', mainEntity: faqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) },
+    breadcrumbList(trail),
+  ],
+};
+---
+
+<BaseLayout title="Automatización de ventas y CRM con IA | AgentesVA" description="Automatiza captación, cualificación, CRM y seguimiento comercial con reglas claras. Implementaciones desde 1.500 € y diagnóstico gratuito.">
+  <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
+  <SiteHeader />
+  <main>
+    <section class="hero"><div class="shell"><Breadcrumb trail={trail} /><div class="hero__grid">
+      <div><span class="eyebrow">Ventas y seguimiento · Automatización con IA</span><h1>Que ningún lead se pierda por falta de <span>seguimiento</span></h1><p class="lead">Conectamos la captación con tu CRM, aplicamos criterios de cualificación y activamos el siguiente paso. Tu equipo recibe mejor contexto y conserva la decisión comercial.</p><div class="actions"><a href="/diagnostico-automatizacion-ia/" class="button button--primary" data-track-event="service_cta_click" data-track-page-type="service_detail" data-track-content-slug="automatizacion-ventas" data-track-service="sales_automation" data-track-cluster="sales" data-track-placement="hero">Evaluar mi proceso gratis →</a><a href="#flujo" class="button button--secondary">Ver un flujo de ejemplo</a></div><p class="note">3 minutos · Sin compromiso · Una recomendación concreta</p></div>
+      <aside class="problem-card"><span class="eyebrow">El problema habitual</span><strong>Los leads llegan por varios canales, el CRM queda incompleto y el seguimiento depende de que alguien lo recuerde.</strong><p>La automatización encaja cuando existen criterios comerciales, responsables claros y un siguiente paso que puede activarse de forma consistente.</p></aside>
+    </div></div></section>
+
+    <section class="section shell"><header class="section-heading"><span class="eyebrow">Casos de uso</span><h2>Automatiza los huecos entre captación y conversación</h2><p>No sustituimos la relación comercial. Quitamos tareas repetitivas y hacemos visible qué oportunidad necesita atención.</p></header><div class="card-grid">{useCases.map((item, index) => <article class="card"><span>0{index + 1}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></section>
+
+    <section id="flujo" class="section section--dark"><div class="shell"><header class="section-heading"><span class="eyebrow">Ejemplo de flujo</span><h2>De un formulario a una oportunidad con siguiente paso</h2></header><ol class="flow"><li><span>01</span><div><h3>Captura</h3><p>Entra un lead desde formulario, anuncio, evento o canal de mensajería.</p></div></li><li><span>02</span><div><h3>Contexto</h3><p>Se validan datos y se solicitan los campos necesarios para valorar el encaje.</p></div></li><li><span>03</span><div><h3>CRM</h3><p>Se crea o actualiza el registro, evitando duplicados y dejando la fuente atribuida.</p></div></li><li><span>04</span><div><h3>Siguiente paso</h3><p>Se asigna responsable y se activa una tarea, reserva o seguimiento aprobado.</p></div></li></ol><p class="flow-note"><strong>Ejemplo, no promesa cerrada:</strong> el flujo depende de tus canales, CRM, criterios, consentimiento y capacidad comercial.</p></div></section>
+
+    <section class="section shell split"><div><span class="eyebrow">Qué entregamos</span><h2>Un sistema comercial trazable y supervisable</h2><ul class="check-list">{deliverables.map((item) => <li>{item}</li>)}</ul></div><aside class="investment"><span class="eyebrow">Plazo e inversión</span><div><h3>Implementación acotada</h3><strong>Desde 1.500 €</strong><p>Habitualmente, de 2 a 4 semanas.</p></div><div><h3>Varias fuentes, CRM y secuencias</h3><strong>Desde 3.000 €</strong><p>Habitualmente, de 4 a 8 semanas.</p></div><p>El diagnóstico inicial es gratuito. El precio final depende de fuentes, CRM, calidad de datos, volumen, secuencias y soporte. Son rangos orientativos, no presupuestos cerrados.</p></aside></section>
+
+    <section class="section section--panel"><div class="shell limits"><div><span class="eyebrow">Buen encaje</span><h2>Un embudo definido y responsables claros</h2><ul><li>Recibes leads con frecuencia y puedes medir su origen.</li><li>Sabes qué datos indican encaje y quién debe actuar.</li><li>Existe un CRM o una fuente comercial principal.</li><li>Quieres empezar por un tramo concreto del embudo.</li></ul></div><div><span class="eyebrow">Límites</span><h2>No fabricamos demanda ni enviamos spam</h2><ul><li>No inventamos datos para puntuar oportunidades.</li><li>No compramos bases ni contactamos sin base legítima.</li><li>No prometemos aumentar ventas sin una línea base.</li><li>La decisión comercial y las excepciones siguen supervisadas.</li></ul></div></div></section>
+
+    <section class="section shell faq"><header class="section-heading"><span class="eyebrow">Preguntas frecuentes</span><h2>Antes de automatizar ventas</h2></header>{faqs.map((faq) => <details><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
+    <section class="final-cta"><div class="shell final-cta__inner"><div><span class="eyebrow">Siguiente paso</span><h2>Detecta dónde se pierden hoy tus oportunidades</h2><p>Cuéntanos cómo llegan los leads, dónde los registras y cómo realiza el equipo el seguimiento. Te indicaremos un primer alcance razonable.</p></div><a href="/diagnostico-automatizacion-ia/" class="button button--primary" data-track-event="service_cta_click" data-track-page-type="service_detail" data-track-content-slug="automatizacion-ventas" data-track-service="sales_automation" data-track-cluster="sales" data-track-placement="final_cta">Hacer el diagnóstico gratuito →</a></div></section>
+  </main>
+  <SiteFooter />
+</BaseLayout>
+
+<style>
+  :global(body){background:#f7f8fa;color:#17211d}.shell{width:min(1120px,calc(100% - 40px));margin-inline:auto}.hero{position:relative;overflow:hidden;padding:28px 0 96px;background:radial-gradient(circle at 80% 10%,rgba(85,112,255,.2),transparent 32%),#10231d;color:#fff}.hero__grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(300px,.7fr);gap:64px;align-items:center;margin-top:64px}.eyebrow{display:block;margin-bottom:14px;color:#536cf0;font:700 .74rem/1.4 'JetBrains Mono Variable',monospace;letter-spacing:.12em;text-transform:uppercase}.hero .eyebrow,.section--dark .eyebrow,.final-cta .eyebrow{color:#9fafff}h1,h2,h3{margin:0;font-family:'DM Serif Display',serif;font-weight:400}h1{max-width:760px;font-size:clamp(3rem,6vw,5.4rem);line-height:.96;letter-spacing:-.04em}h1 span{color:#9fafff}.lead{max-width:720px;margin:28px 0;color:#d8e6e1;font-size:1.18rem;line-height:1.7}.actions{display:flex;flex-wrap:wrap;gap:12px}.button{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border:1px solid transparent;border-radius:6px;font-weight:750;text-decoration:none}.button--primary{background:#536cf0;color:#fff}.button--secondary{border-color:rgba(255,255,255,.3);color:#fff}.note{color:#9fb8af;font-size:.86rem}.problem-card{padding:34px;border:1px solid rgba(159,175,255,.3);border-radius:12px;background:rgba(255,255,255,.06)}.problem-card strong{display:block;font-family:'DM Serif Display',serif;font-size:1.7rem;line-height:1.25}.problem-card p{color:#b9cec6;line-height:1.65}.section{padding:96px 0}.section-heading{max-width:780px;margin-bottom:42px}.section-heading h2,.split h2,.limits h2{font-size:clamp(2.2rem,4vw,3.5rem);line-height:1.05}.section-heading p{font-size:1.05rem;line-height:1.65;color:#57635e}.card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{padding:26px;border:1px solid #dce3df;border-radius:10px;background:#fff}.card>span,.flow>li>span{color:#536cf0;font:700 .75rem 'JetBrains Mono Variable',monospace}.card h3{margin:28px 0 10px;font-size:1.55rem}.card p{margin:0;color:#5d6863;line-height:1.6}.section--dark{background:#10231d;color:#fff}.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;padding:0;list-style:none;background:rgba(255,255,255,.16)}.flow li{display:flex;gap:18px;padding:28px;background:#10231d}.flow h3{font-size:1.45rem}.flow p,.flow-note{color:#b9cec6;line-height:1.55}.split,.limits{display:grid;grid-template-columns:1fr 1fr;gap:72px}.check-list,.limits ul{padding:0;list-style:none}.check-list li,.limits li{position:relative;padding:13px 0 13px 30px;border-bottom:1px solid #dce3df;line-height:1.5}.check-list li::before,.limits li::before{position:absolute;left:0;color:#536cf0;content:'✓'}.investment{padding:34px;border-radius:12px;background:#fff;box-shadow:0 18px 55px rgba(14,35,28,.1)}.investment>div{padding:20px 0;border-bottom:1px solid #dce3df}.investment h3{font-size:1.45rem}.investment strong{display:block;margin-top:8px;color:#4258ce;font-size:1.5rem}.investment p{color:#64706b;line-height:1.55}.section--panel{background:#edf2ef}.limits>div{padding:34px;background:#fff;border-radius:10px}.faq details{border-top:1px solid #d5ddd9}.faq details:last-child{border-bottom:1px solid #d5ddd9}.faq summary{padding:22px 0;font-weight:750;cursor:pointer}.faq details p{max-width:800px;margin:0 0 22px;color:#59655f;line-height:1.65}.final-cta{padding:72px 0;background:#17352b;color:#fff}.final-cta__inner{display:flex;gap:48px;align-items:center;justify-content:space-between}.final-cta h2{font-size:clamp(2rem,4vw,3.2rem)}.final-cta p{max-width:680px;color:#c3d5ce;line-height:1.6}.final-cta .button{flex:none}@media(max-width:860px){.hero__grid,.split,.limits{grid-template-columns:1fr}.card-grid,.flow{grid-template-columns:repeat(2,1fr)}.final-cta__inner{align-items:flex-start;flex-direction:column}}@media(max-width:560px){.shell{width:min(100% - 28px,1120px)}.hero{padding-bottom:68px}.hero__grid{gap:36px;margin-top:40px}h1{font-size:3rem}.section{padding:68px 0}.card-grid,.flow{grid-template-columns:1fr}.actions{align-items:stretch;flex-direction:column}.final-cta{padding:60px 0}.final-cta .button{width:100%}}
+</style>
