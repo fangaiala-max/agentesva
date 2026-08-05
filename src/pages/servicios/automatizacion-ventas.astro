@@ -3,6 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import CommercialNextSteps from '../../components/CommercialNextSteps.astro';
+import { serviceClusterLinks } from '../../data/commercial-links';
 import { breadcrumbList, trail as buildTrail } from '../../data/breadcrumbs';
 import { jsonLdSerialize, ORG_ID, SITE, WEBSITE_ID } from '../../data/schema';
 
@@ -63,6 +65,7 @@ const jsonLd = {
 
     <section class="section section--panel"><div class="shell limits"><div><span class="eyebrow">Buen encaje</span><h2>Un embudo definido y responsables claros</h2><ul><li>Recibes leads con frecuencia y puedes medir su origen.</li><li>Sabes qué datos indican encaje y quién debe actuar.</li><li>Existe un CRM o una fuente comercial principal.</li><li>Quieres empezar por un tramo concreto del embudo.</li></ul></div><div><span class="eyebrow">Límites</span><h2>No fabricamos demanda ni enviamos spam</h2><ul><li>No inventamos datos para puntuar oportunidades.</li><li>No compramos bases ni contactamos sin base legítima.</li><li>No prometemos aumentar ventas sin una línea base.</li><li>La decisión comercial y las excepciones siguen supervisadas.</li></ul></div></div></section>
 
+    <div class="shell"><CommercialNextSteps links={serviceClusterLinks.ventas} title="Guías para mejorar el embudo" theme="light" pageType="service_detail" slug="automatizacion-ventas" /></div>
     <section class="section shell faq"><header class="section-heading"><span class="eyebrow">Preguntas frecuentes</span><h2>Antes de automatizar ventas</h2></header>{faqs.map((faq) => <details><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
     <section class="final-cta"><div class="shell final-cta__inner"><div><span class="eyebrow">Siguiente paso</span><h2>Detecta dónde se pierden hoy tus oportunidades</h2><p>Cuéntanos cómo llegan los leads, dónde los registras y cómo realiza el equipo el seguimiento. Te indicaremos un primer alcance razonable.</p></div><a href="/diagnostico-automatizacion-ia/" class="button button--primary" data-track-event="service_cta_click" data-track-page-type="service_detail" data-track-content-slug="automatizacion-ventas" data-track-service="sales_automation" data-track-cluster="sales" data-track-placement="final_cta">Hacer el diagnóstico gratuito →</a></div></section>
   </main>

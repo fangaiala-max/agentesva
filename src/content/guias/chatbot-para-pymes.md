@@ -20,6 +20,10 @@ relacionados:
     href: "/guias/automatizar-whatsapp-empresa/"
   - titulo: "Precios de automatización con IA"
     href: "/precios-automatizacion-ia/"
+  - titulo: "Ficha de Landbot"
+    href: "/herramienta/landbot/"
+  - titulo: "Ficha de Tidio"
+    href: "/herramienta/tidio/"
 faq:
   - q: "¿Un chatbot sustituye al equipo de atención?"
     a: "No debería plantearse así. Su función inicial es absorber preguntas repetitivas, recopilar contexto y entregar a una persona los casos ambiguos, sensibles o valiosos."
@@ -60,4 +64,3 @@ También conviene probar preguntas incompletas, errores tipográficos, solicitud
 ## Métricas para decidir si ampliar
 
 Mide el porcentaje de conversaciones resueltas sin recontacto, las derivaciones correctas, el tiempo hasta respuesta humana y la conversión del objetivo elegido. Revisa además una muestra de conversaciones fallidas cada semana. Si el piloto reduce trabajo y no empeora la experiencia, entonces puedes añadir una segunda intención o canal.
-

@@ -20,6 +20,10 @@ relacionados:
     href: "/guias/procesos-que-conviene-automatizar-primero/"
   - titulo: "Cómo trabajamos"
     href: "/como-trabajamos/"
+  - titulo: "Ficha de HubSpot IA"
+    href: "/herramienta/hubspot-ia/"
+  - titulo: "Ficha de Make"
+    href: "/herramienta/make/"
 faq:
   - q: "¿Cuántos mensajes debe tener una cadencia?"
     a: "No existe un número universal. Debe depender del ciclo de compra, del permiso disponible y de las señales del lead; se prueba con una cadencia corta y se ajusta con respuestas y bajas."
@@ -55,4 +59,3 @@ Ejemplo: respuesta inmediata con expectativas; tarea al responsable en minutos; 
 ## Qué medir
 
 Controla tiempo hasta primera respuesta, porcentaje de leads asignados, contactos efectivos, reuniones, oportunidades y conversión por fuente. Las aperturas aisladas dicen poco y pueden ser imprecisas. Compara calidad y resultado comercial, y revisa manualmente pérdidas valiosas para encontrar reglas defectuosas.
-

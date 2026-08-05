@@ -17,6 +17,8 @@ import EstudioFuentes from '../../components/EstudioFuentes.astro';
 import EstudioBonus from '../../components/EstudioBonus.astro';
 import ToolCallout from '../../components/ToolCallout.astro';
 import StudyServiceCTA from '../../components/StudyServiceCTA.astro';
+import CommercialNextSteps from '../../components/CommercialNextSteps.astro';
+import { linksForStudy } from '../../data/commercial-links';
 
 export async function getStaticPaths() {
   const estudios = await getCollection('estudios');
@@ -26,6 +28,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 const d = entry.data;
+const clusterLinks = linksForStudy(entry.id);
 
 const allTools = (await getCollection('tools')).map(toTool);
 const related = d.herramientas
@@ -111,6 +114,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
     <EstudioFaq items={d.faq} />
     <EstudioBonus titulo={d.bonus?.titulo} intro={d.bonus?.intro} herramientas={d.bonus?.herramientas} nota={d.bonus?.nota} />
     <EstudioFuentes items={d.fuentes} />
+    <CommercialNextSteps links={clusterLinks} title="Continúa desde la comparativa" pageType="study" slug={entry.id} />
     <StudyServiceCTA slug={entry.id} placement="final" />
 
     {related.length > 0 && (

@@ -1,0 +1,11 @@
+---
+import type { CommercialLink } from '../data/commercial-links';
+interface Props { links: readonly CommercialLink[]; title?: string; theme?: 'dark' | 'light'; pageType: string; slug: string }
+const { links, title = 'Siguiente decisión', theme = 'dark', pageType, slug } = Astro.props;
+---
+{links.length > 0 && <section class:list={['commercial-next', `commercial-next--${theme}`]} data-pagefind-ignore>
+  <span>Recursos relacionados</span><h2>{title}</h2><div class="commercial-next__grid">{links.map((link) => <a href={link.href} data-track-event="internal_cluster_click" data-track-page-type={pageType} data-track-content-slug={slug}><strong>{link.title}</strong><small>{link.description}</small><b>Leer →</b></a>)}</div>
+</section>}
+<style>
+  .commercial-next{margin:48px auto;padding:32px;border:1px solid var(--line);border-radius:12px}.commercial-next>span{font:700 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}.commercial-next>h2{margin:8px 0 0;font:400 30px var(--serif)}.commercial-next__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}.commercial-next a{display:flex;flex-direction:column;padding:18px;border:1px solid var(--line);border-radius:8px;text-decoration:none}.commercial-next strong{font-size:16px}.commercial-next small{flex:1;margin-top:7px;font-size:13px;line-height:1.5}.commercial-next b{margin-top:15px;color:var(--accent);font:700 11px var(--mono);text-transform:uppercase}.commercial-next--dark{background:var(--panel);color:#fff}.commercial-next--dark small{color:var(--fg-3)}.commercial-next--light{background:#fff;color:#17211d;border-color:#dce3df}.commercial-next--light a{border-color:#dce3df;color:#17211d}.commercial-next--light small{color:#59655f}@media(max-width:720px){.commercial-next__grid{grid-template-columns:1fr}}
+</style>

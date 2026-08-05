@@ -20,6 +20,10 @@ relacionados:
     href: "/precios-automatizacion-ia/"
   - titulo: "Cómo trabajamos"
     href: "/como-trabajamos/"
+  - titulo: "Automatización de procesos"
+    href: "/servicios/automatizacion-procesos/"
+  - titulo: "Qué procesos conviene automatizar primero"
+    href: "/guias/procesos-que-conviene-automatizar-primero/"
 faq:
   - q: "¿El precio incluye las suscripciones?"
     a: "Los rangos de servicio y las licencias se separan para que puedas ver el coste inicial y el operativo. La propuesta debe indicar claramente qué proveedores factura cada parte."
@@ -62,4 +66,3 @@ Después divide inversión inicial entre beneficio mensual para estimar recupera
 Acota una primera versión a un equipo, un disparador y un resultado. Reutiliza los sistemas actuales si son adecuados. Define métricas y un periodo de observación. Documenta quién aprueba cambios y quién recibe alertas.
 
 Recortar pruebas o monitorización puede abaratar la entrega, pero aumenta el coste de una incidencia. Es preferible reducir funciones y conservar controles básicos. Cuando el piloto demuestra valor, ampliar el flujo es una decisión basada en datos y no en expectativas.
-

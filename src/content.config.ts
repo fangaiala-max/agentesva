@@ -119,7 +119,7 @@ const guias = defineCollection({
       titulo: z.string(),
       descripcion: z.string(),
     }),
-    relacionados: z.array(z.object({ titulo: z.string(), href: z.string().startsWith('/') })).min(2),
+    relacionados: z.array(z.object({ titulo: z.string(), href: z.string().startsWith('/') })).min(3),
     faq: z.array(z.object({ q: z.string(), a: z.string() })).min(2),
     fuentes: z.array(z.object({
       titulo: z.string(),

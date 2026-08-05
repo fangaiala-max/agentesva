@@ -20,6 +20,10 @@ relacionados:
     href: "/guias/cuanto-cuesta-automatizar-un-negocio/"
   - titulo: "Diagnóstico de automatización"
     href: "/diagnostico-automatizacion-ia/"
+  - titulo: "Herramientas para automatizar tareas"
+    href: "/estudios/herramientas-ia-para-automatizar-tareas/"
+  - titulo: "Make vs n8n vs Zapier"
+    href: "/guias/make-vs-n8n-vs-zapier/"
 faq:
   - q: "¿Debo empezar por el proceso que más tiempo consume?"
     a: "No necesariamente. Si está mal definido, cambia a menudo o implica alto riesgo, puede ser mejor comenzar por un proceso algo menor pero estable y medible."
@@ -66,4 +70,3 @@ Pospón decisiones con consecuencias importantes si no hay supervisión, tareas 
 ## Criterios de éxito del piloto
 
 Define una línea base: minutos por caso, plazo total, errores, recontactos y volumen. Acordad un objetivo y una regla de parada. Durante el piloto, registra ejecuciones, excepciones y correcciones humanas. Al cierre, decide si estandarizar, ampliar, rediseñar o retirar. Un piloto que revela que el proceso necesita cambios también evita una inversión mayor equivocada.
-

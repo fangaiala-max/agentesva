@@ -9,6 +9,8 @@ import AffiliateCTA from '../../components/AffiliateCTA.astro';
 import Badge from '../../components/Badge.astro';
 import TrustSignals from '../../components/TrustSignals.astro';
 import ToolServiceCTA from '../../components/ToolServiceCTA.astro';
+import CommercialNextSteps from '../../components/CommercialNextSteps.astro';
+import { linksForTool } from '../../data/commercial-links';
 import { jsonLdSerialize } from '../../data/schema';
 import { crumbPath, breadcrumbList, fichaTrail, SECCIONES, type CatEntry } from '../../data/breadcrumbs';
 
@@ -23,6 +25,7 @@ export async function getStaticPaths() {
 
 interface Props { tool: Tool; alts: Tool[]; cats: CatEntry[] }
 const { tool, alts, cats } = Astro.props;
+const clusterLinks = linksForTool(tool.slug);
 const initial = tool.name.charAt(0);
 const badges = badgesFor(tool);
 const hasAffiliate = Boolean(tool.affiliateUrl);
@@ -203,6 +206,7 @@ const jsonLd = {
       </aside>
     </div>
 
+    <CommercialNextSteps links={clusterLinks} title="Antes de elegir esta herramienta" pageType="tool" slug={tool.slug} />
     <div style="margin-top: 44px; border-top: 1px solid var(--line); padding-top: 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
       <p style="margin: 0; font-size: 15px; color: var(--fg-3);">¿Listo para probar <strong style="color: #fff;">{tool.name}</strong>?</p>
       <AffiliateCTA slug={tool.slug} src="ficha-bottom" hasAffiliate={hasAffiliate} />

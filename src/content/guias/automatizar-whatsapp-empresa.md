@@ -20,6 +20,10 @@ relacionados:
     href: "/guias/chatbot-para-pymes/"
   - titulo: "Automatización de ventas"
     href: "/servicios/automatizacion-ventas/"
+  - titulo: "Comparativa de herramientas para WhatsApp"
+    href: "/estudios/mejores-herramientas-ia-whatsapp/"
+  - titulo: "Ficha de Wati"
+    href: "/herramienta/wati/"
 faq:
   - q: "¿Puedo automatizar mi número actual de WhatsApp?"
     a: "Depende de la configuración y del proveedor elegido. Hay que revisar la migración, los accesos y la compatibilidad antes de prometer que el número y su operativa seguirán iguales."
@@ -55,4 +59,3 @@ La conexión con CRM evita contactos duplicados y conserva el historial. La agen
 El presupuesto no es solo la herramienta. Incluye configuración de la cuenta, proveedor o infraestructura, conversaciones o uso, integración, mantenimiento y revisión del contenido. También hay que prever qué ocurre cuando una API falla, cambia un dato o nadie responde a una derivación.
 
 Un piloto debe probar mensajes fuera de horario, audios, documentos incorrectos, duplicados y clientes que cambian de intención. Si el equipo puede explicar quién recibe cada excepción, el proceso está listo para crecer.
-

@@ -225,6 +225,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-020 — Reforzar enlazado interno por clúster
 
+- **Estado:** completado el 5 ago 2026 — conectados servicios, seis guías, tres estudios y once fichas prioritarias mediante módulos contextuales bidireccionales, anclas descriptivas y tracking de navegación interna.
 - **Impacto:** alto
 - **Esfuerzo:** M
 - **Dependencias:** GROW-008–010, GROW-019

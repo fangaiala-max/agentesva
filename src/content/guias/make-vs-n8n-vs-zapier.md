@@ -20,6 +20,12 @@ relacionados:
     href: "/guias/cuanto-cuesta-automatizar-un-negocio/"
   - titulo: "Automatización de procesos"
     href: "/servicios/automatizacion-procesos/"
+  - titulo: "Ficha de Make"
+    href: "/herramienta/make/"
+  - titulo: "Ficha de n8n"
+    href: "/herramienta/n8n/"
+  - titulo: "Ficha de Zapier"
+    href: "/herramienta/zapier/"
 faq:
   - q: "¿Cuál de las tres plataformas es más barata?"
     a: "No se puede responder sin modelar el flujo y su volumen. Cada plataforma mide y factura el uso de manera diferente, y el mantenimiento puede superar la diferencia entre planes."
@@ -60,4 +66,3 @@ Por ejemplo, al sincronizar oportunidades entre formulario, CRM y mensajería, c
 ## Recomendación por contexto
 
 Para un equipo no técnico con flujos estándar, empieza la evaluación por Zapier. Para una persona de operaciones que necesita ramificaciones visibles, incluye Make. Para un equipo técnico con requisitos de personalización o despliegue, evalúa n8n. Si el proceso es crítico, la capacidad para probar, observar y recuperar errores pesa más que ahorrar en el primer plan.
-
