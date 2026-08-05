@@ -1,0 +1,370 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { breadcrumbList, trail as buildTrail } from '../../data/breadcrumbs';
+import { jsonLdSerialize, ORG_ID, SITE, WEBSITE_ID } from '../../data/schema';
+
+const trail = buildTrail({ name: 'Servicios', url: '/servicios' });
+
+const services = [
+  {
+    id: 'atencion-cliente',
+    number: '01',
+    title: 'Atención al cliente',
+    summary: 'Clasifica consultas, prepara respuestas y deriva cada caso sin perder el control humano.',
+    examples: ['Clasificación de emails y tickets', 'Borradores de respuesta con contexto', 'FAQ y derivación a una persona'],
+    service: 'customer_service_automation',
+    cluster: 'customer_service',
+  },
+  {
+    id: 'ventas',
+    number: '02',
+    title: 'Ventas y seguimiento',
+    summary: 'Conecta formularios, CRM y seguimiento para que ninguna oportunidad dependa de copiar datos a mano.',
+    examples: ['Captura y cualificación de leads', 'Asignación y recordatorios', 'Seguimiento y actualización del CRM'],
+    service: 'sales_automation',
+    cluster: 'sales',
+  },
+  {
+    id: 'procesos',
+    number: '03',
+    title: 'Procesos y operaciones',
+    summary: 'Reduce tareas administrativas repetitivas entre documentos, correo, hojas y herramientas internas.',
+    examples: ['Extracción y clasificación de datos', 'Informes y alertas internas', 'Traspaso entre aplicaciones'],
+    service: 'process_automation',
+    cluster: 'operations',
+  },
+] as const;
+
+const prices = [
+  { name: 'Diagnóstico inicial', price: 'Gratis', detail: 'Prioridad inicial y siguiente paso.' },
+  { name: 'Taller de automatización', price: 'Desde 300 €', detail: 'Mapa del proceso, viabilidad, riesgos y plan.' },
+  { name: 'Implementación acotada', price: 'Desde 1.500 €', detail: 'Un flujo funcional, probado y documentado.' },
+  { name: 'Implementación multiherramienta', price: 'Desde 3.000 €', detail: 'Varias integraciones, formación y puesta en marcha.' },
+  { name: 'Soporte y optimización', price: 'Desde 300 €/mes', detail: 'Mantenimiento y mejoras acordadas.' },
+] as const;
+
+const faqs = [
+  {
+    question: '¿Qué tipo de negocio encaja mejor?',
+    answer: 'Una PyME o profesional con un proceso repetitivo que ocurre al menos cada semana, una persona responsable del proyecto y capacidad para facilitar acceso a las herramientas implicadas.',
+  },
+  {
+    question: '¿Cuánto cuesta una automatización con IA?',
+    answer: 'El diagnóstico inicial es gratuito, el taller parte de 300 €, una implementación acotada parte de 1.500 € y una automatización con varias integraciones parte de 3.000 €. El precio final depende del alcance, el volumen, los datos, las integraciones y el riesgo.',
+  },
+  {
+    question: '¿Cuánto tarda una implementación?',
+    answer: 'Una implementación acotada suele requerir entre dos y cuatro semanas. Un flujo con varias integraciones puede necesitar entre cuatro y ocho semanas. La fecha se confirma después de revisar alcance, accesos y capacidad.',
+  },
+  {
+    question: '¿Trabajáis con las herramientas que ya usamos?',
+    answer: 'Sí, cuando ofrecen una API, webhook o exportación razonable. Si una pieza impide una solución fiable, proponemos alternativas y explicamos el impacto antes de cambiar nada.',
+  },
+  {
+    question: '¿La IA sustituye la revisión humana?',
+    answer: 'No cuando el proceso incluye datos sensibles o decisiones médicas, legales, financieras o laborales. En esos casos diseñamos controles, revisión humana y límites explícitos, o descartamos la automatización si no puede operarse de forma responsable.',
+  },
+] as const;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      name: 'Servicios de automatización con IA para PyMEs',
+      url: `${SITE}/servicios/`,
+      description: 'Diseño e implementación de automatizaciones con IA para atención al cliente, ventas y operaciones.',
+      inLanguage: 'es',
+      isPartOf: { '@id': WEBSITE_ID },
+      about: { '@id': `${SITE}/servicios/#service` },
+    },
+    {
+      '@type': 'Service',
+      '@id': `${SITE}/servicios/#service`,
+      name: 'Automatización con IA para PyMEs',
+      serviceType: 'Consultoría e implementación de automatizaciones con inteligencia artificial',
+      provider: { '@id': ORG_ID },
+      url: `${SITE}/servicios/`,
+      audience: { '@type': 'BusinessAudience', audienceType: 'PyMEs y profesionales hispanohablantes' },
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Servicios de automatización con IA',
+        itemListElement: services.map((service) => ({
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: `Automatización de ${service.title.toLowerCase()}`,
+            description: service.summary,
+          },
+        })),
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+      })),
+    },
+    breadcrumbList(trail),
+  ],
+};
+---
+
+<BaseLayout
+  title="Servicios de automatización con IA para PyMEs | AgentesVA"
+  description="Detectamos, diseñamos e implementamos automatizaciones con IA para atención al cliente, ventas y operaciones. Diagnóstico gratuito y precios desde 300 €."
+>
+  <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
+  <SiteHeader />
+
+  <main>
+    <section class="hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="shell hero__inner">
+        <Breadcrumb trail={trail} />
+        <div class="hero__grid">
+          <div>
+            <span class="eyebrow">Automatización aplicada · PyMEs</span>
+            <h1>Menos tareas repetitivas.<br /><span>Más control del proceso.</span></h1>
+            <p class="hero__lead">Analizamos cómo trabajas, elegimos una oportunidad concreta y dejamos una automatización funcional, probada y documentada. Sin instalar IA porque sí ni prometer ahorros inventados.</p>
+            <div class="hero__actions">
+              <a
+                href="/diagnostico-automatizacion-ia/"
+                class="button button--primary shimmer"
+                data-track-event="service_cta_click"
+                data-track-page-type="service_hub"
+                data-track-content-slug="servicios"
+                data-track-service="general_consulting"
+                data-track-cluster="general"
+                data-track-placement="hero"
+              >Hacer el diagnóstico gratuito →</a>
+              <a href="#servicios" class="button button--secondary">Ver servicios</a>
+            </div>
+            <p class="hero__note">3 minutos · Sin compromiso · Respuesta humana cuando existe encaje</p>
+          </div>
+          <aside class="fit-card" aria-label="Señales de buen encaje">
+            <span class="fit-card__label">Suele tener sentido cuando</span>
+            <ul>
+              <li>El proceso ocurre cada semana o todos los días.</li>
+              <li>Alguien copia, clasifica o persigue información manualmente.</li>
+              <li>Existe una persona responsable y acceso a las herramientas.</li>
+              <li>Quieres medir si funciona antes de ampliar el alcance.</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios" class="section shell">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Tres problemas, una metodología</span>
+          <h2>Automatizamos donde el trabajo manual se acumula</h2>
+        </div>
+        <p>Empezamos por un proceso concreto. No por una herramienta, un chatbot o una moda.</p>
+      </div>
+
+      <div class="service-grid">
+        {services.map((service) => (
+          <article id={service.id} class="service-card">
+            <div class="service-card__top">
+              <span>{service.number}</span>
+              <span>Servicio</span>
+            </div>
+            <h3>{service.title}</h3>
+            <p>{service.summary}</p>
+            <ul>
+              {service.examples.map((example) => <li>{example}</li>)}
+            </ul>
+            <a
+              href="/diagnostico-automatizacion-ia/"
+              data-track-event="service_cta_click"
+              data-track-page-type="service_hub"
+              data-track-content-slug="servicios"
+              data-track-service={service.service}
+              data-track-cluster={service.cluster}
+              data-track-placement="service_card"
+            >Comprobar si encaja →</a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section section--panel">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Cómo trabajamos</span>
+            <h2>De una tarea confusa a un flujo que puedes supervisar</h2>
+          </div>
+          <p>Cada fase reduce incertidumbre antes de invertir más tiempo o presupuesto.</p>
+        </div>
+        <ol class="process-grid">
+          <li><span>01</span><h3>Diagnóstico</h3><p>Identificamos frecuencia, fricción, herramientas, presupuesto y riesgos.</p></li>
+          <li><span>02</span><h3>Diseño</h3><p>Definimos entradas, salidas, revisión humana, excepciones y criterio de éxito.</p></li>
+          <li><span>03</span><h3>Implementación</h3><p>Conectamos el flujo, probamos casos reales y documentamos su funcionamiento.</p></li>
+          <li><span>04</span><h3>Puesta en marcha</h3><p>Formamos al responsable, monitorizamos y acordamos las siguientes mejoras.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Precios orientativos</span>
+          <h2>Sabes el orden de inversión antes de hablar</h2>
+        </div>
+        <p>Son precios de entrada, no presupuestos cerrados. El alcance final depende de integraciones, datos, volumen, riesgo y soporte.</p>
+      </div>
+      <div class="price-list">
+        {prices.map((item) => (
+          <div class="price-row">
+            <div><h3>{item.name}</h3><p>{item.detail}</p></div>
+            <strong>{item.price}</strong>
+          </div>
+        ))}
+      </div>
+      <div class="fit-grid">
+        <div class="fit-box fit-box--yes">
+          <span class="eyebrow">Buen encaje</span>
+          <h3>Un proceso frecuente y una persona responsable</h3>
+          <p>Quieres empezar con un alcance concreto, facilitar accesos y comprobar el resultado antes de escalar.</p>
+        </div>
+        <div class="fit-box">
+          <span class="eyebrow">Probablemente no todavía</span>
+          <h3>Buscas una herramienta gratis o automatizarlo todo</h3>
+          <p>No sustituimos un ERP completo ni automatizamos decisiones sensibles sin controles y revisión humana.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--panel">
+      <div class="shell faq-layout">
+        <div>
+          <span class="eyebrow">Preguntas frecuentes</span>
+          <h2>Lo importante antes de empezar</h2>
+          <p>Si tu caso no encaja exactamente, el diagnóstico sirve para decidir si conviene una llamada, un taller o simplemente recursos.</p>
+        </div>
+        <div class="faq-list">
+          {faqs.map((faq) => (
+            <details>
+              <summary>{faq.question}<span aria-hidden="true">+</span></summary>
+              <p>{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta shell">
+      <span class="eyebrow">Empieza por la decisión correcta</span>
+      <h2>Descubre qué automatizar primero</h2>
+      <p>Responde ocho preguntas y recibe una recomendación según tu proceso, frecuencia, inversión y plazo.</p>
+      <a
+        href="/diagnostico-automatizacion-ia/"
+        class="button button--primary shimmer"
+        data-track-event="service_cta_click"
+        data-track-page-type="service_hub"
+        data-track-content-slug="servicios"
+        data-track-service="general_consulting"
+        data-track-cluster="general"
+        data-track-placement="final_cta"
+      >Hacer el diagnóstico gratuito →</a>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<style>
+  .shell { width: min(1160px, calc(100% - 64px)); margin-inline: auto; }
+  .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 54px 54px; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,26,51,.97) 0%, rgba(10,26,51,.88) 54%, rgba(10,26,51,.65) 100%); }
+  .hero__glow { position: absolute; width: 720px; height: 620px; right: -120px; top: -210px; border-radius: 50%; background: radial-gradient(circle, rgba(91,124,255,.22), transparent 68%); }
+  .hero__inner { position: relative; padding-block: 40px 76px; }
+  .hero__grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(300px, .75fr); gap: 68px; align-items: end; margin-top: 38px; }
+  .eyebrow { font: 600 10.5px/1.4 var(--mono); letter-spacing: .15em; text-transform: uppercase; color: var(--accent); }
+  h1, h2 { font-family: var(--serif); font-weight: 400; color: #fff; letter-spacing: -.035em; text-wrap: balance; }
+  h1 { max-width: 800px; margin: 16px 0 0; font-size: clamp(42px, 6.8vw, 72px); line-height: .99; }
+  h1 span { color: var(--accent); }
+  .hero__lead { max-width: 690px; margin: 24px 0 0; color: var(--fg-2); font-size: 17px; line-height: 1.65; }
+  .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+  .button { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; padding: 11px 21px; border-radius: 3px; font: 650 14px var(--sans); text-decoration: none; }
+  .button--primary { background: var(--accent); color: var(--bg); border: 1px solid var(--accent); }
+  .button--secondary { color: var(--fg-2); border: 1px solid var(--line-2); background: rgba(18,49,94,.45); }
+  .hero__note { margin: 12px 0 0; color: var(--fg-5); font: 10.5px var(--mono); letter-spacing: .04em; }
+  .fit-card { padding: 26px; border: 1px solid var(--line-2); border-radius: 10px; background: rgba(15,36,73,.85); box-shadow: 0 24px 70px rgba(0,0,0,.2); }
+  .fit-card__label { color: #fff; font: 650 14px var(--sans); }
+  .fit-card ul { margin: 18px 0 0; padding: 0; list-style: none; }
+  .fit-card li { position: relative; padding: 12px 0 12px 25px; border-top: 1px solid var(--line); color: var(--fg-3); font-size: 13.5px; line-height: 1.5; }
+  .fit-card li::before { content: '✓'; position: absolute; left: 0; color: var(--green); }
+  .section { padding-block: 82px; }
+  .section--panel { width: 100%; border-block: 1px solid var(--line); background: var(--bg-2); }
+  .section-heading { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(260px, .65fr); gap: 60px; align-items: end; margin-bottom: 32px; }
+  .section-heading h2, .faq-layout h2, .final-cta h2 { margin: 10px 0 0; font-size: clamp(32px, 5vw, 48px); line-height: 1.06; }
+  .section-heading > p, .faq-layout > div > p { margin: 0; color: var(--fg-3); font-size: 15px; line-height: 1.65; }
+  .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .service-card { scroll-margin-top: 110px; padding: 26px; border: 1px solid var(--line-2); border-radius: 10px; background: linear-gradient(155deg, var(--panel), var(--panel-3)); }
+  .service-card__top { display: flex; justify-content: space-between; color: var(--fg-5); font: 10px var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+  .service-card__top span:first-child { color: var(--accent); }
+  .service-card h3, .fit-box h3 { margin: 26px 0 0; color: #fff; font: 650 21px/1.2 var(--sans); }
+  .service-card > p { min-height: 70px; margin: 12px 0 0; color: var(--fg-3); font-size: 14px; line-height: 1.6; }
+  .service-card ul { min-height: 100px; margin: 22px 0 0; padding: 18px 0 0; border-top: 1px solid var(--line); list-style: none; }
+  .service-card li { position: relative; margin-top: 9px; padding-left: 16px; color: var(--fg-2); font-size: 13px; }
+  .service-card li::before { content: '·'; position: absolute; left: 0; color: var(--accent); }
+  .service-card a { display: inline-block; margin-top: 20px; color: var(--accent); font: 650 13px var(--sans); text-decoration: none; }
+  .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); margin: 0; padding: 0; list-style: none; border: 1px solid var(--line-2); border-radius: 10px; overflow: hidden; }
+  .process-grid li { padding: 28px 24px; background: var(--panel-3); border-right: 1px solid var(--line); }
+  .process-grid li:last-child { border-right: 0; }
+  .process-grid span { color: var(--accent); font: 10px var(--mono); letter-spacing: .12em; }
+  .process-grid h3 { margin: 25px 0 0; color: #fff; font: 650 17px var(--sans); }
+  .process-grid p { margin: 10px 0 0; color: var(--fg-3); font-size: 13px; line-height: 1.6; }
+  .price-list { border-top: 1px solid var(--line-2); }
+  .price-row { display: flex; justify-content: space-between; gap: 28px; align-items: center; padding: 22px 4px; border-bottom: 1px solid var(--line); }
+  .price-row h3 { margin: 0; color: #fff; font: 650 16px var(--sans); }
+  .price-row p { margin: 6px 0 0; color: var(--fg-4); font-size: 13px; }
+  .price-row strong { flex: none; color: var(--accent); font: 650 15px var(--mono); }
+  .fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 34px; }
+  .fit-box { padding: 24px; border: 1px solid var(--line); background: var(--panel-3); }
+  .fit-box--yes { border-color: color-mix(in srgb, var(--green) 42%, var(--line)); }
+  .fit-box h3 { margin-top: 14px; font-size: 18px; }
+  .fit-box p { margin: 10px 0 0; color: var(--fg-3); font-size: 13.5px; line-height: 1.6; }
+  .faq-layout { display: grid; grid-template-columns: .75fr 1.25fr; gap: 72px; }
+  .faq-list { border-top: 1px solid var(--line-2); }
+  details { border-bottom: 1px solid var(--line); }
+  summary { display: flex; justify-content: space-between; gap: 20px; padding: 20px 2px; color: #fff; font: 650 15px var(--sans); cursor: pointer; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary span { color: var(--accent); font: 400 21px var(--mono); transition: transform .2s ease; }
+  details[open] summary span { transform: rotate(45deg); }
+  details p { margin: -4px 32px 20px 2px; color: var(--fg-3); font-size: 14px; line-height: 1.65; }
+  .final-cta { margin-block: 80px; padding: 56px; text-align: center; border: 1px solid var(--line-2); border-radius: 12px; background: radial-gradient(circle at 50% 0%, rgba(91,124,255,.17), transparent 60%), var(--panel); }
+  .final-cta p { max-width: 620px; margin: 16px auto 0; color: var(--fg-3); font-size: 15px; line-height: 1.65; }
+  .final-cta .button { margin-top: 26px; }
+  @media (max-width: 900px) {
+    .hero__grid, .section-heading, .faq-layout { grid-template-columns: 1fr; gap: 28px; }
+    .service-grid { grid-template-columns: 1fr; }
+    .service-card > p, .service-card ul { min-height: 0; }
+    .process-grid { grid-template-columns: 1fr 1fr; }
+    .process-grid li:nth-child(2) { border-right: 0; }
+    .process-grid li { border-bottom: 1px solid var(--line); }
+    .process-grid li:nth-last-child(-n+2) { border-bottom: 0; }
+  }
+  @media (max-width: 640px) {
+    .shell { width: min(100% - 40px, 1160px); }
+    .hero__inner { padding-block: 28px 58px; }
+    .hero__grid { margin-top: 28px; }
+    h1 { font-size: clamp(38px, 13vw, 54px); }
+    .hero__actions > *, .final-cta .button { width: 100%; box-sizing: border-box; }
+    .section { padding-block: 60px; }
+    .process-grid, .fit-grid { grid-template-columns: 1fr; }
+    .process-grid li { border-right: 0; border-bottom: 1px solid var(--line) !important; }
+    .process-grid li:last-child { border-bottom: 0 !important; }
+    .price-row { align-items: flex-start; flex-direction: column; gap: 10px; }
+    .final-cta { width: auto; margin: 54px 20px; padding: 38px 22px; }
+  }
+</style>
