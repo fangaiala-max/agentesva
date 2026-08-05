@@ -119,6 +119,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-010 — Página de automatización de operaciones
 
+- **Estado:** completado el 5 ago 2026 — página comercial sobre documentos, reporting y tareas administrativas con flujo, entregables, rangos, límites, FAQ, schema y CTA atribuido.
 - **Impacto:** crítico
 - **Esfuerzo:** M
 - **Dependencias:** GROW-007, OFL-002
