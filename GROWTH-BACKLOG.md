@@ -163,6 +163,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-014 — Añadir CTA contextual a fichas de herramientas
 
+- **Estado:** completado el 5 ago 2026 — componente reutilizable con mapeo para diez categorías, CTA medido, ejemplo, coste, dificultad y compatibilidad; “Visitar sitio” queda como acción secundaria en hero.
 - **Impacto:** crítico
 - **Esfuerzo:** M
 - **Dependencias:** GROW-003, GROW-008–010
@@ -172,6 +173,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-015 — Añadir CTA contextual a estudios
 
+- **Estado:** completado el 5 ago 2026 — los ocho estudios muestran CTA tras el resumen y al final, con destino contextual y placements diferenciados.
 - **Impacto:** crítico
 - **Esfuerzo:** M
 - **Dependencias:** GROW-003, GROW-008–010
@@ -181,6 +183,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-016 — Reorientar la home hacia implementación
 
+- **Estado:** completado el 5 ago 2026 — hero comercial con diagnóstico primario, servicios secundarios, tres problemas prioritarios y directorio conservado como exploración.
 - **Impacto:** crítico
 - **Esfuerzo:** L
 - **Dependencias:** GROW-003, GROW-007–011
@@ -190,6 +193,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-017 — Actualizar navegación y footer
 
+- **Estado:** completado el 5 ago 2026 — header y footer incorporan Servicios, Precios, Cómo trabajamos y Diagnóstico; el directorio y Estudios conservan acceso editorial.
 - **Impacto:** alto
 - **Esfuerzo:** S
 - **Dependencias:** GROW-007
