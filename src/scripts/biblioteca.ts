@@ -69,21 +69,23 @@ export function initBiblioteca() {
 export function initBibliotecaCopy() {
   const btns = Array.from(document.querySelectorAll<HTMLButtonElement>('.bib-copy'));
   btns.forEach((btn) => {
+    if (btn.dataset.copyWired === 'true') return;
+    btn.dataset.copyWired = 'true';
     // El label vive en un <span> dedicado: tocar solo su texto conserva el icono SVG del botón.
     const label = btn.querySelector<HTMLElement>('.bib-copy-label') || btn;
-    btn.addEventListener('click', () => {
+    const restore = label.textContent;
+    btn.addEventListener('click', async () => {
       const text = btn.dataset.copy || '';
-      const restore = label.textContent;
-      Promise.resolve(navigator.clipboard?.writeText(text))
-        .then(() => {
-          label.textContent = '¡Copiado!';
-          setTimeout(() => {
-            label.textContent = restore;
-          }, 1500);
-        })
-        .catch(() => {
-          /* clipboard no disponible: no-op */
-        });
+      try {
+        if (!navigator.clipboard?.writeText) throw new Error('Clipboard API unavailable');
+        await navigator.clipboard.writeText(text);
+        label.textContent = '¡Copiado!';
+      } catch {
+        label.textContent = 'Selecciona y copia manualmente';
+      }
+      setTimeout(() => {
+        label.textContent = restore;
+      }, 1500);
     });
   });
 }

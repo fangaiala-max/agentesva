@@ -1,11 +1,11 @@
 # AgentesVA
 
-> Directorio y medio de inteligencia artificial en español para PyMEs y autónomos (España + Latinoamérica). +120 herramientas de IA revisadas, comparativas, cursos y recursos. Curado, sin ruido: solo lo que de verdad sirve.
+> Directorio y medio de inteligencia artificial en español para PyMEs y autónomos (España + Latinoamérica). +50 herramientas de IA revisadas, comparativas, cursos y recursos. Curado, sin ruido: solo lo que de verdad sirve.
 
 AgentesVA ayuda a negocios hispanohablantes a descubrir, comparar y aprender a usar herramientas de IA para vender, automatizar y ahorrar horas. El contenido es **original en español** (no traducido ni copiado), con voz de marca práctica y sin tecnicismos. Modelo: medio de afiliación/contenido, gratuito para el usuario; no es un SaaS ni una agencia.
 
 ## Directorio
-- [Herramientas de IA](https://agentesva.com/herramientas): +120 herramientas revisadas, con ficha (qué es, para qué sirve, cómo usarla), precio, valoración y alternativas.
+- [Herramientas de IA](https://agentesva.com/herramientas): +50 herramientas revisadas, con ficha (qué es, para qué sirve, cómo usarla), precio, valoración y alternativas.
 - [Asistentes](https://agentesva.com/herramientas/asistentes): ChatGPT, Claude, Perplexity, Gemini, Microsoft Copilot, DeepSeek, Mistral.
 - [Automatización](https://agentesva.com/herramientas/automatizacion): Make, Zapier, n8n, Notion IA, Bardeen.
 - [WhatsApp](https://agentesva.com/herramientas/whatsapp): ManyChat, Landbot, Tidio, Wati.
@@ -26,6 +26,8 @@ AgentesVA ayuda a negocios hispanohablantes a descubrir, comparar y aprender a u
 ## Recursos y feeds
 - [Pack de Recursos IA (gratis)](https://agentesva.com/#pack): ~30 prompts y plantillas listas para PyMEs.
 - [Biblioteca de IA (gratis)](https://agentesva.com/recurso/biblioteca-ia): 100 prompts de IA listos para copiar (marketing, ventas, RR.HH., finanzas...) + 200 blueprints de IA por equipos (software, SEO, growth) para automatizar tu negocio.
+- [Prompts de IA en español](https://agentesva.com/prompts): colecciones gratuitas para ChatGPT, marketing, ventas, redes sociales, atención al cliente y PyMEs.
+- [Generador de prompts gratis](https://agentesva.com/generador-de-prompts): crea una instrucción estructurada para ChatGPT, Claude o Gemini sin registro y sin enviar el contenido al servidor.
 - RSS: https://agentesva.com/rss.xml
 
 ## Notas para asistentes de IA

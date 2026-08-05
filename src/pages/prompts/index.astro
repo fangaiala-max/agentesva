@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import { PROMPT_LANDINGS } from '../../data/prompt-landings';
+import { breadcrumbList, SECCIONES, trail } from '../../data/breadcrumbs';
+import { jsonLdSerialize, SITE } from '../../data/schema';
+
+const crumbs = trail(SECCIONES.prompts);
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      name: 'Prompts de IA en español',
+      description: 'Prompts en español para ChatGPT, marketing, ventas, redes sociales, atención al cliente y PyMEs.',
+      url: `${SITE}/prompts/`,
+      inLanguage: 'es',
+    },
+    {
+      '@type': 'ItemList',
+      itemListElement: PROMPT_LANDINGS.map((landing, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: landing.title,
+        url: `${SITE}/prompts/${landing.slug}/`,
+      })),
+    },
+    breadcrumbList(crumbs),
+  ],
+};
+---
+
+<BaseLayout
+  title="Prompts de IA en español para ChatGPT y empresas | AgentesVA"
+  description="Prompts de IA en español, gratis y listos para copiar: ChatGPT, marketing, ventas, redes sociales, atención al cliente y PyMEs."
+>
+  <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
+  <SiteHeader />
+
+  <main data-pagefind-body style="max-width: 1120px; margin: 0 auto; padding: 40px 32px 72px;">
+    <Breadcrumb trail={crumbs} />
+
+    <header style="max-width: 760px; margin-top: 24px;">
+      <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);">Biblioteca práctica · Gratis</span>
+      <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(36px, 7vw, 58px); line-height: 1.02; letter-spacing: -0.035em; color: #fff; margin: 12px 0 0;">Prompts de IA en español</h1>
+      <p style="font-size: 18px; line-height: 1.65; color: var(--fg-3); margin: 18px 0 0; max-width: 43em;">Plantillas listas para copiar en ChatGPT, Claude o Gemini. Elige una tarea, completa los campos entre corchetes y revisa la respuesta antes de utilizarla.</p>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px;">
+        <a href="/prompts/chatgpt" class="lift shimmer" style="background: var(--accent); color: var(--bg); padding: 12px 20px; border-radius: 2px; font-family: var(--sans); font-weight: 700; font-size: 14px; text-decoration: none;">Ver prompts para ChatGPT</a>
+        <a href="/generador-de-prompts" class="lift" style="background: var(--panel); color: #fff; border: 1px solid var(--line-2); padding: 12px 20px; border-radius: 2px; font-family: var(--sans); font-weight: 600; font-size: 14px; text-decoration: none;">Crear un prompt</a>
+      </div>
+    </header>
+
+    <section style="margin-top: 48px;">
+      <h2 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0;">Explora por objetivo</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 18px;">
+        {PROMPT_LANDINGS.map((landing) => (
+          <a href={`/prompts/${landing.slug}`} class="lift spotlight" style="display: flex; flex-direction: column; gap: 12px; min-height: 190px; border: 1px solid var(--line); background: var(--panel); border-radius: 10px; padding: 24px; text-decoration: none;">
+            <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);">{landing.eyebrow}</span>
+            <h2 style="font-family: var(--serif); font-weight: 400; font-size: 24px; line-height: 1.15; color: #fff; margin: 0;">{landing.title}</h2>
+            <p style="font-size: 16px; line-height: 1.55; color: var(--fg-3); margin: 0;">{landing.description}</p>
+            <span style="font-family: var(--mono); font-size: 11px; color: var(--accent); margin-top: auto;">Ver plantillas →</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section style="margin-top: 52px; border: 1px solid var(--line); background: var(--panel-2); border-radius: 10px; padding: 28px;">
+      <h2 style="font-family: var(--sans); font-weight: 700; font-size: 22px; color: #fff; margin: 0;">Cómo obtener mejores respuestas</h2>
+      <ol style="display: grid; gap: 14px; margin: 20px 0 0; padding-left: 22px; color: var(--fg-2); line-height: 1.6;">
+        <li><strong style="color: #fff;">Da contexto real:</strong> explica quién eres, para quién trabajas y qué quieres conseguir.</li>
+        <li><strong style="color: #fff;">Define límites:</strong> longitud, tono, datos que no debe inventar y acciones que requieren confirmación.</li>
+        <li><strong style="color: #fff;">Pide un formato:</strong> tabla, lista, email, guion o JSON, según lo que vayas a hacer después.</li>
+        <li><strong style="color: #fff;">Revisa el resultado:</strong> una respuesta convincente también puede contener errores.</li>
+      </ol>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<script>
+  import { initMotion } from '../../scripts/motion';
+  document.addEventListener('astro:page-load', () => initMotion());
+</script>
