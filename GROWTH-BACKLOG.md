@@ -205,6 +205,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-018 — Crear mapa de keywords por problema e intención
 
+- **Estado:** completado el 5 ago 2026 — mapa canónico de páginas comerciales y seis piezas de soporte con intención, query, variantes, CTA, madre, enlaces y reglas anticanibalización.
 - **Impacto:** alto
 - **Esfuerzo:** M
 - **Dependencias:** GROW-008–010
@@ -214,6 +215,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-019 — Crear seis piezas de soporte comercial
 
+- **Estado:** completado el 5 ago 2026 — publicadas seis guías bajo `/guias/` con respuesta ejecutiva, desarrollo práctico original, FAQs, fuentes, enlaces de clúster, CTA contextual doble y datos estructurados.
 - **Impacto:** alto
 - **Esfuerzo:** XL, dividir en seis entregas
 - **Dependencias:** GROW-018, protocolo de fact-checking

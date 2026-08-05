@@ -79,6 +79,7 @@ export const SECCIONES = {
   prompts: { name: 'Prompts', url: '/prompts' },
   recursos: { name: 'Recursos', url: '/recursos' },
   estudios: { name: 'Estudios', url: '/estudios' },
+  guias: { name: 'Guías', url: '/guias' },
   noticias: { name: 'Noticias', url: '/noticias' },
 } as const satisfies Record<string, Crumb>;
 

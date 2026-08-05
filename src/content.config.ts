@@ -99,6 +99,37 @@ const estudios = defineCollection({
   }),
 });
 
+// Guías comerciales — contenido evergreen que responde una duda concreta y
+// conduce a la siguiente decisión (servicio o diagnóstico), sin competir con
+// las páginas transaccionales.
+const guias = defineCollection({
+  loader: glob({ pattern: '*.md', base: './src/content/guias' }),
+  schema: z.object({
+    titulo: z.string(),
+    descripcion: z.string(),
+    fecha: z.coerce.date(),
+    actualizado: z.coerce.date(),
+    tema: z.string(),
+    respuesta: z.string(),
+    puntosClave: z.array(z.string()).min(3),
+    servicio: z.object({
+      nombre: z.string(),
+      href: z.string().startsWith('/'),
+      cluster: z.enum(['atencion', 'ventas', 'procesos']),
+      titulo: z.string(),
+      descripcion: z.string(),
+    }),
+    relacionados: z.array(z.object({ titulo: z.string(), href: z.string().startsWith('/') })).min(2),
+    faq: z.array(z.object({ q: z.string(), a: z.string() })).min(2),
+    fuentes: z.array(z.object({
+      titulo: z.string(),
+      url: z.string().url(),
+      editor: z.string().optional(),
+      fecha: z.string().optional(),
+    })).min(1),
+  }),
+});
+
 // Noticias — actualidad de IA curada, resumida en español original con atribución.
 const noticias = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/noticias' }),
@@ -210,4 +241,4 @@ const recursosCategorias = defineCollection({
   }),
 });
 
-export const collections = { tools, categories, estudios, noticias, cursos, cursosCategorias, recursos, recursosCategorias };
+export const collections = { tools, categories, estudios, guias, noticias, cursos, cursosCategorias, recursos, recursosCategorias };
