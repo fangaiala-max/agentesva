@@ -4,7 +4,7 @@ import SearchModal from './SearchModal.astro';
 import { getCollection } from 'astro:content';
 import { toolsClaim } from '../data/tools';
 import { frescura, ultimaActualizacion } from '../data/frescura';
-import { crumbPath, SECCIONES_NAV } from '../data/breadcrumbs';
+import { crumbPath, DIAGNOSTICO, NAVEGACION_COMERCIAL, SECCIONES } from '../data/breadcrumbs';
 
 const [tools, estudios, noticias] = await Promise.all([
   getCollection('tools'),
@@ -51,14 +51,14 @@ const tickerItems = `+${claim} herramientas de IA revisadas  ·  Sin ruido, 
 
 <!-- ===== HEADER ===== -->
 <header style="position: sticky; top: 0; z-index: 50; background: rgba(10,26,51,0.82); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line);">
-  <div style="max-width: 1200px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
-    <a href="/" style="display: flex; align-items: baseline; gap: 3px; text-decoration: none;">
+  <div class="site-header__inner" style="max-width: 1200px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+    <a href="/" style="display: flex; flex:none; align-items: baseline; gap: 3px; text-decoration: none;">
       <span style="font-family: var(--serif); font-weight: 400; font-size: 24px; letter-spacing: -0.025em; color: #fff;">AgentesVA</span>
       <sup style="font-family: var(--mono); font-size: 10px; font-weight: 600; color: var(--accent); top: -0.7em; animation: glowPulse 3s ease-in-out infinite; border-radius: 3px;">[IA]</sup>
     </a>
     <nav id="site-nav" class="sitenav" aria-label="Principal" style="display: flex; gap: 24px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;">
       {
-        SECCIONES_NAV.map((s, i) => (
+        [...NAVEGACION_COMERCIAL, SECCIONES.herramientas, SECCIONES.estudios].map((s, i) => (
           <a class="navlink" href={crumbPath(s.url)} style={`color: ${i === 0 ? '#fff' : 'var(--fg-4)'}; text-decoration: none;`}>
             {s.name}
           </a>
@@ -80,10 +80,11 @@ const tickerItems = `+${claim} herramientas de IA revisadas  ·  Sin ruido, 
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--fg-3)" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
         <span style="font-family: var(--mono); font-size: 10px; color: var(--fg-5); border: 1px solid var(--line-2); border-radius: 4px; padding: 2px 6px;">⌘K</span>
       </button>
-      <a href="/newsletter" class="shimmer magnetic" data-magnetic style="font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--bg); background: var(--accent); padding: 9px 18px; border-radius: 2px; text-decoration: none; animation: glowPulse 3.4s ease-in-out infinite;">Suscríbete</a>
+      <a href={crumbPath(DIAGNOSTICO.url)} class="shimmer magnetic" data-magnetic style="font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--bg); background: var(--accent); padding: 9px 18px; border-radius: 2px; text-decoration: none; animation: glowPulse 3.4s ease-in-out infinite;">Diagnóstico</a>
     </div>
   </div>
 </header>
+<style>@media(max-width:767px){.site-header__inner{padding:14px 16px!important;gap:10px!important}}</style>
 <SearchModal />
 
 <script>

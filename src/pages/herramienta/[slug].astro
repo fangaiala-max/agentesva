@@ -8,6 +8,7 @@ import { toTool, getAlternatives, fallbackFaqs, badgesFor, type Tool } from '../
 import AffiliateCTA from '../../components/AffiliateCTA.astro';
 import Badge from '../../components/Badge.astro';
 import TrustSignals from '../../components/TrustSignals.astro';
+import ToolServiceCTA from '../../components/ToolServiceCTA.astro';
 import { jsonLdSerialize } from '../../data/schema';
 import { crumbPath, breadcrumbList, fichaTrail, SECCIONES, type CatEntry } from '../../data/breadcrumbs';
 
@@ -95,7 +96,8 @@ const jsonLd = {
         <TrustSignals tool={tool} altsCount={alts.length} />
       </div>
       <div style="display: flex; flex-direction: column; gap: 10px; flex: none;">
-        <AffiliateCTA slug={tool.slug} src="ficha-hero" hasAffiliate={hasAffiliate} />
+        <ToolServiceCTA tool={tool} placement="hero" />
+        <AffiliateCTA slug={tool.slug} src="ficha-hero" variant="inline" hasAffiliate={hasAffiliate} />
         <button type="button" id="save-btn" data-slug={tool.slug} aria-pressed="false" style="background: var(--panel-2); color: var(--fg-2); border: 1px solid var(--line-2); padding: 13px 24px; border-radius: 2px; font-family: var(--sans); font-weight: 600; font-size: 14px; cursor: pointer; white-space: nowrap;"><span id="save-label">Guardar</span></button>
       </div>
     </div>
@@ -159,6 +161,7 @@ const jsonLd = {
             </div>
           ))}
         </div>
+        <div style="margin-top: 36px;"><ToolServiceCTA tool={tool} /></div>
       </div>
 
       <aside style="display: flex; flex-direction: column; gap: 18px;">
@@ -205,21 +208,10 @@ const jsonLd = {
       <AffiliateCTA slug={tool.slug} src="ficha-bottom" hasAffiliate={hasAffiliate} />
     </div>
 
-    <div class="ficha-sticky-cta" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; background: var(--bg-2); border-top: 1px solid var(--line-2); padding: 10px 16px; box-shadow: 0 -6px 24px rgba(0,0,0,0.35);">
-      <AffiliateCTA slug={tool.slug} src="ficha-sticky" variant="sticky" hasAffiliate={hasAffiliate} label={`Visitar ${tool.name} →`} />
-    </div>
   </main>
 
   <SiteFooter />
 </BaseLayout>
-
-<style>
-  .ficha-sticky-cta { display: none; }
-  @media (max-width: 767px) {
-    .ficha-sticky-cta { display: block; }
-    main { padding-bottom: 96px !important; }
-  }
-</style>
 
 <script>
   import { initToolDetail } from '../../scripts/tool-detail';

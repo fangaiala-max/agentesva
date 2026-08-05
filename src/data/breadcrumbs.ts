@@ -95,6 +95,14 @@ export const SECCIONES_NAV: readonly Crumb[] = [
   SECCIONES.noticias,
 ];
 
+export const NAVEGACION_COMERCIAL: readonly Crumb[] = [
+  { name: 'Servicios', url: '/servicios' },
+  { name: 'Precios', url: '/precios-automatizacion-ia' },
+  { name: 'Cómo trabajamos', url: '/como-trabajamos' },
+] as const;
+
+export const DIAGNOSTICO: Crumb = { name: 'Diagnóstico', url: '/diagnostico-automatizacion-ia' };
+
 // Enlaces secundarios del pie: útiles para la persona, irrelevantes como sitelink.
 // Van en una fila aparte para no diluir las secciones principales de arriba.
 export const PIE_SECUNDARIO: readonly Crumb[] = [

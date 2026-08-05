@@ -1,0 +1,10 @@
+export interface StudyServiceRecommendation { service:string;cluster:string;href:string;title:string;description:string }
+const adoption:StudyServiceRecommendation={service:'team_adoption',cluster:'adoption',href:'/diagnostico-automatizacion-ia/',title:'¿Quieres llevar esta IA a tu equipo?',description:'Definimos casos de uso, controles y formación para convertir una prueba en una forma de trabajo útil.'};
+const map:Record<string,StudyServiceRecommendation>={
+  'ia-para-atencion-al-cliente':{service:'customer_service_automation',cluster:'customer_service',href:'/servicios/automatizacion-atencion-cliente/',title:'¿Quieres automatizar parte de tu atención al cliente?',description:'Revisamos canales, consultas y fuentes para diseñar un primer flujo con derivación humana.'},
+  'mejores-herramientas-ia-whatsapp':{service:'customer_service_automation',cluster:'customer_service',href:'/servicios/automatizacion-atencion-cliente/',title:'¿Quieres implementar WhatsApp en tu atención o ventas?',description:'Conectamos el canal, las respuestas y la asignación al equipo sin depender de copiar datos.'},
+  'herramientas-ia-para-automatizar-tareas':{service:'process_automation',cluster:'operations',href:'/servicios/automatizacion-procesos/',title:'¿Quieres automatizar una tarea de tu empresa?',description:'Mapeamos el proceso, conectamos las herramientas y dejamos excepciones bajo control.'},
+  'mejores-herramientas-ia-para-redes-sociales':{service:'sales_automation',cluster:'sales',href:'/servicios/automatizacion-ventas/',title:'¿Quieres conectar contenido y captación?',description:'Diseñamos el flujo desde el lead hasta el CRM y el siguiente paso comercial.'},
+  'mejores-herramientas-ia-para-crear-imagenes':{service:'sales_automation',cluster:'sales',href:'/servicios/automatizacion-ventas/',title:'¿Quieres integrar contenido visual en tu captación?',description:'Conectamos briefs, revisión, publicación y resultados con tu proceso comercial.'},
+};
+export const studyServiceRecommendation=(slug:string)=>map[slug]??adoption;

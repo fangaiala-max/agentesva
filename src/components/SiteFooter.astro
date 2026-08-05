@@ -1,7 +1,7 @@
 ---
 // Pie del directorio "Futurista" + captación de newsletter (inline).
 import SubscribeForm from './SubscribeForm.astro';
-import { crumbPath, SECCIONES_NAV, PIE_SECUNDARIO } from '../data/breadcrumbs';
+import { crumbPath, DIAGNOSTICO, NAVEGACION_COMERCIAL, SECCIONES_NAV, PIE_SECUNDARIO } from '../data/breadcrumbs';
 ---
 
 <footer style="border-top: 1px solid var(--line); background: var(--bg-2);">
@@ -19,6 +19,11 @@ import { crumbPath, SECCIONES_NAV, PIE_SECUNDARIO } from '../data/breadcrumbs';
   </div>
 
   <!-- Secciones: mismo orden y mismo texto de ancla que el header -->
+  <div style="border-bottom: 1px solid var(--line);">
+    <nav aria-label="Servicios" style="max-width: 1200px; margin: 0 auto; padding: 22px 32px; display: flex; gap: 22px; flex-wrap: wrap; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">
+      {[...NAVEGACION_COMERCIAL, DIAGNOSTICO].map((s) => <a class="navlink" href={crumbPath(s.url)} style="color: var(--accent); text-decoration: none;">{s.name}</a>)}
+    </nav>
+  </div>
   <div style="border-bottom: 1px solid var(--line);">
     <nav aria-label="Secciones" style="max-width: 1200px; margin: 0 auto; padding: 22px 32px; display: flex; gap: 22px; flex-wrap: wrap; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">
       {

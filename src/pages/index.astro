@@ -52,8 +52,8 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
 ---
 
 <BaseLayout
-  title="AgentesVA — Directorio de herramientas de IA para tu negocio"
-  description={`Compara +${claim} herramientas de IA revisadas para vender, automatizar y ahorrar horas. Filtra, guarda y elige sin perderte en listas infinitas. En español, para España y Latinoamérica.`}
+  title="Automatización con IA para PyMEs | AgentesVA"
+  description="Detectamos, diseñamos e implementamos automatizaciones con IA para atención al cliente, ventas y operaciones. Diagnóstico inicial gratuito."
 >
   <SiteHeader />
 
@@ -65,16 +65,17 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
 
     <div class="hero-grid" style="position: relative; max-width: 1240px; margin: 0 auto; padding: 56px 32px 48px;">
       <div>
-        <span class="blur-in" style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--line-2); border-radius: 30px; padding: 6px 14px; animation-delay: .05s;">Directorio de IA · sin ruido</span>
-        <h1 class="blur-in" style="font-family: var(--serif); font-weight: 400; font-size: clamp(38px, 5.5vw, 54px); line-height: 1.03; letter-spacing: -0.035em; margin: 20px 0 0; color: #fff; animation-delay: .14s;">La herramienta de IA<br>para tu negocio, <span style="color: var(--accent);">en segundos</span></h1>
-        <p class="blur-in" style="font-size: 16.5px; line-height: 1.6; color: var(--fg-3); margin: 18px 0 0; max-width: 32em; animation-delay: .26s;">Compara +{claim} herramientas revisadas para vender, automatizar y ahorrar horas. Filtra, guarda y elige sin perderte en listas infinitas.</p>
+        <span class="blur-in" style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--line-2); border-radius: 30px; padding: 6px 14px; animation-delay: .05s;">Automatización aplicada · PyMEs</span>
+        <h1 class="blur-in" style="font-family: var(--serif); font-weight: 400; font-size: clamp(38px, 5.5vw, 54px); line-height: 1.03; letter-spacing: -0.035em; margin: 20px 0 0; color: #fff; animation-delay: .14s;">Detecta e implementa<br>la automatización que <span style="color: var(--accent);">sí merece la pena</span></h1>
+        <p class="blur-in" style="font-size: 16.5px; line-height: 1.6; color: var(--fg-3); margin: 18px 0 0; max-width: 35em; animation-delay: .26s;">Analizamos atención al cliente, ventas y operaciones. Elegimos un primer proceso y dejamos un flujo probado, documentado y bajo control.</p>
+        <div class="blur-in" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;animation-delay:.32s"><a href="/diagnostico-automatizacion-ia/" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="general_consulting" data-track-cluster="general" data-track-placement="hero" style="padding:13px 18px;background:var(--accent);color:var(--bg);font-weight:700;text-decoration:none;border-radius:3px">Hacer diagnóstico gratuito →</a><a href="/servicios/" style="padding:13px 18px;border:1px solid var(--line-2);color:#fff;font-weight:600;text-decoration:none;border-radius:3px">Ver servicios</a></div>
 
         <!-- search -->
         <form id="search-form" role="search" class="searchwrap blur-in" style="display: flex; align-items: center; gap: 12px; max-width: 520px; margin: 26px 0 0; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 4px; padding: 4px 4px 4px 18px; transition: border-color .25s, box-shadow .25s; animation-delay: .38s;">
           <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--fg-5)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
           <label for="tool-search" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Buscar herramientas</label>
           <input id="tool-search" type="search" autocomplete="off" placeholder="Busca: chatbot, automatizar WhatsApp, crear vídeos…" style="flex: 1; min-width: 0; background: transparent; border: none; outline: none; color: #fff; font-family: var(--sans); font-size: 15px; padding: 12px 0;">
-          <button type="submit" class="shimmer" style="font-family: var(--mono); font-size: 11px; color: var(--bg); background: var(--accent); padding: 11px 18px; border-radius: 2px; font-weight: 600; border: none; cursor: pointer;">Buscar</button>
+          <button type="submit" style="font-family: var(--mono); font-size: 11px; color: var(--fg-2); background: var(--panel-3); padding: 11px 18px; border-radius: 2px; font-weight: 600; border: 1px solid var(--line-2); cursor: pointer;">Buscar</button>
         </form>
 
         <!-- quick chips -->
@@ -114,6 +115,12 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
     </div>
   </section>
 
+  <section style="max-width:1240px;margin:28px auto 0;padding:0 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">
+    <a href="/servicios/automatizacion-atencion-cliente/" class="banner" style="padding:22px;border:1px solid var(--line-2);border-radius:10px;background:var(--panel);text-decoration:none"><span style="font:10px var(--mono);color:var(--accent);text-transform:uppercase">Atención al cliente</span><h2 style="color:#fff;font:600 19px var(--sans)">Responde y deriva consultas</h2><p style="color:var(--fg-3);font-size:14px">Email, tickets, formularios y WhatsApp con control humano.</p></a>
+    <a href="/servicios/automatizacion-ventas/" class="banner" style="padding:22px;border:1px solid var(--line-2);border-radius:10px;background:var(--panel);text-decoration:none"><span style="font:10px var(--mono);color:var(--accent);text-transform:uppercase">Ventas</span><h2 style="color:#fff;font:600 19px var(--sans)">Conecta leads, CRM y seguimiento</h2><p style="color:var(--fg-3);font-size:14px">Evita oportunidades sin responsable o siguiente paso.</p></a>
+    <a href="/servicios/automatizacion-procesos/" class="banner" style="padding:22px;border:1px solid var(--line-2);border-radius:10px;background:var(--panel);text-decoration:none"><span style="font:10px var(--mono);color:var(--accent);text-transform:uppercase">Operaciones</span><h2 style="color:#fff;font:600 19px var(--sans)">Reduce tareas entre sistemas</h2><p style="color:var(--fg-3);font-size:14px">Documentos, informes y tareas administrativas.</p></a>
+  </section>
+
   <!-- ===== PACK BANNER (sin countdown: el pack es gratis siempre, sin falsa urgencia) ===== -->
   <a href="#pack" style="text-decoration: none; display: block; max-width: 1240px; margin: 22px auto 0; padding: 0 32px;">
     <section class="banner" style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; background: #10233F; border: 1px solid var(--line-2); border-left: 3px solid var(--gold); border-radius: 10px; padding: 18px 24px; cursor: pointer;">
@@ -121,7 +128,7 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
         <span aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: var(--gold); animation: dotPulse 1.4s ease-in-out infinite;"></span>Pack gratis
       </span>
       <span style="font-family: var(--sans); font-size: 15.5px; color: #fff; font-weight: 600; flex: 1; min-width: 220px;">Pack de Recursos IA <span style="color: var(--fg-3); font-weight: 400;">— 30 prompts y plantillas listas para tu negocio.</span></span>
-      <span style="font-family: var(--sans); font-weight: 600; font-size: 13.5px; color: var(--bg); background: var(--gold); padding: 10px 18px; border-radius: 2px; white-space: nowrap;">Conseguir gratis →</span>
+      <span style="font-family: var(--sans); font-weight: 600; font-size: 13.5px; color: var(--gold); border:1px solid rgba(245,196,81,.55); padding: 10px 18px; border-radius: 2px; white-space: nowrap;">Conseguir gratis →</span>
     </section>
   </a>
 
