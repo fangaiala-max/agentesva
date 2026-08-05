@@ -89,6 +89,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-007 — Crear hub `/servicios/`
 
+- **Estado:** completado el 4 ago 2026 — hub comercial con tres líneas de servicio, proceso, precios orientativos, criterios de encaje, FAQ, datos estructurados y CTA medidos hacia el diagnóstico.
 - **Impacto:** crítico
 - **Esfuerzo:** M
 - **Dependencias:** OFL-001, OFL-002
