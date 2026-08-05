@@ -7,6 +7,7 @@ import '@fontsource-variable/jetbrains-mono';
 import { ClientRouter } from 'astro:transitions';
 import { entityGraph, jsonLdSerialize, SITE } from '../data/schema';
 import ConsentBanner from '../components/ConsentBanner.astro';
+import ToastRegion from '../components/ToastRegion.astro';
 
 export interface Props {
   title: string;
@@ -67,6 +68,7 @@ const {
   <body class="min-h-screen">
     <slot />
     <ConsentBanner />
+    <ToastRegion />
   </body>
 </html>
 
@@ -77,4 +79,3 @@ const {
     fireViewEvents();
   });
 </script>
-

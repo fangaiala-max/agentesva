@@ -10,6 +10,7 @@ import {
   REDUCE,
 } from './directory';
 import { priceRank, type Price } from '../data/tools';
+import { showToast } from './toast';
 
 const CTA_KEY = 'agentesva:cta-dismissed';
 const MAX_COMPARE = 3;
@@ -72,6 +73,21 @@ export function initHome() {
   let activeCat = 'Todas';
   const prices = new Set<Price>();
 
+  const animateVisibleCards = () => {
+    if (REDUCE || grid.hidden) return;
+    const visibleCards = cards.filter((card) => card.style.display !== 'none').slice(0, 18);
+    visibleCards.forEach((card, index) => {
+      card.getAnimations().forEach((animation) => animation.cancel());
+      card.animate(
+        [
+          { opacity: 0, transform: 'translateY(10px) scale(.985)' },
+          { opacity: 1, transform: 'translateY(0) scale(1)' },
+        ],
+        { duration: 320, delay: Math.min(index * 28, 280), easing: 'cubic-bezier(.22,.8,.3,1)', fill: 'both' },
+      );
+    });
+  };
+
   const scrollToDir = () => {
     document.getElementById('directorio')?.scrollIntoView({ behavior: REDUCE ? 'auto' : 'smooth' });
   };
@@ -102,6 +118,7 @@ export function initHome() {
     // Eco de la consulta en el estado vacío: "No encontramos nada para X".
     const echo = document.querySelector<HTMLElement>('[data-empty-query]');
     if (echo) echo.textContent = search?.value.trim() || 'tu búsqueda';
+    requestAnimationFrame(animateVisibleCards);
   };
 
   const setCat = (cat: string) => {
@@ -174,6 +191,7 @@ export function initHome() {
     priceInputs.forEach((i) => (i.checked = false));
     if (search) search.value = '';
     setCat('Todas');
+    showToast('Filtros eliminados', { detail: 'Mostrando todas las herramientas.', kind: 'success' });
   });
 
   // ===== Ordenación (vista Tienda) =====
@@ -188,6 +206,7 @@ export function initHome() {
       return num(a, 'orden') - num(b, 'orden');
     });
     sorted.forEach((c) => grid.appendChild(c));
+    requestAnimationFrame(animateVisibleCards);
   });
 
   // ===== Vista grid/lista (vista Tienda) =====
@@ -196,6 +215,7 @@ export function initHome() {
       const list = btn.dataset.view === 'list';
       grid.classList.toggle('view-list', list);
       viewBtns.forEach((b) => paintSeg(b, b === btn));
+      requestAnimationFrame(animateVisibleCards);
     }),
   );
 
@@ -269,8 +289,16 @@ export function initHome() {
 
   const toggleCompare = (slug: string) => {
     const i = compare.indexOf(slug);
-    if (i >= 0) compare.splice(i, 1);
-    else if (compare.length < MAX_COMPARE) compare.push(slug);
+    const toolName = poolCard(slug)?.dataset.name || 'Herramienta';
+    if (i >= 0) {
+      compare.splice(i, 1);
+      showToast(`${toolName} eliminada`, { detail: 'Ya no está en la comparativa.' });
+    } else if (compare.length < MAX_COMPARE) {
+      compare.push(slug);
+      showToast(`${toolName} añadida`, { detail: `${compare.length} de ${MAX_COMPARE} herramientas seleccionadas.`, kind: 'success' });
+    } else {
+      showToast(`Máximo ${MAX_COMPARE} herramientas`, { detail: 'Quita una antes de añadir otra.', kind: 'warning' });
+    }
     paintCompareBtns();
     renderCompareBar();
     updateBars();
@@ -285,6 +313,7 @@ export function initHome() {
     paintCompareBtns();
     renderCompareBar();
     updateBars();
+    showToast('Comparativa vaciada');
   });
 
   document.getElementById('cta-dismiss')?.addEventListener('click', () => {

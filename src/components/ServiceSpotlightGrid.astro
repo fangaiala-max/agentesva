@@ -1,0 +1,113 @@
+---
+const services = [
+  {
+    eyebrow: 'Atención al cliente',
+    title: 'Responde y deriva consultas',
+    description: 'Email, tickets, formularios y WhatsApp con control humano.',
+    href: '/servicios/automatizacion-atencion-cliente/',
+    icon: 'message',
+    steps: ['Entrada', 'IA clasifica', 'Equipo resuelve'],
+    accent: '#4fd39a',
+  },
+  {
+    eyebrow: 'Ventas',
+    title: 'Conecta leads, CRM y seguimiento',
+    description: 'Evita oportunidades sin responsable o siguiente paso.',
+    href: '/servicios/automatizacion-ventas/',
+    icon: 'trend',
+    steps: ['Lead', 'CRM actualizado', 'Seguimiento'],
+    accent: '#5b7cff',
+  },
+  {
+    eyebrow: 'Operaciones',
+    title: 'Reduce tareas entre sistemas',
+    description: 'Documentos, informes y tareas administrativas sin copiar y pegar.',
+    href: '/servicios/automatizacion-procesos/',
+    icon: 'nodes',
+    steps: ['Dato', 'Flujo validado', 'Resultado'],
+    accent: '#f5c451',
+  },
+] as const;
+---
+
+<section class="service-showcase" aria-labelledby="service-showcase-title">
+  <div class="service-showcase__head">
+    <div>
+      <span class="service-showcase__kicker">Dónde empezar</span>
+      <h2 id="service-showcase-title">Tres procesos con impacto directo</h2>
+    </div>
+    <a href="/servicios/">Ver todos los servicios <span aria-hidden="true">→</span></a>
+  </div>
+
+  <div class="service-showcase__grid">
+    {services.map((service, index) => (
+      <a
+        href={service.href}
+        class="service-spotlight spotlight"
+        style={`--service-accent:${service.accent};--delay:${index * 80}ms`}
+      >
+        <div class="service-spotlight__top">
+          <span class="service-spotlight__icon" aria-hidden="true">
+            {service.icon === 'message' && (
+              <svg viewBox="0 0 24 24"><path d="M7 17.5 3.5 20v-4.7A8 8 0 1 1 7 17.5Z"/><path d="M8 10h8M8 13h5"/></svg>
+            )}
+            {service.icon === 'trend' && (
+              <svg viewBox="0 0 24 24"><path d="m4 16 5-5 4 3 7-8"/><path d="M15 6h5v5"/></svg>
+            )}
+            {service.icon === 'nodes' && (
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="6" height="5" rx="1"/><rect x="15" y="15" width="6" height="5" rx="1"/><path d="M9 6.5h4a3 3 0 0 1 3 3v5.5M13 15h3"/></svg>
+            )}
+          </span>
+          <span class="service-spotlight__number">0{index + 1}</span>
+        </div>
+
+        <div class="service-spotlight__copy">
+          <span class="service-spotlight__eyebrow">{service.eyebrow}</span>
+          <h3>{service.title}</h3>
+          <p>{service.description}</p>
+        </div>
+
+        <div class="service-spotlight__flow" aria-label={`Flujo: ${service.steps.join(', ')}`}>
+          {service.steps.map((step, stepIndex) => (
+            <>
+              <span>{step}</span>
+              {stepIndex < service.steps.length - 1 && <i aria-hidden="true">→</i>}
+            </>
+          ))}
+        </div>
+
+        <span class="service-spotlight__link">Explorar solución <span aria-hidden="true">↗</span></span>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .service-showcase { max-width: 1240px; margin: 42px auto 0; padding: 0 32px; }
+  .service-showcase__head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 18px; }
+  .service-showcase__kicker { font: 10px var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+  .service-showcase__head h2 { margin: 7px 0 0; color: #fff; font: 400 clamp(24px, 3vw, 31px)/1.12 var(--serif); letter-spacing: -.025em; }
+  .service-showcase__head > a { color: var(--fg-3); font: 600 13px var(--sans); text-decoration: none; white-space: nowrap; }
+  .service-showcase__head > a:hover { color: #fff; }
+  .service-showcase__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .service-spotlight { position: relative; isolation: isolate; overflow: hidden; min-height: 330px; padding: 22px; display: flex; flex-direction: column; color: inherit; text-decoration: none; border: 1px solid var(--line-2); border-radius: 14px; background: linear-gradient(155deg, color-mix(in srgb, var(--service-accent) 10%, var(--panel)) 0%, var(--panel-3) 60%); transition: transform .32s cubic-bezier(.22,.61,.36,1), border-color .32s, box-shadow .32s; animation: service-in .6s both var(--delay); }
+  .service-spotlight::after { content: ''; position: absolute; inset: 0; z-index: -1; background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px); background-size: 30px 30px; mask-image: linear-gradient(to bottom, #000, transparent 72%); }
+  .service-spotlight:hover { transform: translateY(-5px); border-color: color-mix(in srgb, var(--service-accent) 65%, var(--line-2)); box-shadow: 0 20px 55px rgba(0,0,0,.23), 0 0 32px color-mix(in srgb, var(--service-accent) 15%, transparent); }
+  .service-spotlight__top { display: flex; align-items: center; justify-content: space-between; }
+  .service-spotlight__icon { width: 42px; height: 42px; display: grid; place-items: center; color: var(--service-accent); border: 1px solid color-mix(in srgb, var(--service-accent) 44%, var(--line)); border-radius: 11px; background: color-mix(in srgb, var(--service-accent) 10%, var(--bg)); box-shadow: inset 0 0 18px color-mix(in srgb, var(--service-accent) 9%, transparent); }
+  .service-spotlight__icon svg { width: 21px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .service-spotlight__number { color: var(--fg-5); font: 10px var(--mono); letter-spacing: .12em; }
+  .service-spotlight__copy { margin-top: 30px; }
+  .service-spotlight__eyebrow { color: var(--service-accent); font: 10px var(--mono); letter-spacing: .13em; text-transform: uppercase; }
+  .service-spotlight h3 { color: #fff; font: 600 20px/1.25 var(--sans); letter-spacing: -.02em; margin: 8px 0 0; }
+  .service-spotlight p { color: var(--fg-3); font: 14px/1.55 var(--sans); margin: 9px 0 0; }
+  .service-spotlight__flow { display: flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 25px; color: var(--fg-4); font: 9px var(--mono); text-transform: uppercase; letter-spacing: .045em; }
+  .service-spotlight__flow span { padding: 5px 7px; border: 1px solid var(--line); border-radius: 4px; background: rgba(10,26,51,.5); }
+  .service-spotlight__flow i { color: var(--service-accent); font-style: normal; }
+  .service-spotlight__link { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--fg-2); font: 600 13px var(--sans); }
+  .service-spotlight:hover .service-spotlight__link { color: #fff; }
+  @keyframes service-in { from { opacity: 0; transform: translateY(14px); } }
+  @media (max-width: 900px) { .service-showcase__grid { grid-template-columns: 1fr; } .service-spotlight { min-height: 275px; } }
+  @media (max-width: 600px) { .service-showcase { padding: 0 20px; } .service-showcase__head { align-items: start; flex-direction: column; gap: 10px; } .service-spotlight__flow { flex-wrap: wrap; } }
+  @media (prefers-reduced-motion: reduce) { .service-spotlight { animation: none; } }
+</style>
