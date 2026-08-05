@@ -109,6 +109,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-009 — Página de automatización de ventas y seguimiento
 
+- **Estado:** completado el 5 ago 2026 — página comercial con captación, cualificación, CRM, asignación, seguimiento, entregables, rangos, límites, FAQ, schema y CTA atribuido.
 - **Impacto:** crítico
 - **Esfuerzo:** M
 - **Dependencias:** GROW-007, OFL-002

@@ -34,9 +34,9 @@ describe('/servicios/', () => {
     expect(PAGE).toContain('breadcrumbList(trail)');
   });
 
-  it('enlaza la vertical publicada y no las páginas todavía pendientes', () => {
+  it('enlaza las verticales publicadas y no las páginas todavía pendientes', () => {
     expect(PAGE).toContain("href: '/servicios/automatizacion-atencion-cliente/'");
-    expect(PAGE).not.toContain('href="/servicios/automatizacion-ventas/"');
+    expect(PAGE).toContain("href: '/servicios/automatizacion-ventas/'");
     expect(PAGE).not.toContain('href="/servicios/automatizacion-procesos/"');
   });
 });
