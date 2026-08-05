@@ -2,6 +2,22 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [0.4.0.0] - 2026-08-04
+
+### Added
+- Ya se pueden explorar prompts de IA en español desde `/prompts`, con seis colecciones específicas para ChatGPT, marketing, ventas, redes sociales, atención al cliente y PyMEs.
+- Nuevo generador gratuito que estructura rol, contexto, tarea, restricciones y formato dentro del navegador, sin registro ni envío de los datos a un servidor.
+- Las nuevas páginas incluyen preguntas frecuentes, datos estructurados, migas de pan, enlaces relacionados y plantillas listas para copiar.
+
+### Changed
+- Prompts pasa a formar parte de la navegación principal; el generador y las colecciones también se enlazan desde la portada, la Biblioteca de IA, el pie y `llms.txt`.
+- El sitemap incorpora una fecha editorial estable para el relanzamiento y excluye también `/gracias`, además de las rutas privadas o `noindex` ya filtradas.
+- El flujo de entrega incorpora reglas reproducibles para revisar, verificar y publicar cambios con el mismo criterio en futuras versiones.
+
+### Fixed
+- Los botones de copia conservan correctamente su etiqueta tras clics rápidos, no duplican eventos al navegar y ofrecen una alternativa manual cuando el navegador deniega el portapapeles.
+- La cifra de herramientas publicada en `llms.txt` vuelve a coincidir con el catálogo real: más de 50 herramientas revisadas.
+
 ## [0.3.2.0] - 2026-07-29
 
 ### Added

@@ -134,7 +134,7 @@ input::placeholder { color: var(--fg-5); }
 .prose td { color: var(--fg-2); }
 
 /* Foco visible accesible para todo elemento interactivo */
-a:focus-visible, button:focus-visible, input:focus-visible {
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
