@@ -1,0 +1,90 @@
+{
+  "date": "2026-08-05",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "Apple says more ex-employees may have taken confidential data to OpenAI",
+      "url": "https://techcrunch.com/2026/08/04/apple-says-more-ex-employees-may-have-taken-confidential-data-to-openai/",
+      "fecha": "2026-08-04T14:03:01.000Z",
+      "resumen": "Apple says its trade secrets investigation into OpenAI has widened. In a new court filing, Apple claims additional former staff may have retained or accessed confidential information.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "apple-says-more-ex-employees-may-have-taken-confidential-dat",
+      "signals": {
+        "hn": 618,
+        "reddit": 0,
+        "social": 0.8456472884534681,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.5111256790123456,
+        "authority": 0.9
+      },
+      "score": 0.6472,
+      "tema": "Código"
+    },
+    {
+      "titulo": "OpenAI drags Apple’s lawsuit into the court of public opinion",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/974914/openai-blog-response-apple-lawsuit-messages",
+      "fecha": "2026-08-04T11:27:55.000Z",
+      "resumen": "OpenAI says Apple’s lawsuit is “careless, aggressive, and oddly personal.” | Image: Cath Virginia / The Verge, Getty Images\t\n\nApple's legal battle against OpenAI just got messier now that the ChatGPT-maker has publicly aired receipts to counter Apple's version of events. In a blog post published overnight titled \"Apple is getting this wrong,\" OpenAI said that Apple's lawsuit accusing it of stealin",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "openai-drags-apple-s-lawsuit-into-the-court-of-public-opinio",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.43932012345679017,
+        "authority": 0.9
+      },
+      "score": 0.4559,
+      "tema": "Asistentes"
+    },
+    {
+      "titulo": "AWS is helping vibe-coding startup Superblocks, and the implications are big",
+      "url": "https://techcrunch.com/2026/08/03/aws-is-helping-vibe-coding-startup-superblocks-and-the-implications-are-big/",
+      "fecha": "2026-08-03T20:00:00.000Z",
+      "resumen": "AWS now allows vibe-coding tool Superblocks to be embedded into the private clouds of AWS customers. It's another step toward decoupling apps from models.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "aws-is-helping-vibe-coding-startup-superblocks-and-the-impli",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.009729074074073973,
+        "authority": 0.9
+      },
+      "score": 0.3915,
+      "tema": "Código"
+    },
+    {
+      "titulo": "Meet Wrinkles, an app that uncovers the hidden stories of the places around you",
+      "url": "https://techcrunch.com/2026/08/04/meet-wrinkles-an-ai-app-that-uncovers-the-hidden-stories-of-the-places-around-you/",
+      "fecha": "2026-08-04T19:34:34.000Z",
+      "resumen": "Wrinkles, available on both iOS and Android, essentially acts as an AI-powered audio tour guide that reveals hidden history and local stories.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "meet-wrinkles-an-app-that-uncovers-the-hidden-stories-of-the",
+      "signals": {
+        "hn": 2,
+        "reddit": 0,
+        "social": 0.1445275806109889,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.664621049382716,
+        "authority": 0.9
+      },
+      "score": 0.3547,
+      "tema": "Código"
+    }
+  ]
+}
