@@ -4,6 +4,7 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import CommercialNextSteps from '../../components/CommercialNextSteps.astro';
+import AmbientHero from '../../components/AmbientHero.astro';
 import { serviceClusterLinks } from '../../data/commercial-links';
 import { breadcrumbList, trail as buildTrail } from '../../data/breadcrumbs';
 import { jsonLdSerialize, ORG_ID, SITE, WEBSITE_ID } from '../../data/schema';
@@ -87,7 +88,7 @@ const jsonLd = {
   <SiteHeader />
 
   <main>
-    <section class="hero">
+    <section class="hero"><AmbientHero />
       <div class="shell">
         <Breadcrumb trail={trail} />
         <div class="hero__grid">

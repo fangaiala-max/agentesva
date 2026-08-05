@@ -77,7 +77,10 @@ export function initHome() {
     if (REDUCE || grid.hidden) return;
     const visibleCards = cards.filter((card) => card.style.display !== 'none').slice(0, 18);
     visibleCards.forEach((card, index) => {
-      card.getAnimations().forEach((animation) => animation.cancel());
+      if (typeof card.animate !== 'function') return;
+      if (typeof card.getAnimations === 'function') {
+        card.getAnimations().forEach((animation) => animation.cancel());
+      }
       card.animate(
         [
           { opacity: 0, transform: 'translateY(10px) scale(.985)' },
