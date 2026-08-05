@@ -20,7 +20,8 @@ describe('/servicios/', () => {
   });
 
   it('envía los CTA a una ruta existente y los mide por placement', () => {
-    expect(PAGE.match(/href="\/diagnostico-automatizacion-ia\/"/g)).toHaveLength(3);
+    expect(PAGE.match(/href="\/diagnostico-automatizacion-ia\/"/g)).toHaveLength(2);
+    expect(PAGE).toContain("href={service.href ?? '/diagnostico-automatizacion-ia/'}");
     expect(PAGE).toContain('data-track-placement="hero"');
     expect(PAGE).toContain('data-track-placement="service_card"');
     expect(PAGE).toContain('data-track-placement="final_cta"');
@@ -33,8 +34,8 @@ describe('/servicios/', () => {
     expect(PAGE).toContain('breadcrumbList(trail)');
   });
 
-  it('no enlaza todavía a las páginas verticales pendientes', () => {
-    expect(PAGE).not.toContain('href="/servicios/automatizacion-atencion-cliente/"');
+  it('enlaza la vertical publicada y no las páginas todavía pendientes', () => {
+    expect(PAGE).toContain("href: '/servicios/automatizacion-atencion-cliente/'");
     expect(PAGE).not.toContain('href="/servicios/automatizacion-ventas/"');
     expect(PAGE).not.toContain('href="/servicios/automatizacion-procesos/"');
   });

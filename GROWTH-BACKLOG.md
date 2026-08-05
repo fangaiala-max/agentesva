@@ -99,6 +99,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-008 — Página de automatización de atención al cliente
 
+- **Estado:** completado el 5 ago 2026 — página comercial con casos de uso, flujo supervisado, entregables, plazos, rangos, límites, FAQ, schema y CTA contextual medido.
 - **Impacto:** crítico
 - **Esfuerzo:** M
 - **Dependencias:** GROW-007, OFL-002
