@@ -129,6 +129,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-011 — Publicar precios orientativos y criterios de encaje
 
+- **Estado:** completado el 5 ago 2026 — oferta base y criterios documentados como fuente común; rangos auditados en hub, servicios y diagnóstico, con límites presupuestarios sin solapamientos y prueba de consistencia.
 - **Impacto:** alto
 - **Esfuerzo:** S
 - **Dependencias:** OFL-001
@@ -136,9 +137,31 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 - **Aceptación:** el rango es consistente en home, servicios, diagnóstico y FAQ; no se presentan presupuestos cerrados como promesas.
 - **Métrica:** menor proporción de leads sin presupuesto; mayor ratio lead → reunión.
 
+### GROW-012 — Crear `/precios-automatizacion-ia/`
+
+- **Estado:** completado el 5 ago 2026 — página con cinco niveles, inclusiones, variables, criterios, FAQ, schema y CTA medido.
+- **Impacto:** alto
+- **Esfuerzo:** M
+- **Dependencias:** GROW-007–011, OFL-001
+- **Ruta:** `/precios-automatizacion-ia/`
+- **Tarea:** explicar los niveles de inversión, qué incluye cada uno, qué variables cambian el presupuesto y qué opción corresponde a cada grado de madurez.
+- **Aceptación:** diagnóstico gratuito, taller desde 300 €, implementación acotada desde 1.500 €, varias integraciones desde 3.000 € y soporte desde 300 €/mes; rangos orientativos, FAQ, schema y CTA medido.
+- **Métrica:** visita a precios → diagnóstico iniciado ≥10%; menor proporción de leads sin presupuesto.
+
+### GROW-013 — Crear `/como-trabajamos/`
+
+- **Estado:** completado el 5 ago 2026 — página con seis fases, responsabilidades, decisiones, límites, FAQ, schema y CTA medido.
+- **Impacto:** alto
+- **Esfuerzo:** M
+- **Dependencias:** GROW-007–012, OFL-002
+- **Ruta:** `/como-trabajamos/`
+- **Tarea:** explicar diagnóstico, diseño, implementación, pruebas, puesta en marcha y soporte, incluyendo responsabilidades, entregables, plazos y criterios de decisión.
+- **Aceptación:** proceso verificable, expectativas de ambas partes, límites, FAQ, schema, enlaces a servicios y CTA medido.
+- **Métrica:** visita a metodología → diagnóstico iniciado ≥8%; mayor ratio lead → reunión.
+
 ## P0 · Conectar el activo SEO existente con el servicio
 
-### GROW-012 — Añadir CTA contextual a fichas de herramientas
+### GROW-014 — Añadir CTA contextual a fichas de herramientas
 
 - **Impacto:** crítico
 - **Esfuerzo:** M
@@ -147,7 +170,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 - **Aceptación:** componente reutilizable, copy por categoría, placement medido y sin CTA genérico duplicado.
 - **Métrica:** ficha → diagnóstico iniciado ≥3%.
 
-### GROW-013 — Añadir CTA contextual a estudios
+### GROW-015 — Añadir CTA contextual a estudios
 
 - **Impacto:** crítico
 - **Esfuerzo:** M
@@ -156,7 +179,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 - **Aceptación:** los ocho estudios enlazan al diagnóstico o servicio correcto; eventos diferenciados por placement.
 - **Métrica:** estudio → diagnóstico iniciado ≥5%.
 
-### GROW-014 — Reorientar la home hacia implementación
+### GROW-016 — Reorientar la home hacia implementación
 
 - **Impacto:** crítico
 - **Esfuerzo:** L
@@ -165,7 +188,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 - **Aceptación:** un CTA primario por viewport; directorio accesible; sin dos promociones simultáneas del mismo pack; no empeoran accesibilidad ni rendimiento.
 - **Métrica:** home → diagnóstico iniciado ≥8%.
 
-### GROW-015 — Actualizar navegación y footer
+### GROW-017 — Actualizar navegación y footer
 
 - **Impacto:** alto
 - **Esfuerzo:** S
@@ -176,7 +199,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ## P1 · SEO de intención comercial
 
-### GROW-016 — Crear mapa de keywords por problema e intención
+### GROW-018 — Crear mapa de keywords por problema e intención
 
 - **Impacto:** alto
 - **Esfuerzo:** M
@@ -185,25 +208,25 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 - **Aceptación:** cada URL tiene intención, query principal, secundarias, CTA, página madre y enlaces previstos.
 - **Métrica:** cero páginas nuevas sin keyword e intención asignadas.
 
-### GROW-017 — Crear seis piezas de soporte comercial
+### GROW-019 — Crear seis piezas de soporte comercial
 
 - **Impacto:** alto
 - **Esfuerzo:** XL, dividir en seis entregas
-- **Dependencias:** GROW-016, protocolo de fact-checking
+- **Dependencias:** GROW-018, protocolo de fact-checking
 - **Temas iniciales:** chatbot para PyME; automatizar WhatsApp; seguimiento de leads; Make vs n8n vs Zapier; coste de automatizar un negocio; procesos que conviene automatizar primero.
 - **Aceptación:** respuesta breve inicial, profundidad práctica, fuentes, ejemplos, enlaces al clúster y CTA contextual; sin texto programático repetido.
 - **Métrica:** impresiones no-brand, CTR y diagnósticos asistidos por pieza.
 
-### GROW-018 — Reforzar enlazado interno por clúster
+### GROW-020 — Reforzar enlazado interno por clúster
 
 - **Impacto:** alto
 - **Esfuerzo:** M
-- **Dependencias:** GROW-008–010, GROW-017
+- **Dependencias:** GROW-008–010, GROW-019
 - **Tarea:** enlazar herramienta ↔ estudio ↔ guía ↔ servicio con anclas descriptivas; añadir “siguiente decisión” en páginas sin salida.
 - **Aceptación:** toda página comercial recibe enlaces desde al menos tres páginas relevantes; ningún contenido prioritario queda huérfano.
 - **Métrica:** profundidad de navegación y páginas por sesión del clúster.
 
-### GROW-019 — Optimizar snippets con datos de Search Console
+### GROW-021 — Optimizar snippets con datos de Search Console
 
 - **Impacto:** alto
 - **Esfuerzo:** M recurrente
@@ -212,7 +235,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 - **Aceptación:** registro antes/después por URL; no modificar más de una variable principal por prueba.
 - **Métrica:** mejora de CTR y clics no-brand a 28 días.
 
-### GROW-020 — Añadir campos de decisión a las 10 fichas prioritarias
+### GROW-022 — Añadir campos de decisión a las 10 fichas prioritarias
 
 - **Impacto:** alto
 - **Esfuerzo:** L
@@ -221,7 +244,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 - **Aceptación:** schema actualizado, datos visibles y verificables, fecha de revisión y tests de contenido.
 - **Métrica:** ficha → CTA de proveedor o diagnóstico; tiempo útil en página.
 
-### GROW-021 — Plantilla SEO para casos prácticos
+### GROW-023 — Plantilla SEO para casos prácticos
 
 - **Impacto:** alto
 - **Esfuerzo:** M
@@ -232,7 +255,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ## P1 · Tráfico directo y retorno
 
-### GROW-022 — Reposicionar newsletter y segmentar interés
+### GROW-024 — Reposicionar newsletter y segmentar interés
 
 - **Impacto:** alto
 - **Esfuerzo:** M
@@ -241,7 +264,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 - **Aceptación:** formularios, payload y etiquetas/listas actualizados; consentimiento explícito; migración compatible con formularios actuales.
 - **Métrica:** conversión por placement, confirmación DOI y engagement por segmento.
 
-### GROW-023 — Crear calculadora de ahorro por automatización
+### GROW-025 — Crear calculadora de ahorro por automatización
 
 - **Impacto:** medio-alto
 - **Esfuerzo:** L
@@ -250,7 +273,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 - **Aceptación:** funciona en cliente, accesible, sin almacenar datos sensibles; resultado compartible y CTA al diagnóstico.
 - **Métrica:** calculadora completada → diagnóstico iniciado ≥10%.
 
-### GROW-024 — Añadir parámetros UTM y atribución first/last touch
+### GROW-026 — Añadir parámetros UTM y atribución first/last touch
 
 - **Impacto:** alto
 - **Esfuerzo:** M
@@ -261,7 +284,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ## P2 · Escala SEO y distribución técnica
 
-### GROW-025 — Páginas sectoriales, solo después de validar demanda
+### GROW-027 — Páginas sectoriales, solo después de validar demanda
 
 - **Impacto:** medio-alto
 - **Esfuerzo:** XL
@@ -270,16 +293,16 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 - **Aceptación:** evidencia de demanda, contenido original, CTA y caso/demostración sectorial.
 - **Métrica:** leads cualificados por sector.
 
-### GROW-026 — Sistema de actualización de precios y fichas
+### GROW-028 — Sistema de actualización de precios y fichas
 
 - **Impacto:** medio
 - **Esfuerzo:** L
-- **Dependencias:** GROW-020
+- **Dependencias:** GROW-022
 - **Tarea:** guardar `verifiedAt`, avisar de fichas caducadas y mostrar fecha de revisión.
 - **Aceptación:** el build o CI identifica fichas prioritarias con más de 90 días sin verificar.
 - **Métrica:** porcentaje de fichas prioritarias vigentes.
 
-### GROW-027 — Preparar páginas/activos enlazables con datos propios
+### GROW-029 — Preparar páginas/activos enlazables con datos propios
 
 - **Impacto:** medio-alto
 - **Esfuerzo:** L
@@ -290,7 +313,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ## P3 · Pospuesto
 
-### GROW-028 — Activar afiliación
+### GROW-030 — Activar afiliación
 
 - **Estado:** pospuesto por decisión estratégica
 - **Condición de entrada:** tráfico orgánico estable y evidencia de salidas a proveedores que no canibalizan servicios.
@@ -322,7 +345,7 @@ Estas tareas requieren decisiones, experiencia del fundador, contacto humano o s
 
 - Verificar precio, límites, español, integraciones, privacidad, dificultad y casos de uso.
 - Guardar URL y fecha de cada fuente.
-- **Entregable:** matriz fact-checkeada para GROW-020.
+- **Entregable:** matriz fact-checkeada para GROW-022.
 
 ## P1 · Prueba y ventas
 
@@ -331,7 +354,7 @@ Estas tareas requieren decisiones, experiencia del fundador, contacto humano o s
 - Una demo por servicio con diagrama y resultado verificable.
 - Etiquetar las demos como demostraciones, nunca como clientes.
 - Ofrecer una implementación piloto a un negocio con acceso a métricas iniciales y finales.
-- **Entregable:** evidencia para GROW-014 y GROW-021.
+- **Entregable:** evidencia para GROW-016 y GROW-023.
 
 ### OFL-005 — Escribir secuencia de bienvenida segmentada
 
@@ -340,18 +363,18 @@ Estas tareas requieren decisiones, experiencia del fundador, contacto humano o s
 - Email 2: caso o demo.
 - Email 3: errores y límites.
 - Email 4: invitación al diagnóstico.
-- **Entregable:** copy y automatización en Brevo para GROW-022.
+- **Entregable:** copy y automatización en Brevo para GROW-024.
 
 ### OFL-006 — Aprobar supuestos de la calculadora
 
 - Definir fórmula conservadora, límites de automatización y disclaimer.
 - Validar tres ejemplos de negocio.
-- **Entregable:** especificación para GROW-023.
+- **Entregable:** especificación para GROW-025.
 
 ### OFL-007 — Entrevistar a 10 prospectos antes de crear páginas sectoriales
 
 - Registrar sector, proceso doloroso, frecuencia, coste actual, herramientas, presupuesto y objeciones.
-- **Gate:** no ejecutar GROW-025 sin patrones repetidos en al menos tres entrevistas.
+- **Gate:** no ejecutar GROW-027 sin patrones repetidos en al menos tres entrevistas.
 
 ## P1 · Distribución y tráfico referido
 
@@ -359,7 +382,7 @@ Estas tareas requieren decisiones, experiencia del fundador, contacto humano o s
 
 - Tema recomendado: procesos que más tiempo consumen en pequeñas empresas o coste real de automatizarlos.
 - Documentar muestra, metodología y limitaciones.
-- **Entregable:** dataset y narrativa para GROW-027.
+- **Entregable:** dataset y narrativa para GROW-029.
 
 ### OFL-009 — Crear lista de 30 partners potenciales
 
@@ -405,7 +428,7 @@ Estas tareas requieren decisiones, experiencia del fundador, contacto humano o s
 
 ## Sprint 1 — Fundamentos comerciales y medición
 
-`OFL-001` → `OFL-002` → `GROW-001` → `GROW-002` → `GROW-007` → `GROW-011`
+`OFL-001` → `OFL-002` → `GROW-001` → `GROW-002` → `GROW-007` → `GROW-011` → `GROW-012` → `GROW-013`
 
 ## Sprint 2 — Diagnóstico
 
@@ -413,15 +436,15 @@ Estas tareas requieren decisiones, experiencia del fundador, contacto humano o s
 
 ## Sprint 3 — Superficies de conversión
 
-`GROW-008` → `GROW-009` → `GROW-010` → `GROW-012` → `GROW-013` → `GROW-015`
+`GROW-008` → `GROW-009` → `GROW-010` → `GROW-014` → `GROW-015` → `GROW-017`
 
 ## Sprint 4 — Home y adquisición
 
-`OFL-004` → `GROW-014` → `GROW-016` → primeras entregas de `GROW-017` → `GROW-018`
+`OFL-004` → `GROW-016` → `GROW-018` → primeras entregas de `GROW-019` → `GROW-020`
 
 ## Sprint 5 — Retención y optimización
 
-`OFL-005` → `GROW-022` → `GROW-024` → `GROW-019` → `GROW-020`
+`OFL-005` → `GROW-024` → `GROW-026` → `GROW-021` → `GROW-022`
 
 ---
 
