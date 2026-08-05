@@ -17,6 +17,7 @@ const services = [
     examples: ['Clasificación de emails y tickets', 'Borradores de respuesta con contexto', 'FAQ y derivación a una persona'],
     service: 'customer_service_automation',
     cluster: 'customer_service',
+    href: '/servicios/automatizacion-atencion-cliente/',
   },
   {
     id: 'ventas',
@@ -26,6 +27,7 @@ const services = [
     examples: ['Captura y cualificación de leads', 'Asignación y recordatorios', 'Seguimiento y actualización del CRM'],
     service: 'sales_automation',
     cluster: 'sales',
+    href: null,
   },
   {
     id: 'procesos',
@@ -35,6 +37,7 @@ const services = [
     examples: ['Extracción y clasificación de datos', 'Informes y alertas internas', 'Traspaso entre aplicaciones'],
     service: 'process_automation',
     cluster: 'operations',
+    href: null,
   },
 ] as const;
 
@@ -182,14 +185,14 @@ const jsonLd = {
               {service.examples.map((example) => <li>{example}</li>)}
             </ul>
             <a
-              href="/diagnostico-automatizacion-ia/"
+              href={service.href ?? '/diagnostico-automatizacion-ia/'}
               data-track-event="service_cta_click"
               data-track-page-type="service_hub"
               data-track-content-slug="servicios"
               data-track-service={service.service}
               data-track-cluster={service.cluster}
               data-track-placement="service_card"
-            >Comprobar si encaja →</a>
+            >{service.href ? 'Ver servicio →' : 'Comprobar si encaja →'}</a>
           </article>
         ))}
       </div>

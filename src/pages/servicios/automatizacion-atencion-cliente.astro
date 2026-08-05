@@ -1,0 +1,166 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { breadcrumbList, trail as buildTrail } from '../../data/breadcrumbs';
+import { jsonLdSerialize, ORG_ID, SITE, WEBSITE_ID } from '../../data/schema';
+
+const trail = buildTrail(
+  { name: 'Servicios', url: '/servicios' },
+  { name: 'Automatización de atención al cliente', url: '/servicios/automatizacion-atencion-cliente' },
+);
+
+const useCases = [
+  { title: 'Consultas repetitivas', text: 'Responde preguntas frecuentes con información aprobada y deriva las excepciones.' },
+  { title: 'Email y tickets', text: 'Clasifica por tema, urgencia o cliente y prepara un borrador con el contexto disponible.' },
+  { title: 'WhatsApp y formularios', text: 'Recoge los datos necesarios antes de pasar la conversación a la persona adecuada.' },
+  { title: 'Seguimiento de casos', text: 'Avisa de conversaciones sin respuesta, compromisos pendientes y plazos próximos.' },
+] as const;
+
+const deliverables = [
+  'Mapa del proceso actual y puntos de riesgo.',
+  'Flujo automatizado conectado a las herramientas acordadas.',
+  'Base de conocimiento o instrucciones iniciales revisadas.',
+  'Reglas de derivación, revisión humana y tratamiento de excepciones.',
+  'Pruebas con casos representativos y registro de resultados.',
+  'Documentación y formación para la persona responsable.',
+] as const;
+
+const faqs = [
+  { question: '¿Se puede automatizar WhatsApp?', answer: 'Sí, si el canal y la cuenta permiten una integración oficial o compatible. Primero revisamos el proveedor, los permisos, las plantillas y cuándo debe intervenir una persona.' },
+  { question: '¿La IA responderá sola a todos los clientes?', answer: 'No necesariamente. Podemos limitarla a clasificar, buscar información o preparar borradores. Las reclamaciones, datos sensibles y casos de baja confianza deben derivarse a una persona.' },
+  { question: '¿Qué herramientas se pueden conectar?', answer: 'Depende de sus APIs y permisos. Es habitual evaluar correo, formularios, help desk, CRM, WhatsApp Business, bases de conocimiento y herramientas de automatización como Make o n8n.' },
+  { question: '¿Cuánto cuesta y cuánto tarda?', answer: 'Una implementación acotada parte de 1.500 € y suele requerir entre dos y cuatro semanas. Un sistema con varios canales o integraciones parte de 3.000 € y puede requerir entre cuatro y ocho semanas.' },
+  { question: '¿Cómo se mide si funciona?', answer: 'Acordamos una línea base y una métrica útil, por ejemplo tiempo hasta primera respuesta, porcentaje de consultas clasificadas correctamente, casos derivados o tiempo manual por ticket.' },
+] as const;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      name: 'Automatización de atención al cliente con IA',
+      url: `${SITE}/servicios/automatizacion-atencion-cliente/`,
+      description: 'Diseño e implementación de automatizaciones para responder, clasificar y derivar consultas de clientes con control humano.',
+      inLanguage: 'es',
+      isPartOf: { '@id': WEBSITE_ID },
+      about: { '@id': `${SITE}/servicios/automatizacion-atencion-cliente/#service` },
+    },
+    {
+      '@type': 'Service',
+      '@id': `${SITE}/servicios/automatizacion-atencion-cliente/#service`,
+      name: 'Automatización de atención al cliente con IA',
+      serviceType: 'Diseño e implementación de automatizaciones de atención al cliente',
+      provider: { '@id': ORG_ID },
+      url: `${SITE}/servicios/automatizacion-atencion-cliente/`,
+      areaServed: 'Países hispanohablantes',
+      audience: { '@type': 'BusinessAudience', audienceType: 'PyMEs y profesionales' },
+      offers: {
+        '@type': 'AggregateOffer',
+        lowPrice: '1500',
+        priceCurrency: 'EUR',
+        offerCount: '2',
+        description: 'Implementación acotada desde 1.500 €; automatización con varias integraciones desde 3.000 €.',
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+      })),
+    },
+    breadcrumbList(trail),
+  ],
+};
+---
+
+<BaseLayout
+  title="Automatización de atención al cliente con IA | AgentesVA"
+  description="Automatiza consultas, emails, tickets y WhatsApp con IA, reglas claras y control humano. Implementaciones desde 1.500 € y diagnóstico gratuito."
+>
+  <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
+  <SiteHeader />
+
+  <main>
+    <section class="hero">
+      <div class="shell">
+        <Breadcrumb trail={trail} />
+        <div class="hero__grid">
+          <div>
+            <span class="eyebrow">Atención al cliente · Automatización con IA</span>
+            <h1>Responde antes sin perder el <span>control humano</span></h1>
+            <p class="lead">Clasificamos consultas, recuperamos la información adecuada, preparamos respuestas y derivamos cada excepción. Tu equipo deja de empezar desde cero y conserva la decisión final donde importa.</p>
+            <div class="actions">
+              <a href="/diagnostico-automatizacion-ia/" class="button button--primary" data-track-event="service_cta_click" data-track-page-type="service_detail" data-track-content-slug="automatizacion-atencion-cliente" data-track-service="customer_service_automation" data-track-cluster="customer_service" data-track-placement="hero">Evaluar mi proceso gratis →</a>
+              <a href="#flujo" class="button button--secondary">Ver un flujo de ejemplo</a>
+            </div>
+            <p class="note">3 minutos · Sin compromiso · Una recomendación concreta</p>
+          </div>
+          <aside class="problem-card">
+            <span class="eyebrow">El problema habitual</span>
+            <strong>El equipo responde lo mismo una y otra vez, busca datos en varias herramientas y detecta tarde los casos urgentes.</strong>
+            <p>La automatización tiene sentido cuando el volumen es recurrente, las respuestas tienen una fuente fiable y existen reglas claras para derivar.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <header class="section-heading"><span class="eyebrow">Casos de uso</span><h2>Empieza por una fricción concreta</h2><p>No hace falta reemplazar tu sistema de soporte. Podemos automatizar solo el paso que más tiempo consume.</p></header>
+      <div class="card-grid">
+        {useCases.map((item, index) => <article class="card"><span>0{index + 1}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}
+      </div>
+    </section>
+
+    <section id="flujo" class="section section--dark">
+      <div class="shell">
+        <header class="section-heading"><span class="eyebrow">Ejemplo de flujo</span><h2>De un mensaje entrante a una respuesta supervisada</h2></header>
+        <ol class="flow">
+          <li><span>01</span><div><h3>Entrada</h3><p>Llega un email, ticket, formulario o mensaje con una consulta.</p></div></li>
+          <li><span>02</span><div><h3>Contexto</h3><p>El flujo identifica tema, urgencia y datos disponibles del cliente.</p></div></li>
+          <li><span>03</span><div><h3>Acción</h3><p>Recupera información aprobada y prepara una respuesta o siguiente paso.</p></div></li>
+          <li><span>04</span><div><h3>Control</h3><p>Envía, solicita revisión o deriva según confianza, riesgo y reglas acordadas.</p></div></li>
+        </ol>
+        <p class="flow-note"><strong>Ejemplo, no promesa cerrada:</strong> los pasos cambian según tus canales, fuentes, permisos y nivel de riesgo.</p>
+      </div>
+    </section>
+
+    <section class="section shell split">
+      <div>
+        <span class="eyebrow">Qué entregamos</span>
+        <h2>Un flujo operativo, probado y documentado</h2>
+        <ul class="check-list">{deliverables.map((item) => <li>{item}</li>)}</ul>
+      </div>
+      <aside class="investment">
+        <span class="eyebrow">Plazo e inversión</span>
+        <div><h3>Implementación acotada</h3><strong>Desde 1.500 €</strong><p>Habitualmente, de 2 a 4 semanas.</p></div>
+        <div><h3>Varios canales o integraciones</h3><strong>Desde 3.000 €</strong><p>Habitualmente, de 4 a 8 semanas.</p></div>
+        <p>El diagnóstico inicial es gratuito. El precio final depende de volumen, datos, integraciones, riesgo y soporte. Son rangos orientativos, no presupuestos cerrados.</p>
+      </aside>
+    </section>
+
+    <section class="section section--panel">
+      <div class="shell limits">
+        <div><span class="eyebrow">Buen encaje</span><h2>Consultas repetitivas y una fuente fiable</h2><ul><li>Existe volumen semanal y una persona responsable.</li><li>Las respuestas se apoyan en documentación actualizada.</li><li>Puedes facilitar accesos y casos reales para probar.</li><li>Aceptas empezar con un alcance medible.</li></ul></div>
+        <div><span class="eyebrow">Límites</span><h2>No automatizamos decisiones de alto riesgo</h2><ul><li>No inventamos respuestas cuando falta información.</li><li>No usamos accesos o canales que incumplan sus condiciones.</li><li>Reclamaciones y datos sensibles requieren controles específicos.</li><li>Si no puede operarse de forma responsable, no lo automatizamos.</li></ul></div>
+      </div>
+    </section>
+
+    <section class="section shell faq">
+      <header class="section-heading"><span class="eyebrow">Preguntas frecuentes</span><h2>Antes de automatizar la atención</h2></header>
+      {faqs.map((faq) => <details><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}
+    </section>
+
+    <section class="final-cta">
+      <div class="shell final-cta__inner"><div><span class="eyebrow">Siguiente paso</span><h2>Descubre si este proceso merece automatizarse</h2><p>Cuéntanos dónde se acumulan las consultas y qué herramientas usa tu equipo. Te indicaremos si existe un primer alcance razonable.</p></div><a href="/diagnostico-automatizacion-ia/" class="button button--primary" data-track-event="service_cta_click" data-track-page-type="service_detail" data-track-content-slug="automatizacion-atencion-cliente" data-track-service="customer_service_automation" data-track-cluster="customer_service" data-track-placement="final_cta">Hacer el diagnóstico gratuito →</a></div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>
+
+<style>
+  :global(body){background:#f7f8fa;color:#17211d}.shell{width:min(1120px,calc(100% - 40px));margin-inline:auto}.hero{position:relative;overflow:hidden;padding:28px 0 96px;background:radial-gradient(circle at 80% 10%,rgba(32,167,122,.18),transparent 32%),#10231d;color:#fff}.hero__grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(300px,.7fr);gap:64px;align-items:center;margin-top:64px}.eyebrow{display:block;margin-bottom:14px;color:#20a77a;font:700 .74rem/1.4 'JetBrains Mono Variable',monospace;letter-spacing:.12em;text-transform:uppercase}.hero .eyebrow,.section--dark .eyebrow,.final-cta .eyebrow{color:#78e1bd}h1,h2,h3{margin:0;font-family:'DM Serif Display',serif;font-weight:400}h1{max-width:760px;font-size:clamp(3rem,6vw,5.4rem);line-height:.96;letter-spacing:-.04em}h1 span{color:#78e1bd}.lead{max-width:720px;margin:28px 0;color:#d8e6e1;font-size:1.18rem;line-height:1.7}.actions{display:flex;flex-wrap:wrap;gap:12px}.button{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border:1px solid transparent;border-radius:6px;font-weight:750;text-decoration:none}.button--primary{background:#20a77a;color:#fff}.button--secondary{border-color:rgba(255,255,255,.3);color:#fff}.note{color:#9fb8af;font-size:.86rem}.problem-card{padding:34px;border:1px solid rgba(120,225,189,.25);border-radius:12px;background:rgba(255,255,255,.06)}.problem-card strong{display:block;font-family:'DM Serif Display',serif;font-size:1.7rem;line-height:1.25}.problem-card p{color:#b9cec6;line-height:1.65}.section{padding:96px 0}.section-heading{max-width:760px;margin-bottom:42px}.section-heading h2,.split h2,.limits h2{font-size:clamp(2.2rem,4vw,3.5rem);line-height:1.05}.section-heading p{font-size:1.05rem;line-height:1.65;color:#57635e}.card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{padding:26px;border:1px solid #dce3df;border-radius:10px;background:#fff}.card>span,.flow>li>span{color:#20a77a;font:700 .75rem 'JetBrains Mono Variable',monospace}.card h3{margin:28px 0 10px;font-size:1.55rem}.card p{margin:0;color:#5d6863;line-height:1.6}.section--dark{background:#10231d;color:#fff}.section--dark .section-heading p{color:#b9cec6}.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;padding:0;list-style:none;background:rgba(255,255,255,.16)}.flow li{display:flex;gap:18px;padding:28px;background:#10231d}.flow h3{font-size:1.45rem}.flow p{color:#b9cec6;line-height:1.55}.flow-note{margin-top:24px;color:#b9cec6}.split,.limits{display:grid;grid-template-columns:1fr 1fr;gap:72px}.check-list,.limits ul{padding:0;list-style:none}.check-list li,.limits li{position:relative;padding:13px 0 13px 30px;border-bottom:1px solid #dce3df;line-height:1.5}.check-list li::before,.limits li::before{position:absolute;left:0;color:#20a77a;content:'✓'}.investment{padding:34px;border-radius:12px;background:#fff;box-shadow:0 18px 55px rgba(14,35,28,.1)}.investment>div{padding:20px 0;border-bottom:1px solid #dce3df}.investment h3{font-size:1.45rem}.investment strong{display:block;margin-top:8px;color:#15805e;font-size:1.5rem}.investment p{color:#64706b;line-height:1.55}.section--panel{background:#edf2ef}.limits>div{padding:34px;background:#fff;border-radius:10px}.faq details{border-top:1px solid #d5ddd9}.faq details:last-child{border-bottom:1px solid #d5ddd9}.faq summary{padding:22px 0;font-weight:750;cursor:pointer}.faq details p{max-width:800px;margin:0 0 22px;color:#59655f;line-height:1.65}.final-cta{padding:72px 0;background:#17352b;color:#fff}.final-cta__inner{display:flex;gap:48px;align-items:center;justify-content:space-between}.final-cta h2{font-size:clamp(2rem,4vw,3.2rem)}.final-cta p{max-width:680px;color:#c3d5ce;line-height:1.6}.final-cta .button{flex:none}@media(max-width:860px){.hero__grid,.split,.limits{grid-template-columns:1fr}.card-grid,.flow{grid-template-columns:repeat(2,1fr)}.final-cta__inner{align-items:flex-start;flex-direction:column}}@media(max-width:560px){.shell{width:min(100% - 28px,1120px)}.hero{padding-bottom:68px}.hero__grid{gap:36px;margin-top:40px}h1{font-size:3rem}.section{padding:68px 0}.card-grid,.flow{grid-template-columns:1fr}.flow{gap:0}.actions{align-items:stretch;flex-direction:column}.final-cta{padding:60px 0}.final-cta .button{width:100%}}
+</style>
