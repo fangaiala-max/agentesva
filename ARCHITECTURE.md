@@ -1,6 +1,6 @@
 # Architecture — agentesva.com
 
-Static-first Astro site on Vercel + 2 serverless functions for form/webhook handling. No database. All persistence is in third-party SaaS (Brevo for email, HubSpot for CRM, Make.com for workflows, Mixpanel/GA4 for analytics).
+Static-first Astro site on Vercel + serverless functions for form/webhook handling. No database. All persistence is in third-party SaaS (Brevo for email, the configured diagnostic webhook/CRM, HubSpot, Make.com and GA4).
 
 ## Topology
 
@@ -16,6 +16,7 @@ Vercel
   │
   └── Serverless Functions (Node 24 LTS, Fluid Compute)
         ├── /api/subscribe   → Brevo Contacts API (newsletter / voice waitlist)
+        ├── /api/diagnostic  → webhook server-side configurable (diagnóstico comercial)
         └── /api/wa          → Twilio WhatsApp webhook (signed verification)
 
 Third-party (browser-side)
@@ -83,6 +84,9 @@ Production: Vercel Project → Settings → Environment Variables.
 | `TWILIO_AUTH_TOKEN` | `/api/wa.js` | WhatsApp webhook signature |
 | `WA_VERIFY_TOKEN` | `/api/wa.js` | Twilio challenge-response |
 | `PUBLIC_GA4_ID` | `ConsentBanner.astro` / `consent.ts` | GA4 Measurement ID (`G-…`); gatea el banner de consentimiento + analytics. Vacío = feature desactivada |
+| `DIAGNOSTIC_WEBHOOK_URL` | `/api/diagnostic.ts` | Destino server-side para leads del diagnóstico; obligatoria antes de publicar la ruta |
+| `DIAGNOSTIC_WEBHOOK_SECRET` | `/api/diagnostic.ts` | Bearer token opcional para autenticar la entrega al webhook |
+| `DIAGNOSTIC_ALLOWED_ORIGINS` | `/api/diagnostic.ts` | Orígenes permitidos, separados por comas; sin wildcard |
 
 Make.com webhook URL is **client-side fetched** (inline in `/diagnostico/`), so it lives in the codebase, not as a secret. Anyone with the URL can ping it; treat it as public.
 

@@ -1,0 +1,195 @@
+import { classifyDiagnostic, clusterFor, type DiagnosticAnswers } from '../data/diagnostico';
+import { trackGrowthEvent } from './track';
+
+function value(form: HTMLFormElement, name: string): string {
+  const data = new FormData(form);
+  return String(data.get(name) ?? '');
+}
+
+function answers(form: HTMLFormElement): DiagnosticAnswers {
+  return {
+    businessType: value(form, 'businessType'),
+    teamSize: value(form, 'teamSize') as DiagnosticAnswers['teamSize'],
+    goal: value(form, 'goal') as DiagnosticAnswers['goal'],
+    process: value(form, 'process'),
+    frequency: value(form, 'frequency') as DiagnosticAnswers['frequency'],
+    currentTools: value(form, 'currentTools') as DiagnosticAnswers['currentTools'],
+    budget: value(form, 'budget') as DiagnosticAnswers['budget'],
+    timeline: value(form, 'timeline') as DiagnosticAnswers['timeline'],
+    risk: value(form, 'risk') as DiagnosticAnswers['risk'],
+  };
+}
+
+function wire(root: HTMLElement): void {
+  if (root.dataset.diagnosticWired === '1') return;
+  root.dataset.diagnosticWired = '1';
+
+  const form = root.querySelector<HTMLFormElement>('[data-diagnostic-form]');
+  const steps = Array.from(root.querySelectorAll<HTMLFieldSetElement>('[data-step]'));
+  const back = root.querySelector<HTMLButtonElement>('[data-back]');
+  const next = root.querySelector<HTMLButtonElement>('[data-next]');
+  const finish = root.querySelector<HTMLButtonElement>('[data-finish]');
+  const current = root.querySelector<HTMLElement>('[data-step-current]');
+  const progress = root.querySelector<HTMLElement>('[data-progress]');
+  const bar = root.querySelector<HTMLElement>('[data-progress-bar]');
+  const error = root.querySelector<HTMLElement>('[data-diagnostic-error]');
+  const result = root.querySelector<HTMLElement>('[data-diagnostic-result]');
+  const contactForm = root.querySelector<HTMLFormElement>('[data-diagnostic-contact]');
+  const contactError = root.querySelector<HTMLElement>('[data-contact-error]');
+  const contactSuccess = root.querySelector<HTMLElement>('[data-contact-success]');
+  const contactSubmit = root.querySelector<HTMLButtonElement>('[data-contact-submit]');
+  if (!form || !steps.length || !back || !next || !finish || !current || !progress || !bar || !error || !result || !contactForm || !contactError || !contactSuccess || !contactSubmit) return;
+
+  let index = 0;
+  let started = false;
+  let currentResult: ReturnType<typeof classifyDiagnostic> | null = null;
+
+  const showStep = (nextIndex: number) => {
+    index = Math.max(0, Math.min(steps.length - 1, nextIndex));
+    steps.forEach((step, i) => { step.hidden = i !== index; });
+    current.textContent = String(index + 1);
+    progress.setAttribute('aria-valuenow', String(index + 1));
+    bar.style.width = `${((index + 1) / steps.length) * 100}%`;
+    back.hidden = index === 0;
+    next.hidden = index === steps.length - 1;
+    finish.hidden = index !== steps.length - 1;
+    error.hidden = true;
+    const focusTarget = steps[index]?.querySelector<HTMLElement>('input, textarea');
+    focusTarget?.focus();
+  };
+
+  const validCurrentStep = (): boolean => {
+    const controls = Array.from(steps[index]!.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('input, textarea'));
+    const invalid = controls.find((control) => !control.checkValidity());
+    if (!invalid) return true;
+    error.textContent = invalid.validity.valueMissing
+      ? 'Selecciona o completa una respuesta para continuar.'
+      : 'Añade un poco más de detalle para que la recomendación sea útil.';
+    error.hidden = false;
+    invalid.focus();
+    return false;
+  };
+
+  next.addEventListener('click', () => {
+    if (!validCurrentStep()) return;
+    const a = answers(form);
+    if (!started) {
+      started = true;
+      trackGrowthEvent('diagnostic_started', {
+        page_type: 'diagnostic',
+        placement: 'diagnostic_hero',
+        cluster: a.goal ? clusterFor(a.goal) : 'general',
+      });
+    }
+    trackGrowthEvent('diagnostic_step_completed', {
+      step: index + 1,
+      step_id: steps[index]!.dataset.stepId || `step_${index + 1}`,
+      cluster: a.goal ? clusterFor(a.goal) : 'general',
+    });
+    showStep(index + 1);
+  });
+
+  back.addEventListener('click', () => showStep(index - 1));
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!validCurrentStep()) return;
+    const diagnostic = classifyDiagnostic(answers(form));
+    currentResult = diagnostic;
+    trackGrowthEvent('diagnostic_step_completed', {
+      step: index + 1,
+      step_id: steps[index]!.dataset.stepId || `step_${index + 1}`,
+      cluster: diagnostic.cluster,
+      service: diagnostic.service,
+    });
+
+    form.hidden = true;
+    root.querySelector<HTMLElement>('.progress-wrap')!.hidden = true;
+    root.querySelectorAll<HTMLElement>('[data-result]').forEach((node) => {
+      node.hidden = node.dataset.result !== diagnostic.resultType;
+    });
+    const reasons = root.querySelector<HTMLElement>('[data-result-reasons]');
+    if (reasons) reasons.innerHTML = diagnostic.reasons.map((reason) => `<li>${reason}</li>`).join('');
+    result.hidden = false;
+    result.focus();
+  });
+
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!currentResult || !contactForm.checkValidity()) {
+      contactError.textContent = 'Completa tus datos y acepta la política de privacidad para enviar el diagnóstico.';
+      contactError.hidden = false;
+      contactForm.querySelector<HTMLElement>(':invalid')?.focus();
+      return;
+    }
+
+    contactError.hidden = true;
+    contactSubmit.disabled = true;
+    const original = contactSubmit.textContent;
+    contactSubmit.textContent = 'Enviando…';
+    const contact = new FormData(contactForm);
+
+    try {
+      const response = await fetch('/api/diagnostic', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...answers(form),
+          name: String(contact.get('name') || ''),
+          email: String(contact.get('email') || ''),
+          company: String(contact.get('company') || ''),
+          consent: contact.get('consent') === 'on',
+        }),
+      });
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok || !payload.success || !payload.result) throw new Error('No se pudo enviar el diagnóstico. Inténtalo de nuevo.');
+
+      currentResult = payload.result;
+      trackGrowthEvent('diagnostic_completed', {
+        result_type: currentResult.resultType,
+        qualification_band: currentResult.qualificationBand,
+        cluster: currentResult.cluster,
+        service: currentResult.service,
+      });
+      if (currentResult.resultType === 'qualified_call') {
+        trackGrowthEvent('lead_qualified', {
+          result_type: currentResult.resultType,
+          qualification_band: currentResult.qualificationBand,
+          cluster: currentResult.cluster,
+          service: currentResult.service,
+        });
+      }
+
+      contactForm.hidden = true;
+      contactSuccess.hidden = false;
+      contactSuccess.focus();
+    } catch (submissionError) {
+      contactSubmit.disabled = false;
+      contactSubmit.textContent = original;
+      contactError.textContent = submissionError instanceof Error ? submissionError.message : 'No se pudo enviar el diagnóstico.';
+      contactError.hidden = false;
+    }
+  });
+
+  root.querySelector<HTMLButtonElement>('[data-restart]')?.addEventListener('click', () => {
+    form.reset();
+    form.hidden = false;
+    root.querySelector<HTMLElement>('.progress-wrap')!.hidden = false;
+    result.hidden = true;
+    contactForm.reset();
+    contactForm.hidden = false;
+    contactSuccess.hidden = true;
+    contactError.hidden = true;
+    contactSubmit.disabled = false;
+    contactSubmit.textContent = 'Enviar diagnóstico →';
+    currentResult = null;
+    started = false;
+    showStep(0);
+  });
+
+  showStep(0);
+}
+
+export function initDiagnostic(): void {
+  document.querySelectorAll<HTMLElement>('[data-diagnostic-root]').forEach(wire);
+}

@@ -16,12 +16,14 @@ export default defineConfig({
       // /ir/* es la salida afiliado; /buscar es noindex (búsqueda cliente);
       // /descarga y /entrega son la entrega post-pago (noindex, SSR) — fuera del sitemap
       // /gracias es la entrega post-suscripción y también lleva noindex.
+      // Diagnóstico permanece fuera del sitemap mientras siga en preview.
       filter: (page) =>
         !page.includes('/ir/') &&
         !page.includes('/buscar') &&
         !page.includes('/descarga') &&
         !page.includes('/entrega') &&
-        !page.includes('/gracias'),
+        !page.includes('/gracias') &&
+        !page.includes('/diagnostico-automatizacion-ia'),
       serialize: (item) => ({ ...item, lastmod: SITE_RELAUNCH_LASTMOD }),
       i18n: {
         defaultLocale: 'es',

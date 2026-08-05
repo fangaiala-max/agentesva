@@ -49,6 +49,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-003 — Crear `/diagnostico-automatizacion-ia/`
 
+- **Estado:** completado el 4 ago 2026 — interfaz de 8 pasos, validación, resultado determinista, consentimiento y entrega segura verificados en Vercel Preview; se mantiene `noindex` hasta publicar la ruta en producción.
 - **Impacto:** crítico
 - **Esfuerzo:** L
 - **Dependencias:** GROW-001, definición offline mínima de cualificación OFL-001
@@ -58,6 +59,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-004 — Implementar recepción segura de leads
 
+- **Estado:** completado el 4 ago 2026 — endpoint server-side, validación, honeypot, rate limit por instancia, entrega autenticable y consentimiento implementados; `DIAGNOSTIC_WEBHOOK_URL` configurada y entrega real confirmada en Make desde Vercel Preview.
 - **Impacto:** crítico
 - **Esfuerzo:** M
 - **Dependencias:** GROW-003, OFL-001
@@ -301,6 +303,7 @@ Estas tareas requieren decisiones, experiencia del fundador, contacto humano o s
 
 ### OFL-001 — Definir oferta, cualificación y rangos de inversión
 
+- **Estado:** completado el 4 ago 2026 — [`docs/service-offer.md`](docs/service-offer.md)
 - Elegir ticket mínimo, servicios incluidos, exclusiones, territorio, capacidad mensual y señales de lead cualificado.
 - Definir qué perfiles reciben llamada, recurso o taller de pago.
 - **Entregable:** ficha operativa de una página usada por GROW-003, GROW-005 y GROW-011.
