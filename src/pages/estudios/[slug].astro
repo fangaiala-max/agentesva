@@ -16,6 +16,7 @@ import EstudioFaq from '../../components/EstudioFaq.astro';
 import EstudioFuentes from '../../components/EstudioFuentes.astro';
 import EstudioBonus from '../../components/EstudioBonus.astro';
 import ToolCallout from '../../components/ToolCallout.astro';
+import StudyServiceCTA from '../../components/StudyServiceCTA.astro';
 
 export async function getStaticPaths() {
   const estudios = await getCollection('estudios');
@@ -97,6 +98,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
     <p style="font-family: var(--mono); font-size: 11px; color: var(--fg-5); margin: 16px 0 0;">Por Fernando Angulo · AgentesVA · {fechaFmt}</p>
 
     <EstudioResumen puntos={d.resumen} />
+    <StudyServiceCTA slug={entry.id} placement="after_summary" />
     <EstudioResumirIA url={canonical} prompt={d.iaPrompt} />
     <EstudioNota texto={d.porQueImporta} />
     <EstudioComparativa criterios={d.comparativa?.criterios} filas={d.comparativa?.filas} />
@@ -109,6 +111,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
     <EstudioFaq items={d.faq} />
     <EstudioBonus titulo={d.bonus?.titulo} intro={d.bonus?.intro} herramientas={d.bonus?.herramientas} nota={d.bonus?.nota} />
     <EstudioFuentes items={d.fuentes} />
+    <StudyServiceCTA slug={entry.id} placement="final" />
 
     {related.length > 0 && (
       <section style="margin-top: 48px; border-top: 1px solid var(--line); padding-top: 28px;">
