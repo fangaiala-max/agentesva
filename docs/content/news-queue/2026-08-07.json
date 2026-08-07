@@ -1,0 +1,146 @@
+{
+  "date": "2026-08-07",
+  "generatedAt": "2026-08-07T06:09:20.312Z",
+  "candidates": [
+    {
+      "titulo": "OpenAI says Apple’s trade secrets lawsuit is ‘rotten to its core’",
+      "url": "https://www.theverge.com/tech/976042/openai-apple-trade-secrets-lawsuit-dismissal-request",
+      "fecha": "2026-08-06T09:33:11.000Z",
+      "resumen": "OpenAI has asked a federal judge to toss out Apple's landmark lawsuit accusing the ChatGPT maker of stealing trade secrets, describing the allegations as \"meritless.\" In a motion filed yesterday to dismiss the complaint, OpenAI says that Apple is mischaracterizing both the actions of the AI startup's employees as theft, and \"generic\" product development information as \"trade secrets,\" adding that ",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "openai-says-apple-s-trade-secrets-lawsuit-is-rotten-to-its-c",
+      "signals": {
+        "hn": 3,
+        "reddit": 0,
+        "social": 0.18237350163834035,
+        "relevance": 1,
+        "freshness": 0.42770592592592593,
+        "authority": 0.9
+      },
+      "score": 0.5362
+    },
+    {
+      "titulo": "Google Maps adds agentic features, including food ordering and hotel bookings",
+      "url": "https://techcrunch.com/2026/08/06/google-maps-adds-agentic-features-including-food-ordering-and-hotel-bookings/",
+      "fecha": "2026-08-06T12:30:00.000Z",
+      "resumen": "The launch of these new features reflects Google’s ambitions to transform Google Maps from a navigation tool into an assistant that's capable of helping users complete real-world tasks.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "google-maps-adds-agentic-features-including-food-ordering-an",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5095654938271605,
+        "authority": 0.9
+      },
+      "score": 0.4664
+    },
+    {
+      "titulo": "The left and right agree on one thing: no data centers",
+      "url": "https://www.theverge.com/podcast/971855/ai-data-center-backlash-protests-florida-bipartisan",
+      "fecha": "2026-08-06T14:00:00.000Z",
+      "resumen": "Today, I’m talking with Gaby Del Valle, a policy reporter here at The Verge, about the growing backlash against AI data centers. \nGaby recently reported a fantastic piece about Hernando County, Florida, where last month the county commission unanimously approved a yearlong moratorium on data center construction. She attended a protest there organized by a group called Humans First, a conservative ",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "the-left-and-right-agree-on-one-thing-no-data-centers",
+      "signals": {
+        "hn": 20,
+        "reddit": 0,
+        "social": 0.40052115434962654,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.5512321604938271,
+        "authority": 0.9
+      },
+      "score": 0.4529
+    },
+    {
+      "titulo": "Jony Ive&#8217;s first OpenAI gadget is reportedly a hockey puck-sized smart speaker",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/976431/openai-chatgpt-battery-smart-speaker-rumor",
+      "fecha": "2026-08-06T20:55:39.000Z",
+      "resumen": "The AI device OpenAI is developing with former Apple designer Jony Ive is \"essentially a smart speaker without a display\" that's battery-powered, doughnut-shaped and roughly the size of a hockey puck, according to Bloomberg reporter Mark Gurman. The device, expected to launch in 2027 for a price over $300,  reportedly \"will have a unique look, complete with moving parts,\" including some that will ",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "jony-ive-8217-s-first-openai-gadget-is-reportedly-a-hockey-p",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.7436627160493827,
+        "authority": 0.9
+      },
+      "score": 0.4015
+    },
+    {
+      "titulo": "Jeff Dean and other top AI researchers are leaving Google to launch their own startup",
+      "url": "https://techcrunch.com/2026/08/05/jeff-dean-and-other-top-ai-researchers-are-leaving-google-to-launch-their-own-startup/",
+      "fecha": "2026-08-05T19:30:19.000Z",
+      "resumen": "The legendary Google executive is joined by other outgoing Google execs in a joint mission to use AI to push forward the process of scientific discovery.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "jeff-dean-and-other-top-ai-researchers-are-leaving-google-to",
+      "signals": {
+        "hn": 4,
+        "reddit": 0,
+        "social": 0.21172907860852444,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.0374898765432099,
+        "authority": 0.9
+      },
+      "score": 0.3909
+    },
+    {
+      "titulo": "ChatGPT brings unlimited text chats to free users",
+      "url": "https://techcrunch.com/2026/08/06/openai-brings-unlimited-chatgpt-text-chats-to-free-users/",
+      "fecha": "2026-08-06T17:34:42.000Z",
+      "resumen": "OpenAI said that ChatGPT free and Go users are also getting a new think button for complex queries.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "chatgpt-brings-unlimited-text-chats-to-free-users",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.6506303086419754,
+        "authority": 0.9
+      },
+      "score": 0.3876
+    },
+    {
+      "titulo": "OpenAI is giving ChatGPT free users unlimited text chats",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/976239/openai-chatgpt-free-go-text-chats",
+      "fecha": "2026-08-06T17:00:00.000Z",
+      "resumen": "OpenAI is making a big change for ChatGPT users on its free and Go tiers: Starting next week, users on those tiers will be able to have unlimited text chats with the chatbot, according to OpenAI. Right now, you may run into rate limits if you do too many text chats on those tiers, but those limits, just for text, will be going away soon. Messages that include things like file uploads and images wi",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "openai-is-giving-chatgpt-free-users-unlimited-text-chats",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.6345654938271605,
+        "authority": 0.9
+      },
+      "score": 0.3852
+    }
+  ]
+}
