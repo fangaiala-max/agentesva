@@ -39,12 +39,84 @@ export interface DiagnosticResult {
     | 'process_automation'
     | 'general_consulting';
   reasons: string[];
+  priority: 'Alta' | 'Media' | 'Exploración' | 'Revisión necesaria';
+  complexity: 'Baja' | 'Media' | 'Por definir' | 'Revisión humana';
+  opportunities: [string, string, string];
+  nextStep: {
+    label: string;
+    href: string;
+  };
 }
 
 const IMPLEMENTATION_BUDGETS = new Set<Budget>(['1500_3000', '3000_5000', 'more_5000']);
 const WORKSHOP_BUDGETS = new Set<Budget>(['300_1500']);
 const NEAR_TIMELINES = new Set<Timeline>(['now', 'one_month', 'three_months']);
 const REPEATED_FREQUENCIES = new Set<Frequency>(['weekly', 'daily', 'high_volume']);
+
+const OPPORTUNITIES: Record<Goal, DiagnosticResult['opportunities']> = {
+  customer_service: [
+    'Clasificar consultas y asignarlas al responsable adecuado.',
+    'Preparar borradores con una base de conocimiento aprobada.',
+    'Detectar casos sensibles y derivarlos a una persona.',
+  ],
+  sales: [
+    'Capturar cada lead una sola vez y conservar su fuente.',
+    'Asignar seguimiento según encaje, responsable y plazo.',
+    'Actualizar el CRM y detener recordatorios cuando haya respuesta.',
+  ],
+  operations: [
+    'Extraer datos de documentos y validarlos antes de registrarlos.',
+    'Mover información entre herramientas sin copiar y pegar.',
+    'Generar informes y alertas con trazabilidad del proceso.',
+  ],
+  marketing: [
+    'Preparar campañas a partir de información y plantillas aprobadas.',
+    'Reutilizar contenido manteniendo revisión editorial.',
+    'Medir respuestas y priorizar los canales con intención real.',
+  ],
+  exploring: [
+    'Mapear tareas repetitivas y estimar cuánto tiempo consumen.',
+    'Elegir un primer caso pequeño, medible y reversible.',
+    'Comparar herramientas después de definir el proceso.',
+  ],
+};
+
+function planFor(goal: Goal, resultType: ResultType): Pick<DiagnosticResult, 'priority' | 'complexity' | 'opportunities' | 'nextStep'> {
+  const opportunities = OPPORTUNITIES[goal];
+  if (resultType === 'qualified_call') {
+    return {
+      priority: 'Alta',
+      complexity: 'Media',
+      opportunities,
+      nextStep: { label: 'Solicitar revisión de implementación', href: '#enviar-diagnostico' },
+    };
+  }
+  if (resultType === 'paid_workshop') {
+    return {
+      priority: 'Media',
+      complexity: 'Por definir',
+      opportunities,
+      nextStep: { label: 'Solicitar un taller de alcance', href: '#enviar-diagnostico' },
+    };
+  }
+  if (resultType === 'manual_review') {
+    return {
+      priority: 'Revisión necesaria',
+      complexity: 'Revisión humana',
+      opportunities,
+      nextStep: { label: 'Solicitar una revisión responsable', href: '#enviar-diagnostico' },
+    };
+  }
+  return {
+    priority: 'Exploración',
+    complexity: 'Baja',
+    opportunities,
+    nextStep: {
+      label: 'Ver cómo priorizar una automatización',
+      href: '/guias/procesos-que-conviene-automatizar-primero/',
+    },
+  };
+}
 
 export function clusterFor(goal: Goal): DiagnosticResult['cluster'] {
   if (goal === 'customer_service') return 'customer_service';
@@ -71,6 +143,7 @@ export function classifyDiagnostic(a: DiagnosticAnswers): DiagnosticResult {
       cluster,
       service,
       reasons: ['El caso necesita revisar alcance, datos y supervisión humana antes de recomendar una automatización.'],
+      ...planFor(a.goal, 'manual_review'),
     };
   }
 
@@ -89,6 +162,7 @@ export function classifyDiagnostic(a: DiagnosticAnswers): DiagnosticResult {
         'El proceso es concreto y se repite con suficiente frecuencia.',
         'El rango de inversión y el plazo encajan con una implementación acotada.',
       ],
+      ...planFor(a.goal, 'qualified_call'),
     };
   }
 
@@ -102,6 +176,7 @@ export function classifyDiagnostic(a: DiagnosticAnswers): DiagnosticResult {
       cluster,
       service,
       reasons: ['Hay una oportunidad plausible, pero conviene definir alcance, viabilidad y prioridades antes de implementar.'],
+      ...planFor(a.goal, 'paid_workshop'),
     };
   }
 
@@ -111,5 +186,6 @@ export function classifyDiagnostic(a: DiagnosticAnswers): DiagnosticResult {
     cluster,
     service,
     reasons: ['Ahora mismo encaja mejor una recomendación práctica y recursos para concretar la oportunidad.'],
+    ...planFor(a.goal, 'self_serve_resources'),
   };
 }

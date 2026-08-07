@@ -1,5 +1,29 @@
-import { classifyDiagnostic, clusterFor, type DiagnosticAnswers } from '../data/diagnostico';
+import { classifyDiagnostic, clusterFor, type DiagnosticAnswers, type DiagnosticResult } from '../data/diagnostico';
+import { diagnosticThanksUrl } from '../data/diagnostico-gracias';
 import { trackGrowthEvent } from './track';
+
+function renderList(node: HTMLElement | null, items: readonly string[]): void {
+  if (!node) return;
+  node.replaceChildren(...items.map((item) => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    return li;
+  }));
+}
+
+export function renderDiagnosticPlan(root: HTMLElement, diagnostic: DiagnosticResult): void {
+  const priority = root.querySelector<HTMLElement>('[data-result-priority]');
+  const complexity = root.querySelector<HTMLElement>('[data-result-complexity]');
+  const nextStep = root.querySelector<HTMLAnchorElement>('[data-result-next-step]');
+  if (priority) priority.textContent = diagnostic.priority;
+  if (complexity) complexity.textContent = diagnostic.complexity;
+  renderList(root.querySelector<HTMLElement>('[data-result-opportunities]'), diagnostic.opportunities);
+  renderList(root.querySelector<HTMLElement>('[data-result-reasons]'), diagnostic.reasons);
+  if (nextStep) {
+    nextStep.textContent = diagnostic.nextStep.label;
+    nextStep.href = diagnostic.nextStep.href;
+  }
+}
 
 function value(form: HTMLFormElement, name: string): string {
   const data = new FormData(form);
@@ -108,8 +132,7 @@ function wire(root: HTMLElement): void {
     root.querySelectorAll<HTMLElement>('[data-result]').forEach((node) => {
       node.hidden = node.dataset.result !== diagnostic.resultType;
     });
-    const reasons = root.querySelector<HTMLElement>('[data-result-reasons]');
-    if (reasons) reasons.innerHTML = diagnostic.reasons.map((reason) => `<li>${reason}</li>`).join('');
+    renderDiagnosticPlan(result, diagnostic);
     result.hidden = false;
     result.focus();
   });
@@ -163,6 +186,7 @@ function wire(root: HTMLElement): void {
       contactForm.hidden = true;
       contactSuccess.hidden = false;
       contactSuccess.focus();
+      window.location.assign(diagnosticThanksUrl(currentResult));
     } catch (submissionError) {
       contactSubmit.disabled = false;
       contactSubmit.textContent = original;

@@ -20,13 +20,27 @@ describe('classifyDiagnostic', () => {
       resultType: 'qualified_call',
       cluster: 'sales',
       service: 'sales_automation',
+      priority: 'Alta',
+      complexity: 'Media',
+      nextStep: {
+        label: 'Solicitar revisión de implementación',
+        href: '#enviar-diagnostico',
+      },
     });
+    expect(classifyDiagnostic(base).opportunities).toHaveLength(3);
+    expect(classifyDiagnostic(base).opportunities[0]).toContain('lead');
   });
 
   it('recomienda taller para un presupuesto de definición con dolor claro', () => {
     expect(classifyDiagnostic({ ...base, budget: '300_1500' })).toMatchObject({
       qualificationBand: 'medium',
       resultType: 'paid_workshop',
+      priority: 'Media',
+      complexity: 'Por definir',
+      nextStep: {
+        label: 'Solicitar un taller de alcance',
+        href: '#enviar-diagnostico',
+      },
     });
   });
 
@@ -50,6 +64,12 @@ describe('classifyDiagnostic', () => {
       qualificationBand: 'low',
       resultType: 'self_serve_resources',
       cluster: 'general',
+      priority: 'Exploración',
+      complexity: 'Baja',
+      nextStep: {
+        label: 'Ver cómo priorizar una automatización',
+        href: '/guias/procesos-que-conviene-automatizar-primero/',
+      },
     });
   });
 
@@ -57,6 +77,12 @@ describe('classifyDiagnostic', () => {
     expect(classifyDiagnostic({ ...base, risk: 'high_impact_decisions' })).toMatchObject({
       qualificationBand: 'medium',
       resultType: 'manual_review',
+      priority: 'Revisión necesaria',
+      complexity: 'Revisión humana',
+      nextStep: {
+        label: 'Solicitar una revisión responsable',
+        href: '#enviar-diagnostico',
+      },
     });
   });
 
@@ -65,5 +91,15 @@ describe('classifyDiagnostic', () => {
       qualificationBand: 'medium',
       resultType: 'paid_workshop',
     });
+  });
+
+  it.each([
+    ['customer_service', 'consulta'],
+    ['operations', 'document'],
+    ['marketing', 'campaña'],
+  ] as const)('propone oportunidades concretas para el objetivo %s', (goal, expectedWord) => {
+    const result = classifyDiagnostic({ ...base, goal });
+    expect(result.opportunities).toHaveLength(3);
+    expect(result.opportunities.join(' ').toLowerCase()).toContain(expectedWord);
   });
 });
