@@ -68,7 +68,7 @@ function wire(root: HTMLElement): void {
   let started = false;
   let currentResult: ReturnType<typeof classifyDiagnostic> | null = null;
 
-  const showStep = (nextIndex: number) => {
+  const showStep = (nextIndex: number, focusControl = true) => {
     index = Math.max(0, Math.min(steps.length - 1, nextIndex));
     steps.forEach((step, i) => { step.hidden = i !== index; });
     current.textContent = String(index + 1);
@@ -78,8 +78,10 @@ function wire(root: HTMLElement): void {
     next.hidden = index === steps.length - 1;
     finish.hidden = index !== steps.length - 1;
     error.hidden = true;
-    const focusTarget = steps[index]?.querySelector<HTMLElement>('input, textarea');
-    focusTarget?.focus();
+    if (focusControl) {
+      const focusTarget = steps[index]?.querySelector<HTMLElement>('input, textarea');
+      focusTarget?.focus();
+    }
   };
 
   const validCurrentStep = (): boolean => {
@@ -134,7 +136,8 @@ function wire(root: HTMLElement): void {
     });
     renderDiagnosticPlan(result, diagnostic);
     result.hidden = false;
-    result.focus();
+    result.focus({ preventScroll: true });
+    result.scrollIntoView({ block: 'start' });
   });
 
   contactForm.addEventListener('submit', async (event) => {
@@ -211,7 +214,7 @@ function wire(root: HTMLElement): void {
     showStep(0);
   });
 
-  showStep(0);
+  showStep(0, false);
 }
 
 export function initDiagnostic(): void {
