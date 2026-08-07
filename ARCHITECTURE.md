@@ -12,20 +12,20 @@ Browser
 Vercel
   ├── Static prerender (Astro `output: 'static'` + @astrojs/vercel adapter)
   │     └── 130+ pages: directorio, cursos, recursos, estudios, noticias,
-  │         colecciones de prompts y generador local.
+  │         colecciones de prompts, guías, servicios y diagnóstico.
   │
   └── Serverless Functions (Node 24 LTS, Fluid Compute)
         ├── /api/subscribe   → Brevo Contacts API (newsletter / voice waitlist)
         ├── /api/diagnostic  → webhook server-side configurable (diagnóstico comercial)
+        ├── /gracias-diagnostico → cierre SSR noindex según resultado del diagnóstico
         └── /api/wa          → Twilio WhatsApp webhook (signed verification)
 
-Third-party (browser-side)
+Third-party services
   ├── Brevo (transactional + lists, double opt-in)
   ├── HubSpot CRM + Forms (tracking + identify)
-  ├── Make.com webhook (diagnostico quiz → AI diagnostic email)
-  ├── Calendly (audit booking)
-  ├── Google Analytics 4 + Mixpanel EU (analytics)
-  └── Google Fonts (Fraunces, Inter Tight, JetBrains Mono, Material Symbols)
+  ├── Webhook/CRM configurable (entrega server-side del diagnóstico)
+  ├── Proveedor de reserva configurable mediante URL HTTPS
+  └── Google Analytics 4 tras consentimiento
 ```
 
 ## Stack
@@ -55,8 +55,9 @@ Third-party (browser-side)
 | `/blog/` newsletter | inline EmailSignup | `POST /api/subscribe { list:'newsletter' }` | Brevo list 9 |
 | `/#voice-waitlist` | inline EmailSignup | `POST /api/subscribe { list:'voice-waitlist' }` | Brevo list 10 |
 | `/catalogo/` 7-agentes | inline form | `POST /api/subscribe { list:'newsletter' }` + HubSpot `_hsq.identify` | Brevo list 9 + HubSpot |
-| `/diagnostico/` quiz | 5-step form | `POST hook.eu1.make.com/...` + HubSpot Forms `submissions/v3` | Make scenario → Claude API → email + HubSpot CRM |
-| All audit CTAs | n/a | redirect `https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min` | Calendly |
+| `/diagnostico-automatizacion-ia/` | formulario de 8 pasos | `POST /api/diagnostic` | Webhook/CRM configurado → `/gracias-diagnostico/` |
+| Resultado cualificado | CTA posterior al envío | `BOOKING_URL` HTTPS opcional | Proveedor de reserva; fallback a email si falta |
+| Resultado no cualificado | CTA posterior al envío | rutas internas según perfil | taller, guía o revisión manual |
 
 ## Security headers (vercel.json)
 
@@ -87,8 +88,9 @@ Production: Vercel Project → Settings → Environment Variables.
 | `DIAGNOSTIC_WEBHOOK_URL` | `/api/diagnostic.ts` | Destino server-side para leads del diagnóstico; obligatoria antes de publicar la ruta |
 | `DIAGNOSTIC_WEBHOOK_SECRET` | `/api/diagnostic.ts` | Bearer token opcional para autenticar la entrega al webhook |
 | `DIAGNOSTIC_ALLOWED_ORIGINS` | `/api/diagnostic.ts` | Orígenes permitidos, separados por comas; sin wildcard |
+| `BOOKING_URL` | `/gracias-diagnostico.astro` | URL HTTPS opcional para reservar; sin valor usa un contacto por email seguro |
 
-Make.com webhook URL is **client-side fetched** (inline in `/diagnostico/`), so it lives in the codebase, not as a secret. Anyone with the URL can ping it; treat it as public.
+La URL del webhook se usa solo en servidor. No debe exponerse al cliente ni incorporarse a una variable `PUBLIC_*`.
 
 ## DNS records (Cloudflare, agentesva.com)
 
@@ -120,7 +122,7 @@ Make.com webhook URL is **client-side fetched** (inline in `/diagnostico/`), so 
 
 - **No database**: zero `DATABASE_URL`, zero ORM. State lives in Brevo/HubSpot/Make.
 - **No auth**: site is fully public. Forms accept any email.
-- **No SSR**: every page is prerendered HTML. The 2 functions are isolated POST handlers.
+- **SSR mínimo**: el contenido público se prerenderiza; `/gracias-diagnostico/` es dinámico para leer el resultado y `BOOKING_URL` sin cachear ni indexar la respuesta.
 - **No background jobs**: webhooks are fire-and-forget. Long-running diagnostics live in Make.com, not Vercel.
 
 ## Related docs

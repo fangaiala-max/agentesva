@@ -69,6 +69,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-005 — Construir resultado y enrutamiento del diagnóstico
 
+- **Estado:** completado el 8 ago 2026 — resultado determinista con prioridad, complejidad, tres oportunidades por objetivo y siguiente paso específico; reglas y renderizado seguro cubiertos por tests.
 - **Impacto:** crítico
 - **Esfuerzo:** M
 - **Dependencias:** GROW-003, GROW-004
@@ -78,6 +79,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-006 — Crear página de gracias específica del diagnóstico
 
+- **Estado:** completado el 8 ago 2026 — confirmación SSR `noindex` con expectativa, salida por perfil, reserva opcional instrumentada, fallback seguro y exclusión del sitemap.
 - **Impacto:** alto
 - **Esfuerzo:** S
 - **Dependencias:** GROW-005
