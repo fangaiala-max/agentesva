@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { readFileSync } from 'node:fs';
 import { initDiagnostic } from '../src/scripts/diagnostico';
 
 // Regression: ISSUE-001 — el autoenfoque ocultaba el H1 y recortaba el resultado
@@ -68,5 +69,10 @@ describe('foco del diagnóstico', () => {
     expect(focus).toHaveBeenCalledWith({ preventScroll: true });
     expect(scrollIntoView).toHaveBeenCalledWith({ block: 'start' });
     expect(result.hidden).toBe(false);
+  });
+
+  it('reserva espacio para la cabecera móvil al desplazar el resultado', () => {
+    const page = readFileSync('src/pages/diagnostico-automatizacion-ia.astro', 'utf8');
+    expect(page).toContain('scroll-margin-top: 140px');
   });
 });
