@@ -16,6 +16,7 @@ function validBody() {
     budget: '1500_3000',
     timeline: 'one_month',
     risk: 'standard',
+    submissionId: 'submission_test_1234567890',
   };
 }
 
@@ -46,6 +47,7 @@ let fetchMock: ReturnType<typeof vi.fn>;
 beforeEach(() => {
   resetDiagnosticRateLimit();
   process.env.DIAGNOSTIC_WEBHOOK_URL = 'https://hooks.example.test/diagnostic';
+  process.env.DIAGNOSTIC_SIGNING_SECRET = 'test-signing-secret-with-32-characters';
   delete process.env.DIAGNOSTIC_WEBHOOK_SECRET;
   fetchMock = vi.fn().mockResolvedValue({ ok: true, status: 200 });
   vi.stubGlobal('fetch', fetchMock);
@@ -53,6 +55,7 @@ beforeEach(() => {
 afterEach(() => {
   delete process.env.DIAGNOSTIC_WEBHOOK_URL;
   delete process.env.DIAGNOSTIC_WEBHOOK_SECRET;
+  delete process.env.DIAGNOSTIC_SIGNING_SECRET;
   delete process.env.DIAGNOSTIC_ALLOWED_ORIGINS;
   vi.unstubAllGlobals();
 });
@@ -97,9 +100,15 @@ describe('diagnostic API', () => {
     const payload = JSON.parse(options.body);
     expect(payload.result.qualificationBand).toBe('high');
     expect(payload.result.resultType).toBe('qualified_call');
+    expect(payload.submissionId).toBe(validBody().submissionId);
     expect(payload.qualificationBand).toBeUndefined();
     expect(options.headers.Authorization).toBe('Bearer secret-test');
-    expect(res.payload).toMatchObject({ success: true, result: { qualificationBand: 'high' } });
+    expect(options.headers['Idempotency-Key']).toBe(validBody().submissionId);
+    expect(res.payload).toMatchObject({
+      success: true,
+      result: { qualificationBand: 'high' },
+      redirectUrl: expect.stringMatching(/^\/gracias-diagnostico\/\?.*&token=[^.]+\.[^.]+$/),
+    });
   });
 
   it('limita a cinco solicitudes por IP y envía Retry-After', async () => {

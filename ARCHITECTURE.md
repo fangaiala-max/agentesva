@@ -87,10 +87,11 @@ Production: Vercel Project → Settings → Environment Variables.
 | `PUBLIC_GA4_ID` | `ConsentBanner.astro` / `consent.ts` | GA4 Measurement ID (`G-…`); gatea el banner de consentimiento + analytics. Vacío = feature desactivada |
 | `DIAGNOSTIC_WEBHOOK_URL` | `/api/diagnostic.ts` | Destino server-side para leads del diagnóstico; obligatoria antes de publicar la ruta |
 | `DIAGNOSTIC_WEBHOOK_SECRET` | `/api/diagnostic.ts` | Bearer token opcional para autenticar la entrega al webhook |
+| `DIAGNOSTIC_SIGNING_SECRET` | `/api/diagnostic.ts` y `/gracias-diagnostico.astro` | Secreto de 24+ caracteres para firmar resultados; si falta reutiliza `DIAGNOSTIC_WEBHOOK_SECRET` y, sin ninguno, nunca expone la reserva |
 | `DIAGNOSTIC_ALLOWED_ORIGINS` | `/api/diagnostic.ts` | Orígenes permitidos, separados por comas; sin wildcard |
 | `BOOKING_URL` | `/gracias-diagnostico.astro` | URL HTTPS opcional para reservar; sin valor usa un contacto por email seguro |
 
-La URL del webhook se usa solo en servidor. No debe exponerse al cliente ni incorporarse a una variable `PUBLIC_*`.
+La URL y los secretos del webhook se usan solo en servidor. No deben exponerse al cliente ni incorporarse a una variable `PUBLIC_*`. La página de cierre solo confía en resultados firmados por la API y degrada accesos directos o manipulados a revisión manual.
 
 ## DNS records (Cloudflare, agentesva.com)
 

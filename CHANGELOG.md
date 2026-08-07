@@ -16,10 +16,12 @@ Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](
 
 ### Fixed
 - El diagnóstico ya no desplaza la página al primer campo durante la carga ni oculta el resultado bajo la cabecera fija en escritorio o móvil.
+- Cada clasificación conserva su propia lista de oportunidades y la atribución de reservas distingue Calendly, Cal.com y otros proveedores HTTPS configurados.
+- La página de cierre verifica un token de resultado firmado antes de mostrar la reserva; los enlaces directos o manipulados caen a revisión manual. Los reintentos conservan una clave de idempotencia para evitar leads duplicados en el receptor.
 
 ### Verification
 - QA estándar del embudo: 8 rutas/variantes, 21 capturas y 1 incidencia encontrada/corregida; salud final 100/100.
-- Suite completa: 41 archivos y 375 tests. Build Astro/Vercel y Pagefind completados.
+- Suite completa: 43 archivos y 388 tests. Build Astro/Vercel y Pagefind completados.
 
 ## [0.4.0.0] - 2026-08-04
 

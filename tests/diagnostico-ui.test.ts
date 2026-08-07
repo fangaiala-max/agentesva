@@ -45,4 +45,11 @@ describe('renderDiagnosticPlan', () => {
     expect(document.querySelector('[data-result-opportunities] img')).toBeNull();
     expect(document.querySelector('[data-result-opportunities] li')!.textContent).toContain('<img');
   });
+
+  it('tolera un contenedor parcial sin campos opcionales', () => {
+    document.body.innerHTML = '<section id="partial"></section>';
+    expect(() => {
+      renderDiagnosticPlan(document.getElementById('partial')!, classifyDiagnostic(answers));
+    }).not.toThrow();
+  });
 });

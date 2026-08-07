@@ -15,15 +15,16 @@ describe('cierre del diagnóstico', () => {
   });
 
   it('redirige al cierre solo después de que el servidor acepta el lead', () => {
-    const accepted = client.indexOf('if (!response.ok || !payload.success || !payload.result)');
-    const redirect = client.indexOf('window.location.assign(diagnosticThanksUrl(currentResult))');
+    const accepted = client.indexOf('if (!response.ok || !payload.success || !payload.result ||');
+    const redirect = client.indexOf('window.location.assign(payload.redirectUrl)');
     expect(accepted).toBeGreaterThan(-1);
     expect(redirect).toBeGreaterThan(accepted);
   });
 
   it('instrumenta la reserva solo cuando existe proveedor configurado', () => {
     expect(page).toContain("data-track-event={plan.action.booking ? 'booking_started' : undefined}");
-    expect(page).toContain('data-track-booking-provider="calendly"');
+    expect(page).toContain('data-track-booking-provider={bookingProvider}');
     expect(page).toContain('data-track-placement="diagnostic_result"');
+    expect(page).toContain('verifyDiagnosticResultToken');
   });
 });

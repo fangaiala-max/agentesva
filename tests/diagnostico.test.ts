@@ -102,4 +102,12 @@ describe('classifyDiagnostic', () => {
     expect(result.opportunities).toHaveLength(3);
     expect(result.opportunities.join(' ').toLowerCase()).toContain(expectedWord);
   });
+
+  it('devuelve oportunidades aisladas para que una mutación no contamine resultados futuros', () => {
+    const first = classifyDiagnostic(base);
+    const originalOpportunity = first.opportunities[0];
+    first.opportunities[0] = 'Contenido mutado por un consumidor';
+
+    expect(classifyDiagnostic(base).opportunities[0]).toBe(originalOpportunity);
+  });
 });

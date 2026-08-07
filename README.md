@@ -54,7 +54,7 @@ npm run build
 Para probar el cierre cualificado con reserva en local:
 
 ```bash
-BOOKING_URL=https://calendly.com/tu-cuenta/revision-automatizacion npm run dev
+DIAGNOSTIC_SIGNING_SECRET=secreto-local-de-32-caracteres BOOKING_URL=https://calendly.com/tu-cuenta/revision-automatizacion npm run dev
 ```
 
 ## Documentación

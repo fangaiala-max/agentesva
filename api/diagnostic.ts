@@ -1,4 +1,6 @@
 import { classifyDiagnostic, type DiagnosticAnswers } from '../src/data/diagnostico.js';
+import { diagnosticThanksUrl } from '../src/data/diagnostico-gracias.js';
+import { signDiagnosticResult } from '../src/data/diagnostico-token.js';
 
 const WINDOW_MS = 10 * 60 * 1000;
 const MAX_REQUESTS = 5;
@@ -19,6 +21,7 @@ const TOOLS = new Set(['none', 'some']);
 const BUDGET = new Set(['exploring', 'under_300', '300_1500', '1500_3000', '3000_5000', 'more_5000']);
 const TIMELINE = new Set(['now', 'one_month', 'three_months', 'later']);
 const RISK = new Set(['standard', 'sensitive_data', 'high_impact_decisions', 'unsafe_request']);
+const SUBMISSION_ID = /^[a-zA-Z0-9_-]{16,80}$/;
 
 type Req = { method?: string; headers?: Record<string, string | string[] | undefined>; body?: unknown; socket?: { remoteAddress?: string } };
 type Res = {
@@ -61,7 +64,7 @@ function limited(key: string, now = Date.now()): { blocked: boolean; retryAfter:
 }
 
 function parseBody(raw: unknown):
-  | { ok: true; contact: { email: string; name: string }; answers: DiagnosticAnswers }
+  | { ok: true; contact: { email: string; name: string }; answers: DiagnosticAnswers; submissionId: string }
   | { ok: false; error: string } {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return { ok: false, error: 'Invalid payload' };
   if (JSON.stringify(raw).length > MAX_BODY_BYTES) return { ok: false, error: 'Payload too large' };
@@ -71,11 +74,13 @@ function parseBody(raw: unknown):
   const name = text(body.name, 100);
   const businessType = text(body.businessType, 80);
   const process = text(body.process, 500);
+  const submissionId = text(body.submissionId, 80);
 
   if (body.company) return { ok: false, error: 'Honeypot' };
   if (body.consent !== true) return { ok: false, error: 'Consent required' };
   if (!EMAIL.test(email) || email.length > 254) return { ok: false, error: 'Invalid email address' };
   if (name.length < 2) return { ok: false, error: 'Invalid name' };
+  if (!SUBMISSION_ID.test(submissionId)) return { ok: false, error: 'Invalid submission id' };
   if (businessType.length < 3 || process.length < 12) return { ok: false, error: 'Incomplete answers' };
   if (!TEAM.has(String(body.teamSize)) || !GOAL.has(String(body.goal)) || !FREQUENCY.has(String(body.frequency))) {
     return { ok: false, error: 'Invalid answers' };
@@ -87,6 +92,7 @@ function parseBody(raw: unknown):
   return {
     ok: true,
     contact: { email, name },
+    submissionId,
     answers: {
       businessType,
       process,
@@ -146,12 +152,14 @@ export default async function handler(req: Req, res: Res) {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
+        'Idempotency-Key': parsed.submissionId,
         ...(process.env.DIAGNOSTIC_WEBHOOK_SECRET
           ? { Authorization: `Bearer ${process.env.DIAGNOSTIC_WEBHOOK_SECRET}` }
           : {}),
       },
       body: JSON.stringify({
         event: 'diagnostic_lead',
+        submissionId: parsed.submissionId,
         submittedAt: new Date().toISOString(),
         source: 'diagnostico-automatizacion-ia',
         contact: parsed.contact,
@@ -167,7 +175,9 @@ export default async function handler(req: Req, res: Res) {
       return res.status(502).json({ error: 'Lead delivery failed' });
     }
 
-    return res.status(200).json({ success: true, result });
+    const signingSecret = process.env.DIAGNOSTIC_SIGNING_SECRET || process.env.DIAGNOSTIC_WEBHOOK_SECRET || '';
+    const token = signDiagnosticResult(result, signingSecret);
+    return res.status(200).json({ success: true, result, redirectUrl: diagnosticThanksUrl(result, token) });
   } catch (error) {
     console.error('[diagnostic] delivery error', error instanceof Error ? error.name : 'unknown');
     return res.status(504).json({ error: 'Lead delivery timeout' });

@@ -28,13 +28,27 @@ export interface DiagnosticThanksPlan {
   };
 }
 
-export function diagnosticThanksUrl(result: DiagnosticResult): string {
+export function diagnosticThanksUrl(result: DiagnosticResult, token?: string): string {
   const query = new URLSearchParams({
     resultado: result.resultType,
     cluster: result.cluster,
     servicio: result.service,
   });
+  if (token) query.set('token', token);
   return `/gracias-diagnostico/?${query.toString()}`;
+}
+
+export function bookingProviderFor(bookingUrl: string): 'calendly' | 'cal' | 'external' | undefined {
+  try {
+    const url = new URL(bookingUrl);
+    if (url.protocol !== 'https:') return undefined;
+    const hostname = url.hostname.toLowerCase();
+    if (hostname === 'calendly.com' || hostname.endsWith('.calendly.com')) return 'calendly';
+    if (hostname === 'cal.com' || hostname.endsWith('.cal.com')) return 'cal';
+    return 'external';
+  } catch {
+    return undefined;
+  }
 }
 
 export function thanksPlanFor(rawResultType: string, rawCluster: string, bookingUrl: string): DiagnosticThanksPlan {
@@ -45,7 +59,7 @@ export function thanksPlanFor(rawResultType: string, rawCluster: string, booking
   const contactHref = `mailto:hola@agentesva.com?subject=${encodeURIComponent('Revisión de mi diagnóstico de automatización')}`;
 
   if (resultType === 'qualified_call') {
-    const canBook = /^https:\/\//.test(bookingUrl);
+    const canBook = bookingProviderFor(bookingUrl) !== undefined;
     return {
       resultType,
       cluster,

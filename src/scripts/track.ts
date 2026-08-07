@@ -61,7 +61,7 @@ const ENUMS: Partial<Record<string, ReadonlySet<string>>> = {
     'general_consulting',
   ]),
   qualification_band: new Set(['low', 'medium', 'high']),
-  booking_provider: new Set(['calendly']),
+  booking_provider: new Set(['calendly', 'cal', 'external']),
 };
 
 const SAFE_VALUE = /^[\p{L}\p{N}_./-]{1,100}$/u;

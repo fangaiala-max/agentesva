@@ -2,14 +2,19 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
-import { thanksPlanFor } from '../data/diagnostico-gracias';
+import { bookingProviderFor, thanksPlanFor } from '../data/diagnostico-gracias';
+import { verifyDiagnosticResultToken } from '../data/diagnostico-token';
 
 export const prerender = false;
 
-const resultType = Astro.url.searchParams.get('resultado') ?? '';
-const cluster = Astro.url.searchParams.get('cluster') ?? '';
+const token = Astro.url.searchParams.get('token') ?? '';
+const signingSecret = process.env.DIAGNOSTIC_SIGNING_SECRET || process.env.DIAGNOSTIC_WEBHOOK_SECRET || '';
+const verified = verifyDiagnosticResultToken(token, signingSecret);
+const resultType = verified?.resultType ?? 'manual_review';
+const cluster = verified?.cluster ?? 'general';
 const bookingUrl = process.env.BOOKING_URL ?? '';
-const plan = thanksPlanFor(resultType, cluster, bookingUrl);
+const plan = thanksPlanFor(resultType, cluster, verified ? bookingUrl : '');
+const bookingProvider = plan.action.booking ? bookingProviderFor(plan.action.href) : undefined;
 Astro.response.headers.set('Cache-Control', 'no-store');
 ---
 
@@ -38,7 +43,7 @@ Astro.response.headers.set('Cache-Control', 'no-store');
         target={plan.action.booking ? '_blank' : undefined}
         rel={plan.action.booking ? 'noopener' : undefined}
         data-track-event={plan.action.booking ? 'booking_started' : undefined}
-        data-track-booking-provider="calendly"
+        data-track-booking-provider={bookingProvider}
         data-track-placement="diagnostic_result"
         data-track-cluster={plan.cluster}
         data-track-qualification-band={plan.resultType === 'qualified_call' ? 'high' : undefined}

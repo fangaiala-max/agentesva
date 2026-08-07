@@ -82,7 +82,9 @@ const OPPORTUNITIES: Record<Goal, DiagnosticResult['opportunities']> = {
 };
 
 function planFor(goal: Goal, resultType: ResultType): Pick<DiagnosticResult, 'priority' | 'complexity' | 'opportunities' | 'nextStep'> {
-  const opportunities = OPPORTUNITIES[goal];
+  // Each result owns its list. Consumers render and may transform it, so sharing
+  // the module-level tuple would let one request contaminate later diagnostics.
+  const opportunities = [...OPPORTUNITIES[goal]] as DiagnosticResult['opportunities'];
   if (resultType === 'qualified_call') {
     return {
       priority: 'Alta',
