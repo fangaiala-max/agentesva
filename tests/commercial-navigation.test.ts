@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { DIAGNOSTICO, NAVEGACION_COMERCIAL } from '../src/data/breadcrumbs';
 import { entityGraph, FOUNDER_ID, founder, organization, person } from '../src/data/schema';
+import { SERVICE_OFFER } from '../src/data/service-offer';
 
 const read = (path: string) => readFileSync(join(process.cwd(), path), 'utf8');
 
@@ -22,7 +23,8 @@ describe('navegación comercial', () => {
     expect(page).toContain('Descubrir qué automatizar');
     expect(page).toContain('data-track-placement="hero"');
     expect(page).toContain('data-track-placement="sticky"');
-    expect(page).toContain('Implementaciones acotadas desde <strong>1.500 €</strong>');
+    expect(SERVICE_OFFER.scoped.price).toBe('Desde 1.500 €');
+    expect(page.match(/SERVICE_OFFER\.scoped\.price/g)).toHaveLength(2);
     expect(page.indexOf('Qué compras')).toBeLessThan(page.indexOf('¿Aún estás explorando?'));
     expect(page).toContain('id="directorio"');
     expect(page).toContain('/servicios/automatizacion-atencion-cliente/');
