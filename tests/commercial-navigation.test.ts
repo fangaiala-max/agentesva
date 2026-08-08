@@ -19,7 +19,7 @@ describe('navegación comercial', () => {
 
   it('convierte la home en una ruta de venta sin eliminar el directorio', () => {
     const page = read('src/pages/index.astro');
-    expect(page).toContain('Elimina un proceso manual');
+    expect(page).toContain('Automatiza un proceso acotado');
     expect(page).toContain('Descubrir qué automatizar');
     expect(page).toContain('data-track-placement="hero"');
     expect(page).toContain('data-track-placement="sticky"');
@@ -68,6 +68,16 @@ describe('navegación comercial', () => {
       expect(cta).toContain('data-track-content-slug="home"');
       expect(cta).toContain('data-track-service="general_consulting"');
       expect(cta).toContain('data-track-cluster="general"');
+    }
+  });
+
+  it('atribuye precios, servicios y metodología dentro del recorrido comercial', () => {
+    const page = read('src/pages/index.astro');
+    for (const placement of ['hero_pricing', 'service_card', 'methodology']) {
+      expect(page).toContain(`data-track-placement="${placement}"`);
+    }
+    for (const service of ['customer_service_automation', 'sales_automation', 'process_automation']) {
+      expect(page).toContain(`data-track-service="${service}"`);
     }
   });
 
