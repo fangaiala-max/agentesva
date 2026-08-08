@@ -2,9 +2,17 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 
 const page = readFileSync('src/pages/gracias-diagnostico.astro', 'utf8');
+const diagnosticPage = readFileSync('src/pages/diagnostico-automatizacion-ia.astro', 'utf8');
+const astroConfig = readFileSync('astro.config.mjs', 'utf8');
 const client = readFileSync('src/scripts/diagnostico.ts', 'utf8');
 
 describe('cierre del diagnóstico', () => {
+  it('publica el diagnóstico indexable y mantiene noindex solo en el cierre', () => {
+    expect(diagnosticPage).not.toContain('noindex={true}');
+    expect(astroConfig).not.toContain("!page.includes('/diagnostico-automatizacion-ia')");
+    expect(page).toContain('noindex={true}');
+  });
+
   it('tiene una página noindex con expectativa, acción primaria y salida secundaria', () => {
     expect(page).toContain('noindex={true}');
     expect(page).toContain('thanksPlanFor');

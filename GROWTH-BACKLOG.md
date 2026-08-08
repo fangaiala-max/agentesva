@@ -49,7 +49,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-003 — Crear `/diagnostico-automatizacion-ia/`
 
-- **Estado:** completado el 4 ago 2026 — interfaz de 8 pasos, validación, resultado determinista, consentimiento y entrega segura verificados en Vercel Preview; se mantiene `noindex` hasta publicar la ruta en producción.
+- **Estado:** completado el 8 ago 2026 — interfaz de 8 pasos, validación, resultado determinista, consentimiento y entrega segura verificados; la ruta entra al sitemap con la release `0.5.0.0`.
 - **Impacto:** crítico
 - **Esfuerzo:** L
 - **Dependencias:** GROW-001, definición offline mínima de cualificación OFL-001
@@ -85,7 +85,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 - **Dependencias:** GROW-005
 - **Tarea:** página `noindex` con resumen, próximos pasos, expectativa de respuesta y CTA de reserva cuando corresponda.
 - **Aceptación:** no existe callejón sin salida; el evento `diagnostic_completed` no se duplica al recargar.
-- **Métrica:** resultado cualificado → reserva completada medible.
+- **Métrica:** resultado cualificado → reserva iniciada medible; `booking_completed` queda reservado para un callback verificable del proveedor.
 
 ## P0 · Oferta visible y páginas comerciales
 

@@ -30,7 +30,7 @@ npm run preview
 - `/generador-de-prompts/` — generador local que estructura el prompt sin enviar los campos a un servidor.
 - `/servicios/`, `/precios-automatizacion-ia/` y `/como-trabajamos/` — oferta comercial, rangos y proceso de implementación.
 - `/diagnostico-automatizacion-ia/` — diagnóstico de ocho pasos con recomendación inmediata y entrega segura del lead.
-- `/gracias-diagnostico/` — cierre dinámico `noindex`; ofrece reserva si `BOOKING_URL` está configurada y una alternativa segura si no.
+- `/gracias-diagnostico/` — cierre dinámico `noindex`; ofrece reserva cuando `BOOKING_URL` y un secreto de firma están configurados, y una alternativa segura si no.
 
 ## Contenido y datos
 
@@ -54,8 +54,13 @@ npm run build
 Para probar el cierre cualificado con reserva en local:
 
 ```bash
-DIAGNOSTIC_SIGNING_SECRET=secreto-local-de-32-caracteres BOOKING_URL=https://calendly.com/tu-cuenta/revision-automatizacion npm run dev
+DIAGNOSTIC_ALLOWED_ORIGINS=http://localhost:4321 \
+DIAGNOSTIC_WEBHOOK_URL=https://tu-webhook-de-pruebas.example/diagnostico \
+DIAGNOSTIC_SIGNING_SECRET=secreto-local-de-32-caracteres \
+BOOKING_URL=https://calendly.com/tu-cuenta/revision-automatizacion npm run dev
 ```
+
+El webhook debe aceptar la entrega para que la API emita el resultado firmado y redirija al cierre cualificado.
 
 ## Documentación
 

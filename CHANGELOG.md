@@ -12,6 +12,7 @@ Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](
 
 ### Changed
 - La portada, navegación, footer, estudios y fichas prioritarias orientan el tráfico con contexto hacia diagnóstico y servicios, manteniendo el directorio como vía de exploración.
+- El diagnóstico deja la fase de preview: entra al sitemap y puede indexarse, mientras su página de confirmación permanece `noindex`.
 - La suite configura Happy DOM para simular como exitosa la carga externa bloqueada; conserva el aislamiento de red y deja la salida de tests limpia.
 
 ### Fixed
@@ -21,7 +22,7 @@ Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](
 
 ### Verification
 - QA estándar del embudo: 8 rutas/variantes, 21 capturas y 1 incidencia encontrada/corregida; salud final 100/100.
-- Suite completa: 43 archivos y 389 tests. Build Astro/Vercel y Pagefind completados.
+- Suite completa: 43 archivos y 390 tests. Build Astro/Vercel y Pagefind completados.
 
 ## [0.4.0.0] - 2026-08-04
 

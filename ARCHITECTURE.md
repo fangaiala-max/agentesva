@@ -91,7 +91,7 @@ Production: Vercel Project → Settings → Environment Variables.
 | `DIAGNOSTIC_ALLOWED_ORIGINS` | `/api/diagnostic.ts` | Orígenes permitidos, separados por comas; sin wildcard |
 | `BOOKING_URL` | `/gracias-diagnostico.astro` | URL HTTPS opcional para reservar; sin valor usa un contacto por email seguro |
 
-La URL y los secretos del webhook se usan solo en servidor. No deben exponerse al cliente ni incorporarse a una variable `PUBLIC_*`. La página de cierre solo confía en resultados firmados por la API y degrada accesos directos o manipulados a revisión manual.
+La URL y los secretos del webhook se usan solo en servidor. No deben exponerse al cliente ni incorporarse a una variable `PUBLIC_*`. La API firma el resultado con HMAC-SHA256 y una caducidad de 30 minutos; la página de cierre degrada accesos directos, caducados o manipulados a revisión manual.
 
 ## DNS records (Cloudflare, agentesva.com)
 

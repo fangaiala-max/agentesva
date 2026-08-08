@@ -1,6 +1,6 @@
 # Operations — agentesva.com
 
-How to monitor, alert, secure, and recover the production site. Static Astro on Vercel + 2 functions + 4 SaaS providers (Brevo, HubSpot, Make, Calendly).
+How to monitor, alert, secure, and recover the production site. Static Astro on Vercel + 3 functions + 4 SaaS providers (Brevo, HubSpot, Make, Calendly).
 
 ## 🔐 Secrets management
 
@@ -46,6 +46,8 @@ For now (2 people) the **Vercel-native env vars are sufficient**. Migrate when t
 | `BREVO_API_KEY` | 6 meses | Brevo → SMTP & API → Generate new key → update Vercel → revoke old |
 | `TWILIO_AUTH_TOKEN` | 6 meses | Twilio Console → Account → Auth Tokens → Rotate |
 | `WA_VERIFY_TOKEN` | Si se filtra | Generate UUID v4, update Vercel + Twilio Sandbox config |
+| `DIAGNOSTIC_WEBHOOK_SECRET` | 6 meses | Rotar en Make/CRM y Vercel en la misma ventana de mantenimiento |
+| `DIAGNOSTIC_SIGNING_SECRET` | 6 meses | Generar 32+ caracteres aleatorios y actualizar Vercel; los tokens anteriores caducan en 30 minutos |
 
 ---
 
@@ -84,8 +86,11 @@ For now (2 people) the **Vercel-native env vars are sufficient**. Migrate when t
 
 1. Configurar `DIAGNOSTIC_WEBHOOK_URL` en Vercel antes de retirar `noindex`.
 2. Configurar `DIAGNOSTIC_WEBHOOK_SECRET` y validar el Bearer token en Make/CRM cuando el proveedor lo permita.
-3. Mantener rate limiting distribuido en Vercel WAF; el límite en memoria de la función es una defensa adicional por instancia, no sustituye al WAF.
-4. Probar un lead de cada ruta (`qualified_call`, `paid_workshop`, `self_serve_resources`, `manual_review`) en preview antes de producción.
+3. Configurar `DIAGNOSTIC_SIGNING_SECRET` con 24+ caracteres. Si falta, la API reutiliza `DIAGNOSTIC_WEBHOOK_SECRET`; sin ninguno, la página no muestra la reserva.
+4. Configurar `BOOKING_URL` con HTTPS si se quiere mostrar reserva a los resultados cualificados.
+5. Deduplicar en Make/CRM por `submissionId` o por la cabecera `Idempotency-Key` para que un reintento no cree dos leads.
+6. Mantener rate limiting distribuido en Vercel WAF; el límite en memoria de la función es una defensa adicional por instancia, no sustituye al WAF.
+7. Probar un lead de cada ruta (`qualified_call`, `paid_workshop`, `self_serve_resources`, `manual_review`) en preview antes de producción.
 
 #### Make.com (Account → Notifications)
 1. Enable: `Scenario disabled due to errors`, `Operations limit approaching`
