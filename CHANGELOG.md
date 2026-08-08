@@ -2,6 +2,22 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [0.5.1.0] - 2026-08-08
+
+### Added
+- La portada presenta una ruta comercial completa: resultado esperado, tres áreas de automatización, entregables, proceso, precio inicial y llamadas al diagnóstico antes del contenido editorial.
+- Elizabeth Salguero figura como fundadora de AgentesVA en los datos estructurados; Fernando Angulo conserva la dirección estratégica y editorial.
+
+### Changed
+- El directorio y el pack gratuito pasan a una función secundaria para que el visitante encuentre primero la oferta de implementación.
+- El precio de implementación se obtiene de una única fuente y los textos comerciales de las tarjetas ganan legibilidad.
+- La barra fija móvil concentra la conversión en una acción compacta sin ocupar espacio excesivo.
+
+### Verification
+- Suite completa: 44 archivos y 404 pruebas.
+- Build de Astro y Pagefind completado correctamente.
+- QA de navegador en escritorio y móvil, sin errores de consola ni desbordamiento horizontal; CTA principal conectado al diagnóstico.
+
 ## [0.5.0.1] - 2026-08-08
 
 ### Changed
