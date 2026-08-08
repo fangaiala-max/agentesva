@@ -2,6 +2,14 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [0.5.0.1] - 2026-08-08
+
+### Changed
+- Los diagnósticos nuevos de AgentesVA se asignan a Eli como responsable comercial, alineando la captura web con el modelo de outreach founder-led y el SOP del CRM.
+
+### Verification
+- Prueba de integración del payload de Notion: la propiedad `Responsable` debe ser `Eli`.
+
 ## [0.5.0.0] - 2026-08-08
 
 ### Added
