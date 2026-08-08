@@ -59,7 +59,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-004 — Implementar recepción segura de leads
 
-- **Estado:** completado el 4 ago 2026 — endpoint server-side, validación, honeypot, rate limit por instancia, entrega autenticable y consentimiento implementados; `DIAGNOSTIC_WEBHOOK_URL` configurada y entrega real confirmada en Make desde Vercel Preview.
+- **Estado:** actualizado el 8 ago 2026 — endpoint server-side, validación, honeypot, rate limit por instancia, evidencia de consentimiento y entrega directa a Notion con deduplicación de mejor esfuerzo por `Submission ID`; falta configurar la integración interna en Vercel y confirmar la entrega real desde Preview.
 - **Impacto:** crítico
 - **Esfuerzo:** M
 - **Dependencias:** GROW-003, OFL-001

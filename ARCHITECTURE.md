@@ -1,6 +1,6 @@
 # Architecture — agentesva.com
 
-Static-first Astro site on Vercel + serverless functions for form/webhook handling. No database. All persistence is in third-party SaaS (Brevo for email, the configured diagnostic webhook/CRM, HubSpot, Make.com and GA4).
+Static-first Astro site on Vercel + serverless functions for form/API handling. No database propia. All persistence is in third-party SaaS (Brevo for email, Notion for the diagnostic CRM, HubSpot and GA4).
 
 ## Topology
 
@@ -16,14 +16,14 @@ Vercel
   │
   └── Serverless Functions (Node 24 LTS, Fluid Compute)
         ├── /api/subscribe   → Brevo Contacts API (newsletter / voice waitlist)
-        ├── /api/diagnostic  → webhook server-side configurable (diagnóstico comercial)
+        ├── /api/diagnostic  → Notion API (diagnóstico comercial con deduplicación)
         ├── /gracias-diagnostico → cierre SSR noindex según resultado del diagnóstico
         └── /api/wa          → Twilio WhatsApp webhook (signed verification)
 
 Third-party services
   ├── Brevo (transactional + lists, double opt-in)
   ├── HubSpot CRM + Forms (tracking + identify)
-  ├── Webhook/CRM configurable (entrega server-side del diagnóstico)
+  ├── Notion (Pipeline de leads del diagnóstico)
   ├── Proveedor de reserva configurable mediante URL HTTPS
   └── Google Analytics 4 tras consentimiento
 ```
@@ -55,7 +55,7 @@ Third-party services
 | `/blog/` newsletter | inline EmailSignup | `POST /api/subscribe { list:'newsletter' }` | Brevo list 9 |
 | `/#voice-waitlist` | inline EmailSignup | `POST /api/subscribe { list:'voice-waitlist' }` | Brevo list 10 |
 | `/catalogo/` 7-agentes | inline form | `POST /api/subscribe { list:'newsletter' }` + HubSpot `_hsq.identify` | Brevo list 9 + HubSpot |
-| `/diagnostico-automatizacion-ia/` | formulario de 8 pasos | `POST /api/diagnostic` | Webhook/CRM configurado → `/gracias-diagnostico/` |
+| `/diagnostico-automatizacion-ia/` | formulario de 8 pasos | `POST /api/diagnostic` | Pipeline de leads en Notion → `/gracias-diagnostico/` |
 | Resultado cualificado | CTA posterior al envío | `BOOKING_URL` HTTPS opcional | Proveedor de reserva; fallback a email si falta |
 | Resultado no cualificado | CTA posterior al envío | rutas internas según perfil | taller, guía o revisión manual |
 
@@ -85,13 +85,15 @@ Production: Vercel Project → Settings → Environment Variables.
 | `TWILIO_AUTH_TOKEN` | `/api/wa.js` | WhatsApp webhook signature |
 | `WA_VERIFY_TOKEN` | `/api/wa.js` | Twilio challenge-response |
 | `PUBLIC_GA4_ID` | `ConsentBanner.astro` / `consent.ts` | GA4 Measurement ID (`G-…`); gatea el banner de consentimiento + analytics. Vacío = feature desactivada |
-| `DIAGNOSTIC_WEBHOOK_URL` | `/api/diagnostic.ts` | Destino server-side para leads del diagnóstico; obligatoria antes de publicar la ruta |
-| `DIAGNOSTIC_WEBHOOK_SECRET` | `/api/diagnostic.ts` | Bearer token opcional para autenticar la entrega al webhook |
-| `DIAGNOSTIC_SIGNING_SECRET` | `/api/diagnostic.ts` y `/gracias-diagnostico.astro` | Secreto de 24+ caracteres para firmar resultados; si falta reutiliza `DIAGNOSTIC_WEBHOOK_SECRET` y, sin ninguno, nunca expone la reserva |
+| `NOTION_TOKEN` | `/api/diagnostic.ts` | Token de integración interna con acceso a `Pipeline de leads` |
+| `NOTION_DATA_SOURCE_ID` | `/api/diagnostic.ts` | Fuente de datos donde la API crea o actualiza leads por `Submission ID` |
+| `DIAGNOSTIC_SIGNING_SECRET` | `/api/diagnostic.ts` y `/gracias-diagnostico.astro` | Secreto de 24+ caracteres para firmar resultados; sin él, la página nunca expone la reserva |
 | `DIAGNOSTIC_ALLOWED_ORIGINS` | `/api/diagnostic.ts` | Orígenes permitidos, separados por comas; sin wildcard |
 | `BOOKING_URL` | `/gracias-diagnostico.astro` | URL HTTPS opcional para reservar; sin valor usa un contacto por email seguro |
 
-La URL y los secretos del webhook se usan solo en servidor. No deben exponerse al cliente ni incorporarse a una variable `PUBLIC_*`. La API firma el resultado con HMAC-SHA256 y una caducidad de 30 minutos; la página de cierre degrada accesos directos, caducados o manipulados a revisión manual.
+El token de Notion y el secreto de firma se usan solo en servidor. No deben exponerse al cliente ni incorporarse a una variable `PUBLIC_*`. La API firma el resultado con HMAC-SHA256 y una caducidad de 30 minutos; la página de cierre degrada accesos directos, caducados o manipulados a revisión manual.
+
+La API agrupa envíos concurrentes con el mismo `Submission ID` dentro de cada instancia y consulta Notion antes de crear. Como Notion no ofrece una restricción única para esta propiedad, la deduplicación entre dos instancias simultáneas es de mejor esfuerzo; cualquier duplicado excepcional se reconcilia por `Submission ID` en el pipeline.
 
 ## DNS records (Cloudflare, agentesva.com)
 
@@ -121,10 +123,10 @@ La URL y los secretos del webhook se usan solo en servidor. No deben exponerse a
 
 ## What this project is NOT
 
-- **No database**: zero `DATABASE_URL`, zero ORM. State lives in Brevo/HubSpot/Make.
+- **No database propia**: zero `DATABASE_URL`, zero ORM. State lives in Brevo, HubSpot and Notion.
 - **No auth**: site is fully public. Forms accept any email.
 - **SSR mínimo**: el contenido público se prerenderiza; `/gracias-diagnostico/` es dinámico para leer el resultado y `BOOKING_URL` sin cachear ni indexar la respuesta.
-- **No background jobs**: webhooks are fire-and-forget. Long-running diagnostics live in Make.com, not Vercel.
+- **No background jobs**: el diagnóstico clasifica y persiste el lead en Notion dentro de la misma petición acotada por timeout.
 
 ## Related docs
 

@@ -13,6 +13,7 @@ Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](
 ### Changed
 - La portada, navegación, footer, estudios y fichas prioritarias orientan el tráfico con contexto hacia diagnóstico y servicios, manteniendo el directorio como vía de exploración.
 - El diagnóstico deja la fase de preview: entra al sitemap y puede indexarse, mientras su página de confirmación permanece `noindex`.
+- La entrega comercial escribe directamente en el pipeline existente de Notion y actualiza por `Submission ID`; el diagnóstico deja de depender de Make o de otro CRM intermediario.
 - La suite configura Happy DOM para simular como exitosa la carga externa bloqueada; conserva el aislamiento de red y deja la salida de tests limpia.
 
 ### Fixed

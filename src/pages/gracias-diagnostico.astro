@@ -8,7 +8,7 @@ import { verifyDiagnosticResultToken } from '../data/diagnostico-token';
 export const prerender = false;
 
 const token = Astro.url.searchParams.get('token') ?? '';
-const signingSecret = process.env.DIAGNOSTIC_SIGNING_SECRET || process.env.DIAGNOSTIC_WEBHOOK_SECRET || '';
+const signingSecret = process.env.DIAGNOSTIC_SIGNING_SECRET || '';
 const verified = verifyDiagnosticResultToken(token, signingSecret);
 const resultType = verified?.resultType ?? 'manual_review';
 const cluster = verified?.cluster ?? 'general';
