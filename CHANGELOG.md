@@ -2,6 +2,14 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [0.5.1.1] - 2026-08-08
+
+### Fixed
+- El sitio utiliza versiones corregidas de `nanoid`, `brace-expansion` y `undici`, eliminando siete alertas de seguridad de dependencias sin cambiar la experiencia ni las APIs de AgentesVA.
+
+### Verification
+- `npm audit` no detecta vulnerabilidades; la suite completa mantiene 44 archivos y 405 pruebas aprobadas, y el build de Astro, Vercel y Pagefind termina correctamente.
+
 ## [0.5.1.0] - 2026-08-08
 
 ### Added
