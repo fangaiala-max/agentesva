@@ -108,6 +108,7 @@ describe('diagnostic API', () => {
     const [, options] = fetchMock.mock.calls[1] as [string, { body: string; headers: Record<string, string> }];
     const payload = JSON.parse(options.body);
     expect(payload.properties['Resultado diagnóstico']).toEqual({ select: { name: 'Llamada cualificada' } });
+    expect(payload.properties.Responsable).toEqual({ select: { name: 'Eli' } });
     expect(payload.properties['Submission ID'].rich_text[0].text.content).toBe(validBody().submissionId);
     expect(payload.properties.qualificationBand).toBeUndefined();
     expect(options.headers.Authorization).toBe('Bearer secret_notion_test');
