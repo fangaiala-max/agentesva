@@ -6,6 +6,7 @@ import ToolCard from '../components/ToolCard.astro';
 import { getCollection } from 'astro:content';
 import { toTool, PRICE_COLOR, priceRank, toolsClaim } from '../data/tools';
 import { crumbPath } from '../data/breadcrumbs';
+import { SERVICE_OFFER } from '../data/service-offer';
 
 const tools = (await getCollection('tools')).map(toTool).sort((a, b) => a.orden - b.orden);
 const claim = toolsClaim(tools.length);
@@ -13,9 +14,6 @@ const cats = (await getCollection('categories')).sort((a, b) => a.data.orden - b
 const CATEGORIES = ['Todas', ...cats.map((c) => c.data.nombre)];
 const catIdByName = new Map(cats.map((c) => [c.data.nombre, c.id]));
 const countByCat = (nombre: string) => tools.filter((t) => t.cat === nombre).length;
-
-// Destacada del hero — "Elección del editor" (destacado: true en la colección).
-const featured = tools.find((t) => t.destacado) ?? tools[0];
 
 // Estantes del layout "Escaparate" (derivados de datos reales: orden = curaduría).
 const shelves = [
@@ -34,8 +32,7 @@ const shelves = [
   },
 ];
 
-// Avatares (monogramas reales del directorio).
-const heroAvatars = tools.slice(0, 5);
+// Monogramas reales del directorio.
 const collAvatars = tools.filter((t) => ['WhatsApp', 'Marketing', 'Asistentes'].includes(t.cat)).slice(0, 5);
 
 // Banners "Explora por objetivo" — 6 categorías curadas del diseño, con conteos reales.
@@ -58,84 +55,70 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
   <SiteHeader />
 
   <main>
-  <!-- ===== HERO + BUSCADOR + DESTACADA ===== -->
+  <!-- ===== HERO COMERCIAL ===== -->
   <section style="position: relative; overflow: hidden; border-bottom: 1px solid var(--line);">
     <div aria-hidden="true" style="position: absolute; inset: -54px; background-color: var(--bg); background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 54px 54px; animation: gridDrift 6s linear infinite; opacity: 0.55;"></div>
     <div aria-hidden="true" style="position: absolute; top: -180px; left: 32%; width: 720px; height: 520px; background: radial-gradient(ellipse, rgba(91,124,255,0.18) 0%, rgba(91,124,255,0) 64%); animation: auroraDrift 15s ease-in-out infinite; pointer-events: none;"></div>
 
-    <div class="hero-grid" style="position: relative; max-width: 1240px; margin: 0 auto; padding: 56px 32px 48px;">
+    <div class="hero-grid" style="position: relative; max-width: 1240px; margin: 0 auto; padding: 64px 32px 58px;">
       <div>
-        <span class="blur-in" style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--line-2); border-radius: 30px; padding: 6px 14px; animation-delay: .05s;">Automatización aplicada · PyMEs</span>
-        <h1 class="blur-in" style="font-family: var(--serif); font-weight: 400; font-size: clamp(38px, 5.5vw, 54px); line-height: 1.03; letter-spacing: -0.035em; margin: 20px 0 0; color: #fff; animation-delay: .14s;">Detecta e implementa<br>la automatización que <span style="color: var(--accent);">sí merece la pena</span></h1>
-        <p class="blur-in" style="font-size: 16.5px; line-height: 1.6; color: var(--fg-3); margin: 18px 0 0; max-width: 35em; animation-delay: .26s;">Analizamos atención al cliente, ventas y operaciones. Elegimos un primer proceso y dejamos un flujo probado, documentado y bajo control.</p>
-        <div class="blur-in" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;animation-delay:.32s"><a href="/diagnostico-automatizacion-ia/" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="general_consulting" data-track-cluster="general" data-track-placement="hero" style="padding:13px 18px;background:var(--accent);color:var(--bg);font-weight:700;text-decoration:none;border-radius:3px">Hacer diagnóstico gratuito →</a><a href="/servicios/" style="padding:13px 18px;border:1px solid var(--line-2);color:#fff;font-weight:600;text-decoration:none;border-radius:3px">Ver servicios</a></div>
-
-        <!-- search -->
-        <form id="search-form" role="search" class="searchwrap blur-in" style="display: flex; align-items: center; gap: 12px; max-width: 520px; margin: 26px 0 0; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 4px; padding: 4px 4px 4px 18px; transition: border-color .25s, box-shadow .25s; animation-delay: .38s;">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--fg-5)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
-          <label for="tool-search" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Buscar herramientas</label>
-          <input id="tool-search" type="search" autocomplete="off" placeholder="Busca: chatbot, automatizar WhatsApp, crear vídeos…" style="flex: 1; min-width: 0; background: transparent; border: none; outline: none; color: #fff; font-family: var(--sans); font-size: 15px; padding: 12px 0;">
-          <button type="submit" style="font-family: var(--mono); font-size: 11px; color: var(--fg-2); background: var(--panel-3); padding: 11px 18px; border-radius: 2px; font-weight: 600; border: 1px solid var(--line-2); cursor: pointer;">Buscar</button>
-        </form>
-
-        <!-- quick chips -->
-        <div role="group" aria-label="Explorar por categoría" class="blur-in" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; animation-delay: .5s;">
-          {QUICK_CHIPS.map((c) => (
-            <button type="button" class="chip quick-chip" data-quick={c} style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 14px; border-radius: 30px; background: transparent; color: var(--fg-3); border: 1px solid var(--line-2);">{c}</button>
-          ))}
-        </div>
-
-        <!-- social proof (monogramas = herramientas destacadas, no avatares de usuarios) -->
-        <div class="blur-in" style="display: flex; align-items: center; gap: 18px; margin-top: 24px; animation-delay: .6s;">
-          <div style="display: flex;" aria-hidden="true">
-            {heroAvatars.map((t) => (
-              <span style={`width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--bg); margin-left: -8px; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 12px; color: #fff; background: ${t.color};`}>{t.name.charAt(0)}</span>
-            ))}
-          </div>
-          <span style="font-family: var(--mono); font-size: 11px; color: var(--fg-4); line-height: 1.5;">Lo más destacado del directorio · Leído por +1.200 negocios</span>
-        </div>
+        <span class="blur-in" style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--line-2); border-radius: 30px; padding: 6px 14px; animation-delay: .05s;">Automatización implementada · PyMEs</span>
+        <h1 class="blur-in" style="font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 5.8vw, 60px); line-height: 1.01; letter-spacing: -0.04em; margin: 20px 0 0; color: #fff; animation-delay: .14s;">Automatiza un proceso acotado<br><span style="color: var(--accent);">en 2 a 4 semanas</span></h1>
+        <p class="blur-in" style="font-size: 17px; line-height: 1.65; color: var(--fg-2); margin: 20px 0 0; max-width: 37em; animation-delay: .26s;">Detectamos la tarea repetitiva que más tiempo o ventas te cuesta, la conectamos con las herramientas que ya utilizas y dejamos el flujo probado, documentado y bajo tu control.</p>
+        <div class="blur-in" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;animation-delay:.32s"><a href="/diagnostico-automatizacion-ia/" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="general_consulting" data-track-cluster="general" data-track-placement="hero" style="padding:14px 20px;background:var(--accent);color:var(--bg);font-weight:700;text-decoration:none;border-radius:3px">Descubrir qué automatizar →</a><a href="/precios-automatizacion-ia/" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="general_consulting" data-track-cluster="general" data-track-placement="hero_pricing" style="padding:14px 20px;border:1px solid var(--line-2);color:#fff;font-weight:600;text-decoration:none;border-radius:3px">Ver precios · {SERVICE_OFFER.scoped.price}</a></div>
+        <div class="blur-in hero-trust" style="display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:20px;animation-delay:.42s"><span>✓ Diagnóstico gratuito de 2 minutos</span><span>✓ Respuesta el siguiente día laborable</span><span>✓ Sin cambiar todo tu sistema</span></div>
       </div>
 
-      <!-- Destacada: Elección del editor -->
-      <a href={crumbPath(`/herramienta/${featured.slug}`)} class="lift blur-in" style="display: block; position: relative; background: linear-gradient(160deg, #12315E 0%, var(--panel-3) 60%); border: 1px solid var(--line-2); border-radius: 12px; padding: 24px; text-decoration: none; animation-delay: .32s;">
-        <span style="display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(245,196,81,0.4); border-radius: 20px; padding: 5px 11px;">★ Elección del editor</span>
-        <div style="display: flex; align-items: center; gap: 14px; margin-top: 18px;">
-          <div style={`width: 54px; height: 54px; border-radius: 12px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 24px; color: #fff; background: ${featured.color};`}>{featured.name.charAt(0)}</div>
-          <div>
-            <div style="font-family: var(--serif); font-size: 26px; letter-spacing: -0.02em; color: #fff;">{featured.name}</div>
-            <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5); margin-top: 2px;">{featured.cat}</div>
-          </div>
-        </div>
-        <p style="font-size: 14.5px; line-height: 1.55; color: var(--fg-2); margin: 16px 0 0;">{featured.tagline}</p>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line);">
-          <span style="font-family: var(--mono); font-size: 12px; color: var(--fg-2);"><span style="color: var(--gold);">★</span> {featured.rating} · <span style={`color: ${PRICE_COLOR[featured.price]};`}>{featured.price}</span></span>
-          <span style="font-family: var(--sans); font-weight: 600; font-size: 13px; color: var(--accent);">Ver ficha →</span>
-        </div>
-      </a>
+      <aside class="commercial-card blur-in" aria-label="Qué ocurre después del diagnóstico" style="animation-delay:.32s">
+        <span>Tu primer proyecto</span>
+        <h2>Una automatización útil, no otra herramienta suelta</h2>
+        <ol>
+          <li><b>01</b><div><strong>Detectamos</strong><small>Una tarea recurrente, medible y con responsable.</small></div></li>
+          <li><b>02</b><div><strong>Acotamos</strong><small>Alcance, excepciones, plazo y precio antes de construir.</small></div></li>
+          <li><b>03</b><div><strong>Implementamos</strong><small>Flujo probado, documentación y control humano.</small></div></li>
+        </ol>
+        <p>Implementaciones acotadas: <strong>{SERVICE_OFFER.scoped.price}</strong>.</p>
+      </aside>
     </div>
   </section>
 
   <section style="max-width:1240px;margin:28px auto 0;padding:0 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">
-    <a href="/servicios/automatizacion-atencion-cliente/" class="banner" style="padding:22px;border:1px solid var(--line-2);border-radius:10px;background:var(--panel);text-decoration:none"><span style="font:10px var(--mono);color:var(--accent);text-transform:uppercase">Atención al cliente</span><h2 style="color:#fff;font:600 19px var(--sans)">Responde y deriva consultas</h2><p style="color:var(--fg-3);font-size:14px">Email, tickets, formularios y WhatsApp con control humano.</p></a>
-    <a href="/servicios/automatizacion-ventas/" class="banner" style="padding:22px;border:1px solid var(--line-2);border-radius:10px;background:var(--panel);text-decoration:none"><span style="font:10px var(--mono);color:var(--accent);text-transform:uppercase">Ventas</span><h2 style="color:#fff;font:600 19px var(--sans)">Conecta leads, CRM y seguimiento</h2><p style="color:var(--fg-3);font-size:14px">Evita oportunidades sin responsable o siguiente paso.</p></a>
-    <a href="/servicios/automatizacion-procesos/" class="banner" style="padding:22px;border:1px solid var(--line-2);border-radius:10px;background:var(--panel);text-decoration:none"><span style="font:10px var(--mono);color:var(--accent);text-transform:uppercase">Operaciones</span><h2 style="color:#fff;font:600 19px var(--sans)">Reduce tareas entre sistemas</h2><p style="color:var(--fg-3);font-size:14px">Documentos, informes y tareas administrativas.</p></a>
+    <a href="/servicios/automatizacion-atencion-cliente/" class="banner" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="customer_service_automation" data-track-cluster="customer_service" data-track-placement="service_card" style="padding:22px;border:1px solid var(--line-2);border-radius:10px;background:var(--panel);text-decoration:none"><span style="font:10px var(--mono);color:var(--accent);text-transform:uppercase">Atención al cliente</span><h2 style="color:#fff;font:600 19px var(--sans)">Responde y deriva consultas</h2><p style="color:var(--fg-3);font-size:16px">Email, tickets, formularios y WhatsApp con control humano.</p></a>
+    <a href="/servicios/automatizacion-ventas/" class="banner" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="sales_automation" data-track-cluster="sales" data-track-placement="service_card" style="padding:22px;border:1px solid var(--line-2);border-radius:10px;background:var(--panel);text-decoration:none"><span style="font:10px var(--mono);color:var(--accent);text-transform:uppercase">Ventas</span><h2 style="color:#fff;font:600 19px var(--sans)">Conecta leads, CRM y seguimiento</h2><p style="color:var(--fg-3);font-size:16px">Evita oportunidades sin responsable o siguiente paso.</p></a>
+    <a href="/servicios/automatizacion-procesos/" class="banner" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="process_automation" data-track-cluster="operations" data-track-placement="service_card" style="padding:22px;border:1px solid var(--line-2);border-radius:10px;background:var(--panel);text-decoration:none"><span style="font:10px var(--mono);color:var(--accent);text-transform:uppercase">Operaciones</span><h2 style="color:#fff;font:600 19px var(--sans)">Reduce tareas entre sistemas</h2><p style="color:var(--fg-3);font-size:16px">Documentos, informes y tareas administrativas.</p></a>
   </section>
 
-  <!-- ===== PACK BANNER (sin countdown: el pack es gratis siempre, sin falsa urgencia) ===== -->
-  <a href="#pack" style="text-decoration: none; display: block; max-width: 1240px; margin: 22px auto 0; padding: 0 32px;">
-    <section class="banner" style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; background: #10233F; border: 1px solid var(--line-2); border-left: 3px solid var(--gold); border-radius: 10px; padding: 18px 24px; cursor: pointer;">
-      <span style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold);">
-        <span aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: var(--gold); animation: dotPulse 1.4s ease-in-out infinite;"></span>Pack gratis
-      </span>
-      <span style="font-family: var(--sans); font-size: 15.5px; color: #fff; font-weight: 600; flex: 1; min-width: 220px;">Pack de Recursos IA <span style="color: var(--fg-3); font-weight: 400;">— 30 prompts y plantillas listas para tu negocio.</span></span>
-      <span style="font-family: var(--sans); font-weight: 600; font-size: 13.5px; color: var(--gold); border:1px solid rgba(245,196,81,.55); padding: 10px 18px; border-radius: 2px; white-space: nowrap;">Conseguir gratis →</span>
-    </section>
-  </a>
+  <section class="commercial-proof">
+    <div>
+      <span class="section-kicker">Qué compras</span>
+      <h2>Un proceso funcionando de principio a fin</h2>
+      <p>No te entregamos una demo ni te obligamos a contratar una plataforma nueva. Trabajamos sobre tus herramientas actuales siempre que permitan una integración fiable.</p>
+    </div>
+    <div class="deliverables">
+      <article><b>01</b><h3>Flujo operativo</h3><p>Entradas, reglas, salidas y responsables conectados.</p></article>
+      <article><b>02</b><h3>Casos probados</h3><p>Pruebas normales, incompletas y erróneas antes de activar.</p></article>
+      <article><b>03</b><h3>Control y relevo</h3><p>Excepciones, supervisión humana y documentación para tu equipo.</p></article>
+    </div>
+  </section>
 
-  <!-- ===== EXPLORA POR OBJETIVO ===== -->
+  <section class="commercial-process">
+    <div class="process-copy"><span class="section-kicker">Una decisión sencilla</span><h2>Empieza pequeño. Mide. Amplía solo si funciona.</h2><p>El diagnóstico nos permite descartar proyectos prematuros y concentrar la inversión en un primer resultado verificable.</p><a href="/como-trabajamos/" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="general_consulting" data-track-cluster="general" data-track-placement="methodology">Ver cómo trabajamos →</a></div>
+    <ol>
+      <li><span>Ahora</span><strong>Completa el diagnóstico</strong><small>2 minutos, sin compromiso.</small></li>
+      <li><span>Siguiente día laborable</span><strong>Revisamos el encaje</strong><small>Elizabeth coordina la respuesta y Fernando la revisión estratégica y técnica.</small></li>
+      <li><span>2 a 4 semanas</span><strong>Activamos el primer flujo</strong><small>Si el alcance es acotado y la propuesta se aprueba.</small></li>
+    </ol>
+  </section>
+
+  <section class="commercial-close">
+    <div><span class="section-kicker">Primer paso gratuito</span><h2>Cuéntanos qué tarea se repite cada semana</h2><p>Te diremos si merece la pena automatizarla, qué falta para hacerlo y cuál sería el siguiente paso.</p></div>
+    <a href="/diagnostico-automatizacion-ia/" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="general_consulting" data-track-cluster="general" data-track-placement="mid_page">Hacer diagnóstico gratuito →</a>
+  </section>
+
+  <!-- ===== CONTENIDO EDITORIAL SECUNDARIO ===== -->
   <section style="max-width: 1240px; margin: 40px auto 0; padding: 0 32px;">
     <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 18px;">
-      <h2 style="font-family: var(--sans); font-weight: 700; font-size: 20px; letter-spacing: -0.02em; margin: 0; color: #fff;">Explora por objetivo</h2>
+      <div><span class="section-kicker">¿Aún estás explorando?</span><h2 style="font-family: var(--sans); font-weight: 700; font-size: 20px; letter-spacing: -0.02em; margin: 8px 0 0; color: #fff;">Compara herramientas por objetivo</h2></div>
       <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-5);">{cats.length} categorías</span>
     </div>
     <div class="cat-grid">
@@ -179,6 +162,15 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
 
   <!-- ===== DIRECTORIO ===== -->
   <section id="directorio" style="max-width: 1240px; margin: 48px auto 0; padding: 0 32px 64px; scroll-margin-top: 80px;">
+    <form id="search-form" role="search" class="searchwrap" style="display: flex; align-items: center; gap: 12px; max-width: 680px; margin: 0 0 18px; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 4px; padding: 4px 4px 4px 18px; transition: border-color .25s, box-shadow .25s;">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--fg-5)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
+      <label for="tool-search" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Buscar herramientas</label>
+      <input id="tool-search" type="search" autocomplete="off" placeholder="Busca: chatbot, automatizar WhatsApp, crear vídeos…" style="flex: 1; min-width: 0; background: transparent; border: none; outline: none; color: #fff; font-family: var(--sans); font-size: 15px; padding: 12px 0;">
+      <button type="submit" style="font-family: var(--mono); font-size: 11px; color: var(--fg-2); background: var(--panel-3); padding: 11px 18px; border-radius: 2px; font-weight: 600; border: 1px solid var(--line-2); cursor: pointer;">Buscar</button>
+    </form>
+    <div role="group" aria-label="Explorar por categoría" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
+      {QUICK_CHIPS.map((c) => <button type="button" class="chip quick-chip" data-quick={c} style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 14px; border-radius: 30px; background: transparent; color: var(--fg-3); border: 1px solid var(--line-2);">{c}</button>)}
+    </div>
     <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--line); padding-bottom: 16px; margin-bottom: 24px; flex-wrap: wrap;">
       <div>
         <h2 style="font-family: var(--sans); font-weight: 700; font-size: 22px; letter-spacing: -0.02em; margin: 0; color: #fff;">Directorio de herramientas</h2>
@@ -417,10 +409,10 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
 
   <!-- ===== BARRA CTA FIJA (fondo sólido: sin backdrop-filter permanente) ===== -->
   <div id="cta-bar" hidden style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: var(--bg-2); border-top: 1px solid var(--line-2); animation: slideUp .4s cubic-bezier(0.22,0.61,0.36,1) both;">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 12px 32px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap;">
-      <span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: var(--gold); animation: dotPulse 1.4s ease-in-out infinite; flex: none;"></span>
-      <span style="font-family: var(--sans); font-size: 14.5px; color: #fff; font-weight: 600; flex: 1; min-width: 200px;">Pack de Recursos IA gratis <span style="color: var(--fg-3); font-weight: 400;">— 30 prompts y plantillas para tu negocio.</span></span>
-      <a href="#pack" style="font-family: var(--sans); font-weight: 600; font-size: 13.5px; color: var(--bg); background: var(--accent); padding: 10px 20px; border-radius: 2px; text-decoration: none; white-space: nowrap;">Conseguir gratis →</a>
+    <div class="cta-bar__inner">
+      <span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: dotPulse 1.4s ease-in-out infinite; flex: none;"></span>
+      <span style="font-family: var(--sans); font-size: 14.5px; color: #fff; font-weight: 600; flex: 1; min-width: 200px;">¿Qué proceso deberías automatizar primero? <span style="color: var(--fg-3); font-weight: 400;">Descúbrelo en 2 minutos.</span></span>
+      <a class="cta-bar__link" href="/diagnostico-automatizacion-ia/" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="general_consulting" data-track-cluster="general" data-track-placement="sticky">Hacer diagnóstico →</a>
       <button type="button" id="cta-dismiss" aria-label="Cerrar aviso" style="background: none; border: none; cursor: pointer; color: var(--fg-5); padding: 6px; display: flex;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
     </div>
   </div>
@@ -457,6 +449,44 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
 
 <style>
   .hero-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; }
+  .hero-trust span { color: var(--fg-4); font: 11px var(--mono); line-height: 1.5; }
+  .commercial-card { position: relative; padding: 28px; overflow: hidden; border: 1px solid var(--line-2); border-radius: 14px; background: linear-gradient(160deg,#12315e 0%,var(--panel-3) 70%); }
+  .commercial-card::after { position: absolute; right: -70px; bottom: -90px; width: 230px; height: 230px; border-radius: 50%; background: radial-gradient(circle,rgba(91,124,255,.22),transparent 70%); content: ''; }
+  .commercial-card > span,.section-kicker { color: var(--accent); font: 700 10px var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+  .commercial-card h2 { position: relative; z-index: 1; margin: 12px 0 0; color: #fff; font: 400 clamp(26px,3vw,34px) var(--serif); line-height: 1.08; }
+  .commercial-card ol { position: relative; z-index: 1; display: grid; gap: 0; margin: 24px 0 0; padding: 0; list-style: none; }
+  .commercial-card li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; padding: 15px 0; border-top: 1px solid var(--line); }
+  .commercial-card li b { color: var(--accent); font: 700 11px var(--mono); }
+  .commercial-card li strong,.commercial-card li small { display: block; }
+  .commercial-card li strong { color: #fff; font-size: 14px; }
+  .commercial-card li small { margin-top: 4px; color: var(--fg-3); font-size: 13px; line-height: 1.45; }
+  .commercial-card > p { position: relative; z-index: 1; margin: 18px 0 0; color: var(--fg-3); font-size: 13px; }
+  .commercial-card > p strong { color: #fff; }
+  .commercial-proof,.commercial-process,.commercial-close { max-width: 1176px; margin: 76px auto 0; padding: 0 32px; }
+  .commercial-proof > div:first-child { display: grid; grid-template-columns: .85fr 1.15fr; gap: 54px; align-items: end; }
+  .commercial-proof h2,.commercial-process h2,.commercial-close h2 { margin: 10px 0 0; color: #fff; font: 400 clamp(30px,4.8vw,46px) var(--serif); line-height: 1.05; letter-spacing: -.025em; }
+  .commercial-proof > div:first-child p,.commercial-process p,.commercial-close p { margin: 0; color: var(--fg-3); font-size: 16px; line-height: 1.65; }
+  .deliverables { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 32px; }
+  .deliverables article { padding: 24px; border: 1px solid var(--line-2); border-radius: 10px; background: var(--panel); }
+  .deliverables b { color: var(--accent); font: 700 11px var(--mono); }
+  .deliverables h3 { margin: 18px 0 0; color: #fff; font: 600 18px var(--sans); }
+  .deliverables p { margin: 8px 0 0; color: var(--fg-3); font-size: 16px; line-height: 1.55; }
+  .commercial-process { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; padding-top: 64px; padding-bottom: 64px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .process-copy p { margin-top: 18px; }
+  .process-copy a { display: inline-block; margin-top: 20px; color: var(--accent); font-weight: 700; text-decoration: none; }
+  .commercial-process ol { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+  .commercial-process li { display: grid; gap: 5px; padding: 20px 0; border-top: 1px solid var(--line); }
+  .commercial-process li:first-child { border-top: 0; }
+  .commercial-process li span { color: var(--accent); font: 700 10px var(--mono); letter-spacing: .09em; text-transform: uppercase; }
+  .commercial-process li strong { color: #fff; font-size: 17px; }
+  .commercial-process li small { color: var(--fg-3); font-size: 14px; line-height: 1.5; }
+  .commercial-close { display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 36px; border: 1px solid var(--line-2); border-radius: 14px; background: linear-gradient(140deg,#102d50,var(--panel-3)); }
+  .commercial-close > div { max-width: 760px; }
+  .commercial-close h2 { font-size: clamp(28px,4vw,40px); }
+  .commercial-close p { margin-top: 12px; }
+  .commercial-close > a { flex: none; padding: 14px 20px; border-radius: 3px; background: var(--accent); color: var(--bg); font-weight: 700; text-decoration: none; }
+  .cta-bar__inner { display: flex; max-width: 1240px; align-items: center; gap: 18px; margin: 0 auto; padding: 12px 32px; flex-wrap: wrap; }
+  .cta-bar__link { padding: 10px 20px; border-radius: 2px; background: var(--accent); color: var(--bg); font: 600 13.5px var(--sans); text-decoration: none; white-space: nowrap; }
   .cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .coll-grid { display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: center; }
   .dir-body { display: block; }
@@ -474,12 +504,21 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
 
   @media (max-width: 960px) {
     .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+    .commercial-proof > div:first-child,.commercial-process { grid-template-columns: 1fr; gap: 28px; }
+    .commercial-close { align-items: flex-start; flex-direction: column; }
     .cat-grid { grid-template-columns: repeat(2, 1fr); }
     .coll-grid { grid-template-columns: 1fr; }
     .dir-body.shop { grid-template-columns: 1fr; }
     .dir-sidebar { position: static; }
   }
   @media (max-width: 560px) {
+    .commercial-proof,.commercial-process { margin-top: 54px; padding-right: 16px; padding-left: 16px; }
+    .commercial-close { margin: 54px 16px 0; padding: 26px 22px; }
+    .deliverables { grid-template-columns: 1fr; }
+    .commercial-close > a { width: 100%; text-align: center; }
+    #cta-bar > div { gap: 9px; padding: 10px 12px; flex-wrap: nowrap; }
+    #cta-bar > div > span:nth-of-type(2) { display: none; }
+    #cta-bar > div > a { flex: 1; padding: 11px 12px; text-align: center; }
     .cat-grid { grid-template-columns: 1fr; }
   }
 </style>

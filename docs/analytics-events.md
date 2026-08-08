@@ -54,6 +54,8 @@ Este documento es la fuente de verdad para los eventos de adquisición y convers
 
 `placement` se compone como `{page_type}_{position}`. Posiciones iniciales: `hero`, `midpage`, `bottom`, `card`, `nav` y `result`.
 
+Placements controlados de la portada comercial: `hero`, `hero_pricing`, `service_card`, `methodology`, `mid_page` y `sticky`. Permiten distinguir el diagnóstico principal, la consulta de precios, las tres áreas de servicio, el proceso, el cierre intermedio y la barra fija sin enviar el texto visible del CTA.
+
 ## Propiedades prohibidas
 
 No deben aparecer en `data-track-*`, llamadas a `track()` ni configuración de GA4:

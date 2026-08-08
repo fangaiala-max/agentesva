@@ -6,6 +6,7 @@
 export const SITE = 'https://agentesva.com';
 
 export const ORG_ID = `${SITE}/#organization`;
+export const FOUNDER_ID = `${SITE}/#elizabeth-salguero`;
 export const PERSON_ID = `${SITE}/#fernando-angulo`;
 export const WEBSITE_ID = `${SITE}/#website`;
 
@@ -16,9 +17,18 @@ export const organization = {
   alternateName: 'Agentes VA',
   url: SITE,
   logo: { '@type': 'ImageObject', url: `${SITE}/brand/avatar.png` },
-  description: 'Directorio y medio de inteligencia artificial en español para negocios.',
-  founder: { '@id': PERSON_ID },
+  description: 'Automatización con inteligencia artificial y recursos prácticos en español para negocios.',
+  founder: { '@id': FOUNDER_ID },
   sameAs: ['https://www.instagram.com/agentesva/'],
+};
+
+export const founder = {
+  '@type': 'Person',
+  '@id': FOUNDER_ID,
+  name: 'Elizabeth Salguero',
+  jobTitle: 'Fundadora de AgentesVA',
+  worksFor: { '@id': ORG_ID },
+  sameAs: ['https://www.linkedin.com/in/elizabethsalguero/'],
 };
 
 export const person = {
@@ -26,7 +36,7 @@ export const person = {
   '@id': PERSON_ID,
   name: 'Fernando Angulo',
   url: 'https://fernandoangulo.com',
-  jobTitle: 'Fundador y editor de AgentesVA',
+  jobTitle: 'Director de estrategia y editor de AgentesVA',
   description:
     'Analista sénior de mercados y conferenciante internacional sobre IA y búsqueda, con ponencias en más de 35 países.',
   worksFor: { '@id': ORG_ID },
@@ -52,7 +62,7 @@ export const website = {
 
 export const entityGraph = {
   '@context': 'https://schema.org',
-  '@graph': [organization, person, website],
+  '@graph': [organization, founder, person, website],
 };
 
 // JSON.stringify no escapa '<': un '</script>' dentro de cualquier string
