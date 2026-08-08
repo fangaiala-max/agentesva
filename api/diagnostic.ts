@@ -138,7 +138,7 @@ function createProperties(
     Estado: { select: { name: 'Nuevo' } },
     'Fecha entrada': { date: { start: submittedAt } },
     Source: { select: { name: 'Diagnóstico quiz' } },
-    Responsable: { select: { name: 'Fernando' } },
+    Responsable: { select: { name: 'Eli' } },
   };
 }
 

@@ -85,7 +85,7 @@ describe('diagnostic delivery to Notion', () => {
       Email: { email: 'ada@example.com' },
       Estado: { select: { name: 'Nuevo' } },
       Source: { select: { name: 'Diagnóstico quiz' } },
-      Responsable: { select: { name: 'Fernando' } },
+      Responsable: { select: { name: 'Eli' } },
       'Submission ID': { rich_text: [{ text: { content: body().submissionId } }] },
       'Resultado diagnóstico': { select: { name: 'Llamada cualificada' } },
       'Servicio recomendado': { select: { name: 'Ventas' } },
