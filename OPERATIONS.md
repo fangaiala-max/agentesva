@@ -126,8 +126,10 @@ Last scan (2026-04-30): **0 hits**. ✅
 ### CVE / dependency control
 
 ```bash
-cd astro && npm audit --omit=dev
+npm audit
 ```
+
+Última comprobación: **2026-08-08**, sin vulnerabilidades después de actualizar las dependencias transitivas `nanoid`, `brace-expansion` y `undici`.
 
 Run **monthly minimum**. If `high` or `critical` CVEs appear:
 1. `npm audit fix` (safe patches)
