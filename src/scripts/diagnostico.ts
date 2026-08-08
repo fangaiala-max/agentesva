@@ -207,6 +207,7 @@ function wire(root: HTMLElement): void {
   });
 
   root.querySelector<HTMLButtonElement>('[data-restart]')?.addEventListener('click', () => {
+    if (submitting) return;
     form.reset();
     form.hidden = false;
     root.querySelector<HTMLElement>('.progress-wrap')!.hidden = false;

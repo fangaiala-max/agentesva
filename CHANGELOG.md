@@ -21,7 +21,7 @@ Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](
 
 ### Verification
 - QA estándar del embudo: 8 rutas/variantes, 21 capturas y 1 incidencia encontrada/corregida; salud final 100/100.
-- Suite completa: 43 archivos y 388 tests. Build Astro/Vercel y Pagefind completados.
+- Suite completa: 43 archivos y 389 tests. Build Astro/Vercel y Pagefind completados.
 
 ## [0.4.0.0] - 2026-08-04
 

@@ -42,6 +42,7 @@ function fixture(): void {
         <button type="submit" data-finish></button>
       </form>
       <section data-diagnostic-result hidden tabindex="-1">
+        <button type="button" data-restart>Reiniciar</button>
         <div data-result="qualified_call"></div>
         <div data-result="paid_workshop"></div>
         <div data-result="self_serve_resources"></div>
@@ -175,5 +176,27 @@ describe('envío del diagnóstico', () => {
     const firstBody = JSON.parse(String(vi.mocked(fetch).mock.calls[0]![1]!.body));
     const retryBody = JSON.parse(String(vi.mocked(fetch).mock.calls[1]![1]!.body));
     expect(retryBody.submissionId).toBe(firstBody.submissionId);
+  });
+
+  it('ignora el reinicio mientras existe una entrega activa', async () => {
+    let resolveFetch!: (response: Response) => void;
+    vi.mocked(fetch).mockImplementation(() => new Promise((resolve) => { resolveFetch = resolve; }));
+
+    submitDiagnostic();
+    document.querySelector<HTMLButtonElement>('[data-restart]')!.click();
+
+    expect(document.querySelector<HTMLFormElement>('[data-diagnostic-form]')!.hidden).toBe(true);
+    expect(document.querySelector<HTMLButtonElement>('[data-contact-submit]')!.disabled).toBe(true);
+
+    const result = classifyDiagnostic(answers);
+    resolveFetch({
+      ok: true,
+      json: async () => ({
+        success: true,
+        result,
+        redirectUrl: '/gracias-diagnostico/?resultado=qualified_call&cluster=sales&servicio=sales_automation&token=signed',
+      }),
+    } as Response);
+    await vi.waitFor(() => expect(window.location.pathname).toBe('/gracias-diagnostico/'));
   });
 });
