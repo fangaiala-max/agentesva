@@ -1,10 +1,10 @@
 # Sistema de diseño — AgentesVA
 
-> **Fuente de verdad visual.** Sustituye por completo a la marca anterior ("fintech AI-visibility SaaS", verde/ámbar/rojo + Geist) — concepto abandonado en el pivote a **directorio/medio de IA en español** (ver `docs/superpowers/specs/2026-06-21-agentesva-directory-business-brief.md`).
+> **Fuente de verdad visual.** Sustituye por completo a la marca anterior ("fintech AI-visibility SaaS", verde/ámbar/rojo + Geist). El sistema nacido para el **directorio/medio de IA en español** también sostiene la ruta comercial de automatización que hoy abre la portada.
 >
 > Dos artefactos lo definen, ambos de claude.ai/design (proyecto "AgentesVA Newsletter y captación"):
 > - **Identidad de marca** → `AgentesVA - Brand & Social Kit` (logo, tipografía, color, assets sociales).
-> - **Tema web** → `AgentesVA - Futurista` (home oscura del directorio + fichas), implementado en `src/`.
+> - **Tema web** → `AgentesVA - Futurista` (portada comercial, directorio y fichas), implementado en `src/`.
 >
 > Voz y copy: [`docs/brand-guidelines.md`](./docs/brand-guidelines.md).
 
@@ -38,7 +38,7 @@
 
 ---
 
-## 2. Tema web "Futurista" (directorio, tema oscuro)
+## 2. Tema web "Futurista" (comercial + editorial, tema oscuro)
 
 Implementado en `src/styles/global.css` (tokens) + componentes. **Lee `global.css` antes de tocar UI.**
 
@@ -59,6 +59,8 @@ La lógica del listado vive fuera del `.astro`, como funciones puras testeables:
 - `src/data/noticias-badges.ts` — `badgesDeNoticias` / `temasEnTendencia`, con las ventanas `DIAS_NUEVO` (7), `DIAS_TENDENCIA` (30) y `MIN_DIAS_TENDENCIA` (2 días distintos).
 - `src/data/noticias-meses.ts` — `agruparPorMes` / `etiquetaDeMes`, rótulos de mes en es-ES **resueltos en UTC** (las fechas del frontmatter llegan a medianoche UTC; resolverlas en la zona de la máquina de build metería el día 1 en el mes anterior).
 - `Badge` — píldora del directorio (`src/data/tools.ts` → `badgesFor`). Es la **receta canónica** de píldora del sitio: mono 9px, `letter-spacing 0.08em`, mayúsculas, `padding 2px 8px`, `border-radius 20px`, color al 100% / borde al 40% / fondo al 12%. Cualquier píldora nueva copia esta receta y solo cambia el token de color.
+
+La portada (`src/pages/index.astro`) coloca antes del directorio una ruta comercial con diagnóstico, tres servicios, entregables, proceso, precio inicial y CTA de cierre. La búsqueda y el catálogo siguen en la misma página como exploración secundaria.
 
 ### Píldoras (badges) — semántica por dominio
 

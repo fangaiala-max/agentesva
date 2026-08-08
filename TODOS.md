@@ -46,18 +46,6 @@ Fuente principal: [backlog QA de agosto de 2026](docs/qa-backlog-2026-08-03.md),
 **Priority:** P1
 **Depends on:** None
 
-### AGV-16 · Resolver CTA duplicados del pack
-
-**What:** Unificar o jerarquizar las llamadas a la acción repetidas del pack gratuito.
-
-**Why:** CTA equivalentes compiten entre sí y diluyen la acción principal.
-
-**Context:** Revisar la portada y las barras o bloques persistentes relacionados con el pack.
-
-**Effort:** M
-**Priority:** P1
-**Depends on:** None
-
 ### AGV-19 · Publicar precios reales
 
 **What:** Completar y verificar los precios mostrados en las fichas de herramientas.
@@ -211,6 +199,19 @@ Fuente: revisión de `/ship` de `v0.3.2.0`, rama `design/noticias-tipografia`.
 **Depends on:** Definir URL y estrategia SEO del archivo
 
 ## Completed
+
+### AGV-16 · Resolver CTA duplicados del pack
+
+**What:** Unificar o jerarquizar las llamadas a la acción repetidas del pack gratuito.
+
+**Why:** CTA equivalentes compiten entre sí y diluyen la acción principal.
+
+**Context:** La portada prioriza el diagnóstico comercial y relega el pack a contenido secundario; la barra fija también conduce al diagnóstico con una única acción compacta.
+
+**Effort:** M
+**Priority:** P1
+**Depends on:** None
+**Completed:** v0.5.1.0 (2026-08-08)
 
 ### AGV-01 · Activar GA4 en producción
 

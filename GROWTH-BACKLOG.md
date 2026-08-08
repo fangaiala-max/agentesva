@@ -185,7 +185,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-016 — Reorientar la home hacia implementación
 
-- **Estado:** completado el 5 ago 2026 — hero comercial con diagnóstico primario, servicios secundarios, tres problemas prioritarios y directorio conservado como exploración.
+- **Estado:** reforzado el 8 ago 2026 en `v0.5.1.0` — la portada ordena diagnóstico, tres servicios, entregables, proceso y precio inicial antes del directorio; todos los accesos comerciales quedan atribuidos por placement.
 - **Impacto:** crítico
 - **Esfuerzo:** L
 - **Dependencias:** GROW-003, GROW-007–011

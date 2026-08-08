@@ -1,6 +1,6 @@
 # AgentesVA
 
-Directorio y medio de inteligencia artificial en español para PyMEs y autónomos de España y Latinoamérica. El sitio reúne herramientas, cursos, recursos, estudios, noticias y plantillas prácticas de IA.
+Servicio de automatización con inteligencia artificial para PyMEs y autónomos de España y Latinoamérica, respaldado por un directorio y un medio práctico en español. La portada conduce primero al diagnóstico y a la implementación; herramientas, cursos, recursos, estudios, noticias y plantillas quedan disponibles como apoyo para explorar y decidir.
 
 ## Comandos
 
@@ -22,6 +22,7 @@ npm run preview
 
 ## Superficie pública
 
+- `/` — ruta comercial principal: diagnóstico, tres áreas de automatización, entregables, proceso y precio inicial antes del contenido editorial.
 - `/herramientas/` — directorio y categorías de herramientas de IA.
 - `/cursos/` — cursos seleccionados y organizados por categoría.
 - `/recursos/` — biblioteca, packs y otros recursos prácticos.

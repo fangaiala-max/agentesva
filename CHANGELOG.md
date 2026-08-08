@@ -14,7 +14,7 @@ Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](
 - La barra fija móvil concentra la conversión en una acción compacta sin ocupar espacio excesivo.
 
 ### Verification
-- Suite completa: 44 archivos y 404 pruebas.
+- Suite completa: 44 archivos y 405 pruebas.
 - Build de Astro y Pagefind completado correctamente.
 - QA de navegador en escritorio y móvil, sin errores de consola ni desbordamiento horizontal; CTA principal conectado al diagnóstico.
 
