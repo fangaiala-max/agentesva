@@ -29,7 +29,7 @@ Este documento es la fuente de verdad para los eventos de adquisición y convers
 | `step_id` | enum | `business_goal` | Identificador estable del paso. |
 | `result_type` | enum | `qualified_call` | Ruta de resultado, nunca las respuestas. |
 | `qualification_band` | enum | `high` | Banda agregada `low`, `medium` o `high`. |
-| `booking_provider` | enum | `calendly` | Proveedor de reserva. |
+| `booking_provider` | enum | `calendly`, `cal`, `external` | Proveedor de reserva derivado de la URL HTTPS configurada. |
 | `list` | enum | `newsletter` | Lista de suscripción. |
 | `slug` | string | `claude` | Compatibilidad con eventos del directorio. |
 | `category` | string controlado | `Asistentes` | Categoría pública del directorio. |

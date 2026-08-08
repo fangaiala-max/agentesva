@@ -49,7 +49,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-003 — Crear `/diagnostico-automatizacion-ia/`
 
-- **Estado:** completado el 4 ago 2026 — interfaz de 8 pasos, validación, resultado determinista, consentimiento y entrega segura verificados en Vercel Preview; se mantiene `noindex` hasta publicar la ruta en producción.
+- **Estado:** completado el 8 ago 2026 — interfaz de 8 pasos, validación, resultado determinista, consentimiento y entrega segura verificados; la ruta entra al sitemap con la release `0.5.0.0`.
 - **Impacto:** crítico
 - **Esfuerzo:** L
 - **Dependencias:** GROW-001, definición offline mínima de cualificación OFL-001
@@ -59,7 +59,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-004 — Implementar recepción segura de leads
 
-- **Estado:** completado el 4 ago 2026 — endpoint server-side, validación, honeypot, rate limit por instancia, entrega autenticable y consentimiento implementados; `DIAGNOSTIC_WEBHOOK_URL` configurada y entrega real confirmada en Make desde Vercel Preview.
+- **Estado:** actualizado el 8 ago 2026 — endpoint server-side, validación, honeypot, rate limit por instancia, evidencia de consentimiento y entrega directa a Notion con deduplicación de mejor esfuerzo por `Submission ID`; falta configurar la integración interna en Vercel y confirmar la entrega real desde Preview.
 - **Impacto:** crítico
 - **Esfuerzo:** M
 - **Dependencias:** GROW-003, OFL-001
@@ -69,6 +69,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-005 — Construir resultado y enrutamiento del diagnóstico
 
+- **Estado:** completado el 8 ago 2026 — resultado determinista con prioridad, complejidad, tres oportunidades por objetivo y siguiente paso específico; reglas y renderizado seguro cubiertos por tests.
 - **Impacto:** crítico
 - **Esfuerzo:** M
 - **Dependencias:** GROW-003, GROW-004
@@ -78,12 +79,13 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-006 — Crear página de gracias específica del diagnóstico
 
+- **Estado:** completado el 8 ago 2026 — confirmación SSR `noindex` con expectativa, salida por perfil, reserva opcional instrumentada, fallback seguro y exclusión del sitemap.
 - **Impacto:** alto
 - **Esfuerzo:** S
 - **Dependencias:** GROW-005
 - **Tarea:** página `noindex` con resumen, próximos pasos, expectativa de respuesta y CTA de reserva cuando corresponda.
 - **Aceptación:** no existe callejón sin salida; el evento `diagnostic_completed` no se duplica al recargar.
-- **Métrica:** resultado cualificado → reserva completada medible.
+- **Métrica:** resultado cualificado → reserva iniciada medible; `booking_completed` queda reservado para un callback verificable del proveedor.
 
 ## P0 · Oferta visible y páginas comerciales
 

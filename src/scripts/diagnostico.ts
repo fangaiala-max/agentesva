@@ -1,5 +1,28 @@
-import { classifyDiagnostic, clusterFor, type DiagnosticAnswers } from '../data/diagnostico';
+import { classifyDiagnostic, clusterFor, type DiagnosticAnswers, type DiagnosticResult } from '../data/diagnostico';
 import { trackGrowthEvent } from './track';
+
+function renderList(node: HTMLElement | null, items: readonly string[]): void {
+  if (!node) return;
+  node.replaceChildren(...items.map((item) => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    return li;
+  }));
+}
+
+export function renderDiagnosticPlan(root: HTMLElement, diagnostic: DiagnosticResult): void {
+  const priority = root.querySelector<HTMLElement>('[data-result-priority]');
+  const complexity = root.querySelector<HTMLElement>('[data-result-complexity]');
+  const nextStep = root.querySelector<HTMLAnchorElement>('[data-result-next-step]');
+  if (priority) priority.textContent = diagnostic.priority;
+  if (complexity) complexity.textContent = diagnostic.complexity;
+  renderList(root.querySelector<HTMLElement>('[data-result-opportunities]'), diagnostic.opportunities);
+  renderList(root.querySelector<HTMLElement>('[data-result-reasons]'), diagnostic.reasons);
+  if (nextStep) {
+    nextStep.textContent = diagnostic.nextStep.label;
+    nextStep.href = diagnostic.nextStep.href;
+  }
+}
 
 function value(form: HTMLFormElement, name: string): string {
   const data = new FormData(form);
@@ -43,8 +66,10 @@ function wire(root: HTMLElement): void {
   let index = 0;
   let started = false;
   let currentResult: ReturnType<typeof classifyDiagnostic> | null = null;
+  let submissionId: string | null = null;
+  let submitting = false;
 
-  const showStep = (nextIndex: number) => {
+  const showStep = (nextIndex: number, focusControl = true) => {
     index = Math.max(0, Math.min(steps.length - 1, nextIndex));
     steps.forEach((step, i) => { step.hidden = i !== index; });
     current.textContent = String(index + 1);
@@ -54,8 +79,10 @@ function wire(root: HTMLElement): void {
     next.hidden = index === steps.length - 1;
     finish.hidden = index !== steps.length - 1;
     error.hidden = true;
-    const focusTarget = steps[index]?.querySelector<HTMLElement>('input, textarea');
-    focusTarget?.focus();
+    if (focusControl) {
+      const focusTarget = steps[index]?.querySelector<HTMLElement>('input, textarea');
+      focusTarget?.focus();
+    }
   };
 
   const validCurrentStep = (): boolean => {
@@ -108,14 +135,15 @@ function wire(root: HTMLElement): void {
     root.querySelectorAll<HTMLElement>('[data-result]').forEach((node) => {
       node.hidden = node.dataset.result !== diagnostic.resultType;
     });
-    const reasons = root.querySelector<HTMLElement>('[data-result-reasons]');
-    if (reasons) reasons.innerHTML = diagnostic.reasons.map((reason) => `<li>${reason}</li>`).join('');
+    renderDiagnosticPlan(result, diagnostic);
     result.hidden = false;
-    result.focus();
+    result.focus({ preventScroll: true });
+    result.scrollIntoView({ block: 'start' });
   });
 
   contactForm.addEventListener('submit', async (event) => {
     event.preventDefault();
+    if (submitting) return;
     if (!currentResult || !contactForm.checkValidity()) {
       contactError.textContent = 'Completa tus datos y acepta la política de privacidad para enviar el diagnóstico.';
       contactError.hidden = false;
@@ -124,6 +152,8 @@ function wire(root: HTMLElement): void {
     }
 
     contactError.hidden = true;
+    submitting = true;
+    submissionId ||= crypto.randomUUID();
     contactSubmit.disabled = true;
     const original = contactSubmit.textContent;
     contactSubmit.textContent = 'Enviando…';
@@ -139,10 +169,13 @@ function wire(root: HTMLElement): void {
           email: String(contact.get('email') || ''),
           company: String(contact.get('company') || ''),
           consent: contact.get('consent') === 'on',
+          submissionId,
         }),
       });
       const payload = await response.json().catch(() => ({}));
-      if (!response.ok || !payload.success || !payload.result) throw new Error('No se pudo enviar el diagnóstico. Inténtalo de nuevo.');
+      if (!response.ok || !payload.success || !payload.result || typeof payload.redirectUrl !== 'string' || !payload.redirectUrl.startsWith('/gracias-diagnostico/?')) {
+        throw new Error('No se pudo enviar el diagnóstico. Inténtalo de nuevo.');
+      }
 
       currentResult = payload.result;
       trackGrowthEvent('diagnostic_completed', {
@@ -163,7 +196,9 @@ function wire(root: HTMLElement): void {
       contactForm.hidden = true;
       contactSuccess.hidden = false;
       contactSuccess.focus();
+      window.location.assign(payload.redirectUrl);
     } catch (submissionError) {
+      submitting = false;
       contactSubmit.disabled = false;
       contactSubmit.textContent = original;
       contactError.textContent = submissionError instanceof Error ? submissionError.message : 'No se pudo enviar el diagnóstico.';
@@ -172,6 +207,7 @@ function wire(root: HTMLElement): void {
   });
 
   root.querySelector<HTMLButtonElement>('[data-restart]')?.addEventListener('click', () => {
+    if (submitting) return;
     form.reset();
     form.hidden = false;
     root.querySelector<HTMLElement>('.progress-wrap')!.hidden = false;
@@ -183,11 +219,13 @@ function wire(root: HTMLElement): void {
     contactSubmit.disabled = false;
     contactSubmit.textContent = 'Enviar diagnóstico →';
     currentResult = null;
+    submissionId = null;
+    submitting = false;
     started = false;
     showStep(0);
   });
 
-  showStep(0);
+  showStep(0, false);
 }
 
 export function initDiagnostic(): void {

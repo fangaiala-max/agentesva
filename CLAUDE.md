@@ -1,6 +1,6 @@
 # AgentesVA
 
-Astro 5 static site on Vercel (no DB) targeting PyMEs hispanohablantes (España + LATAM). Sales funnel for AI automation consulting.
+Astro 7 static site on Vercel (no DB) targeting PyMEs hispanohablantes (España + LATAM). Sales funnel for AI automation consulting.
 
 **Source of truth:**
 - [`ARCHITECTURE.md`](./ARCHITECTURE.md) — topology, stack, env vars, funnel paths

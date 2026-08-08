@@ -1,6 +1,6 @@
 # Operations — agentesva.com
 
-How to monitor, alert, secure, and recover the production site. Static Astro on Vercel + 2 functions + 4 SaaS providers (Brevo, HubSpot, Make, Calendly).
+How to monitor, alert, secure, and recover the production site. Static-first Astro on Vercel with 3 API handlers, 1 SSR confirmation route, and 4 SaaS providers (Brevo, HubSpot, Notion, configurable HTTPS booking).
 
 ## 🔐 Secrets management
 
@@ -46,6 +46,8 @@ For now (2 people) the **Vercel-native env vars are sufficient**. Migrate when t
 | `BREVO_API_KEY` | 6 meses | Brevo → SMTP & API → Generate new key → update Vercel → revoke old |
 | `TWILIO_AUTH_TOKEN` | 6 meses | Twilio Console → Account → Auth Tokens → Rotate |
 | `WA_VERIFY_TOKEN` | Si se filtra | Generate UUID v4, update Vercel + Twilio Sandbox config |
+| `NOTION_TOKEN` | 6 meses | Rotar en Notion Connections, actualizar Vercel y revocar el anterior |
+| `DIAGNOSTIC_SIGNING_SECRET` | 6 meses | Generar 32+ caracteres aleatorios y actualizar Vercel; los tokens anteriores caducan en 30 minutos |
 
 ---
 
@@ -60,8 +62,8 @@ For now (2 people) the **Vercel-native env vars are sufficient**. Migrate when t
 | Vercel | Spending limit | Medium — Hobby plan free; Pro adds limits |
 | Brevo | Email bounce rate >5% | Medium — sender reputation |
 | Brevo | DKIM/SPF break | High — deliverability |
-| Make.com | Scenario error / disabled | High — diagnostic emails fail silently |
-| Diagnóstico | Respuestas 5xx o entregas fallidas del webhook | High — los leads no llegan al sistema comercial |
+| Notion | API 4xx/5xx o integración sin acceso | High — los leads no llegan al pipeline comercial |
+| Diagnóstico | Respuestas 5xx o entregas fallidas a Notion | High — revisar función y permisos de la conexión |
 | HubSpot | Daily form submission anomaly | Low |
 
 ### Setup steps (15 min total)
@@ -75,20 +77,16 @@ For now (2 people) the **Vercel-native env vars are sufficient**. Migrate when t
 1. Email alerts: enable `Bounce rate >5%`, `Domain authentication issue`
 2. Daily digest: keep on for first 30 days
 
-#### Make.com (Scenario → Settings → Error handling)
-1. For diagnostico scenario: add **error notification email**
-2. Add `Filter` module that flags inputs with empty `email` field → log
-3. Sequential processing ON to avoid Anthropic rate limit cascade failures
-
 #### Diagnóstico comercial
 
-1. Configurar `DIAGNOSTIC_WEBHOOK_URL` en Vercel antes de retirar `noindex`.
-2. Configurar `DIAGNOSTIC_WEBHOOK_SECRET` y validar el Bearer token en Make/CRM cuando el proveedor lo permita.
-3. Mantener rate limiting distribuido en Vercel WAF; el límite en memoria de la función es una defensa adicional por instancia, no sustituye al WAF.
-4. Probar un lead de cada ruta (`qualified_call`, `paid_workshop`, `self_serve_resources`, `manual_review`) en preview antes de producción.
-
-#### Make.com (Account → Notifications)
-1. Enable: `Scenario disabled due to errors`, `Operations limit approaching`
+1. Crear una integración interna de Notion con lectura, inserción y actualización de contenido.
+2. Compartir `Pipeline de leads` con esa integración.
+3. Configurar `NOTION_TOKEN` y `NOTION_DATA_SOURCE_ID` en Vercel Preview y Production.
+4. Configurar `DIAGNOSTIC_SIGNING_SECRET` con 24+ caracteres; sin él, la página no muestra la reserva.
+5. Configurar `BOOKING_URL` con HTTPS si se quiere mostrar reserva a los resultados cualificados.
+6. Verificar que los reintentos actualizan por `Submission ID` en vez de duplicar el lead.
+7. Mantener rate limiting distribuido en Vercel WAF; el límite en memoria de la función es una defensa adicional por instancia, no sustituye al WAF.
+8. Probar un lead de cada ruta (`qualified_call`, `paid_workshop`, `self_serve_resources`, `manual_review`) en preview antes de producción.
 
 ### Optional: external uptime monitor
 
@@ -110,7 +108,7 @@ Consider adding [Better Stack Free Tier](https://betterstack.com) (3 monitors fr
 
 - ✅ Vercel encrypts env vars at rest (AES-256 server-side)
 - ✅ No persistent storage on Vercel (no Blob, no Postgres, no KV in this project)
-- ✅ Brevo/HubSpot/Make: SOC 2 Type II certified providers, encrypted at rest
+- ✅ Los datos del diagnóstico se guardan en Notion mediante una conexión con acceso limitado a la base comercial
 - N/A: no own database to encrypt
 
 ### Secrets in repo

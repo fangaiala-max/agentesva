@@ -2,6 +2,29 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [0.5.0.0] - 2026-08-08
+
+### Added
+- Nuevo embudo comercial para servicios de automatización: hub de servicios, tres páginas especializadas, precios orientativos, proceso de trabajo y seis guías de apoyo conectadas por intención.
+- El diagnóstico de ocho pasos devuelve prioridad, complejidad, tres oportunidades concretas y un siguiente paso determinista según encaje, presupuesto, plazo y riesgo.
+- Nueva confirmación dinámica `/gracias-diagnostico/`, excluida de indexación y sitemap, con reserva configurable mediante `BOOKING_URL` y alternativas útiles para los demás perfiles.
+- Tracking consentido del funnel completo: CTA, inicio, pasos, finalización, lead cualificado y reserva iniciada, sin enviar respuestas personales a analítica.
+
+### Changed
+- La portada, navegación, footer, estudios y fichas prioritarias orientan el tráfico con contexto hacia diagnóstico y servicios, manteniendo el directorio como vía de exploración.
+- El diagnóstico deja la fase de preview: entra al sitemap y puede indexarse, mientras su página de confirmación permanece `noindex`.
+- La entrega comercial escribe directamente en el pipeline existente de Notion y actualiza por `Submission ID`; el diagnóstico deja de depender de Make o de otro CRM intermediario.
+- La suite configura Happy DOM para simular como exitosa la carga externa bloqueada; conserva el aislamiento de red y deja la salida de tests limpia.
+
+### Fixed
+- El diagnóstico ya no desplaza la página al primer campo durante la carga ni oculta el resultado bajo la cabecera fija en escritorio o móvil.
+- Cada clasificación conserva su propia lista de oportunidades y la atribución de reservas distingue Calendly, Cal.com y otros proveedores HTTPS configurados.
+- La página de cierre verifica un token de resultado firmado antes de mostrar la reserva; los enlaces directos o manipulados caen a revisión manual. Los reintentos conservan una clave de idempotencia para evitar leads duplicados en el receptor.
+
+### Verification
+- QA estándar del embudo: 8 rutas/variantes, 21 capturas y 1 incidencia encontrada/corregida; salud final 100/100.
+- Suite completa: 43 archivos y 390 tests. Build Astro/Vercel y Pagefind completados.
+
 ## [0.4.0.0] - 2026-08-04
 
 ### Added
