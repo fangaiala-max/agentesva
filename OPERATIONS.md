@@ -1,6 +1,6 @@
 # Operations — agentesva.com
 
-How to monitor, alert, secure, and recover the production site. Static Astro on Vercel + 3 functions + 4 SaaS providers (Brevo, HubSpot, Make, Calendly).
+How to monitor, alert, secure, and recover the production site. Static-first Astro on Vercel with 3 API handlers, 1 SSR confirmation route, and 4 SaaS providers (Brevo, HubSpot, Make, configurable HTTPS booking).
 
 ## 🔐 Secrets management
 
