@@ -408,10 +408,10 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
 
   <!-- ===== BARRA CTA FIJA (fondo sólido: sin backdrop-filter permanente) ===== -->
   <div id="cta-bar" hidden style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: var(--bg-2); border-top: 1px solid var(--line-2); animation: slideUp .4s cubic-bezier(0.22,0.61,0.36,1) both;">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 12px 32px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap;">
+    <div class="cta-bar__inner">
       <span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: dotPulse 1.4s ease-in-out infinite; flex: none;"></span>
       <span style="font-family: var(--sans); font-size: 14.5px; color: #fff; font-weight: 600; flex: 1; min-width: 200px;">¿Qué proceso deberías automatizar primero? <span style="color: var(--fg-3); font-weight: 400;">Descúbrelo en 2 minutos.</span></span>
-      <a href="/diagnostico-automatizacion-ia/" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="general_consulting" data-track-cluster="general" data-track-placement="sticky" style="font-family: var(--sans); font-weight: 600; font-size: 13.5px; color: var(--bg); background: var(--accent); padding: 10px 20px; border-radius: 2px; text-decoration: none; white-space: nowrap;">Hacer diagnóstico →</a>
+      <a class="cta-bar__link" href="/diagnostico-automatizacion-ia/" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="general_consulting" data-track-cluster="general" data-track-placement="sticky">Hacer diagnóstico →</a>
       <button type="button" id="cta-dismiss" aria-label="Cerrar aviso" style="background: none; border: none; cursor: pointer; color: var(--fg-5); padding: 6px; display: flex;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
     </div>
   </div>
@@ -484,6 +484,8 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
   .commercial-close h2 { font-size: clamp(28px,4vw,40px); }
   .commercial-close p { margin-top: 12px; }
   .commercial-close > a { flex: none; padding: 14px 20px; border-radius: 3px; background: var(--accent); color: var(--bg); font-weight: 700; text-decoration: none; }
+  .cta-bar__inner { display: flex; max-width: 1240px; align-items: center; gap: 18px; margin: 0 auto; padding: 12px 32px; flex-wrap: wrap; }
+  .cta-bar__link { padding: 10px 20px; border-radius: 2px; background: var(--accent); color: var(--bg); font: 600 13.5px var(--sans); text-decoration: none; white-space: nowrap; }
   .cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .coll-grid { display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: center; }
   .dir-body { display: block; }
@@ -513,9 +515,9 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
     .commercial-close { margin: 54px 16px 0; padding: 26px 22px; }
     .deliverables { grid-template-columns: 1fr; }
     .commercial-close > a { width: 100%; text-align: center; }
-    #cta-bar > div { padding: 10px 12px !important; flex-wrap: nowrap !important; gap: 9px !important; }
+    #cta-bar > div { gap: 9px; padding: 10px 12px; flex-wrap: nowrap; }
     #cta-bar > div > span:nth-of-type(2) { display: none; }
-    #cta-bar > div > a { flex: 1; padding: 11px 12px !important; text-align: center; }
+    #cta-bar > div > a { flex: 1; padding: 11px 12px; text-align: center; }
     .cat-grid { grid-template-columns: 1fr; }
   }
 </style>
