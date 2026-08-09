@@ -9,6 +9,7 @@ _archive/
 
 # Superpowers brainstorm sessions
 .superpowers/
+.worktrees/
 
 # Backups
 *.bak
