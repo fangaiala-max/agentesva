@@ -12,9 +12,16 @@ function dataLayer(): unknown[] {
   return w.dataLayer;
 }
 
-// gtag empuja `arguments` (array-like) al dataLayer; replicamos el patrón oficial.
-function gtag(...args: unknown[]): void {
-  dataLayer().push(args);
+// gtag.js consume el objeto `arguments` (array-like) del snippet oficial. Un array
+// normal parece equivalente, pero Google no lo interpreta como comando.
+export function pushGtagCommand(..._args: unknown[]): void {
+  dataLayer().push(arguments);
+}
+
+function command(entry: unknown): unknown[] {
+  return entry && typeof entry === 'object' && 'length' in entry
+    ? Array.from(entry as ArrayLike<unknown>)
+    : [];
 }
 
 export function getConsent(): ConsentValue | null {
@@ -34,11 +41,12 @@ export function isGA4Loaded(): boolean {
 // navegaciones View Transitions), pero el `default` de Consent Mode debe fijarse
 // una sola vez: si ya hay un `consent default` en el dataLayer, no lo re-empujamos.
 export function initConsentMode(): void {
-  const already = dataLayer().some(
-    (e) => Array.isArray(e) && e[0] === 'consent' && e[1] === 'default',
-  );
+  const already = dataLayer().some((entry) => {
+    const e = command(entry);
+    return e[0] === 'consent' && e[1] === 'default';
+  });
   if (already) return;
-  gtag('consent', 'default', {
+  pushGtagCommand('consent', 'default', {
     ad_storage: 'denied',
     ad_user_data: 'denied',
     ad_personalization: 'denied',
@@ -53,8 +61,8 @@ function loadGA4(id: string): void {
   script.src = `https://www.googletagmanager.com/gtag/js?id=${id}`;
   script.setAttribute('data-ga4', '1');
   document.head.appendChild(script);
-  gtag('js', new Date());
-  gtag('config', id);
+  pushGtagCommand('js', new Date());
+  pushGtagCommand('config', id);
 }
 
 // Sólo concedemos analítica: el banner divulga únicamente GA4 y el sitio no carga
@@ -62,13 +70,13 @@ function loadGA4(id: string): void {
 // el consentimiento debe ser específico a lo divulgado).
 export function grantConsent(id: string): void {
   setConsent('granted');
-  gtag('consent', 'update', { analytics_storage: 'granted' });
+  pushGtagCommand('consent', 'update', { analytics_storage: 'granted' });
   loadGA4(id);
 }
 
 export function denyConsent(): void {
   setConsent('denied');
-  gtag('consent', 'update', { analytics_storage: 'denied' });
+  pushGtagCommand('consent', 'update', { analytics_storage: 'denied' });
 }
 
 function wireBanner(banner: HTMLElement, id: string): void {

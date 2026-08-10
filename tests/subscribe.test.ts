@@ -241,7 +241,11 @@ describe('subscribe → GA4 newsletter_submit', () => {
     await new Promise((r) => setTimeout(r, 0));
     // @ts-expect-error dataLayer inyectado
     const evs = (window.dataLayer as unknown[]) ?? [];
-    const fired = evs.some((e) => Array.isArray(e) && e[0] === 'event' && e[1] === 'newsletter_submit');
+    const fired = evs.some((entry) => {
+      if (!entry || typeof entry !== 'object' || !('length' in entry)) return false;
+      const command = Array.from(entry as ArrayLike<unknown>);
+      return command[0] === 'event' && command[1] === 'newsletter_submit';
+    });
     expect(fired).toBe(true);
   });
 });

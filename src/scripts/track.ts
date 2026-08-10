@@ -1,7 +1,7 @@
 // Eventos GA4 respetando el consentimiento. CSP-safe (módulo 'self'; no scripts inline,
 // no dependencias nuevas). Reutiliza el patrón dataLayer de consent.ts: sólo emite si
 // GA4 está cargado (= consentimiento analítico concedido); si no, no-op silencioso.
-import { isGA4Loaded } from './consent';
+import { isGA4Loaded, pushGtagCommand } from './consent';
 
 export const GROWTH_EVENTS = [
   'service_cta_click',
@@ -66,15 +66,9 @@ const ENUMS: Partial<Record<string, ReadonlySet<string>>> = {
 
 const SAFE_VALUE = /^[\p{L}\p{N}_./-]{1,100}$/u;
 
-function dataLayer(): unknown[] {
-  const w = window as unknown as { dataLayer?: unknown[] };
-  w.dataLayer = w.dataLayer || [];
-  return w.dataLayer;
-}
-
 export function track(event: string, params: Record<string, unknown> = {}): boolean {
   if (!isGA4Loaded()) return false;
-  dataLayer().push(['event', event, params]);
+  pushGtagCommand('event', event, params);
   return true;
 }
 

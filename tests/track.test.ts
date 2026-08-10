@@ -17,10 +17,19 @@ function events(): unknown[] {
   // @ts-expect-error dataLayer inyectado
   return (window.dataLayer as unknown[]) ?? [];
 }
+function command(entry: unknown): unknown[] {
+  return entry && typeof entry === 'object' && 'length' in entry
+    ? Array.from(entry as ArrayLike<unknown>)
+    : [];
+}
+function lastCommand(): unknown[] {
+  return command(events().at(-1));
+}
 function eventNames(): string[] {
   return events()
-    .filter((e) => Array.isArray(e) && e[0] === 'event')
-    .map((e) => (e as unknown[])[1] as string);
+    .map(command)
+    .filter((e) => e[0] === 'event')
+    .map((e) => e[1] as string);
 }
 
 beforeEach(() => {
@@ -41,10 +50,16 @@ describe('track', () => {
   it('empuja ["event", nombre, params] cuando GA4 está cargado', () => {
     loadGA4();
     track('affiliate_click', { slug: 'notion-ai', src: 'ficha-hero' });
-    const last = events().at(-1) as unknown[];
+    const last = lastCommand();
     expect(last[0]).toBe('event');
     expect(last[1]).toBe('affiliate_click');
     expect(last[2]).toEqual({ slug: 'notion-ai', src: 'ficha-hero' });
+  });
+
+  it('emite eventos en el formato Arguments que consume gtag.js', () => {
+    loadGA4();
+    track('affiliate_click', { slug: 'notion-ai' });
+    expect(Object.prototype.toString.call(events().at(-1))).toBe('[object Arguments]');
   });
 });
 
@@ -74,7 +89,7 @@ describe('trackGrowthEvent', () => {
       email: 'persona@example.com',
     });
     expect(sent).toBe(true);
-    const last = events().at(-1) as unknown[];
+    const last = lastCommand();
     expect(last[1]).toBe('service_cta_click');
     expect(last[2]).toEqual({
       page_type: 'tool_detail',
@@ -105,7 +120,7 @@ describe('trackGrowthEvent', () => {
       cluster: 'sales',
     });
     expect(sent).toBe(true);
-    const last = events().at(-1) as unknown[];
+    const last = lastCommand();
     expect(last[2]).toEqual({ step: 3, step_id: 'business_goal', cluster: 'sales' });
   });
 });
@@ -119,7 +134,7 @@ describe('initTracking (click delegado)', () => {
          data-track-has-affiliate="1">Visitar</a>`;
     initTracking();
     (document.querySelector('a') as HTMLElement).dispatchEvent(new MouseEvent('click', { bubbles: true }));
-    const last = events().at(-1) as unknown[];
+    const last = lastCommand();
     expect(last[1]).toBe('affiliate_click');
     expect(last[2]).toEqual({ slug: 'notion-ai', src: 'ficha-hero', has_affiliate: '1' });
   });
@@ -154,7 +169,7 @@ describe('initTracking (click delegado)', () => {
          data-track-email="no-debe-salir@example.com">Analizamos tu caso</a>`;
     initTracking();
     (document.querySelector('a') as HTMLElement).dispatchEvent(new MouseEvent('click', { bubbles: true }));
-    const last = events().at(-1) as unknown[];
+    const last = lastCommand();
     expect(last[1]).toBe('service_cta_click');
     expect(last[2]).not.toHaveProperty('email');
     expect(last[2]).toHaveProperty('placement', 'tool_detail_midpage');
@@ -166,7 +181,7 @@ describe('fireViewEvents', () => {
     loadGA4();
     document.body.innerHTML = `<main data-track-view="view_ficha" data-track-slug="notion-ai" data-track-category="Asistentes"></main>`;
     fireViewEvents();
-    const last = events().at(-1) as unknown[];
+    const last = lastCommand();
     expect(last[1]).toBe('view_ficha');
     expect(last[2]).toEqual({ slug: 'notion-ai', category: 'Asistentes' });
   });
