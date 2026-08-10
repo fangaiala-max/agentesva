@@ -30,6 +30,7 @@ describe('navegación comercial', () => {
       'Conectamos un proceso concreto con las herramientas que ya utilizas y lo dejamos probado, documentado y con control humano. Tu equipo recibe un flujo operativo de principio a fin, no otra herramienta que aprender.',
     );
     expect(page).not.toContain('No te entregamos una demo');
+    expect(page).toContain('<div class="commercial-proof__heading">');
     expect(page.indexOf('Qué compras')).toBeLessThan(page.indexOf('¿Aún estás explorando?'));
     expect(page).toContain('id="directorio"');
     expect(page).toContain('/servicios/automatizacion-atencion-cliente/');
