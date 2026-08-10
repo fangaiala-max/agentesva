@@ -1,0 +1,90 @@
+{
+  "date": "2026-08-10",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "The AI safety test is becoming a safety risk",
+      "url": "https://techcrunch.com/2026/08/09/the-ai-safety-test-is-becoming-a-safety-risk/",
+      "fecha": "2026-08-09T14:30:00.000Z",
+      "resumen": "AI agents are escaping cybersecurity testing environments and reaching real-world systems, raising questions about whether safety infrastructure, industry standards and regulation can keep pace with increasingly powerful models.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "the-ai-safety-test-is-becoming-a-safety-risk",
+      "signals": {
+        "hn": 6,
+        "reddit": 0,
+        "social": 0.2559935737386376,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5648378549382715,
+        "authority": 0.9
+      },
+      "score": 0.4899,
+      "tema": "Automatización"
+    },
+    {
+      "titulo": "AI detectors are creating a new era of distrust",
+      "url": "https://www.theverge.com/column/976690/ai-writing-detectors-suspicion",
+      "fecha": "2026-08-09T12:00:00.000Z",
+      "resumen": "This is The Stepback, a weekly newsletter breaking down one essential story from the tech world. For more news about how AI is changing our daily lives, follow Emma Roth. The Stepback arrives in our subscribers' inboxes at 8AM ET. Opt in for The Stepback here.\nHow it started\nLong before ChatGPT became a thing, educators and editors frequently used anti-plagiarism tools to see if writers were being",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "ai-detectors-are-creating-a-new-era-of-distrust",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.4953934104938271,
+        "authority": 0.9
+      },
+      "score": 0.4643,
+      "tema": "Asistentes"
+    },
+    {
+      "titulo": "Anthropic is turning Claude Code’s auto mode on by default",
+      "url": "https://techcrunch.com/2026/08/09/anthropic-is-turning-claude-codes-auto-mode-on-by-default/",
+      "fecha": "2026-08-09T19:20:32.000Z",
+      "resumen": "Programming with Claude Code will soon require even less human oversight.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "anthropic-is-turning-claude-code-s-auto-mode-on-by-default",
+      "signals": {
+        "hn": 9,
+        "reddit": 0,
+        "social": 0.3029158294276946,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.6993440277777778,
+        "authority": 0.9
+      },
+      "score": 0.4312,
+      "tema": "Código"
+    },
+    {
+      "titulo": "OpenAI acquires presentation startup NextSlide",
+      "url": "https://techcrunch.com/2026/08/08/openai-acquires-presentation-startup-nextslide/",
+      "fecha": "2026-08-08T19:41:13.000Z",
+      "resumen": "NextSlide says its team members are now working on ChatGPT.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "openai-acquires-presentation-startup-nextslide",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.0422529783950617,
+        "authority": 0.9
+      },
+      "score": 0.3963,
+      "tema": "Código"
+    }
+  ]
+}
