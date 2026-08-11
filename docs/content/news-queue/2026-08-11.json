@@ -1,0 +1,46 @@
+{
+  "date": "2026-08-11",
+  "generatedAt": "2026-08-11T05:53:15.595Z",
+  "candidates": [
+    {
+      "titulo": "Tech industry is buzzing after a Claude agent hacked into a gym",
+      "url": "https://techcrunch.com/2026/08/10/tech-industry-is-buzzing-after-a-claude-agent-hacked-into-a-gym/",
+      "fecha": "2026-08-10T20:04:24.000Z",
+      "resumen": "An OpenClaw agent hacked into a gym's reservation system to bump its human boss higher on a class' waitlist. And the tech industry took notice.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "tech-industry-is-buzzing-after-a-claude-agent-hacked-into-a-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.7273796682098765,
+        "authority": 0.9
+      },
+      "score": 0.3991
+    },
+    {
+      "titulo": "Ford’s new AI assistant can check your fuel levels and tire pressure",
+      "url": "https://www.theverge.com/transportation/976748/ford-ai-assistant-mobile-app",
+      "fecha": "2026-08-10T11:00:00.000Z",
+      "resumen": "Ford is rolling out a new AI-powered assistant that can answer questions about your Ford or Lincoln vehicle, such as how much fuel you'll need for your next road trip or whether your truck can tow that new motor boat.\nThe app is rolling out first to the Ford and Lincoln mobile apps, where it will work as a chatbot that can answer questions about the vehicle's capabilities or future service needs. ",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "ford-s-new-ai-assistant-can-check-your-fuel-levels-and-tire-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.4753426311728395,
+        "authority": 0.9
+      },
+      "score": 0.3613
+    }
+  ]
+}
