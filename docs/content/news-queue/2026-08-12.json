@@ -1,0 +1,146 @@
+{
+  "date": "2026-08-12",
+  "generatedAt": "2026-08-12T06:14:21.667Z",
+  "candidates": [
+    {
+      "titulo": "OpenAI launches ChatGPT desktop app for Linux",
+      "url": "https://techcrunch.com/2026/08/11/openai-launches-chatgpt-desktop-app-for-linux/",
+      "fecha": "2026-08-11T19:15:35.000Z",
+      "resumen": "OpenAI is finally bringing a dedicated ChatGPT desktop app to Linux operating systems.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "openai-launches-chatgpt-desktop-app-for-linux",
+      "signals": {
+        "hn": 62,
+        "reddit": 0,
+        "social": 0.5450487349606155,
+        "relevance": 1,
+        "freshness": 0.6950102854938272,
+        "authority": 0.9
+      },
+      "score": 0.7395
+    },
+    {
+      "titulo": "ChatGPT and Gemini both just passed 1 billion users",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/978113/chatgpt-gemini-1-billion-users",
+      "fecha": "2026-08-11T19:41:42.000Z",
+      "resumen": "That’s a lot of people chatting with their AI friends all day. | Image: Google\t\n\nFor the 14th time, a Google product has hit 1 billion users. Google CEO Sundar Pichai posted on X that a billion people are using Gemini every month, and that Gemini is Google's fastest-growing product ever.\nA billion users is a huge milestone, but Google isn't the first AI app to hit it. OpenAI's ChatGPT hit the mark",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "chatgpt-and-gemini-both-just-passed-1-billion-users",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.7071013348765431,
+        "authority": 0.9
+      },
+      "score": 0.4961
+    },
+    {
+      "titulo": "Google’s Gemini app surges to 1 billion users",
+      "url": "https://techcrunch.com/2026/08/11/googles-gemini-app-surges-to-one-billion-users/",
+      "fecha": "2026-08-11T18:49:12.000Z",
+      "resumen": "Google also shared numbers of how people are actually using the chatbot, with 63% of Gemini users talking directly to the assistant using the voice feature. Plus, Gemini now generates more than 150 million images every day, according to Google.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "google-s-gemini-app-surges-to-1-billion-users",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.6827957793209876,
+        "authority": 0.9
+      },
+      "score": 0.4924
+    },
+    {
+      "titulo": "Claude will apply invisible watermarks to AI text and images",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/977823/anthropic-claude-ai-watermarks-c2pa-text-images",
+      "fecha": "2026-08-11T12:22:20.000Z",
+      "resumen": "Anthropic has pledged to start marking Claude-generated text and images with machine-readable data, in an effort to comply with European rules for AI transparency. \"Generated text will carry embedded watermarks, and generated files will include digitally signed provenance metadata where supported,\" Anthropic says on a new Claude support page. The changes are invisible to human eyes, but will make ",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "claude-will-apply-invisible-watermarks-to-ai-text-and-images",
+      "signals": {
+        "hn": 5,
+        "reddit": 0,
+        "social": 0.23571433143015907,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5036908410493827,
+        "authority": 0.9
+      },
+      "score": 0.4716
+    },
+    {
+      "titulo": "Saber denies replacing Rideshare Stimulator&#8217;s writers with ChatGPT",
+      "url": "https://www.theverge.com/games/978558/rideshare-stimulator-writer-ai-saber-interactive",
+      "fecha": "2026-08-12T00:39:26.000Z",
+      "resumen": "After a former lead writer claimed Saber \"replaced me with ChatGPT,\" CEO Matthew Karch now claims, \"Neither Saber nor Unigine have replaced any writers with AI,\" for the Rideshare \"Stimulator\" game announced last month, developed by Unigine.\nThe writer, Stella Sacco, says differently, however, posting on Bluesky that \"I was lead writer on this one! And Saber replaced me with ChatGPT midway through",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "saber-denies-replacing-rideshare-stimulator-8217-s-writers-w",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.8449408410493827,
+        "authority": 0.9
+      },
+      "score": 0.4167
+    },
+    {
+      "titulo": "General Catalyst leads $1.1B round into 2-month-old River AI",
+      "url": "https://techcrunch.com/2026/08/11/general-catalyst-leads-1-1b-round-into-2-month-old-river-ai/",
+      "fecha": "2026-08-11T17:41:22.000Z",
+      "resumen": "River AI, a startup founded by xAI co-founder Igor Babuschkin, has a fascinating vision for personal agents and secured $1.1 billion out of the gate.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "general-catalyst-leads-1-1b-round-into-2-month-old-river-ai",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.6513914583333333,
+        "authority": 0.9
+      },
+      "score": 0.3877
+    },
+    {
+      "titulo": "Apple could help you prove your iPhone photos aren’t deepfakes",
+      "url": "https://www.theverge.com/tech/977921/apple-reference-image-iphone-metadata",
+      "fecha": "2026-08-11T16:19:15.000Z",
+      "resumen": "Apple is seemingly developing an iOS feature that can verify when a photograph was taken using an iPhone camera. 9to5Mac reports that the iOS 27 beta 5 includes code references for an \"Apple Reference Image\" system that can embed provenance metadata into iPhone photographs at the point of capture - enabling users to prove where the photo originated, and that it isn't AI fakery.\nApple Reference Ima",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "apple-could-help-you-prove-your-iphone-photos-aren-t-deepfak",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.6133744830246914,
+        "authority": 0.9
+      },
+      "score": 0.382
+    }
+  ]
+}
