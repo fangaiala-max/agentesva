@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { guideSchema } from './content-schemas/guias';
 
 // Directorio de herramientas de IA (#50). El `id` de cada entrada = nombre de
 // archivo = slug. El build falla si un JSON no cumple el esquema.
@@ -104,41 +105,7 @@ const estudios = defineCollection({
 // las páginas transaccionales.
 const guias = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/guias' }),
-  schema: z.object({
-    titulo: z.string(),
-    descripcion: z.string(),
-    fecha: z.coerce.date(),
-    actualizado: z.coerce.date(),
-    tema: z.string(),
-    respuesta: z.string(),
-    puntosClave: z.array(z.string()).min(3),
-    servicio: z.object({
-      nombre: z.string(),
-      href: z.string().startsWith('/'),
-      cluster: z.enum(['atencion', 'ventas', 'procesos']),
-      titulo: z.string(),
-      descripcion: z.string(),
-    }).optional(),
-    recurso: z.object({
-      id: z.string().regex(/^(?:sw|gr)\d{2,3}$/),
-    }).optional(),
-    relacionados: z.array(z.object({ titulo: z.string(), href: z.string().startsWith('/') })).min(3),
-    faq: z.array(z.object({ q: z.string(), a: z.string() })).min(2),
-    fuentes: z.array(z.object({
-      titulo: z.string(),
-      url: z.string().url(),
-      editor: z.string().optional(),
-      fecha: z.string().optional(),
-    })).min(1),
-  }).superRefine((data, ctx) => {
-    if (data.servicio && data.recurso) {
-      ctx.addIssue({
-        code: 'custom',
-        message: 'Una guía no puede declarar servicio y recurso a la vez.',
-        path: ['recurso'],
-      });
-    }
-  }),
+  schema: guideSchema,
 });
 
 // Noticias — actualidad de IA curada, resumida en español original con atribución.

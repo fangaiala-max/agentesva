@@ -13,6 +13,9 @@ servicio:
   nombre: "automatización de procesos"
   href: "/servicios/automatizacion-procesos/"
   cluster: procesos
+  analytics:
+    cluster: operations
+    service: process_automation
   titulo: "Convierte la lista de tareas en un plan de implementación"
   descripcion: "Mapeamos el proceso, puntuamos oportunidades y construimos primero el flujo con mejor equilibrio entre retorno, viabilidad y riesgo."
 relacionados:

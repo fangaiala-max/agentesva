@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+import { parseFrontmatter } from 'astro/markdown';
 
 const root = path.resolve(process.cwd());
 const slugs = [
@@ -33,13 +34,28 @@ describe('GROW-019 commercial guides', () => {
   });
 
   it('mantiene dos CTA de servicio para las seis guías comerciales existentes', () => {
+    const clusters = new Set(['customer_service', 'sales', 'operations', 'general']);
+    const services = new Set([
+      'customer_service_automation',
+      'sales_automation',
+      'process_automation',
+      'general_consulting',
+    ]);
     for (const slug of slugs) {
       const source = fs.readFileSync(path.join(root, 'src/content/guias', `${slug}.md`), 'utf8');
       expect(source, slug).toMatch(/servicio:\n/);
+      const service = parseFrontmatter(source).frontmatter.servicio as {
+        analytics: { cluster: string; service: string };
+      };
+      expect(clusters.has(service.analytics?.cluster), `${slug}: cluster analítico`).toBe(true);
+      expect(services.has(service.analytics?.service), `${slug}: servicio analítico`).toBe(true);
     }
     const page = fs.readFileSync(path.join(root, 'src/pages/guias/[slug].astro'), 'utf8');
+    const cta = fs.readFileSync(path.join(root, 'src/components/GuideServiceCTA.astro'), 'utf8');
     expect(page).toContain('placement="after_answer"');
     expect(page).toContain('placement="final"');
+    expect(cta).toContain('data-track-cluster={service.analytics.cluster}');
+    expect(cta).toContain('data-track-service={service.analytics.service}');
   });
 
   it('tracks both CTA positions and emits Article, FAQ and breadcrumb schema', () => {

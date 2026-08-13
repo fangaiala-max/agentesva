@@ -13,6 +13,9 @@ servicio:
   nombre: "automatización de atención al cliente"
   href: "/servicios/automatizacion-atencion-cliente/"
   cluster: atencion
+  analytics:
+    cluster: customer_service
+    service: customer_service_automation
   titulo: "Convierte el chatbot en un proceso que sí resuelve"
   descripcion: "Diseñamos el flujo, conectamos las fuentes y dejamos una derivación humana clara para que el bot reduzca trabajo sin deteriorar la atención."
 relacionados:

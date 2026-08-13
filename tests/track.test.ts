@@ -1,4 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
+import { parseFrontmatter } from 'astro/markdown';
 import {
   track,
   trackGrowthEvent,
@@ -213,6 +216,55 @@ describe('initTracking (click delegado)', () => {
     expect(last[1]).toBe('service_cta_click');
     expect(last[2]).not.toHaveProperty('email');
     expect(last[2]).toHaveProperty('placement', 'tool_detail_midpage');
+  });
+
+  it('emite los dos service_cta_click de una guía real con IDs analíticos estables', () => {
+    loadGA4();
+    const source = fs.readFileSync(
+      path.join(process.cwd(), 'src/content/guias/automatizar-whatsapp-empresa.md'),
+      'utf8',
+    );
+    const { frontmatter } = parseFrontmatter(source);
+    const service = frontmatter.servicio as {
+      href: string;
+      analytics: { cluster: string; service: string };
+    };
+    document.body.innerHTML = ['after_answer', 'final']
+      .map((placement) => `
+        <a href="${service.href}"
+           data-track-event="service_cta_click"
+           data-track-page-type="guide"
+           data-track-content-slug="automatizar-whatsapp-empresa"
+           data-track-cluster="${service.analytics?.cluster}"
+           data-track-service="${service.analytics?.service}"
+           data-track-placement="${placement}">CTA ${placement}</a>`)
+      .join('');
+
+    initTracking();
+    document.querySelectorAll('a').forEach((link) => {
+      link.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    });
+
+    const serviceEvents = events()
+      .map(command)
+      .filter((entry) => entry[0] === 'event' && entry[1] === 'service_cta_click');
+    expect(serviceEvents).toHaveLength(2);
+    expect(serviceEvents.map((entry) => entry[2])).toEqual([
+      {
+        page_type: 'guide',
+        content_slug: 'automatizar-whatsapp-empresa',
+        cluster: 'customer_service',
+        service: 'customer_service_automation',
+        placement: 'after_answer',
+      },
+      {
+        page_type: 'guide',
+        content_slug: 'automatizar-whatsapp-empresa',
+        cluster: 'customer_service',
+        service: 'customer_service_automation',
+        placement: 'final',
+      },
+    ]);
   });
 });
 
