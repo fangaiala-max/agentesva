@@ -208,4 +208,17 @@ describe('clúster SEO para IA', () => {
     expect(body).toContain('[cómo aparecer en ChatGPT](/guias/como-aparecer-en-chatgpt/)');
     expect(body).toContain('[Perplexity](/herramienta/perplexity/)');
   });
+
+  it('mantiene nueve guías y un clúster sin URLs de compra duplicadas', () => {
+    const files = fs.readdirSync(path.join(root, 'src/content/guias')).filter((file) => file.endsWith('.md'));
+    expect(files).toHaveLength(9);
+    for (const slug of ['seo-para-ia', 'como-aparecer-en-chatgpt', 'medir-visibilidad-en-chatgpt']) {
+      const source = guide(slug);
+      expect(source).not.toContain(['T', 'BD'].join(''));
+      expect(source).not.toContain(['TO', 'DO'].join(''));
+      expect(source).not.toContain('buy.stripe.com');
+      expect((source.match(/\n  - q: /g) ?? []).length).toBeGreaterThanOrEqual(3);
+      expect((source.match(/\n  - titulo: /g) ?? []).length).toBeGreaterThanOrEqual(7);
+    }
+  });
 });
