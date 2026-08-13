@@ -7,6 +7,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import EstudioFaq from '../../components/EstudioFaq.astro';
 import EstudioFuentes from '../../components/EstudioFuentes.astro';
 import GuideServiceCTA from '../../components/GuideServiceCTA.astro';
+import GuideResourceCTA from '../../components/GuideResourceCTA.astro';
 import { SITE, jsonLdSerialize, organization, person } from '../../data/schema';
 import { breadcrumbList, crumbPath, SECCIONES, trail as buildTrail } from '../../data/breadcrumbs';
 
@@ -38,12 +39,13 @@ const fecha = d.actualizado.toLocaleDateString('es-ES',{year:'numeric',month:'lo
       <h2 id="respuesta-breve">Respuesta breve</h2><p>{d.respuesta}</p>
       <ul>{d.puntosClave.map((p)=><li>{p}</li>)}</ul>
     </section>
-    <GuideServiceCTA slug={entry.id} placement="after_answer" service={d.servicio} />
+    {d.servicio && <GuideServiceCTA slug={entry.id} placement="after_answer" service={d.servicio} />}
     <article class="prose"><Content /></article>
     <EstudioFaq items={d.faq} />
     <EstudioFuentes items={d.fuentes} />
     <section class="related"><h2>Siguiente lectura</h2><div>{d.relacionados.map((r)=><a href={crumbPath(r.href)}>{r.titulo} →</a>)}</div></section>
-    <GuideServiceCTA slug={entry.id} placement="final" service={d.servicio} />
+    {d.recurso && <GuideResourceCTA slug={entry.id} placement="final" resourceId={d.recurso.id} />}
+    {d.servicio && <GuideServiceCTA slug={entry.id} placement="final" service={d.servicio} />}
     <a class="back" href="/guias/">← Todas las guías</a>
   </main>
   <SiteFooter />

@@ -32,6 +32,16 @@ describe('GROW-019 commercial guides', () => {
     }
   });
 
+  it('mantiene dos CTA de servicio para las seis guías comerciales existentes', () => {
+    for (const slug of slugs) {
+      const source = fs.readFileSync(path.join(root, 'src/content/guias', `${slug}.md`), 'utf8');
+      expect(source, slug).toMatch(/servicio:\n/);
+    }
+    const page = fs.readFileSync(path.join(root, 'src/pages/guias/[slug].astro'), 'utf8');
+    expect(page).toContain('placement="after_answer"');
+    expect(page).toContain('placement="final"');
+  });
+
   it('tracks both CTA positions and emits Article, FAQ and breadcrumb schema', () => {
     const page = fs.readFileSync(path.join(root, 'src/pages/guias/[slug].astro'), 'utf8');
     const cta = fs.readFileSync(path.join(root, 'src/components/GuideServiceCTA.astro'), 'utf8');
