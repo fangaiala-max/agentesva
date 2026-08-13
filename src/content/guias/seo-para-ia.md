@@ -176,6 +176,8 @@ Para Laura, prepara variantes estables como «CRM para agencia de 20 personas»,
 
 No conviertas una puntuación propietaria en una verdad universal. Declara el tamaño de la muestra y los fallos de captura; separa «sin mención» de «no se pudo comprobar». La guía sobre [cómo medir la visibilidad en ChatGPT](/guias/medir-visibilidad-en-chatgpt/) detalla un método reproducible para pasar de pruebas anecdóticas a una serie comparable.
 
+Si quieres convertir esta disciplina en una especialidad profesional, la guía para [convertirte en especialista GEO](/guias/como-convertirse-en-especialista-geo/) organiza las competencias, entregables de portfolio y un plan de aprendizaje de 90 días.
+
 Los datos sirven para priorizar mejoras, no para demostrar causalidad automática. Que una mención suba después de editar una página no prueba que esa edición sea la causa.
 
 ## Errores frecuentes

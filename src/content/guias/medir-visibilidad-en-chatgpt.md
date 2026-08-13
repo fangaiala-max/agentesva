@@ -146,3 +146,5 @@ En Google Analytics, valida primero la llegada en tiempo real y revisa después 
 Complementa ese dato con leads que declaren cómo conocieron la marca, tendencias de consultas de marca en Search Console, oportunidades del CRM e ingresos confirmados. Son señales de apoyo: una tendencia simultánea no prueba que una respuesta de IA la causó. Cuando falte un identificador compartido o consentimiento, declara la limitación en vez de completar el hueco con una estimación.
 
 El informe mensual debe responder cuatro preguntas: qué cambió en las respuestas, qué evidencia lo respalda, qué ocurrió en los resultados medibles y qué hipótesis se probará después. Mantener esas capas separadas produce una lectura más honesta y una lista de acciones concreta, incluso cuando no pueda establecerse causalidad.
+
+Si quieres convertir este sistema de medición en evidencia profesional, la guía para [convertirte en especialista GEO](/guias/como-convertirse-en-especialista-geo/) explica qué debe contener el portfolio y cómo organizar el aprendizaje en 90 días.

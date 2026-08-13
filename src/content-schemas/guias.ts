@@ -2,12 +2,20 @@ import { z } from 'astro/zod';
 
 export const guideSchema = z.object({
   titulo: z.string(),
+  seoTitulo: z.string().optional(),
   descripcion: z.string(),
   fecha: z.coerce.date(),
   actualizado: z.coerce.date(),
   tema: z.string(),
   respuesta: z.string(),
   puntosClave: z.array(z.string()).min(3),
+  portada: z.object({
+    src: z.string().startsWith('/'),
+    alt: z.string(),
+    pie: z.string().optional(),
+    width: z.number().int().positive(),
+    height: z.number().int().positive(),
+  }).optional(),
   servicio: z.object({
     nombre: z.string(),
     href: z.string().startsWith('/'),

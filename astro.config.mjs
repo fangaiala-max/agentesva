@@ -6,6 +6,9 @@ import vercel from '@astrojs/vercel';
 // esta fecha. Se mantiene explícita para que un build posterior no finja que
 // todas las URLs cambiaron cuando solo se recompiló el proyecto.
 const SITE_RELAUNCH_LASTMOD = new Date('2026-08-04T00:00:00.000Z');
+const ROUTE_LASTMOD = new Map([
+  ['/guias/como-convertirse-en-especialista-geo/', new Date('2026-08-13T00:00:00.000Z')],
+]);
 
 export default defineConfig({
   site: 'https://agentesva.com',
@@ -22,7 +25,10 @@ export default defineConfig({
         !page.includes('/descarga') &&
         !page.includes('/entrega') &&
         !page.includes('/gracias'),
-      serialize: (item) => ({ ...item, lastmod: SITE_RELAUNCH_LASTMOD }),
+      serialize: (item) => {
+        const pathname = new URL(item.url).pathname;
+        return { ...item, lastmod: ROUTE_LASTMOD.get(pathname) ?? SITE_RELAUNCH_LASTMOD };
+      },
       i18n: {
         defaultLocale: 'es',
         locales: { es: 'es' },

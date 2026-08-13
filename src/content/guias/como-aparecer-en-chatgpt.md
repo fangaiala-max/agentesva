@@ -121,6 +121,8 @@ Registra plataforma, fecha, pregunta exacta, respuesta completa, mención, descr
 
 Para convertir el registro en un método reproducible, sigue la guía para [medir la visibilidad en ChatGPT](/guias/medir-visibilidad-en-chatgpt/). Separa siempre la evidencia —lo que apareció realmente— de tu interpretación sobre por qué apareció.
 
+Para demostrar esa metodología en un proceso de selección o una propuesta profesional, consulta cómo [construir un portfolio y convertirte en especialista GEO](/guias/como-convertirse-en-especialista-geo/).
+
 ## Qué hacer si ChatGPT omite o describe mal tu marca
 
 Si ChatGPT omite o describe mal tu empresa, identifica primero el tipo de fallo: acceso técnico, ausencia de hechos, contradicción entre fuentes, categoría ambigua, información desactualizada o consulta poco representativa. Cambia una causa probable cada vez y documenta la corrección.

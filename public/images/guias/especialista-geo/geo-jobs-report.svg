@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Principales hallazgos del GEO Jobs Report de Citable Agency</title>
+  <desc id="desc">Gráfico de barras sobre 262 puestos canónicos provisionales: base SEO 94,3 %, operaciones de producto explícitas o adyacentes 35,9 %, medición de visibilidad en IA 30,5 % y preparación para agentes explícita o adyacente 15,6 %. Solo el 0,4 % declaró preparación para agentes de forma explícita.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111f3a"/>
+      <stop offset="1" stop-color="#0b1730"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5b7cff"/>
+      <stop offset="1" stop-color="#8aa4ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" rx="30" fill="url(#bg)"/>
+  <rect x="1" y="1" width="1198" height="698" rx="29" fill="none" stroke="#32466d" stroke-width="2"/>
+  <text x="72" y="82" fill="#8aa4ff" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="3">GEO JOBS REPORT</text>
+  <text x="72" y="132" fill="#ffffff" font-family="Georgia, serif" font-size="42">Lo que piden los puestos GEO</text>
+  <text x="72" y="170" fill="#a8b5ca" font-family="Arial, sans-serif" font-size="20">Proporción sobre 262 puestos canónicos provisionales revisados</text>
+
+  <g font-family="Arial, sans-serif">
+    <text x="72" y="244" fill="#ffffff" font-size="22" font-weight="700">Base SEO explícita</text>
+    <rect x="72" y="264" width="820" height="34" rx="17" fill="#1c2d4c"/>
+    <rect x="72" y="264" width="773" height="34" rx="17" fill="url(#bar)"/>
+    <text x="922" y="291" fill="#ffffff" font-size="30" font-weight="700">94,3 %</text>
+
+    <text x="72" y="358" fill="#ffffff" font-size="22" font-weight="700">Operaciones de producto · explícitas o adyacentes</text>
+    <rect x="72" y="378" width="820" height="34" rx="17" fill="#1c2d4c"/>
+    <rect x="72" y="378" width="294" height="34" rx="17" fill="url(#bar)"/>
+    <text x="922" y="405" fill="#ffffff" font-size="30" font-weight="700">35,9 %</text>
+
+    <text x="72" y="472" fill="#ffffff" font-size="22" font-weight="700">Medición de visibilidad en IA</text>
+    <rect x="72" y="492" width="820" height="34" rx="17" fill="#1c2d4c"/>
+    <rect x="72" y="492" width="250" height="34" rx="17" fill="url(#bar)"/>
+    <text x="922" y="519" fill="#ffffff" font-size="30" font-weight="700">30,5 %</text>
+
+    <text x="72" y="586" fill="#ffffff" font-size="22" font-weight="700">Preparación para agentes · explícita o adyacente</text>
+    <rect x="72" y="606" width="820" height="34" rx="17" fill="#1c2d4c"/>
+    <rect x="72" y="606" width="128" height="34" rx="17" fill="url(#bar)"/>
+    <text x="922" y="633" fill="#ffffff" font-size="30" font-weight="700">15,6 %</text>
+  </g>
+
+  <rect x="920" y="90" width="210" height="96" rx="18" fill="#172a4b" stroke="#5b7cff"/>
+  <text x="1025" y="130" text-anchor="middle" fill="#8aa4ff" font-family="Arial, sans-serif" font-size="17" font-weight="700">SEÑAL EXPLÍCITA</text>
+  <text x="1025" y="166" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="30" font-weight="700">0,4 % agentes</text>
+  <text x="72" y="674" fill="#71819b" font-family="Arial, sans-serif" font-size="15">Fuente: Citable Agency · Agosto de 2026 · El corpus no representa todo el mercado laboral.</text>
+</svg>

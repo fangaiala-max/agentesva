@@ -53,7 +53,7 @@ describe('descubrimiento e indexación', () => {
       expect(config).toContain(`!page.includes('${route}')`);
     }
     expect(config).toContain("new Date('2026-08-04T00:00:00.000Z')");
-    expect(config).toContain('serialize: (item) => ({ ...item, lastmod: SITE_RELAUNCH_LASTMOD })');
+    expect(config).toContain('ROUTE_LASTMOD.get(pathname) ?? SITE_RELAUNCH_LASTMOD');
   });
 
   it('enlaza el clúster desde home, biblioteca, footer y llms.txt', () => {

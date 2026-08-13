@@ -129,9 +129,14 @@ input::placeholder { color: var(--fg-5); }
 .prose ul, .prose ol { margin: 16px 0 0; padding-left: 22px; }
 .prose li { margin: 8px 0 0; }
 .prose table { display: block; width: 100%; max-width: 100%; overflow-x: auto; border-collapse: collapse; margin: 24px 0 0; font-size: 14.5px; }
+.prose caption { padding: 0 0 10px; color: var(--fg-4); font-family: var(--mono); font-size: 11px; line-height: 1.5; text-align: left; caption-side: top; }
 .prose th, .prose td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; }
 .prose th { color: #fff; font-weight: 600; background: var(--panel); }
 .prose td { color: var(--fg-2); }
+.prose .article-visual { margin: 28px 0 0; }
+.prose .article-visual--hero { margin-top: 0; }
+.prose .article-visual img { display: block; width: 100%; height: auto; border: 1px solid var(--line-2); border-radius: 12px; background: var(--panel); }
+.prose .article-visual figcaption { margin-top: 10px; color: var(--fg-5); font-family: var(--mono); font-size: 11px; line-height: 1.55; }
 
 /* Foco visible accesible para todo elemento interactivo */
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
