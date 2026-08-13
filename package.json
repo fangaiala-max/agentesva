@@ -7,7 +7,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "postbuild": "pagefind --site .vercel/output/static",
+    "postbuild": "node scripts/verify-built-geo-guide.mjs && pagefind --site .vercel/output/static",
     "preview": "astro preview",
     "test": "vitest run",
     "astro": "astro",

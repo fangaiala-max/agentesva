@@ -110,24 +110,40 @@ describe('guía para convertirse en especialista GEO', () => {
 
   it('publica la fecha real de actualización de la nueva ruta en el sitemap', () => {
     const config = readProjectFile('astro.config.mjs');
-    expect(config).toContain("'/guias/como-convertirse-en-especialista-geo/'");
+    for (const route of [
+      "'/guias/'",
+      "'/guias/seo-para-ia/'",
+      "'/guias/como-aparecer-en-chatgpt/'",
+      "'/guias/medir-visibilidad-en-chatgpt/'",
+      "'/guias/como-convertirse-en-especialista-geo/'",
+    ]) {
+      expect(config).toContain(route);
+    }
     expect(config).toContain("new Date('2026-08-13T00:00:00.000Z')");
   });
 
-  it('genera metadatos sociales y lastmod correctos en la salida de producción', () => {
-    const html = readProjectFile('dist/client/guias/como-convertirse-en-especialista-geo/index.html');
-    expect(html).toContain('<title>Cómo ser especialista GEO: plan de 90 días | AgentesVA</title>');
-    expect(html).toContain('<meta property="og:type" content="article">');
-    expect(html).toContain('<meta property="og:image" content="https://agentesva.com/images/guias/especialista-geo/especialista-geo-hero.jpg">');
-    expect(html).toContain('<meta name="twitter:image" content="https://agentesva.com/images/guias/especialista-geo/especialista-geo-hero.jpg">');
-    const sitemap = readProjectFile('dist/client/sitemap-0.xml');
-    expect(sitemap).toMatch(/como-convertirse-en-especialista-geo\/<\/loc><lastmod>2026-08-13/);
-    expect(sitemap).toMatch(/seo-para-ia\/<\/loc><lastmod>2026-08-04/);
+  it('verifica los metadatos y el sitemap después del build', () => {
+    const packageJson = JSON.parse(readProjectFile('package.json'));
+    expect(packageJson.scripts.postbuild).toContain('verify-built-geo-guide.mjs');
+    const verifier = readProjectFile('scripts/verify-built-geo-guide.mjs');
+    expect(verifier).toContain('og:type');
+    expect(verifier).toContain('twitter:image');
+    expect(verifier).toContain('sitemap-0.xml');
   });
 
   it('protege la legibilidad móvil del índice y de las infografías', () => {
     const index = readProjectFile('src/pages/guias/index.astro');
     expect(index).toContain('minmax(min(100%,300px),1fr)');
     expect(read()).toContain('<source media="(max-width: 600px)"');
+  });
+
+  it('conecta el clúster desde la navegación y las fichas estratégicas', () => {
+    const breadcrumbs = readProjectFile('src/data/breadcrumbs.ts');
+    expect(breadcrumbs).toContain('SECCIONES.guias');
+    const toolPage = readProjectFile('src/pages/herramienta/[slug].astro');
+    expect(toolPage).toMatch(/\bchatgpt:\s*\{/);
+    expect(toolPage).toMatch(/\bperplexity:\s*\{/);
+    expect(toolPage).toContain("'surfer-seo': {");
+    expect(toolPage).toContain('/guias/seo-para-ia/');
   });
 });

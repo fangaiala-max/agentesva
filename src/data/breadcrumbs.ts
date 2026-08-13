@@ -93,6 +93,7 @@ export const SECCIONES_NAV: readonly Crumb[] = [
   SECCIONES.prompts,
   SECCIONES.recursos,
   SECCIONES.estudios,
+  SECCIONES.guias,
   SECCIONES.noticias,
 ];
 
