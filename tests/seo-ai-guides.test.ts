@@ -15,7 +15,7 @@ const frontmatterListValues = (frontmatter: string, key: string, valuePattern: R
   const start = lines.indexOf(`${key}:`) + 1;
   const nextKey = lines.slice(start).findIndex((line) => line.length > 0 && !line.startsWith(' '));
   const block = lines.slice(start, nextKey === -1 ? undefined : start + nextKey).join('\n');
-  return [...block.matchAll(valuePattern)].map((match) => match[1]);
+  return [...block.matchAll(valuePattern)].map((match) => match[1].trim().replace(/^(['"])(.*)\1$/, '$2'));
 };
 
 const expectDirectOpenings = (body: string, headings: string[]) => {
@@ -121,12 +121,12 @@ describe('clúster SEO para IA', () => {
     expect(frontmatter).toContain('actualizado: 2026-08-13');
     expect(frontmatter).toContain('tema: Visibilidad en ChatGPT');
     expect(frontmatter).toContain('respuesta: "Para aumentar las posibilidades de aparecer en ChatGPT, permite el acceso de OAI-SearchBot, publica información clara y verificable sobre tu empresa, relaciona la marca con su categoría y consigue fuentes externas consistentes. Después prueba consultas neutrales y registra los resultados. Cumplir estos pasos mejora la elegibilidad, pero no garantiza una cita ni una posición."');
-    expect(frontmatterListValues(frontmatter, 'puntosClave', /^  - "(.+)"$/gm)).toEqual([
+    expect(frontmatterListValues(frontmatter, 'puntosClave', /^  - (.+)$/gm)).toEqual([
       'Comprueba primero rastreo, indexación y acceso de OAI-SearchBot.',
       'Publica hechos consistentes sobre marca, categoría, oferta y audiencia.',
       'Prueba prompts neutrales y guarda plataforma, fecha, pregunta y respuesta.',
     ]);
-    expect(frontmatterListValues(frontmatter, 'fuentes', /^    url: "(.+)"$/gm)).toEqual([
+    expect(frontmatterListValues(frontmatter, 'fuentes', /^    url: (.+)$/gm)).toEqual([
       'https://help.openai.com/en/articles/12627856-publishers-and-developers-faq',
       'https://help.openai.com/en/articles/9237897-chatgpt-search',
       'https://developers.google.com/search/docs/appearance/ai-features',
