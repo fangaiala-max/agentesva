@@ -19,7 +19,6 @@ Ningún claim legal, regulatorio, contractual o de certificación.
 
 - **Claim:** una página bloqueada o inaccesible no puede funcionar correctamente como fuente web y se deben revisar robots, HTTP, indexabilidad y enlaces internos. **Fuentes oficiales:** https://help.openai.com/en/articles/12627856-publishers-and-developers-faq y https://developers.google.com/search/docs/appearance/ai-features. **Consulta:** 2026-08-13. **Adjudicación:** verificado como práctica técnica de accesibilidad; no implica selección posterior.
 - **Claim:** «los datos estructurados ofrecen una descripción explícita de entidades y contenido». **Fuente oficial:** https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data. **Consulta:** 2026-08-13. **Adjudicación:** verificado para Google Search; la guía aclara que no existe un schema especial para ChatGPT ni una garantía de aparición.
-- **Claim:** los hechos cambiantes deben incluir fecha, alcance y fuente primaria. **Fuentes oficiales de contexto:** https://developers.google.com/search/docs/appearance/ai-features y https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data. **Consulta:** 2026-08-13. **Adjudicación:** práctica técnica/editorial consistente con contenido fiable y marcado visible, no factor de ranking confirmado por OpenAI.
 
 ## Tier D
 
@@ -27,6 +26,7 @@ Ningún claim legal, regulatorio, contractual o de certificación.
 - **Recomendación editorial:** publicar respuestas para preguntas de decisión y reforzarlas con fuentes externas pertinentes. **Contexto oficial:** https://developers.google.com/search/docs/appearance/ai-features. **Adjudicación:** recomendación de contenido; la guía no atribuye a OpenAI directorios preferidos ni un efecto causal de las menciones.
 - **Recomendación editorial:** diseñar una batería neutral de consultas y registrar plataforma, fecha, pregunta, respuesta y fuentes. **Contexto oficial:** https://help.openai.com/en/articles/9237897-chatgpt-search. **Adjudicación:** método de auditoría propio, no métrica oficial de ChatGPT.
 - **Recomendación editorial:** ante una omisión o descripción errónea, corregir una causa probable cada vez y repetir la batería. **Contexto oficial:** https://help.openai.com/en/articles/12627856-publishers-and-developers-faq. **Adjudicación:** procedimiento diagnóstico, no promesa de actualización o inclusión.
+- **Recomendación editorial:** incluir fecha, alcance y fuente primaria cuando un hecho pueda cambiar. **Contexto oficial, no factor de ranking confirmado:** https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data. **Adjudicación:** prescripción editorial para mantener información auditable; no describe un mecanismo de ChatGPT.
 - **Recomendación editorial con cifras:** separar tres resultados observables, comprobar un estado HTTP `200` y abrir respuestas con dos o tres frases son criterios de auditoría y redacción. **Contexto oficial, no fuente de esos umbrales editoriales:** https://help.openai.com/en/articles/9237897-chatgpt-search. **Adjudicación:** no son porcentajes, SLA ni reglas de ranking de OpenAI.
 
 ## Resultado

@@ -12,7 +12,9 @@ const bodyWords = (body: string) => body.split(/\s+/).length;
 
 const frontmatterListValues = (frontmatter: string, key: string, valuePattern: RegExp) => {
   const lines = frontmatter.split('\n');
-  const start = lines.indexOf(`${key}:`) + 1;
+  const keyIndex = lines.indexOf(`${key}:`);
+  if (keyIndex === -1) return [];
+  const start = keyIndex + 1;
   const nextKey = lines.slice(start).findIndex((line) => line.length > 0 && !line.startsWith(' '));
   const block = lines.slice(start, nextKey === -1 ? undefined : start + nextKey).join('\n');
   return [...block.matchAll(valuePattern)].map((match) => match[1].trim().replace(/^(['"])(.*)\1$/, '$2'));
@@ -214,11 +216,16 @@ describe('clúster SEO para IA', () => {
     expect(files).toHaveLength(9);
     for (const slug of ['seo-para-ia', 'como-aparecer-en-chatgpt', 'medir-visibilidad-en-chatgpt']) {
       const source = guide(slug);
-      expect(source).not.toContain(['T', 'BD'].join(''));
-      expect(source).not.toContain(['TO', 'DO'].join(''));
+      const { frontmatter } = sections(source);
+      const related = frontmatterListValues(frontmatter, 'relacionados', /^    href: (.+)$/gm);
+      const sources = frontmatterListValues(frontmatter, 'fuentes', /^    url: (.+)$/gm);
+
+      expect(source).not.toMatch(/\btbd\b/i);
+      expect(source).not.toMatch(/(?:^|\n)\s*(?:-\s*)?(?:[^:\n]+:\s*)?["']?todo(?=["']?\s*(?:$|\n)|\s*:)/i);
       expect(source).not.toContain('buy.stripe.com');
       expect((source.match(/\n  - q: /g) ?? []).length).toBeGreaterThanOrEqual(3);
-      expect((source.match(/\n  - titulo: /g) ?? []).length).toBeGreaterThanOrEqual(7);
+      expect(related.length).toBeGreaterThanOrEqual(4);
+      expect(sources.length).toBeGreaterThanOrEqual(3);
     }
   });
 });
