@@ -1,4 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
+import { parseFrontmatter } from 'astro/markdown';
 import {
   track,
   trackGrowthEvent,
@@ -100,6 +103,46 @@ describe('trackGrowthEvent', () => {
     });
   });
 
+  it('emite resource_cta_click con un recurso estable y sin propiedades extra', () => {
+    loadGA4();
+    expect(isGrowthEvent('resource_cta_click')).toBe(true);
+    const sent = trackGrowthEvent('resource_cta_click', {
+      page_type: 'guide',
+      content_slug: 'medir-visibilidad-en-chatgpt',
+      placement: 'guide_bottom',
+      resource_id: 'gr22',
+      destination: 'stripe',
+      email: 'no-debe-salir@example.com',
+    });
+    expect(sent).toBe(true);
+    const last = lastCommand();
+    expect(last[1]).toBe('resource_cta_click');
+    expect(last[2]).toEqual({
+      page_type: 'guide',
+      content_slug: 'medir-visibilidad-en-chatgpt',
+      placement: 'guide_bottom',
+      resource_id: 'gr22',
+      destination: 'stripe',
+    });
+  });
+
+  it('rechaza resource_cta_click con destino no permitido o identificadores no string', () => {
+    loadGA4();
+    const valid = {
+      page_type: 'guide',
+      placement: 'guide_bottom',
+      resource_id: 'gr22',
+      destination: 'stripe',
+    };
+
+    expect(trackGrowthEvent('resource_cta_click', { ...valid, destination: 'paypal' })).toBe(false);
+    expect(trackGrowthEvent('resource_cta_click', { ...valid, destination: 1 })).toBe(false);
+    expect(trackGrowthEvent('resource_cta_click', { ...valid, destination: true })).toBe(false);
+    expect(trackGrowthEvent('resource_cta_click', { ...valid, resource_id: 22 })).toBe(false);
+    expect(trackGrowthEvent('resource_cta_click', { ...valid, resource_id: true })).toBe(false);
+    expect(eventNames()).toHaveLength(0);
+  });
+
   it('rechaza eventos incompletos o valores fuera del vocabulario', () => {
     loadGA4();
     expect(trackGrowthEvent('service_cta_click', { page_type: 'home' })).toBe(false);
@@ -173,6 +216,55 @@ describe('initTracking (click delegado)', () => {
     expect(last[1]).toBe('service_cta_click');
     expect(last[2]).not.toHaveProperty('email');
     expect(last[2]).toHaveProperty('placement', 'tool_detail_midpage');
+  });
+
+  it('emite los dos service_cta_click de una guía real con IDs analíticos estables', () => {
+    loadGA4();
+    const source = fs.readFileSync(
+      path.join(process.cwd(), 'src/content/guias/automatizar-whatsapp-empresa.md'),
+      'utf8',
+    );
+    const { frontmatter } = parseFrontmatter(source);
+    const service = frontmatter.servicio as {
+      href: string;
+      analytics: { cluster: string; service: string };
+    };
+    document.body.innerHTML = ['after_answer', 'final']
+      .map((placement) => `
+        <a href="${service.href}"
+           data-track-event="service_cta_click"
+           data-track-page-type="guide"
+           data-track-content-slug="automatizar-whatsapp-empresa"
+           data-track-cluster="${service.analytics?.cluster}"
+           data-track-service="${service.analytics?.service}"
+           data-track-placement="${placement}">CTA ${placement}</a>`)
+      .join('');
+
+    initTracking();
+    document.querySelectorAll('a').forEach((link) => {
+      link.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    });
+
+    const serviceEvents = events()
+      .map(command)
+      .filter((entry) => entry[0] === 'event' && entry[1] === 'service_cta_click');
+    expect(serviceEvents).toHaveLength(2);
+    expect(serviceEvents.map((entry) => entry[2])).toEqual([
+      {
+        page_type: 'guide',
+        content_slug: 'automatizar-whatsapp-empresa',
+        cluster: 'customer_service',
+        service: 'customer_service_automation',
+        placement: 'after_answer',
+      },
+      {
+        page_type: 'guide',
+        content_slug: 'automatizar-whatsapp-empresa',
+        cluster: 'customer_service',
+        service: 'customer_service_automation',
+        placement: 'final',
+      },
+    ]);
   });
 });
 

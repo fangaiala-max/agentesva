@@ -176,13 +176,14 @@ describe('paridad HTML / JSON-LD', () => {
 });
 
 describe('columna vertebral de navegación', () => {
-  it('expone las seis secciones que renderizan header y footer', () => {
+  it('expone las siete secciones que renderizan header y footer', () => {
     expect(SECCIONES_NAV.map((s) => s.name)).toEqual([
       'Herramientas',
       'Cursos',
       'Prompts',
       'Recursos',
       'Estudios',
+      'Guías',
       'Noticias',
     ]);
   });

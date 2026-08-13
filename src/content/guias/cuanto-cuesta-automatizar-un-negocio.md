@@ -13,6 +13,9 @@ servicio:
   nombre: "diagnóstico de automatización"
   href: "/diagnostico-automatizacion-ia/"
   cluster: procesos
+  analytics:
+    cluster: general
+    service: general_consulting
   titulo: "Obtén un alcance antes de comprar herramientas"
   descripcion: "Revisamos volumen, sistemas, excepciones y retorno esperado para definir qué implementar primero y qué presupuesto tiene sentido."
 relacionados:

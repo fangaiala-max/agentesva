@@ -13,6 +13,9 @@ servicio:
   nombre: "automatización de atención al cliente"
   href: "/servicios/automatizacion-atencion-cliente/"
   cluster: atencion
+  analytics:
+    cluster: customer_service
+    service: customer_service_automation
   titulo: "Diseña un WhatsApp que atiende y deriva correctamente"
   descripcion: "Convertimos las conversaciones repetitivas en flujos conectados, con reglas claras para pasar a una persona y medir el resultado."
 relacionados:

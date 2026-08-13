@@ -2,6 +2,28 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [0.6.0.0] - 2026-08-13
+
+### Added
+- Nuevo clúster editorial de Agentic Search en `/guias`: una guía pilar de SEO para IA y dos guías prácticas para aparecer y medir visibilidad en ChatGPT y otros asistentes.
+- Nueva guía profesional para convertirse en especialista GEO, basada en el GEO Jobs Report de Citable y convertida en un plan de aprendizaje de 90 días con seis competencias, ejercicios y evidencias de portfolio.
+- La guía GEO incorpora portada social, infografías adaptadas a escritorio y móvil, tablas semánticas, FAQ, autoría visible, fuentes y un recurso descargable medido como CTA.
+
+### Changed
+- El índice de guías amplía su posicionamiento hacia IA, automatización y visibilidad; `Guías` entra en la navegación estable del sitio.
+- Las fichas de ChatGPT, Perplexity y Surfer SEO recomiendan la guía más relevante del nuevo clúster, que también queda conectado mediante enlazado interno entre sus artículos.
+- El sitemap publica la fecha editorial real del índice y de las cuatro guías del clúster, y el build comprueba los metadatos sociales y las fechas generadas.
+
+### Fixed
+- Las tablas de las guías conservan el ancho del documento en móvil mediante desplazamiento interno, y la cuadrícula del índice deja de desbordarse en pantallas estrechas.
+- El CTA de recursos valida identificadores y tipos de valor antes de renderizar o registrar eventos; las rutas internas rechazan URLs externas encubiertas.
+- La analítica de los CTA de servicio y recursos vuelve a emitir eventos consistentes y verificables sin duplicarlos.
+
+### Verification
+- Suite completa: 49 archivos y 434 pruebas; también aprobada sin artefactos previos en `dist/`.
+- Build Astro/Vercel, verificador de metadatos y sitemap, y Pagefind completados correctamente.
+- QA visual en escritorio y móvil: sin desbordamiento del documento, imágenes responsivas correctas, navegación funcional y consola limpia.
+
 ## [0.5.1.1] - 2026-08-08
 
 ### Fixed

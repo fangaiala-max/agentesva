@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">Roadmap para aprender GEO en 90 días</title>
+  <desc id="desc">Tres etapas: días 1 a 30 para fundamentos y línea base, días 31 a 60 para proyecto e implementación, y días 61 a 90 para validar y crear el caso de portfolio.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101f3c"/>
+      <stop offset="1" stop-color="#0a1730"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="560" rx="30" fill="url(#bg)"/>
+  <rect x="1" y="1" width="1198" height="558" rx="29" fill="none" stroke="#32466d" stroke-width="2"/>
+  <text x="64" y="72" fill="#8aa4ff" font-family="Arial, sans-serif" font-size="19" font-weight="700" letter-spacing="3">ROADMAP PROFESIONAL</text>
+  <text x="64" y="120" fill="#ffffff" font-family="Georgia, serif" font-size="40">De los fundamentos a un caso demostrable</text>
+
+  <line x1="174" y1="218" x2="1026" y2="218" stroke="#32466d" stroke-width="8" stroke-linecap="round"/>
+  <line x1="174" y1="218" x2="1026" y2="218" stroke="#5b7cff" stroke-width="4" stroke-linecap="round"/>
+  <g font-family="Arial, sans-serif">
+    <circle cx="174" cy="218" r="30" fill="#5b7cff"/>
+    <text x="174" y="226" text-anchor="middle" fill="#fff" font-size="22" font-weight="700">1</text>
+    <circle cx="600" cy="218" r="30" fill="#5b7cff"/>
+    <text x="600" y="226" text-anchor="middle" fill="#fff" font-size="22" font-weight="700">2</text>
+    <circle cx="1026" cy="218" r="30" fill="#5b7cff"/>
+    <text x="1026" y="226" text-anchor="middle" fill="#fff" font-size="22" font-weight="700">3</text>
+
+    <rect x="64" y="282" width="320" height="204" rx="20" fill="#172a4b" stroke="#32466d"/>
+    <text x="92" y="324" fill="#8aa4ff" font-size="18" font-weight="700">DÍAS 1–30</text>
+    <text x="92" y="360" fill="#ffffff" font-size="25" font-weight="700">Fundamentos</text>
+    <text x="92" y="398" fill="#b7c2d4" font-size="18">• Base SEO y entidades</text>
+    <text x="92" y="430" fill="#b7c2d4" font-size="18">• Panel de preguntas</text>
+    <text x="92" y="462" fill="#b7c2d4" font-size="18">• Línea base verificable</text>
+
+    <rect x="440" y="282" width="320" height="204" rx="20" fill="#172a4b" stroke="#32466d"/>
+    <text x="468" y="324" fill="#8aa4ff" font-size="18" font-weight="700">DÍAS 31–60</text>
+    <text x="468" y="360" fill="#ffffff" font-size="25" font-weight="700">Proyecto</text>
+    <text x="468" y="398" fill="#b7c2d4" font-size="18">• Auditoría y prioridades</text>
+    <text x="468" y="430" fill="#b7c2d4" font-size="18">• Tickets implementables</text>
+    <text x="468" y="462" fill="#b7c2d4" font-size="18">• Cambio y QA</text>
+
+    <rect x="816" y="282" width="320" height="204" rx="20" fill="#172a4b" stroke="#32466d"/>
+    <text x="844" y="324" fill="#8aa4ff" font-size="18" font-weight="700">DÍAS 61–90</text>
+    <text x="844" y="360" fill="#ffffff" font-size="25" font-weight="700">Validación</text>
+    <text x="844" y="398" fill="#b7c2d4" font-size="18">• Re-medición</text>
+    <text x="844" y="430" fill="#b7c2d4" font-size="18">• Límites y aprendizajes</text>
+    <text x="844" y="462" fill="#b7c2d4" font-size="18">• Caso de portfolio</text>
+  </g>
+  <text x="600" y="530" text-anchor="middle" fill="#71819b" font-family="Arial, sans-serif" font-size="16">Resultado: un método y un caso revisable; no una garantía de contratación.</text>
+</svg>

@@ -8,7 +8,7 @@ Servicio de automatización con inteligencia artificial para PyMEs y autónomos 
 npm install
 npm run dev      # http://localhost:4321
 npm run test     # Vitest + happy-dom
-npm run build    # Astro + salida de Vercel + índice Pagefind
+npm run build    # Astro + verificación GEO/sitemap + salida de Vercel + índice Pagefind
 npm run preview
 ```
 
@@ -16,7 +16,7 @@ npm run preview
 
 - Astro 7 con salida estática y adaptador de Vercel.
 - Tailwind 4 mediante PostCSS y estilos propios en `src/styles/global.css`.
-- Content Collections para herramientas, cursos, recursos, estudios y noticias.
+- Content Collections para herramientas, cursos, recursos, estudios, noticias y guías.
 - Vitest + happy-dom para pruebas unitarias y de scripts de cliente.
 - Pagefind para la búsqueda global del contenido prerenderizado.
 
@@ -27,6 +27,7 @@ npm run preview
 - `/cursos/` — cursos seleccionados y organizados por categoría.
 - `/recursos/` — biblioteca, packs y otros recursos prácticos.
 - `/estudios/` y `/noticias/` — contenido editorial en español.
+- `/guias/` — guías prácticas sobre automatización, SEO para IA, visibilidad en asistentes y desarrollo profesional GEO.
 - `/prompts/` — seis colecciones de prompts para ChatGPT, marketing, ventas, redes sociales, atención al cliente y PyMEs.
 - `/generador-de-prompts/` — generador local que estructura el prompt sin enviar los campos a un servidor.
 - `/servicios/`, `/precios-automatizacion-ia/` y `/como-trabajamos/` — oferta comercial, rangos y proceso de implementación.
@@ -38,10 +39,11 @@ npm run preview
 - `src/content/tools/` — fichas de herramientas.
 - `src/content/cursos/` y `src/content/recursos/` — catálogo educativo y recursos.
 - `src/content/estudios/` y `src/content/noticias/` — publicaciones Markdown.
+- `src/content/guias/` — guías Markdown con portada opcional, FAQ, fuentes, lecturas relacionadas y CTA contextual.
 - `src/data/biblioteca/` — prompts y blueprints de la Biblioteca de IA.
 - `src/data/prompt-landings.ts` — metadatos y selección de plantillas de las colecciones SEO.
 
-Los esquemas de `src/content.config.ts` validan el contenido durante `npm run build`.
+Los esquemas de `src/content.config.ts` y `src/content-schemas/guias.ts` validan el contenido durante `npm run build`; el `postbuild` también comprueba los metadatos sociales de la guía profesional GEO y las fechas del sitemap del clúster.
 
 ## Entrega
 

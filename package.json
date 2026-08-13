@@ -1,13 +1,13 @@
 {
   "name": "agentesva-astro",
   "type": "module",
-  "version": "0.5.1.1",
+  "version": "0.6.0.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "postbuild": "pagefind --site .vercel/output/static",
+    "postbuild": "node scripts/verify-built-geo-guide.mjs && pagefind --site .vercel/output/static",
     "preview": "astro preview",
     "test": "vitest run",
     "astro": "astro",

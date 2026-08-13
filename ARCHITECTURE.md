@@ -44,6 +44,7 @@ Third-party services
 
 - **Herramientas, cursos y recursos**: JSON en `src/content/`, validado por los esquemas Zod de `src/content.config.ts`.
 - **Estudios y noticias**: Markdown en `src/content/`, con páginas de listado y detalle prerenderizadas.
+- **Guías**: Markdown en `src/content/guias/`, validado por `src/content-schemas/guias.ts`; admite portada responsiva, FAQ, fuentes, relaciones internas y CTA de servicio o recurso.
 - **Biblioteca de prompts**: 100 plantillas en `src/data/biblioteca/prompts.ts`.
 - **Colecciones SEO de prompts**: configuración en `src/data/prompt-landings.ts`; genera `/prompts/` y seis rutas temáticas.
 - **Generador de prompts**: `/generador-de-prompts/`; estructura el texto en el navegador mediante `src/scripts/prompt-generator.ts`, sin enviar los campos a un servidor.
@@ -108,7 +109,7 @@ La API agrupa envíos concurrentes con el mismo `Submission ID` dentro de cada i
 
 1. PR opened → Vercel preview deploy (auth-walled)
 2. PR merge to `main` → Vercel production deploy (auto-rolling)
-3. Build: `npm run build` → Astro/Vercel en `.vercel/output/` → Pagefind indexa las páginas públicas
+3. Build: `npm run build` → Astro genera `dist/client/` y la salida Vercel → el verificador comprueba los metadatos de la guía profesional GEO y las fechas del sitemap del clúster en `dist/client/` → Pagefind indexa `.vercel/output/static`
 4. Schemas validated at build (Zod blocks invalid frontmatter)
 
 ## Performance budget (target / actual mobile)
