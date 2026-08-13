@@ -57,7 +57,7 @@ Esta disciplina no garantiza que ChatGPT, Google, Perplexity u otro sistema cite
 
 El SEO tradicional busca sobre todo visibilidad en resultados y tráfico orgánico; el SEO para IA también contempla si una marca aparece de forma correcta dentro de una respuesta. Comparten la base técnica, el contenido útil y la autoridad, pero difieren en formato de consumo, señales observables y medición.
 
-Una página bien indexada sigue siendo necesaria porque los sistemas con búsqueda deben descubrir fuentes antes de utilizarlas. Google afirma en su documentación sobre funciones de IA que se mantienen las buenas prácticas habituales de Search y que no se necesita un archivo ni un marcado especial para aparecer. La diferencia práctica está en preparar información que conserve sentido al extraerse: definiciones breves, comparaciones con criterios explícitos, condiciones, fechas y atribuciones claras.
+En las funciones de IA de Google Search, una página debe estar indexada y ser apta para mostrarse con un fragmento en Search. Google afirma además que se mantienen las buenas prácticas habituales y que no se necesita un archivo ni un marcado especial. Otros productos documentan vías distintas: OpenAI documenta el rastreo mediante OAI-SearchBot para ChatGPT Search, mientras que Perplexity diferencia PerplexityBot, que rastrea para su búsqueda, de Perplexity-User, que visita páginas en respuesta a peticiones de usuarios. Permitir esos accesos no garantiza inclusión ni cita.
 
 | Enfoque | Resultado que intenta facilitar | Unidad de trabajo habitual | Señales que conviene observar |
 | --- | --- | --- | --- |
@@ -71,9 +71,9 @@ En el caso de Laura, el SEO tradicional puede llevarla a una comparativa mediant
 
 Un buscador de IA puede descubrir páginas mediante rastreo e índices, recuperar fragmentos pertinentes y combinarlos al generar una respuesta. El proceso exacto varía por producto y consulta, por lo que una aparición nunca puede atribuirse con certeza a una sola optimización.
 
-La posibilidad de rastreo es el primer filtro: una URL bloqueada, huérfana, rota o difícil de renderizar puede no estar disponible cuando el sistema busca información. Después importa la pertinencia. Un pasaje que responde directamente «qué incluye el plan para equipos de 20 personas» resulta más recuperable para esa pregunta que una introducción genérica de 500 palabras.
+Cuando un producto depende del rastreo, la accesibilidad es un filtro previo: una URL bloqueada, huérfana, rota o difícil de renderizar puede no estar disponible cuando el sistema busca información. Después conviene trabajar la pertinencia. Un pasaje que responde directamente «qué incluye el plan para equipos de 20 personas» resulta más recuperable para esa pregunta que una introducción genérica de 500 palabras.
 
-La selección también exige evaluar señales de confianza y corroboración. Una afirmación comercial puede contrastarse con documentación del producto, perfiles corporativos, medios, directorios o testimonios identificables. En herramientas que muestran referencias, como [Perplexity](/herramienta/perplexity/), las citas visibles permiten revisar qué páginas respaldan partes de la respuesta; aun así, una cita no implica aprobación de toda la fuente ni asegura que vuelva a aparecer en otra consulta.
+Como recomendación editorial, conviene aportar señales de confianza y corroboración. Una afirmación comercial puede contrastarse con documentación del producto, perfiles corporativos, medios, directorios o testimonios identificables; esto ayuda al lector a verificarla, pero no demuestra cómo la pondera cada buscador de IA. En herramientas que muestran referencias, como [Perplexity](/herramienta/perplexity/), las citas visibles permiten revisar qué páginas respaldan partes de la respuesta; aun así, una cita no implica aprobación de toda la fuente ni asegura que vuelva a aparecer en otra consulta.
 
 Para Laura, la pregunta inicial podría recuperar una guía comparativa, las páginas oficiales de precios y documentación sobre integraciones. Si después pregunta «¿cuál permite separar oportunidades por cliente?», cambia la necesidad informativa y pueden cambiar las fuentes. Por eso conviene cubrir el recorrido con páginas especializadas conectadas entre sí, en vez de repetir todas las palabras clave en una única pieza.
 
@@ -109,7 +109,7 @@ Una estructura práctica para comparativas incluye: público, problema, requisit
 
 Para Laura, una tabla puede separar número de usuarios, canal de soporte, integración de correo, automatización y coste total. El texto debe explicar por qué cada criterio importa para una agencia y cuándo una opción deja de ser adecuada. Así sirve tanto al lector que decide como al sistema que busca una respuesta específica.
 
-Herramientas de optimización editorial como [Surfer SEO](/herramienta/surfer-seo/) pueden ayudar a revisar cobertura temática o estructura, pero esa función no equivale a medir presencia en respuestas generadas. Tampoco una puntuación de contenido demuestra calidad, cita o recomendación.
+[Surfer SEO](/herramienta/surfer-seo/) aparece aquí únicamente como ejemplo de optimización editorial, no como afirmación respaldada por las fuentes oficiales de esta guía sobre cómo los sistemas seleccionan contenido. Puede ayudar a revisar cobertura temática o estructura, pero esa función no equivale a medir presencia en respuestas generadas. Tampoco una puntuación de contenido demuestra calidad, cita o recomendación.
 
 Si el foco concreto es la representación de una marca en el producto de OpenAI, consulta la guía sobre [cómo aparecer en ChatGPT](/guias/como-aparecer-en-chatgpt/). Aplica sus pasos como condiciones de elegibilidad y claridad, nunca como promesa de inclusión.
 
