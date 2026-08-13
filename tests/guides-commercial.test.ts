@@ -53,4 +53,11 @@ describe('GROW-019 commercial guides', () => {
     expect(cta).toContain('data-track-page-type="guide"');
     expect(cta).toContain('data-track-placement={placement}');
   });
+
+  it('presenta /guias como colección de automatización, IA y visibilidad', () => {
+    const index = fs.readFileSync(path.join(root, 'src/pages/guias/index.astro'), 'utf8');
+    expect(index).toContain('Guías de IA, automatización y visibilidad');
+    expect(index).toContain('buscadores de IA');
+    expect(index).toContain("'@type':'CollectionPage'");
+  });
 });

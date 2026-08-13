@@ -9,10 +9,12 @@ import { jsonLdSerialize } from '../../data/schema';
 import { breadcrumbList, crumbPath, crumbUrl, SECCIONES, trail as buildTrail } from '../../data/breadcrumbs';
 const guias=(await getCollection('guias')).sort((a,b)=>b.data.actualizado.valueOf()-a.data.actualizado.valueOf());
 const trail=buildTrail(SECCIONES.guias);
-const jsonLd={'@context':'https://schema.org','@graph':[{'@type':'CollectionPage',name:'Guías para automatizar una empresa',description:'Guías prácticas para decidir qué automatizar, con qué herramientas y cuánto invertir.',url:crumbUrl('/guias'),inLanguage:'es'},{'@type':'ItemList',itemListElement:guias.map((g,i)=>({'@type':'ListItem',position:i+1,url:crumbUrl(`/guias/${g.id}`),name:g.data.titulo}))},breadcrumbList(trail)]};
+const collectionName = 'Guías de IA, automatización y visibilidad';
+const collectionDescription = 'Guías prácticas para automatizar procesos, adoptar inteligencia artificial y mejorar la visibilidad de una marca en buscadores de IA.';
+const jsonLd={'@context':'https://schema.org','@graph':[{'@type':'CollectionPage',name:collectionName,description:collectionDescription,url:crumbUrl('/guias'),inLanguage:'es'},{'@type':'ItemList',itemListElement:guias.map((g,i)=>({'@type':'ListItem',position:i+1,url:crumbUrl(`/guias/${g.id}`),name:g.data.titulo}))},breadcrumbList(trail)]};
 ---
-<BaseLayout title="Guías para automatizar una empresa | AgentesVA" description="Guías prácticas para decidir qué automatizar, con qué herramientas y cuánto invertir.">
+<BaseLayout title={`${collectionName} | AgentesVA`} description={collectionDescription}>
   <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} /><SiteHeader />
-  <main style="max-width:1200px;margin:0 auto;padding:40px 32px 64px"><Breadcrumb trail={trail}/><h1 style="font:400 clamp(30px,5vw,44px) var(--serif);letter-spacing:-.03em;margin:18px 0 0;color:#fff">Guías para automatizar tu empresa</h1><p style="font-size:16px;line-height:1.6;color:var(--fg-3);max-width:44em">Respuestas prácticas para priorizar procesos, elegir tecnología y estimar la inversión antes de implementar.</p><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin-top:32px">{guias.map((g)=><ArticleCard href={crumbPath(`/guias/${g.id}`)} titulo={g.data.titulo} descripcion={g.data.descripcion} fecha={g.data.actualizado} tema={g.data.tema} tipo="Guía" />)}</div></main>
+  <main style="max-width:1200px;margin:0 auto;padding:40px 32px 64px"><Breadcrumb trail={trail}/><h1 style="font:400 clamp(30px,5vw,44px) var(--serif);letter-spacing:-.03em;margin:18px 0 0;color:#fff">{collectionName}</h1><p style="font-size:16px;line-height:1.6;color:var(--fg-3);max-width:44em">{collectionDescription}</p><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin-top:32px">{guias.map((g)=><ArticleCard href={crumbPath(`/guias/${g.id}`)} titulo={g.data.titulo} descripcion={g.data.descripcion} fecha={g.data.actualizado} tema={g.data.tema} tipo="Guía" />)}</div></main>
   <SiteFooter />
 </BaseLayout>
