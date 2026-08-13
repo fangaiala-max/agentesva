@@ -17,6 +17,14 @@ describe('guía para convertirse en especialista GEO', () => {
     expect(frontmatter.servicio).toBeUndefined();
     expect(frontmatter.seoTitulo).toBe('Cómo ser especialista GEO: plan de 90 días');
     expect(frontmatter.faq).toHaveLength(6);
+    expect(frontmatter.portada.srcMovil).toContain('especialista-geo-hero-720.jpg');
+  });
+
+  it('rechaza rutas externas encubiertas y recursos inexistentes', () => {
+    const { frontmatter } = parseFrontmatter(read());
+    expect(() => guideSchema.parse({ ...frontmatter, portada: { ...frontmatter.portada, src: '//evil.example/cover.jpg' } })).toThrow();
+    expect(() => guideSchema.parse({ ...frontmatter, relacionados: [{ titulo: 'Fuera', href: '//evil.example' }, ...frontmatter.relacionados.slice(1)] })).toThrow();
+    expect(() => guideSchema.parse({ ...frontmatter, recurso: { id: 'gr999' } })).toThrow();
   });
 
   it('atribuye los hallazgos al corpus provisional de Citable', () => {
@@ -67,8 +75,11 @@ describe('guía para convertirse en especialista GEO', () => {
     const source = read();
     for (const asset of [
       '/images/guias/especialista-geo/especialista-geo-hero.jpg',
+      '/images/guias/especialista-geo/especialista-geo-hero-720.jpg',
       '/images/guias/especialista-geo/geo-jobs-report.svg',
+      '/images/guias/especialista-geo/geo-jobs-report-mobile.svg',
       '/images/guias/especialista-geo/roadmap-90-dias.svg',
+      '/images/guias/especialista-geo/roadmap-90-dias-mobile.svg',
     ]) {
       expect(source).toContain(asset);
     }
@@ -94,11 +105,29 @@ describe('guía para convertirse en especialista GEO', () => {
     expect(page).toContain('ogImage={d.portada ? `${SITE}${d.portada.src}` : undefined}');
     expect(page).toContain('class="author-bio"');
     expect(page).toContain('analista sénior de mercados y conferenciante internacional');
+    expect(page).toContain('srcset={d.portada.srcMovil');
   });
 
   it('publica la fecha real de actualización de la nueva ruta en el sitemap', () => {
     const config = readProjectFile('astro.config.mjs');
     expect(config).toContain("'/guias/como-convertirse-en-especialista-geo/'");
     expect(config).toContain("new Date('2026-08-13T00:00:00.000Z')");
+  });
+
+  it('genera metadatos sociales y lastmod correctos en la salida de producción', () => {
+    const html = readProjectFile('dist/client/guias/como-convertirse-en-especialista-geo/index.html');
+    expect(html).toContain('<title>Cómo ser especialista GEO: plan de 90 días | AgentesVA</title>');
+    expect(html).toContain('<meta property="og:type" content="article">');
+    expect(html).toContain('<meta property="og:image" content="https://agentesva.com/images/guias/especialista-geo/especialista-geo-hero.jpg">');
+    expect(html).toContain('<meta name="twitter:image" content="https://agentesva.com/images/guias/especialista-geo/especialista-geo-hero.jpg">');
+    const sitemap = readProjectFile('dist/client/sitemap-0.xml');
+    expect(sitemap).toMatch(/como-convertirse-en-especialista-geo\/<\/loc><lastmod>2026-08-13/);
+    expect(sitemap).toMatch(/seo-para-ia\/<\/loc><lastmod>2026-08-04/);
+  });
+
+  it('protege la legibilidad móvil del índice y de las infografías', () => {
+    const index = readProjectFile('src/pages/guias/index.astro');
+    expect(index).toContain('minmax(min(100%,300px),1fr)');
+    expect(read()).toContain('<source media="(max-width: 600px)"');
   });
 });

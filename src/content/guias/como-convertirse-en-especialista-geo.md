@@ -12,6 +12,7 @@ puntosClave:
   - "Un plan de 90 días permite construir fundamentos y un caso demostrable, pero no garantiza conseguir empleo."
 portada:
   src: "/images/guias/especialista-geo/especialista-geo-hero.jpg"
+  srcMovil: "/images/guias/especialista-geo/especialista-geo-hero-720.jpg"
   alt: "Profesional de marketing analizando cómo fuentes web verificadas alimentan respuestas generativas"
   pie: "GEO conecta fundamentos SEO, evidencia, medición y capacidad de implementación."
   width: 1440
@@ -62,7 +63,10 @@ Su unidad de trabajo ya no es solo la palabra clave: también son la pregunta co
 El informe de Citable, publicado el 9 de agosto de 2026 y actualizado el 13 de agosto, estudia ofertas que usan lenguaje relacionado con GEO, AEO, AI Search y visibilidad en IA. Sus resultados describen una muestra revisada, no una fotografía exhaustiva del empleo mundial.
 
 <figure class="article-visual">
-  <img src="/images/guias/especialista-geo/geo-jobs-report.svg" alt="Gráfico de barras con las competencias mencionadas en 262 ofertas GEO revisadas por Citable Agency" width="1200" height="700" loading="lazy" decoding="async">
+  <picture>
+    <source media="(max-width: 600px)" srcset="/images/guias/especialista-geo/geo-jobs-report-mobile.svg">
+    <img src="/images/guias/especialista-geo/geo-jobs-report.svg" alt="Gráfico de barras con las competencias mencionadas en 262 ofertas GEO revisadas por Citable Agency" width="1200" height="700" loading="lazy" decoding="async">
+  </picture>
   <figcaption>La base SEO domina el corpus; la preparación explícita para agentes todavía es excepcional. Fuente: Citable Agency, denominador provisional de 262 puestos canónicos.</figcaption>
 </figure>
 
@@ -203,7 +207,10 @@ Protege información sensible, solicita permiso antes de publicar datos de clien
 Este plan asume que ya tienes nociones de marketing o SEO y puedes dedicar varias horas semanales. Su resultado esperado es un primer caso de portfolio, no el dominio completo de la disciplina.
 
 <figure class="article-visual">
-  <img src="/images/guias/especialista-geo/roadmap-90-dias.svg" alt="Hoja de ruta visual de 90 días para aprender fundamentos GEO, construir un proyecto y validar un caso de portfolio" width="1200" height="640" loading="lazy" decoding="async">
+  <picture>
+    <source media="(max-width: 600px)" srcset="/images/guias/especialista-geo/roadmap-90-dias-mobile.svg">
+    <img src="/images/guias/especialista-geo/roadmap-90-dias.svg" alt="Hoja de ruta visual de 90 días para aprender fundamentos GEO, construir un proyecto y validar un caso de portfolio" width="1200" height="560" loading="lazy" decoding="async">
+  </picture>
   <figcaption>Tres etapas, un resultado: pasar de los fundamentos a un caso de portfolio revisable.</figcaption>
 </figure>
 

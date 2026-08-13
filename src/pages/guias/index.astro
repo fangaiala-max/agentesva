@@ -15,6 +15,6 @@ const jsonLd={'@context':'https://schema.org','@graph':[{'@type':'CollectionPage
 ---
 <BaseLayout title={`${collectionName} | AgentesVA`} description={collectionDescription}>
   <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} /><SiteHeader />
-  <main style="max-width:1200px;margin:0 auto;padding:40px 32px 64px"><Breadcrumb trail={trail}/><h1 style="font:400 clamp(30px,5vw,44px) var(--serif);letter-spacing:-.03em;margin:18px 0 0;color:#fff">{collectionName}</h1><p style="font-size:16px;line-height:1.6;color:var(--fg-3);max-width:44em">{collectionDescription}</p><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin-top:32px">{guias.map((g)=><ArticleCard href={crumbPath(`/guias/${g.id}`)} titulo={g.data.titulo} descripcion={g.data.descripcion} fecha={g.data.actualizado} tema={g.data.tema} tipo="Guía" />)}</div></main>
+  <main style="max-width:1200px;margin:0 auto;padding:40px 32px 64px"><Breadcrumb trail={trail}/><h1 style="font:400 clamp(30px,5vw,44px) var(--serif);letter-spacing:-.03em;margin:18px 0 0;color:#fff">{collectionName}</h1><p style="font-size:16px;line-height:1.6;color:var(--fg-3);max-width:44em">{collectionDescription}</p><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:18px;margin-top:32px">{guias.map((g)=><ArticleCard href={crumbPath(`/guias/${g.id}`)} titulo={g.data.titulo} descripcion={g.data.descripcion} fecha={g.data.actualizado} tema={g.data.tema} tipo="Guía" />)}</div></main>
   <SiteFooter />
 </BaseLayout>
