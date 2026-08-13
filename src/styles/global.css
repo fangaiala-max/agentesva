@@ -128,7 +128,7 @@ input::placeholder { color: var(--fg-5); }
 .prose strong { color: #fff; font-weight: 600; }
 .prose ul, .prose ol { margin: 16px 0 0; padding-left: 22px; }
 .prose li { margin: 8px 0 0; }
-.prose table { width: 100%; border-collapse: collapse; margin: 24px 0 0; font-size: 14.5px; }
+.prose table { display: block; width: 100%; max-width: 100%; overflow-x: auto; border-collapse: collapse; margin: 24px 0 0; font-size: 14.5px; }
 .prose th, .prose td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; }
 .prose th { color: #fff; font-weight: 600; background: var(--panel); }
 .prose td { color: var(--fg-2); }
