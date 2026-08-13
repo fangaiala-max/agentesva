@@ -194,6 +194,9 @@ describe('clúster SEO para IA', () => {
     expect(frontmatter).toMatch(/recurso:\n  id: gr22/);
     expect(frontmatter).not.toMatch(/^servicio:/m);
     expect(source).not.toContain('buy.stripe.com');
+    const related = frontmatterListValues(frontmatter, 'relacionados', /^    href: (.+)$/gm);
+    expect(related).toContain('/recurso/biblioteca-ia/');
+    expect(source.split('/recurso/biblioteca-ia/').length - 1).toBe(1);
 
     expect(bodyWords(body)).toBeGreaterThanOrEqual(1300);
     expect(bodyWords(body)).toBeLessThanOrEqual(1800);

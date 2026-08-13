@@ -18,6 +18,8 @@ relacionados:
     href: "/guias/como-aparecer-en-chatgpt/"
   - titulo: "Ficha de Perplexity"
     href: "/herramienta/perplexity/"
+  - titulo: "Biblioteca de IA y recursos prácticos"
+    href: "/recurso/biblioteca-ia/"
   - titulo: "Metodología editorial"
     href: "/metodologia/"
 faq:
