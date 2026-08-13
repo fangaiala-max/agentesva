@@ -112,6 +112,19 @@ describe('clúster SEO para IA', () => {
     expect(frontmatter).toContain('fecha: 2026-08-13');
     expect(frontmatter).toContain('actualizado: 2026-08-13');
     expect(frontmatter).toContain('tema: Visibilidad en ChatGPT');
+    expect(frontmatter).toContain('respuesta: "Para aumentar las posibilidades de aparecer en ChatGPT, permite el acceso de OAI-SearchBot, publica información clara y verificable sobre tu empresa, relaciona la marca con su categoría y consigue fuentes externas consistentes. Después prueba consultas neutrales y registra los resultados. Cumplir estos pasos mejora la elegibilidad, pero no garantiza una cita ni una posición."');
+    expect(frontmatter).toContain(`puntosClave:
+  - "Comprueba primero rastreo, indexación y acceso de OAI-SearchBot."
+  - "Publica hechos consistentes sobre marca, categoría, oferta y audiencia."
+  - "Prueba prompts neutrales y guarda plataforma, fecha, pregunta y respuesta."`);
+    for (const sourceUrl of [
+      'https://help.openai.com/en/articles/12627856-publishers-and-developers-faq',
+      'https://help.openai.com/en/articles/9237897-chatgpt-search',
+      'https://developers.google.com/search/docs/appearance/ai-features',
+      'https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data',
+    ]) {
+      expect(frontmatter).toContain(`url: "${sourceUrl}"`);
+    }
     expect(frontmatter).not.toMatch(/^servicio:/m);
     expect(frontmatter).not.toMatch(/^recurso:/m);
 
@@ -122,7 +135,8 @@ describe('clúster SEO para IA', () => {
     expectRoutesOnce(body, chatGptRoutes);
 
     expect(body).toContain('| Comprobación | Qué buscar | Acción |');
-    expect(body).toMatch(/OAI-SearchBot.{0,500}GPTBot/s);
+    expect(body).toContain('**OAI-SearchBot** se utiliza para enlazar sitios en los resultados de búsqueda de ChatGPT.');
+    expect(body).toContain('**GPTBot** se relaciona con la posibilidad de usar contenido para mejorar los modelos generativos.');
     expect(body).toContain('[SEO para IA](/guias/seo-para-ia/)');
     expect(body).toContain('[medir la visibilidad en ChatGPT](/guias/medir-visibilidad-en-chatgpt/)');
     expect(body).toContain('[ficha de ChatGPT](/herramienta/chatgpt/)');
