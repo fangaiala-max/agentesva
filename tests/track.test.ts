@@ -123,6 +123,23 @@ describe('trackGrowthEvent', () => {
     });
   });
 
+  it('rechaza resource_cta_click con destino no permitido o identificadores no string', () => {
+    loadGA4();
+    const valid = {
+      page_type: 'guide',
+      placement: 'guide_bottom',
+      resource_id: 'gr22',
+      destination: 'stripe',
+    };
+
+    expect(trackGrowthEvent('resource_cta_click', { ...valid, destination: 'paypal' })).toBe(false);
+    expect(trackGrowthEvent('resource_cta_click', { ...valid, destination: 1 })).toBe(false);
+    expect(trackGrowthEvent('resource_cta_click', { ...valid, destination: true })).toBe(false);
+    expect(trackGrowthEvent('resource_cta_click', { ...valid, resource_id: 22 })).toBe(false);
+    expect(trackGrowthEvent('resource_cta_click', { ...valid, resource_id: true })).toBe(false);
+    expect(eventNames()).toHaveLength(0);
+  });
+
   it('rechaza eventos incompletos o valores fuera del vocabulario', () => {
     loadGA4();
     expect(trackGrowthEvent('service_cta_click', { page_type: 'home' })).toBe(false);

@@ -101,13 +101,9 @@ export function trackGrowthEvent(event: GrowthEvent, params: GrowthParams): bool
       continue;
     }
 
-    if (typeof value === 'boolean' || typeof value === 'number') {
-      clean[key] = value;
-      continue;
-    }
-
     const enumValues = ENUMS[key];
-    if (enumValues && !enumValues.has(value)) return false;
+    if (enumValues && (typeof value !== 'string' || !enumValues.has(value))) return false;
+    if (typeof value !== 'string') return false;
     if (!SAFE_VALUE.test(value)) return false;
     clean[key] = value;
   }
