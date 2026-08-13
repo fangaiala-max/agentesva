@@ -10,6 +10,26 @@ const sections = (source: string) => {
 };
 const bodyWords = (body: string) => body.split(/\s+/).length;
 
+const expectDirectOpenings = (body: string, headings: string[]) => {
+  for (const [index, heading] of headings.entries()) {
+    const sectionStart = body.indexOf(`${heading}\n`) + heading.length;
+    const sectionEnd = index === headings.length - 1
+      ? body.length
+      : body.indexOf(headings[index + 1], sectionStart);
+    const opening = body.slice(sectionStart, sectionEnd).trimStart().split(/\n\s*\n/)[0].trim();
+    const sentences = opening.match(/[.!?](?=\s|$)/g)?.length ?? 0;
+    expect(opening, `${heading} debe abrir con un párrafo directo`).not.toMatch(/^(?:#|>|[-*+]\s|\d+\.\s)/);
+    expect(sentences, `${heading} debe abrir con 1–3 frases`).toBeGreaterThanOrEqual(1);
+    expect(sentences, `${heading} debe abrir con 1–3 frases`).toBeLessThanOrEqual(3);
+  }
+};
+
+const expectRoutesOnce = (body: string, routes: string[]) => {
+  for (const route of routes) {
+    expect(body.split(route).length - 1, `${route} debe aparecer una vez en el cuerpo`).toBe(1);
+  }
+};
+
 const expectedH2 = [
   '## Qué es el SEO para IA',
   '## En qué se diferencia del SEO tradicional',
@@ -31,6 +51,24 @@ const strategicRoutes = [
   '/herramienta/surfer-seo/',
 ];
 
+const chatGptH2 = [
+  '## Qué significa realmente aparecer en ChatGPT',
+  '## Comprueba que ChatGPT puede acceder a tu sitio',
+  '## Crea un inventario de hechos verificables',
+  '## Relaciona tu marca con una categoría concreta',
+  '## Publica respuestas que resuelvan preguntas de decisión',
+  '## Refuerza la información con fuentes externas',
+  '## Diseña una batería neutral de consultas',
+  '## Qué hacer si ChatGPT omite o describe mal tu marca',
+];
+
+const chatGptRoutes = [
+  '/guias/seo-para-ia/',
+  '/guias/medir-visibilidad-en-chatgpt/',
+  '/herramienta/chatgpt/',
+  '/herramienta/perplexity/',
+];
+
 describe('clúster SEO para IA', () => {
   it('publica una guía pilar profunda, editorial y conectada', () => {
     const source = guide('seo-para-ia');
@@ -49,21 +87,8 @@ describe('clúster SEO para IA', () => {
     expect(bodyWords(body)).toBeLessThanOrEqual(2800);
     expect(body.match(/^## .+$/gm)).toEqual(expectedH2);
 
-    for (const [index, heading] of expectedH2.entries()) {
-      const sectionStart = body.indexOf(`${heading}\n`) + heading.length;
-      const sectionEnd = index === expectedH2.length - 1
-        ? body.length
-        : body.indexOf(expectedH2[index + 1], sectionStart);
-      const opening = body.slice(sectionStart, sectionEnd).trimStart().split(/\n\s*\n/)[0].trim();
-      const sentences = opening.match(/[.!?](?=\s|$)/g)?.length ?? 0;
-      expect(opening, `${heading} debe abrir con un párrafo directo`).not.toMatch(/^(?:#|>|[-*+]\s|\d+\.\s)/);
-      expect(sentences, `${heading} debe abrir con 1–3 frases`).toBeGreaterThanOrEqual(1);
-      expect(sentences, `${heading} debe abrir con 1–3 frases`).toBeLessThanOrEqual(3);
-    }
-
-    for (const route of strategicRoutes) {
-      expect(body.split(route).length - 1, `${route} debe aparecer una vez en el cuerpo`).toBe(1);
-    }
+    expectDirectOpenings(body, expectedH2);
+    expectRoutesOnce(body, strategicRoutes);
 
     expect(body).toMatch(/experiencia conversacional de \[ChatGPT\]\(\/herramienta\/chatgpt\/\)/);
     expect(body).toMatch(/\[Perplexity\]\(\/herramienta\/perplexity\/\).{0,180}citas visibles/s);
@@ -76,5 +101,31 @@ describe('clúster SEO para IA', () => {
     expect(body).toContain('Perplexity diferencia PerplexityBot');
     expect(body).toContain('Como recomendación editorial, conviene aportar señales de confianza y corroboración');
     expect(body).not.toContain('La selección también exige evaluar señales de confianza y corroboración');
+  });
+
+  it('publica la guía práctica de aparición sin CTA comercial', () => {
+    const source = guide('como-aparecer-en-chatgpt');
+    const { frontmatter, body } = sections(source);
+
+    expect(frontmatter).toContain('titulo: "Cómo aparecer en ChatGPT: guía para posicionar tu empresa"');
+    expect(frontmatter).toContain('descripcion: "Proceso práctico para que ChatGPT pueda descubrir, entender y describir tu empresa con fuentes claras, consistentes y verificables."');
+    expect(frontmatter).toContain('fecha: 2026-08-13');
+    expect(frontmatter).toContain('actualizado: 2026-08-13');
+    expect(frontmatter).toContain('tema: Visibilidad en ChatGPT');
+    expect(frontmatter).not.toMatch(/^servicio:/m);
+    expect(frontmatter).not.toMatch(/^recurso:/m);
+
+    expect(bodyWords(body)).toBeGreaterThanOrEqual(1300);
+    expect(bodyWords(body)).toBeLessThanOrEqual(1800);
+    expect(body.match(/^## .+$/gm)).toEqual(chatGptH2);
+    expectDirectOpenings(body, chatGptH2);
+    expectRoutesOnce(body, chatGptRoutes);
+
+    expect(body).toContain('| Comprobación | Qué buscar | Acción |');
+    expect(body).toMatch(/OAI-SearchBot.{0,500}GPTBot/s);
+    expect(body).toContain('[SEO para IA](/guias/seo-para-ia/)');
+    expect(body).toContain('[medir la visibilidad en ChatGPT](/guias/medir-visibilidad-en-chatgpt/)');
+    expect(body).toContain('[ficha de ChatGPT](/herramienta/chatgpt/)');
+    expect(body).toContain('[Perplexity](/herramienta/perplexity/)');
   });
 });
