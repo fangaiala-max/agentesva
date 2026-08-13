@@ -34,4 +34,4 @@ Key routing rules:
 
 - `npm run test` — Vitest + happy-dom sobre `tests/` (ver [`TESTING.md`](./TESTING.md)). CI: `.github/workflows/test.yml`.
 - 100% de cobertura es la meta: función nueva → test nuevo; bug → test de regresión; condicional → ambas ramas.
-- Los esquemas Zod de `src/content.config.ts` validan el contenido en build — nunca commitees código que rompa tests o build.
+- Los esquemas Zod de `src/content.config.ts` y `src/content-schemas/guias.ts` validan el contenido en build; el `postbuild` verifica también los metadatos de la guía profesional GEO y el sitemap del clúster. Nunca commitees código que rompa tests o build.
