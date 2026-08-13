@@ -1,8 +1,8 @@
 # Clúster editorial SEO para IA — diseño
 
-**Fecha:** 2026-08-13  
-**Estado:** aprobado para planificación  
-**Superficie:** `/guias/`  
+**Fecha:** 2026-08-13
+**Estado:** aprobado para planificación
+**Superficie:** `/guias/`
 **Audiencia:** marketers y responsables de contenido en España y Latinoamérica
 
 ## Objetivo
@@ -26,10 +26,10 @@ IA`, `SEO para ChatGPT` y consultas sobre aparecer o medir presencia en ChatGPT.
 
 ### 1. Guía pilar
 
-**Ruta:** `/guias/seo-para-ia/`  
-**Título de trabajo:** `SEO para IA: cómo conseguir que los buscadores de IA entiendan y recomienden tu marca`  
-**Keyword principal:** `SEO para IA`  
-**Intención:** comprender y planificar  
+**Ruta:** `/guias/seo-para-ia/`
+**Título de trabajo:** `SEO para IA: cómo conseguir que los buscadores de IA entiendan y recomienden tu marca`
+**Keyword principal:** `SEO para IA`
+**Intención:** comprender y planificar
 **Extensión objetivo:** 2.200–2.800 palabras
 
 La guía define SEO para IA, GEO, AEO y Agentic Search sin convertir los acrónimos
@@ -54,10 +54,10 @@ a la guía práctica sobre ChatGPT y a la guía de medición.
 
 ### 2. Guía de aplicación
 
-**Ruta:** `/guias/como-aparecer-en-chatgpt/`  
-**Título de trabajo:** `Cómo aparecer en ChatGPT: proceso para posicionar una empresa en respuestas de IA`  
-**Keyword principal:** `cómo aparecer en ChatGPT`  
-**Intención:** implementar  
+**Ruta:** `/guias/como-aparecer-en-chatgpt/`
+**Título de trabajo:** `Cómo aparecer en ChatGPT: proceso para posicionar una empresa en respuestas de IA`
+**Keyword principal:** `cómo aparecer en ChatGPT`
+**Intención:** implementar
 **Extensión objetivo:** 1.400–1.800 palabras
 
 La guía convierte los principios de la página pilar en un proceso ejecutable. No
@@ -83,10 +83,10 @@ no como sustituto del método. Su siguiente paso principal será la guía de med
 
 ### 3. Guía de medición
 
-**Ruta:** `/guias/medir-visibilidad-en-chatgpt/`  
-**Título de trabajo:** `Cómo medir la visibilidad de tu marca en ChatGPT y otros buscadores de IA`  
-**Keyword principal:** `analizar visibilidad en ChatGPT`  
-**Intención:** auditar y medir  
+**Ruta:** `/guias/medir-visibilidad-en-chatgpt/`
+**Título de trabajo:** `Cómo medir la visibilidad de tu marca en ChatGPT y otros buscadores de IA`
+**Keyword principal:** `analizar visibilidad en ChatGPT`
+**Intención:** auditar y medir
 **Extensión objetivo:** 1.400–1.800 palabras
 
 La guía definirá un protocolo repetible. Separará presencia, exactitud, sentimiento,

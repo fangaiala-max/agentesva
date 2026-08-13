@@ -1,7 +1,7 @@
 # Guía profesional para convertirse en especialista GEO — diseño
 
-**Fecha:** 2026-08-13  
-**Estado:** Aprobado — pendiente de plan de implementación  
+**Fecha:** 2026-08-13
+**Estado:** Aprobado — pendiente de plan de implementación
 **Sitio:** AgentesVA
 
 ## Objetivo
