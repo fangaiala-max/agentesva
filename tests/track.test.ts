@@ -100,6 +100,29 @@ describe('trackGrowthEvent', () => {
     });
   });
 
+  it('emite resource_cta_click con un recurso estable y sin propiedades extra', () => {
+    loadGA4();
+    expect(isGrowthEvent('resource_cta_click')).toBe(true);
+    const sent = trackGrowthEvent('resource_cta_click', {
+      page_type: 'guide',
+      content_slug: 'medir-visibilidad-en-chatgpt',
+      placement: 'guide_bottom',
+      resource_id: 'gr22',
+      destination: 'stripe',
+      email: 'no-debe-salir@example.com',
+    });
+    expect(sent).toBe(true);
+    const last = lastCommand();
+    expect(last[1]).toBe('resource_cta_click');
+    expect(last[2]).toEqual({
+      page_type: 'guide',
+      content_slug: 'medir-visibilidad-en-chatgpt',
+      placement: 'guide_bottom',
+      resource_id: 'gr22',
+      destination: 'stripe',
+    });
+  });
+
   it('rechaza eventos incompletos o valores fuera del vocabulario', () => {
     loadGA4();
     expect(trackGrowthEvent('service_cta_click', { page_type: 'home' })).toBe(false);

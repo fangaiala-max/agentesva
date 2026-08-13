@@ -5,6 +5,7 @@ import { isGA4Loaded, pushGtagCommand } from './consent';
 
 export const GROWTH_EVENTS = [
   'service_cta_click',
+  'resource_cta_click',
   'diagnostic_started',
   'diagnostic_step_completed',
   'diagnostic_completed',
@@ -25,6 +26,10 @@ const EVENT_PARAMS: Record<GrowthEvent, { required: readonly string[]; allowed: 
   service_cta_click: {
     required: ['page_type', 'placement'],
     allowed: COMMON_GROWTH_PARAMS,
+  },
+  resource_cta_click: {
+    required: ['page_type', 'placement', 'resource_id', 'destination'],
+    allowed: ['page_type', 'content_slug', 'placement', 'resource_id', 'destination'],
   },
   diagnostic_started: {
     required: ['page_type', 'placement'],
@@ -62,6 +67,7 @@ const ENUMS: Partial<Record<string, ReadonlySet<string>>> = {
   ]),
   qualification_band: new Set(['low', 'medium', 'high']),
   booking_provider: new Set(['calendly', 'cal', 'external']),
+  destination: new Set(['stripe']),
 };
 
 const SAFE_VALUE = /^[\p{L}\p{N}_./-]{1,100}$/u;

@@ -25,6 +25,8 @@ Este documento es la fuente de verdad para los eventos de adquisición y convers
 | `cluster` | enum | `customer_service` | Clúster comercial atribuido. |
 | `service` | enum | `sales_automation` | Servicio relacionado. |
 | `placement` | enum/string controlado | `tool_midpage` | Ubicación funcional del CTA. |
+| `resource_id` | string | `gr22` | Identificador estable del recurso editorial. |
+| `destination` | enum | `stripe` | Destino de pago configurado del recurso. |
 | `step` | integer serializado | `3` | Número del paso del diagnóstico. |
 | `step_id` | enum | `business_goal` | Identificador estable del paso. |
 | `result_type` | enum | `qualified_call` | Ruta de resultado, nunca las respuestas. |
@@ -87,6 +89,7 @@ service_cta_click
 | Evento | Disparador único | Propiedades requeridas | Propiedades opcionales | Página/superficie |
 |---|---|---|---|---|
 | `service_cta_click` | Click en un CTA que conduce a diagnóstico o servicio. | `page_type`, `placement` | `content_slug`, `cluster`, `service` | Home, fichas, estudios, guías, navegación y servicios. |
+| `resource_cta_click` | Click al Payment Link de un recurso editorial. | `page_type`, `placement`, `resource_id`, `destination` | `content_slug` | Guías y recursos editoriales. |
 | `diagnostic_started` | Primera interacción válida del paso 1, no la mera vista. | `page_type`, `placement` | `cluster`, `service` | Diagnóstico. |
 | `diagnostic_step_completed` | El usuario valida un paso y avanza. | `step`, `step_id` | `cluster`, `service` | Diagnóstico. |
 | `diagnostic_completed` | El servidor acepta el envío final. | `result_type` | `qualification_band`, `cluster`, `service` | Diagnóstico/resultado. |
@@ -149,6 +152,7 @@ Marcar como eventos clave:
 Mantener como microconversiones para análisis:
 
 - `service_cta_click`
+- `resource_cta_click`
 - `diagnostic_started`
 - `booking_started`
 - `newsletter_submit`
