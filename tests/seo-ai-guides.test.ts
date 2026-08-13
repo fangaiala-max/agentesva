@@ -214,9 +214,9 @@ describe('clúster SEO para IA', () => {
     expect(body).toContain('[Perplexity](/herramienta/perplexity/)');
   });
 
-  it('mantiene nueve guías y un clúster sin URLs de compra duplicadas', () => {
+  it('mantiene diez guías y un clúster sin URLs de compra duplicadas', () => {
     const files = fs.readdirSync(path.join(root, 'src/content/guias')).filter((file) => file.endsWith('.md'));
-    expect(files).toHaveLength(9);
+    expect(files).toHaveLength(10);
     for (const slug of ['seo-para-ia', 'como-aparecer-en-chatgpt', 'medir-visibilidad-en-chatgpt']) {
       const source = guide(slug);
       const { frontmatter } = sections(source);
