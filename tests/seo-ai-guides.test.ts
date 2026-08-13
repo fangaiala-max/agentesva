@@ -77,6 +77,23 @@ const chatGptRoutes = [
   '/herramienta/perplexity/',
 ];
 
+const measurementH2 = [
+  '## Por qué el tráfico no cuenta toda la historia',
+  '## Define las preguntas que vas a repetir',
+  '## Las seis dimensiones de visibilidad en IA',
+  '## Cómo calcular una línea base útil',
+  '## Plantilla mensual de seguimiento',
+  '## Cómo interpretar cambios sin engañarte',
+  '## Qué acción corresponde a cada problema',
+  '## Cómo conectar visibilidad con resultados de negocio',
+];
+
+const measurementRoutes = [
+  '/guias/seo-para-ia/',
+  '/guias/como-aparecer-en-chatgpt/',
+  '/herramienta/perplexity/',
+];
+
 describe('clúster SEO para IA', () => {
   it('publica una guía pilar profunda, editorial y conectada', () => {
     const source = guide('seo-para-ia');
@@ -147,6 +164,48 @@ describe('clúster SEO para IA', () => {
     expect(body).toContain('[SEO para IA](/guias/seo-para-ia/)');
     expect(body).toContain('[medir la visibilidad en ChatGPT](/guias/medir-visibilidad-en-chatgpt/)');
     expect(body).toContain('[ficha de ChatGPT](/herramienta/chatgpt/)');
+    expect(body).toContain('[Perplexity](/herramienta/perplexity/)');
+  });
+
+  it('publica la guía de medición con el blueprint gr22', () => {
+    const source = guide('medir-visibilidad-en-chatgpt');
+    const { frontmatter, body } = sections(source);
+
+    expect(frontmatter).toContain('titulo: "Cómo medir la visibilidad de tu marca en ChatGPT"');
+    expect(frontmatter).toContain('descripcion: "Framework para medir menciones, exactitud, sentimiento, fuentes y conversiones de una marca en ChatGPT y otros buscadores de IA."');
+    expect(frontmatter).toContain('fecha: 2026-08-13');
+    expect(frontmatter).toContain('actualizado: 2026-08-13');
+    expect(frontmatter).toContain('tema: Medición de visibilidad en IA');
+    expect(frontmatter).toContain('respuesta: "Mide la visibilidad en ChatGPT con un conjunto estable de preguntas y registra por plataforma, fecha y respuesta si la marca aparece, cómo se describe, qué competidores se citan y qué fuentes sustentan la respuesta. Combina esa observación con referencias en Analytics y tendencias de marca. Una consulta aislada no es una métrica."');
+    expect(frontmatterListValues(frontmatter, 'puntosClave', /^  - (.+)$/gm)).toEqual([
+      'Mantén fijos los prompts, el mercado y la frecuencia para poder comparar.',
+      'Separa presencia, exactitud, sentimiento, competencia y resultado comercial.',
+      'Registra la respuesta completa y su fecha antes de interpretar cambios.',
+    ]);
+    expect(frontmatterListValues(frontmatter, 'fuentes', /^    url: (.+)$/gm)).toEqual([
+      'https://help.openai.com/en/articles/12627856-publishers-and-developers-faq',
+      'https://developers.google.com/search/docs/appearance/ai-features',
+      'https://support.google.com/analytics/answer/12923437',
+      'https://support.google.com/analytics/answer/9271392',
+      'https://support.google.com/webmasters/answer/10268906',
+    ]);
+    expect(frontmatter).toMatch(/recurso:\n  id: gr22/);
+    expect(frontmatter).not.toMatch(/^servicio:/m);
+    expect(source).not.toContain('buy.stripe.com');
+
+    expect(bodyWords(body)).toBeGreaterThanOrEqual(1300);
+    expect(bodyWords(body)).toBeLessThanOrEqual(1800);
+    expect(body.match(/^## .+$/gm)).toEqual(measurementH2);
+    expectDirectOpenings(body, measurementH2);
+    expectRoutesOnce(body, measurementRoutes);
+
+    expect(body).toContain('Tasa de mención = (prompts con al menos una mención de la marca / prompts evaluados) × 100');
+    expect(body).toContain('Share of voice = (menciones de tu marca / menciones de todas las marcas comparadas) × 100');
+    expect(body).toContain('| Prompt | Plataforma | Fecha | Mención | Posición narrativa | Fuentes | Exactitud | Sentimiento |');
+    expect(body).toContain('utm_source=chatgpt.com');
+    expect(body).toMatch(/ejecuciones.{0,100}usuarios.{0,100}mercados/s);
+    expect(body).toContain('[SEO para IA](/guias/seo-para-ia/)');
+    expect(body).toContain('[cómo aparecer en ChatGPT](/guias/como-aparecer-en-chatgpt/)');
     expect(body).toContain('[Perplexity](/herramienta/perplexity/)');
   });
 });
