@@ -1,0 +1,90 @@
+{
+  "date": "2026-08-14",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "Some Claude users are mad that Anthropic’s new watermarks will catch them using it at their jobs, classes",
+      "url": "https://techcrunch.com/2026/08/12/some-claude-users-are-mad-that-anthropics-new-watermarks-will-catch-them-cheating-at-their-jobs-classes/",
+      "fecha": "2026-08-12T22:26:37.000Z",
+      "resumen": "Is Anthropic's new watermarking system a travesty? Some have taken to social media to complain that it is.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "some-claude-users-are-mad-that-anthropic-s-new-watermarks-wi",
+      "signals": {
+        "hn": 150,
+        "reddit": 0,
+        "social": 0.6600466092931364,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.11710193672839508,
+        "authority": 0.9
+      },
+      "score": 0.5046,
+      "tema": "Asistentes"
+    },
+    {
+      "titulo": "Suno is trying to look more like a real music production tool",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/979345/suno-studio-2-0-midi-chatbot-custom-effects",
+      "fecha": "2026-08-13T16:00:00.000Z",
+      "resumen": "Suno is releasing Studio 2.0 with significant upgrades that push it closer to an actual digital audio workstation (DAW), rather than a bare-bones audio editor with generative AI features. The biggest addition is undoubtedly MIDI support. Suno says that MIDI was its most requested feature, and it's basically a prerequisite for any modern DAW. Unfortunately, Suno Studio doesn't appear to support thi",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "suno-is-trying-to-look-more-like-a-real-music-production-too",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.6047794058641975,
+        "authority": 0.9
+      },
+      "score": 0.4807,
+      "tema": "Actualidad"
+    },
+    {
+      "titulo": "OpenAI introduces ‘Ultrafast,’ a new mode that makes GPT-5.6 Sol work at 14x the speed",
+      "url": "https://techcrunch.com/2026/08/13/openai-introduces-ultrafast-a-new-mode-that-makes-gpt-5-6-sol-work-at-14x-the-speed/",
+      "fecha": "2026-08-13T19:22:40.000Z",
+      "resumen": "OpenAI is launching a preview of a sped up version of its latest, most powerful model, in an effort to court enterprise users.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "openai-introduces-ultrafast-a-new-mode-that-makes-gpt-5-6-so",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.6986065663580248,
+        "authority": 0.9
+      },
+      "score": 0.3948,
+      "tema": "Automatización"
+    },
+    {
+      "titulo": "OpenAI hires new CRO as executive shake-up continues",
+      "url": "https://techcrunch.com/2026/08/13/openai-hires-new-cro-as-executive-shake-up-continues/",
+      "fecha": "2026-08-13T17:07:13.000Z",
+      "resumen": "OpenAI has replaced chief revenue officer Denise Dresser after just nine months on the job, tapping Wiz president and chief operating officer Dali Rajic to take on frontier lab's top sales job.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "openai-hires-new-cro-as-executive-shake-up-continues",
+      "signals": {
+        "hn": 3,
+        "reddit": 0,
+        "social": 0.18237350163834035,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.6358982330246914,
+        "authority": 0.9
+      },
+      "score": 0.3675,
+      "tema": "Código"
+    }
+  ]
+}
