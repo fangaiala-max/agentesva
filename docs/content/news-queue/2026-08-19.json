@@ -1,0 +1,166 @@
+{
+  "date": "2026-08-19",
+  "generatedAt": "2026-08-19T05:29:49.067Z",
+  "candidates": [
+    {
+      "titulo": "We still don’t know how people are really using AI",
+      "url": "https://www.technologyreview.com/2026/08/18/1142226/how-people-use-ai/",
+      "fecha": "2026-08-18T10:06:43.000Z",
+      "resumen": "AI companies like Anthropic and OpenAI regularly publish reports on how people are using products like Claude and ChatGPT, but they only release the data they want us to see, AI researchers say.  “There is no independent source to corroborate it,” says Anka Reuel, a computer science PhD candidate at the Stanford Trustworthy AI Research…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "we-still-don-t-know-how-people-are-really-using-ai",
+      "signals": {
+        "hn": 6,
+        "reddit": 0,
+        "social": 0.2559935737386376,
+        "relevance": 1,
+        "freshness": 0.4615272608024692,
+        "authority": 0.95
+      },
+      "score": 0.5794
+    },
+    {
+      "titulo": "Cursor capitalizes on GitHub frustration, launches rival hosting platform",
+      "url": "https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/",
+      "fecha": "2026-08-18T22:14:25.000Z",
+      "resumen": "Cursor, known for its AI Code Editor, is launching a new code-hosting platform to rival developers' long preferred favorite, GitHub.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "cursor-capitalizes-on-github-frustration-launches-rival-host",
+      "signals": {
+        "hn": 6,
+        "reddit": 0,
+        "social": 0.2559935737386376,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.7984254089506173,
+        "authority": 0.9
+      },
+      "score": 0.525
+    },
+    {
+      "titulo": "OpenAI launches a safer ChatGPT for teens — years after teens started using it",
+      "url": "https://techcrunch.com/2026/08/18/openai-launches-a-safer-chatgpt-for-teens-years-after-teens-started-using-it/",
+      "fecha": "2026-08-18T13:50:30.000Z",
+      "resumen": "ChatGPT for Teens adds age-appropriate safety measures, parental controls, and learning tools designed to steer teens away from harmful content — and from using AI to cheat on their homework.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "openai-launches-a-safer-chatgpt-for-teens-years-after-teens-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5651306558641975,
+        "authority": 0.9
+      },
+      "score": 0.4748
+    },
+    {
+      "titulo": "ChatGPT is getting a dedicated mode for teens",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/981333/openai-chatgpt-teen-mode",
+      "fecha": "2026-08-18T11:00:00.000Z",
+      "resumen": "ChatGPT for Teens includes safeguards and parental controls. | Image: OpenAI\t\n\nOpenAI is introducing a dedicated ChatGPT mode for teenagers, combining existing youth safeguards and new safety features under one roof. The launch comes amid mounting public scrutiny over how AI tools affect younger users, as other platforms implement their own age checks and teen-specific protections.  \nChatGPT for T",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "chatgpt-is-getting-a-dedicated-mode-for-teens",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.48619547067901236,
+        "authority": 0.9
+      },
+      "score": 0.4629
+    },
+    {
+      "titulo": "AI automation startup Relay shuts down, staff joins Google’s Chrome team",
+      "url": "https://techcrunch.com/2026/08/17/ai-automation-startup-relay-shuts-down-staff-joins-googles-chrome-team/",
+      "fecha": "2026-08-17T21:27:05.000Z",
+      "resumen": "\"We have some really ambitious plans to help you work with AI in Chrome to get things done, and I’ll have more to share soon,\" Jacob Bank, Relay founder and CEO, said.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "ai-automation-startup-relay-shuts-down-staff-joins-google-s-",
+      "signals": {
+        "hn": 4,
+        "reddit": 0,
+        "social": 0.21172907860852444,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.10984516203703698,
+        "authority": 0.9
+      },
+      "score": 0.4018
+    },
+    {
+      "titulo": "Etched’s valuation doubles to $21B in a month",
+      "url": "https://techcrunch.com/2026/08/18/etcheds-valuation-doubles-to-21b-in-a-month/",
+      "fecha": "2026-08-18T17:21:58.000Z",
+      "resumen": "Jane Street has installed Etched's first shipped AI cluster system, and was so impressed, it led another massive round, the startup says.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "etched-s-valuation-doubles-to-21b-in-a-month",
+      "signals": {
+        "hn": 4,
+        "reddit": 0,
+        "social": 0.21172907860852444,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.6630318904320988,
+        "authority": 0.9
+      },
+      "score": 0.3847
+    },
+    {
+      "titulo": "Google&#8217;s Pet Memory forgot who my cats are",
+      "url": "https://www.theverge.com/tech/981269/google-home-gemini-pet-memory-nest-camera-review",
+      "fecha": "2026-08-18T12:01:29.000Z",
+      "resumen": "One of the best things my smart home does is help me care for my pets, and security cameras are particularly useful for keeping track of my many critters. But the barrage of notifications they send often means I miss important ones. So, when Google announced its new Pet Memory feature for Gemini for Home, I thought this could be the perfect solution.\nPet Memory promises to teach your Google Home s",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "google-8217-s-pet-memory-forgot-who-my-cats-are",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5146599768518518,
+        "authority": 0.9
+      },
+      "score": 0.3672
+    },
+    {
+      "titulo": "Apple&#8217;s camera-equipped AirPods appear in leaked video",
+      "url": "https://www.theverge.com/tech/981326/apple-airpods-with-cameras-demo-video-leak",
+      "fecha": "2026-08-18T09:00:01.000Z",
+      "resumen": "The AirPods in the video look like a chunkier version of Apple’s AirPods Pro 3. | Image: Apple / MacRumors\t\n\nWe may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks to a video that MacRumors found in the macOS Tahoe 26.7 Release Candidate. The short video clip features a man - who is wearing the new AirPods - holding up a book with the cover displayed, so that Visual Intel",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "apple-8217-s-camera-equipped-airpods-appear-in-leaked-video",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.43064763117283944,
+        "authority": 0.9
+      },
+      "score": 0.3546
+    }
+  ]
+}
