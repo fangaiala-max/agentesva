@@ -1,0 +1,206 @@
+{
+  "date": "2026-08-21",
+  "generatedAt": "2026-08-21T05:31:48.928Z",
+  "candidates": [
+    {
+      "titulo": "Slack is launching collaborative vibe-coding channels",
+      "url": "https://www.theverge.com/tech/982628/slack-code-vibe-coding-channels-launch",
+      "fecha": "2026-08-20T12:00:00.000Z",
+      "resumen": "Slack is introducing dedicated channels where teams can vibe-code together with AI agents instead of jumping between different tools and conversations. The Slack Code launch includes open, project-specific code channels with dedicated user tabs, alongside features that compare coding changes and preview HTML output before the project is shipped. \n\"With Slack Code, when you have an idea or need to ",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "slack-is-launching-collaborative-vibe-coding-channels",
+      "signals": {
+        "hn": 2,
+        "reddit": 0,
+        "social": 0.1445275806109889,
+        "relevance": 1,
+        "freshness": 0.5130483950617284,
+        "authority": 0.9
+      },
+      "score": 0.532
+    },
+    {
+      "titulo": "ChatGPT can now send texts for you with new Apple Messages plug-in",
+      "url": "https://techcrunch.com/2026/08/20/chatgpt-can-now-send-texts-for-you-with-new-apple-messages-plugin/",
+      "fecha": "2026-08-20T22:09:51.000Z",
+      "resumen": "Ever wanted someone else to do your texting for you? ChatGPT is being offered up as an automated text scribe via a new Apple Messages integration.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "chatgpt-can-now-send-texts-for-you-with-new-apple-messages-p",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.7953863580246914,
+        "authority": 0.9
+      },
+      "score": 0.5093
+    },
+    {
+      "titulo": "A third of web pages published since ChatGPT’s launch show signs of AI authorship, study finds",
+      "url": "https://techcrunch.com/2026/08/20/a-third-of-webpages-published-since-chatgpts-launch-show-signs-of-ai-authorship-study-finds/",
+      "fecha": "2026-08-20T17:18:58.000Z",
+      "resumen": "ChatGPT and other AI models are now authoring and editing much of the new web.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "a-third-of-web-pages-published-since-chatgpt-s-launch-show-s",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.6607181481481481,
+        "authority": 0.9
+      },
+      "score": 0.4891
+    },
+    {
+      "titulo": "Meta AI’s new Mac app wants you to talk to your apps",
+      "url": "https://techcrunch.com/2026/08/20/meta-ais-new-mac-app-wants-you-to-talk-to-your-apps/",
+      "fecha": "2026-08-20T12:11:57.000Z",
+      "resumen": "The company said that the dictation feature works across all apps, just like other tools such as Wispr Flow, Superwhisper, and Monologue.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "meta-ai-s-new-mac-app-wants-you-to-talk-to-your-apps",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5185808024691358,
+        "authority": 0.9
+      },
+      "score": 0.4678
+    },
+    {
+      "titulo": "Binance now lets AI agents trade, but keeping them in check is largely up to users",
+      "url": "https://techcrunch.com/2026/08/20/binance-now-lets-ai-agents-trade-but-keeping-them-in-check-is-largely-up-to-users/",
+      "fecha": "2026-08-20T09:30:00.000Z",
+      "resumen": "Binance's Agent OS works with tools such as ChatGPT, Claude Code, and Cursor.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "binance-now-lets-ai-agents-trade-but-keeping-them-in-check-i",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.44360395061728397,
+        "authority": 0.9
+      },
+      "score": 0.4565
+    },
+    {
+      "titulo": "A third of ChatGPT ads appear in irrelevant conversations",
+      "url": "https://www.artificialintelligence-news.com/news/a-third-of-chatgpt-ads-appear-in-irrelevant-conversations/",
+      "fecha": "2026-08-20T08:07:40.000Z",
+      "resumen": "Advertising inside ChatGPT arrived with a promise that the assistant already knows what the user wants. So far, that hasn’t entirely been the case. Searchable, the AI visibility platform, analysed more than 11,000 ads served inside real ChatGPT conversations between 4 July and 4 August 2026, pairing every ad with the conversation it appeared in, […]\nThe post A third of ChatGPT ads appear in irrele",
+      "fuente": {
+        "nombre": "AI News",
+        "url": "https://www.artificialintelligence-news.com/feed/"
+      },
+      "slugSugerido": "a-third-of-chatgpt-ads-appear-in-irrelevant-conversations",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.40548666666666666,
+        "authority": 0.6
+      },
+      "score": 0.4208
+    },
+    {
+      "titulo": "HoneyBook bets on agentic AI to streamline small business operations with its new Claude connector",
+      "url": "https://www.artificialintelligence-news.com/news/honeybook-bets-on-agentic-ai-to-streamline-small-business-operations-with-its-new-claude-connector/",
+      "fecha": "2026-08-20T07:35:07.000Z",
+      "resumen": "Autonomous artificial intelligence agents have already penetrated the offices of large, global enterprises. Now, HoneyBook is trying to bring that same capability to independent businesses with the launch of HoneyBook MCP, recently released as a connector for Anthropic’s AI assistant Claude. The move addresses a real gap. McKinsey’s recent State of AI survey found that […]\nThe post HoneyBook bets ",
+      "fuente": {
+        "nombre": "AI News",
+        "url": "https://www.artificialintelligence-news.com/feed/"
+      },
+      "slugSugerido": "honeybook-bets-on-agentic-ai-to-streamline-small-business-op",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.3904172222222222,
+        "authority": 0.6
+      },
+      "score": 0.4186
+    },
+    {
+      "titulo": "AI data startup Micro1 reaches $500M gross run rate amid AI training boom",
+      "url": "https://techcrunch.com/2026/08/20/ai-data-startup-micro1-reaches-500m-gross-run-rate-amid-ai-training-boom/",
+      "fecha": "2026-08-21T00:13:44.000Z",
+      "resumen": "Surging demand for AI training data is driving rapid growth for the startup and its rivals.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "ai-data-startup-micro1-reaches-500m-gross-run-rate-amid-ai-t",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.8527397530864198,
+        "authority": 0.9
+      },
+      "score": 0.4179
+    },
+    {
+      "titulo": "Google Discover is getting an AI chatbot-tuned feed",
+      "url": "https://www.theverge.com/tech/983088/google-discover-ai-chatbot-feed",
+      "fecha": "2026-08-20T21:50:22.000Z",
+      "resumen": "Google will soon allow you to customize your Discover feed by describing what you want to see. The new feature, rolling out to the Google app in the \"coming days,\" will use AI to automatically tweak your feed and \"remember\" your preferences for future visits.\nYou'll find the option within the three-dot menu on your Discover feed. As shown in a video shared by Google, tapping the feature will open ",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "google-discover-is-getting-an-ai-chatbot-tuned-feed",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.7863662962962963,
+        "authority": 0.9
+      },
+      "score": 0.408
+    },
+    {
+      "titulo": "Google packs Search and Gemini with new AI study tools",
+      "url": "https://techcrunch.com/2026/08/19/google-launches-new-study-tools-for-students-across-search-and-gemini/",
+      "fecha": "2026-08-19T19:00:00.000Z",
+      "resumen": "The launch of the new study features marks Google's latest effort to make Gemini the AI assistant that students turn to when learning and studying, as it continues to compete with companies like OpenAI.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "google-packs-search-and-gemini-with-new-ai-study-tools",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.04082617283950618,
+        "authority": 0.9
+      },
+      "score": 0.3961
+    }
+  ]
+}

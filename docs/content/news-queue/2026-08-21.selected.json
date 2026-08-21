@@ -1,0 +1,90 @@
+{
+  "date": "2026-08-21",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "Slack is launching collaborative vibe-coding channels",
+      "url": "https://www.theverge.com/tech/982628/slack-code-vibe-coding-channels-launch",
+      "fecha": "2026-08-20T12:00:00.000Z",
+      "resumen": "Slack is introducing dedicated channels where teams can vibe-code together with AI agents instead of jumping between different tools and conversations. The Slack Code launch includes open, project-specific code channels with dedicated user tabs, alongside features that compare coding changes and preview HTML output before the project is shipped. \n\"With Slack Code, when you have an idea or need to ",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "slack-is-launching-collaborative-vibe-coding-channels",
+      "signals": {
+        "hn": 2,
+        "reddit": 0,
+        "social": 0.1445275806109889,
+        "relevance": 1,
+        "freshness": 0.5130483950617284,
+        "authority": 0.9
+      },
+      "score": 0.532,
+      "tema": "Código"
+    },
+    {
+      "titulo": "ChatGPT can now send texts for you with new Apple Messages plug-in",
+      "url": "https://techcrunch.com/2026/08/20/chatgpt-can-now-send-texts-for-you-with-new-apple-messages-plugin/",
+      "fecha": "2026-08-20T22:09:51.000Z",
+      "resumen": "Ever wanted someone else to do your texting for you? ChatGPT is being offered up as an automated text scribe via a new Apple Messages integration.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "chatgpt-can-now-send-texts-for-you-with-new-apple-messages-p",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.7953863580246914,
+        "authority": 0.9
+      },
+      "score": 0.5093,
+      "tema": "Asistentes"
+    },
+    {
+      "titulo": "Meta AI’s new Mac app wants you to talk to your apps",
+      "url": "https://techcrunch.com/2026/08/20/meta-ais-new-mac-app-wants-you-to-talk-to-your-apps/",
+      "fecha": "2026-08-20T12:11:57.000Z",
+      "resumen": "The company said that the dictation feature works across all apps, just like other tools such as Wispr Flow, Superwhisper, and Monologue.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "meta-ai-s-new-mac-app-wants-you-to-talk-to-your-apps",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5185808024691358,
+        "authority": 0.9
+      },
+      "score": 0.4678,
+      "tema": "Actualidad"
+    },
+    {
+      "titulo": "A third of web pages published since ChatGPT’s launch show signs of AI authorship, study finds",
+      "url": "https://techcrunch.com/2026/08/20/a-third-of-webpages-published-since-chatgpts-launch-show-signs-of-ai-authorship-study-finds/",
+      "fecha": "2026-08-20T17:18:58.000Z",
+      "resumen": "ChatGPT and other AI models are now authoring and editing much of the new web.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "a-third-of-web-pages-published-since-chatgpt-s-launch-show-s",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.6607181481481481,
+        "authority": 0.9
+      },
+      "score": 0.4891,
+      "tema": "Asistentes"
+    }
+  ]
+}
