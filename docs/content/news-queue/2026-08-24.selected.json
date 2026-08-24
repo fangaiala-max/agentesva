@@ -1,0 +1,27 @@
+{
+  "date": "2026-08-24",
+  "count": 1,
+  "selected": [
+    {
+      "titulo": "Linkdaze’s smart calendar is built to run a household, not just track a schedule",
+      "url": "https://techcrunch.com/2026/08/23/linkdazes-smart-calendar-is-built-to-run-a-household-not-just-track-a-schedule/",
+      "fecha": "2026-08-23T19:14:08.000Z",
+      "resumen": "Linkdaze's smart digital calendar stands out for not putting its features behind a paywall, including an AI meal planner tool.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "linkdaze-s-smart-calendar-is-built-to-run-a-household-not-ju",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.7113394367283951,
+        "authority": 0.9
+      },
+      "score": 0.3967,
+      "tema": "Actualidad"
+    }
+  ]
+}
