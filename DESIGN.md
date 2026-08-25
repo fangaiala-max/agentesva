@@ -93,7 +93,7 @@ Tesis: el movimiento debe leerse como **intencional y vivo, nunca decorativo**. 
 **Micro-interacciones:**
 - `.lift` — hover de tarjetas (translateY + glow).
 - **Spotlight** — glow radial que sigue al cursor en las fichas (`--mx/--my` desde un `pointermove` delegado; `motion.ts`).
-- **Blur-in / text reveal** — entrada escalonada de eyebrow → H1 → subtítulo → búsqueda en el hero (`@keyframes blurIn`, `animation-delay`); titulares de sección vía scroll (`.reveal`). **Nunca sobre el elemento LCP** (normalmente el H1): arranca en `opacity: 0`, así que lo saca de la candidatura a LCP mientras dura el retardo. Anima lo que lo rodea, no el titular que mide Lighthouse.
+- **Blur-in / text reveal** — entrada escalonada del eyebrow, subtítulo y acciones alrededor del hero (`@keyframes blurIn`, `animation-delay`); titulares de sección vía scroll (`.reveal`). **Nunca sobre el elemento LCP** (normalmente el H1): arranca en `opacity: 0`, así que lo saca de la candidatura a LCP mientras dura el retardo. El H1 de la portada se renderiza visible desde el primer frame.
 - **"Leer →"** — hover/focus de `ArticleCard`: el texto pasa a `--accent` y la flecha se desplaza 3px (`translateX`), con rama de `prefers-reduced-motion`.
 - **Shimmer** — barrido diagonal en hover sobre los CTA primarios (`.shimmer::after`).
 - **Borde animado** — borde conic-gradient giratorio (`@property --bd-angle`) en la tarjeta destacada del Pack (1 sitio).

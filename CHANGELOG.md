@@ -2,6 +2,27 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [0.6.1.0] - 2026-08-25
+
+### Added
+- El backlog incorpora un programa CRO por fases para mejorar conversión, confianza, fricción del diagnóstico y medición antes de activar Paid.
+- Las tres áreas de automatización comparten una única fuente de datos para mantener alineadas las tarjetas, el ticker y el contador de la portada.
+
+### Changed
+- La portada comunica una promesa acotada: reducir el trabajo manual de un proceso de la PyME con una implementación en 2 a 4 semanas.
+- Header y footer presentan AgentesVA primero como servicio de automatización, mientras herramientas y newsletter conservan su función editorial secundaria.
+- Todos los accesos comerciales al diagnóstico prometen una duración coherente de 3 minutos.
+
+### Fixed
+- Se eliminó la prueba social provisional de 1.200 negocios y se sustituyó por mensajes verificables en la portada, newsletter y guía de marca.
+- El H1 deja de depender de la animación de entrada, por lo que permanece visible desde el primer render.
+- Los tests recorren el copy público para impedir que reaparezcan claims provisionales o duraciones contradictorias.
+
+### Verification
+- Suite completa: 50 archivos y 439 pruebas aprobadas.
+- Build Astro/Vercel, verificador de la guía GEO y Pagefind completados correctamente.
+- QA visual en escritorio y móvil: H1 visible y sin desbordamiento horizontal a 1440 px y 390 px.
+
 ## [0.6.0.0] - 2026-08-13
 
 ### Added
