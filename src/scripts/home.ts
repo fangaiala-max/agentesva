@@ -7,7 +7,7 @@ import {
   applyChipStyle,
   tokenize,
   matchesQuery,
-  REDUCE,
+  prefersReducedMotion,
 } from './directory';
 import { priceRank, type Price } from '../data/tools';
 
@@ -33,6 +33,7 @@ function paintSeg(el: HTMLElement, active: boolean) {
 // navegación; sin esto se acumulan reteniendo el DOM desanclado).
 let escHandler: ((e: KeyboardEvent) => void) | undefined;
 let resizeHandler: (() => void) | undefined;
+let countersCleanup: (() => void) | undefined;
 
 export function initHome() {
   // Limpieza de la visita anterior ANTES del guard: este init también corre
@@ -45,6 +46,8 @@ export function initHome() {
     window.removeEventListener('resize', resizeHandler);
     resizeHandler = undefined;
   }
+  countersCleanup?.();
+  countersCleanup = undefined;
 
   const grid = document.getElementById('tool-grid');
   const dirBody = document.getElementById('dir-body');
@@ -73,7 +76,7 @@ export function initHome() {
   const prices = new Set<Price>();
 
   const scrollToDir = () => {
-    document.getElementById('directorio')?.scrollIntoView({ behavior: REDUCE ? 'auto' : 'smooth' });
+    document.getElementById('directorio')?.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
   };
 
   // ===== Filtro + render de visibilidad =====
@@ -398,6 +401,6 @@ export function initHome() {
 
   applyLayout();
   updateBars();
-  setupCounters();
+  countersCleanup = setupCounters();
   setupBookmarks();
 }

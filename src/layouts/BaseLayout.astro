@@ -74,8 +74,11 @@ const {
 
 <script>
   import { initTracking, fireViewEvents } from '../scripts/track';
+  import { initMotion, teardownMotion } from '../scripts/motion';
   document.addEventListener('astro:page-load', () => {
     initTracking();
     fireViewEvents();
+    initMotion();
   });
+  document.addEventListener('astro:before-swap', teardownMotion);
 </script>

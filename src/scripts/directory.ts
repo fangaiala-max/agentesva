@@ -1,5 +1,5 @@
 // Interactividad del directorio "Futurista" (CSP-safe: sin onclick inline).
-export const REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+export const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // Búsqueda insensible a tildes: "video" debe encontrar "Vídeo" (home y directorio).
 export const fold = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '');
@@ -62,7 +62,7 @@ function setupFilter() {
   search?.addEventListener('input', filter);
   document.getElementById('search-form')?.addEventListener('submit', (e) => {
     e.preventDefault();
-    document.getElementById('directorio')?.scrollIntoView({ behavior: REDUCE ? 'auto' : 'smooth' });
+    document.getElementById('directorio')?.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
   });
 
   chips.forEach((chip) => {
@@ -74,30 +74,55 @@ function setupFilter() {
   });
 }
 
-export function setupCounters() {
+export function setupCounters(): () => void {
   const els = Array.from(document.querySelectorAll<HTMLElement>('[data-count]'));
+  const frames = new Map<HTMLElement, number>();
   const run = (el: HTMLElement) => {
     const target = parseFloat(el.getAttribute('data-count') || '0');
-    if (REDUCE) { el.textContent = target.toLocaleString('es-ES'); return; }
+    if (prefersReducedMotion()) { el.textContent = target.toLocaleString('es-ES'); return; }
+    el.textContent = '0';
     const dur = 1400, start = performance.now(), ease = (t: number) => 1 - Math.pow(1 - t, 3);
     const tick = (now: number) => {
+      frames.delete(el);
       const p = Math.min((now - start) / dur, 1);
       el.textContent = Math.round(target * ease(p)).toLocaleString('es-ES');
-      if (p < 1) requestAnimationFrame(tick);
+      if (p < 1) {
+        const frame = requestAnimationFrame(tick);
+        frames.set(el, frame);
+      }
     };
-    requestAnimationFrame(tick);
+    const frame = requestAnimationFrame(tick);
+    frames.set(el, frame);
   };
-  els.forEach((el) => {
-    // El HTML trae ya el valor final, para que sin JS (o si algo falla) nunca
-    // se lea "+0 negocios suscritos" encima del formulario. La cuenta atrás es
-    // mejora progresiva: se pone a 0 al cablear —muy por encima del pliegue,
-    // así que no se ve el salto— y se anima al entrar en pantalla.
-    if (!REDUCE) el.textContent = '0';
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) { run(el); io.disconnect(); } });
-    }, { threshold: 0.4 });
-    io.observe(el);
-  });
+  if (prefersReducedMotion() || typeof IntersectionObserver === 'undefined') return () => {};
+
+  const pending = new Set(els);
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const el = entry.target as HTMLElement;
+      if (!entry.isIntersecting || !pending.has(el)) return;
+      pending.delete(el);
+      observer.unobserve(el);
+      run(el);
+    });
+  }, { threshold: 0.4 });
+  els.forEach((el) => observer.observe(el));
+
+  return () => {
+    observer.disconnect();
+    frames.forEach((frame) => cancelAnimationFrame(frame));
+    frames.clear();
+    pending.clear();
+  };
+}
+
+let directoryCountersRoot: HTMLElement | null = null;
+let directoryCountersCleanup: () => void = () => {};
+
+function clearDirectoryCounters() {
+  directoryCountersCleanup();
+  directoryCountersCleanup = () => {};
+  directoryCountersRoot = null;
 }
 
 const SAVED_KEY = 'agentesva:saved';
@@ -140,14 +165,16 @@ export function initDirectory() {
   //    directorio — #dir-body solo existe en la home, así que aquí se cede;
   // 2) /herramientas y /herramientas/[categoria] registran cada una este init;
   //    el marcador en el DOM (fresco tras cada swap) evita el doble cableado.
+  const grid = document.getElementById('tool-grid');
+  if (directoryCountersRoot && directoryCountersRoot !== grid) clearDirectoryCounters();
   if (document.getElementById('dir-body')) return;
   // Sin #tool-grid tampoco hay nada que cablear (páginas ajenas: fichas,
   // /recursos, /cursos… tienen sus propios scripts de marcadores).
-  const grid = document.getElementById('tool-grid');
   if (!grid || grid.dataset.dirWired) return;
   grid.dataset.dirWired = '1';
   setupFilter();
-  setupCounters();
+  directoryCountersRoot = grid;
+  directoryCountersCleanup = setupCounters();
   setupBookmarks();
   // La suscripción del #pack la gestiona src/scripts/subscribe.ts (DOI + honeypot + consentimiento).
 }

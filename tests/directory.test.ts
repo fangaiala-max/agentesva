@@ -1,5 +1,5 @@
-import { beforeEach, describe, expect, it } from 'vitest';
-import { initDirectory, setupBookmarks } from '../src/scripts/directory';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { initDirectory, setupBookmarks, setupCounters } from '../src/scripts/directory';
 
 function mount() {
   document.body.innerHTML = `
@@ -14,6 +14,11 @@ const buttons = () => Array.from(document.querySelectorAll<HTMLButtonElement>('[
 beforeEach(() => {
   localStorage.clear();
   mount();
+});
+
+afterEach(() => {
+  vi.restoreAllMocks();
+  vi.unstubAllGlobals();
 });
 
 describe('setupBookmarks', () => {
@@ -84,5 +89,64 @@ describe('initDirectory — colisiones entre páginas (View Transitions)', () =>
     initDirectory();
     (document.querySelector('[data-bookmark]') as HTMLElement).click();
     expect(localStorage.getItem('agentesva:saved')).toBeNull();
+  });
+
+  it('libera los contadores al abandonar el directorio', () => {
+    document.body.innerHTML = '<div id="tool-grid"></div><span data-count="54">54</span>';
+    const disconnect = vi.fn();
+
+    class TestIntersectionObserver {
+      constructor(_callback: IntersectionObserverCallback) {}
+      observe() {}
+      unobserve() {}
+      disconnect = disconnect;
+      takeRecords() { return []; }
+      root = null;
+      rootMargin = '0px';
+      thresholds = [0.4];
+    }
+
+    vi.stubGlobal('IntersectionObserver', TestIntersectionObserver);
+    initDirectory();
+    document.body.innerHTML = '<main>Página ajena</main>';
+    initDirectory();
+
+    expect(disconnect).toHaveBeenCalledOnce();
+  });
+});
+
+describe('setupCounters — contenido y ciclo de vida', () => {
+  it('conserva el valor final hasta entrar en pantalla y libera observer/RAF', () => {
+    document.body.innerHTML = '<span data-count="54">54</span>';
+    const el = document.querySelector<HTMLElement>('[data-count]')!;
+    let notify: IntersectionObserverCallback = () => {};
+    const disconnect = vi.fn();
+
+    class TestIntersectionObserver {
+      constructor(callback: IntersectionObserverCallback) { notify = callback; }
+      observe() {}
+      unobserve() {}
+      disconnect = disconnect;
+      takeRecords() { return []; }
+      root = null;
+      rootMargin = '0px';
+      thresholds = [0.4];
+    }
+
+    vi.stubGlobal('IntersectionObserver', TestIntersectionObserver);
+    const requestFrame = vi.spyOn(window, 'requestAnimationFrame').mockReturnValue(7);
+    const cancelFrame = vi.spyOn(window, 'cancelAnimationFrame');
+
+    const cleanup = setupCounters();
+    expect(el.textContent).toBe('54');
+
+    notify([{ isIntersecting: true, target: el } as IntersectionObserverEntry], {} as IntersectionObserver);
+    expect(el.textContent).toBe('0');
+    expect(requestFrame).toHaveBeenCalled();
+
+    cleanup();
+    expect(disconnect).toHaveBeenCalledOnce();
+    expect(cancelFrame).toHaveBeenCalledWith(7);
+
   });
 });
