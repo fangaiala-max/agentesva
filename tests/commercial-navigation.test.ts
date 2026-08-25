@@ -19,7 +19,7 @@ describe('navegación comercial', () => {
 
   it('convierte la home en una ruta de venta sin eliminar el directorio', () => {
     const page = read('src/pages/index.astro');
-    expect(page).toContain('Automatiza un proceso acotado');
+    expect(page).toContain('Reduce el trabajo manual de tu PyME');
     expect(page).toContain('Descubrir qué automatizar');
     expect(page).toContain('data-track-placement="hero"');
     expect(page).toContain('data-track-placement="sticky"');
