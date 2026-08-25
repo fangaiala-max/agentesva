@@ -367,7 +367,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 - **Tarea:** usar “3 minutos” en todos los accesos al diagnóstico, retirar `blur-in` del H1 para no ocultar el elemento LCP y aplicar un titular orientado al beneficio.
 - **Aceptación:** una única duración en toda la web; H1 visible desde el primer render; sin desbordamiento móvil.
 - **Verificación:** tests, build y revisión visual desktop/móvil.
-- **Resultado:** 426 tests aprobados, build de producción correcto y revisión visual sin desbordamiento a 1440 px y 390 px.
+- **Resultado:** 439 tests aprobados, build de producción correcto y revisión visual sin desbordamiento a 1440 px y 390 px.
 
 ## Fase CRO 2 — Reducir fricción del funnel
 
