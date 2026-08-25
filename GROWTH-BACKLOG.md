@@ -346,7 +346,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 - **Esfuerzo:** S
 - **Dependencias:** ninguna
 - **Tarea:** retirar “+1.200 negocios” de home, newsletter, estadísticas y documentación de copy. Sustituirlo por mensajes verificables, sin fabricar cifras.
-- **Aceptación:** `rg '1\\.200|data-count="1200"|usan la IA mejor' src docs` no encuentra afirmaciones públicas no verificadas.
+- **Aceptación:** `rg '1[.]200|data-count="1200"|usan la IA mejor' src docs` no encuentra afirmaciones públicas no verificadas.
 - **Métrica:** cero claims comerciales sin fuente.
 
 ### GROW-032 — Unificar el posicionamiento de AgentesVA
