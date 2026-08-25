@@ -440,7 +440,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 - **Tarea:** medir vista, primera interacción, paso visto/completado, resultado, contacto iniciado, error y envío. Instrumentar el CTA global del header sin transmitir datos personales.
 - **Aceptación:** puede calcularse abandono por paso, incluido el primer campo.
 
-### GROW-026 — Atribución first/last touch
+### Extensión CRO de GROW-026 — Atribución first/last touch
 
 - **Estado:** promovida al programa CRO; ampliar la tarea existente.
 - Capturar UTM, landing inicial, referrer, `gclid` y `fbclid`, y guardarlos en campos separados del CRM.

@@ -159,7 +159,7 @@ animación funciona bien, pero si JS falla o tarda, se lee *"+0 negocios
 suscritos"* justo encima del formulario. Renderizar el valor final y animar
 desde él como mejora progresiva.
 
-**Hecho cuando:** con JS desactivado, la banda muestra 50 / 30 / 1.200.
+**Hecho cuando:** con JS desactivado, la banda muestra 50 / 30 / 3.
 
 ---
 
