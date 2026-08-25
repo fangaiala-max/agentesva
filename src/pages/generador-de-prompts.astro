@@ -113,6 +113,5 @@ const fieldStyle = 'width: 100%; box-sizing: border-box; background: var(--panel
 
 <script>
   import { initPromptGenerator } from '../scripts/prompt-generator';
-  import { initMotion } from '../scripts/motion';
-  document.addEventListener('astro:page-load', () => { initPromptGenerator(); initMotion(); });
+  document.addEventListener('astro:page-load', () => initPromptGenerator());
 </script>

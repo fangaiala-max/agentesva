@@ -170,9 +170,5 @@ const ctaLabel = curso.tipo === 'propio'
 
 <script>
   import { initToolDetail } from '../../scripts/tool-detail';
-  import { initMotion } from '../../scripts/motion';
-  document.addEventListener('astro:page-load', () => {
-    initToolDetail();
-    initMotion();
-  });
+  document.addEventListener('astro:page-load', () => initToolDetail());
 </script>

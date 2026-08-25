@@ -86,18 +86,20 @@ Reglas al añadir una píldora nueva:
 
 ### Motion — "Confident, electric, restrained"
 
-Tesis: el movimiento debe leerse como **intencional y vivo, nunca decorativo**. Reglas duras (validar todo contra ellas): solo `transform`/`opacity`/`filter` (GPU, sin animar layout); **sin runtime JS de animación** (mantiene `script-src 'self'` + Lighthouse 100); **todo respeta `prefers-reduced-motion`** (global en `global.css`). Inspiración de patrones modernos (21st.dev) implementada **nativa** (CSS + mínimo vanilla + Astro View Transitions).
+Tesis: el movimiento debe leerse como **intencional y vivo, nunca decorativo**. Reglas duras (validar todo contra ellas): solo `transform`/`opacity`/`filter` (GPU, sin animar layout); CSS para la coreografía continua y **vanilla JS mínimo, agrupado por frame**, solo para puntero, contadores y ciclo de vida; **todo respeta `prefers-reduced-motion`** en tiempo real. Inspiración de patrones modernos (21st.dev) implementada **nativa** (CSS + vanilla JS + Astro View Transitions), compatible con `script-src 'self'` y Lighthouse 100.
 
 **Ambiente (de fondo):** `auroraDrift`, `gridDrift`, `glowPulse` (logo/CTA), `marquee` (ticker), count-up de stats, cursor `blink`.
+
+`BaseLayout.astro` es el único propietario del ciclo de movimiento: inicializa `motion.ts` en `astro:page-load` y lo desmonta en `astro:before-swap`. Los bucles ambientales se pausan fuera de pantalla o con la pestaña oculta; los cambios de movimiento reducido o capacidad del puntero reinician el sistema sin recargar la página.
 
 **Micro-interacciones:**
 - `.lift` — hover de tarjetas (translateY + glow).
 - **Spotlight** — glow radial que sigue al cursor en las fichas (`--mx/--my` desde un `pointermove` delegado; `motion.ts`).
-- **Blur-in / text reveal** — entrada escalonada del eyebrow, subtítulo y acciones alrededor del hero (`@keyframes blurIn`, `animation-delay`); titulares de sección vía scroll (`.reveal`). **Nunca sobre el elemento LCP** (normalmente el H1): arranca en `opacity: 0`, así que lo saca de la candidatura a LCP mientras dura el retardo. El H1 de la portada se renderiza visible desde el primer frame.
+- **Blur-in / text reveal** — entrada escalonada limitada al eyebrow y a la tarjeta lateral del hero (`@keyframes blurIn`, `animation-delay`); titulares de sección vía scroll (`.reveal`). **Nunca sobre contenido esencial ni sobre el elemento LCP**: H1, explicación, acciones y señales de confianza de la portada se renderizan visibles desde el primer frame.
 - **"Leer →"** — hover/focus de `ArticleCard`: el texto pasa a `--accent` y la flecha se desplaza 3px (`translateX`), con rama de `prefers-reduced-motion`.
 - **Shimmer** — barrido diagonal en hover sobre los CTA primarios (`.shimmer::after`).
 - **Borde animado** — borde conic-gradient giratorio (`@property --bd-angle`) en la tarjeta destacada del Pack (1 sitio).
-- **Magnético** — el CTA del hero se desplaza ligero hacia el cursor (`data-magnetic`, `motion.ts`).
+- **Magnético** — el CTA de diagnóstico de la cabecera se desplaza ligero hacia el cursor (`data-magnetic`, `motion.ts`).
 
 **Transiciones de página:** **Astro View Transitions** (`<ClientRouter/>`): morph con elemento compartido (el monograma de la herramienta, `transition:name="mono-<slug>"`) entre listado/home y ficha. Los scripts de página se re-inicializan en `astro:page-load`.
 

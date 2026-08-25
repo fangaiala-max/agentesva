@@ -2,6 +2,24 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [0.7.0.0] - 2026-08-26
+
+### Changed
+- La experiencia de movimiento se adapta en tiempo real a las preferencias de accesibilidad y a la capacidad del puntero, sin exigir una recarga.
+- Las animaciones ambientales se detienen fuera de pantalla o cuando la pestaña queda oculta, y se reanudan únicamente cuando vuelven a ser visibles.
+- La navegación entre páginas Astro comparte un único ciclo de inicialización y limpieza para evitar listeners, observadores y animaciones duplicados.
+
+### Fixed
+- El contenido esencial de la portada permanece visible desde el primer render, incluso con JavaScript desactivado o movimiento reducido.
+- Los contadores conservan su valor final antes de activarse y cancelan correctamente una cuenta en curso cuando se habilita movimiento reducido.
+- Los efectos de foco y atracción agrupan las actualizaciones por frame y liberan sus recursos al abandonar la página.
+- Las etiquetas secundarias de la portada recuperan un contraste legible conforme al sistema visual documentado.
+
+### Verification
+- Suite completa: 51 archivos y 452 pruebas aprobadas, incluidas regresiones de navegación, accesibilidad, observadores, RAF y teardown.
+- Build Astro/Vercel, verificador de la guía GEO y Pagefind completados correctamente.
+- Auditoría de producción: cobertura de rutas de movimiento del 83 %, revisión visual sin hallazgos y Lighthouse con puntuación 100.
+
 ## [0.6.1.0] - 2026-08-25
 
 ### Added
