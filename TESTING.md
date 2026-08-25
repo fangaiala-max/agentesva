@@ -29,7 +29,8 @@ La columna "Dónde" nombra ejemplos representativos de cada capa, no el índice 
 | Contrato de portada comercial | Jerarquía del recorrido, enlaces, atribución de CTAs, precio canónico y roles en datos estructurados | `tests/commercial-navigation.test.ts` |
 | API/CRM | Validación server-side, creación/actualización en Notion, deduplicación concurrente por instancia, consentimiento y reintentos transitorios | `tests/diagnostic-api.test.ts`, `tests/diagnostic-notion.test.ts` |
 | Guards de fuente | Lo que no se puede ejercitar sin arrancar Astro: leen el `.astro` y fallan si se pierde el cableado (props de `ArticleCard`, rutas de prompts) o si vuelve un handler en línea que la CSP bloquea | `tests/noticias-listado.test.ts`, `tests/prompts-pages.test.ts`, `tests/csp-inline-handlers.test.ts` |
-| Build | Esquemas Zod de content collections — un JSON inválido rompe `npm run build` | `src/content.config.ts` |
+| Contrato editorial GEO | Schema, atribución de datos, recursos visuales, enlazado interno, metadatos sociales, sitemap y legibilidad móvil de la guía | `tests/especialista-geo-guide.test.ts` |
+| Build | Esquemas Zod de content collections y verificación del HTML/sitemap generado; un contenido o metadato inválido rompe `npm run build` | `src/content.config.ts`, `src/content-schemas/guias.ts`, `scripts/verify-built-geo-guide.mjs` |
 | Smoke manual | Flujos reales en navegador (dev/preview) antes de shippear | /qa, /verify |
 
 ## Convenciones

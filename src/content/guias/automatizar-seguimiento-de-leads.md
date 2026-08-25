@@ -13,6 +13,9 @@ servicio:
   nombre: "automatización de ventas"
   href: "/servicios/automatizacion-ventas/"
   cluster: ventas
+  analytics:
+    cluster: sales
+    service: sales_automation
   titulo: "Deja cada oportunidad con dueño y siguiente paso"
   descripcion: "Conectamos captación, cualificación, CRM y seguimiento para que el equipo actúe antes sin llenar la bandeja del cliente de mensajes repetidos."
 relacionados:
