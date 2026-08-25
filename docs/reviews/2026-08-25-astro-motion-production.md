@@ -29,7 +29,7 @@ Motion should direct attention, acknowledge interaction, and preserve continuity
 
 ## Verification evidence
 
-- `npm test`: 51 files, 444 tests passed.
+- `npm test`: 51 files, 452 tests passed.
 - `npm run build`: Astro/Vercel build, GEO verification, and Pagefind indexing passed.
 - `git diff --check`: passed.
 - Lighthouse desktop: Accessibility 100, Best Practices 100, SEO 100, Agentic Browsing 100; 56 passed, 0 failed.
@@ -37,7 +37,7 @@ Motion should direct attention, acknowledge interaction, and preserve continuity
 - Repeated Astro navigation `/` → `/servicios/` → back: correct route state, magnetic interaction active, 10 ambient loops without duplication, 0 offscreen loops running, and no console errors.
 - Reduced-motion emulation: 0 infinite animations, 0 running animations, final counter values preserved.
 - Mobile 390 × 844: no horizontal overflow; touch disables pointer motion; menu opens and closes with Escape.
-- Built `_astro` assets: 620 KiB total; motion chunk 2,680 bytes.
+- Built `_astro` assets: 588 KiB total; shared layout/motion chunk 2,817 bytes.
 
 ## Architecture and rollback
 

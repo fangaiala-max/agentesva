@@ -3,6 +3,8 @@
 type Cleanup = () => void;
 
 const noop = () => {};
+const AMBIENT_VIEWPORT_MARGIN_PX = 160;
+const MAGNETIC_STRENGTH = 0.18;
 const reduceQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 const finePointerQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
 
@@ -43,12 +45,14 @@ function setupAmbientMotion(): Cleanup {
 
   const observer = new IntersectionObserver(
     (entries) => entries.forEach((entry) => syncTarget(entry.target, entry.isIntersecting)),
-    { rootMargin: '160px 0px' },
+    { rootMargin: `${AMBIENT_VIEWPORT_MARGIN_PX}px 0px` },
   );
 
   byTarget.forEach((_animations, target) => {
     const rect = target.getBoundingClientRect();
-    const nearViewport = rect.bottom >= -160 && rect.top <= window.innerHeight + 160;
+    const nearViewport =
+      rect.bottom >= -AMBIENT_VIEWPORT_MARGIN_PX &&
+      rect.top <= window.innerHeight + AMBIENT_VIEWPORT_MARGIN_PX;
     syncTarget(target, nearViewport);
     observer.observe(target);
   });
@@ -113,8 +117,8 @@ function setupPointerMotion(): Cleanup {
           magneticFrames.delete(element);
           if (!element.isConnected) return;
           const rect = element.getBoundingClientRect();
-          const x = (pointerX - (rect.left + rect.width / 2)) * 0.18;
-          const y = (pointerY - (rect.top + rect.height / 2)) * 0.18;
+          const x = (pointerX - (rect.left + rect.width / 2)) * MAGNETIC_STRENGTH;
+          const y = (pointerY - (rect.top + rect.height / 2)) * MAGNETIC_STRENGTH;
           element.style.transform = `translate(${x}px, ${y}px)`;
         });
         magneticFrames.set(element, frame);

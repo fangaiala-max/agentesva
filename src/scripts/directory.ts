@@ -77,9 +77,18 @@ function setupFilter() {
 export function setupCounters(): () => void {
   const els = Array.from(document.querySelectorAll<HTMLElement>('[data-count]'));
   const frames = new Map<HTMLElement, number>();
+  const reduceQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const showFinalValues = () => {
+    frames.forEach((frame) => cancelAnimationFrame(frame));
+    frames.clear();
+    els.forEach((el) => {
+      const target = parseFloat(el.getAttribute('data-count') || '0');
+      el.textContent = target.toLocaleString('es-ES');
+    });
+  };
   const run = (el: HTMLElement) => {
     const target = parseFloat(el.getAttribute('data-count') || '0');
-    if (prefersReducedMotion()) { el.textContent = target.toLocaleString('es-ES'); return; }
+    if (reduceQuery.matches) { el.textContent = target.toLocaleString('es-ES'); return; }
     el.textContent = '0';
     const dur = 1400, start = performance.now(), ease = (t: number) => 1 - Math.pow(1 - t, 3);
     const tick = (now: number) => {
@@ -94,7 +103,7 @@ export function setupCounters(): () => void {
     const frame = requestAnimationFrame(tick);
     frames.set(el, frame);
   };
-  if (prefersReducedMotion() || typeof IntersectionObserver === 'undefined') return () => {};
+  if (reduceQuery.matches || typeof IntersectionObserver === 'undefined') return () => {};
 
   const pending = new Set(els);
   const observer = new IntersectionObserver((entries) => {
@@ -107,9 +116,17 @@ export function setupCounters(): () => void {
     });
   }, { threshold: 0.4 });
   els.forEach((el) => observer.observe(el));
+  const onReduceMotion = (event: MediaQueryListEvent) => {
+    if (!event.matches) return;
+    observer.disconnect();
+    pending.clear();
+    showFinalValues();
+  };
+  reduceQuery.addEventListener('change', onReduceMotion);
 
   return () => {
     observer.disconnect();
+    reduceQuery.removeEventListener('change', onReduceMotion);
     frames.forEach((frame) => cancelAnimationFrame(frame));
     frames.clear();
     pending.clear();

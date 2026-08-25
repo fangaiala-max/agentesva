@@ -126,9 +126,5 @@ const jsonLd = {
 
 <script>
   import { initCursos } from '../../scripts/cursos';
-  import { initMotion } from '../../scripts/motion';
-  document.addEventListener('astro:page-load', () => {
-    initCursos();
-    initMotion();
-  });
+  document.addEventListener('astro:page-load', () => initCursos());
 </script>

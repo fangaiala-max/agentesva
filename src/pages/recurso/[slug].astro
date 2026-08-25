@@ -189,11 +189,9 @@ const pageTitle = recurso.biblioteca ? `${recurso.titulo} | AgentesVA` : `${recu
 
 <script>
   import { initToolDetail } from '../../scripts/tool-detail';
-  import { initMotion } from '../../scripts/motion';
   import { initBiblioteca, initBibliotecaCopy } from '../../scripts/biblioteca';
   document.addEventListener('astro:page-load', () => {
     initToolDetail();
-    initMotion();
     initBiblioteca();
     initBibliotecaCopy();
   });

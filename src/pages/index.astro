@@ -65,9 +65,9 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
       <div>
         <span class="blur-in" style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--line-2); border-radius: 30px; padding: 6px 14px; animation-delay: .05s;">Automatización implementada · PyMEs</span>
         <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 5.8vw, 60px); line-height: 1.01; letter-spacing: -0.04em; margin: 20px 0 0; color: #fff;">Reduce el trabajo manual de un proceso de tu PyME<br><span style="color: var(--accent);">en 2 a 4 semanas</span></h1>
-        <p style="font-size: 17px; line-height: 1.65; color: var(--fg-2); margin: 20px 0 0; max-width: 37em;">Detectamos la tarea repetitiva que más tiempo o ventas te cuesta, la conectamos con las herramientas que ya utilizas y dejamos el flujo probado, documentado y bajo tu control.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:26px"><a href="/diagnostico-automatizacion-ia/" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="general_consulting" data-track-cluster="general" data-track-placement="hero" style="padding:14px 20px;background:var(--accent);color:var(--bg);font-weight:700;text-decoration:none;border-radius:3px">Descubrir qué automatizar →</a><a href="/precios-automatizacion-ia/" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="general_consulting" data-track-cluster="general" data-track-placement="hero_pricing" style="padding:14px 20px;border:1px solid var(--line-2);color:#fff;font-weight:600;text-decoration:none;border-radius:3px">Ver precios · {SERVICE_OFFER.scoped.price}</a></div>
-        <div class="hero-trust" style="display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:20px"><span>✓ Diagnóstico gratuito de 3 minutos</span><span>✓ Respuesta el siguiente día laborable</span><span>✓ Sin cambiar todo tu sistema</span></div>
+        <p data-motion-static="explanation" style="font-size: 17px; line-height: 1.65; color: var(--fg-2); margin: 20px 0 0; max-width: 37em;">Detectamos la tarea repetitiva que más tiempo o ventas te cuesta, la conectamos con las herramientas que ya utilizas y dejamos el flujo probado, documentado y bajo tu control.</p>
+        <div data-motion-static="actions" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:26px"><a href="/diagnostico-automatizacion-ia/" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="general_consulting" data-track-cluster="general" data-track-placement="hero" style="padding:14px 20px;background:var(--accent);color:var(--bg);font-weight:700;text-decoration:none;border-radius:3px">Descubrir qué automatizar →</a><a href="/precios-automatizacion-ia/" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="general_consulting" data-track-cluster="general" data-track-placement="hero_pricing" style="padding:14px 20px;border:1px solid var(--line-2);color:#fff;font-weight:600;text-decoration:none;border-radius:3px">Ver precios · {SERVICE_OFFER.scoped.price}</a></div>
+        <div class="hero-trust" data-motion-static="trust" style="display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:20px"><span>✓ Diagnóstico gratuito de 3 minutos</span><span>✓ Respuesta el siguiente día laborable</span><span>✓ Sin cambiar todo tu sistema</span></div>
       </div>
 
       <aside class="commercial-card blur-in" aria-label="Qué ocurre después del diagnóstico" style="animation-delay:.32s">
@@ -85,7 +85,7 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
 
   <section style="max-width:1240px;margin:28px auto 0;padding:0 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">
     {AUTOMATION_AREAS.map((area) => (
-      <a href={area.href} class="banner" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service={area.service} data-track-cluster={area.cluster} data-track-placement="service_card" style="padding:22px;border:1px solid var(--line-2);border-radius:10px;background:var(--panel);text-decoration:none"><span style="font:10px var(--mono);color:#6685ff;text-transform:uppercase">{area.label}</span><h2 style="color:#fff;font:600 19px var(--sans)">{area.title}</h2><p style="color:var(--fg-3);font-size:16px">{area.description}</p></a>
+      <a href={area.href} class="banner" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service={area.service} data-track-cluster={area.cluster} data-track-placement="service_card" style="padding:22px;border:1px solid var(--line-2);border-radius:10px;background:var(--panel);text-decoration:none"><span style="font:10px var(--mono);color:var(--fg-2);text-transform:uppercase">{area.label}</span><h2 style="color:#fff;font:600 19px var(--sans)">{area.title}</h2><p style="color:var(--fg-3);font-size:16px">{area.description}</p></a>
     ))}
   </section>
 
@@ -470,7 +470,7 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
   .commercial-proof > div:first-child p,.commercial-process p,.commercial-close p { margin: 0; color: var(--fg-3); font-size: 16px; line-height: 1.65; }
   .deliverables { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 32px; }
   .deliverables article { padding: 24px; border: 1px solid var(--line-2); border-radius: 10px; background: var(--panel); }
-  .deliverables b { color: #6685ff; font: 700 11px var(--mono); }
+  .deliverables b { color: var(--fg-2); font: 700 11px var(--mono); }
   .deliverables h3 { margin: 18px 0 0; color: #fff; font: 600 18px var(--sans); }
   .deliverables p { margin: 8px 0 0; color: var(--fg-3); font-size: 16px; line-height: 1.55; }
   .commercial-process { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; padding-top: 64px; padding-bottom: 64px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -527,7 +527,6 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
 
 <script>
   import { initHome } from '../scripts/home';
-  import { initMotion } from '../scripts/motion';
   import { setupShelves } from '../scripts/shelves';
 
   // setupShelves observa y escucha scroll: hay que soltar lo anterior en cada
@@ -535,7 +534,6 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
   let teardownShelves: (() => void) | null = null;
   document.addEventListener('astro:page-load', () => {
     initHome();
-    initMotion();
     teardownShelves?.();
     teardownShelves = setupShelves();
   });
