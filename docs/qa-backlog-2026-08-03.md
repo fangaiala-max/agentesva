@@ -154,10 +154,9 @@ Apunta a `chat.openai.com`, que quedó obsoleto. Cambiar a `chatgpt.com` en
 ### AGV-06 · Renderizar los contadores con su valor final
 **Prioridad:** P2 · **Dificultad:** XS · Ref: ISSUE-015
 
-`src/pages/index.astro:358,364,372` emiten `<span data-count="50">0</span>`. La
-animación funciona bien, pero si JS falla o tarda, se lee *"+0 negocios
-suscritos"* justo encima del formulario. Renderizar el valor final y animar
-desde él como mejora progresiva.
+La banda de estadísticas emitía ceros antes de que JavaScript iniciara los
+contadores. Renderizar el valor final de herramientas, prompts y áreas de
+automatización mantiene la información correcta aunque la animación no cargue.
 
 **Hecho cuando:** con JS desactivado, la banda muestra 50 / 30 / 3.
 

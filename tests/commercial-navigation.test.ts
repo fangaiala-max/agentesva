@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { DIAGNOSTICO, NAVEGACION_COMERCIAL } from '../src/data/breadcrumbs';
 import { entityGraph, FOUNDER_ID, founder, organization, person } from '../src/data/schema';
 import { SERVICE_OFFER } from '../src/data/service-offer';
+import { AUTOMATION_AREAS } from '../src/data/automation-areas';
 
 const read = (path: string) => readFileSync(join(process.cwd(), path), 'utf8');
 
@@ -19,7 +20,7 @@ describe('navegación comercial', () => {
 
   it('convierte la home en una ruta de venta sin eliminar el directorio', () => {
     const page = read('src/pages/index.astro');
-    expect(page).toContain('Reduce el trabajo manual de tu PyME');
+    expect(page).toContain('Reduce el trabajo manual de un proceso de tu PyME');
     expect(page).toContain('Descubrir qué automatizar');
     expect(page).toContain('data-track-placement="hero"');
     expect(page).toContain('data-track-placement="sticky"');
@@ -33,20 +34,19 @@ describe('navegación comercial', () => {
     expect(page).toContain('<div class="commercial-proof__heading">');
     expect(page.indexOf('Qué compras')).toBeLessThan(page.indexOf('¿Aún estás explorando?'));
     expect(page).toContain('id="directorio"');
-    expect(page).toContain('/servicios/automatizacion-atencion-cliente/');
+    expect(AUTOMATION_AREAS.map((area) => area.href)).toContain('/servicios/automatizacion-atencion-cliente/');
   });
 
   it('conecta la oferta principal con servicios, precios, proceso y diagnóstico', () => {
     const page = read('src/pages/index.astro');
-    for (const href of [
+    for (const href of ['/precios-automatizacion-ia/', '/como-trabajamos/']) {
+      expect(page).toContain(`href="${href}"`);
+    }
+    expect(AUTOMATION_AREAS.map((area) => area.href)).toEqual([
       '/servicios/automatizacion-atencion-cliente/',
       '/servicios/automatizacion-ventas/',
       '/servicios/automatizacion-procesos/',
-      '/precios-automatizacion-ia/',
-      '/como-trabajamos/',
-    ]) {
-      expect(page).toContain(`href="${href}"`);
-    }
+    ]);
 
     for (const deliverable of ['Flujo operativo', 'Casos probados', 'Control y relevo']) {
       expect(page).toContain(deliverable);
@@ -82,9 +82,12 @@ describe('navegación comercial', () => {
     for (const placement of ['hero_pricing', 'service_card', 'methodology']) {
       expect(page).toContain(`data-track-placement="${placement}"`);
     }
-    for (const service of ['customer_service_automation', 'sales_automation', 'process_automation']) {
-      expect(page).toContain(`data-track-service="${service}"`);
-    }
+    expect(page).toContain('data-track-service={area.service}');
+    expect(AUTOMATION_AREAS.map((area) => area.service)).toEqual([
+      'customer_service_automation',
+      'sales_automation',
+      'process_automation',
+    ]);
   });
 
   it('mantiene una única búsqueda operativa después del contenido comercial', () => {

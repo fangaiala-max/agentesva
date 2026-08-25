@@ -1,6 +1,7 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { AUTOMATION_AREAS } from '../src/data/automation-areas';
 
 const read = (path: string) => readFileSync(join(process.cwd(), path), 'utf8');
 const readTree = (path: string): string[] =>
@@ -43,7 +44,8 @@ describe('programa CRO — fase 1', () => {
     const home = read('src/pages/index.astro');
     const newsletter = read('src/pages/newsletter.astro');
 
-    expect(home).toContain('data-count="3"');
+    expect(AUTOMATION_AREAS).toHaveLength(3);
+    expect(home).toContain('data-count={AUTOMATION_AREAS.length}');
     expect(home).toContain('Áreas de automatización');
     expect(newsletter).toContain('Contenido práctico para PyMEs de España y Latinoamérica.');
   });
@@ -52,7 +54,7 @@ describe('programa CRO — fase 1', () => {
     const home = read('src/pages/index.astro');
     const heroHeading = home.match(/<h1\b[^>]*>.*?<\/h1>/s)?.[0] ?? '';
 
-    expect(heroHeading).toContain('Reduce el trabajo manual de tu PyME');
+    expect(heroHeading).toContain('Reduce el trabajo manual de un proceso de tu PyME');
     expect(heroHeading).not.toContain('blur-in');
   });
 });
