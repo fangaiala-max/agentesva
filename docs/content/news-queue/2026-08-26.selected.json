@@ -1,0 +1,90 @@
+{
+  "date": "2026-08-26",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "AgeLab research inspires an A I startup",
+      "url": "https://www.technologyreview.com/2026/08/25/1140917/agelab-research-inspires-an-a-i-startup/",
+      "fecha": "2026-08-25T21:00:00.000Z",
+      "resumen": "When Don Yansen ’63 arrived at the MIT AgeLab for a study on technology in care­giving for older adults, he didn’t plan to launch another company. But when he heard participants talk about how hard modern devices can be to use, he decided to develop an alternative. Yansen, a serial entrepreneur who retired to care for…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "agelab-research-inspires-an-a-i-startup",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.7621239583333334,
+        "authority": 0.95
+      },
+      "score": 0.4093,
+      "tema": "Código"
+    },
+    {
+      "titulo": "Claude Cowork finally remembers what you told the app in chat",
+      "url": "https://techcrunch.com/2026/08/25/claude-cowork-finally-remembers-what-you-told-the-app-in-chat/",
+      "fecha": "2026-08-25T17:50:33.000Z",
+      "resumen": "Anthropic is giving Claude a shared memory across chat and Cowork, so users no longer have to repeatedly brief the AI on projects, preferences, and other context.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "claude-cowork-finally-remembers-what-you-told-the-app-in-cha",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.674415625,
+        "authority": 0.9
+      },
+      "score": 0.3912,
+      "tema": "Asistentes"
+    },
+    {
+      "titulo": "Gamma acquires Accel-backed design startup Lica",
+      "url": "https://techcrunch.com/2026/08/25/gamma-acquires-accel-backed-design-startup-lica/",
+      "fecha": "2026-08-25T15:00:00.000Z",
+      "resumen": "Lica co-founders are going to work on Gamma's new research team.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "gamma-acquires-accel-backed-design-startup-lica",
+      "signals": {
+        "hn": 3,
+        "reddit": 0,
+        "social": 0.18237350163834035,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.5954572916666667,
+        "authority": 0.9
+      },
+      "score": 0.3614,
+      "tema": "Actualidad"
+    },
+    {
+      "titulo": "MIT AI forecasts extreme weather without historical data",
+      "url": "https://www.artificialintelligence-news.com/news/mit-ai-forecasts-extreme-weather-without-historical-data/",
+      "fecha": "2026-08-25T15:46:06.000Z",
+      "resumen": "MIT engineers have built an AI tool that forecasts extreme weather without training on historical disaster data. Kai Chang, a mechanical engineering graduate student, and Professor Themis Sapsis developed the tool. It produces maps of events that have not appeared in a region’s historical record but remain statistically-possible. Each map also carries estimates of the […]\nThe post MIT AI forecasts",
+      "fuente": {
+        "nombre": "AI News",
+        "url": "https://www.artificialintelligence-news.com/feed/"
+      },
+      "slugSugerido": "mit-ai-forecasts-extreme-weather-without-historical-data",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.6167998842592592,
+        "authority": 0.6
+      },
+      "score": 0.3525,
+      "tema": "Actualidad"
+    }
+  ]
+}
