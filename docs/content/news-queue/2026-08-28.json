@@ -1,0 +1,146 @@
+{
+  "date": "2026-08-28",
+  "generatedAt": "2026-08-28T17:10:23.335Z",
+  "candidates": [
+    {
+      "titulo": "Adobe is adding more AI to Photoshop",
+      "url": "https://www.theverge.com/tech/985491/adobe-photoshop-ai-assisted-editor-markup",
+      "fecha": "2026-08-27T13:00:00.000Z",
+      "resumen": "Adobe is rolling out an AI-heavy update for Photoshop that includes a new \"optional\" interface dedicated to its AI tools. Launching in beta, the \"AI Assisted Editor\" view will show all of Photoshop's AI features in a single toolbar, including its prompt-based image editor, background remover, an AI image extender, and more.\nThere are also new ways to refine edits with AI, including a \"markup\" feat",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "adobe-is-adding-more-ai-to-photoshop",
+      "signals": {
+        "hn": 3,
+        "reddit": 0,
+        "social": 0.18237350163834035,
+        "relevance": 1,
+        "freshness": 0.217412538580247,
+        "authority": 0.9
+      },
+      "score": 0.5047
+    },
+    {
+      "titulo": "Google’s AI note-taking app now allows you to interact with books",
+      "url": "https://www.theverge.com/tech/985567/google-gemini-notebook-expert-sources-books",
+      "fecha": "2026-08-27T19:30:00.000Z",
+      "resumen": "Google's AI note-taking app, Gemini Notebook, can now pull information from the books you've purchased. The new \"Expert Intelligence\" feature allows you to bring titles from Google Play Books directly into Gemini Notebook, which means you can ask questions about the material, as well as generate plans, infographics, AI podcasts, and more based on their contents.\nDuring a briefing with The Verge, G",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "google-s-ai-note-taking-app-now-allows-you-to-interact-with-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.3979680941358025,
+        "authority": 0.9
+      },
+      "score": 0.4497
+    },
+    {
+      "titulo": "OpenAI to start showing ads on ChatGPT’s free and Go tiers in India",
+      "url": "https://techcrunch.com/2026/08/27/openai-to-start-showing-ads-on-chatgpts-free-and-go-tiers-in-india/",
+      "fecha": "2026-08-27T11:35:59.000Z",
+      "resumen": "OpenAI has more than 100 million weekly active ChatGPT users in India, a huge chunk of whom are on the free or the lower-priced Go tiers.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "openai-to-start-showing-ads-on-chatgpt-s-free-and-go-tiers-i",
+      "signals": {
+        "hn": 7,
+        "reddit": 0,
+        "social": 0.27356025245751053,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.17851593364197527,
+        "authority": 0.9
+      },
+      "score": 0.4399
+    },
+    {
+      "titulo": "Plaud’s new earphones come with an eSIM-enabled case for talking to AI agents",
+      "url": "https://techcrunch.com/2026/08/27/plauds-new-earphones-come-with-an-esim-enabled-case-for-talking-to-ai-agents/",
+      "fecha": "2026-08-27T13:00:00.000Z",
+      "resumen": "Called Plaud One, these adopt the simple bare-bones style of Apple's AirPods, and can record calls, while their case can be used to record in-person conversations or take notes.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "plaud-s-new-earphones-come-with-an-esim-enabled-case-for-tal",
+      "signals": {
+        "hn": 6,
+        "reddit": 0,
+        "social": 0.2559935737386376,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.217412538580247,
+        "authority": 0.9
+      },
+      "score": 0.4378
+    },
+    {
+      "titulo": "Enterprise AI's real risk isn't autonomous agents. It's the complexity between them.",
+      "url": "https://venturebeat.com/ai/enterprise-ais-real-risk-isnt-autonomous-agents-its-the-complexity-between-them",
+      "fecha": "2026-08-27T14:01:00.000Z",
+      "resumen": "Presented by Gravitee \n\nAgent complexity is the insidious shadow lurking inside enterprises right now that needs a light shone on it.\nThat’s because enterprises don't deploy a single agent and watch it run, they deploy fleets, each one calling APIs, calling other agents, reaching into applications that were never built with a machine decision-maker in mind. That's the failure mode that should keep",
+      "fuente": {
+        "nombre": "VentureBeat",
+        "url": "https://venturebeat.com/category/ai/feed/"
+      },
+      "slugSugerido": "enterprise-ai-s-real-risk-isn-t-autonomous-agents-it-s-the-c",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.24565327932098768,
+        "authority": 0.8
+      },
+      "score": 0.4168
+    },
+    {
+      "titulo": "The Download: a secretive antiaging drug and joining virtual power plants",
+      "url": "https://www.technologyreview.com/2026/08/28/1143113/the-download-antiaging-drug-joining-virtual-power-plants/",
+      "fecha": "2026-08-28T12:35:27.000Z",
+      "resumen": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. A startup claims it’s found a drug to make your blood young —Antonio Regalado I knew I’d officially become a “longevity influencer” when a company called Generation Lab offered me the…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "the-download-a-secretive-antiaging-drug-and-joining-virtual-",
+      "signals": {
+        "hn": 2,
+        "reddit": 0,
+        "social": 0.1445275806109889,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.8727134645061728,
+        "authority": 0.95
+      },
+      "score": 0.3909
+    },
+    {
+      "titulo": "A startup claims it’s found a drug to make your blood young",
+      "url": "https://www.technologyreview.com/2026/08/27/1143037/startup-claims-its-found-a-drug-to-make-your-blood-young/",
+      "fecha": "2026-08-27T19:48:13.000Z",
+      "resumen": "I knew I’d officially become a “longevity influencer” this month when a company called Generation Lab reached out to offer me the chance to write about—and even receive—their new rejuvenation treatment, an injectable combination of two existing drugs which they call 1 Generation. This wasn’t just any antiaging treatment, either. A company fact sheet says that…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "a-startup-claims-it-s-found-a-drug-to-make-your-blood-young",
+      "signals": {
+        "hn": 6,
+        "reddit": 0,
+        "social": 0.2559935737386376,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.4064017361111111,
+        "authority": 0.95
+      },
+      "score": 0.3712
+    }
+  ]
+}
