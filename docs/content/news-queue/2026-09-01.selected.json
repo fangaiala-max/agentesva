@@ -1,0 +1,90 @@
+{
+  "date": "2026-09-01",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "ChatGPT to face tougher regulation in the EU",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/986682/openai-chatgpt-eu-dsa",
+      "fecha": "2026-08-31T13:27:36.000Z",
+      "resumen": "OpenAI will soon be held accountable for mitigating risks related to ChatGPT's impact on minors, user mental health, and the spread of illegal content in the European Union. That's because ChatGPT is now considered a Very Large Online Search Engine under the EU's Digital Services Act, a set of laws regulating major online services and platforms.\nAlong with ChatGPT, the European Commission also ann",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "chatgpt-to-face-tougher-regulation-in-the-eu",
+      "signals": {
+        "hn": 40,
+        "reddit": 0,
+        "social": 0.48853775964585483,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.4356069907407407,
+        "authority": 0.9
+      },
+      "score": 0.5752,
+      "tema": "Código"
+    },
+    {
+      "titulo": "The Pentagon now has its own version of ChatGPT and Grok",
+      "url": "https://techcrunch.com/2026/08/31/the-pentagon-now-has-its-own-version-of-chatgpt-and-grok/",
+      "fecha": "2026-08-31T20:13:45.000Z",
+      "resumen": "Versions of OpenAI's ChatGPT and SpaceXAI's Grok will join Google's Gemini on the Pentagon's central portal for AI tools.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "the-pentagon-now-has-its-own-version-of-chatgpt-and-grok",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.6236393981481482,
+        "authority": 0.9
+      },
+      "score": 0.4835,
+      "tema": "Asistentes"
+    },
+    {
+      "titulo": "Instagram cracks down on AI accounts pretending to be human",
+      "url": "https://www.theverge.com/tech/986593/instagram-addresses-fake-ai-profile-slop",
+      "fecha": "2026-08-31T13:00:00.000Z",
+      "resumen": "“AI creator” accounts like Aitana Lopez will get a new “AI-generated profile” label. | Image: Aitana Lopez\t\n\nInstagram is finally taking steps to address the rise of fake AI-influencer accounts that have gotten harder to spot. It's also renaming the \"AI creator\" label to \"AI-generated profile\" to make it clear when a profile features an AI-generated person that's not a real human being. \n\"We've he",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "instagram-cracks-down-on-ai-accounts-pretending-to-be-human",
+      "signals": {
+        "hn": 6,
+        "reddit": 0,
+        "social": 0.2559935737386376,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.42282921296296294,
+        "authority": 0.9
+      },
+      "score": 0.3686,
+      "tema": "Automatización"
+    },
+    {
+      "titulo": "Meeting note-taker Circleback adds a free tier to attract more customers",
+      "url": "https://techcrunch.com/2026/08/31/meeting-notetaker-circleback-adds-a-free-tier-to-attract-more-customers/",
+      "fecha": "2026-08-31T12:56:46.000Z",
+      "resumen": "Circleback is also introducing new pricing plans starting from $14 per month.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "meeting-note-taker-circleback-adds-a-free-tier-to-attract-mo",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.421332299382716,
+        "authority": 0.9
+      },
+      "score": 0.3532,
+      "tema": "Actualidad"
+    }
+  ]
+}
