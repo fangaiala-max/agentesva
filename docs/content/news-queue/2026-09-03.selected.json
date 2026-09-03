@@ -1,0 +1,90 @@
+{
+  "date": "2026-09-03",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "Google says its new Gemini 3.8 Flash model ‘works harder’ but might cost more",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/988742/google-gemini-3-8-flash",
+      "fecha": "2026-09-02T20:11:40.000Z",
+      "resumen": "Google launched Gemini 3.8 Flash, arriving just a few weeks after its predecessor. The company claims the new model \"works harder\" than Gemini 3.7 Flash by performing more reasoning steps on complex tasks and \"calling tools iteratively.\" It has the same introductory pricing as 3.7 Flash, $0.75 per million input tokens and $3.75 per million output tokens, but could still end up costing users more. ",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "google-says-its-new-gemini-3-8-flash-model-works-harder-but-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.6308928395061728,
+        "authority": 0.9
+      },
+      "score": 0.4846,
+      "tema": "Asistentes"
+    },
+    {
+      "titulo": "HiddenLayer nabs $100M as enterprises rush to secure their AI deployments",
+      "url": "https://techcrunch.com/2026/09/02/hiddenlayer-nabs-100m-as-enterprises-rush-to-secure-their-ai-deployments/",
+      "fecha": "2026-09-02T15:01:23.000Z",
+      "resumen": "Security companies are scrambling to build products that can monitor not just agents but also the tools and add-ons they use.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "hiddenlayer-nabs-100m-as-enterprises-rush-to-secure-their-ai",
+      "signals": {
+        "hn": 2,
+        "reddit": 0,
+        "social": 0.1445275806109889,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.4872431481481482,
+        "authority": 0.9
+      },
+      "score": 0.4281,
+      "tema": "Automatización"
+    },
+    {
+      "titulo": "Pangram’s Max Spero on why AI detection is harder than ‘Real or Fake’",
+      "url": "https://techcrunch.com/video/pangrams-max-spero-on-why-ai-detection-is-harder-than-real-or-fake/",
+      "fecha": "2026-09-02T17:18:13.000Z",
+      "resumen": "The internet has a trust problem, and it’s not just because social media feeds are filling up with AI slop. AI-generated text and images are now making their way into job applications, product reviews, and even insurance claims, leaving platforms and users alike scrambling to figure out what’s real.  A handful of startups have cropped up in the past couple of […]",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "pangram-s-max-spero-on-why-ai-detection-is-harder-than-real-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.550591913580247,
+        "authority": 0.9
+      },
+      "score": 0.3726,
+      "tema": "Marketing"
+    },
+    {
+      "titulo": "Google is sending MrBeast into the wilderness, armed with AI",
+      "url": "https://www.theverge.com/tech/988355/mrbeast-google-partnership-gemini-fitbit",
+      "fecha": "2026-09-02T15:47:03.000Z",
+      "resumen": "MrBeast will feature Gemini, Google Health, and the Fitbit Air in upcoming videos as part of a multi-year partnership with Google. The deal will kick off with a video featuring Jimmy \"MrBeast\" Donaldson turning to Gemini for wilderness survival advice:\nFirst up on September 5 is a new MrBeast video following Jimmy and his crew as they attempt to survive some of the most extreme and treacherous cli",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "google-is-sending-mrbeast-into-the-wilderness-armed-with-ai",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5083851234567901,
+        "authority": 0.9
+      },
+      "score": 0.3663,
+      "tema": "Código"
+    }
+  ]
+}
