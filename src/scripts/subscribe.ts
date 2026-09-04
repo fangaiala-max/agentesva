@@ -28,6 +28,7 @@ function wire(root: HTMLElement) {
   const ok = root.querySelector<HTMLElement>('[data-subscribe-success]');
   const err = root.querySelector<HTMLElement>('[data-subscribe-error]');
   const list = form.dataset.list || 'newsletter';
+  const source = form.dataset.source || 'unknown';
 
   const showErr = (msg: string) => {
     if (err) {
@@ -63,15 +64,24 @@ function wire(root: HTMLElement) {
           list,
           consent: consent ? consent.checked : undefined,
           company: hp ? hp.value : undefined,
+          source,
+          path: window.location.pathname,
         }),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
         throw new Error(data.error || 'No se pudo completar la suscripción.');
       }
+      const data = await res.json().catch(() => ({}));
       form.hidden = true;
+      const title = root.querySelector<HTMLElement>('[data-subscribe-success-title]');
+      const copy = root.querySelector<HTMLElement>('[data-subscribe-success-copy]');
+      if (data.doi === false) {
+        if (title) title.textContent = '✓ Suscripción completada';
+        if (copy) copy.textContent = 'Tu email se ha añadido correctamente. Recibirás la próxima edición en tu bandeja de entrada.';
+      }
       if (ok) ok.hidden = false;
-      track('newsletter_submit', { list });
+      track('newsletter_submit', { list, source });
     } catch (e2) {
       submit.disabled = false;
       submit.textContent = original;

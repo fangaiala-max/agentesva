@@ -6,7 +6,10 @@ function validBody() {
     name: 'Ada Lovelace',
     email: 'ada@example.com',
     consent: true,
-    company: '',
+    website: '',
+    organizationName: 'Analytical Engines SL',
+    role: 'Fundadora',
+    source: { landingPage: '/servicios/automatizacion-ventas/', ctaPlacement: 'hero', utm: { utm_source: 'linkedin', unsafe: 'drop' } },
     businessType: 'Agencia de servicios',
     teamSize: '2_5',
     goal: 'sales',
@@ -71,7 +74,7 @@ describe('diagnostic API', () => {
 
   it('devuelve éxito falso al honeypot sin entregar el lead', async () => {
     const res = makeRes();
-    await handler(makeReq({ body: { ...validBody(), company: 'Bot Corp' } }), res);
+    await handler(makeReq({ body: { ...validBody(), website: 'https://bot.example' } }), res);
     expect(res.statusCode).toBe(200);
     expect(res.payload).toEqual({ success: true });
     expect(fetchMock).not.toHaveBeenCalled();
@@ -97,6 +100,11 @@ describe('diagnostic API', () => {
     const payload = JSON.parse(options.body);
     expect(payload.result.qualificationBand).toBe('high');
     expect(payload.result.resultType).toBe('qualified_call');
+    expect(payload.contact.organizationName).toBe('Analytical Engines SL');
+    expect(payload.contact.role).toBe('Fundadora');
+    expect(payload.source).toMatchObject({ landingPage: '/servicios/automatizacion-ventas/', ctaPlacement: 'hero', utm: { utm_source: 'linkedin' } });
+    expect(payload.source.utm.unsafe).toBeUndefined();
+    expect(payload.routing).toMatchObject({ queue: 'priority_bdr', priority: 'P1', recommendedNextStep: 'qualified_call' });
     expect(payload.qualificationBand).toBeUndefined();
     expect(options.headers.Authorization).toBe('Bearer secret-test');
     expect(res.payload).toMatchObject({ success: true, result: { qualificationBand: 'high' } });

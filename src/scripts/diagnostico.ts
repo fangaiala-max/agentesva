@@ -43,6 +43,33 @@ function wire(root: HTMLElement): void {
   let index = 0;
   let started = false;
   let currentResult: ReturnType<typeof classifyDiagnostic> | null = null;
+  const storageKey = 'agentesva:diagnostic:v1';
+
+  const persistState = () => {
+    const data = Object.fromEntries(new FormData(form).entries());
+    sessionStorage.setItem(storageKey, JSON.stringify({ index, data }));
+  };
+
+  const restoreState = () => {
+    try {
+      const saved = JSON.parse(sessionStorage.getItem(storageKey) || 'null') as { index?: number; data?: Record<string, string> } | null;
+      if (!saved?.data) return;
+      for (const [name, savedValue] of Object.entries(saved.data)) {
+        const controls = form.elements.namedItem(name);
+        if (controls instanceof RadioNodeList) {
+          Array.from(controls).forEach((control) => {
+            if (control instanceof HTMLInputElement) control.checked = control.value === savedValue;
+          });
+        } else if (controls instanceof HTMLInputElement || controls instanceof HTMLTextAreaElement) {
+          controls.value = savedValue;
+        }
+      }
+      index = Math.max(0, Math.min(steps.length - 1, Number(saved.index) || 0));
+      started = index > 0;
+    } catch {
+      sessionStorage.removeItem(storageKey);
+    }
+  };
 
   const showStep = (nextIndex: number) => {
     index = Math.max(0, Math.min(steps.length - 1, nextIndex));
@@ -87,9 +114,11 @@ function wire(root: HTMLElement): void {
       cluster: a.goal ? clusterFor(a.goal) : 'general',
     });
     showStep(index + 1);
+    persistState();
   });
 
-  back.addEventListener('click', () => showStep(index - 1));
+  back.addEventListener('click', () => { showStep(index - 1); persistState(); });
+  form.addEventListener('input', persistState);
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -137,8 +166,17 @@ function wire(root: HTMLElement): void {
           ...answers(form),
           name: String(contact.get('name') || ''),
           email: String(contact.get('email') || ''),
-          company: String(contact.get('company') || ''),
+          organizationName: String(contact.get('organizationName') || ''),
+          role: String(contact.get('role') || ''),
+          website: String(contact.get('website') || ''),
           consent: contact.get('consent') === 'on',
+          source: {
+            landingPage: window.location.pathname,
+            referrer: document.referrer,
+            ctaPlacement: new URLSearchParams(window.location.search).get('placement') || '',
+            serviceIntent: new URLSearchParams(window.location.search).get('service') || '',
+            utm: Object.fromEntries(Array.from(new URLSearchParams(window.location.search)).filter(([key]) => key.startsWith('utm_'))),
+          },
         }),
       });
       const payload = await response.json().catch(() => ({}));
@@ -163,6 +201,7 @@ function wire(root: HTMLElement): void {
       contactForm.hidden = true;
       contactSuccess.hidden = false;
       contactSuccess.focus();
+      sessionStorage.removeItem(storageKey);
     } catch (submissionError) {
       contactSubmit.disabled = false;
       contactSubmit.textContent = original;
@@ -184,10 +223,23 @@ function wire(root: HTMLElement): void {
     contactSubmit.textContent = 'Enviar diagnóstico →';
     currentResult = null;
     started = false;
+    sessionStorage.removeItem(storageKey);
     showStep(0);
   });
 
-  showStep(0);
+  root.querySelector<HTMLAnchorElement>('[data-booking-link]')?.addEventListener('click', () => {
+    if (!currentResult) return;
+    trackGrowthEvent('booking_started', {
+      booking_provider: 'calendly',
+      placement: 'diagnostic_result',
+      cluster: currentResult.cluster,
+      service: currentResult.service,
+      qualification_band: currentResult.qualificationBand,
+    });
+  });
+
+  restoreState();
+  showStep(index);
 }
 
 export function initDiagnostic(): void {

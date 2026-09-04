@@ -5,7 +5,7 @@ import SiteFooter from '../components/SiteFooter.astro';
 import ToolCard from '../components/ToolCard.astro';
 import ServiceSpotlightGrid from '../components/ServiceSpotlightGrid.astro';
 import { getCollection } from 'astro:content';
-import { toTool, PRICE_COLOR, priceRank, toolsClaim } from '../data/tools';
+import { toTool, priceRank, toolsClaim } from '../data/tools';
 import { crumbPath } from '../data/breadcrumbs';
 
 const tools = (await getCollection('tools')).map(toTool).sort((a, b) => a.orden - b.orden);
@@ -14,9 +14,6 @@ const cats = (await getCollection('categories')).sort((a, b) => a.data.orden - b
 const CATEGORIES = ['Todas', ...cats.map((c) => c.data.nombre)];
 const catIdByName = new Map(cats.map((c) => [c.data.nombre, c.id]));
 const countByCat = (nombre: string) => tools.filter((t) => t.cat === nombre).length;
-
-// Destacada del hero — "Elección del editor" (destacado: true en la colección).
-const featured = tools.find((t) => t.destacado) ?? tools[0];
 
 // Estantes del layout "Escaparate" (derivados de datos reales: orden = curaduría).
 const shelves = [
@@ -36,7 +33,6 @@ const shelves = [
 ];
 
 // Avatares (monogramas reales del directorio).
-const heroAvatars = tools.slice(0, 5);
 const collAvatars = tools.filter((t) => ['WhatsApp', 'Marketing', 'Asistentes'].includes(t.cat)).slice(0, 5);
 
 // Banners "Explora por objetivo" — 6 categorías curadas del diseño, con conteos reales.
@@ -49,7 +45,6 @@ const CAT_BANNERS = [
   { nombre: 'Vídeo', sub: 'Contenido en vídeo', icon: '▶', iconBg: '#5B47FB', bg: 'linear-gradient(150deg,#1B1E4A,#0C1E3C)', glow: 'rgba(91,71,251,0.20)' },
 ].filter((b) => catIdByName.has(b.nombre));
 
-const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
 ---
 
 <BaseLayout
@@ -60,74 +55,45 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
 
   <main>
   <!-- ===== HERO + BUSCADOR + DESTACADA ===== -->
-  <section style="position: relative; overflow: hidden; border-bottom: 1px solid var(--line);">
-    <div aria-hidden="true" style="position: absolute; inset: -54px; background-color: var(--bg); background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 54px 54px; animation: gridDrift 6s linear infinite; opacity: 0.55;"></div>
-    <div aria-hidden="true" style="position: absolute; top: -180px; left: 32%; width: 720px; height: 520px; background: radial-gradient(ellipse, rgba(91,124,255,0.18) 0%, rgba(91,124,255,0) 64%); animation: auroraDrift 15s ease-in-out infinite; pointer-events: none;"></div>
+  <section class="reach-home-hero spotlight" style="position: relative; overflow: hidden; border-bottom: 1px solid var(--line);">
+    <div class="signal-grid" aria-hidden="true"></div>
+    <div class="signal-orbit" aria-hidden="true"><span>IA</span><span>01</span><span>VA</span></div>
+    <div class="kinetic-type" aria-hidden="true"><span>AUTOMATIZA</span><span>AUTOMATIZA</span><span>AUTOMATIZA</span></div>
 
     <div class="hero-grid" style="position: relative; max-width: 1240px; margin: 0 auto; padding: 56px 32px 48px;">
       <div>
-        <span class="blur-in" style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--line-2); border-radius: 30px; padding: 6px 14px; animation-delay: .05s;">Automatización aplicada · PyMEs</span>
-        <h1 class="blur-in" style="font-family: var(--serif); font-weight: 400; font-size: clamp(38px, 5.5vw, 54px); line-height: 1.03; letter-spacing: -0.035em; margin: 20px 0 0; color: #fff; animation-delay: .14s;">Detecta e implementa<br>la automatización que <span style="color: var(--accent);">sí merece la pena</span></h1>
-        <p class="blur-in" style="font-size: 16.5px; line-height: 1.6; color: var(--fg-3); margin: 18px 0 0; max-width: 35em; animation-delay: .26s;">Analizamos atención al cliente, ventas y operaciones. Elegimos un primer proceso y dejamos un flujo probado, documentado y bajo control.</p>
-        <div class="blur-in hero-actions" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;animation-delay:.32s"><a href="/diagnostico-automatizacion-ia/" class="hero-cta hero-cta--primary shimmer" data-magnetic data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="general_consulting" data-track-cluster="general" data-track-placement="hero"><span>Hacer diagnóstico gratuito</span><i aria-hidden="true">→</i></a><a href="/servicios/" class="hero-cta hero-cta--secondary"><span>Ver servicios</span><i aria-hidden="true">↗</i></a></div>
-
-        <!-- search -->
-        <form id="search-form" role="search" class="searchwrap hero-search blur-in" style="display: flex; align-items: center; gap: 12px; max-width: 520px; margin: 26px 0 0; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 4px; padding: 4px 4px 4px 18px; transition: border-color .25s, box-shadow .25s; animation-delay: .38s;">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--fg-5)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
-          <label for="tool-search" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Buscar herramientas</label>
-          <input id="tool-search" type="search" autocomplete="off" placeholder="Busca: chatbot, automatizar WhatsApp, crear vídeos…" style="flex: 1; min-width: 0; background: transparent; border: none; outline: none; color: #fff; font-family: var(--sans); font-size: 15px; padding: 12px 0;">
-          <button type="submit" class="hero-search__button">Buscar <span aria-hidden="true">→</span></button>
-        </form>
-
-        <!-- quick chips -->
-        <div role="group" aria-label="Explorar por categoría" class="blur-in" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; animation-delay: .5s;">
-          {QUICK_CHIPS.map((c) => (
-            <button type="button" class="chip quick-chip" data-quick={c} style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 14px; border-radius: 30px; background: transparent; color: var(--fg-3); border: 1px solid var(--line-2);">{c}</button>
-          ))}
-        </div>
-
-        <!-- social proof (monogramas = herramientas destacadas, no avatares de usuarios) -->
-        <div class="blur-in" style="display: flex; align-items: center; gap: 18px; margin-top: 24px; animation-delay: .6s;">
-          <div style="display: flex;" aria-hidden="true">
-            {heroAvatars.map((t) => (
-              <span style={`width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--bg); margin-left: -8px; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 12px; color: #fff; background: ${t.color};`}>{t.name.charAt(0)}</span>
-            ))}
-          </div>
-          <span style="font-family: var(--mono); font-size: 11px; color: var(--fg-4); line-height: 1.5;">Lo más destacado del directorio · Leído por +1.200 negocios</span>
-        </div>
+        <span class="hero-kicker blur-in">// AUTOMATIZACIÓN APLICADA · PYMES</span>
+        <h1 class="signal-title">AUTOMATIZA<br />LO QUE <span>SÍ</span><br />IMPORTA.</h1>
+        <p class="blur-in" style="font-size: 17px; line-height: 1.6; color: var(--fg-3); margin: 18px 0 0; max-width: 38em; animation-delay: .26s;">Diseñamos e implementamos automatizaciones de atención, ventas y operaciones para PyMEs. Empezamos por un proceso concreto y dejamos un flujo probado, documentado y bajo control.</p>
+        <div class="blur-in hero-actions" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;animation-delay:.32s"><a href="/diagnostico-automatizacion-ia/" class="hero-cta hero-cta--primary shimmer" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="general_consulting" data-track-cluster="general" data-track-placement="hero"><span>Hacer diagnóstico gratuito</span><i aria-hidden="true">→</i></a><a href="#servicios-home" class="hero-cta hero-cta--secondary"><span>Ver casos de uso</span><i aria-hidden="true">↓</i></a></div>
+        <p class="hero-assurance blur-in">3 minutos · Recomendación inmediata · Datos de contacto solo después del resultado</p>
       </div>
 
-      <!-- Destacada: Elección del editor -->
-      <a href={crumbPath(`/herramienta/${featured.slug}`)} class="lift blur-in" style="display: block; position: relative; background: linear-gradient(160deg, #12315E 0%, var(--panel-3) 60%); border: 1px solid var(--line-2); border-radius: 12px; padding: 24px; text-decoration: none; animation-delay: .32s;">
-        <span style="display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(245,196,81,0.4); border-radius: 20px; padding: 5px 11px;">★ Elección del editor</span>
-        <div style="display: flex; align-items: center; gap: 14px; margin-top: 18px;">
-          <div style={`width: 54px; height: 54px; border-radius: 12px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 24px; color: #fff; background: ${featured.color};`}>{featured.name.charAt(0)}</div>
-          <div>
-            <div style="font-family: var(--serif); font-size: 26px; letter-spacing: -0.02em; color: #fff;">{featured.name}</div>
-            <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5); margin-top: 2px;">{featured.cat}</div>
-          </div>
-        </div>
-        <p style="font-size: 14.5px; line-height: 1.55; color: var(--fg-2); margin: 16px 0 0;">{featured.tagline}</p>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line);">
-          <span style="font-family: var(--mono); font-size: 12px; color: var(--fg-2);"><span style="color: var(--gold);">★</span> {featured.rating} · <span style={`color: ${PRICE_COLOR[featured.price]};`}>{featured.price}</span></span>
-          <span style="font-family: var(--sans); font-weight: 600; font-size: 13px; color: var(--accent);">Ver ficha →</span>
-        </div>
-      </a>
+      <aside class="hero-feature decision-card blur-in" aria-label="Qué ocurre después del diagnóstico">
+        <span class="decision-card__eyebrow">// TU RUTA DE DECISIÓN</span>
+        <h2>Primero claridad.<br />Después inversión.</h2>
+        <ol>
+          <li><span>01</span><div><strong>Diagnóstico gratuito</strong><small>Prioridad y siguiente paso en pantalla.</small></div></li>
+          <li><span>02</span><div><strong>Taller desde 300 €</strong><small>Mapa, viabilidad, riesgos y alcance.</small></div></li>
+          <li><span>03</span><div><strong>Implementación desde 1.500 €</strong><small>Un flujo funcional, probado y documentado.</small></div></li>
+        </ol>
+        <a href="/precios-automatizacion-ia/">Ver inversión y entregables <span>↗</span></a>
+      </aside>
     </div>
   </section>
 
-  <ServiceSpotlightGrid />
+  <div id="servicios-home"><ServiceSpotlightGrid /></div>
 
-  <!-- ===== PACK BANNER (sin countdown: el pack es gratis siempre, sin falsa urgencia) ===== -->
-  <a href="#pack" style="text-decoration: none; display: block; max-width: 1240px; margin: 22px auto 0; padding: 0 32px;">
-    <section class="banner" style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; background: #10233F; border: 1px solid var(--line-2); border-left: 3px solid var(--gold); border-radius: 10px; padding: 18px 24px; cursor: pointer;">
-      <span style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold);">
-        <span aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: var(--gold); animation: dotPulse 1.4s ease-in-out infinite;"></span>Pack gratis
-      </span>
-      <span style="font-family: var(--sans); font-size: 15.5px; color: #fff; font-weight: 600; flex: 1; min-width: 220px;">Pack de Recursos IA <span style="color: var(--fg-3); font-weight: 400;">— 30 prompts y plantillas listas para tu negocio.</span></span>
-      <span style="font-family: var(--sans); font-weight: 600; font-size: 13.5px; color: var(--gold); border:1px solid rgba(245,196,81,.55); padding: 10px 18px; border-radius: 2px; white-space: nowrap;">Conseguir gratis →</span>
-    </section>
-  </a>
+  <section class="buyer-path" aria-labelledby="buyer-path-title">
+    <div class="buyer-path__intro"><span>// CÓMO COMPRAR SIN ADIVINAR</span><h2 id="buyer-path-title">De una tarea repetitiva a un sistema bajo control.</h2><p>Cada fase reduce incertidumbre antes de aumentar la inversión.</p></div>
+    <ol class="buyer-path__steps">
+      <li><span>01</span><strong>Diagnosticar</strong><p>Detecta prioridad, frecuencia y riesgo.</p></li>
+      <li><span>02</span><strong>Definir</strong><p>Mapeamos el flujo y el criterio de éxito.</p></li>
+      <li><span>03</span><strong>Implementar</strong><p>Construimos y probamos con casos reales.</p></li>
+      <li><span>04</span><strong>Controlar</strong><p>Documentación, formación y seguimiento.</p></li>
+    </ol>
+    <div class="buyer-path__close"><div><strong>¿Buen encaje?</strong><span>El proceso ocurre cada semana, tiene responsable y puede medirse.</span></div><div><strong>Plazo orientativo</strong><span>2–4 semanas para una implementación acotada.</span></div><a href="/diagnostico-automatizacion-ia/">Empezar diagnóstico gratuito →</a></div>
+  </section>
 
   <!-- ===== EXPLORA POR OBJETIVO ===== -->
   <section style="max-width: 1240px; margin: 40px auto 0; padding: 0 32px;">
@@ -415,9 +381,9 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
   <!-- ===== BARRA CTA FIJA (fondo sólido: sin backdrop-filter permanente) ===== -->
   <div id="cta-bar" hidden style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: var(--bg-2); border-top: 1px solid var(--line-2); animation: slideUp .4s cubic-bezier(0.22,0.61,0.36,1) both;">
     <div style="max-width: 1240px; margin: 0 auto; padding: 12px 32px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap;">
-      <span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: var(--gold); animation: dotPulse 1.4s ease-in-out infinite; flex: none;"></span>
-      <span style="font-family: var(--sans); font-size: 14.5px; color: #fff; font-weight: 600; flex: 1; min-width: 200px;">Pack de Recursos IA gratis <span style="color: var(--fg-3); font-weight: 400;">— 30 prompts y plantillas para tu negocio.</span></span>
-      <a href="#pack" style="font-family: var(--sans); font-weight: 600; font-size: 13.5px; color: var(--bg); background: var(--accent); padding: 10px 20px; border-radius: 2px; text-decoration: none; white-space: nowrap;">Conseguir gratis →</a>
+      <span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex: none;"></span>
+      <span style="font-family: var(--sans); font-size: 14.5px; color: #fff; font-weight: 600; flex: 1; min-width: 200px;">¿Tienes un proceso repetitivo? <span style="color: var(--fg-3); font-weight: 400;">Descubre si merece la pena automatizarlo.</span></span>
+      <a href="/diagnostico-automatizacion-ia/" style="font-family: var(--sans); font-weight: 700; font-size: 12px; text-transform:uppercase; color: #fff; background: var(--accent); padding: 11px 20px; border-radius:var(--radius-pill); text-decoration: none; white-space: nowrap;">Diagnóstico gratuito →</a>
       <button type="button" id="cta-dismiss" aria-label="Cerrar aviso" style="background: none; border: none; cursor: pointer; color: var(--fg-5); padding: 6px; display: flex;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
     </div>
   </div>
@@ -453,18 +419,58 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
 </BaseLayout>
 
 <style>
+  .reach-home-hero { min-height: 760px; background:var(--accent); color:#fff; isolation:isolate; --mx:72%; --my:34%; }
+  .reach-home-hero.spotlight::before { z-index:-1; opacity:1; background:radial-gradient(520px circle at var(--mx) var(--my),rgba(255,255,255,.24),transparent 64%); transition:opacity .3s; }
+  .reach-home-hero::after { position: absolute; inset: auto 0 0; height: 18%; background: linear-gradient(transparent,rgba(0,0,0,.22)); content: ''; pointer-events: none; z-index: -1; }
+  .signal-grid { position:absolute; inset:0; z-index:-2; opacity:.22; background-image:linear-gradient(rgba(255,255,255,.24) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.24) 1px,transparent 1px); background-size:72px 72px; mask-image:linear-gradient(to bottom,transparent,black 28%,black 80%,transparent); }
+  .signal-orbit { position:absolute; right:-6vw; top:4rem; z-index:-1; width:min(52vw,650px); aspect-ratio:1; border:1px solid rgba(255,255,255,.28); border-radius:50%; }
+  .signal-orbit::before,.signal-orbit::after{position:absolute;inset:13%;border:1px solid rgba(255,255,255,.23);border-radius:50%;content:''}.signal-orbit::after{inset:31%}
+  .signal-orbit span{position:absolute;font:600 10px var(--mono);letter-spacing:.18em}.signal-orbit span:nth-child(1){left:8%;top:28%}.signal-orbit span:nth-child(2){right:12%;top:47%}.signal-orbit span:nth-child(3){left:43%;bottom:-5px}
+  .kinetic-type { position:absolute; inset:0; z-index:-1; display:grid; align-content:center; overflow:hidden; opacity:.15; transform:rotate(-7deg) scale(1.1); pointer-events:none; }
+  .kinetic-type span { display:block; width:max-content; font:750 clamp(110px,18vw,260px)/.7 var(--display); letter-spacing:-.09em; color:transparent; -webkit-text-stroke:1px #fff; animation:kineticSlide 18s linear infinite; }
+  .kinetic-type span:nth-child(2){margin-left:-22vw;animation-direction:reverse;animation-duration:23s}.kinetic-type span:nth-child(3){margin-left:12vw;animation-duration:27s}
+  .hero-kicker { display:inline-flex; font:500 11px var(--mono); letter-spacing:.14em; color:#fff; border:1px solid rgba(255,255,255,.6); border-radius:var(--radius-pill); padding:8px 14px; }
+  .hero-assurance { margin:14px 0 0!important; color:rgba(255,255,255,.74)!important; font:500 10px/1.5 var(--mono)!important; letter-spacing:.04em; text-transform:uppercase; }
+  .reach-home-hero > .hero-grid > div > p { color:rgba(255,255,255,.86)!important; }
+  .reach-home-hero .quick-chip { color:#fff!important; border-color:rgba(255,255,255,.55)!important; }
+  .reach-home-hero .quick-chip:hover { background:#fff!important; color:#050505!important; }
+  .reach-home-hero .hero-grid > div > div:last-child span:last-child { color:rgba(255,255,255,.78)!important; }
+  .signal-title { max-width:760px; margin:24px 0 0; font:650 clamp(54px,7.5vw,102px)/.82 var(--display); letter-spacing:-.075em; color:#fff; text-transform:uppercase; }
+  .signal-title span { color:#050505; font-style:italic; font-weight:450; }
+  .hero-feature { overflow:hidden; background:linear-gradient(145deg,rgba(5,5,5,.97),rgba(11,11,18,.9)); border-radius:0; box-shadow:24px 24px 0 rgba(255,255,255,.14),0 30px 80px rgba(0,0,0,.32); transform:rotate(1.5deg); backdrop-filter:blur(12px); }
+  .hero-feature::before { position:absolute; inset:0; background:linear-gradient(110deg,transparent 35%,rgba(41,71,255,.18),transparent 65%); content:''; transform:translateX(-100%); animation:featureSweep 7s var(--ease-out-expo) infinite; pointer-events:none; }
+  .hero-feature:hover { transform:rotate(0) translateY(-5px); }
+  .decision-card { display:block; position:relative; border:1px solid rgba(255,255,255,.16); padding:30px; animation-delay:.38s; }
+  .decision-card::before { display:none; }
+  .decision-card__eyebrow { color:var(--accent); font:600 10px var(--mono); letter-spacing:.16em; }
+  .decision-card h2 { margin:14px 0 24px; color:#fff; font:600 clamp(30px,3.6vw,48px)/.98 var(--display); letter-spacing:-.055em; text-transform:uppercase; }
+  .decision-card ol { display:grid; gap:0; margin:0; padding:0; list-style:none; border-top:1px solid var(--line); }
+  .decision-card li { display:grid; grid-template-columns:36px 1fr; gap:12px; padding:15px 0; border-bottom:1px solid var(--line); }
+  .decision-card li>span { color:var(--accent); font:600 10px var(--mono); }
+  .decision-card strong,.decision-card small { display:block; }.decision-card strong{color:#fff;font:600 14px var(--sans)}.decision-card small{margin-top:4px;color:var(--fg-3);font:12px/1.45 var(--sans)}
+  .decision-card>a { display:flex; justify-content:space-between; margin-top:22px; color:#fff; font:700 12px var(--sans); text-transform:uppercase; letter-spacing:.04em; text-decoration:none; }
+  .buyer-path { max-width:1240px; margin:0 auto; padding:96px 32px; }
+  .buyer-path__intro { display:grid; grid-template-columns:1.4fr .6fr; gap:30px; align-items:end; }.buyer-path__intro>span{grid-column:1/-1;color:var(--accent);font:600 10px var(--mono);letter-spacing:.16em}.buyer-path__intro h2{margin:0;color:#fff;font:600 clamp(38px,5.5vw,70px)/.96 var(--display);letter-spacing:-.055em;text-transform:uppercase}.buyer-path__intro p{margin:0;color:var(--fg-3);font:16px/1.6 var(--sans)}
+  .buyer-path__steps { display:grid; grid-template-columns:repeat(4,1fr); margin:52px 0 0; padding:0; list-style:none; border-block:1px solid var(--line-2); }.buyer-path__steps li{min-height:230px;padding:24px;border-right:1px solid var(--line-2)}.buyer-path__steps li:last-child{border:0}.buyer-path__steps li>span{color:var(--accent);font:600 11px var(--mono)}.buyer-path__steps strong{display:block;margin-top:64px;color:#fff;font:600 22px var(--display);text-transform:uppercase}.buyer-path__steps p{margin:9px 0 0;color:var(--fg-3);font:14px/1.5 var(--sans)}
+  .buyer-path__close { display:grid; grid-template-columns:1fr 1fr auto; gap:32px; align-items:center; margin-top:24px;padding:22px 24px;background:var(--panel);border:1px solid var(--line)}.buyer-path__close strong,.buyer-path__close span{display:block}.buyer-path__close strong{color:#fff;font:600 13px var(--sans)}.buyer-path__close span{margin-top:4px;color:var(--fg-3);font:12px/1.4 var(--sans)}.buyer-path__close a{padding:13px 18px;border-radius:var(--radius-pill);background:var(--accent);color:#fff;font:700 11px var(--sans);text-transform:uppercase;text-decoration:none;white-space:nowrap}
+  @keyframes signalSpin { to { transform:rotate(360deg); } }
+  @keyframes kineticSlide { to { transform:translateX(-28vw); } }
+  @keyframes featureSweep { 0%,55%{transform:translateX(-100%)}85%,100%{transform:translateX(100%)} }
   .hero-actions { align-items: center; }
-  .hero-cta { position: relative; display: inline-flex; overflow: hidden; align-items: center; gap: 9px; padding: 13px 18px; border-radius: 3px; font-weight: 700; text-decoration: none; transition: transform .28s cubic-bezier(.22,.8,.3,1), border-color .28s, box-shadow .28s, background .28s; }
+  .hero-cta { position: relative; display: inline-flex; overflow: hidden; align-items: center; gap: 9px; padding: 14px 21px; border-radius: var(--radius-pill); font-weight: 700; text-decoration: none; text-transform:uppercase; font-size:12px; letter-spacing:.04em; transition: transform .4s var(--ease-out-expo), border-color .28s, box-shadow .28s, background .28s; }
   .hero-cta i { position: relative; z-index: 2; font-style: normal; transition: transform .28s cubic-bezier(.22,.8,.3,1); }
   .hero-cta span { position: relative; z-index: 2; }
   .hero-cta:hover i { transform: translateX(4px); }
-  .hero-cta--primary { background: var(--accent); color: var(--bg); box-shadow: 0 10px 30px rgba(91,124,255,.18); }
+  .hero-cta--primary { background: #fff; color: #050505; box-shadow: none; }
   .hero-cta--primary:hover { box-shadow: 0 14px 38px rgba(91,124,255,.36); }
-  .hero-cta--secondary { border: 1px solid var(--line-2); color: #fff; }
+  .hero-cta--secondary { border: 1px solid rgba(255,255,255,.65); color: #fff; }
   .hero-cta--secondary::before { position: absolute; inset: 0; background: linear-gradient(110deg, transparent, rgba(91,124,255,.13)); content: ''; transform: translateX(-105%); transition: transform .42s ease; }
   .hero-cta--secondary:hover { border-color: var(--accent); transform: translateY(-2px); }
   .hero-cta--secondary:hover::before { transform: translateX(0); }
-  .hero-search { position: relative; overflow: hidden; isolation: isolate; }
+  .hero-search { position: relative; overflow: hidden; isolation: isolate; background:#fff!important; border:0!important; border-radius:var(--radius-pill)!important; }
+  .hero-search input { color:#050505!important; }
+  .hero-search input::placeholder { color:#686868; }
+  .hero-search__button { border-radius:var(--radius-pill)!important; background:#050505!important; color:#fff!important; }
   .hero-search::after { position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: radial-gradient(180px circle at 18% 50%, rgba(91,124,255,.15), transparent 70%); content: ''; opacity: 0; transform: scale(.82); transition: opacity .3s, transform .4s; pointer-events: none; }
   .hero-search:focus-within::after { opacity: 1; transform: scale(1.45); }
   .hero-search > svg { transition: color .25s, transform .3s; }
@@ -495,12 +501,23 @@ const QUICK_CHIPS = CAT_BANNERS.map((b) => b.nombre);
     .coll-grid { grid-template-columns: 1fr; }
     .dir-body.shop { grid-template-columns: 1fr; }
     .dir-sidebar { position: static; }
+    .buyer-path__intro{grid-template-columns:1fr}.buyer-path__steps{grid-template-columns:repeat(2,1fr)}.buyer-path__steps li:nth-child(2){border-right:0}.buyer-path__steps li:nth-child(-n+2){border-bottom:1px solid var(--line-2)}.buyer-path__close{grid-template-columns:1fr}
   }
   @media (max-width: 560px) {
+    .reach-home-hero { min-height:auto; }
+    .signal-title { font-size:clamp(42px,14vw,62px); letter-spacing:-.065em; }
+    .signal-orbit { width:92vw; right:-45vw; opacity:.55; }
+    .kinetic-type span { animation:none; }
+    .hero-feature { transform:none; box-shadow:8px 8px 0 rgba(255,255,255,.16); }
+    .buyer-path{padding:68px 20px}.buyer-path__steps{grid-template-columns:1fr}.buyer-path__steps li{min-height:auto;border-right:0!important;border-bottom:1px solid var(--line-2)!important}.buyer-path__steps strong{margin-top:28px}.buyer-path__close a{text-align:center}
     .cat-grid { grid-template-columns: 1fr; }
     .hero-cta { justify-content: center; flex: 1 1 100%; }
+    #cta-bar > div { padding:10px 12px!important; gap:10px!important; flex-wrap:nowrap!important; }
+    #cta-bar > div > span { display:none!important; }
+    #cta-bar a { flex:1; text-align:center; padding:12px 14px!important; }
+    #cta-dismiss { flex:none; }
   }
-  @media (prefers-reduced-motion: reduce) { .hero-cta,.hero-cta i,.hero-cta--secondary::before,.hero-search::after,.hero-search > svg,.hero-search__button,.hero-search__button span { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { .signal-orbit,.kinetic-type span,.hero-feature::before{animation:none}.hero-cta,.hero-cta i,.hero-cta--secondary::before,.hero-search::after,.hero-search > svg,.hero-search__button,.hero-search__button span { transition: none; } }
 </style>
 
 <script>

@@ -61,7 +61,7 @@ function limited(key: string, now = Date.now()): { blocked: boolean; retryAfter:
 }
 
 function parseBody(raw: unknown):
-  | { ok: true; contact: { email: string; name: string }; answers: DiagnosticAnswers }
+  | { ok: true; contact: { email: string; name: string; organizationName: string; role: string }; answers: DiagnosticAnswers; source: Record<string, unknown> }
   | { ok: false; error: string } {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return { ok: false, error: 'Invalid payload' };
   if (JSON.stringify(raw).length > MAX_BODY_BYTES) return { ok: false, error: 'Payload too large' };
@@ -71,8 +71,10 @@ function parseBody(raw: unknown):
   const name = text(body.name, 100);
   const businessType = text(body.businessType, 80);
   const process = text(body.process, 500);
+  const organizationName = text(body.organizationName, 120);
+  const role = text(body.role, 100);
 
-  if (body.company) return { ok: false, error: 'Honeypot' };
+  if (body.website) return { ok: false, error: 'Honeypot' };
   if (body.consent !== true) return { ok: false, error: 'Consent required' };
   if (!EMAIL.test(email) || email.length > 254) return { ok: false, error: 'Invalid email address' };
   if (name.length < 2) return { ok: false, error: 'Invalid name' };
@@ -86,7 +88,8 @@ function parseBody(raw: unknown):
 
   return {
     ok: true,
-    contact: { email, name },
+    contact: { email, name, organizationName, role },
+    source: sanitizeSource(body.source),
     answers: {
       businessType,
       process,
@@ -98,6 +101,27 @@ function parseBody(raw: unknown):
       timeline: body.timeline as DiagnosticAnswers['timeline'],
       risk: body.risk as DiagnosticAnswers['risk'],
     },
+  };
+}
+
+function sanitizeSource(raw: unknown): Record<string, unknown> {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return {};
+  const source = raw as Record<string, unknown>;
+  const utmRaw = source.utm && typeof source.utm === 'object' && !Array.isArray(source.utm)
+    ? source.utm as Record<string, unknown>
+    : {};
+  const utm = Object.fromEntries(
+    Object.entries(utmRaw)
+      .filter(([key]) => ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].includes(key))
+      .map(([key, value]) => [key, text(value, 120)]),
+  );
+  return {
+    form: 'diagnostic',
+    landingPage: text(source.landingPage, 180),
+    referrer: text(source.referrer, 300),
+    ctaPlacement: text(source.ctaPlacement, 80),
+    serviceIntent: text(source.serviceIntent, 100),
+    utm,
   };
 }
 
@@ -120,7 +144,7 @@ export default async function handler(req: Req, res: Res) {
 
   const body = req.body as Record<string, unknown> | undefined;
   // Bots reciben éxito falso antes de consumir rate limit o tocar el CRM.
-  if (body && typeof body.company === 'string' && body.company.trim()) {
+  if (body && typeof body.website === 'string' && body.website.trim()) {
     return res.status(200).json({ success: true });
   }
 
@@ -153,10 +177,16 @@ export default async function handler(req: Req, res: Res) {
       body: JSON.stringify({
         event: 'diagnostic_lead',
         submittedAt: new Date().toISOString(),
-        source: 'diagnostico-automatizacion-ia',
+        source: parsed.source,
         contact: parsed.contact,
         answers: parsed.answers,
         result,
+        routing: {
+          queue: result.resultType === 'manual_review' ? 'human_review' : result.qualificationBand === 'high' ? 'priority_bdr' : 'standard_review',
+          priority: result.resultType === 'manual_review' ? 'manual-risk' : result.qualificationBand === 'high' ? 'P1' : result.qualificationBand === 'medium' ? 'P2' : 'P3',
+          recommendedNextStep: result.resultType,
+          slaHours: 8,
+        },
         consent: { accepted: true, source: 'diagnostic_form' },
       }),
       signal: controller.signal,

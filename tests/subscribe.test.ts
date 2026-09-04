@@ -169,7 +169,7 @@ describe('subscribe — alta en Brevo', () => {
   it('DOI: list=newsletter + template → doubleOptinConfirmation', async () => {
     process.env.BREVO_DOI_TEMPLATE_ID = '42';
     const res = makeRes();
-    await handler(makeReq({ body: { email: 'user@example.com', list: 'newsletter' } }), res);
+    await handler(makeReq({ body: { email: 'user@example.com', list: 'newsletter', consent: true } }), res);
     const { endpoint, payload } = lastCall();
     expect(endpoint).toBe('https://api.brevo.com/v3/contacts/doubleOptinConfirmation');
     expect(payload.templateId).toBe(42);
@@ -180,6 +180,13 @@ describe('subscribe — alta en Brevo', () => {
 });
 
 describe('subscribe — registro de consentimiento (RGPD)', () => {
+  it('rechaza una suscripción a newsletter sin consentimiento', async () => {
+    const res = makeRes();
+    await handler(makeReq({ body: { email: 'user@example.com', list: 'newsletter' } }), res);
+    expect(res.statusCode).toBe(422);
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
   it('consent=true guarda OPT_IN_AT (ISO) y OPT_IN_SOURCE', async () => {
     const res = makeRes();
     await handler(makeReq({ body: { email: 'user@example.com', list: 'newsletter', consent: true } }), res);
