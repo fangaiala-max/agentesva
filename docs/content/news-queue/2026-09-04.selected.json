@@ -1,0 +1,90 @@
+{
+  "date": "2026-09-04",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "Google now lets you chat with Gmail, Docs, and Keep",
+      "url": "https://www.theverge.com/tech/989508/google-gmail-docs-keep-live-voice-modes-gemini",
+      "fecha": "2026-09-03T16:00:00.000Z",
+      "resumen": "Google is rolling out AI-powered voice assistant modes for Gmail, Docs, and Keep that allow you to manage the apps by talking to them. The real time conversational capabilities are called Gmail Live, Docs Live, and Keep Live, and like the Gemini Live experience for Google's chatbot, aim to make it easier to note down or find specific information when you're on the move or unable to do so manually.",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "google-now-lets-you-chat-with-gmail-docs-and-keep",
+      "signals": {
+        "hn": 312,
+        "reddit": 0,
+        "social": 0.7559398828814691,
+        "relevance": 1,
+        "freshness": 0.5171797145061728,
+        "authority": 0.9
+      },
+      "score": 0.8077,
+      "tema": "Asistentes"
+    },
+    {
+      "titulo": "ChatGPT, Grok, and Claude all went down at the same time",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/989503/chatgpt-grok-claude-outage-down",
+      "fecha": "2026-09-03T15:35:14.000Z",
+      "resumen": "OpenAI's ChatGPT, xAI's Grok, and Anthropic's Claude are back online after they all began experiencing issues around the same time on Thursday. At about 11AM ET, ChatGPT started returning error messages for users trying to use the chatbot, with its status page saying there were \"elevated errors across ChatGPT and Codex.\"\nIn addition to preventing users from having conversations with ChatGPT, the o",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "chatgpt-grok-and-claude-all-went-down-at-the-same-time",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5057136651234568,
+        "authority": 0.9
+      },
+      "score": 0.4659,
+      "tema": "Código"
+    },
+    {
+      "titulo": "OpenAI launches Astra, its powerful (and controversial) new model",
+      "url": "https://techcrunch.com/2026/09/03/openai-launches-astra-its-powerful-and-controversial-new-model/",
+      "fecha": "2026-09-03T18:01:45.000Z",
+      "resumen": "OpenAI claims that Astra represents \"a new frontier on computer and browser use,\" and that it handles tasks with unmatched \"speed, accuracy, and safety.\"",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "openai-launches-astra-its-powerful-and-controversial-new-mod",
+      "signals": {
+        "hn": 6,
+        "reddit": 0,
+        "social": 0.2559935737386376,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.5735454552469136,
+        "authority": 0.9
+      },
+      "score": 0.3912,
+      "tema": "Actualidad"
+    },
+    {
+      "titulo": "OpenAI’s next big AI model has ‘entered the AGI era’",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/989601/openai-gpt-6-astra-release",
+      "fecha": "2026-09-03T18:00:00.000Z",
+      "resumen": "OpenAI's next big model is here: GPT-6 Astra. The company calls it a \"generational leap in capability\" for areas like cybersecurity, professional work, software engineering, science, and computer use. As OpenAI announced earlier this week, it's also the first model designated as meeting OpenAI's \"critical cybersecurity capability threshold\" - but the company promises that won't lead to a repeat of",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "openai-s-next-big-ai-model-has-entered-the-agi-era",
+      "signals": {
+        "hn": 5,
+        "reddit": 0,
+        "social": 0.23571433143015907,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.5727352700617284,
+        "authority": 0.9
+      },
+      "score": 0.382,
+      "tema": "Actualidad"
+    }
+  ]
+}
