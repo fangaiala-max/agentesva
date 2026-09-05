@@ -2,6 +2,16 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [Unreleased]
+
+### Changed
+- Integra el diseño Signal / Electric, las tarjetas de servicios y el recorrido de compra del PR #174.
+- El diagnóstico permite recuperar respuestas de la sesión y añadir empresa, rol y atribución al registro en Notion.
+- Conserva la entrega idempotente, la confirmación firmada, los contenidos GEO y las protecciones de movimiento de producción.
+
+### Fixed
+- Resuelve referencias obsoletas de movimiento y categorías rápidas al integrar la rama de diseño con main.
+
 ## [0.7.0.0] - 2026-08-26
 
 ### Changed

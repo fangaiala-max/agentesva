@@ -18,7 +18,7 @@ const trail = buildTrail({ name: 'Diagnóstico de automatización', url: '/diagn
     <Breadcrumb trail={trail} />
 
     <header class="diagnostic-intro">
-      <span class="eyebrow">Diagnóstico gratuito · 3 minutos</span>
+      <span class="eyebrow">Diagnóstico gratuito · 3 minutos · 8 preguntas</span>
       <h1>Encuentra qué proceso merece la pena automatizar primero</h1>
       <p>Responde ocho preguntas sobre tu negocio. Te mostraremos una prioridad y el siguiente paso más sensato, sin prometer ahorros inventados.</p>
       <div class="privacy-note">Tus respuestas se procesan primero en este navegador. Solo se envían cuando decides solicitar el siguiente paso y aceptas la política de privacidad.</div>
@@ -38,11 +38,16 @@ const trail = buildTrail({ name: 'Diagnóstico de automatización', url: '/diagn
       <p class="form-error" role="alert" hidden data-diagnostic-error></p>
 
       <form data-diagnostic-form novalidate>
-        <fieldset data-step data-step-id="business_type">
-          <legend>¿Qué tipo de negocio tienes?</legend>
-          <p class="step-help">Una descripción breve nos ayuda a interpretar el proceso.</p>
-          <label class="text-label" for="business-type">Tipo de negocio</label>
-          <input id="business-type" name="businessType" type="text" minlength="3" maxlength="80" required placeholder="Ej.: agencia, clínica, tienda online…" />
+        <fieldset data-step data-step-id="business_goal">
+          <legend>¿Qué quieres mejorar primero?</legend>
+          <p class="step-help">Elige la opción más cercana. Podrás añadir contexto después.</p>
+          <div class="options">
+            <label><input type="radio" name="goal" value="customer_service" required /> Responder mejor a clientes</label>
+            <label><input type="radio" name="goal" value="sales" /> Captar y seguir oportunidades de venta</label>
+            <label><input type="radio" name="goal" value="operations" /> Reducir tareas administrativas</label>
+            <label><input type="radio" name="goal" value="marketing" /> Crear y distribuir contenido</label>
+            <label><input type="radio" name="goal" value="exploring" /> Todavía estoy explorando</label>
+          </div>
         </fieldset>
 
         <fieldset data-step data-step-id="team_size" hidden>
@@ -55,15 +60,11 @@ const trail = buildTrail({ name: 'Diagnóstico de automatización', url: '/diagn
           </div>
         </fieldset>
 
-        <fieldset data-step data-step-id="business_goal" hidden>
-          <legend>¿Cuál es tu objetivo principal?</legend>
-          <div class="options">
-            <label><input type="radio" name="goal" value="customer_service" required /> Responder mejor a clientes</label>
-            <label><input type="radio" name="goal" value="sales" /> Captar y seguir oportunidades de venta</label>
-            <label><input type="radio" name="goal" value="operations" /> Reducir tareas administrativas</label>
-            <label><input type="radio" name="goal" value="marketing" /> Crear y distribuir contenido</label>
-            <label><input type="radio" name="goal" value="exploring" /> Todavía estoy explorando</label>
-          </div>
+        <fieldset data-step data-step-id="business_type" hidden>
+          <legend>¿Qué tipo de negocio tienes?</legend>
+          <p class="step-help">Una descripción breve nos ayuda a interpretar el proceso.</p>
+          <label class="text-label" for="business-type">Tipo de negocio</label>
+          <input id="business-type" name="businessType" type="text" minlength="3" maxlength="80" required placeholder="Ej.: agencia, clínica, tienda online…" />
         </fieldset>
 
         <fieldset data-step data-step-id="process" hidden>
@@ -133,6 +134,7 @@ const trail = buildTrail({ name: 'Diagnóstico de automatización', url: '/diagn
         <div data-result="qualified_call" hidden>
           <h2>Tu proceso parece listo para una conversación de implementación</h2>
           <p>La frecuencia, el plazo y el rango de inversión justifican revisar el flujo con detalle y confirmar viabilidad.</p>
+          <a class="button-primary booking-cta" data-booking-link href="https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min" target="_blank" rel="noopener noreferrer">Reservar llamada de 30 min →</a>
         </div>
         <div data-result="paid_workshop" hidden>
           <h2>Primero conviene definir el alcance</h2>
@@ -157,7 +159,7 @@ const trail = buildTrail({ name: 'Diagnóstico de automatización', url: '/diagn
         <a class="button-primary result-next-step" data-result-next-step href="#enviar-diagnostico"></a>
         <form id="enviar-diagnostico" class="contact-form" data-diagnostic-contact novalidate>
           <h3>Recibe el siguiente paso para tu caso</h3>
-          <p>Déjanos tus datos para revisar el diagnóstico y responderte. No añadiremos tu email a la newsletter salvo que te suscribas por separado.</p>
+          <p>Te responderemos en un día laborable con el siguiente paso, aunque no recomendemos contratar. No añadiremos tu email a la newsletter.</p>
           <div class="contact-grid">
             <label>Nombre
               <input type="text" name="name" minlength="2" maxlength="100" autocomplete="name" required />
@@ -165,13 +167,19 @@ const trail = buildTrail({ name: 'Diagnóstico de automatización', url: '/diagn
             <label>Email
               <input type="email" name="email" maxlength="254" autocomplete="email" required />
             </label>
+            <label>Empresa <span class="optional">Opcional</span>
+              <input type="text" name="organizationName" maxlength="120" autocomplete="organization" />
+            </label>
+            <label>Tu rol <span class="optional">Opcional</span>
+              <input type="text" name="role" maxlength="100" autocomplete="organization-title" />
+            </label>
           </div>
           <div class="honeypot" aria-hidden="true">
-            <label>No rellenar este campo <input type="text" name="company" tabindex="-1" autocomplete="off" /></label>
+            <label>No rellenar este campo <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
           </div>
           <label class="consent-row">
             <input type="checkbox" name="consent" required />
-            <span>Acepto que AgentesVA trate mis respuestas y datos de contacto para revisar el diagnóstico y responder a mi solicitud, según la <a href="/privacidad/">política de privacidad</a>.</span>
+            <span>Acepto que AgentesVA trate mis respuestas y datos de contacto para revisar el diagnóstico y responder a mi solicitud, según la <a href="/privacidad/" target="_blank" rel="noopener noreferrer">política de privacidad <span class="visually-hidden">(abre en una pestaña nueva)</span></a>.</span>
           </label>
           <p class="form-error" role="alert" hidden data-contact-error></p>
           <div class="result-actions">
@@ -181,8 +189,8 @@ const trail = buildTrail({ name: 'Diagnóstico de automatización', url: '/diagn
         </form>
         <div class="contact-success" data-contact-success hidden role="status" tabindex="-1">
           <h3>Diagnóstico recibido</h3>
-          <p>Revisaremos el caso y responderemos el siguiente día laborable cuando exista encaje comercial.</p>
-          <a href="/newsletter/" class="button-secondary">Mientras tanto, ver la newsletter →</a>
+          <p>El equipo de AgentesVA te responderá por email en un día laborable con una recomendación concreta, aunque no recomendemos contratar.</p>
+          <a href="mailto:hola@agentesva.com" class="button-secondary">¿Algo urgente? Escríbenos →</a>
         </div>
       </div>
     </section>
@@ -195,10 +203,10 @@ const trail = buildTrail({ name: 'Diagnóstico de automatización', url: '/diagn
   .diagnostic-shell { max-width: 900px; margin: 0 auto; padding: 40px 32px 80px; }
   .diagnostic-intro { max-width: 720px; margin: 22px auto 30px; text-align: center; }
   .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
-  h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(34px, 6vw, 52px); line-height: 1.04; letter-spacing: -.035em; color: #fff; margin: 16px 0 0; text-wrap: balance; }
+  h1 { font-family:var(--display); font-weight:650; font-size:clamp(38px,6vw,62px); line-height:.96; letter-spacing:-.06em; text-transform:uppercase; color:#fff; margin:16px 0 0; text-wrap:balance; }
   .diagnostic-intro > p { max-width: 650px; margin: 18px auto 0; font-size: 17px; line-height: 1.65; color: var(--fg-3); }
   .privacy-note { margin: 18px auto 0; max-width: 620px; padding: 11px 14px; border: 1px solid var(--line); background: var(--panel-3); color: var(--fg-4); font-size: 12.5px; line-height: 1.5; }
-  .diagnostic-card { background: var(--panel); border: 1px solid var(--line-2); border-radius: 12px; padding: clamp(22px, 5vw, 42px); box-shadow: 0 24px 70px rgba(0,0,0,.18); }
+  .diagnostic-card { position:relative; overflow:hidden; background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 7%,var(--panel)),var(--panel)); border:1px solid var(--line-2); border-radius:0; padding:clamp(22px,5vw,42px); box-shadow:18px 18px 0 rgba(41,71,255,.16),0 24px 70px rgba(0,0,0,.28); }
   .progress-copy { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--fg-4); }
   .progress-track { height: 5px; margin-top: 10px; overflow: hidden; background: var(--bg); border-radius: 10px; }
   .progress-track span { display: block; height: 100%; width: 12.5%; background: var(--accent); transition: width .25s ease; }
@@ -210,11 +218,15 @@ const trail = buildTrail({ name: 'Diagnóstico de automatización', url: '/diagn
   textarea { min-height: 130px; resize: vertical; }
   .options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 24px; }
   .options--compact { grid-template-columns: 1fr; margin-top: 14px; }
-  .options label { display: flex; align-items: flex-start; gap: 11px; padding: 15px 16px; border: 1px solid var(--line-2); border-radius: 6px; background: var(--panel-3); color: var(--fg-2); cursor: pointer; line-height: 1.4; }
+  .options label { display: flex; align-items: flex-start; gap: 11px; padding: 15px 16px; border: 1px solid var(--line-2); border-radius: 8px; background: var(--panel-3); color: var(--fg-2); cursor: pointer; line-height: 1.4; transition: transform .22s, border-color .22s, background .22s, box-shadow .22s; }
+  .options label:hover { transform: translateY(-2px); border-color: var(--line-3); box-shadow: 0 10px 24px rgba(0,0,0,.12); }
+  .options label:has(input:focus-visible) { outline: 3px solid color-mix(in srgb, var(--accent) 60%, white); outline-offset: 3px; }
   .options label:has(input:checked) { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, var(--panel-3)); color: #fff; }
   .options input { margin-top: 3px; accent-color: var(--accent); }
   .form-actions, .result-actions { display: flex; justify-content: space-between; gap: 12px; margin-top: 30px; flex-wrap: wrap; }
-  .button-primary, .button-secondary { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; padding: 11px 20px; border-radius: 3px; font: 600 14px var(--sans); text-decoration: none; cursor: pointer; }
+  .button-primary, .button-secondary { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; padding: 11px 20px; border-radius: 5px; font: 600 14px var(--sans); text-decoration: none; cursor: pointer; transition: transform .22s, box-shadow .22s, border-color .22s; }
+  .button-primary:hover, .button-secondary:hover { transform: translateY(-2px); }
+  .button-primary:focus-visible, .button-secondary:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid color-mix(in srgb, var(--accent) 65%, white); outline-offset: 3px; }
   .button-primary { margin-left: auto; border: 1px solid var(--accent); background: var(--accent); color: var(--bg); }
   .button-secondary { border: 1px solid var(--line-2); background: transparent; color: var(--fg-2); }
   .form-error { margin: 20px 0 -14px; padding: 10px 13px; border-left: 3px solid #ff6b6b; color: #ffb0b0; background: rgba(255,107,107,.08); }
@@ -233,12 +245,17 @@ const trail = buildTrail({ name: 'Diagnóstico de automatización', url: '/diagn
   .contact-form > p { margin: 8px 0 0; font-size: 14px; }
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
   .contact-grid label { color: var(--fg-3); font: 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+  .optional { color: var(--fg-5); font-size: 9px; }
+  .booking-cta { margin: 18px 0 2px; width: fit-content; }
   .consent-row { display: flex; align-items: flex-start; gap: 10px; margin-top: 16px; color: var(--fg-4); font-size: 12.5px; line-height: 1.5; }
   .consent-row input { margin-top: 3px; flex: none; accent-color: var(--accent); }
   .consent-row a { color: var(--accent); }
   .honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
   .contact-success { margin-top: 28px; padding: 20px; border: 1px solid var(--green); background: color-mix(in srgb, var(--green) 7%, var(--panel-3)); }
   .contact-success .button-secondary { margin-top: 12px; }
+  fieldset:not([hidden]), .diagnostic-result:not([hidden]) { animation: diagnostic-enter .35s cubic-bezier(.22,.61,.36,1) both; }
+  @keyframes diagnostic-enter { from { opacity: 0; transform: translateY(10px); } }
+  @media (prefers-reduced-motion: reduce) { .options label, .button-primary, .button-secondary { transition: none; } .options label:hover, .button-primary:hover, .button-secondary:hover { transform: none; } fieldset:not([hidden]), .diagnostic-result:not([hidden]) { animation: none; } }
   @media (max-width: 640px) {
     .diagnostic-shell { padding: 28px 20px 60px; }
     .diagnostic-card { padding: 22px 18px; }

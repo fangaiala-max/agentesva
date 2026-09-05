@@ -6,7 +6,10 @@ function validBody() {
     name: 'Ada Lovelace',
     email: 'ada@example.com',
     consent: true,
-    company: '',
+    website: '',
+    organizationName: 'Analytical Engines SL',
+    role: 'Fundadora',
+    source: { landingPage: '/servicios/automatizacion-ventas/', ctaPlacement: 'hero', utm: { utm_source: 'linkedin', unsafe: 'drop' } },
     businessType: 'Agencia de servicios',
     teamSize: '2_5',
     goal: 'sales',
@@ -78,7 +81,7 @@ describe('diagnostic API', () => {
 
   it('devuelve éxito falso al honeypot sin entregar el lead', async () => {
     const res = makeRes();
-    await handler(makeReq({ body: { ...validBody(), company: 'Bot Corp' } }), res);
+    await handler(makeReq({ body: { ...validBody(), website: 'https://bot.example' } }), res);
     expect(res.statusCode).toBe(200);
     expect(res.payload).toEqual({ success: true });
     expect(fetchMock).not.toHaveBeenCalled();
@@ -110,6 +113,11 @@ describe('diagnostic API', () => {
     expect(payload.properties['Resultado diagnóstico']).toEqual({ select: { name: 'Llamada cualificada' } });
     expect(payload.properties.Responsable).toEqual({ select: { name: 'Eli' } });
     expect(payload.properties['Submission ID'].rich_text[0].text.content).toBe(validBody().submissionId);
+    const notes = payload.properties.Notas.rich_text[0].text.content;
+    expect(notes).toContain('Analytical Engines SL');
+    expect(notes).toContain('Fundadora');
+    expect(notes).toContain('linkedin');
+    expect(notes).not.toContain('unsafe');
     expect(payload.properties.qualificationBand).toBeUndefined();
     expect(options.headers.Authorization).toBe('Bearer secret_notion_test');
     expect(res.payload).toMatchObject({

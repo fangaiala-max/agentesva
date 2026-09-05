@@ -4,6 +4,7 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import CommercialNextSteps from '../../components/CommercialNextSteps.astro';
+import AmbientHero from '../../components/AmbientHero.astro';
 import { serviceClusterLinks } from '../../data/commercial-links';
 import { breadcrumbList, trail as buildTrail } from '../../data/breadcrumbs';
 import { jsonLdSerialize, ORG_ID, SITE, WEBSITE_ID } from '../../data/schema';
@@ -52,7 +53,7 @@ const jsonLd = {
   <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
   <SiteHeader />
   <main>
-    <section class="hero"><div class="shell"><Breadcrumb trail={trail} /><div class="hero__grid">
+    <section class="hero"><AmbientHero /><div class="shell"><Breadcrumb trail={trail} /><div class="hero__grid">
       <div><span class="eyebrow">Ventas y seguimiento · Automatización con IA</span><h1>Que ningún lead se pierda por falta de <span>seguimiento</span></h1><p class="lead">Conectamos la captación con tu CRM, aplicamos criterios de cualificación y activamos el siguiente paso. Tu equipo recibe mejor contexto y conserva la decisión comercial.</p><div class="actions"><a href="/diagnostico-automatizacion-ia/" class="button button--primary" data-track-event="service_cta_click" data-track-page-type="service_detail" data-track-content-slug="automatizacion-ventas" data-track-service="sales_automation" data-track-cluster="sales" data-track-placement="hero">Evaluar mi proceso gratis →</a><a href="#flujo" class="button button--secondary">Ver un flujo de ejemplo</a></div><p class="note">3 minutos · Sin compromiso · Una recomendación concreta</p></div>
       <aside class="problem-card"><span class="eyebrow">El problema habitual</span><strong>Los leads llegan por varios canales, el CRM queda incompleto y el seguimiento depende de que alguien lo recuerde.</strong><p>La automatización encaja cuando existen criterios comerciales, responsables claros y un siguiente paso que puede activarse de forma consistente.</p></aside>
     </div></div></section>

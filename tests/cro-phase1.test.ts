@@ -54,7 +54,7 @@ describe('programa CRO — fase 1', () => {
     const home = read('src/pages/index.astro');
     const heroHeading = home.match(/<h1\b[^>]*>.*?<\/h1>/s)?.[0] ?? '';
 
-    expect(heroHeading).toContain('Reduce el trabajo manual de un proceso de tu PyME');
+    expect(heroHeading).toContain('AUTOMATIZA<br />LO QUE <span>SÍ</span><br />IMPORTA.');
     expect(heroHeading).not.toContain('blur-in');
   });
 });

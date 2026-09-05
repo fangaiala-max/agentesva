@@ -36,7 +36,7 @@ function renderResult(d: ResultData, i: number): string {
   const badge = tm
     ? `<span class="sr-badge" style="color:${tm.color};border-color:${tm.border}">${esc(tm.label)}</span>`
     : '';
-  return `<a class="sr-row" id="sr-row-${i}" href="${esc(d.url)}" role="option" aria-selected="false">
+  return `<a class="sr-row" id="sr-row-${i}" href="${esc(d.url)}" role="option" aria-selected="false" style="--result-index:${i}">
       <span class="sr-mono" style="background:${color}">${esc((title || '?').charAt(0).toUpperCase())}</span>
       <span class="sr-rowmain">
         <span class="sr-top"><span class="sr-title">${esc(title)}</span>${badge}</span>

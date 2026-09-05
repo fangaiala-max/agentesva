@@ -2,21 +2,23 @@
 // Pie del directorio "Futurista" + captación de newsletter (inline).
 import SubscribeForm from './SubscribeForm.astro';
 import { crumbPath, DIAGNOSTICO, NAVEGACION_COMERCIAL, SECCIONES_NAV, PIE_SECUNDARIO } from '../data/breadcrumbs';
+interface Props { hideNewsletter?: boolean }
+const { hideNewsletter = false } = Astro.props;
 ---
 
 <footer style="border-top: 1px solid var(--line); background: var(--bg-2);">
   <!-- Captación inline -->
-  <div style="border-bottom: 1px solid var(--line);">
+  {!hideNewsletter && <div style="border-bottom: 1px solid var(--line);">
     <div style="max-width: 1200px; margin: 0 auto; padding: 48px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 36px; align-items: center;">
       <div>
         <h2 style="font-family: var(--sans); font-weight: 700; font-size: clamp(20px, 3.5vw, 26px); line-height: 1.1; letter-spacing: -0.02em; color: #fff; margin: 0;">Recibe una idea de IA aplicable, cada semana</h2>
         <p style="font-size: 14.5px; line-height: 1.55; color: var(--fg-3); margin: 12px 0 0; max-width: 34em;">Sin ruido ni noticias que no vas a usar. Solo lo que puedes aplicar hoy en tu negocio. Gratis.</p>
       </div>
       <div style="justify-self: stretch;">
-        <SubscribeForm variant="inline" list="newsletter" />
+        <SubscribeForm variant="inline" list="newsletter" source="site_footer" />
       </div>
     </div>
-  </div>
+  </div>}
 
   <!-- Secciones: mismo orden y mismo texto de ancla que el header -->
   <div style="border-bottom: 1px solid var(--line);">

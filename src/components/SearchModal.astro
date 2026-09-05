@@ -10,8 +10,8 @@ const FILTERS = [
 ---
 
 <div id="search-modal" hidden>
-  <div data-search-backdrop style="position: fixed; inset: 0; z-index: 90; background: rgba(6,16,33,.72); backdrop-filter: blur(3px);"></div>
-  <div data-search-dialog role="dialog" aria-modal="true" aria-label="Buscar en AgentesVA" style="position: fixed; z-index: 91; top: 90px; left: 50%; transform: translateX(-50%); width: min(680px, 92vw); background: var(--panel); border: 1px solid var(--line-2); border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,.5); overflow: hidden;">
+  <div data-search-backdrop class="command-backdrop"></div>
+  <div data-search-dialog class="command-dialog" role="dialog" aria-modal="true" aria-label="Buscar en AgentesVA">
     <div style="display: flex; align-items: center; gap: 13px; padding: 16px 18px; border-bottom: 1px solid var(--line);">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--fg-4)" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
       <label for="search-modal-input" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Buscar en el sitio</label>
@@ -38,6 +38,21 @@ const FILTERS = [
     </div>
   </div>
 </div>
+
+<style>
+  .command-backdrop { position: fixed; inset: 0; z-index: 90; background: rgba(6,16,33,.72); backdrop-filter: blur(5px); animation: command-fade .2s both; }
+  .command-dialog { position: fixed; z-index: 91; top: 90px; left: 50%; width: min(680px,92vw); overflow: hidden; transform: translateX(-50%); border: 1px solid var(--line-2); border-radius: 12px; background: var(--panel); box-shadow: 0 30px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(91,124,255,.08); animation: command-in .3s cubic-bezier(.22,.8,.3,1) both; }
+  #search-modal[data-closing] .command-backdrop { animation: command-fade-out .18s both; }
+  #search-modal[data-closing] .command-dialog { animation: command-out .18s ease both; }
+  :global(.sr-row) { animation: command-result-in .3s cubic-bezier(.22,.8,.3,1) both; animation-delay: calc(var(--result-index, 0) * 34ms); }
+  @keyframes command-in { from { opacity: 0; transform: translate(-50%,-12px) scale(.975); filter: blur(4px); } }
+  @keyframes command-out { to { opacity: 0; transform: translate(-50%,-8px) scale(.98); } }
+  @keyframes command-fade { from { opacity: 0; } }
+  @keyframes command-fade-out { to { opacity: 0; } }
+  @keyframes command-result-in { from { opacity: 0; transform: translateY(7px); } }
+  @media (max-width: 600px) { .command-dialog { top: 62px; } }
+  @media (prefers-reduced-motion: reduce) { .command-backdrop,.command-dialog,#search-modal[data-closing] .command-backdrop,#search-modal[data-closing] .command-dialog,:global(.sr-row) { animation: none; } }
+</style>
 
 <script>
   import { createSearch } from '../scripts/search';
@@ -71,6 +86,7 @@ const FILTERS = [
     const open = () => {
       if (!modal.hasAttribute('hidden')) return;
       modal.removeAttribute('hidden');
+      modal.removeAttribute('data-closing');
       lastFocused = document.activeElement as HTMLElement;
       document.body.style.overflow = 'hidden';
       if (!engine) engine = createSearch(dialog);
@@ -78,9 +94,18 @@ const FILTERS = [
     };
     const close = () => {
       if (modal.hasAttribute('hidden')) return;
-      modal.setAttribute('hidden', '');
       document.body.style.overflow = '';
-      lastFocused?.focus?.();
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        modal.setAttribute('hidden', '');
+        lastFocused?.focus?.();
+        return;
+      }
+      modal.setAttribute('data-closing', '');
+      window.setTimeout(() => {
+        modal.setAttribute('hidden', '');
+        modal.removeAttribute('data-closing');
+        lastFocused?.focus?.();
+      }, 180);
     };
 
     document.querySelectorAll('[data-search-open]').forEach((b) => b.addEventListener('click', open));

@@ -20,12 +20,12 @@ describe('navegación comercial', () => {
 
   it('convierte la home en una ruta de venta sin eliminar el directorio', () => {
     const page = read('src/pages/index.astro');
-    expect(page).toContain('Reduce el trabajo manual de un proceso de tu PyME');
-    expect(page).toContain('Descubrir qué automatizar');
+    expect(page).toContain('AUTOMATIZA<br />LO QUE <span>SÍ</span><br />IMPORTA.');
+    expect(page).toContain('Hacer diagnóstico gratuito');
     expect(page).toContain('data-track-placement="hero"');
     expect(page).toContain('data-track-placement="sticky"');
     expect(SERVICE_OFFER.scoped.price).toBe('Desde 1.500 €');
-    expect(page.match(/SERVICE_OFFER\.scoped\.price/g)).toHaveLength(2);
+    expect(page.match(/SERVICE_OFFER\.scoped\.price/g)).toHaveLength(1);
     expect(page).toContain('Una automatización lista para trabajar');
     expect(page).toContain(
       'Conectamos un proceso concreto con las herramientas que ya utilizas y lo dejamos probado, documentado y con control humano. Tu equipo recibe un flujo operativo de principio a fin, no otra herramienta que aprender.',
@@ -79,10 +79,13 @@ describe('navegación comercial', () => {
 
   it('atribuye precios, servicios y metodología dentro del recorrido comercial', () => {
     const page = read('src/pages/index.astro');
-    for (const placement of ['hero_pricing', 'service_card', 'methodology']) {
+    for (const placement of ['hero_pricing', 'methodology']) {
       expect(page).toContain(`data-track-placement="${placement}"`);
     }
-    expect(page).toContain('data-track-service={area.service}');
+    const services = read('src/components/ServiceSpotlightGrid.astro');
+    expect(page).toContain('<ServiceSpotlightGrid />');
+    expect(services).toContain('data-track-placement="service_card"');
+    expect(services).toContain('data-track-service={AUTOMATION_AREAS[index].service}');
     expect(AUTOMATION_AREAS.map((area) => area.service)).toEqual([
       'customer_service_automation',
       'sales_automation',

@@ -53,7 +53,7 @@ export default async function handler(req, res) {
   const apiKey = process.env.BREVO_API_KEY;
   if (!apiKey) return res.status(500).json({ error: 'Server misconfiguration' });
 
-  const { email = '', name = '', list = 'default', company = '', consent } = req.body || {};
+  const { email = '', name = '', list = 'default', company = '', consent, source = '', path = '' } = req.body || {};
 
   // Honeypot: campo oculto que solo rellenan los bots → éxito falso, sin alta.
   if (typeof company === 'string' && company.trim()) {
@@ -66,11 +66,18 @@ export default async function handler(req, res) {
   if (!cleanEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
     return res.status(422).json({ error: 'Invalid email address' });
   }
+  if (list === 'newsletter' && consent !== true) {
+    return res.status(422).json({ error: 'Consent required' });
+  }
 
   const resolveListId = LIST_MAP[list] || LIST_MAP.default;
   const listId = resolveListId();
 
-  const attributes = { SOURCE_LIST: list };
+  const attributes = {
+    SOURCE_LIST: list,
+    SOURCE_PLACEMENT: typeof source === 'string' ? source.slice(0, 80) : '',
+    SOURCE_PATH: typeof path === 'string' ? path.slice(0, 160) : '',
+  };
   if (cleanName) {
     const [firstName, ...rest] = cleanName.split(' ');
     attributes.FIRSTNAME = firstName;

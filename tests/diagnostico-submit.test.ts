@@ -55,7 +55,7 @@ function fixture(): void {
         <form data-diagnostic-contact>
           <input name="name" value="Ada Lovelace" required />
           <input name="email" type="email" value="ada@example.com" required />
-          <input name="company" value="" />
+          <input name="website" value="" />
           <input name="consent" type="checkbox" checked required />
           <p data-contact-error hidden></p>
           <div data-contact-success hidden tabindex="-1"></div>
@@ -111,7 +111,7 @@ describe('envío del diagnóstico', () => {
       ...answers,
       name: 'Ada Lovelace',
       email: 'ada@example.com',
-      company: '',
+      website: '',
       consent: true,
       submissionId: expect.any(String),
     });
