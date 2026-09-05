@@ -25,11 +25,13 @@ Este documento es la fuente de verdad para los eventos de adquisición y convers
 | `cluster` | enum | `customer_service` | Clúster comercial atribuido. |
 | `service` | enum | `sales_automation` | Servicio relacionado. |
 | `placement` | enum/string controlado | `tool_midpage` | Ubicación funcional del CTA. |
+| `resource_id` | string | `gr22` | Identificador estable del recurso editorial. |
+| `destination` | enum | `stripe` | Destino de pago configurado del recurso. |
 | `step` | integer serializado | `3` | Número del paso del diagnóstico. |
 | `step_id` | enum | `business_goal` | Identificador estable del paso. |
 | `result_type` | enum | `qualified_call` | Ruta de resultado, nunca las respuestas. |
 | `qualification_band` | enum | `high` | Banda agregada `low`, `medium` o `high`. |
-| `booking_provider` | enum | `calendly` | Proveedor de reserva. |
+| `booking_provider` | enum | `calendly`, `cal`, `external` | Proveedor de reserva derivado de la URL HTTPS configurada. |
 | `list` | enum | `newsletter` | Lista de suscripción. |
 | `slug` | string | `claude` | Compatibilidad con eventos del directorio. |
 | `category` | string controlado | `Asistentes` | Categoría pública del directorio. |
@@ -53,6 +55,8 @@ Este documento es la fuente de verdad para los eventos de adquisición y convers
 - `general_consulting`
 
 `placement` se compone como `{page_type}_{position}`. Posiciones iniciales: `hero`, `midpage`, `bottom`, `card`, `nav` y `result`.
+
+Placements controlados de la portada comercial: `hero`, `hero_pricing`, `service_card`, `methodology`, `mid_page` y `sticky`. Permiten distinguir el diagnóstico principal, la consulta de precios, las tres áreas de servicio, el proceso, el cierre intermedio y la barra fija sin enviar el texto visible del CTA.
 
 ## Propiedades prohibidas
 
@@ -85,6 +89,7 @@ service_cta_click
 | Evento | Disparador único | Propiedades requeridas | Propiedades opcionales | Página/superficie |
 |---|---|---|---|---|
 | `service_cta_click` | Click en un CTA que conduce a diagnóstico o servicio. | `page_type`, `placement` | `content_slug`, `cluster`, `service` | Home, fichas, estudios, guías, navegación y servicios. |
+| `resource_cta_click` | Click al Payment Link de un recurso editorial. | `page_type`, `placement`, `resource_id`, `destination` | `content_slug` | Guías y recursos editoriales. |
 | `diagnostic_started` | Primera interacción válida del paso 1, no la mera vista. | `page_type`, `placement` | `cluster`, `service` | Diagnóstico. |
 | `diagnostic_step_completed` | El usuario valida un paso y avanza. | `step`, `step_id` | `cluster`, `service` | Diagnóstico. |
 | `diagnostic_completed` | El servidor acepta el envío final. | `result_type` | `qualification_band`, `cluster`, `service` | Diagnóstico/resultado. |
@@ -147,6 +152,7 @@ Marcar como eventos clave:
 Mantener como microconversiones para análisis:
 
 - `service_cta_click`
+- `resource_cta_click`
 - `diagnostic_started`
 - `booking_started`
 - `newsletter_submit`

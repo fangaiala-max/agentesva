@@ -5,6 +5,7 @@ import { getCollection } from 'astro:content';
 import { toolsClaim } from '../data/tools';
 import { frescura, ultimaActualizacion } from '../data/frescura';
 import { crumbPath, DIAGNOSTICO, NAVEGACION_COMERCIAL, SECCIONES } from '../data/breadcrumbs';
+import { AUTOMATION_AREAS } from '../data/automation-areas';
 
 const [tools, estudios, noticias] = await Promise.all([
   getCollection('tools'),
@@ -23,7 +24,8 @@ const fresca = frescura(
     ...noticias.map((n) => n.data.fecha),
   ]),
 );
-const tickerItems = `+${claim} herramientas de IA revisadas  ·  Sin ruido, solo lo que funciona  ·  Asistentes  ·  Automatización  ·  WhatsApp  ·  Marketing  ·  Pack de Recursos IA gratis  ·  `;
+const serviceLabels = AUTOMATION_AREAS.map((area) => area.label).join('  ·  ');
+const tickerItems = `Automatización con IA para PyMEs  ·  ${serviceLabels}  ·  Diagnóstico gratuito  ·  +${claim} herramientas revisadas  ·  `;
 ---
 
 <!-- ===== TICKER ===== -->

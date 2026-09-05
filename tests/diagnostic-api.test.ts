@@ -19,6 +19,7 @@ function validBody() {
     budget: '1500_3000',
     timeline: 'one_month',
     risk: 'standard',
+    submissionId: 'submission_test_1234567890',
   };
 }
 
@@ -48,14 +49,20 @@ let fetchMock: ReturnType<typeof vi.fn>;
 
 beforeEach(() => {
   resetDiagnosticRateLimit();
-  process.env.DIAGNOSTIC_WEBHOOK_URL = 'https://hooks.example.test/diagnostic';
-  delete process.env.DIAGNOSTIC_WEBHOOK_SECRET;
-  fetchMock = vi.fn().mockResolvedValue({ ok: true, status: 200 });
+  process.env.NOTION_TOKEN = 'secret_notion_test';
+  process.env.NOTION_DATA_SOURCE_ID = '95685369-3fb6-4ae2-afa0-d3ee057d9ed3';
+  process.env.DIAGNOSTIC_SIGNING_SECRET = 'test-signing-secret-with-32-characters';
+  fetchMock = vi.fn().mockImplementation(async (url: string) => (
+    url.includes('/query')
+      ? { ok: true, status: 200, json: async () => ({ results: [] }) }
+      : { ok: true, status: 200 }
+  ));
   vi.stubGlobal('fetch', fetchMock);
 });
 afterEach(() => {
-  delete process.env.DIAGNOSTIC_WEBHOOK_URL;
-  delete process.env.DIAGNOSTIC_WEBHOOK_SECRET;
+  delete process.env.NOTION_TOKEN;
+  delete process.env.NOTION_DATA_SOURCE_ID;
+  delete process.env.DIAGNOSTIC_SIGNING_SECRET;
   delete process.env.DIAGNOSTIC_ALLOWED_ORIGINS;
   vi.unstubAllGlobals();
 });
@@ -89,25 +96,35 @@ describe('diagnostic API', () => {
     const emailRes = makeRes();
     await handler(makeReq({ body: { ...validBody(), email: 'no-email' } }), emailRes);
     expect(emailRes.statusCode).toBe(422);
+
+    resetDiagnosticRateLimit();
+    const longEmailRes = makeRes();
+    const longEmail = `${'a'.repeat(190)}@example.com`;
+    await handler(makeReq({ body: { ...validBody(), email: longEmail } }), longEmailRes);
+    expect(longEmailRes.statusCode).toBe(422);
   });
 
   it('recalcula la cualificación en servidor y entrega un payload saneado', async () => {
-    process.env.DIAGNOSTIC_WEBHOOK_SECRET = 'secret-test';
     const res = makeRes();
     await handler(makeReq({ body: { ...validBody(), qualificationBand: 'low' } }), res);
     expect(res.statusCode).toBe(200);
-    const [, options] = fetchMock.mock.calls[0] as [string, { body: string; headers: Record<string, string> }];
+    const [, options] = fetchMock.mock.calls[1] as [string, { body: string; headers: Record<string, string> }];
     const payload = JSON.parse(options.body);
-    expect(payload.result.qualificationBand).toBe('high');
-    expect(payload.result.resultType).toBe('qualified_call');
-    expect(payload.contact.organizationName).toBe('Analytical Engines SL');
-    expect(payload.contact.role).toBe('Fundadora');
-    expect(payload.source).toMatchObject({ landingPage: '/servicios/automatizacion-ventas/', ctaPlacement: 'hero', utm: { utm_source: 'linkedin' } });
-    expect(payload.source.utm.unsafe).toBeUndefined();
-    expect(payload.routing).toMatchObject({ queue: 'priority_bdr', priority: 'P1', recommendedNextStep: 'qualified_call' });
-    expect(payload.qualificationBand).toBeUndefined();
-    expect(options.headers.Authorization).toBe('Bearer secret-test');
-    expect(res.payload).toMatchObject({ success: true, result: { qualificationBand: 'high' } });
+    expect(payload.properties['Resultado diagnóstico']).toEqual({ select: { name: 'Llamada cualificada' } });
+    expect(payload.properties.Responsable).toEqual({ select: { name: 'Eli' } });
+    expect(payload.properties['Submission ID'].rich_text[0].text.content).toBe(validBody().submissionId);
+    const notes = payload.properties.Notas.rich_text[0].text.content;
+    expect(notes).toContain('Analytical Engines SL');
+    expect(notes).toContain('Fundadora');
+    expect(notes).toContain('linkedin');
+    expect(notes).not.toContain('unsafe');
+    expect(payload.properties.qualificationBand).toBeUndefined();
+    expect(options.headers.Authorization).toBe('Bearer secret_notion_test');
+    expect(res.payload).toMatchObject({
+      success: true,
+      result: { qualificationBand: 'high' },
+      redirectUrl: expect.stringMatching(/^\/gracias-diagnostico\/\?.*&token=[^.]+\.[^.]+$/),
+    });
   });
 
   it('limita a cinco solicitudes por IP y envía Retry-After', async () => {
@@ -130,8 +147,8 @@ describe('diagnostic API', () => {
     expect(res.payload).toEqual({ error: 'Lead delivery failed' });
   });
 
-  it('falla de forma explícita si no está configurado el webhook', async () => {
-    delete process.env.DIAGNOSTIC_WEBHOOK_URL;
+  it('falla de forma explícita si no está configurado Notion', async () => {
+    delete process.env.NOTION_TOKEN;
     const res = makeRes();
     await handler(makeReq(), res);
     expect(res.statusCode).toBe(500);

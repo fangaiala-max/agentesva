@@ -2,6 +2,132 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [Unreleased]
+
+### Changed
+- Integra el diseño Signal / Electric, las tarjetas de servicios y el recorrido de compra del PR #174.
+- El diagnóstico permite recuperar respuestas de la sesión y añadir empresa, rol y atribución al registro en Notion.
+- Conserva la entrega idempotente, la confirmación firmada, los contenidos GEO y las protecciones de movimiento de producción.
+
+### Fixed
+- Resuelve referencias obsoletas de movimiento y categorías rápidas al integrar la rama de diseño con main.
+
+## [0.7.0.0] - 2026-08-26
+
+### Changed
+- La experiencia de movimiento se adapta en tiempo real a las preferencias de accesibilidad y a la capacidad del puntero, sin exigir una recarga.
+- Las animaciones ambientales se detienen fuera de pantalla o cuando la pestaña queda oculta, y se reanudan únicamente cuando vuelven a ser visibles.
+- La navegación entre páginas Astro comparte un único ciclo de inicialización y limpieza para evitar listeners, observadores y animaciones duplicados.
+
+### Fixed
+- El contenido esencial de la portada permanece visible desde el primer render, incluso con JavaScript desactivado o movimiento reducido.
+- Los contadores conservan su valor final antes de activarse y cancelan correctamente una cuenta en curso cuando se habilita movimiento reducido.
+- Los efectos de foco y atracción agrupan las actualizaciones por frame y liberan sus recursos al abandonar la página.
+- Las etiquetas secundarias de la portada recuperan un contraste legible conforme al sistema visual documentado.
+
+### Verification
+- Suite completa: 51 archivos y 452 pruebas aprobadas, incluidas regresiones de navegación, accesibilidad, observadores, RAF y teardown.
+- Build Astro/Vercel, verificador de la guía GEO y Pagefind completados correctamente.
+- Auditoría de producción: cobertura de rutas de movimiento del 83 %, revisión visual sin hallazgos y Lighthouse con puntuación 100.
+
+## [0.6.1.0] - 2026-08-25
+
+### Added
+- El backlog incorpora un programa CRO por fases para mejorar conversión, confianza, fricción del diagnóstico y medición antes de activar Paid.
+- Las tres áreas de automatización comparten una única fuente de datos para mantener alineadas las tarjetas, el ticker y el contador de la portada.
+
+### Changed
+- La portada comunica una promesa acotada: reducir el trabajo manual de un proceso de la PyME con una implementación en 2 a 4 semanas.
+- Header y footer presentan AgentesVA primero como servicio de automatización, mientras herramientas y newsletter conservan su función editorial secundaria.
+- Todos los accesos comerciales al diagnóstico prometen una duración coherente de 3 minutos.
+
+### Fixed
+- Se eliminó la prueba social provisional de 1.200 negocios y se sustituyó por mensajes verificables en la portada, newsletter y guía de marca.
+- El H1 deja de depender de la animación de entrada, por lo que permanece visible desde el primer render.
+- Los tests recorren el copy público para impedir que reaparezcan claims provisionales o duraciones contradictorias.
+
+### Verification
+- Suite completa: 50 archivos y 439 pruebas aprobadas.
+- Build Astro/Vercel, verificador de la guía GEO y Pagefind completados correctamente.
+- QA visual en escritorio y móvil: H1 visible y sin desbordamiento horizontal a 1440 px y 390 px.
+
+## [0.6.0.0] - 2026-08-13
+
+### Added
+- Nuevo clúster editorial de Agentic Search en `/guias`: una guía pilar de SEO para IA y dos guías prácticas para aparecer y medir visibilidad en ChatGPT y otros asistentes.
+- Nueva guía profesional para convertirse en especialista GEO, basada en el GEO Jobs Report de Citable y convertida en un plan de aprendizaje de 90 días con seis competencias, ejercicios y evidencias de portfolio.
+- La guía GEO incorpora portada social, infografías adaptadas a escritorio y móvil, tablas semánticas, FAQ, autoría visible, fuentes y un recurso descargable medido como CTA.
+
+### Changed
+- El índice de guías amplía su posicionamiento hacia IA, automatización y visibilidad; `Guías` entra en la navegación estable del sitio.
+- Las fichas de ChatGPT, Perplexity y Surfer SEO recomiendan la guía más relevante del nuevo clúster, que también queda conectado mediante enlazado interno entre sus artículos.
+- El sitemap publica la fecha editorial real del índice y de las cuatro guías del clúster, y el build comprueba los metadatos sociales y las fechas generadas.
+
+### Fixed
+- Las tablas de las guías conservan el ancho del documento en móvil mediante desplazamiento interno, y la cuadrícula del índice deja de desbordarse en pantallas estrechas.
+- El CTA de recursos valida identificadores y tipos de valor antes de renderizar o registrar eventos; las rutas internas rechazan URLs externas encubiertas.
+- La analítica de los CTA de servicio y recursos vuelve a emitir eventos consistentes y verificables sin duplicarlos.
+
+### Verification
+- Suite completa: 49 archivos y 434 pruebas; también aprobada sin artefactos previos en `dist/`.
+- Build Astro/Vercel, verificador de metadatos y sitemap, y Pagefind completados correctamente.
+- QA visual en escritorio y móvil: sin desbordamiento del documento, imágenes responsivas correctas, navegación funcional y consola limpia.
+
+## [0.5.1.1] - 2026-08-08
+
+### Fixed
+- El sitio utiliza versiones corregidas de `nanoid`, `brace-expansion` y `undici`, eliminando siete alertas de seguridad de dependencias sin cambiar la experiencia ni las APIs de AgentesVA.
+
+### Verification
+- `npm audit` no detecta vulnerabilidades; la suite completa mantiene 44 archivos y 405 pruebas aprobadas, y el build de Astro, Vercel y Pagefind termina correctamente.
+
+## [0.5.1.0] - 2026-08-08
+
+### Added
+- La portada presenta una ruta comercial completa: resultado esperado, tres áreas de automatización, entregables, proceso, precio inicial y llamadas al diagnóstico antes del contenido editorial.
+- Elizabeth Salguero figura como fundadora de AgentesVA en los datos estructurados; Fernando Angulo conserva la dirección estratégica y editorial.
+
+### Changed
+- El directorio y el pack gratuito pasan a una función secundaria para que el visitante encuentre primero la oferta de implementación.
+- El precio de implementación se obtiene de una única fuente y los textos comerciales de las tarjetas ganan legibilidad.
+- La barra fija móvil concentra la conversión en una acción compacta sin ocupar espacio excesivo.
+
+### Verification
+- Suite completa: 44 archivos y 405 pruebas.
+- Build de Astro y Pagefind completado correctamente.
+- QA de navegador en escritorio y móvil, sin errores de consola ni desbordamiento horizontal; CTA principal conectado al diagnóstico.
+
+## [0.5.0.1] - 2026-08-08
+
+### Changed
+- Los diagnósticos nuevos de AgentesVA se asignan a Eli como responsable comercial, alineando la captura web con el modelo de outreach founder-led y el SOP del CRM.
+
+### Verification
+- Prueba de integración del payload de Notion: la propiedad `Responsable` debe ser `Eli`.
+
+## [0.5.0.0] - 2026-08-08
+
+### Added
+- Nuevo embudo comercial para servicios de automatización: hub de servicios, tres páginas especializadas, precios orientativos, proceso de trabajo y seis guías de apoyo conectadas por intención.
+- El diagnóstico de ocho pasos devuelve prioridad, complejidad, tres oportunidades concretas y un siguiente paso determinista según encaje, presupuesto, plazo y riesgo.
+- Nueva confirmación dinámica `/gracias-diagnostico/`, excluida de indexación y sitemap, con reserva configurable mediante `BOOKING_URL` y alternativas útiles para los demás perfiles.
+- Tracking consentido del funnel completo: CTA, inicio, pasos, finalización, lead cualificado y reserva iniciada, sin enviar respuestas personales a analítica.
+
+### Changed
+- La portada, navegación, footer, estudios y fichas prioritarias orientan el tráfico con contexto hacia diagnóstico y servicios, manteniendo el directorio como vía de exploración.
+- El diagnóstico deja la fase de preview: entra al sitemap y puede indexarse, mientras su página de confirmación permanece `noindex`.
+- La entrega comercial escribe directamente en el pipeline existente de Notion y actualiza por `Submission ID`; el diagnóstico deja de depender de Make o de otro CRM intermediario.
+- La suite configura Happy DOM para simular como exitosa la carga externa bloqueada; conserva el aislamiento de red y deja la salida de tests limpia.
+
+### Fixed
+- El diagnóstico ya no desplaza la página al primer campo durante la carga ni oculta el resultado bajo la cabecera fija en escritorio o móvil.
+- Cada clasificación conserva su propia lista de oportunidades y la atribución de reservas distingue Calendly, Cal.com y otros proveedores HTTPS configurados.
+- La página de cierre verifica un token de resultado firmado antes de mostrar la reserva; los enlaces directos o manipulados caen a revisión manual. Los reintentos conservan una clave de idempotencia para evitar leads duplicados en el receptor.
+
+### Verification
+- QA estándar del embudo: 8 rutas/variantes, 21 capturas y 1 incidencia encontrada/corregida; salud final 100/100.
+- Suite completa: 43 archivos y 390 tests. Build Astro/Vercel y Pagefind completados.
+
 ## [0.4.0.0] - 2026-08-04
 
 ### Added

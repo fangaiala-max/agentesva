@@ -12,6 +12,11 @@ import {
 
 const GA_ID = 'G-TEST123';
 
+const command = (entry: unknown): unknown[] =>
+  entry && typeof entry === 'object' && 'length' in entry
+    ? Array.from(entry as ArrayLike<unknown>)
+    : [];
+
 beforeEach(() => {
   localStorage.clear();
   document.head.querySelectorAll('script[data-ga4]').forEach((s) => s.remove());
@@ -32,15 +37,23 @@ describe('consent state', () => {
 });
 
 describe('initConsentMode', () => {
+  it('emite comandos en el formato Arguments que consume gtag.js', () => {
+    initConsentMode();
+    // @ts-expect-error dataLayer inyectado
+    const first = (window.dataLayer as unknown[])[0];
+    expect(Object.prototype.toString.call(first)).toBe('[object Arguments]');
+  });
+
   it('inicializa dataLayer con consent default denegado', () => {
     initConsentMode();
     // @ts-expect-error dataLayer inyectado
     const events = window.dataLayer as unknown[];
     expect(Array.isArray(events)).toBe(true);
-    const hasDefaultDenied = events.some(
-      (e) => Array.isArray(e) && e[0] === 'consent' && e[1] === 'default' &&
-        (e[2] as Record<string, string>).analytics_storage === 'denied',
-    );
+    const hasDefaultDenied = events.some((entry) => {
+      const e = command(entry);
+      return e[0] === 'consent' && e[1] === 'default' &&
+        (e[2] as Record<string, string>).analytics_storage === 'denied';
+    });
     expect(hasDefaultDenied).toBe(true);
   });
 
@@ -49,9 +62,10 @@ describe('initConsentMode', () => {
     initConsentMode();
     // @ts-expect-error dataLayer inyectado
     const events = window.dataLayer as unknown[];
-    const defaults = events.filter(
-      (e) => Array.isArray(e) && e[0] === 'consent' && e[1] === 'default',
-    );
+    const defaults = events.filter((entry) => {
+      const e = command(entry);
+      return e[0] === 'consent' && e[1] === 'default';
+    });
     expect(defaults.length).toBe(1);
   });
 });
@@ -87,10 +101,11 @@ describe('grant / deny', () => {
     grantConsent(GA_ID);
     // @ts-expect-error dataLayer inyectado
     const events = window.dataLayer as unknown[];
-    const hasUpdateGranted = events.some(
-      (e) => Array.isArray(e) && e[0] === 'consent' && e[1] === 'update' &&
-        (e[2] as Record<string, string>).analytics_storage === 'granted',
-    );
+    const hasUpdateGranted = events.some((entry) => {
+      const e = command(entry);
+      return e[0] === 'consent' && e[1] === 'update' &&
+        (e[2] as Record<string, string>).analytics_storage === 'granted';
+    });
     expect(hasUpdateGranted).toBe(true);
   });
 
@@ -99,10 +114,11 @@ describe('grant / deny', () => {
     grantConsent(GA_ID);
     // @ts-expect-error dataLayer inyectado
     const events = window.dataLayer as unknown[];
-    const grantsAds = events.some(
-      (e) => Array.isArray(e) && e[0] === 'consent' && e[1] === 'update' &&
-        (e[2] as Record<string, string>).ad_storage === 'granted',
-    );
+    const grantsAds = events.some((entry) => {
+      const e = command(entry);
+      return e[0] === 'consent' && e[1] === 'update' &&
+        (e[2] as Record<string, string>).ad_storage === 'granted';
+    });
     expect(grantsAds).toBe(false);
   });
 });

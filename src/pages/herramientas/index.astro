@@ -100,9 +100,5 @@ const jsonLd = {
 
 <script>
   import { initDirectory } from '../../scripts/directory';
-  import { initMotion } from '../../scripts/motion';
-  document.addEventListener('astro:page-load', () => {
-    initDirectory();
-    initMotion();
-  });
+  document.addEventListener('astro:page-load', () => initDirectory());
 </script>

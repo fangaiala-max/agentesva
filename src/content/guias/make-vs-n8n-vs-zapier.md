@@ -13,6 +13,9 @@ servicio:
   nombre: "automatización de procesos"
   href: "/servicios/automatizacion-procesos/"
   cluster: procesos
+  analytics:
+    cluster: operations
+    service: process_automation
   titulo: "Elige la plataforma a partir del proceso"
   descripcion: "Diseñamos y probamos el flujo con tus datos para decidir tecnología, coste operativo y mantenimiento antes de comprometer la implementación."
 relacionados:

@@ -26,6 +26,24 @@ export async function getStaticPaths() {
 interface Props { tool: Tool; alts: Tool[]; cats: CatEntry[] }
 const { tool, alts, cats } = Astro.props;
 const clusterLinks = linksForTool(tool.slug);
+const guideForTool: Record<string, { title: string; description: string; href: string }> = {
+  chatgpt: {
+    title: 'Cómo aparecer en ChatGPT',
+    description: 'Aprende qué señales aumentan la probabilidad de que ChatGPT encuentre, entienda y cite tu marca.',
+    href: '/guias/como-aparecer-en-chatgpt/',
+  },
+  perplexity: {
+    title: 'Cómo medir tu visibilidad en ChatGPT y otros asistentes',
+    description: 'Construye un sistema de medición para comparar menciones, citas y evolución de marca en buscadores con IA.',
+    href: '/guias/medir-visibilidad-en-chatgpt/',
+  },
+  'surfer-seo': {
+    title: 'SEO para IA: guía estratégica',
+    description: 'Amplía la optimización tradicional con contenido recuperable, autoridad de entidad y medición en respuestas generativas.',
+    href: '/guias/seo-para-ia/',
+  },
+};
+const recommendedGuide = guideForTool[tool.slug];
 const initial = tool.name.charAt(0);
 const badges = badgesFor(tool);
 const hasAffiliate = Boolean(tool.affiliateUrl);
@@ -168,6 +186,14 @@ const jsonLd = {
       </div>
 
       <aside style="display: flex; flex-direction: column; gap: 18px;">
+        {recommendedGuide && (
+          <div style="border: 1px solid var(--line-2); background: var(--panel); border-radius: 8px; padding: 22px;">
+            <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);">Guía recomendada</span>
+            <h2 style="font-family: var(--sans); font-size: 18px; line-height: 1.25; color: #fff; margin: 10px 0 0;">{recommendedGuide.title}</h2>
+            <p style="font-size: 14px; line-height: 1.55; color: var(--fg-3); margin: 9px 0 15px;">{recommendedGuide.description}</p>
+            <a class="navlink" href={recommendedGuide.href} style="font-family: var(--mono); font-size: 11px; color: var(--accent); text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em;">Leer la guía →</a>
+          </div>
+        )}
         <div style="border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 22px;">
           <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-5);">Resumen</span>
           <div style="display: flex; justify-content: space-between; align-items: center; padding: 13px 0; border-bottom: 1px solid var(--line); margin-top: 8px;">
@@ -219,9 +245,5 @@ const jsonLd = {
 
 <script>
   import { initToolDetail } from '../../scripts/tool-detail';
-  import { initMotion } from '../../scripts/motion';
-  document.addEventListener('astro:page-load', () => {
-    initToolDetail();
-    initMotion();
-  });
+  document.addEventListener('astro:page-load', () => initToolDetail());
 </script>

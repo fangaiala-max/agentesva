@@ -1,10 +1,11 @@
 // Eventos GA4 respetando el consentimiento. CSP-safe (módulo 'self'; no scripts inline,
 // no dependencias nuevas). Reutiliza el patrón dataLayer de consent.ts: sólo emite si
 // GA4 está cargado (= consentimiento analítico concedido); si no, no-op silencioso.
-import { isGA4Loaded } from './consent';
+import { isGA4Loaded, pushGtagCommand } from './consent';
 
 export const GROWTH_EVENTS = [
   'service_cta_click',
+  'resource_cta_click',
   'diagnostic_started',
   'diagnostic_step_completed',
   'diagnostic_completed',
@@ -25,6 +26,10 @@ const EVENT_PARAMS: Record<GrowthEvent, { required: readonly string[]; allowed: 
   service_cta_click: {
     required: ['page_type', 'placement'],
     allowed: COMMON_GROWTH_PARAMS,
+  },
+  resource_cta_click: {
+    required: ['page_type', 'placement', 'resource_id', 'destination'],
+    allowed: ['page_type', 'content_slug', 'placement', 'resource_id', 'destination'],
   },
   diagnostic_started: {
     required: ['page_type', 'placement'],
@@ -61,20 +66,15 @@ const ENUMS: Partial<Record<string, ReadonlySet<string>>> = {
     'general_consulting',
   ]),
   qualification_band: new Set(['low', 'medium', 'high']),
-  booking_provider: new Set(['calendly']),
+  booking_provider: new Set(['calendly', 'cal', 'external']),
+  destination: new Set(['stripe']),
 };
 
 const SAFE_VALUE = /^[\p{L}\p{N}_./-]{1,100}$/u;
 
-function dataLayer(): unknown[] {
-  const w = window as unknown as { dataLayer?: unknown[] };
-  w.dataLayer = w.dataLayer || [];
-  return w.dataLayer;
-}
-
 export function track(event: string, params: Record<string, unknown> = {}): boolean {
   if (!isGA4Loaded()) return false;
-  dataLayer().push(['event', event, params]);
+  pushGtagCommand('event', event, params);
   return true;
 }
 
@@ -101,13 +101,9 @@ export function trackGrowthEvent(event: GrowthEvent, params: GrowthParams): bool
       continue;
     }
 
-    if (typeof value === 'boolean' || typeof value === 'number') {
-      clean[key] = value;
-      continue;
-    }
-
     const enumValues = ENUMS[key];
-    if (enumValues && !enumValues.has(value)) return false;
+    if (enumValues && (typeof value !== 'string' || !enumValues.has(value))) return false;
+    if (typeof value !== 'string') return false;
     if (!SAFE_VALUE.test(value)) return false;
     clean[key] = value;
   }

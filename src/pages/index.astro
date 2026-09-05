@@ -7,10 +7,13 @@ import ServiceSpotlightGrid from '../components/ServiceSpotlightGrid.astro';
 import { getCollection } from 'astro:content';
 import { toTool, priceRank, toolsClaim } from '../data/tools';
 import { crumbPath } from '../data/breadcrumbs';
+import { AUTOMATION_AREAS } from '../data/automation-areas';
+import { SERVICE_OFFER } from '../data/service-offer';
 
 const tools = (await getCollection('tools')).map(toTool).sort((a, b) => a.orden - b.orden);
 const claim = toolsClaim(tools.length);
 const cats = (await getCollection('categories')).sort((a, b) => a.data.orden - b.data.orden);
+const QUICK_CHIPS = ['WhatsApp', 'Marketing', 'Asistentes', 'Automatización'];
 const CATEGORIES = ['Todas', ...cats.map((c) => c.data.nombre)];
 const catIdByName = new Map(cats.map((c) => [c.data.nombre, c.id]));
 const countByCat = (nombre: string) => tools.filter((t) => t.cat === nombre).length;
@@ -32,7 +35,7 @@ const shelves = [
   },
 ];
 
-// Avatares (monogramas reales del directorio).
+// Monogramas reales del directorio.
 const collAvatars = tools.filter((t) => ['WhatsApp', 'Marketing', 'Asistentes'].includes(t.cat)).slice(0, 5);
 
 // Banners "Explora por objetivo" — 6 categorías curadas del diseño, con conteos reales.
@@ -60,13 +63,13 @@ const CAT_BANNERS = [
     <div class="signal-orbit" aria-hidden="true"><span>IA</span><span>01</span><span>VA</span></div>
     <div class="kinetic-type" aria-hidden="true"><span>AUTOMATIZA</span><span>AUTOMATIZA</span><span>AUTOMATIZA</span></div>
 
-    <div class="hero-grid" style="position: relative; max-width: 1240px; margin: 0 auto; padding: 56px 32px 48px;">
+    <div class="hero-grid" style="position: relative; max-width: 1240px; margin: 0 auto; padding: 64px 32px 58px;">
       <div>
         <span class="hero-kicker blur-in">// AUTOMATIZACIÓN APLICADA · PYMES</span>
         <h1 class="signal-title">AUTOMATIZA<br />LO QUE <span>SÍ</span><br />IMPORTA.</h1>
-        <p class="blur-in" style="font-size: 17px; line-height: 1.6; color: var(--fg-3); margin: 18px 0 0; max-width: 38em; animation-delay: .26s;">Diseñamos e implementamos automatizaciones de atención, ventas y operaciones para PyMEs. Empezamos por un proceso concreto y dejamos un flujo probado, documentado y bajo control.</p>
-        <div class="blur-in hero-actions" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;animation-delay:.32s"><a href="/diagnostico-automatizacion-ia/" class="hero-cta hero-cta--primary shimmer" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="general_consulting" data-track-cluster="general" data-track-placement="hero"><span>Hacer diagnóstico gratuito</span><i aria-hidden="true">→</i></a><a href="#servicios-home" class="hero-cta hero-cta--secondary"><span>Ver casos de uso</span><i aria-hidden="true">↓</i></a></div>
-        <p class="hero-assurance blur-in">3 minutos · Recomendación inmediata · Datos de contacto solo después del resultado</p>
+        <p data-motion-static="explanation" style="font-size: 17px; line-height: 1.6; color: var(--fg-3); margin: 18px 0 0; max-width: 38em; animation-delay: .26s;">Diseñamos e implementamos automatizaciones de atención, ventas y operaciones para PyMEs. Empezamos por un proceso concreto y dejamos un flujo probado, documentado y bajo control.</p>
+        <div class="hero-actions" data-motion-static="actions" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;animation-delay:.32s"><a href="/diagnostico-automatizacion-ia/" class="hero-cta hero-cta--primary shimmer" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="general_consulting" data-track-cluster="general" data-track-placement="hero"><span>Hacer diagnóstico gratuito</span><i aria-hidden="true">→</i></a><a href="#servicios-home" class="hero-cta hero-cta--secondary"><span>Ver casos de uso</span><i aria-hidden="true">↓</i></a></div>
+        <p class="hero-assurance" data-motion-static="trust">3 minutos · Recomendación inmediata · Datos de contacto solo después del resultado</p>
       </div>
 
       <aside class="hero-feature decision-card blur-in" aria-label="Qué ocurre después del diagnóstico">
@@ -75,9 +78,9 @@ const CAT_BANNERS = [
         <ol>
           <li><span>01</span><div><strong>Diagnóstico gratuito</strong><small>Prioridad y siguiente paso en pantalla.</small></div></li>
           <li><span>02</span><div><strong>Taller desde 300 €</strong><small>Mapa, viabilidad, riesgos y alcance.</small></div></li>
-          <li><span>03</span><div><strong>Implementación desde 1.500 €</strong><small>Un flujo funcional, probado y documentado.</small></div></li>
+          <li><span>03</span><div><strong>Implementación · {SERVICE_OFFER.scoped.price}</strong><small>Un flujo funcional, probado y documentado.</small></div></li>
         </ol>
-        <a href="/precios-automatizacion-ia/">Ver inversión y entregables <span>↗</span></a>
+        <a href="/precios-automatizacion-ia/" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="general_consulting" data-track-cluster="general" data-track-placement="hero_pricing">Ver inversión y entregables <span>↗</span></a>
       </aside>
     </div>
   </section>
@@ -93,12 +96,41 @@ const CAT_BANNERS = [
       <li><span>04</span><strong>Controlar</strong><p>Documentación, formación y seguimiento.</p></li>
     </ol>
     <div class="buyer-path__close"><div><strong>¿Buen encaje?</strong><span>El proceso ocurre cada semana, tiene responsable y puede medirse.</span></div><div><strong>Plazo orientativo</strong><span>2–4 semanas para una implementación acotada.</span></div><a href="/diagnostico-automatizacion-ia/">Empezar diagnóstico gratuito →</a></div>
+</section>
+
+  <section class="commercial-proof">
+    <div>
+      <div class="commercial-proof__heading">
+        <span class="section-kicker">Qué compras</span>
+        <h2>Una automatización lista para trabajar</h2>
+      </div>
+      <p>Conectamos un proceso concreto con las herramientas que ya utilizas y lo dejamos probado, documentado y con control humano. Tu equipo recibe un flujo operativo de principio a fin, no otra herramienta que aprender.</p>
+    </div>
+    <div class="deliverables">
+      <article><b>01</b><h3>Flujo operativo</h3><p>Entradas, reglas, salidas y responsables conectados.</p></article>
+      <article><b>02</b><h3>Casos probados</h3><p>Pruebas normales, incompletas y erróneas antes de activar.</p></article>
+      <article><b>03</b><h3>Control y relevo</h3><p>Excepciones, supervisión humana y documentación para tu equipo.</p></article>
+    </div>
   </section>
 
-  <!-- ===== EXPLORA POR OBJETIVO ===== -->
+  <section class="commercial-process">
+    <div class="process-copy"><span class="section-kicker">Una decisión sencilla</span><h2>Empieza pequeño. Mide. Amplía solo si funciona.</h2><p>El diagnóstico nos permite descartar proyectos prematuros y concentrar la inversión en un primer resultado verificable.</p><a href="/como-trabajamos/" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="general_consulting" data-track-cluster="general" data-track-placement="methodology">Ver cómo trabajamos →</a></div>
+    <ol>
+      <li><span>Ahora</span><strong>Completa el diagnóstico</strong><small>3 minutos, sin compromiso.</small></li>
+      <li><span>Siguiente día laborable</span><strong>Revisamos el encaje</strong><small>Elizabeth coordina la respuesta y Fernando la revisión estratégica y técnica.</small></li>
+      <li><span>2 a 4 semanas</span><strong>Activamos el primer flujo</strong><small>Si el alcance es acotado y la propuesta se aprueba.</small></li>
+    </ol>
+  </section>
+
+  <section class="commercial-close">
+    <div><span class="section-kicker">Primer paso gratuito</span><h2>Cuéntanos qué tarea se repite cada semana</h2><p>Te diremos si merece la pena automatizarla, qué falta para hacerlo y cuál sería el siguiente paso.</p></div>
+    <a href="/diagnostico-automatizacion-ia/" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="general_consulting" data-track-cluster="general" data-track-placement="mid_page">Hacer diagnóstico gratuito →</a>
+  </section>
+
+  <!-- ===== CONTENIDO EDITORIAL SECUNDARIO ===== -->
   <section style="max-width: 1240px; margin: 40px auto 0; padding: 0 32px;">
     <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 18px;">
-      <h2 style="font-family: var(--sans); font-weight: 700; font-size: 20px; letter-spacing: -0.02em; margin: 0; color: #fff;">Explora por objetivo</h2>
+      <div><span class="section-kicker">¿Aún estás explorando?</span><h2 style="font-family: var(--sans); font-weight: 700; font-size: 20px; letter-spacing: -0.02em; margin: 8px 0 0; color: #fff;">Compara herramientas por objetivo</h2></div>
       <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-5);">{cats.length} categorías</span>
     </div>
     <div class="cat-grid">
@@ -142,6 +174,15 @@ const CAT_BANNERS = [
 
   <!-- ===== DIRECTORIO ===== -->
   <section id="directorio" style="max-width: 1240px; margin: 48px auto 0; padding: 0 32px 64px; scroll-margin-top: 80px;">
+    <form id="search-form" role="search" class="searchwrap" style="display: flex; align-items: center; gap: 12px; max-width: 680px; margin: 0 0 18px; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 4px; padding: 4px 4px 4px 18px; transition: border-color .25s, box-shadow .25s;">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--fg-5)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
+      <label for="tool-search" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Buscar herramientas</label>
+      <input id="tool-search" type="search" autocomplete="off" placeholder="Busca: chatbot, automatizar WhatsApp, crear vídeos…" style="flex: 1; min-width: 0; background: transparent; border: none; outline: none; color: #fff; font-family: var(--sans); font-size: 15px; padding: 12px 0;">
+      <button type="submit" style="font-family: var(--mono); font-size: 11px; color: var(--fg-2); background: var(--panel-3); padding: 11px 18px; border-radius: 2px; font-weight: 600; border: 1px solid var(--line-2); cursor: pointer;">Buscar</button>
+    </form>
+    <div role="group" aria-label="Explorar por categoría" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
+      {QUICK_CHIPS.map((c) => <button type="button" class="chip quick-chip" data-quick={c} style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 14px; border-radius: 30px; background: transparent; color: var(--fg-3); border: 1px solid var(--line-2);">{c}</button>)}
+    </div>
     <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--line); padding-bottom: 16px; margin-bottom: 24px; flex-wrap: wrap;">
       <div>
         <h2 style="font-family: var(--sans); font-weight: 700; font-size: 22px; letter-spacing: -0.02em; margin: 0; color: #fff;">Directorio de herramientas</h2>
@@ -322,7 +363,7 @@ const CAT_BANNERS = [
           </div>
           <p id="pack-error" data-subscribe-error hidden role="alert" style="font-family: var(--mono); font-size: 12px; color: #ff6b6b; margin-top: 12px;"></p>
         </div>
-        <span style="font-family: var(--mono); font-size: 11px; color: var(--fg-5); display: block; margin-top: 14px;">Leído por +1.200 negocios · baja cuando quieras</span>
+        <span style="font-family: var(--mono); font-size: 11px; color: var(--fg-5); display: block; margin-top: 14px;">Gratis · una edición por semana · baja cuando quieras</span>
       </div>
 
       <!-- terminal card -->
@@ -367,10 +408,9 @@ const CAT_BANNERS = [
       </div>
       <div class="reveal" style="padding: 40px 24px;">
         <div style="display: flex; align-items: baseline; gap: 2px;">
-          <span style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em;">+</span>
-          <span data-count="1200" style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;">1.200</span>
+          <span data-count={AUTOMATION_AREAS.length} style="font-weight: 700; font-size: 42px; color: #fff; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;">{AUTOMATION_AREAS.length}</span>
         </div>
-        <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5);">Negocios suscritos</span>
+        <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5);">Áreas de automatización</span>
       </div>
     </div>
   </section>
@@ -380,10 +420,10 @@ const CAT_BANNERS = [
 
   <!-- ===== BARRA CTA FIJA (fondo sólido: sin backdrop-filter permanente) ===== -->
   <div id="cta-bar" hidden style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: var(--bg-2); border-top: 1px solid var(--line-2); animation: slideUp .4s cubic-bezier(0.22,0.61,0.36,1) both;">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 12px 32px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap;">
-      <span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex: none;"></span>
-      <span style="font-family: var(--sans); font-size: 14.5px; color: #fff; font-weight: 600; flex: 1; min-width: 200px;">¿Tienes un proceso repetitivo? <span style="color: var(--fg-3); font-weight: 400;">Descubre si merece la pena automatizarlo.</span></span>
-      <a href="/diagnostico-automatizacion-ia/" style="font-family: var(--sans); font-weight: 700; font-size: 12px; text-transform:uppercase; color: #fff; background: var(--accent); padding: 11px 20px; border-radius:var(--radius-pill); text-decoration: none; white-space: nowrap;">Diagnóstico gratuito →</a>
+    <div class="cta-bar__inner">
+      <span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: dotPulse 1.4s ease-in-out infinite; flex: none;"></span>
+      <span style="font-family: var(--sans); font-size: 14.5px; color: #fff; font-weight: 600; flex: 1; min-width: 200px;">¿Qué proceso deberías automatizar primero? <span style="color: var(--fg-3); font-weight: 400;">Descúbrelo en 3 minutos.</span></span>
+      <a class="cta-bar__link" href="/diagnostico-automatizacion-ia/" data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="general_consulting" data-track-cluster="general" data-track-placement="sticky">Hacer diagnóstico →</a>
       <button type="button" id="cta-dismiss" aria-label="Cerrar aviso" style="background: none; border: none; cursor: pointer; color: var(--fg-5); padding: 6px; display: flex;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
     </div>
   </div>
@@ -480,6 +520,44 @@ const CAT_BANNERS = [
   .hero-search__button:hover { border-color: var(--accent); background: color-mix(in srgb,var(--accent) 12%,var(--panel-3)); color: #fff; }
   .hero-search__button:hover span { transform: translateX(3px); }
   .hero-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; }
+  .hero-trust span { color: var(--fg-4); font: 11px var(--mono); line-height: 1.5; }
+  .commercial-card { position: relative; padding: 28px; overflow: hidden; border: 1px solid var(--line-2); border-radius: 14px; background: linear-gradient(160deg,#12315e 0%,var(--panel-3) 70%); }
+  .commercial-card::after { position: absolute; right: -70px; bottom: -90px; width: 230px; height: 230px; border-radius: 50%; background: radial-gradient(circle,rgba(91,124,255,.22),transparent 70%); content: ''; }
+  .commercial-card > span,.section-kicker { color: var(--accent); font: 700 10px var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+  .commercial-card h2 { position: relative; z-index: 1; margin: 12px 0 0; color: #fff; font: 400 clamp(26px,3vw,34px) var(--serif); line-height: 1.08; }
+  .commercial-card ol { position: relative; z-index: 1; display: grid; gap: 0; margin: 24px 0 0; padding: 0; list-style: none; }
+  .commercial-card li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; padding: 15px 0; border-top: 1px solid var(--line); }
+  .commercial-card li b { color: var(--accent); font: 700 11px var(--mono); }
+  .commercial-card li strong,.commercial-card li small { display: block; }
+  .commercial-card li strong { color: #fff; font-size: 14px; }
+  .commercial-card li small { margin-top: 4px; color: var(--fg-3); font-size: 13px; line-height: 1.45; }
+  .commercial-card > p { position: relative; z-index: 1; margin: 18px 0 0; color: var(--fg-3); font-size: 13px; }
+  .commercial-card > p strong { color: #fff; }
+  .commercial-proof,.commercial-process,.commercial-close { max-width: 1240px; margin: 76px auto 0; padding: 0 32px; }
+  .commercial-proof > div:first-child { display: grid; grid-template-columns: .85fr 1.15fr; gap: 54px; align-items: end; }
+  .commercial-proof h2,.commercial-process h2,.commercial-close h2 { margin: 10px 0 0; color: #fff; font: 400 clamp(30px,4.8vw,46px) var(--serif); line-height: 1.05; letter-spacing: -.025em; }
+  .commercial-proof > div:first-child p,.commercial-process p,.commercial-close p { margin: 0; color: var(--fg-3); font-size: 16px; line-height: 1.65; }
+  .deliverables { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 32px; }
+  .deliverables article { padding: 24px; border: 1px solid var(--line-2); border-radius: 10px; background: var(--panel); }
+  .deliverables b { color: var(--fg-2); font: 700 11px var(--mono); }
+  .deliverables h3 { margin: 18px 0 0; color: #fff; font: 600 18px var(--sans); }
+  .deliverables p { margin: 8px 0 0; color: var(--fg-3); font-size: 16px; line-height: 1.55; }
+  .commercial-process { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; padding-top: 64px; padding-bottom: 64px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .process-copy p { margin-top: 18px; }
+  .process-copy a { display: inline-block; margin-top: 20px; color: var(--accent); font-weight: 700; text-decoration: none; }
+  .commercial-process ol { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+  .commercial-process li { display: grid; gap: 5px; padding: 20px 0; border-top: 1px solid var(--line); }
+  .commercial-process li:first-child { border-top: 0; }
+  .commercial-process li span { color: var(--accent); font: 700 10px var(--mono); letter-spacing: .09em; text-transform: uppercase; }
+  .commercial-process li strong { color: #fff; font-size: 17px; }
+  .commercial-process li small { color: var(--fg-3); font-size: 14px; line-height: 1.5; }
+  .commercial-close { display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 36px; border: 1px solid var(--line-2); border-radius: 14px; background: linear-gradient(140deg,#102d50,var(--panel-3)); }
+  .commercial-close > div { max-width: 760px; }
+  .commercial-close h2 { font-size: clamp(28px,4vw,40px); }
+  .commercial-close p { margin-top: 12px; }
+  .commercial-close > a { flex: none; padding: 14px 20px; border-radius: 3px; background: var(--accent); color: var(--bg); font-weight: 700; text-decoration: none; }
+  .cta-bar__inner { display: flex; max-width: 1240px; align-items: center; gap: 18px; margin: 0 auto; padding: 12px 32px; flex-wrap: wrap; }
+  .cta-bar__link { padding: 10px 20px; border-radius: 2px; background: var(--accent); color: var(--bg); font: 600 13.5px var(--sans); text-decoration: none; white-space: nowrap; }
   .cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .coll-grid { display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: center; }
   .dir-body { display: block; }
@@ -497,6 +575,8 @@ const CAT_BANNERS = [
 
   @media (max-width: 960px) {
     .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+    .commercial-proof > div:first-child,.commercial-process { grid-template-columns: 1fr; gap: 28px; }
+    .commercial-close { align-items: flex-start; flex-direction: column; }
     .cat-grid { grid-template-columns: repeat(2, 1fr); }
     .coll-grid { grid-template-columns: 1fr; }
     .dir-body.shop { grid-template-columns: 1fr; }
@@ -510,6 +590,13 @@ const CAT_BANNERS = [
     .kinetic-type span { animation:none; }
     .hero-feature { transform:none; box-shadow:8px 8px 0 rgba(255,255,255,.16); }
     .buyer-path{padding:68px 20px}.buyer-path__steps{grid-template-columns:1fr}.buyer-path__steps li{min-height:auto;border-right:0!important;border-bottom:1px solid var(--line-2)!important}.buyer-path__steps strong{margin-top:28px}.buyer-path__close a{text-align:center}
+    .commercial-proof,.commercial-process { margin-top: 54px; padding-right: 16px; padding-left: 16px; }
+    .commercial-close { margin: 54px 16px 0; padding: 26px 22px; }
+    .deliverables { grid-template-columns: 1fr; }
+    .commercial-close > a { width: 100%; text-align: center; }
+    #cta-bar > div { gap: 9px; padding: 10px 12px; flex-wrap: nowrap; }
+    #cta-bar > div > span:nth-of-type(2) { display: none; }
+    #cta-bar > div > a { flex: 1; padding: 11px 12px; text-align: center; }
     .cat-grid { grid-template-columns: 1fr; }
     .hero-cta { justify-content: center; flex: 1 1 100%; }
     #cta-bar > div { padding:10px 12px!important; gap:10px!important; flex-wrap:nowrap!important; }
@@ -522,7 +609,6 @@ const CAT_BANNERS = [
 
 <script>
   import { initHome } from '../scripts/home';
-  import { initMotion } from '../scripts/motion';
   import { setupShelves } from '../scripts/shelves';
 
   // setupShelves observa y escucha scroll: hay que soltar lo anterior en cada
@@ -530,7 +616,6 @@ const CAT_BANNERS = [
   let teardownShelves: (() => void) | null = null;
   document.addEventListener('astro:page-load', () => {
     initHome();
-    initMotion();
     teardownShelves?.();
     teardownShelves = setupShelves();
   });

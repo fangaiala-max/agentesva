@@ -11,7 +11,6 @@ const trail = buildTrail({ name: 'Diagnóstico de automatización', url: '/diagn
 <BaseLayout
   title="Diagnóstico de automatización con IA | AgentesVA"
   description="Detecta qué proceso de tu negocio conviene automatizar primero y recibe un siguiente paso adaptado a tu situación."
-  noindex={true}
 >
   <SiteHeader />
 
@@ -149,8 +148,16 @@ const trail = buildTrail({ name: 'Diagnóstico de automatización', url: '/diagn
           <h2>Este caso necesita revisión humana</h2>
           <p>Por los datos o decisiones implicadas, no sería responsable recomendar una automatización automática sin revisar controles y supervisión.</p>
         </div>
+        <div class="result-summary" aria-label="Resumen de la recomendación">
+          <div><span>Prioridad</span><strong data-result-priority></strong></div>
+          <div><span>Complejidad orientativa</span><strong data-result-complexity></strong></div>
+        </div>
+        <h3 class="result-subtitle">Tres oportunidades para empezar</h3>
+        <ul data-result-opportunities></ul>
+        <h3 class="result-subtitle">Por qué te recomendamos este camino</h3>
         <ul data-result-reasons></ul>
-        <form class="contact-form" data-diagnostic-contact novalidate>
+        <a class="button-primary result-next-step" data-result-next-step href="#enviar-diagnostico"></a>
+        <form id="enviar-diagnostico" class="contact-form" data-diagnostic-contact novalidate>
           <h3>Recibe el siguiente paso para tu caso</h3>
           <p>Te responderemos en un día laborable con el siguiente paso, aunque no recomendemos contratar. No añadiremos tu email a la newsletter.</p>
           <div class="contact-grid">
@@ -223,10 +230,16 @@ const trail = buildTrail({ name: 'Diagnóstico de automatización', url: '/diagn
   .button-primary { margin-left: auto; border: 1px solid var(--accent); background: var(--accent); color: var(--bg); }
   .button-secondary { border: 1px solid var(--line-2); background: transparent; color: var(--fg-2); }
   .form-error { margin: 20px 0 -14px; padding: 10px 13px; border-left: 3px solid #ff6b6b; color: #ffb0b0; background: rgba(255,107,107,.08); }
-  .diagnostic-result { margin-top: 28px; }
+  .diagnostic-result { margin-top: 28px; scroll-margin-top: 140px; }
   .diagnostic-result h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(28px, 5vw, 40px); line-height: 1.08; color: #fff; margin: 14px 0 0; }
   .diagnostic-result p, .diagnostic-result li { color: var(--fg-3); line-height: 1.6; }
   .diagnostic-result ul { padding-left: 20px; margin: 20px 0 0; }
+  .result-summary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 24px; }
+  .result-summary > div { padding: 15px 16px; border: 1px solid var(--line); background: var(--panel-3); }
+  .result-summary span { display: block; color: var(--fg-4); font: 10px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+  .result-summary strong { display: block; margin-top: 6px; color: #fff; font-size: 17px; }
+  .result-subtitle { margin: 26px 0 0; color: #fff; font: 700 16px var(--sans); }
+  .result-next-step { display: inline-flex; margin: 24px 0 0; }
   .contact-form { margin-top: 28px; padding-top: 26px; border-top: 1px solid var(--line); }
   .contact-form h3, .contact-success h3 { color: #fff; font: 700 19px var(--sans); margin: 0; }
   .contact-form > p { margin: 8px 0 0; font-size: 14px; }
@@ -247,6 +260,7 @@ const trail = buildTrail({ name: 'Diagnóstico de automatización', url: '/diagn
     .diagnostic-shell { padding: 28px 20px 60px; }
     .diagnostic-card { padding: 22px 18px; }
     .options { grid-template-columns: 1fr; }
+    .result-summary { grid-template-columns: 1fr; }
     .contact-grid { grid-template-columns: 1fr; }
     .form-actions > *, .result-actions > * { width: 100%; margin-left: 0; }
   }

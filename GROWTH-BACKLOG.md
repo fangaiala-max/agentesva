@@ -49,7 +49,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-003 — Crear `/diagnostico-automatizacion-ia/`
 
-- **Estado:** completado el 4 ago 2026 — interfaz de 8 pasos, validación, resultado determinista, consentimiento y entrega segura verificados en Vercel Preview; se mantiene `noindex` hasta publicar la ruta en producción.
+- **Estado:** completado el 8 ago 2026 — interfaz de 8 pasos, validación, resultado determinista, consentimiento y entrega segura verificados; la ruta entra al sitemap con la release `0.5.0.0`.
 - **Impacto:** crítico
 - **Esfuerzo:** L
 - **Dependencias:** GROW-001, definición offline mínima de cualificación OFL-001
@@ -59,7 +59,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-004 — Implementar recepción segura de leads
 
-- **Estado:** completado el 4 ago 2026 — endpoint server-side, validación, honeypot, rate limit por instancia, entrega autenticable y consentimiento implementados; `DIAGNOSTIC_WEBHOOK_URL` configurada y entrega real confirmada en Make desde Vercel Preview.
+- **Estado:** actualizado el 8 ago 2026 — endpoint server-side, validación, honeypot, rate limit por instancia, evidencia de consentimiento y entrega directa a Notion con deduplicación de mejor esfuerzo por `Submission ID`; falta configurar la integración interna en Vercel y confirmar la entrega real desde Preview.
 - **Impacto:** crítico
 - **Esfuerzo:** M
 - **Dependencias:** GROW-003, OFL-001
@@ -69,6 +69,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-005 — Construir resultado y enrutamiento del diagnóstico
 
+- **Estado:** completado el 8 ago 2026 — resultado determinista con prioridad, complejidad, tres oportunidades por objetivo y siguiente paso específico; reglas y renderizado seguro cubiertos por tests.
 - **Impacto:** crítico
 - **Esfuerzo:** M
 - **Dependencias:** GROW-003, GROW-004
@@ -78,12 +79,13 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-006 — Crear página de gracias específica del diagnóstico
 
+- **Estado:** completado el 8 ago 2026 — confirmación SSR `noindex` con expectativa, salida por perfil, reserva opcional instrumentada, fallback seguro y exclusión del sitemap.
 - **Impacto:** alto
 - **Esfuerzo:** S
 - **Dependencias:** GROW-005
 - **Tarea:** página `noindex` con resumen, próximos pasos, expectativa de respuesta y CTA de reserva cuando corresponda.
 - **Aceptación:** no existe callejón sin salida; el evento `diagnostic_completed` no se duplica al recargar.
-- **Métrica:** resultado cualificado → reserva completada medible.
+- **Métrica:** resultado cualificado → reserva iniciada medible; `booking_completed` queda reservado para un callback verificable del proveedor.
 
 ## P0 · Oferta visible y páginas comerciales
 
@@ -183,7 +185,7 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 
 ### GROW-016 — Reorientar la home hacia implementación
 
-- **Estado:** completado el 5 ago 2026 — hero comercial con diagnóstico primario, servicios secundarios, tres problemas prioritarios y directorio conservado como exploración.
+- **Estado:** reforzado el 8 ago 2026 en `v0.5.1.0` — la portada ordena diagnóstico, tres servicios, entregables, proceso y precio inicial antes del directorio; todos los accesos comerciales quedan atribuidos por placement.
 - **Impacto:** crítico
 - **Esfuerzo:** L
 - **Dependencias:** GROW-003, GROW-007–011
@@ -326,6 +328,178 @@ Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **X
 - **Condición de entrada:** tráfico orgánico estable y evidencia de salidas a proveedores que no canibalizan servicios.
 - **Tarea futura:** poblar `affiliateUrl` solo para herramientas relevantes y aprobadas; medir ingreso por 1.000 sesiones cualificadas.
 - **Regla:** nunca sustituir el CTA de diagnóstico en páginas con intención de implementación.
+
+---
+
+# Programa CRO 2026 — Conversión integral antes de Paid
+
+**Objetivo:** mejorar primero la conversión completa de la web. Se excluyen el lanzamiento de campañas, los píxeles publicitarios y las automatizaciones sociales. Sí se prepara la atribución necesaria para Paid posterior.
+
+**Protecciones:** durante la Fase 1 permanecen intactas la lógica de clasificación del diagnóstico, la integración CRM, el consentimiento explícito, la validación server-side y los rangos de precio centrales.
+
+## Fase CRO 1 — Confianza y coherencia comercial
+
+### GROW-031 — Eliminar prueba social no verificable
+
+- **Estado:** ✅ Completada · 25 ago 2026
+- **Prioridad:** P0
+- **Esfuerzo:** S
+- **Dependencias:** ninguna
+- **Tarea:** retirar “+1.200 negocios” de home, newsletter, estadísticas y documentación de copy. Sustituirlo por mensajes verificables, sin fabricar cifras.
+- **Aceptación:** `rg '1[.]200|data-count="1200"|usan la IA mejor' src docs` no encuentra afirmaciones públicas no verificadas.
+- **Métrica:** cero claims comerciales sin fuente.
+
+### GROW-032 — Unificar el posicionamiento de AgentesVA
+
+- **Estado:** ✅ Completada · 25 ago 2026
+- **Prioridad:** P0
+- **Esfuerzo:** M
+- **Dependencias:** GROW-031
+- **Tarea:** definir AgentesVA como servicio de automatización respaldado por recursos editoriales. Actualizar ticker, footer y mensajes secundarios para que “directorio” no compita con la oferta. Mantener herramientas y newsletter como rutas secundarias.
+- **Aceptación:** home, header y footer expresan la misma jerarquía: Implementamos → Evaluamos → Enseñamos.
+
+### GROW-033 — Unificar la promesa y corregir el hero
+
+- **Estado:** ✅ Completada · 25 ago 2026
+- **Prioridad:** P0
+- **Esfuerzo:** S
+- **Dependencias:** GROW-032
+- **Tarea:** usar “3 minutos” en todos los accesos al diagnóstico, retirar `blur-in` del H1 para no ocultar el elemento LCP y aplicar un titular orientado al beneficio.
+- **Aceptación:** una única duración en toda la web; H1 visible desde el primer render; sin desbordamiento móvil.
+- **Verificación:** tests, build y revisión visual desktop/móvil.
+- **Resultado:** 439 tests aprobados, build de producción correcto y revisión visual sin desbordamiento a 1440 px y 390 px.
+
+## Fase CRO 2 — Reducir fricción del funnel
+
+### GROW-034 — Optimizar el primer paso del diagnóstico
+
+- **Prioridad:** P0
+- **Esfuerzo:** M
+- **Dependencias:** GROW-033
+- **Tarea:** empezar por una pregunta de objetivo con opciones y mover el campo libre de negocio a un paso posterior. Revisar si tamaño de equipo y herramientas actuales influyen en el resultado; si no, moverlos al contexto de contacto o eliminarlos.
+- **Aceptación:** todas las preguntas afectan la recomendación o tienen una justificación operativa documentada.
+- **Métrica:** avance del paso 1 y finalización total.
+
+### GROW-035 — Mantener el contexto entre servicio y diagnóstico
+
+- **Prioridad:** P0
+- **Esfuerzo:** S
+- **Dependencias:** GROW-034
+- **Tarea:** aceptar `?objetivo=ventas|atencion|operaciones`, preseleccionar la respuesta y conservar el servicio de origen como dato no sensible.
+- **Aceptación:** cada landing abre un diagnóstico contextualizado y los accesos directos siguen funcionando.
+
+### GROW-036 — Crear shell de conversión para diagnóstico y gracias
+
+- **Prioridad:** P1
+- **Esfuerzo:** M
+- **Dependencias:** GROW-032
+- **Tarea:** usar navegación reducida y eliminar newsletter y rutas editoriales competitivas del footer de diagnóstico y gracias. Mantener privacidad, contacto y acceso a la home.
+- **Aceptación:** estas páginas tienen una sola conversión principal y no crean callejones sin salida.
+
+### GROW-037 — Convertir precios en una escalera de decisión
+
+- **Prioridad:** P1
+- **Esfuerzo:** M
+- **Dependencias:** GROW-032
+- **Tarea:** presentar Diagnóstico → Taller si hace falta → Implementación → Soporte. Destacar la ruta recomendada y añadir duración, entregable, exclusiones y CTA contextual.
+- **Aceptación:** el usuario puede identificar su siguiente paso sin comparar cinco tarjetas equivalentes.
+
+## Fase CRO 3 — Aumentar confianza y capacidad percibida
+
+### GROW-038 — Añadir prueba de entrega y bloque de equipo
+
+- **Prioridad:** P0
+- **Esfuerzo:** M
+- **Dependencias:** OFL-004
+- **Tarea:** publicar una demostración o caso verificable con situación, flujo, controles, plazo y resultado medido. Añadir roles y credenciales relevantes del equipo.
+- **Aceptación:** ninguna demo se presenta como cliente; toda métrica tiene fuente o metodología.
+
+### GROW-039 — Unificar el diseño de las páginas comerciales
+
+- **Prioridad:** P1
+- **Esfuerzo:** L
+- **Dependencias:** GROW-032
+- **Tarea:** migrar precios, servicios y “Cómo trabajamos” al sistema navy/azul oficial reutilizando tokens y componentes existentes.
+- **Aceptación:** el recorrido comercial no cambia de identidad visual; contraste, foco y responsive verificados.
+
+### GROW-040 — Actualizar previews sociales
+
+- **Prioridad:** P1
+- **Esfuerzo:** M
+- **Dependencias:** GROW-032
+- **Tarea:** sustituir el OG global desactualizado, crear variantes para home, diagnóstico y servicios, y añadir texto alternativo, dimensiones y tipo.
+- **Aceptación:** ninguna preview publica “+120 herramientas verificadas”; cada página comercial tiene preview coherente con su oferta.
+
+## Fase CRO 4 — Medición completa
+
+### GROW-041 — Completar la observabilidad del diagnóstico
+
+- **Prioridad:** P0
+- **Esfuerzo:** M
+- **Dependencias:** GROW-034
+- **Tarea:** medir vista, primera interacción, paso visto/completado, resultado, contacto iniciado, error y envío. Instrumentar el CTA global del header sin transmitir datos personales.
+- **Aceptación:** puede calcularse abandono por paso, incluido el primer campo.
+
+### Extensión CRO de GROW-026 — Atribución first/last touch
+
+- **Estado:** promovida al programa CRO; ampliar la tarea existente.
+- Capturar UTM, landing inicial, referrer, `gclid` y `fbclid`, y guardarlos en campos separados del CRM.
+- **Aceptación:** tráfico directo, orgánico, referido y campañas quedan diferenciados; ausencia de UTM no produce errores.
+
+### GROW-042 — Registrar reservas completadas
+
+- **Prioridad:** P0 antes de Paid
+- **Esfuerzo:** M
+- **Dependencias:** GROW-026
+- **Tarea:** conectar webhook del proveedor de agenda, asociar reserva con `submissionId` y emitir `booking_completed` desde una fuente verificable.
+- **Aceptación:** puede calcularse diagnóstico → lead cualificado → reserva iniciada → reserva completada.
+
+### GROW-043 — Verificar configuración de reserva en despliegue
+
+- **Prioridad:** P0
+- **Esfuerzo:** S
+- **Dependencias:** ninguna
+- **Tarea:** fallar la verificación de producción si `BOOKING_URL` o el secreto de firma no son válidos. Mantener fallback por email únicamente como contingencia.
+- **Aceptación:** un lead cualificado nunca pierde la reserva por una configuración silenciosamente ausente.
+
+## Fase CRO 5 — Optimización basada en datos
+
+### GROW-044 — Ejecutar programa de experimentación CRO
+
+- **Prioridad:** P1
+- **Esfuerzo:** recurrente
+- **Dependencias:** GROW-041, GROW-026
+- **Tarea:** probar secuencialmente primer paso, hero con prueba, CTA, presentación del resultado y escalera de precios.
+- **Aceptación:** una variable principal por experimento, hipótesis previa y ventana mínima acordada.
+- **Métrica principal:** diagnósticos enviados y leads cualificados, no solo clics.
+
+## Dependencias del programa CRO
+
+```text
+GROW-031 → GROW-032 → GROW-033 → GROW-034 → GROW-035
+                 ├──→ GROW-036
+                 ├──→ GROW-037
+                 ├──→ GROW-039
+                 └──→ GROW-040
+
+OFL-004 ─────────────→ GROW-038
+
+GROW-034 → GROW-041 ─┬→ GROW-044
+GROW-026 ─────────────┤
+                     └→ GROW-042
+GROW-043 puede ejecutarse en paralelo
+```
+
+## Definición de éxito del programa CRO
+
+1. No existen claims públicos sin evidencia.
+2. La marca se entiende como servicio en cinco segundos.
+3. Todo el sitio promete la misma duración del diagnóstico.
+4. El H1 es visible desde el primer render.
+5. El funnel conserva el contexto de la landing.
+6. Puede medirse abandono por paso, origen del lead y reserva completada.
+7. Existe al menos una prueba de entrega verificable.
+8. Tests y build pasan en cada fase.
 
 ---
 

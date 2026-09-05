@@ -39,7 +39,7 @@ Cuatro rasgos. Una marca puede ser cálida sin tener cara.
 | Microcopy bajo botón | Gratis. Una edición por semana. Cero spam, te das de baja cuando quieras. |
 | Barra de suscripción (H2) | Recibe una idea de IA aplicable, cada semana |
 | Barra (apoyo) | Sin ruido ni noticias que no vas a usar. Solo lo que puedes aplicar hoy en tu negocio. |
-| Prueba social | Únete a +1.200 negocios que ya usan la IA mejor que su competencia *(placeholder hasta tener datos reales)* |
+| Confianza | Gratis. Una edición por semana. Cero spam; te das de baja cuando quieras. |
 | Consentimiento | Acepto recibir la newsletter de AgentesVA y la política de privacidad. |
 
 ## Test rápido antes de publicar cualquier copy

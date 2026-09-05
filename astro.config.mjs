@@ -6,6 +6,16 @@ import vercel from '@astrojs/vercel';
 // esta fecha. Se mantiene explícita para que un build posterior no finja que
 // todas las URLs cambiaron cuando solo se recompiló el proyecto.
 const SITE_RELAUNCH_LASTMOD = new Date('2026-08-04T00:00:00.000Z');
+const GUIDES_CLUSTER_LASTMOD = new Date('2026-08-13T00:00:00.000Z');
+const ROUTE_LASTMOD = new Map(
+  [
+    '/guias/',
+    '/guias/seo-para-ia/',
+    '/guias/como-aparecer-en-chatgpt/',
+    '/guias/medir-visibilidad-en-chatgpt/',
+    '/guias/como-convertirse-en-especialista-geo/',
+  ].map((route) => [route, GUIDES_CLUSTER_LASTMOD]),
+);
 
 export default defineConfig({
   site: 'https://agentesva.com',
@@ -15,16 +25,17 @@ export default defineConfig({
     sitemap({
       // /ir/* es la salida afiliado; /buscar es noindex (búsqueda cliente);
       // /descarga y /entrega son la entrega post-pago (noindex, SSR) — fuera del sitemap
-      // /gracias es la entrega post-suscripción y también lleva noindex.
-      // Diagnóstico permanece fuera del sitemap mientras siga en preview.
+      // /gracias es la entrega post-suscripción o post-diagnóstico y lleva noindex.
       filter: (page) =>
         !page.includes('/ir/') &&
         !page.includes('/buscar') &&
         !page.includes('/descarga') &&
         !page.includes('/entrega') &&
-        !page.includes('/gracias') &&
-        !page.includes('/diagnostico-automatizacion-ia'),
-      serialize: (item) => ({ ...item, lastmod: SITE_RELAUNCH_LASTMOD }),
+        !page.includes('/gracias'),
+      serialize: (item) => {
+        const pathname = new URL(item.url).pathname;
+        return { ...item, lastmod: ROUTE_LASTMOD.get(pathname) ?? SITE_RELAUNCH_LASTMOD };
+      },
       i18n: {
         defaultLocale: 'es',
         locales: { es: 'es' },

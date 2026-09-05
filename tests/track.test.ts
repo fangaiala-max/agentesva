@@ -1,4 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
+import { parseFrontmatter } from 'astro/markdown';
 import {
   track,
   trackGrowthEvent,
@@ -17,10 +20,19 @@ function events(): unknown[] {
   // @ts-expect-error dataLayer inyectado
   return (window.dataLayer as unknown[]) ?? [];
 }
+function command(entry: unknown): unknown[] {
+  return entry && typeof entry === 'object' && 'length' in entry
+    ? Array.from(entry as ArrayLike<unknown>)
+    : [];
+}
+function lastCommand(): unknown[] {
+  return command(events().at(-1));
+}
 function eventNames(): string[] {
   return events()
-    .filter((e) => Array.isArray(e) && e[0] === 'event')
-    .map((e) => (e as unknown[])[1] as string);
+    .map(command)
+    .filter((e) => e[0] === 'event')
+    .map((e) => e[1] as string);
 }
 
 beforeEach(() => {
@@ -41,10 +53,16 @@ describe('track', () => {
   it('empuja ["event", nombre, params] cuando GA4 está cargado', () => {
     loadGA4();
     track('affiliate_click', { slug: 'notion-ai', src: 'ficha-hero' });
-    const last = events().at(-1) as unknown[];
+    const last = lastCommand();
     expect(last[0]).toBe('event');
     expect(last[1]).toBe('affiliate_click');
     expect(last[2]).toEqual({ slug: 'notion-ai', src: 'ficha-hero' });
+  });
+
+  it('emite eventos en el formato Arguments que consume gtag.js', () => {
+    loadGA4();
+    track('affiliate_click', { slug: 'notion-ai' });
+    expect(Object.prototype.toString.call(events().at(-1))).toBe('[object Arguments]');
   });
 });
 
@@ -74,7 +92,7 @@ describe('trackGrowthEvent', () => {
       email: 'persona@example.com',
     });
     expect(sent).toBe(true);
-    const last = events().at(-1) as unknown[];
+    const last = lastCommand();
     expect(last[1]).toBe('service_cta_click');
     expect(last[2]).toEqual({
       page_type: 'tool_detail',
@@ -83,6 +101,46 @@ describe('trackGrowthEvent', () => {
       service: 'process_automation',
       placement: 'tool_detail_midpage',
     });
+  });
+
+  it('emite resource_cta_click con un recurso estable y sin propiedades extra', () => {
+    loadGA4();
+    expect(isGrowthEvent('resource_cta_click')).toBe(true);
+    const sent = trackGrowthEvent('resource_cta_click', {
+      page_type: 'guide',
+      content_slug: 'medir-visibilidad-en-chatgpt',
+      placement: 'guide_bottom',
+      resource_id: 'gr22',
+      destination: 'stripe',
+      email: 'no-debe-salir@example.com',
+    });
+    expect(sent).toBe(true);
+    const last = lastCommand();
+    expect(last[1]).toBe('resource_cta_click');
+    expect(last[2]).toEqual({
+      page_type: 'guide',
+      content_slug: 'medir-visibilidad-en-chatgpt',
+      placement: 'guide_bottom',
+      resource_id: 'gr22',
+      destination: 'stripe',
+    });
+  });
+
+  it('rechaza resource_cta_click con destino no permitido o identificadores no string', () => {
+    loadGA4();
+    const valid = {
+      page_type: 'guide',
+      placement: 'guide_bottom',
+      resource_id: 'gr22',
+      destination: 'stripe',
+    };
+
+    expect(trackGrowthEvent('resource_cta_click', { ...valid, destination: 'paypal' })).toBe(false);
+    expect(trackGrowthEvent('resource_cta_click', { ...valid, destination: 1 })).toBe(false);
+    expect(trackGrowthEvent('resource_cta_click', { ...valid, destination: true })).toBe(false);
+    expect(trackGrowthEvent('resource_cta_click', { ...valid, resource_id: 22 })).toBe(false);
+    expect(trackGrowthEvent('resource_cta_click', { ...valid, resource_id: true })).toBe(false);
+    expect(eventNames()).toHaveLength(0);
   });
 
   it('rechaza eventos incompletos o valores fuera del vocabulario', () => {
@@ -105,7 +163,7 @@ describe('trackGrowthEvent', () => {
       cluster: 'sales',
     });
     expect(sent).toBe(true);
-    const last = events().at(-1) as unknown[];
+    const last = lastCommand();
     expect(last[2]).toEqual({ step: 3, step_id: 'business_goal', cluster: 'sales' });
   });
 });
@@ -119,7 +177,7 @@ describe('initTracking (click delegado)', () => {
          data-track-has-affiliate="1">Visitar</a>`;
     initTracking();
     (document.querySelector('a') as HTMLElement).dispatchEvent(new MouseEvent('click', { bubbles: true }));
-    const last = events().at(-1) as unknown[];
+    const last = lastCommand();
     expect(last[1]).toBe('affiliate_click');
     expect(last[2]).toEqual({ slug: 'notion-ai', src: 'ficha-hero', has_affiliate: '1' });
   });
@@ -154,10 +212,59 @@ describe('initTracking (click delegado)', () => {
          data-track-email="no-debe-salir@example.com">Analizamos tu caso</a>`;
     initTracking();
     (document.querySelector('a') as HTMLElement).dispatchEvent(new MouseEvent('click', { bubbles: true }));
-    const last = events().at(-1) as unknown[];
+    const last = lastCommand();
     expect(last[1]).toBe('service_cta_click');
     expect(last[2]).not.toHaveProperty('email');
     expect(last[2]).toHaveProperty('placement', 'tool_detail_midpage');
+  });
+
+  it('emite los dos service_cta_click de una guía real con IDs analíticos estables', () => {
+    loadGA4();
+    const source = fs.readFileSync(
+      path.join(process.cwd(), 'src/content/guias/automatizar-whatsapp-empresa.md'),
+      'utf8',
+    );
+    const { frontmatter } = parseFrontmatter(source);
+    const service = frontmatter.servicio as {
+      href: string;
+      analytics: { cluster: string; service: string };
+    };
+    document.body.innerHTML = ['after_answer', 'final']
+      .map((placement) => `
+        <a href="${service.href}"
+           data-track-event="service_cta_click"
+           data-track-page-type="guide"
+           data-track-content-slug="automatizar-whatsapp-empresa"
+           data-track-cluster="${service.analytics?.cluster}"
+           data-track-service="${service.analytics?.service}"
+           data-track-placement="${placement}">CTA ${placement}</a>`)
+      .join('');
+
+    initTracking();
+    document.querySelectorAll('a').forEach((link) => {
+      link.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    });
+
+    const serviceEvents = events()
+      .map(command)
+      .filter((entry) => entry[0] === 'event' && entry[1] === 'service_cta_click');
+    expect(serviceEvents).toHaveLength(2);
+    expect(serviceEvents.map((entry) => entry[2])).toEqual([
+      {
+        page_type: 'guide',
+        content_slug: 'automatizar-whatsapp-empresa',
+        cluster: 'customer_service',
+        service: 'customer_service_automation',
+        placement: 'after_answer',
+      },
+      {
+        page_type: 'guide',
+        content_slug: 'automatizar-whatsapp-empresa',
+        cluster: 'customer_service',
+        service: 'customer_service_automation',
+        placement: 'final',
+      },
+    ]);
   });
 });
 
@@ -166,7 +273,7 @@ describe('fireViewEvents', () => {
     loadGA4();
     document.body.innerHTML = `<main data-track-view="view_ficha" data-track-slug="notion-ai" data-track-category="Asistentes"></main>`;
     fireViewEvents();
-    const last = events().at(-1) as unknown[];
+    const last = lastCommand();
     expect(last[1]).toBe('view_ficha');
     expect(last[2]).toEqual({ slug: 'notion-ai', category: 'Asistentes' });
   });

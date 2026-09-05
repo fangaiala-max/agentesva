@@ -1,4 +1,5 @@
 ---
+import { AUTOMATION_AREAS } from '../data/automation-areas';
 const services = [
   {
     eyebrow: 'Atención al cliente',
@@ -47,6 +48,12 @@ const services = [
       <a
         href={service.href}
         class="service-spotlight spotlight"
+        data-track-event="service_cta_click"
+        data-track-page-type="home"
+        data-track-content-slug="home"
+        data-track-service={AUTOMATION_AREAS[index].service}
+        data-track-cluster={AUTOMATION_AREAS[index].cluster}
+        data-track-placement="service_card"
         style={`--service-accent:${service.accent};--delay:${index * 80}ms`}
       >
         <div class="service-spotlight__top">

@@ -1,12 +1,12 @@
 ---
-interface Props { slug: string; placement: 'after_answer' | 'final'; service: { nombre: string; href: string; cluster: string; titulo: string; descripcion: string } }
+interface Props { slug: string; placement: 'after_answer' | 'final'; service: { nombre: string; href: string; cluster: string; analytics: { cluster: 'customer_service' | 'sales' | 'operations' | 'general'; service: 'customer_service_automation' | 'sales_automation' | 'process_automation' | 'general_consulting' }; titulo: string; descripcion: string } }
 const { slug, placement, service } = Astro.props;
 ---
 <aside class="guide-cta">
   <span>Siguiente decisión</span>
   <h2>{service.titulo}</h2>
   <p>{service.descripcion}</p>
-  <a href={service.href} data-track-event="service_cta_click" data-track-page-type="guide" data-track-content-slug={slug} data-track-service={service.nombre} data-track-cluster={service.cluster} data-track-placement={placement}>
+  <a href={service.href} data-track-event="service_cta_click" data-track-page-type="guide" data-track-content-slug={slug} data-track-service={service.analytics.service} data-track-cluster={service.analytics.cluster} data-track-placement={placement}>
     {placement === 'after_answer' ? 'Ver cómo lo implementamos →' : 'Evaluar mi caso →'}
   </a>
 </aside>

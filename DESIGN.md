@@ -1,10 +1,10 @@
 # Sistema de diseño — AgentesVA
 
-> **Fuente de verdad visual.** Sustituye por completo a la marca anterior ("fintech AI-visibility SaaS", verde/ámbar/rojo + Geist) — concepto abandonado en el pivote a **directorio/medio de IA en español** (ver `docs/superpowers/specs/2026-06-21-agentesva-directory-business-brief.md`).
+> **Fuente de verdad visual.** Sustituye por completo a la marca anterior ("fintech AI-visibility SaaS", verde/ámbar/rojo + Geist). El sistema nacido para el **directorio/medio de IA en español** también sostiene la ruta comercial de automatización que hoy abre la portada.
 >
 > Dos artefactos lo definen, ambos de claude.ai/design (proyecto "AgentesVA Newsletter y captación"):
 > - **Identidad de marca** → `AgentesVA - Brand & Social Kit` (logo, tipografía, color, assets sociales).
-> - **Tema web** → `AgentesVA - Futurista` (home oscura del directorio + fichas), implementado en `src/`.
+> - **Tema web** → `AgentesVA - Futurista` (portada comercial, directorio y fichas), implementado en `src/`.
 >
 > Voz y copy: [`docs/brand-guidelines.md`](./docs/brand-guidelines.md).
 
@@ -38,7 +38,7 @@
 
 ---
 
-## 2. Tema web "Futurista" (directorio, tema oscuro)
+## 2. Tema web "Futurista" (comercial + editorial, tema oscuro)
 
 Implementado en `src/styles/global.css` (tokens) + componentes. **Lee `global.css` antes de tocar UI.**
 
@@ -59,6 +59,8 @@ La lógica del listado vive fuera del `.astro`, como funciones puras testeables:
 - `src/data/noticias-badges.ts` — `badgesDeNoticias` / `temasEnTendencia`, con las ventanas `DIAS_NUEVO` (7), `DIAS_TENDENCIA` (30) y `MIN_DIAS_TENDENCIA` (2 días distintos).
 - `src/data/noticias-meses.ts` — `agruparPorMes` / `etiquetaDeMes`, rótulos de mes en es-ES **resueltos en UTC** (las fechas del frontmatter llegan a medianoche UTC; resolverlas en la zona de la máquina de build metería el día 1 en el mes anterior).
 - `Badge` — píldora del directorio (`src/data/tools.ts` → `badgesFor`). Es la **receta canónica** de píldora del sitio: mono 9px, `letter-spacing 0.08em`, mayúsculas, `padding 2px 8px`, `border-radius 20px`, color al 100% / borde al 40% / fondo al 12%. Cualquier píldora nueva copia esta receta y solo cambia el token de color.
+
+La portada (`src/pages/index.astro`) coloca antes del directorio una ruta comercial con diagnóstico, tres servicios, entregables, proceso, precio inicial y CTA de cierre. La búsqueda y el catálogo siguen en la misma página como exploración secundaria.
 
 ### Píldoras (badges) — semántica por dominio
 
@@ -84,18 +86,20 @@ Reglas al añadir una píldora nueva:
 
 ### Motion — "Confident, electric, restrained"
 
-Tesis: el movimiento debe leerse como **intencional y vivo, nunca decorativo**. Reglas duras (validar todo contra ellas): solo `transform`/`opacity`/`filter` (GPU, sin animar layout); **sin runtime JS de animación** (mantiene `script-src 'self'` + Lighthouse 100); **todo respeta `prefers-reduced-motion`** (global en `global.css`). Inspiración de patrones modernos (21st.dev) implementada **nativa** (CSS + mínimo vanilla + Astro View Transitions).
+Tesis: el movimiento debe leerse como **intencional y vivo, nunca decorativo**. Reglas duras (validar todo contra ellas): solo `transform`/`opacity`/`filter` (GPU, sin animar layout); CSS para la coreografía continua y **vanilla JS mínimo, agrupado por frame**, solo para puntero, contadores y ciclo de vida; **todo respeta `prefers-reduced-motion`** en tiempo real. Inspiración de patrones modernos (21st.dev) implementada **nativa** (CSS + vanilla JS + Astro View Transitions), compatible con `script-src 'self'` y Lighthouse 100.
 
 **Ambiente (de fondo):** `auroraDrift`, `gridDrift`, `glowPulse` (logo/CTA), `marquee` (ticker), count-up de stats, cursor `blink`.
+
+`BaseLayout.astro` es el único propietario del ciclo de movimiento: inicializa `motion.ts` en `astro:page-load` y lo desmonta en `astro:before-swap`. Los bucles ambientales se pausan fuera de pantalla o con la pestaña oculta; los cambios de movimiento reducido o capacidad del puntero reinician el sistema sin recargar la página.
 
 **Micro-interacciones:**
 - `.lift` — hover de tarjetas (translateY + glow).
 - **Spotlight** — glow radial que sigue al cursor en las fichas (`--mx/--my` desde un `pointermove` delegado; `motion.ts`).
-- **Blur-in / text reveal** — entrada escalonada de eyebrow → H1 → subtítulo → búsqueda en el hero (`@keyframes blurIn`, `animation-delay`); titulares de sección vía scroll (`.reveal`). **Nunca sobre el elemento LCP** (normalmente el H1): arranca en `opacity: 0`, así que lo saca de la candidatura a LCP mientras dura el retardo. Anima lo que lo rodea, no el titular que mide Lighthouse.
+- **Blur-in / text reveal** — entrada escalonada limitada al eyebrow y a la tarjeta lateral del hero (`@keyframes blurIn`, `animation-delay`); titulares de sección vía scroll (`.reveal`). **Nunca sobre contenido esencial ni sobre el elemento LCP**: H1, explicación, acciones y señales de confianza de la portada se renderizan visibles desde el primer frame.
 - **"Leer →"** — hover/focus de `ArticleCard`: el texto pasa a `--accent` y la flecha se desplaza 3px (`translateX`), con rama de `prefers-reduced-motion`.
 - **Shimmer** — barrido diagonal en hover sobre los CTA primarios (`.shimmer::after`).
 - **Borde animado** — borde conic-gradient giratorio (`@property --bd-angle`) en la tarjeta destacada del Pack (1 sitio).
-- **Magnético** — el CTA del hero se desplaza ligero hacia el cursor (`data-magnetic`, `motion.ts`).
+- **Magnético** — el CTA de diagnóstico de la cabecera se desplaza ligero hacia el cursor (`data-magnetic`, `motion.ts`).
 
 **Transiciones de página:** **Astro View Transitions** (`<ClientRouter/>`): morph con elemento compartido (el monograma de la herramienta, `transition:name="mono-<slug>"`) entre listado/home y ficha. Los scripts de página se re-inicializan en `astro:page-load`.
 
