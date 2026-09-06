@@ -1,0 +1,7 @@
+---
+interface Props {slug:string;features:string[]}
+const {slug,features}=Astro.props;
+const examples:Record<string,string[]>={claude:['A rough brief','A clearer draft','Your final review'],perplexity:['A question worth asking','Sources to explore','Check the evidence'],'canva-ia':['Start with an idea','Explore a visual','Make it yours']};
+const steps=examples[slug]||['Choose a real task',features[0],'Review the result'];
+---
+<div class:list={['tool-visual',`visual-${slug}`]} aria-label="Illustrative workflow"><span class="visual-label">From task to first result</span>{steps.map((s,i)=><div class="visual-step"><span class="visual-dot" aria-hidden="true">{i===2?'✓':i+1}</span><span>{s}</span></div>)}<span class="visual-caption">A workflow to explore</span></div>

@@ -347,7 +347,7 @@ body main:not(.en-page):not(.english-home) form:not([role='search']) {
 body main:not(.en-page):not(.english-home) form:not([role='search']) :is(input:not([type='radio']):not([type='checkbox']),textarea,select) {
   min-height: 48px;
   border: 1px solid var(--line-2) !important;
-  background: #0d0d0d !important;
+  background: var(--panel-3) !important;
   color: #fff !important;
 }
 body main:not(.en-page):not(.english-home) form:not([role='search']) :is(input,textarea,select):focus-visible {

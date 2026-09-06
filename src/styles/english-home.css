@@ -5,7 +5,7 @@
 .english-home .home-services .section-heading p{color:#536078}
 
 /* Validated editorial palette and task-first responsive layout. */
-.english-home{--paper:#f7f8fa;--ink:#142033;--muted:#526176;--electric:#244fe0;--brand-hover:#193cb5;--surface:#edf2fa;--line:#cbd4e1;background:var(--paper)}
+.english-home{--paper:#faf9ff;--ink:#171a2b;--muted:#595f75;--electric:#315bda;--brand-hover:#2545b6;--surface:#f0effa;--line:#cbd4e1;background:var(--paper)}
 .english-home .agency-hero{background:var(--ink)}
 .english-home .agency-button.primary{background:var(--electric);color:#fff}
 .english-home .agency-button.primary:hover{background:var(--brand-hover)}
@@ -79,4 +79,11 @@
 .english-home .close-layout>div:last-child{width:100%}.english-home .close-layout h2{font-size:34px}
 .english-home .home-resource-feature{padding:24px 0}.english-home .resource-layout{gap:24px}
 }
-@media(max-width:600px){.english-home .system-preview .preview-meta{display:flex;font-size:14px;margin-bottom:8px}.english-home .system-preview .preview-meta .sample-label{font-size:14px;color:#c5d1e3}.english-home .system-preview .preview-meta button{display:none}.english-home .phone-message small{font-size:12px}.english-home .integration-caption button{color:#526176;border-color:#738197}}
+@media(max-width:600px){.english-home .system-preview .preview-meta{display:flex;font-size:14px;margin-bottom:8px}.english-home .system-preview .preview-meta .sample-label{font-size:14px;color:#c5d1e3}.english-home .system-preview .preview-meta button{display:none}.english-home .phone-message small{font-size:12px}.english-home .integration-caption button{color:#595f75;border-color:#738197}}
+
+/* Gemini-inspired spectrum: expressive accents, neutral readable surfaces. */
+.english-home .agency-hero{background:radial-gradient(ellipse at 85% 35%,#7b4da01c,transparent 52%),radial-gradient(ellipse at 35% 0,#3d68ac18,transparent 55%),#171a2b}
+.english-home .agency-button.primary{background:linear-gradient(110deg,#315bda,#6944bf 70%,#963d88)}
+.english-home .agency-button.primary:hover{background:linear-gradient(110deg,#2545b6,#5533a7 70%,#7f2e72)}
+.english-home .diagnostic-close{background:linear-gradient(110deg,#ecf2ff,#f1edfb 55%,#fbedf5)}
+.english-home .home-services{background:linear-gradient(120deg,#eef3fd,#f3effb)}
