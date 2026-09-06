@@ -1,3 +1,6 @@
+import { setupInteractiveCards } from './interactive-card';
+import { setupParticleDrift } from './particle-drift';
+
 // Sistema de motion global. El layout compartido lo inicia en cada page-load y
 // lo desmonta antes de que ClientRouter sustituya el DOM.
 type Cleanup = () => void;
@@ -28,6 +31,7 @@ function setupAmbientMotion(): Cleanup {
   loops.forEach((animation) => {
     const target = animationTarget(animation);
     if (!target) return;
+    if (target.closest('[data-integrations]')) return;
     const targetAnimations = byTarget.get(target) ?? [];
     targetAnimations.push(animation);
     byTarget.set(target, targetAnimations);
@@ -149,7 +153,7 @@ function setupPointerMotion(): Cleanup {
 }
 
 function startMotion(): Cleanup {
-  const cleanups: Cleanup[] = [];
+  const cleanups: Cleanup[] = [setupParticleDrift()];
   const restart = () => initMotion();
   reduceQuery.addEventListener('change', restart);
   finePointerQuery.addEventListener('change', restart);
@@ -159,6 +163,7 @@ function startMotion(): Cleanup {
   if (!reduceQuery.matches) {
     cleanups.push(setupAmbientMotion());
     cleanups.push(setupPointerMotion());
+    cleanups.push(setupInteractiveCards());
   }
 
   return () => cleanups.reverse().forEach((cleanup) => cleanup());

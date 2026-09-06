@@ -286,24 +286,24 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* ===== Signal / Electric — rollout interno =====
    Todas las plantillas comparten jerarquía, superficies y acciones. Las páginas
    editoriales conservan la serif solo dentro del cuerpo largo, nunca como UI. */
-body main h1 {
+body main:not(.en-page):not(.english-home) h1 {
   font-family: var(--display) !important;
-  font-weight: 650 !important;
-  line-height: .96 !important;
+  font-weight: 550 !important;
+  line-height: 1.08 !important;
   letter-spacing: -.055em !important;
-  text-transform: uppercase;
+  text-transform: none;
 }
-body main h2:not(.prose h2),
-body main h3:not(.prose h3) { font-family: var(--display) !important; }
+body main:not(.en-page):not(.english-home) h2:not(.prose h2),
+body main:not(.en-page):not(.english-home) h3:not(.prose h3) { font-family: var(--display) !important; }
 
-body main :is(.button, .button-primary, [data-subscribe-submit], button[type='submit']) {
+body main:not(.en-page):not(.english-home) :is(.button, .button-primary, [data-subscribe-submit], button[type='submit']) {
   border-radius: var(--radius-pill) !important;
 }
-body main :is(input:not([type='radio']):not([type='checkbox']), textarea, select) {
-  border-radius: 0 !important;
+body main:not(.en-page):not(.english-home) :is(input:not([type='radio']):not([type='checkbox']), textarea, select) {
+  border-radius: 10px !important;
 }
-body main :is(.tool-card, .service-card, .card, .problem-card, .fit-card, .diagnostic-card) {
-  border-radius: 0 !important;
+body main:not(.en-page):not(.english-home) :is(.tool-card, .service-card, .card, .problem-card, .fit-card, .diagnostic-card) {
+  border-radius: 10px !important;
 }
 
 /* Las páginas comerciales antiguas declaraban un tema claro local. Esta capa
@@ -325,7 +325,7 @@ body:has(main .levels) :is(.levels article,.split>div),
 body:has(main .phases) :is(.phases li,.decisions article),
 body:has(main .hero__grid) :is(.card,.problem-card,.investment,.limits>div) {
   border-color: var(--line-2) !important;
-  border-radius: 0 !important;
+  border-radius: 10px !important;
   background: var(--panel) !important;
   color: var(--fg) !important;
   box-shadow: none !important;
@@ -341,20 +341,20 @@ body:has(main .phases) :is(.panel,.cta),
 body:has(main .hero__grid) :is(.section--dark,.section--panel,.final-cta) { background: var(--bg-2) !important; }
 
 /* Formularios: una superficie común y visible en contenido, captación y venta. */
-body main form:not([role='search']) {
+body main:not(.en-page):not(.english-home) form:not([role='search']) {
   accent-color: var(--accent);
 }
-body main form:not([role='search']) :is(input:not([type='radio']):not([type='checkbox']),textarea,select) {
+body main:not(.en-page):not(.english-home) form:not([role='search']) :is(input:not([type='radio']):not([type='checkbox']),textarea,select) {
   min-height: 48px;
   border: 1px solid var(--line-2) !important;
   background: #0d0d0d !important;
   color: #fff !important;
 }
-body main form:not([role='search']) :is(input,textarea,select):focus-visible {
+body main:not(.en-page):not(.english-home) form:not([role='search']) :is(input,textarea,select):focus-visible {
   border-color: var(--accent) !important;
   box-shadow: 0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent);
 }
 
 @media (max-width: 700px) {
-  body main h1 { letter-spacing: -.045em !important; }
+  body main:not(.en-page):not(.english-home) h1 { letter-spacing: -.045em !important; }
 }

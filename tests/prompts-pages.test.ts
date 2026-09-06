@@ -57,7 +57,7 @@ describe('descubrimiento e indexación', () => {
   });
 
   it('enlaza el clúster desde home, biblioteca, footer y llms.txt', () => {
-    expect(source('src/pages/index.astro')).toContain('href="/prompts"');
+    expect(source('src/components/SpanishHome.astro')).toMatch(/href="\/prompts\/?"/);
     expect(source('src/pages/recurso/[slug].astro')).toContain('href="/prompts"');
     expect(source('src/data/breadcrumbs.ts')).toContain("prompts: { name: 'Prompts', url: '/prompts' }");
     expect(source('src/data/breadcrumbs.ts')).toContain("{ name: 'Generador de prompts', url: '/generador-de-prompts' }");

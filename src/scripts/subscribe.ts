@@ -30,10 +30,12 @@ function wire(root: HTMLElement) {
   const list = form.dataset.list || 'newsletter';
   const source = form.dataset.source || 'unknown';
 
+  const en = document.documentElement.lang === 'en';
+  const copy: Record<string,string> = {'Introduce un email válido.':'Enter a valid email address.','Marca la casilla para aceptar la política de privacidad.':'Accept the privacy policy to subscribe.','No se pudo completar la suscripción.':'The subscription could not be completed. Please try again.'};
   const showErr = (msg: string) => {
     if (err) {
       err.hidden = false;
-      err.textContent = msg;
+      err.textContent = en ? copy[msg] ?? 'The subscription could not be completed. Please try again.' : msg;
     }
   };
 
@@ -54,7 +56,7 @@ function wire(root: HTMLElement) {
 
     submit.disabled = true;
     const original = submit.textContent;
-    submit.textContent = 'Enviando…';
+    submit.textContent = en ? 'Sending…' : 'Enviando…';
     try {
       const res = await fetch('/api/subscribe', {
         method: 'POST',
@@ -77,8 +79,8 @@ function wire(root: HTMLElement) {
       const title = root.querySelector<HTMLElement>('[data-subscribe-success-title]');
       const copy = root.querySelector<HTMLElement>('[data-subscribe-success-copy]');
       if (data.doi === false) {
-        if (title) title.textContent = '✓ Suscripción completada';
-        if (copy) copy.textContent = 'Tu email se ha añadido correctamente. Recibirás la próxima edición en tu bandeja de entrada.';
+        if (title) title.textContent = en ? 'Subscription complete' : '✓ Suscripción completada';
+        if (copy) copy.textContent = en ? 'Your email has been added. The next Spanish edition will arrive in your inbox.' : 'Tu email se ha añadido correctamente. Recibirás la próxima edición en tu bandeja de entrada.';
       }
       if (ok) ok.hidden = false;
       track('newsletter_submit', { list, source });

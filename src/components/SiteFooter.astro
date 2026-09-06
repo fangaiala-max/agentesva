@@ -1,63 +1,33 @@
 ---
-// Pie del directorio "Futurista" + captación de newsletter (inline).
+import BrandMark from './BrandMark.astro';
 import SubscribeForm from './SubscribeForm.astro';
-import { crumbPath, DIAGNOSTICO, NAVEGACION_COMERCIAL, SECCIONES_NAV, PIE_SECUNDARIO } from '../data/breadcrumbs';
+import { localeFor } from '../i18n/routes';
 interface Props { hideNewsletter?: boolean }
-const { hideNewsletter = false } = Astro.props;
+const { hideNewsletter=false }=Astro.props;
+const en=localeFor(Astro.url.pathname)==='en';
+const groups=en?[
+ ['Work with us',[['Services','/services/'],['Pricing','/pricing/'],['How we work','/how-we-work/'],['Free assessment','/assessment/']]],
+ ['Explore AI',[['Tools','/tools/'],['Guides','/guides/'],['Research','/research/'],['Courses','/courses/'],['Resources','/resources/'],['Prompts','/prompt-library/'],['News','/news/']]],
+ ['About this site',[['Editorial methodology','/editorial-methodology/'],['Newsletter (Spanish)','/updates/'],['Prompt builder','/prompt-builder/'],['Privacy','/privacy/'],['Cookies','/cookie-policy/'],['Legal notice','/legal/'],['Español','/es/']]],
+]:[
+ ['Trabajemos juntos',[['Servicios','/servicios/'],['Precios','/precios-automatizacion-ia/'],['Cómo trabajamos','/como-trabajamos/'],['Diagnóstico gratuito','/diagnostico-automatizacion-ia/']]],
+ ['Explora la IA',[['Herramientas','/herramientas/'],['Guías','/guias/'],['Estudios','/estudios/'],['Cursos','/cursos/'],['Recursos','/recursos/'],['Prompts','/prompts/'],['Noticias','/noticias/']]],
+ ['Sobre este sitio',[['Metodología','/metodologia/'],['Generador de prompts','/generador-de-prompts/'],['Newsletter','/newsletter/'],['Privacidad','/privacidad/'],['Cookies','/cookies/'],['Aviso legal','/aviso-legal/'],['English','/']]],
+];
 ---
-
-<footer style="border-top: 1px solid var(--line); background: var(--bg-2);">
-  <!-- Captación inline -->
-  {!hideNewsletter && <div style="border-bottom: 1px solid var(--line);">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 48px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 36px; align-items: center;">
-      <div>
-        <h2 style="font-family: var(--sans); font-weight: 700; font-size: clamp(20px, 3.5vw, 26px); line-height: 1.1; letter-spacing: -0.02em; color: #fff; margin: 0;">Recibe una idea de IA aplicable, cada semana</h2>
-        <p style="font-size: 14.5px; line-height: 1.55; color: var(--fg-3); margin: 12px 0 0; max-width: 34em;">Sin ruido ni noticias que no vas a usar. Solo lo que puedes aplicar hoy en tu negocio. Gratis.</p>
-      </div>
-      <div style="justify-self: stretch;">
-        <SubscribeForm variant="inline" list="newsletter" source="site_footer" />
-      </div>
-    </div>
-  </div>}
-
-  <!-- Secciones: mismo orden y mismo texto de ancla que el header -->
-  <div style="border-bottom: 1px solid var(--line);">
-    <nav aria-label="Servicios" style="max-width: 1200px; margin: 0 auto; padding: 22px 32px; display: flex; gap: 22px; flex-wrap: wrap; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">
-      {[...NAVEGACION_COMERCIAL, DIAGNOSTICO].map((s) => <a class="navlink" href={crumbPath(s.url)} style="color: var(--accent); text-decoration: none;">{s.name}</a>)}
-    </nav>
-  </div>
-  <div style="border-bottom: 1px solid var(--line);">
-    <nav aria-label="Secciones" style="max-width: 1200px; margin: 0 auto; padding: 22px 32px; display: flex; gap: 22px; flex-wrap: wrap; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">
-      {
-        SECCIONES_NAV.map((s) => (
-          <a class="navlink" href={crumbPath(s.url)} style="color: var(--fg-4); text-decoration: none;">{s.name}</a>
-        ))
-      }
-    </nav>
-  </div>
-
-  <!-- Secundarios: útiles para la persona, irrelevantes como sitelink -->
-  <div style="border-bottom: 1px solid var(--line);">
-    <nav aria-label="Enlaces secundarios" style="max-width: 1200px; margin: 0 auto; padding: 16px 32px; display: flex; gap: 20px; flex-wrap: wrap; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase;">
-      {
-        PIE_SECUNDARIO.map((s) => (
-          <a class="navlink" href={crumbPath(s.url)} style="color: var(--fg-5); text-decoration: none;">{s.name}</a>
-        ))
-      }
-    </nav>
-  </div>
-
-  <!-- Marca + copyright -->
-  <div style="max-width: 1200px; margin: 0 auto; padding: 28px 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-    <a href="/" style="display: flex; align-items: baseline; gap: 3px; text-decoration: none;">
-      <span style="font-family: var(--serif); font-weight: 400; font-size: 21px; letter-spacing: -0.025em; color: #fff;">AgentesVA</span>
-      <sup style="font-family: var(--mono); font-size: 9px; color: var(--accent); top: -0.7em;">[IA]</sup>
-    </a>
-    <span style="font-family: var(--mono); font-size: 11px; color: var(--fg-5);">© 2026 · Automatización con IA para negocios hispanos · agentesva.com</span>
-  </div>
+<footer class="studio-footer" data-pagefind-ignore>
+<div class="studio-footer__grid">
+<div class="studio-footer__brand"><BrandMark home={en?'/':'/es/'} /><p>{en?'Useful automation. Clear systems. People in control.':'Automatización útil. Sistemas claros. Personas al mando.'}</p><a href="mailto:hola@agentesva.com">hola@agentesva.com</a></div>
+{groups.map(([heading,links])=><nav aria-label={heading as string}><h2>{heading}</h2>{(links as string[][]).map(([name,href])=><a href={href}>{name}</a>)}</nav>)}
+</div>
+{!en&&!hideNewsletter&&<div class="studio-footer__newsletter"><div><h2>Una idea de IA útil, cada semana.</h2><p>Recibe recursos prácticos en español. Gratis.</p></div><SubscribeForm variant="inline" list="newsletter" source="site_footer" /></div>}
+<div class="studio-footer__bottom"><span>© {new Date().getFullYear()} AgentesVA</span><span>{en?'AI automation for small businesses':'Automatización con IA para pequeños negocios'}</span></div>
 </footer>
-
+<style>
+.studio-footer{background:#142033;border-top:1px solid #343a4a;color:#d0d7e5;padding:58px 0 0}.studio-footer__grid,.studio-footer__newsletter,.studio-footer__bottom{width:min(1180px,calc(100% - 64px));margin:auto}.studio-footer__grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:50px}.studio-footer__brand p{font-size:15px;line-height:1.7;max-width:24ch;margin:23px 0 16px;color:#b3bed3}.studio-footer a{font-size:14px;color:#bdc8dd;text-decoration:none;line-height:1.5}.studio-footer a:hover{text-decoration:underline;color:#fff}.studio-footer nav h2{font:550 14px var(--sans);margin:0 0 16px;color:#fff}.studio-footer nav a{display:block;padding:8px 0}.studio-footer__bottom{display:flex;justify-content:space-between;gap:20px;border-top:1px solid #343a4a;padding:24px 0;margin-top:44px;font-size:12px;color:#a9b7cd}.studio-footer__newsletter{display:grid;grid-template-columns:1fr 1fr;gap:40px;border-top:1px solid #343a4a;margin-top:40px;padding-top:30px}.studio-footer__newsletter h2{font-size:22px;color:#fff;margin:0;font-weight:550}.studio-footer__newsletter p{font-size:14px;color:#b3bed3}
+@media(max-width:850px){.studio-footer__grid{grid-template-columns:1fr 1fr;gap:36px}}@media(max-width:500px){.studio-footer__grid,.studio-footer__newsletter,.studio-footer__bottom{width:calc(100% - 36px)}.studio-footer__grid{gap:30px 22px}.studio-footer__brand{grid-column:1/-1}.studio-footer__newsletter{grid-template-columns:1fr}.studio-footer__bottom{flex-direction:column;gap:8px}.studio-footer nav a{padding:11px 0}}
+</style>
 <script>
-  import { initSubscribe } from '../scripts/subscribe';
-  document.addEventListener('astro:page-load', () => initSubscribe());
+import { initSubscribe } from '../scripts/subscribe';
+document.addEventListener('astro:page-load',()=>initSubscribe());
 </script>

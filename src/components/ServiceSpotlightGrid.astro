@@ -1,4 +1,5 @@
 ---
+import InteractiveCard from './InteractiveCard.astro';
 import { AUTOMATION_AREAS } from '../data/automation-areas';
 const services = [
   {
@@ -45,9 +46,9 @@ const services = [
 
   <div class="service-showcase__grid">
     {services.map((service, index) => (
-      <a
+      <InteractiveCard as="a" intensity={5} accent={service.accent}
         href={service.href}
-        class="service-spotlight spotlight"
+        class="service-spotlight"
         data-track-event="service_cta_click"
         data-track-page-type="home"
         data-track-content-slug="home"
@@ -56,7 +57,7 @@ const services = [
         data-track-placement="service_card"
         style={`--service-accent:${service.accent};--delay:${index * 80}ms`}
       >
-        <div class="service-spotlight__top">
+        <div class="service-spotlight__top" data-card-depth>
           <span class="service-spotlight__icon" aria-hidden="true">
             {service.icon === 'message' && (
               <svg viewBox="0 0 24 24"><path d="M7 17.5 3.5 20v-4.7A8 8 0 1 1 7 17.5Z"/><path d="M8 10h8M8 13h5"/></svg>
@@ -89,7 +90,7 @@ const services = [
 
         <span class="service-spotlight__link">Explorar solución <span aria-hidden="true">↗</span></span>
         <span class="service-spotlight__scope">Desde 1.500 € · normalmente 2–4 semanas</span>
-      </a>
+      </InteractiveCard>
     ))}
   </div>
 </section>

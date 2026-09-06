@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel';
+import { alternatePath, localeFor } from './src/i18n/routes.ts';
 
 // El directorio y su posicionamiento editorial se relanzaron por completo en
 // esta fecha. Se mantiene explícita para que un build posterior no finja que
@@ -31,15 +32,21 @@ export default defineConfig({
         !page.includes('/buscar') &&
         !page.includes('/descarga') &&
         !page.includes('/entrega') &&
-        !page.includes('/gracias'),
+        !page.includes('/gracias') &&
+        !page.includes('/assessment/thanks') &&
+        !page.includes('/404'),
       serialize: (item) => {
         const pathname = new URL(item.url).pathname;
-        return { ...item, lastmod: ROUTE_LASTMOD.get(pathname) ?? SITE_RELAUNCH_LASTMOD };
+        const originalLastmod = ROUTE_LASTMOD.get(pathname) ?? SITE_RELAUNCH_LASTMOD;
+        const alternate = alternatePath(pathname);
+        const english = localeFor(pathname) === 'en';
+        const enUrl = english ? item.url : alternate ? new URL(alternate, item.url).href : undefined;
+        const esUrl = english ? alternate ? new URL(alternate, item.url).href : undefined : item.url;
+        return { ...item, lastmod: english || pathname === '/es/' ? new Date('2026-09-06T00:00:00Z') : originalLastmod,
+          links: enUrl && esUrl ? [{lang:'en',url:enUrl},{lang:'es',url:esUrl},{lang:'x-default',url:enUrl}] : undefined };
+
       },
-      i18n: {
-        defaultLocale: 'es',
-        locales: { es: 'es' },
-      },
+
     }),
   ],
   build: {

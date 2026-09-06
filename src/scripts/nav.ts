@@ -14,7 +14,7 @@ export function setupNav(): () => void {
   const setOpen = (open: boolean) => {
     nav.toggleAttribute(OPEN, open);
     toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    toggle.setAttribute('aria-label', document.documentElement.lang === 'en' ? (open ? 'Close menu' : 'Open menu') : (open ? 'Cerrar menú' : 'Abrir menú'));
   };
 
   const close = () => {

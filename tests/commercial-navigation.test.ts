@@ -19,26 +19,20 @@ describe('navegación comercial', () => {
   });
 
   it('convierte la home en una ruta de venta sin eliminar el directorio', () => {
-    const page = read('src/pages/index.astro');
-    expect(page).toContain('AUTOMATIZA<br />LO QUE <span>SÍ</span><br />IMPORTA.');
-    expect(page).toContain('Hacer diagnóstico gratuito');
+    const page = read('src/components/SpanishHome.astro');
+    expect(page).toContain('Diseñamos la tecnología');
+    expect(page).toContain('<AutomationDemo />');
+    expect(page).toContain('href="#demo"');
     expect(page).toContain('data-track-placement="hero"');
     expect(page).toContain('data-track-placement="sticky"');
     expect(SERVICE_OFFER.scoped.price).toBe('Desde 1.500 €');
     expect(page.match(/SERVICE_OFFER\.scoped\.price/g)).toHaveLength(1);
-    expect(page).toContain('Una automatización lista para trabajar');
-    expect(page).toContain(
-      'Conectamos un proceso concreto con las herramientas que ya utilizas y lo dejamos probado, documentado y con control humano. Tu equipo recibe un flujo operativo de principio a fin, no otra herramienta que aprender.',
-    );
-    expect(page).not.toContain('No te entregamos una demo');
-    expect(page).toContain('<div class="commercial-proof__heading">');
-    expect(page.indexOf('Qué compras')).toBeLessThan(page.indexOf('¿Aún estás explorando?'));
     expect(page).toContain('id="directorio"');
     expect(AUTOMATION_AREAS.map((area) => area.href)).toContain('/servicios/automatizacion-atencion-cliente/');
   });
 
   it('conecta la oferta principal con servicios, precios, proceso y diagnóstico', () => {
-    const page = read('src/pages/index.astro');
+    const page = read('src/components/SpanishHome.astro');
     for (const href of ['/precios-automatizacion-ia/', '/como-trabajamos/']) {
       expect(page).toContain(`href="${href}"`);
     }
@@ -56,11 +50,11 @@ describe('navegación comercial', () => {
   });
 
   it('mide todos los accesos al diagnóstico con el mismo contrato comercial', () => {
-    const page = read('src/pages/index.astro');
+    const page = read('src/components/SpanishHome.astro');
     const trackedCtas = (page.match(/<a\b[^>]*>/g) ?? []).filter(
       (anchor) =>
         anchor.includes('href="/diagnostico-automatizacion-ia/"') &&
-        anchor.includes('data-track-event="service_cta_click"'),
+        anchor.includes('{...tracking}'),
     );
 
     expect(trackedCtas).toHaveLength(3);
@@ -69,21 +63,18 @@ describe('navegación comercial', () => {
       'mid_page',
       'sticky',
     ]);
-    for (const cta of trackedCtas) {
-      expect(cta).toContain('data-track-page-type="home"');
-      expect(cta).toContain('data-track-content-slug="home"');
-      expect(cta).toContain('data-track-service="general_consulting"');
-      expect(cta).toContain('data-track-cluster="general"');
+    for (const [key, value] of Object.entries({ 'data-track-event': 'service_cta_click', 'data-track-page-type': 'home', 'data-track-content-slug': 'home', 'data-track-service': 'general_consulting', 'data-track-cluster': 'general' })) {
+      expect(page).toContain(`'${key}': '${value}'`);
     }
   });
 
   it('atribuye precios, servicios y metodología dentro del recorrido comercial', () => {
-    const page = read('src/pages/index.astro');
-    for (const placement of ['hero_pricing', 'methodology']) {
+    const page = read('src/components/SpanishHome.astro');
+    for (const placement of ['pricing', 'methodology']) {
       expect(page).toContain(`data-track-placement="${placement}"`);
     }
     const services = read('src/components/ServiceSpotlightGrid.astro');
-    expect(page).toContain('<ServiceSpotlightGrid />');
+    expect(page).toContain('data-track-service={area.service}');
     expect(services).toContain('data-track-placement="service_card"');
     expect(services).toContain('data-track-service={AUTOMATION_AREAS[index].service}');
     expect(AUTOMATION_AREAS.map((area) => area.service)).toEqual([
@@ -93,11 +84,11 @@ describe('navegación comercial', () => {
     ]);
   });
 
-  it('mantiene una única búsqueda operativa después del contenido comercial', () => {
-    const page = read('src/pages/index.astro');
-    expect(page.match(/id="search-form"/g)).toHaveLength(1);
-    expect(page.match(/id="tool-search"/g)).toHaveLength(1);
-    expect(page.indexOf('class="commercial-close"')).toBeLessThan(page.indexOf('id="search-form"'));
+  it('enlaza al directorio completo desde un teaser compacto', () => {
+    const page = read('src/components/SpanishHome.astro');
+    expect(page).toContain('href="/herramientas/"');
+    expect(page).not.toContain('id="tool-search"');
+    expect(read('src/pages/herramientas/index.astro')).toContain('search');
   });
 
   it('publica a Elizabeth como fundadora y mantiene a Fernando como editor', () => {

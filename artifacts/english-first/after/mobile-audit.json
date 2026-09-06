@@ -1,0 +1,2130 @@
+[
+  {
+    "route": "/assessment/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/aviso-legal/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/buscar/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/como-trabajamos/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/cookie-policy/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/cookies/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/courses/ai-for-everyone/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/courses/anthropic-prompt-tutorial/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/courses/category/automatizacion-agentes/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/courses/category/fundamentos/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/courses/category/imagen-generativa/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/courses/category/negocio/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/courses/category/prompts/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/courses/chatgpt-prompt-engineering-dlai/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/courses/domestika-ia-imagen/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/courses/elementos-de-ia/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/courses/fastai-practical-dl/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/courses/generative-ai-for-beginners-ms/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/courses/google-ai-essentials/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/courses/huggingface-llm-course/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/courses/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/courses/intro-ia-generativa-google/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/courses/intro-imagen-generativa-google/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/courses/linkedin-ia-productividad/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/courses/ml-crash-course-google/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/courses/platzi-intro-ia/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/courses/prompt-engineering-vanderbilt/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/courses/seguridad-llm/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/curso/ai-for-everyone/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/curso/anthropic-prompt-tutorial/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/curso/chatgpt-prompt-engineering-dlai/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/curso/domestika-ia-imagen/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/curso/elementos-de-ia/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/curso/fastai-practical-dl/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/curso/generative-ai-for-beginners-ms/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/curso/google-ai-essentials/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/curso/huggingface-llm-course/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/curso/intro-ia-generativa-google/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/curso/intro-imagen-generativa-google/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/curso/linkedin-ia-productividad/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/curso/ml-crash-course-google/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/curso/platzi-intro-ia/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/curso/prompt-engineering-vanderbilt/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/curso/seguridad-llm/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/cursos/automatizacion-agentes/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/cursos/fundamentos/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/cursos/imagen-generativa/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/cursos/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/cursos/negocio/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/cursos/prompts/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/diagnostico-automatizacion-ia/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/editorial-methodology/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/es/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/estudios/alternativas-a-chatgpt-en-espanol/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/estudios/chatgpt-vs-claude-para-tu-negocio/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/estudios/herramientas-ia-para-automatizar-tareas/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/estudios/ia-para-atencion-al-cliente/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/estudios/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/estudios/mejores-herramientas-ia-gratis/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/estudios/mejores-herramientas-ia-para-crear-imagenes/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/estudios/mejores-herramientas-ia-para-redes-sociales/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/estudios/mejores-herramientas-ia-whatsapp/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/generador-de-prompts/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/gracias/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/guias/automatizar-seguimiento-de-leads/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/guias/automatizar-whatsapp-empresa/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/guias/chatbot-para-pymes/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/guias/como-aparecer-en-chatgpt/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/guias/como-convertirse-en-especialista-geo/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/guias/cuanto-cuesta-automatizar-un-negocio/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/guias/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/guias/make-vs-n8n-vs-zapier/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/guias/medir-visibilidad-en-chatgpt/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/guias/procesos-que-conviene-automatizar-primero/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/guias/seo-para-ia/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/guides/automatizar-seguimiento-de-leads/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/guides/automatizar-whatsapp-empresa/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/guides/chatbot-para-pymes/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/guides/como-aparecer-en-chatgpt/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/guides/como-convertirse-en-especialista-geo/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/guides/cuanto-cuesta-automatizar-un-negocio/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/guides/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/guides/make-vs-n8n-vs-zapier/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/guides/medir-visibilidad-en-chatgpt/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/guides/procesos-que-conviene-automatizar-primero/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/guides/seo-para-ia/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/adobe-firefly/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/bardeen/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/bolt/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/brevo/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/canva-ia/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/chatfuel/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/chatgpt/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/claude/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/copy-ai/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/cursor/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/deepl/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/deepseek/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/descript/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/elevenlabs/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/fathom/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/gamma/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/gemini/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/github-copilot/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/grammarly/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/grok/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/heygen/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/hubspot-ia/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/huggingchat/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/ideogram/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/jasper/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/krea/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/landbot/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/leonardo-ai/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/mailchimp/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/make/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/manychat/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/mem/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/microsoft-copilot/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/midjourney/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/mistral/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/murf/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/n8n/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/notion-ia/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/otter/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/perplexity/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/pika/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/playht/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/relevance-ai/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/replit/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/runway/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/suno/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/surfer-seo/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/synthesia/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/tidio/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/tome/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/v0/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/wati/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/writesonic/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramienta/zapier/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramientas/asistentes/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramientas/automatizacion/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramientas/codigo/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramientas/diseno/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramientas/escritura/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramientas/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramientas/marketing/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramientas/productividad/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramientas/video/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramientas/voz/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/herramientas/whatsapp/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/how-we-work/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/legal/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/metodologia/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/news/agentes-de-ia-que-hacen-el-trabajo-solos/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/news/asistentes-de-ia-que-toman-notas-de-tus-reuniones/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/news/asistentes-ia-gratis-para-tu-negocio/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/news/cuidado-al-compartir-chats-de-ia-pueden-acabar-en-google/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/news/editores-de-codigo-con-ia/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/news/ia-potente-y-gratis-modelos-abiertos-de-china/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/news/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/news/la-ia-entra-en-la-ciberseguridad-y-tu-pyme-es-objetivo/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/news/microsoft-unifica-copilot-en-una-super-app/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/news/nueva-ola-imagenes-con-ia-2026/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/news/perplexity-llega-a-windows-agente-que-usa-tu-pc/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/news/video-con-ia-avatares-y-clips-para-tu-negocio/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/news/whatsapp-estrena-agente-de-ia-para-negocios/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/newsletter/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/noticias/agentes-de-ia-que-hacen-el-trabajo-solos/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/noticias/asistentes-de-ia-que-toman-notas-de-tus-reuniones/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/noticias/asistentes-ia-gratis-para-tu-negocio/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/noticias/cuidado-al-compartir-chats-de-ia-pueden-acabar-en-google/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/noticias/editores-de-codigo-con-ia/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/noticias/ia-potente-y-gratis-modelos-abiertos-de-china/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/noticias/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/noticias/la-ia-entra-en-la-ciberseguridad-y-tu-pyme-es-objetivo/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/noticias/microsoft-unifica-copilot-en-una-super-app/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/noticias/nueva-ola-imagenes-con-ia-2026/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/noticias/perplexity-llega-a-windows-agente-que-usa-tu-pc/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/noticias/video-con-ia-avatares-y-clips-para-tu-negocio/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/noticias/whatsapp-estrena-agente-de-ia-para-negocios/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/precios-automatizacion-ia/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/pricing/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/privacidad/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/privacy/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/prompt-builder/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/prompt-library/atencion-cliente/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/prompt-library/chatgpt/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/prompt-library/empresas-pymes/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/prompt-library/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/prompt-library/marketing/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/prompt-library/redes-sociales/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/prompt-library/ventas/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/prompts/atencion-cliente/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/prompts/chatgpt/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/prompts/empresas-pymes/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/prompts/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/prompts/marketing/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/prompts/redes-sociales/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/prompts/ventas/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/recurso/biblioteca-ia/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/recurso/curso-seguridad-llm/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/recurso/pack-30-prompts/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/recurso/skill-atencion-cliente/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/recursos/atencion-cliente/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/recursos/contenido/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/recursos/desarrollo-ia/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/recursos/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/recursos/productividad/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/recursos/ventas-marketing/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/research/alternativas-a-chatgpt-en-espanol/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/research/chatgpt-vs-claude-para-tu-negocio/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/research/herramientas-ia-para-automatizar-tareas/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/research/ia-para-atencion-al-cliente/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/research/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/research/mejores-herramientas-ia-gratis/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/research/mejores-herramientas-ia-para-crear-imagenes/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/research/mejores-herramientas-ia-para-redes-sociales/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/research/mejores-herramientas-ia-whatsapp/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/resources/biblioteca-ia/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/resources/category/atencion-cliente/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/resources/category/contenido/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/resources/category/desarrollo-ia/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/resources/category/productividad/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/resources/category/ventas-marketing/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/resources/curso-seguridad-llm/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/resources/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/resources/pack-30-prompts/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/resources/skill-atencion-cliente/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/services/customer-support/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/services/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/services/operations/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/services/sales/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/servicios/automatizacion-atencion-cliente/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/servicios/automatizacion-procesos/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/servicios/automatizacion-ventas/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/servicios/",
+    "status": 200,
+    "lang": "es",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/adobe-firefly/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/bardeen/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/bolt/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/brevo/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/canva-ia/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/category/asistentes/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/category/automatizacion/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/category/codigo/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/category/diseno/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/category/escritura/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/category/marketing/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/category/productividad/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/category/video/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/category/voz/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/category/whatsapp/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/chatfuel/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/chatgpt/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/claude/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/copy-ai/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/cursor/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/deepl/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/deepseek/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/descript/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/elevenlabs/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/fathom/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/gamma/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/gemini/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/github-copilot/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/grammarly/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/grok/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/heygen/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/hubspot-ia/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/huggingchat/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/ideogram/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/jasper/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/krea/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/landbot/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/leonardo-ai/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/mailchimp/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/make/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/manychat/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/mem/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/microsoft-copilot/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/midjourney/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/mistral/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/murf/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/n8n/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/notion-ia/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/otter/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/perplexity/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/pika/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/playht/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/relevance-ai/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/replit/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/runway/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/suno/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/surfer-seo/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/synthesia/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/tidio/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/tome/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/v0/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/wati/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/writesonic/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/tools/zapier/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/updates/",
+    "status": 200,
+    "lang": "en",
+    "h1": 1,
+    "overflow": false
+  }
+]

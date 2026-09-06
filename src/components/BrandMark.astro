@@ -1,0 +1,13 @@
+---
+import {localeFor} from '../i18n/routes';
+const en=localeFor(Astro.url.pathname)==='en';
+interface Props { home?: string }
+const { home = '/' } = Astro.props;
+---
+<a class="brand-mark" href={home} aria-label={en?"AgentesVA — home":"AgentesVA — inicio"}>
+  <svg width="36" height="36" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#2947ff"/><path d="M8 28 17 11l9 17M12 22h10M24 12l8 16" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="11" r="3" fill="#cbd4ff"/></svg>
+  <span>Agentes<span class="brand-mark__va">VA</span><small>{en?"Applied intelligence":"Inteligencia aplicada"}</small></span>
+</a>
+<style>
+.brand-mark{display:inline-flex;align-items:center;gap:10px;color:#fff;text-decoration:none;flex:none}.brand-mark>span{font:650 23px/1 var(--sans);letter-spacing:-.8px}.brand-mark__va{font-weight:450;color:#becbff}.brand-mark small{display:block;font:400 10px/1.5 var(--sans);letter-spacing:.07em;color:#b7bac8;margin-top:5px}
+</style>

@@ -1,3 +1,4 @@
+import { diagnosticCopy as t } from '../i18n/diagnostic-copy';
 import { classifyDiagnostic, clusterFor, type DiagnosticAnswers, type DiagnosticResult } from '../data/diagnostico';
 import { trackGrowthEvent } from './track';
 
@@ -5,7 +6,7 @@ function renderList(node: HTMLElement | null, items: readonly string[]): void {
   if (!node) return;
   node.replaceChildren(...items.map((item) => {
     const li = document.createElement('li');
-    li.textContent = item;
+    li.textContent = t(item);
     return li;
   }));
 }
@@ -14,13 +15,13 @@ export function renderDiagnosticPlan(root: HTMLElement, diagnostic: DiagnosticRe
   const priority = root.querySelector<HTMLElement>('[data-result-priority]');
   const complexity = root.querySelector<HTMLElement>('[data-result-complexity]');
   const nextStep = root.querySelector<HTMLAnchorElement>('[data-result-next-step]');
-  if (priority) priority.textContent = diagnostic.priority;
-  if (complexity) complexity.textContent = diagnostic.complexity;
+  if (priority) priority.textContent = t(diagnostic.priority);
+  if (complexity) complexity.textContent = t(diagnostic.complexity);
   renderList(root.querySelector<HTMLElement>('[data-result-opportunities]'), diagnostic.opportunities);
   renderList(root.querySelector<HTMLElement>('[data-result-reasons]'), diagnostic.reasons);
   if (nextStep) {
-    nextStep.textContent = diagnostic.nextStep.label;
-    nextStep.href = diagnostic.nextStep.href;
+    nextStep.textContent = t(diagnostic.nextStep.label);
+    nextStep.href = document.documentElement.lang === 'en' && diagnostic.nextStep.href.startsWith('/guias/') ? '/guides/procesos-que-conviene-automatizar-primero/' : diagnostic.nextStep.href;
   }
 }
 
@@ -121,8 +122,8 @@ function wire(root: HTMLElement): void {
     const invalid = controls.find((control) => !control.checkValidity());
     if (!invalid) return true;
     error.textContent = invalid.validity.valueMissing
-      ? 'Selecciona o completa una respuesta para continuar.'
-      : 'Añade un poco más de detalle para que la recomendación sea útil.';
+      ? t('Selecciona o completa una respuesta para continuar.')
+      : t('Añade un poco más de detalle para que la recomendación sea útil.');
     error.hidden = false;
     invalid.focus();
     return false;
@@ -178,7 +179,7 @@ function wire(root: HTMLElement): void {
     event.preventDefault();
     if (submitting) return;
     if (!currentResult || !contactForm.checkValidity()) {
-      contactError.textContent = 'Completa tus datos y acepta la política de privacidad para enviar el diagnóstico.';
+      contactError.textContent = t('Completa tus datos y acepta la política de privacidad para enviar el diagnóstico.');
       contactError.hidden = false;
       contactForm.querySelector<HTMLElement>(':invalid')?.focus();
       return;
@@ -189,7 +190,7 @@ function wire(root: HTMLElement): void {
     submissionId ||= crypto.randomUUID();
     contactSubmit.disabled = true;
     const original = contactSubmit.textContent;
-    contactSubmit.textContent = 'Enviando…';
+    contactSubmit.textContent = t('Enviando…');
     const contact = new FormData(contactForm);
 
     try {
@@ -216,7 +217,7 @@ function wire(root: HTMLElement): void {
       });
       const payload = await response.json().catch(() => ({}));
       if (!response.ok || !payload.success || !payload.result || typeof payload.redirectUrl !== 'string' || !payload.redirectUrl.startsWith('/gracias-diagnostico/?')) {
-        throw new Error('No se pudo enviar el diagnóstico. Inténtalo de nuevo.');
+        throw new Error(t('No se pudo enviar el diagnóstico. Inténtalo de nuevo.'));
       }
 
       currentResult = payload.result;
@@ -239,12 +240,12 @@ function wire(root: HTMLElement): void {
       contactSuccess.hidden = false;
       contactSuccess.focus();
       clearState();
-      window.location.assign(payload.redirectUrl);
+      window.location.assign(document.documentElement.lang === 'en' ? payload.redirectUrl.replace('/gracias-diagnostico/', '/assessment/thanks/') : payload.redirectUrl);
     } catch (submissionError) {
       submitting = false;
       contactSubmit.disabled = false;
       contactSubmit.textContent = original;
-      contactError.textContent = submissionError instanceof Error ? submissionError.message : 'No se pudo enviar el diagnóstico.';
+      contactError.textContent = submissionError instanceof Error ? submissionError.message : t('No se pudo enviar el diagnóstico.');
       contactError.hidden = false;
     }
   });
@@ -260,7 +261,7 @@ function wire(root: HTMLElement): void {
     contactSuccess.hidden = true;
     contactError.hidden = true;
     contactSubmit.disabled = false;
-    contactSubmit.textContent = 'Enviar diagnóstico →';
+    contactSubmit.textContent = t('Enviar diagnóstico →');
     currentResult = null;
     submissionId = null;
     submitting = false;

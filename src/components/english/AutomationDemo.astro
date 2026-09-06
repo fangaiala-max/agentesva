@@ -1,0 +1,29 @@
+---
+import { DEMO_MODES, DEMO_MODE_KEYS } from '../../data/automation-demo-en';
+const mode = DEMO_MODES.attention;
+const example = mode.examples.standard;
+---
+<section id="demo" class="demo-section" aria-labelledby="demo-title" data-demo-root data-mode="attention" data-state="complete">
+  <div class="agency-shell">
+    <div class="section-heading"><div><span class="section-number">Explore a working example</span><h2 id="demo-title">See the workflow. <br />Try the exceptions.</h2></div><p>One input, a workflow, and a decision. <br />Choose a case and see what happens next.</p></div>
+    <div class="demo-console">
+      <div class="demo-console-top"><span class="sample-label">Interactive demonstration · sample data</span><span class="local-badge"><i></i> Local simulation</span></div>
+      <div class="mode-dock" role="tablist" aria-label="Automation area">
+        {DEMO_MODE_KEYS.map((key, i) => <button type="button" role="tab" id={`mode-${key}`} aria-controls="demo-panel" aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1} data-demo-mode={key} disabled><span aria-hidden="true">{['◌', '↗', '▤'][i]}</span>{DEMO_MODES[key].label}</button>)}
+      </div>
+      <div id="demo-panel" role="tabpanel" aria-labelledby="mode-attention" tabindex="0">
+        <div class="demo-intro"><h3 data-demo-title>{mode.title}</h3><p data-demo-description>{mode.description}</p></div>
+        <div class="simulation-stage">
+          <article class="demo-input"><div class="panel-label"><span>Input</span><span aria-hidden="true">↘</span></div><label for="demo-example">Choose an example</label><select id="demo-example" data-demo-example disabled><option value="standard">{example.label}</option><option value="exception">{mode.examples.exception.label}</option></select><div class="sample-document"><span data-demo-input-label>{example.inputLabel}</span><p data-demo-input>{example.input}</p><small>Fictional content · nothing is sent</small></div></article>
+        <div class="demo-controls"><div class="demo-actions"><button class="agency-button primary" data-demo-run type="button" disabled>Run the demo <span aria-hidden="true">↗</span></button><button class="reset-button" data-demo-reset type="button" disabled>Reset</button></div><p data-demo-status role="status" aria-live="polite" aria-atomic="true">Example result. Enable JavaScript to run the simulation.</p></div>
+
+          <article class="demo-output"><div class="panel-label"><span>Result</span><span data-demo-reference>{example.reference}</span></div><span class="output-state" data-demo-result-state>{example.status}</span><dl data-demo-fields>{example.fields.map(([key, value]) => <div><dt>{key}</dt><dd>{value}</dd></div>)}</dl><p class="result-copy" data-demo-result>{example.result}</p><div class="approval-note"><span aria-hidden="true">◎</span><p data-demo-handoff>{example.handoff}</p></div></article>
+          <details class="demo-workflow"><summary>See the workflow steps</summary><ol data-demo-steps>{mode.steps.map((step, i) => <li data-step-state="done"><span class="step-node">{String(i + 1).padStart(2, '0')}</span><div><strong>{step}</strong><small data-step-status>Completed in this example</small></div></li>)}</ol></details>
+        </div>
+
+        <div class="demo-bottom"><p>An illustrative prototype using sample data. No live AI calls, customer systems, or messages sent.</p><a data-demo-service href={mode.href} data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service={mode.service} data-track-cluster={mode.cluster} data-track-placement="demo_service">Explore this service ↗</a></div>
+      </div>
+    </div>
+    <noscript><p class="demo-noscript">The complete support example is available above. Enable JavaScript to try other cases, or explore our <a href="/services/">automation services</a>.</p></noscript>
+  </div>
+</section>

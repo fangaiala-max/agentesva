@@ -89,7 +89,7 @@ export function initHome() {
           { opacity: 0, transform: 'translateY(10px) scale(.985)' },
           { opacity: 1, transform: 'translateY(0) scale(1)' },
         ],
-        { duration: 320, delay: Math.min(index * 28, 280), easing: 'cubic-bezier(.22,.8,.3,1)', fill: 'both' },
+        { duration: 320, delay: Math.min(index * 28, 280), easing: 'cubic-bezier(.22,.8,.3,1)', fill: 'backwards' },
       );
     });
   };

@@ -1,4 +1,5 @@
 ---
+import InteractiveCard from './InteractiveCard.astro';
 import type { Tool } from '../data/tools';
 import { PRICE_COLOR, badgesFor } from '../data/tools';
 import { crumbPath } from '../data/breadcrumbs';
@@ -8,6 +9,7 @@ import AffiliateCTA from './AffiliateCTA.astro';
 
 interface Props {
   tool: Tool;
+  interactive?: boolean;
   /** transition:name del monograma — desactivar en renders duplicados (estantes/destacada) */
   morph?: boolean;
   /** botón "Añadir a comparar" (solo donde exista la barra de comparación, ej. home) */
@@ -15,7 +17,7 @@ interface Props {
   /** placement para el CTA de salida (ej. "card-home"); habilita el botón "Visitar ↗" */
   surface?: string;
 }
-const { tool, morph = true, compare = false, surface } = Astro.props;
+const { tool, morph = true, compare = false, surface, interactive = false } = Astro.props;
 const initial = tool.name.charAt(0);
 const priceColor = PRICE_COLOR[tool.price];
 const badges = badgesFor(tool);
@@ -25,7 +27,7 @@ const search = buildSearchIndex(tool.name, tool.desc, tool.cat);
 const monoStyle = `width: 42px; height: 42px; border-radius: 9px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 19px; color: #fff; background: ${tool.color};`;
 ---
 
-<article
+<InteractiveCard as="article" enabled={interactive} intensity={2} accent={tool.color}
   class="lift tool-card spotlight"
   data-cat={tool.cat}
   data-search={search}
@@ -96,4 +98,4 @@ const monoStyle = `width: 42px; height: 42px; border-radius: 9px; flex: none; di
       <span style={`font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: ${priceColor}; border: 1px solid var(--line-2); padding: 4px 9px; border-radius: 20px;`}>{tool.price}</span>
     </div>
   </div>
-</article>
+</InteractiveCard>

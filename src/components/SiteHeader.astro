@@ -1,117 +1,36 @@
 ---
-// Ticker + cabecera sticky del directorio "Futurista".
+import BrandMark from './BrandMark.astro';
 import SearchModal from './SearchModal.astro';
-import { getCollection } from 'astro:content';
-import { toolsClaim } from '../data/tools';
-import { frescura, ultimaActualizacion } from '../data/frescura';
-import { crumbPath, DIAGNOSTICO, NAVEGACION_COMERCIAL, SECCIONES } from '../data/breadcrumbs';
-import { AUTOMATION_AREAS } from '../data/automation-areas';
-
-const [tools, estudios, noticias] = await Promise.all([
-  getCollection('tools'),
-  getCollection('estudios'),
-  getCollection('noticias'),
-]);
-
-// Claim del ticker derivado del dato real (redondeado a la baja).
-const claim = toolsClaim(tools.length);
-
-// Frescura real del sitio: última fecha editorial publicada. Cuando exista
-// `addedAt` en tools, añadir aquí las altas del directorio como señal.
-const fresca = frescura(
-  ultimaActualizacion([
-    ...estudios.map((e) => e.data.actualizado ?? e.data.fecha),
-    ...noticias.map((n) => n.data.fecha),
-  ]),
-);
-const serviceLabels = AUTOMATION_AREAS.map((area) => area.label).join('  ·  ');
-const tickerItems = `Automatización con IA para PyMEs  ·  ${serviceLabels}  ·  Diagnóstico gratuito  ·  +${claim} herramientas revisadas  ·  `;
+import { localeFor, alternatePath, normalizePath } from '../i18n/routes';
+const en=localeFor(Astro.url.pathname)==='en';
+const path=normalizePath(Astro.url.pathname);
+const nav=en? [['Services','/services/'],['How we work','/how-we-work/'],['Pricing','/pricing/'],['Explore AI','/tools/']] : [['Servicios','/servicios/'],['Cómo trabajamos','/como-trabajamos/'],['Precios','/precios-automatizacion-ia/'],['Herramientas','/herramientas/']];
+const alternate=alternatePath(path);
 ---
-
-<!-- ===== TICKER ===== -->
-<div class="ticker-shell" style="border-bottom: 1px solid var(--line); overflow: hidden; background: var(--bg-2);">
-  <div style="display: flex; align-items: center;">
-    {fresca && (
-      <div style="flex: none; display: flex; align-items: center; gap: 8px; padding: 9px 18px; border-right: 1px solid var(--line); background: var(--panel-3);">
-        <span
-          style={`width: 7px; height: 7px; border-radius: 50%; background: ${fresca.fresco ? 'var(--green)' : 'var(--fg-4)'};${fresca.fresco ? ' animation: dotPulse 1.6s ease-in-out infinite;' : ''}`}
-        ></span>
-        <time
-          datetime={fresca.iso}
-          style="font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-2); white-space: nowrap;"
-        >{fresca.label}</time>
-      </div>
-    )}
-    <div style="overflow: hidden; flex: 1; white-space: nowrap;">
-      <div style="display: inline-flex; animation: marquee 28s linear infinite; will-change: transform;">
-        <span style="font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5); padding: 9px 0;">{tickerItems}</span>
-        <span aria-hidden="true" style="font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5); padding: 9px 0;">{tickerItems}</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ===== HEADER ===== -->
-<header style="position: sticky; top: 0; z-index: 50; background: rgba(5,5,5,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line);">
-  <div class="site-header__inner" style="max-width: 1200px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
-    <a href="/" style="display: flex; flex:none; align-items: baseline; gap: 3px; text-decoration: none;">
-      <span style="font-family: var(--serif); font-weight: 400; font-size: 24px; letter-spacing: -0.025em; color: #fff;">AgentesVA</span>
-      <sup style="font-family: var(--mono); font-size: 10px; font-weight: 600; color: var(--accent); top: -0.7em; border-radius: 3px;">[IA]</sup>
-    </a>
-    <nav id="site-nav" class="sitenav" aria-label="Principal" style="display: flex; gap: 24px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;">
-      {
-        [...NAVEGACION_COMERCIAL, SECCIONES.herramientas, SECCIONES.estudios].map((s, i) => (
-          <a class="navlink site-navlink" href={crumbPath(s.url)} style={`color: ${i === 0 ? '#fff' : 'var(--fg-4)'}; text-decoration: none;`}>
-            {s.name}
-          </a>
-        ))
-      }
-    </nav>
-    <div style="display: flex; align-items: center; gap: 14px;">
-      <button
-        type="button"
-        class="navtoggle"
-        data-nav-toggle
-        aria-label="Abrir menú"
-        aria-expanded="false"
-        aria-controls="site-nav"
-      >
-        <span class="navtoggle__bars" aria-hidden="true"></span>
-      </button>
-      <button type="button" class="header-search" data-search-open aria-label="Buscar en el sitio (⌘K)" style="display: flex; align-items: center; gap: 8px; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 6px; padding: 8px 11px; cursor: pointer;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--fg-3)" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
-        <span style="font-family: var(--mono); font-size: 10px; color: var(--fg-5); border: 1px solid var(--line-2); border-radius: 4px; padding: 2px 6px;">⌘K</span>
-      </button>
-      <a href={crumbPath(DIAGNOSTICO.url)} class="shimmer" style="font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing:.04em; text-transform:uppercase; color: #fff; background: var(--accent); padding: 11px 19px; border-radius: var(--radius-pill); text-decoration: none;">Diagnóstico →</a>
-    </div>
-  </div>
+<a class="skip-link" href="#main-content">{en?'Skip to content':'Saltar al contenido'}</a>
+<header class="studio-header" data-pagefind-ignore>
+<div class="studio-header__inner">
+<BrandMark home={en?'/':'/es/'} />
+<nav id="site-nav" class="studio-nav" aria-label={en?'Main navigation':'Navegación principal'}>
+{nav.map(([label,href])=><a href={href} aria-current={path===href?'page':undefined}>{label}</a>)}
+</nav>
+<div class="studio-actions">
+{alternate?<a class="studio-language" href={alternate} lang={en?'es':'en'} hreflang={en?'es':'en'} aria-label={en?'Ver esta página en español':'Read this page in English'}>{en?'ES':'EN'}</a>:<a class="studio-language" href={en?'/es/':'/'} lang={en?'es':'en'} aria-label={en?'Spanish home':'English home'}>{en?'ES':'EN'}</a>}
+{!en&&<button class="studio-search" type="button" data-search-open aria-label="Buscar en el sitio">⌕</button>}
+<a class="studio-cta" href={en?'/assessment/':'/diagnostico-automatizacion-ia/'} data-track-event="service_cta_click" data-track-page-type="navigation" data-track-service="general_consulting" data-track-cluster="general" data-track-placement="header">{en?'Get my free automation assessment':'Evaluar mi proceso'}<span aria-hidden="true">↗</span></a>
+<button class="studio-toggle" type="button" data-nav-toggle aria-label={en?'Open menu':'Abrir menú'} aria-expanded="false" aria-controls="site-nav"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></button>
+</div></div>
 </header>
+{!en&&<SearchModal />}
 <style>
-  .site-navlink { position: relative; padding: 6px 0; }
-  .ticker-shell:hover [style*="animation: marquee"],.ticker-shell:focus-within [style*="animation: marquee"]{animation-play-state:paused!important}
-  .site-navlink::after { position: absolute; right: 50%; bottom: 0; left: 50%; height: 1px; background: var(--accent); box-shadow: 0 0 8px rgba(91,124,255,.75); content: ''; transition: right .28s cubic-bezier(.22,.8,.3,1), left .28s cubic-bezier(.22,.8,.3,1); }
-  .site-navlink:hover::after, .site-navlink:focus-visible::after { right: 0; left: 0; }
-  .header-search { position: relative; overflow: hidden; transition: transform .25s, border-color .25s, box-shadow .25s; }
-  .header-search::before { position: absolute; inset: 0; background: linear-gradient(110deg,transparent,rgba(91,124,255,.14),transparent); content: ''; transform: translateX(-110%); transition: transform .48s; }
-  .header-search > * { position: relative; }
-  .header-search:hover { transform: translateY(-2px); border-color: var(--accent)!important; box-shadow: 0 8px 25px rgba(91,124,255,.16); }
-  .header-search:hover::before { transform: translateX(110%); }
-  .header-search svg { transition: transform .3s; }
-  .header-search:hover svg { transform: rotate(-9deg) scale(1.08); }
-  @media(max-width:767px){.ticker-shell{display:none}.site-header__inner{padding:14px 16px!important;gap:10px!important}.header-search{display:none!important}}
-  @media(prefers-reduced-motion:reduce){.site-navlink::after,.header-search,.header-search::before,.header-search svg{transition:none}.header-search:hover{transform:none}}
+.studio-header{position:sticky;top:0;z-index:50;background:#142033f5;border-bottom:1px solid #303749;color:#fff;backdrop-filter:blur(14px)}.studio-header__inner{width:min(1280px,calc(100% - 64px));margin:auto;min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:26px}.studio-nav{display:flex;gap:27px;align-items:center}.studio-nav a{font:450 14px var(--sans);text-decoration:none;color:#c8cfde;padding:14px 0;white-space:nowrap}.studio-nav a:hover,.studio-nav a[aria-current]{color:#fff}.studio-nav a[aria-current]{box-shadow:0 2px #8fa6ff}.studio-actions{display:flex;align-items:center;gap:14px}.studio-language,.studio-search{flex-shrink:0;display:grid;place-items:center;width:44px;height:44px;border:1px solid #46506a;border-radius:8px;background:transparent;color:#dce4f8;text-decoration:none;font-size:13px}.studio-search{font-size:25px;cursor:pointer}.studio-cta{display:flex;gap:18px;align-items:center;justify-content:center;padding:13px 17px;min-height:46px;border-radius:8px;background:#244fe0;color:white;text-decoration:none;font-size:13px;font-weight:550;white-space:nowrap}.studio-cta:hover{background:#193cb5}.studio-toggle{flex-shrink:0;display:none;background:transparent;border:1px solid #46506a;color:#fff;border-radius:8px;width:44px;height:44px;place-items:center;cursor:pointer}
+@media(max-width:1100px){.studio-nav{gap:18px}.studio-cta{font-size:12px;max-width:165px;white-space:normal}.studio-header__inner{gap:18px}}
+@media(max-width:900px){.studio-header__inner{width:calc(100% - 36px);min-height:78px}.studio-toggle{display:grid}.studio-nav{display:none;position:absolute;top:100%;left:0;right:0;background:#142033;border-bottom:1px solid #46506a;padding:15px 24px 22px;box-shadow:0 16px 24px #0003;gap:0;flex-direction:column;align-items:stretch}.studio-nav[data-open]{display:flex}.studio-nav a{font-size:16px;padding:16px}.studio-cta{max-width:none}.studio-search{display:none}}
+@media(max-width:600px){.studio-header__inner{gap:10px}.studio-actions{gap:7px}.studio-cta{display:none}.studio-language{width:44px}.studio-toggle{width:44px}}
 </style>
-<SearchModal />
-
 <script>
-  import { setupNav } from '../scripts/nav';
-
-  // Los listeners van a `document`, que sobrevive a las navegaciones cliente de
-  // ClientRouter, así que hay que soltar los de la página anterior antes de
-  // cablear los nuevos para que no se acumulen (mismo patrón que SearchModal).
-  let teardown: (() => void) | null = null;
-  document.addEventListener('astro:page-load', () => {
-    teardown?.();
-    teardown = setupNav();
-  });
+import { setupNav } from '../scripts/nav';
+let cleanup=()=>{};
+document.addEventListener('astro:page-load',()=>{cleanup();cleanup=setupNav();});
+document.addEventListener('astro:before-swap',()=>cleanup());
 </script>

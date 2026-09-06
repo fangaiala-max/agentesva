@@ -1,0 +1,29 @@
+---
+import { getCatalog, getCategories, catalogSections, sectionCopy, categoryLabels, type Section } from '../../i18n/catalog';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import '../../styles/english.css';
+export async function getStaticPaths(){
+ const routes=[];
+ for(const section of catalogSections){
+  const items=await getCatalog(section);
+  routes.push({params:{section,slug:undefined},props:{items}});
+  for(const item of items)routes.push({params:{section,slug:item.id},props:{items,item}});
+  for(const category of await getCategories(section))routes.push({params:{section,slug:`category/${category.id}`},props:{items:items.filter(i=>i.category===category.name),category}});
+ }
+ return routes;
+}
+const section=Astro.params.section as Section;
+const {items,item,category}=Astro.props;
+const copy=sectionCopy[section];
+const title=item?.title??category?.name??copy.title;
+const description=item?.description??copy.description;
+---
+<BaseLayout title={`${title} | AgentesVA`} description={description}>
+<SiteHeader/><main id="main-content" class="en-page" data-pagefind-body><section class="en-hero"><div class="en-shell"><nav class="en-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span>{item||category?<><a href={`/${section}/`}>{copy.title}</a><span>/</span><span aria-current="page">{title}</span></>:<span aria-current="page">{title}</span>}</nav><div class="en-hero-grid"><div><p class="en-kicker">{item?.overview?'English overview':copy.title}</p><h1>{item?title:category?category.name:copy.headline}</h1><p class="en-lead">{description}</p>{item?.language&&<p class="en-note">Learning material: {item.language}</p>}{item?.date&&<p class="en-note">Original publication: <time datetime={item.date}>{new Date(item.date).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'})}</time></p>}{item?.href&&<div class="en-actions"><a class="en-button" href={item.href} rel={item.href.startsWith('http')?'noopener noreferrer':undefined} target={item.href.startsWith('http')?'_blank':undefined}>{item.action}{item.href.startsWith('http')&&<span class="sr-only"> (opens in a new tab)</span>}</a></div>}</div></div></div></section>
+{item?<section class="en-section en-shell"><article class="en-article">{item.overview&&<p class="en-source-note">This is a concise English adaptation. <a href={item.original} lang="es">Read the full Spanish edition</a> for the complete analysis, tables, and reporting context.</p>}{item.body&&<><h2>{item.overview?'The practical takeaway':'What to expect'}</h2><p>{item.body}</p></>}{item.points&&<><h2>Keep these points in mind.</h2><ul>{item.points.map(point=><li>{point}</li>)}</ul></>}{item.sources&&item.sources.length>0&&<><h2>Sources in the original edition</h2><ul>{item.sources.map((s,i)=><li><a href={s.href} rel="noopener noreferrer" target="_blank">{section==='news'?s.label:`Source ${i+1}: ${new URL(s.href).hostname}`}<span class="sr-only"> (opens in a new tab)</span></a></li>)}</ul></>}{section==='courses'&&<><h2>Before you enroll.</h2><p>Check the provider’s current curriculum, teaching language, prerequisites, access conditions, and certificate requirements. Choose a course that supports a specific task or project.</p></>}<div class="en-support"><h3>Turn the idea into a useful workflow.</h3><p>Identify a recurring task, define its owner, and decide what a good result looks like.</p><a href="/assessment/">Take the free automation assessment</a></div></article></section>
+:<section class="en-section en-shell" data-catalog><div class="en-catalog-tools"><label>Search {copy.title.toLowerCase()}<input data-catalog-search type="search" placeholder="Search by topic or task" autocomplete="off"/></label></div><p data-catalog-count role="status">{items.length} resources</p><div class="en-catalog-grid">{items.map(i=><a href={`/${section}/${i.id}/`} class="en-resource-card" data-catalog-item><span class="en-card-meta">{i.language??i.category}</span><h2>{i.title}</h2><p>{i.description}</p><span class="en-card-action">{i.overview?'Read the English overview':'Explore this resource'} <span aria-hidden="true">↗</span></span></a>)}</div><div class="en-empty" data-catalog-empty hidden><h2>No matches this time.</h2><p>Try a broader topic or clear your search.</p><button type="button" class="en-button" data-catalog-reset>Clear search</button></div>{items.length===0&&<p>This category has no published resources yet. <a href={`/${section}/`}>Browse all {copy.title.toLowerCase()}</a>.</p>}</section>}
+</main><SiteFooter hideNewsletter/>
+</BaseLayout>
+<script>import {initCatalog} from '../../scripts/catalog';document.addEventListener('astro:page-load',initCatalog);</script>

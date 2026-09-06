@@ -1,3 +1,21 @@
+# English-first design update — 6 September 2026
+
+This section supersedes conflicting typography, logo, navigation, and motion rules in the historical specification below.
+
+- English is the primary experience at `/`; the preserved Spanish homepage is `/es/`.
+- Identity: custom connected AV mark, sans-serif AgentesVA wordmark. Palette: paper `#F7F8FA`, ink `#142033`, CTA blue `#244FE0`, hover `#193CB5`, secondary surface `#EDF2FA`, muted text on light `#526176`. Hero/footer stay dark; services, process and pricing use light surfaces. Variants live in `public/brand/`.
+- Typography: locally hosted DM Sans Variable for interface and main headings; JetBrains Mono for small technical labels. Existing DM Serif Display remains available for legacy editorial styling. Their installed packages carry OFL licenses.
+- Headings use sentence case, readable line height and a restrained weight. Forms have 16px text; controls have at least 44px touch targets where the shared styles apply.
+- Navigation emphasizes services, process, pricing and tools, with one assessment CTA and a paired language switch.
+- Cards share consistent spacing and radius; comparison tables preserve native semantics and local horizontal scrolling. Reduced-motion settings suppress decorative animation.
+- The existing interactive automation demo is retained and localized; its output is explicitly illustrative.
+
+See [implementation audit](docs/english-first-audit.md) for paid 21st.dev provenance, coverage, verification and remaining language limitations.
+
+---
+
+## Historical specification
+
 # Sistema de diseño — AgentesVA
 
 > **Fuente de verdad visual.** Sustituye por completo a la marca anterior ("fintech AI-visibility SaaS", verde/ámbar/rojo + Geist). El sistema nacido para el **directorio/medio de IA en español** también sostiene la ruta comercial de automatización que hoy abre la portada.

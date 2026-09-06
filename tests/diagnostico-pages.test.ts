@@ -24,7 +24,7 @@ describe('cierre del diagnóstico', () => {
 
   it('redirige al cierre solo después de que el servidor acepta el lead', () => {
     const accepted = client.indexOf('if (!response.ok || !payload.success || !payload.result ||');
-    const redirect = client.indexOf('window.location.assign(payload.redirectUrl)');
+    const redirect = client.indexOf('window.location.assign(');
     expect(accepted).toBeGreaterThan(-1);
     expect(redirect).toBeGreaterThan(accepted);
   });

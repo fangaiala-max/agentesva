@@ -41,7 +41,7 @@ const jsonLd = {
 <BaseLayout title={`Recursos de IA de ${nombre} | AgentesVA`} description={`${descripcion} ${recursos.length} recursos de IA de ${nombre}, en español.`}>
   <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
   <SiteHeader />
-  <main style="max-width: 1200px; margin: 0 auto; padding: 40px 32px 64px;">
+  <main id="main-content" style="max-width: 1200px; margin: 0 auto; padding: 40px 32px 64px;">
     <Breadcrumb trail={trail} />
     <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 18px;">
       <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(28px, 5vw, 40px); letter-spacing: -0.03em; margin: 0; color: #fff;">Recursos de IA · {nombre}</h1>

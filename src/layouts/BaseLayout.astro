@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import '../styles/refinement.css';
+import { localeFor, alternatePath } from '../i18n/routes';
 import '@fontsource/dm-serif-display/400.css';
 import '@fontsource/dm-serif-display/400-italic.css';
 import '@fontsource-variable/dm-sans';
@@ -21,14 +23,19 @@ const {
   title,
   description,
   canonical = new URL(Astro.url.pathname, SITE).href,
-  ogImage = `${SITE}/og.png`,
+  ogImage = localeFor(Astro.url.pathname) === "en" ? `${SITE}/brand/og-en.png` : `${SITE}/og.png`,
   ogType = 'website',
   noindex = false,
 } = Astro.props;
+const lang = localeFor(Astro.url.pathname);
+const alternate = alternatePath(Astro.url.pathname);
+const enHref = lang === "en" ? canonical : alternate ? new URL(alternate, SITE).href : undefined;
+const esHref = lang === "es" ? canonical : alternate ? new URL(alternate, SITE).href : undefined;
+const graph = { ...entityGraph, "@graph": entityGraph["@graph"].map(entity => entity["@type"] === "WebSite" ? {...entity, inLanguage:["en","es"]} : entity["@type"] === "Organization" ? {...entity, logo:{"@type":"ImageObject",url:`${SITE}/brand/mark.svg`},description:lang === "en" ? "AI automation and practical resources for small businesses." : entity.description} : entity) };
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -45,8 +52,9 @@ const {
       )
     }
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang="es" href={canonical} />
-    <link rel="alternate" hreflang="x-default" href={canonical} />
+    {!noindex && enHref && <link rel="alternate" hreflang="en" href={enHref} />}
+    {!noindex && esHref && <link rel="alternate" hreflang="es" href={esHref} />}
+    {!noindex && enHref && <link rel="alternate" hreflang="x-default" href={enHref} />}
     <link rel="alternate" type="application/rss+xml" title="AgentesVA — IA en español" href="/rss.xml" />
 
     <meta property="og:type" content={ogType} />
@@ -54,9 +62,8 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:locale" content="es" />
-    <meta property="og:locale:alternate" content="es_MX" />
-    <meta property="og:locale:alternate" content="es_ES" />
+    <meta property="og:locale" content={lang === "en" ? "en_US" : "es_ES"} />
+    <meta property="og:locale:alternate" content={lang === "en" ? "es_ES" : "en_US"} />
     <meta property="og:site_name" content="AgentesVA" />
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -64,7 +71,7 @@ const {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <script type="application/ld+json" set:html={jsonLdSerialize(entityGraph)} />
+    <script type="application/ld+json" set:html={jsonLdSerialize(graph)} />
     <ClientRouter />
   </head>
   <body class="min-h-screen">
@@ -78,6 +85,10 @@ const {
   import { initTracking, fireViewEvents } from '../scripts/track';
   import { initMotion, teardownMotion } from '../scripts/motion';
   document.addEventListener('astro:page-load', () => {
+    const main = document.querySelector("main");
+    if (main && !main.id) main.id = "main-content";
+    const skip = document.querySelector<HTMLAnchorElement>(".skip-link");
+    if (skip && main) skip.href = `#${main.id}`;
     initTracking();
     fireViewEvents();
     initMotion();

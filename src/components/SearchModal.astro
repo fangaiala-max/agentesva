@@ -77,7 +77,12 @@ const FILTERS = [
   function initSearchModal() {
     const modal = document.getElementById('search-modal');
     const dialog = modal?.querySelector<HTMLElement>('[data-search-dialog]');
-    if (!modal || !dialog) return;
+    if (!modal || !dialog) {
+      if (currentKeydown) document.removeEventListener('keydown', currentKeydown);
+      currentKeydown = null;
+      document.body.style.overflow = '';
+      return;
+    }
     const backdrop = modal.querySelector<HTMLElement>('[data-search-backdrop]');
     const closeBtn = modal.querySelector<HTMLElement>('[data-search-close]');
     let engine: { focus: () => void } | null = null;

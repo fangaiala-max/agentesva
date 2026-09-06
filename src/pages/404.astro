@@ -5,16 +5,17 @@ import SiteFooter from '../components/SiteFooter.astro';
 ---
 
 <BaseLayout
-  title="Página no encontrada — AgentesVA"
-  description="La página que buscas no existe o se ha movido."
+  title="Page not found | AgentesVA"
+  description="The page you are looking for is unavailable or has moved."
   noindex={true}
 >
   <SiteHeader />
-  <main style="max-width: 640px; margin: 0 auto; padding: 80px 32px; min-height: 60vh;">
+  <main id="main-content" style="max-width: 640px; margin: 0 auto; padding: 80px 32px; min-height: 60vh;">
     <p style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin: 0;">Error 404</p>
-    <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(34px, 6vw, 48px); letter-spacing: -0.03em; color: #fff; margin: 14px 0 0;">Página no encontrada</h1>
-    <p style="font-size: 17px; line-height: 1.6; color: var(--fg-3); margin: 16px 0 0;">La página que buscas no existe o se ha movido.</p>
-    <a href="/" class="lift shimmer" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 32px; font-family: var(--sans); font-weight: 600; font-size: 14px; color: var(--bg); background: var(--accent); border-radius: 2px; padding: 12px 22px; text-decoration: none;">← Volver al inicio</a>
+    <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(34px, 6vw, 48px); letter-spacing: -0.03em; color: #fff; margin: 14px 0 0;">Page not found</h1>
+    <p style="font-size: 17px; line-height: 1.6; color: var(--fg-3); margin: 16px 0 0;">The page you are looking for is unavailable or has moved.</p>
+    <a href="/" class="lift shimmer" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 32px; font-family: var(--sans); font-weight: 600; font-size: 14px; color: #fff; background: var(--accent); border-radius: 2px; padding: 12px 22px; text-decoration: none;">Return to the English home</a>
+    <p lang="es" style="margin-top:24px"><a href="/es/" style="color:#c4d1ff">Ir al inicio en español</a></p>
   </main>
   <SiteFooter />
 </BaseLayout>

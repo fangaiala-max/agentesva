@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../SiteHeader.astro';
+import SiteFooter from '../SiteFooter.astro';
+import translations from '../../i18n/tools.json';
+import '../../styles/english.css';
+interface Props { category?: string }
+const { category }=Astro.props;
+const categoryNames:Record<string,string>={'Asistentes':'Assistants','Automatización':'Automation','Código':'Coding','Diseño':'Design','Escritura':'Writing','Marketing':'Marketing','Productividad':'Productivity','Vídeo':'Video','Video':'Video','Voz':'Voice','WhatsApp':'WhatsApp'};
+const cats=await getCollection('categories');
+const originalCat=cats.find(c=>c.id===category)?.data.nombre;
+const all=(await getCollection('tools')).sort((a,b)=>a.data.orden-b.data.orden);
+const tools=all.filter(t=>!originalCat||t.data.cat===originalCat);
+const label=originalCat?(categoryNames[originalCat]??originalCat):'AI tools';
+---
+<BaseLayout title={`${label}: practical tools for your business | AgentesVA`} description="Explore AI tools by task. Compare what they do, how to start, and where they could fit into your business workflow.">
+<SiteHeader/><main id="main-content" class="en-page" data-pagefind-body><section class="en-hero"><div class="en-shell"><nav class="en-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span>{category&&<><a href="/tools/">AI tools</a><span>/</span></>}<span aria-current="page">{label}</span></nav><div class="en-hero-grid"><div><p class="en-kicker">The practical AI directory</p><h1>{category?`${label}, with a purpose.`:'Find a tool for the task.'}</h1><p class="en-lead">Start with what you need to do. Explore {tools.length} tools, understand their purpose, and follow a practical first step.</p></div><aside class="en-margin-note"><h2>Choose the workflow first.</h2><p>A useful tool solves a specific problem. Try it with a representative task before making it part of your process.</p></aside></div></div></section>
+<section class="en-section en-shell" data-catalog><div class="en-catalog-tools"><label>Search tools<input type="search" data-catalog-search placeholder="Try writing, meetings, or CRM" autocomplete="off" /></label><label>Filter by category<select data-catalog-filter><option value="">All categories</option>{[...new Set(tools.map(t=>categoryNames[t.data.cat]??t.data.cat))].sort().map(c=><option value={c}>{c}</option>)}</select></label></div><p data-catalog-count role="status">{tools.length} tools</p><div class="en-catalog-grid">{tools.map(t=>{const copy=translations[t.id as keyof typeof translations];const cat=categoryNames[t.data.cat]??t.data.cat;return <a href={`/tools/${t.id}/`} class="en-resource-card" data-catalog-item data-category={cat}><span class="en-tool-icon" aria-hidden="true">{t.data.name.slice(0,2)}</span><span class="en-card-meta">{cat}</span><h2>{t.data.name.replace(/ IA$/, ' AI')}</h2><p>{copy.description}</p><span class="en-card-action">Explore {t.data.name.replace(/ IA$/, ' AI')} <span aria-hidden="true">↗</span></span></a>})}</div><div class="en-empty" data-catalog-empty hidden><h2>No tools match that search.</h2><p>Try a broader task or choose another category.</p><button class="en-button" data-catalog-reset type="button">Clear filters</button></div></section></main><SiteFooter hideNewsletter />
+</BaseLayout>
+<script>import {initCatalog} from '../../scripts/catalog';document.addEventListener('astro:page-load',initCatalog);</script>
