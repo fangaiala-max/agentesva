@@ -2,6 +2,15 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [0.9.1.0] - 2026-09-06
+
+### Fixed
+- El recordatorio del diagnóstico deja de ocultarse y reaparecer al pasar sobre contenido durante el scroll, en inglés y español.
+- El recordatorio respeta el aviso de cookies, conserva el cierre durante la sesión y deja de aparecer tras alcanzar la sección final del diagnóstico.
+
+### Changed
+- Texto base de 18px y textos pequeños aproximadamente 2px mayores en navegación, tarjetas, tablas y controles, conservando la escala de titulares grandes.
+
 ## [0.9.0.0] - 2026-09-06
 
 ### Added
