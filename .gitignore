@@ -59,3 +59,6 @@ dist/
 brand-build/
 .gstack/
 .env*
+
+# Per-page OG cards are generated from built HTML.
+/public/social/og/

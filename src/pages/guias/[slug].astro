@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import {socialImagePath} from '../../lib/social-image.mjs';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
@@ -21,13 +22,13 @@ const d = entry.data;
 const canonical = `${SITE}/guias/${entry.id}/`;
 const trail = buildTrail(SECCIONES.guias, { name: d.titulo, url: `/guias/${entry.id}` });
 const jsonLd = {'@context':'https://schema.org','@graph':[
-  {'@type':'Article',headline:d.titulo,description:d.descripcion,datePublished:d.fecha.toISOString(),dateModified:d.actualizado.toISOString(),inLanguage:'es',author:person,publisher:organization,mainEntityOfPage:canonical,url:canonical,image:d.portada ? `${SITE}${d.portada.src}` : `${SITE}/og.png`,citation:d.fuentes.map((f)=>({'@type':'CreativeWork',name:f.titulo,url:f.url}))},
+  {'@type':'Article',headline:d.titulo,description:d.descripcion,datePublished:d.fecha.toISOString(),dateModified:d.actualizado.toISOString(),inLanguage:'es',author:person,publisher:organization,mainEntityOfPage:canonical,url:canonical,image:`${SITE}${socialImagePath(Astro.url.pathname,d.seoTitulo ?? d.titulo)}`,citation:d.fuentes.map((f)=>({'@type':'CreativeWork',name:f.titulo,url:f.url}))},
   {'@type':'FAQPage',mainEntity:d.faq.map((f)=>({'@type':'Question',name:f.q,acceptedAnswer:{'@type':'Answer',text:f.a}}))},
   breadcrumbList(trail),
 ]};
 const fecha = d.actualizado.toLocaleDateString('es-ES',{year:'numeric',month:'long',day:'numeric',timeZone:'UTC'});
 ---
-<BaseLayout title={`${d.seoTitulo ?? d.titulo} | AgentesVA`} description={d.descripcion} ogType="article" ogImage={d.portada ? `${SITE}${d.portada.src}` : undefined}>
+<BaseLayout title={`${d.seoTitulo ?? d.titulo} | AgentesVA`} description={d.descripcion} ogType="article">
   <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
   <ReadingProgress />
   <SiteHeader />

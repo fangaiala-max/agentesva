@@ -10,6 +10,7 @@ This section supersedes conflicting typography, logo, navigation, and motion rul
 - The shared palette in `src/styles/spectrum.css` applies to every BaseLayout page in both languages. Use `--brand-gradient` for primary actions, `--brand-link-dark` on dark reading surfaces, and `--brand-link-light` on light surfaces. Preserve provider brand colors and semantic error/success states.
 - Cards share consistent spacing and radius; comparison tables preserve native semantics and local horizontal scrolling. Reduced-motion settings suppress decorative animation.
 - The existing interactive automation demo is retained and localized; its output is explicitly illustrative.
+- Social previews use localized 1200×630 cards generated during build, with light commercial and midnight editorial backgrounds. A heavier AV social monogram supplies the favicon and Apple icon; the header logo is unchanged. See [social image generation](docs/social-images.md). These cards supersede the legacy OG defaults and generator described below.
 
 See [implementation audit](docs/english-first-audit.md) for paid 21st.dev provenance, coverage, verification and remaining language limitations.
 

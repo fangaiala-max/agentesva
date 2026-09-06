@@ -2,6 +2,18 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [0.9.0.0] - 2026-09-06
+
+### Added
+- Portadas al compartir específicas para cada página y estudio, con títulos en inglés o español y paleta Gemini.
+
+### Changed
+- Nuevo favicon AV y su versión para dispositivos Apple.
+- Las páginas comerciales usan portadas claras; estudios, guías y noticias usan una composición oscura.
+
+### Fixed
+- Open Graph, Twitter y las imágenes de artículos comparten la misma portada; cambiar un título genera una URL nueva.
+
 ## [0.8.1.0] - 2026-09-06
 
 ### Fixed

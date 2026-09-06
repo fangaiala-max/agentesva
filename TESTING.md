@@ -50,3 +50,5 @@ Las comprobaciones de formulario simulan respuestas HTTP; no prueban autenticaci
 ### SEO regression guard
 
 `npm run build` now runs `scripts/verify-built-seo.mjs` against generated HTML. It checks descriptive tool/service titles, visible FAQ/schema consistency, four-level tool breadcrumbs, unique indexable category descriptions, empty-category sitemap exclusion and static skip-link targets.
+
+`npm run build` also generates page-specific social cards and runs `scripts/verify-social-images.mjs` to validate their dimensions, existence and OG/Twitter/article consistency, plus favicon export sizes. See `docs/social-images.md`.

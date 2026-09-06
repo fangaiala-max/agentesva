@@ -6,8 +6,8 @@ const readBuiltFile = (relativePath) => fs.readFileSync(new URL(`../dist/client/
 const html = readBuiltFile('guias/como-convertirse-en-especialista-geo/index.html');
 assert.match(html, /<title>Cómo ser especialista GEO: plan de 90 días \| AgentesVA<\/title>/);
 assert.match(html, /<meta property="og:type" content="article">/);
-assert.match(html, /<meta property="og:image" content="https:\/\/agentesva\.com\/images\/guias\/especialista-geo\/especialista-geo-hero\.jpg">/);
-assert.match(html, /<meta name="twitter:image" content="https:\/\/agentesva\.com\/images\/guias\/especialista-geo\/especialista-geo-hero\.jpg">/);
+assert.match(html, /<meta property="og:image" content="https:\/\/agentesva\.com\/social\/og\/[a-f0-9]{20}\.png">/);
+assert.match(html, /<meta name="twitter:image" content="https:\/\/agentesva\.com\/social\/og\/[a-f0-9]{20}\.png">/);
 
 const sitemap = readBuiltFile('sitemap-0.xml');
 for (const route of [

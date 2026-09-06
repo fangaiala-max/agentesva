@@ -102,7 +102,7 @@ describe('guía para convertirse en especialista GEO', () => {
   it('publica metadatos sociales de artículo y autoridad visible del autor', () => {
     const page = readProjectFile('src/pages/guias/[slug].astro');
     expect(page).toContain('ogType="article"');
-    expect(page).toContain('ogImage={d.portada ? `${SITE}${d.portada.src}` : undefined}');
+    expect(page).toContain('socialImagePath(Astro.url.pathname,d.seoTitulo ?? d.titulo)');
     expect(page).toContain('class="author-bio"');
     expect(page).toContain('analista sénior de mercados y conferenciante internacional');
     expect(page).toContain('srcset={d.portada.srcMovil');
