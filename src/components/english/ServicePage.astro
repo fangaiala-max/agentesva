@@ -1,4 +1,5 @@
 ---
+import {serviceSeo} from '../../i18n/service-seo';
 import FitGuide from '../shared/FitGuide.astro';
 import PageSchema from '../shared/PageSchema.astro';
 import WorkflowExplanation from '../shared/WorkflowExplanation.astro';
@@ -27,15 +28,16 @@ const pricing = kind==='pricing'; const process = kind==='how-we-work';
 const title=service?.title ?? (pricing?t("Pricing"):process?t("How we work"):t("AI automation services"));
 const headline=service?.headline ?? (pricing?t("A clear scope. A sensible first investment."):process?t("From repetitive task to reliable workflow."):t("Your team has better things to do."));
 const description=service?.description ?? (pricing?t("Understand the starting investment before we talk. The final proposal depends on your process, tools, data, and exceptions."):process?t("We reduce uncertainty at every stage, with explicit responsibilities, real tests, and a system your team can understand."):t("We design and implement AI automation for customer support, sales, and operations. Start with one process. Keep control as you grow."));
+const seo=serviceSeo[locale][kind as keyof typeof serviceSeo.en] ?? serviceSeo[locale].services;
 const faqs=pricing?[
  [t("Are these fixed quotes?"),t("No. These are indicative starting prices. Scope, integrations, data volume, access, risk, training, and support affect the final quote.")],
  [t("Are software licenses included?"),t("Only if the proposal explicitly includes them. Software licenses, APIs, messaging, and applicable VAT are detailed separately.")],
  [t("Does the free assessment commit me to anything?"),t("No. It helps you identify a useful priority and decide whether an implementation is appropriate.")],
  [t("What does ongoing support cover?"),t("Agreed incident handling, adjustments, and reviews of workflow measurements. The proposal defines the support scope.")],
-]:serviceFaq;
+]:[...('faqs' in seo?seo.faqs:[]),...serviceFaq];
 const tracking={'data-track-event':'service_cta_click','data-track-page-type':service?'service_detail':pricing?'pricing':'services','data-track-service':service?.service??'general_consulting','data-track-cluster':service?.cluster??'general'};
 ---
-<BaseLayout title={`${title} | AgentesVA`} description={description}>
+<BaseLayout title={`${seo.title} | AgentesVA`} description={description}>
 <PageSchema title={title} description={description} type={process?'WebPage':'Service'} faqs={faqs} provider="AgentesVA" offer={process?undefined:pricing?OFFER_AMOUNTS.workshop:OFFER_AMOUNTS.scoped} parent={service?{name:t("Services"),url:href("/services/")}:undefined}/><SiteHeader />
 <main id="main-content" class="en-page" data-pagefind-body>
 <section class="en-hero"><div class="en-shell"><nav class="en-crumbs" aria-label={locale==='en'?'Breadcrumb':'Ruta de navegación'}><a href={href("/")}>{t("Home")}</a><span>/</span>{service&&<><a href={href("/services/")}>{t("Services")}</a><span>/</span></>}<span aria-current="page">{title}</span></nav><div class="en-hero-grid"><div><p class="en-kicker">{title}</p><h1>{headline}</h1><p class="en-lead">{description}</p><div class="en-actions"><AssessmentCTA placement="hero" service={service?.service} pageType={pricing?'pricing':process?'methodology':'services'}/><a class="en-button en-button--quiet" href={pricing?'#compare':process?'#process':'#explore'}>{pricing?t("Compare the options"):process?t("See the process"):t("Explore what we can build")}</a></div><p class="en-note">{t("Free initial assessment \u00b7 About 3 minutes")}</p></div><aside class="en-margin-note"><span class="en-node" aria-hidden="true">↳</span><h2>{pricing?t("Start small. Know what comes next."):process?t("Your team stays in control."):t("A working system, with a human owner.")}</h2><p>{service?.limit??t("We agree the boundaries, test the exceptions, and document the handover. No unexplained black box.")}</p></aside></div></div></section>

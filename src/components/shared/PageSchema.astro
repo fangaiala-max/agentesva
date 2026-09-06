@@ -1,10 +1,10 @@
 ---
 import {localeFor} from '../../i18n/routes';
 import {localizedPath} from '../../i18n/parity';
-interface Props {title:string;description:string;type?:string;faqs?:readonly (readonly string[])[];items?:{name:string;url:string}[];provider?:string;offer?:number;officialUrl?:string;parent?:{name:string;url:string}}
-const {title,description,type='WebPage',faqs=[],items=[],provider,offer,officialUrl,parent}=Astro.props;
+interface Props {title:string;description:string;type?:string;faqs?:readonly (readonly string[])[];items?:{name:string;url:string}[];provider?:string;offer?:number;officialUrl?:string;parent?:{name:string;url:string};parents?:{name:string;url:string}[]}
+const {title,description,type='WebPage',faqs=[],items=[],provider,offer,officialUrl,parent,parents=[]}=Astro.props;
 const locale=localeFor(Astro.url.pathname),site='https://agentesva.com',url=site+Astro.url.pathname;
-const trail=[{name:locale==='en'?'Home':'Inicio',url:localizedPath(locale,'/')},...(parent?[parent]:[]),{name:title,url:Astro.url.pathname}];
+const trail=[{name:locale==='en'?'Home':'Inicio',url:localizedPath(locale,'/')},...parents,...(parent?[parent]:[]),{name:title,url:Astro.url.pathname}];
 const graph=[{'@type':'WebPage',name:title,description,url,inLanguage:locale},
 ...(type!=='WebPage'?[{'@type':type,name:title,description,url,inLanguage:locale,
 ...(type==='SoftwareApplication'?{applicationCategory:'BusinessApplication',operatingSystem:'Web',sameAs:officialUrl}:{}),

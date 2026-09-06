@@ -30,7 +30,7 @@ La columna "Dónde" nombra ejemplos representativos de cada capa, no el índice 
 | API/CRM | Validación server-side, creación/actualización en Notion, deduplicación concurrente por instancia, consentimiento y reintentos transitorios | `tests/diagnostic-api.test.ts`, `tests/diagnostic-notion.test.ts` |
 | Guards de fuente | Lo que no se puede ejercitar sin arrancar Astro: leen el `.astro` y fallan si se pierde el cableado (props de `ArticleCard`, rutas de prompts) o si vuelve un handler en línea que la CSP bloquea | `tests/noticias-listado.test.ts`, `tests/prompts-pages.test.ts`, `tests/csp-inline-handlers.test.ts` |
 | Contrato editorial GEO | Schema, atribución de datos, recursos visuales, enlazado interno, metadatos sociales, sitemap y legibilidad móvil de la guía | `tests/especialista-geo-guide.test.ts` |
-| Build | Esquemas Zod de content collections y verificación del HTML/sitemap generado; un contenido o metadato inválido rompe `npm run build` | `src/content.config.ts`, `src/content-schemas/guias.ts`, `scripts/verify-built-geo-guide.mjs`, `scripts/verify-built-bilingual-ui.mjs` |
+| Build | Esquemas Zod de content collections y verificación del HTML/sitemap generado; un contenido o metadato inválido rompe `npm run build` | `src/content.config.ts`, `src/content-schemas/guias.ts`, `scripts/verify-built-geo-guide.mjs`, `scripts/verify-built-bilingual-ui.mjs`, `scripts/verify-built-seo.mjs` |
 | Smoke manual | Flujos reales en navegador (dev/preview) antes de shippear | /qa, /verify |
 
 ## Convenciones
@@ -46,3 +46,7 @@ La columna "Dónde" nombra ejemplos representativos de cada capa, no el índice 
 `npm run build` comprueba el HTML de 128 páginas principales y fichas: idioma, navegación móvil, destinos de CTA, intención de precios, timeline, pestañas y datos estructurados. `tests/bilingual-ui.test.ts` cubre filtros combinados, guardado y conservación del contexto al cambiar de idioma.
 
 Las comprobaciones de formulario simulan respuestas HTTP; no prueban autenticación de Brevo, reenvío ni entrega efectiva de email.
+
+### SEO regression guard
+
+`npm run build` now runs `scripts/verify-built-seo.mjs` against generated HTML. It checks descriptive tool/service titles, visible FAQ/schema consistency, four-level tool breadcrumbs, unique indexable category descriptions, empty-category sitemap exclusion and static skip-link targets.

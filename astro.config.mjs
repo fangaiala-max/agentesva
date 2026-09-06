@@ -34,7 +34,8 @@ export default defineConfig({
         !page.includes('/entrega') &&
         !page.includes('/gracias') &&
         !page.includes('/assessment/thanks') &&
-        !page.includes('/404'),
+        !page.includes('/404') &&
+        !['/recursos/contenido/','/recursos/ventas-marketing/','/resources/category/contenido/','/resources/category/ventas-marketing/'].includes(new URL(page).pathname),
       serialize: (item) => {
         const pathname = new URL(item.url).pathname;
         const originalLastmod = ROUTE_LASTMOD.get(pathname) ?? SITE_RELAUNCH_LASTMOD;
@@ -42,7 +43,8 @@ export default defineConfig({
         const english = localeFor(pathname) === 'en';
         const enUrl = english ? item.url : alternate ? new URL(alternate, item.url).href : undefined;
         const esUrl = english ? alternate ? new URL(alternate, item.url).href : undefined : item.url;
-        return { ...item, lastmod: english || pathname === '/es/' ? new Date('2026-09-06T00:00:00Z') : originalLastmod,
+        const seoRefresh = /^\/(herramienta(?:s)?|cursos|recursos|servicios)\//.test(pathname) || ['/precios-automatizacion-ia/','/como-trabajamos/'].includes(pathname);
+        return { ...item, lastmod: english || seoRefresh || pathname === '/es/' ? new Date('2026-09-06T00:00:00Z') : originalLastmod,
           links: enUrl && esUrl ? [{lang:'en',url:enUrl},{lang:'es',url:esUrl},{lang:'x-default',url:enUrl}] : undefined };
 
       },

@@ -2,6 +2,16 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [0.8.1.0] - 2026-09-06
+
+### Fixed
+- Títulos descriptivos, respuestas específicas y categorías diferenciadas en inglés y español para encontrar y evaluar herramientas y servicios.
+- Navegación enlazable de categorías, breadcrumbs completos y enlaces de salto al contenido disponibles sin JavaScript.
+- Las categorías de recursos vacías quedan fuera del índice y del sitemap hasta contar con contenido.
+
+### Changed
+- La descripción para asistentes de IA refleja la oferta de automatización actual y la prioridad del inglés.
+
 ## [0.8.0.0] - 2026-09-06
 
 ### Added
