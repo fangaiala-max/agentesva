@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import {socialImagePath} from '../lib/social-image.mjs';
 import '../styles/refinement.css';
 import '../styles/spectrum.css';
 import { localeFor, alternatePath } from '../i18n/routes';
@@ -24,11 +25,12 @@ const {
   title,
   description,
   canonical = new URL(Astro.url.pathname, SITE).href,
-  ogImage = localeFor(Astro.url.pathname) === "en" ? `${SITE}/brand/og-en.png` : `${SITE}/og.png`,
+  ogImage: customOgImage,
   ogType = 'website',
   noindex = false,
 } = Astro.props;
 const lang = localeFor(Astro.url.pathname);
+const ogImage = customOgImage ?? (noindex ? `${SITE}${lang === "en" ? "/brand/og-en.png" : "/og.png"}` : `${SITE}${socialImagePath(Astro.url.pathname,title)}`);
 const alternate = alternatePath(Astro.url.pathname);
 const enHref = lang === "en" ? canonical : alternate ? new URL(alternate, SITE).href : undefined;
 const esHref = lang === "es" ? canonical : alternate ? new URL(alternate, SITE).href : undefined;
@@ -40,9 +42,9 @@ const graph = { ...entityGraph, "@graph": entityGraph["@graph"].map(entity => en
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" href="/favicon.svg?v=gemini-2" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.png?v=gemini-2" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=gemini-2" />
     <title>{title}</title>
     <meta name="description" content={description} />
     {
@@ -63,6 +65,8 @@ const graph = { ...entityGraph, "@graph": entityGraph["@graph"].map(entity => en
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
+    {!customOgImage && <><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:image:type" content="image/png" /></>}
+    <meta property="og:image:alt" content={title} />
     <meta property="og:locale" content={lang === "en" ? "en_US" : "es_ES"} />
     <meta property="og:locale:alternate" content={lang === "en" ? "es_ES" : "en_US"} />
     <meta property="og:site_name" content="AgentesVA" />
@@ -71,6 +75,7 @@ const graph = { ...entityGraph, "@graph": entityGraph["@graph"].map(entity => en
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={title} />
 
     <script type="application/ld+json" set:html={jsonLdSerialize(graph)} />
     <ClientRouter />

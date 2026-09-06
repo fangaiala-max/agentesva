@@ -1,4 +1,5 @@
 ---
+import {socialImagePath} from '../../lib/social-image.mjs';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
@@ -43,7 +44,7 @@ const jsonLd = {
       publisher: organization,
       mainEntityOfPage: `${site}/noticias/${entry.id}/`,
       url: `${site}/noticias/${entry.id}/`,
-      image: `${site}/og.png`,
+      image: `${site}${socialImagePath(Astro.url.pathname,d.titulo)}`,
       isBasedOn: d.fuente.url,
     },
     breadcrumbList(trail),
@@ -51,7 +52,7 @@ const jsonLd = {
 };
 ---
 
-<BaseLayout title={`${d.titulo} | AgentesVA`} description={d.descripcion}>
+<BaseLayout title={`${d.titulo} | AgentesVA`} description={d.descripcion} ogType="article">
   <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
   <SiteHeader />
 

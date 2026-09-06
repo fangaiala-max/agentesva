@@ -1,4 +1,5 @@
 ---
+import {socialImagePath} from '../../lib/social-image.mjs';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
@@ -67,7 +68,7 @@ const graph: any[] = [
     publisher: organization,
     mainEntityOfPage: canonical,
     url: canonical,
-    image: `${site}/og.png`,
+    image: `${site}${socialImagePath(Astro.url.pathname,d.titulo)}`,
   },
   breadcrumbList(trail),
 ];
@@ -83,7 +84,7 @@ if (d.fuentes?.length) {
 const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
 ---
 
-<BaseLayout title={`${d.titulo} | AgentesVA`} description={d.descripcion}>
+<BaseLayout title={`${d.titulo} | AgentesVA`} description={d.descripcion} ogType="article">
   <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
   <SiteHeader />
 
