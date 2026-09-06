@@ -2,7 +2,7 @@
 
 English-first website: `/` is English and `/es/` preserves the Spanish homepage. Services, pricing, assessment, tools, courses and prompt experiences have English routes. Editorial English editions are concise adaptations; downloadable products and newsletter delivery remain Spanish.
 
-See [the redesign audit](docs/english-first-audit.md) and [the bilingual UI implementation review](docs/21st-bilingual-opportunity-review.md). Home, commercial pages, tool directories/profiles and learning directories now share EN/ES components. `npm run build` verifies 128 core pages and tool profiles; run `node scripts/verify-english-first.mjs` for the broader generated-link and language audit.
+See [the redesign audit](docs/english-first-audit.md) and [the bilingual UI implementation review](docs/21st-bilingual-opportunity-review.md). Home, commercial pages, tool directories/profiles and learning directories now share EN/ES components. `npm run build` verifies 128 core pages and tool profiles, then checks generated SEO metadata, FAQ/schema consistency, breadcrumbs and category indexability; run `node scripts/verify-english-first.mjs` for the broader generated-link and language audit.
 
 Servicio de automatización con inteligencia artificial para PyMEs y autónomos de España y Latinoamérica, respaldado por un directorio y un medio práctico en español. La portada conduce primero al diagnóstico y a la implementación; herramientas, cursos, recursos, estudios, noticias y plantillas quedan disponibles como apoyo para explorar y decidir.
 
@@ -76,5 +76,6 @@ La integración de Notion debe tener acceso a `Pipeline de leads`; la API dedupl
 - [`DESIGN.md`](./DESIGN.md) — sistema visual y patrones de interacción.
 - [`OPERATIONS.md`](./OPERATIONS.md) — operación, alertas y respuesta a incidentes.
 - [`TESTING.md`](./TESTING.md) — estrategia y convenciones de pruebas.
+- [Revisión SEO/GEO/AIO](docs/seo-geo-aio-post-design-review.md) — comparación del rediseño y correcciones bilingües verificadas.
 - [`CHANGELOG.md`](./CHANGELOG.md) — historial de versiones.
 - [`TODOS.md`](./TODOS.md) — trabajo pendiente priorizado.
