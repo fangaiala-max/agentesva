@@ -50,7 +50,7 @@ export default async function handler(req, res) {
     return res.status(403).json({ error: 'Forbidden' });
   }
 
-  const apiKey = process.env.BREVO_API_KEY;
+  const apiKey = process.env.BREVO_API_KEY?.trim();
   if (!apiKey) return res.status(500).json({ error: 'Server misconfiguration' });
 
   const { email = '', name = '', list = 'default', company = '', consent, source = '', path = '' } = req.body || {};

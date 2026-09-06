@@ -1,3 +1,4 @@
+import { notifyDiagnostic } from '../src/lib/diagnostic-email.js';
 import { classifyDiagnostic, type DiagnosticAnswers } from '../src/data/diagnostico.js';
 import { diagnosticThanksUrl } from '../src/data/diagnostico-gracias.js';
 import { signDiagnosticResult } from '../src/data/diagnostico-token.js';
@@ -389,6 +390,11 @@ export default async function handler(req: Req, res: Res) {
     if (delivery === 'failed') {
       console.error('[diagnostic] Notion delivery failed');
       return res.status(502).json({ error: 'Lead delivery failed' });
+    }
+
+    const notification = await notifyDiagnostic({ contact: parsed.contact, answers: parsed.answers, result, submissionId: parsed.submissionId });
+    if (notification === 'failed') {
+      return res.status(502).json({ error: 'Notification delivery failed' });
     }
 
     const signingSecret = process.env.DIAGNOSTIC_SIGNING_SECRET || '';
