@@ -46,3 +46,7 @@ La columna "Dónde" nombra ejemplos representativos de cada capa, no el índice 
 `npm run build` comprueba el HTML de 128 páginas principales y fichas: idioma, navegación móvil, destinos de CTA, intención de precios, timeline, pestañas y datos estructurados. `tests/bilingual-ui.test.ts` cubre filtros combinados, guardado y conservación del contexto al cambiar de idioma.
 
 Las comprobaciones de formulario simulan respuestas HTTP; no prueban autenticación de Brevo, reenvío ni entrega efectiva de email.
+
+### SEO regression guard
+
+`npm run build` now runs `scripts/verify-built-seo.mjs` against generated HTML. It checks descriptive tool/service titles, visible FAQ/schema consistency, four-level tool breadcrumbs, unique indexable category descriptions, empty-category sitemap exclusion and static skip-link targets.

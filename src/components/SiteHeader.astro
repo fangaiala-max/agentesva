@@ -8,7 +8,7 @@ const path=normalizePath(Astro.url.pathname);
 const nav=en? [['Services','/services/'],['How we work','/how-we-work/'],['Pricing','/pricing/'],['Explore AI','/tools/']] : [['Servicios','/servicios/'],['Cómo trabajamos','/como-trabajamos/'],['Precios','/precios-automatizacion-ia/'],['Herramientas','/herramientas/']];
 const alternate=alternatePath(path);
 ---
-<a class="skip-link" href="#main-content">{en?'Skip to content':'Saltar al contenido'}</a>
+<a class="skip-link" href={path==='/buscar/'?'#buscar-root':'#main-content'}>{en?'Skip to content':'Saltar al contenido'}</a>
 <header class="studio-header" data-pagefind-ignore>
 <div class="studio-header__inner">
 <BrandMark home={en?'/':'/es/'} />
