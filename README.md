@@ -12,7 +12,7 @@ Servicio de automatización con inteligencia artificial para PyMEs y autónomos 
 npm install
 npm run dev      # http://localhost:4321
 npm run test     # Vitest + happy-dom
-npm run build    # Astro + verificación GEO/sitemap + salida de Vercel + índice Pagefind
+npm run build    # Astro + portadas sociales + verificaciones OG/GEO/SEO + índice Pagefind
 npm run preview
 ```
 
@@ -77,5 +77,6 @@ La integración de Notion debe tener acceso a `Pipeline de leads`; la API dedupl
 - [`OPERATIONS.md`](./OPERATIONS.md) — operación, alertas y respuesta a incidentes.
 - [`TESTING.md`](./TESTING.md) — estrategia y convenciones de pruebas.
 - [Revisión SEO/GEO/AIO](docs/seo-geo-aio-post-design-review.md) — comparación del rediseño y correcciones bilingües verificadas.
+- [Imágenes sociales y favicon](docs/social-images.md) — generación de portadas EN/ES, versiones de URL y validación.
 - [`CHANGELOG.md`](./CHANGELOG.md) — historial de versiones.
 - [`TODOS.md`](./TODOS.md) — trabajo pendiente priorizado.
