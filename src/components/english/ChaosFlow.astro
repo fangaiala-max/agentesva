@@ -1,22 +1,25 @@
 ---
+import {localeFor} from '../../i18n/routes';
+import {ui} from '../../i18n/parity';
+const t=(s:string)=>ui(localeFor(Astro.url.pathname),s);
 // Native Astro adaptation of Animated Beam (21st.dev, dillionverma, demo 919).
 const tasks = [
- {icon:'↗',title:'Follow-up',detail:'A lead waiting',kind:'sales'},
- {icon:'≋',title:'Invoice',detail:'A total to check',kind:'invoice'},
- {icon:'↩',title:'Message',detail:'A reply to draft',kind:'message'},
+ {icon:'↗',title:t('Follow-up'),detail:t('A lead waiting'),kind:'sales'},
+ {icon:'≋',title:t('Invoice'),detail:t('A total to check'),kind:'invoice'},
+ {icon:'↩',title:t('Message'),detail:t('A reply to draft'),kind:'message'},
 ];
 ---
 <figure class="chaos-flow" data-chaos-flow data-phase="review" aria-labelledby="flow-caption">
-  <figcaption id="flow-caption">From scattered tasks to a clear next step.</figcaption>
+  <figcaption id="flow-caption">{t("From scattered tasks to a clear next step.")}</figcaption>
   <div class="flow-stage" data-flow-stage>
     <div class="flow-orbit" aria-hidden="true"></div>
     <svg class="flow-beams" data-flow-svg aria-hidden="true"><defs><linearGradient id="flow-beam-gradient"><stop stop-color="#77adff"/><stop offset=".5" stop-color="#b296ff"/><stop offset="1" stop-color="#f194c5"/></linearGradient></defs>{[0,1,2,3].map(i=><g><path data-flow-track={i} class="flow-track"/><path data-flow-beam={i} class="flow-beam" pathLength="100"/></g>)}</svg>
     {tasks.map((task,i)=><div class={`flow-task flow-task--${task.kind}`} data-flow-node={i}><span class="flow-task-icon" aria-hidden="true">{task.icon}</span><div><strong>{task.title}</strong><span>{task.detail}</span></div><span class="flow-task-dot" aria-hidden="true"></span></div>)}
-    <div class="flow-hub" data-flow-node="3"><span class="flow-hub-symbol" aria-hidden="true">A<span>V</span></span><strong>Connected flow</strong><span>Sort. Check. Prepare.</span></div>
-    <div class="flow-review" data-flow-node="4"><span class="flow-review-icon" aria-hidden="true">✓</span><strong>Your team decides.</strong><span>Drafts ready. <br />Exceptions flagged.</span><span class="flow-review-badge">Human review</span></div>
+    <div class="flow-hub" data-flow-node="3"><span class="flow-hub-symbol" aria-hidden="true">A<span>V</span></span><strong>{t("Connected flow")}</strong><span>{t("Sort. Check. Prepare.")}</span></div>
+    <div class="flow-review" data-flow-node="4"><span class="flow-review-icon" aria-hidden="true">✓</span><strong>{t("Your team decides.")}</strong><span>{t("Drafts ready.")}<br />{t("Exceptions flagged.")}</span><span class="flow-review-badge">{t("Human review")}</span></div>
   </div>
-  <div class="flow-bottom"><p data-flow-status role="status" aria-live="polite">Ready for human review.</p><div><button type="button" data-flow-pause disabled>Pause</button><button type="button" data-flow-replay disabled>Replay</button></div></div>
-  <p class="flow-disclosure">Illustrative workflow. No live data or messages sent.</p>
+  <div class="flow-bottom"><p data-flow-status role="status" aria-live="polite">{t("Ready for human review.")}</p><div><button type="button" data-flow-pause disabled>{t("Pause")}</button><button type="button" data-flow-replay disabled>{t("Replay")}</button></div></div>
+  <p class="flow-disclosure">{t("Illustrative workflow. No live data or messages sent.")}</p>
 </figure>
 <style>
 .chaos-flow{margin:0;min-width:0;position:relative;color:#faf9ff;isolation:isolate}.chaos-flow figcaption{font-size:15px;color:#c5d1e3;position:relative;z-index:2}.flow-stage{height:440px;position:relative;margin-top:18px}.flow-orbit{position:absolute;width:360px;height:360px;left:45%;top:50%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#315bda2a 0,transparent 67%);border:1px solid #a3b8ff15;box-shadow:0 0 0 60px #a3b8ff05;pointer-events:none}.flow-beams{position:absolute;inset:0;width:100%;height:100%;overflow:visible}.flow-track{fill:none;stroke:#637da04d;stroke-width:1.5}.flow-beam{fill:none;stroke:url(#flow-beam-gradient);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:12 88;stroke-dashoffset:0}.flow-task,.flow-hub,.flow-review{position:absolute;box-sizing:border-box;transform:translate(-50%,-50%)}.flow-task{left:17%;width:174px;min-height:76px;display:flex;gap:10px;align-items:center;padding:13px 12px;background:#f0effa;color:#171a2b;box-shadow:0 14px 36px #080f1f40;border:1px solid #ffffff85;border-radius:10px}.flow-task--sales{top:18%}.flow-task--invoice{top:50%}.flow-task--message{top:82%}.flow-task strong{display:block;font-size:16px;letter-spacing:-.3px}.flow-task div>span{display:block;font-size:13px;color:#595f75;margin-top:4px}.flow-task-icon{font-size:23px;color:#315bda}.flow-task-dot{width:5px;height:5px;background:#315bda;border-radius:50%;margin-left:auto}.flow-hub{top:50%;left:55%;text-align:center;width:155px;padding:20px 8px;background:#171a2b;border:1px solid #6c8ee5;border-radius:18px;box-shadow:0 0 45px #315bda35}.flow-hub-symbol{font-size:42px;font-weight:550;letter-spacing:-7px;display:block;margin:0 6px 10px 0;color:#f0effa}.flow-hub-symbol span{color:#91adff}.flow-hub strong{font-size:15px;display:block}.flow-hub>span:last-child{font-size:12px;color:#c5d1e3;display:block;margin-top:8px}.flow-review{left:87%;top:50%;width:148px;text-align:left;border-top:1px solid #b8c9e9;padding-top:20px}.flow-review-icon{display:grid;place-items:center;width:35px;height:35px;border:1px solid #8fabdf;border-radius:50%;margin-bottom:15px;color:#dce8ff}.flow-review strong{font-size:18px;display:block;line-height:1.3}.flow-review>span:not(:first-child){display:block;font-size:14px;color:#c5d1e3;line-height:1.5;margin-top:10px}.flow-review .flow-review-badge{font-size:12px!important;color:#dce8ff!important;display:inline-block!important;padding:4px 8px;border-radius:4px;background:#315bda45}.flow-bottom{border-top:1px solid #637da04d;padding-top:14px;display:flex;align-items:center;justify-content:space-between;gap:12px}.flow-bottom p{margin:0;font-size:14px;color:#dce8ff}.flow-bottom>div{display:flex;gap:6px}.flow-bottom button{background:transparent;border:1px solid #738197;color:#dce8ff;border-radius:6px;min-width:64px;min-height:44px;padding:8px;font-size:13px}.flow-bottom button:disabled{opacity:.5}.flow-disclosure{font-size:12px!important;line-height:1.5;color:#c5d1e3;margin:12px 0 0}.chaos-flow[data-phase=chaos] .flow-review-badge{opacity:.45}

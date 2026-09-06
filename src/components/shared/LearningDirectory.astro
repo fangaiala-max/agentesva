@@ -1,0 +1,26 @@
+---
+import {getCollection} from 'astro:content';
+import {getCatalog,sectionCopy,categoryLabels} from '../../i18n/catalog';
+import {localeFor} from '../../i18n/routes';
+import {localizedPath} from '../../i18n/parity';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../SiteHeader.astro';
+import SiteFooter from '../SiteFooter.astro';
+import CatalogGrid from './CatalogGrid.astro';
+import ConversionBanner from './ConversionBanner.astro';
+import PageSchema from './PageSchema.astro';
+import '../../styles/english.css';
+const {section,category}=Astro.props;
+const locale=localeFor(Astro.url.pathname),en=locale==='en';
+const collection=section==='courses'?'cursos':'recursos';
+const raw=await getCollection(collection);
+const cats=await getCollection(section==='courses'?'cursosCategorias':'recursosCategorias');
+const cat=cats.find(c=>c.id===category);
+const base=en?await getCatalog(section):raw.sort((a,b)=>a.data.orden-b.data.orden).map(i=>({id:i.id,title:i.data.titulo,description:i.data.desc,category:i.data.categoria,language:i.data.idioma??'Español'}));
+const all=base.map(i=>{const data=raw.find(r=>r.id===i.id)!.data;return {...i,level:data.nivel?(en?({principiante:'Beginner',intermedio:'Intermediate',avanzado:'Advanced'}[data.nivel]??data.nivel):data.nivel):(en?({curso:'Course',prompts:'Prompts',skill:'Skill'}[data.tipo]??data.tipo):data.tipo),price:en?({Gratis:'Free',Pago:'Paid',Freemium:'Freemium'}[data.precio]??data.precio):data.precio};});
+const catName=cat?(en?categoryLabels[cat.data.nombre]??cat.data.nombre:cat.data.nombre):undefined;
+const items=catName?all.filter(i=>i.category===catName):all;
+const title=catName??(en?sectionCopy[section].title:section==='courses'?'Cursos de IA':'Recursos');
+const description=en?sectionCopy[section].description:section==='courses'?'Cursos prácticos para responsables, creadores y desarrolladores. Revisa idioma, nivel y condiciones del proveedor antes de inscribirte.':'Plantillas, prompts y materiales prácticos. Consulta el idioma y las condiciones de acceso antes de continuar.';
+---
+<BaseLayout title={`${title} | AgentesVA`} description={description}><PageSchema title={title} description={description} type="CollectionPage" items={items.map(i=>({name:i.title,url:localizedPath(locale,`/${section}/${i.id}/`)}))}/><SiteHeader/><main id="main-content" class="en-page" data-pagefind-body><section class="en-hero"><div class="en-shell"><nav class="en-crumbs" aria-label={en?'Breadcrumb':'Ruta de navegación'}><a href={localizedPath(locale,'/')}>{en?'Home':'Inicio'}</a><span>/</span><span aria-current="page">{title}</span></nav><p class="en-kicker">{title}</p><h1>{catName??(en?sectionCopy[section].headline:section==='courses'?'Aprende algo que puedas poner a trabajar.':'Un punto de partida útil.')}</h1><p class="en-lead">{description}</p></div></section><CatalogGrid items={items} section={section}/><ConversionBanner/></main><SiteFooter hideNewsletter/></BaseLayout>

@@ -3,7 +3,10 @@ const SAVED_KEY = 'agentesva:saved';
 
 export function initToolDetail() {
   const btn = document.getElementById('save-btn') as HTMLButtonElement | null;
-  if (!btn) return;
+  if (!btn||btn.dataset.wired) return;
+  btn.dataset.wired='true';
+  const en=document.documentElement.lang==='en';
+  const light=Boolean(btn.closest('.tool-showcase-profile'));
   const slug = btn.dataset.slug || '';
   const label = document.getElementById('save-label');
 
@@ -13,10 +16,10 @@ export function initToolDetail() {
 
   const paint = () => {
     const on = saved.has(slug);
-    if (label) label.textContent = on ? 'Guardada ✓' : 'Guardar';
+    if (label) label.textContent = en?(on?'Saved ✓':'Save'):(on?'Guardada ✓':'Guardar');
     btn.setAttribute('aria-pressed', String(on));
     btn.style.borderColor = on ? 'var(--accent)' : 'var(--line-2)';
-    btn.style.color = on ? 'var(--accent)' : 'var(--fg-2)';
+    btn.style.color = light?(on?'var(--brand-blue)':'var(--brand-ink)'):(on?'var(--accent)':'var(--fg-2)');
   };
   paint();
 

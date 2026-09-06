@@ -1,9 +1,15 @@
+export const OFFER_AMOUNTS = {diagnostic:0,workshop:300,scoped:1500,integrated:3000,support:300} as const;
+export function offerPrice(key:keyof typeof OFFER_AMOUNTS,locale:'en'|'es') {
+ const value=OFFER_AMOUNTS[key];if(!value)return locale==='en'?'Free':'Gratis';
+ const price=locale==='en'?`€${value.toLocaleString('en-US')}`:`${value.toLocaleString('de-DE')} €`;
+ return `${locale==='en'?'From':'Desde'} ${price}${key==='support'?(locale==='en'?'/month':'/mes'):''}`;
+}
 export const SERVICE_OFFER = {
-  diagnostic: { name: 'Diagnóstico inicial', price: 'Gratis' },
-  workshop: { name: 'Taller de automatización', price: 'Desde 300 €' },
-  scoped: { name: 'Implementación acotada', price: 'Desde 1.500 €', timeline: 'De 2 a 4 semanas' },
-  integrated: { name: 'Varias integraciones', price: 'Desde 3.000 €', timeline: 'De 4 a 8 semanas' },
-  support: { name: 'Soporte y optimización', price: 'Desde 300 €/mes' },
+  diagnostic: { name: 'Diagnóstico inicial', price: offerPrice('diagnostic','es') },
+  workshop: { name: 'Taller de automatización', price: offerPrice('workshop','es') },
+  scoped: { name: 'Implementación acotada', price: offerPrice('scoped','es'), timeline: 'De 2 a 4 semanas' },
+  integrated: { name: 'Varias integraciones', price: offerPrice('integrated','es'), timeline: 'De 4 a 8 semanas' },
+  support: { name: 'Soporte y optimización', price: offerPrice('support','es') },
 } as const;
 
 export const FIT_BASELINE = {

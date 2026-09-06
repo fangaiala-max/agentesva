@@ -13,7 +13,7 @@ describe('GROW-020 commercial internal linking', () => {
     expect(serviceClusterLinks.ventas).toHaveLength(3);
     expect(serviceClusterLinks.procesos).toHaveLength(3);
     for (const file of ['automatizacion-atencion-cliente', 'automatizacion-ventas', 'automatizacion-procesos']) {
-      expect(read(`src/pages/servicios/${file}.astro`)).toContain('<CommercialNextSteps');
+      expect(read('src/components/english/ServicePage.astro')).toContain('<CommercialNextSteps');
     }
   });
 
@@ -21,7 +21,7 @@ describe('GROW-020 commercial internal linking', () => {
     for (const slug of ['ia-para-atencion-al-cliente', 'mejores-herramientas-ia-whatsapp', 'herramientas-ia-para-automatizar-tareas']) expect(linksForStudy(slug).length).toBeGreaterThanOrEqual(2);
     for (const slug of ['make', 'n8n', 'zapier', 'wati', 'manychat', 'chatfuel', 'landbot', 'tidio', 'hubspot-ia', 'mailchimp', 'brevo']) expect(linksForTool(slug).length).toBeGreaterThanOrEqual(2);
     expect(read('src/pages/estudios/[slug].astro')).toContain('linksForStudy');
-    expect(read('src/pages/herramienta/[slug].astro')).toContain('linksForTool');
+    expect(read('src/components/english/ToolProfile.astro')).toContain('linksForTool');
   });
 
   it('gives every guide at least three descriptive internal links', () => {

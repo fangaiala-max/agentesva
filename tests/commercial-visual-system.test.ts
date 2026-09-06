@@ -4,24 +4,14 @@ import path from 'node:path';
 const read = (file: string) => fs.readFileSync(path.join(process.cwd(), file), 'utf8');
 
 describe('commercial visual system', () => {
-  it('removes the legacy green foundation from pricing and methodology', () => {
-    for (const file of ['src/pages/precios-automatizacion-ia.astro', 'src/pages/como-trabajamos.astro']) {
-      const source = read(file);
-      expect(source).not.toContain('#10231d');
-      expect(source).not.toContain('#17352b');
-      expect(source).not.toContain('#20a77a');
-      expect(source).toContain('#0a1a33');
-      expect(source).toContain('#5b7cff');
-      expect(source).toContain('prefers-reduced-motion');
-    }
+  it('uses the Gemini tokens in the shared commercial templates', () => {
+    const theme=read('src/styles/spectrum.css');
+    expect(theme).toContain('#315bda');expect(theme).toContain('#6944bf');
+    for(const file of ['src/pages/precios-automatizacion-ia.astro','src/pages/como-trabajamos.astro'])expect(read(file)).toContain('<ServicePage');
   });
-
-  it('uses the reusable ambient hero across service detail pages', () => {
-    for (const slug of ['automatizacion-atencion-cliente', 'automatizacion-ventas', 'automatizacion-procesos']) {
-      const source = read(`src/pages/servicios/${slug}.astro`);
-      expect(source).toContain("import AmbientHero from '../../components/AmbientHero.astro'");
-      expect(source).toContain('<AmbientHero />');
-    }
+  it('shares one visual template across all service detail pages', () => {
+    for(const slug of ['automatizacion-atencion-cliente','automatizacion-ventas','automatizacion-procesos'])expect(read(`src/pages/servicios/${slug}.astro`)).toContain('<ServicePage');
+    expect(read('src/components/english/ServicePage.astro')).toContain('<WorkflowExplanation');
   });
 
   it('keeps decorative motion optional and adds guide reading progress', () => {

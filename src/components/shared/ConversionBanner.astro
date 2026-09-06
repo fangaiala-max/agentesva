@@ -1,0 +1,7 @@
+---
+import AssessmentCTA from './AssessmentCTA.astro';
+import {localeFor} from '../../i18n/routes';
+const {service='general_consulting'}=Astro.props;
+const en=localeFor(Astro.url.pathname)==='en';
+---
+<section class="en-close" data-shared-banner><div class="en-shell en-close-inner"><div><h2>{en?'What keeps repeating in your week?':'¿Qué se repite cada semana?'}</h2><p>{en?'Start with one process. Get an initial recommendation in about 3 minutes.':'Empieza por un proceso. Recibe una recomendación inicial en unos 3 minutos.'}</p></div><AssessmentCTA placement="final_cta" service={service} class="en-button en-button--white" label={en?'Take the free assessment':'Hacer el diagnóstico gratuito'}/></div></section>

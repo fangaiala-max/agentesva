@@ -1,0 +1,16 @@
+---
+import {localeFor} from '../../i18n/routes';
+import {localizedPath} from '../../i18n/parity';
+const {items,section}=Astro.props;
+const locale=localeFor(Astro.url.pathname),en=locale==='en';
+const levels=[...new Set(items.map(i=>i.level).filter(Boolean))];
+const prices=[...new Set(items.map(i=>i.price).filter(Boolean))];
+const categories=[...new Set(items.map(i=>i.category))];
+---
+<section class="en-section en-shell" data-catalog>
+ <div class="en-catalog-tools"><label>{en?'Search by topic or task':'Busca por tema o tarea'}<input data-catalog-search type="search" placeholder={en?'Try a topic…':'Prueba un tema…'} autocomplete="off"/></label><label>{en?'Category':'Categoría'}<select data-catalog-filter><option value="">{en?'All categories':'Todas las categorías'}</option>{categories.map(c=><option>{c}</option>)}</select></label>{levels.length>0&&<label>{section==='courses'?(en?'Level':'Nivel'):(en?'Format':'Formato')}<select data-catalog-extra="level"><option value="">{en?'All':'Todos'}</option>{levels.map(l=><option>{l}</option>)}</select></label>}{prices.length>0&&<label>{en?'Access':'Acceso'}<select data-catalog-extra="price"><option value="">{en?'All':'Todos'}</option>{prices.map(p=><option>{p}</option>)}</select></label>}</div>
+ <p data-catalog-count role="status">{items.length} {en?'resources':'recursos'}</p>
+ <div class="en-catalog-grid">{items.map(i=><a href={localizedPath(locale,`/${section}/${i.id}/`)} class="en-resource-card" data-catalog-item data-category={i.category} data-level={i.level} data-price={i.price}><span class="en-card-meta">{i.category}</span><h2>{i.title}</h2><p>{i.description}</p>{i.language&&<small>{en?'Material language':'Idioma del material'}: {i.language}</small>}{i.level&&<small>{i.level} · {i.price}</small>}<span class="en-card-action">{i.overview?'Read the English overview':en?'Explore this resource':'Explorar este recurso'} <span aria-hidden="true">↗</span></span></a>)}</div>
+ <div class="en-empty" data-catalog-empty hidden><h2>{en?'No matches this time.':'No hay resultados.'}</h2><p>{en?'Try a broader topic or clear your filters.':'Prueba un tema más amplio o borra los filtros.'}</p><button type="button" class="en-button" data-catalog-reset>{en?'Clear filters':'Borrar filtros'}</button></div>
+</section>
+<script>import {initCatalog} from '../../scripts/catalog';document.addEventListener('astro:page-load',initCatalog);</script>

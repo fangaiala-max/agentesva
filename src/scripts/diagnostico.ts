@@ -169,6 +169,14 @@ function wire(root: HTMLElement): void {
     root.querySelectorAll<HTMLElement>('[data-result]').forEach((node) => {
       node.hidden = node.dataset.result !== diagnostic.resultType;
     });
+    const review=root.querySelector('[data-assessment-review]');
+    if(review){
+      review.replaceChildren();
+      steps.forEach(step=>{
+        const values=[...step.querySelectorAll<HTMLInputElement|HTMLTextAreaElement>('input:checked, input[type="text"], textarea')].map(control=>control.type==='radio'||control.type==='checkbox'?control.closest('label')?.textContent?.trim():control.value.trim()).filter(Boolean);
+        if(values.length){const li=document.createElement('li');li.textContent=values.join(' · ');review.append(li);}
+      });
+    }
     renderDiagnosticPlan(result, diagnostic);
     result.hidden = false;
     result.focus({ preventScroll: true });
@@ -210,6 +218,7 @@ function wire(root: HTMLElement): void {
             referrer: document.referrer,
             ctaPlacement: new URLSearchParams(window.location.search).get('placement') || '',
             serviceIntent: new URLSearchParams(window.location.search).get('service') || '',
+            offerIntent: new URLSearchParams(window.location.search).get('offer') || '',
             utm: Object.fromEntries(Array.from(new URLSearchParams(window.location.search)).filter(([key]) => key.startsWith('utm_'))),
           },
           submissionId,

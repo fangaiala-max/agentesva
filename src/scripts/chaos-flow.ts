@@ -1,8 +1,10 @@
+import {ui} from '../i18n/parity';
 /** Animated Beam by dillionverma, 21st.dev demo 919, adapted for Astro + WAAPI.
  * Container-relative SVG paths and ResizeObserver follow the retrieved component.
  * The task choreography, timing, pause controls and lifecycle are project-specific.
  */
 export function setupChaosFlow(root: HTMLElement): () => void {
+  const t=(s:string)=>ui(document.documentElement.lang==='en'?'en':'es',s);
   const stage = root.querySelector<HTMLElement>('[data-flow-stage]')!;
   const nodes = Array.from(root.querySelectorAll<HTMLElement>('[data-flow-node]'));
   const beams = Array.from(root.querySelectorAll<SVGPathElement>('[data-flow-beam]'));
@@ -33,8 +35,8 @@ export function setupChaosFlow(root: HTMLElement): () => void {
   const phase = (name: string, text: string) => { if (root.dataset.phase !== name) { root.dataset.phase = name; status.textContent = text; } };
   const complete = () => {
     cancel(); finished = true; userPaused = false;
-    phase('review', 'Ready for human review.');
-    pause.disabled = true; pause.textContent = 'Pause'; pause.setAttribute('aria-pressed', 'false');
+    phase('review', t('Ready for human review.'));
+    pause.disabled = true; pause.textContent = t('Pause'); pause.setAttribute('aria-pressed', 'false');
     replay.disabled = reduced.matches; draw();
   };
   const tick = () => {
@@ -42,8 +44,8 @@ export function setupChaosFlow(root: HTMLElement): () => void {
     if (disposed || finished) return;
     const time = Number(animations[0]?.currentTime ?? 0);
     if (time >= duration) { complete(); return; }
-    if (time >= 4700) phase('review', 'Ready for human review.');
-    else if (time >= 1800) phase('connected', 'One connected workflow.');
+    if (time >= 4700) phase('review', t('Ready for human review.'));
+    else if (time >= 1800) phase('connected', t('One connected workflow.'));
     if (visible && !document.hidden && !userPaused) frame = requestAnimationFrame(tick);
   };
   const sync = () => {
@@ -52,14 +54,14 @@ export function setupChaosFlow(root: HTMLElement): () => void {
     animations.forEach(a => stopped ? a.pause() : a.play());
     cancelAnimationFrame(frame); frame = 0;
     if (!stopped) frame = requestAnimationFrame(tick);
-    pause.textContent = userPaused ? 'Resume' : 'Pause';
+    pause.textContent = userPaused ? t('Resume') : t('Pause');
     pause.setAttribute('aria-pressed', String(userPaused));
   };
   const start = () => {
     cancel(); started = true;
     if (reduced.matches) { complete(); return; }
     finished = false; userPaused = false; pause.disabled = false; replay.disabled = true;
-    phase('chaos', 'Scattered tasks. Waiting for a system.'); draw();
+    phase('chaos', t('Scattered tasks. Waiting for a system.')); draw();
     // A clock animation keeps pause, visibility and all motion on the same timeline.
     animations.push(stage.animate([{opacity:1},{opacity:1}], {duration,fill:'both'}));
     const compact = window.innerWidth <= 600;

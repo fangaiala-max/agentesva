@@ -1,4 +1,5 @@
 ---
+import AssessmentSummary from '../components/shared/AssessmentSummary.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
@@ -157,7 +158,7 @@ const trail = buildTrail({ name: 'Diagnóstico de automatización', url: '/diagn
         <h3 class="result-subtitle">Por qué te recomendamos este camino</h3>
         <ul data-result-reasons></ul>
         <a class="button-primary result-next-step" data-result-next-step href="#enviar-diagnostico"></a>
-        <form id="enviar-diagnostico" class="contact-form" data-diagnostic-contact novalidate>
+        <AssessmentSummary/><form id="enviar-diagnostico" class="contact-form" data-diagnostic-contact novalidate>
           <h3>Recibe el siguiente paso para tu caso</h3>
           <p>Te responderemos en un día laborable con el siguiente paso, aunque no recomendemos contratar. No añadiremos tu email a la newsletter.</p>
           <div class="contact-grid">

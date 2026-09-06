@@ -241,7 +241,7 @@ describe('subscribe → GA4 newsletter_submit', () => {
         <div data-subscribe-error hidden></div>
       </div>`;
     // @ts-expect-error mock fetch OK
-    global.fetch = async () => ({ ok: true, json: async () => ({}) });
+    global.fetch = async () => ({ ok: true, json: async () => ({success:true}) });
     initSubscribe();
     const form = document.querySelector('form') as HTMLFormElement;
     form.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
@@ -255,4 +255,18 @@ describe('subscribe → GA4 newsletter_submit', () => {
     });
     expect(fired).toBe(true);
   });
+});
+
+it.each(['en','es'])('keeps the form retryable when HTTP 200 has no success acknowledgement (%s)',async lang=>{
+ document.documentElement.lang=lang;
+ document.body.innerHTML='<div data-subscribe-root><form data-subscribe><input data-subscribe-email value="test@example.com"><button data-subscribe-submit>Send</button></form><div data-subscribe-success hidden></div><p data-subscribe-error hidden></p></div>';
+ // @ts-expect-error minimal response mock
+ global.fetch=async()=>({ok:true,json:async()=>({})});
+ initSubscribe();document.querySelector('form')!.dispatchEvent(new Event('submit',{cancelable:true,bubbles:true}));
+ await new Promise(r=>setTimeout(r,0));
+ expect(document.querySelector('form')!.hidden).toBe(false);
+ expect(document.querySelector<HTMLElement>('[data-subscribe-success]')!.hidden).toBe(true);
+ expect(document.querySelector<HTMLButtonElement>('button')!.disabled).toBe(false);
+ expect(document.querySelector('[data-subscribe-error]')!.textContent).toContain(lang==='en'?'could not be completed':'No se pudo completar');
+ document.documentElement.lang='es';
 });

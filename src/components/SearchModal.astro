@@ -1,40 +1,42 @@
 ---
+import {localeFor} from '../i18n/routes';
+const en=localeFor(Astro.url.pathname)==='en';
 const FILTERS = [
-  { v: '', label: 'Todo' },
-  { v: 'Herramienta', label: 'Herramientas' },
-  { v: 'Curso', label: 'Cursos' },
-  { v: 'Estudio', label: 'Estudios' },
-  { v: 'Noticia', label: 'Noticias' },
-  { v: 'Recurso', label: 'Recursos' },
+  { v: '', label: en?'All':'Todo' },
+  { v: 'Herramienta', label: en?'Tools':'Herramientas' },
+  { v: 'Curso', label: en?'Courses':'Cursos' },
+  { v: 'Estudio', label: en?'Research':'Estudios' },
+  { v: 'Noticia', label: en?'News':'Noticias' },
+  { v: 'Recurso', label: en?'Resources':'Recursos' },
 ];
 ---
 
 <div id="search-modal" hidden>
   <div data-search-backdrop class="command-backdrop"></div>
-  <div data-search-dialog class="command-dialog" role="dialog" aria-modal="true" aria-label="Buscar en AgentesVA">
+  <div data-search-dialog class="command-dialog" role="dialog" aria-modal="true" aria-label={en?'Search AgentesVA':'Buscar en AgentesVA'}>
     <div style="display: flex; align-items: center; gap: 13px; padding: 16px 18px; border-bottom: 1px solid var(--line);">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--fg-4)" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
-      <label for="search-modal-input" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Buscar en el sitio</label>
-      <input id="search-modal-input" data-search-input type="search" autocomplete="off" placeholder="Busca en todo el sitio…" style="flex: 1; background: transparent; border: none; outline: none; color: #fff; font-family: var(--sans); font-size: 18px;">
-      <button type="button" data-search-close aria-label="Cerrar búsqueda" style="font-family: var(--mono); font-size: 10px; color: var(--fg-5); background: none; border: 1px solid var(--line-2); border-radius: 4px; padding: 4px 8px; cursor: pointer;">esc</button>
+      <label for="search-modal-input" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">{en?'Search the site':'Buscar en el sitio'}</label>
+      <input id="search-modal-input" data-search-input type="search" autocomplete="off" placeholder={en?'Search the site…':'Busca en todo el sitio…'} style="flex: 1; background: transparent; border: none; outline: none; color: #fff; font-family: var(--sans); font-size: 18px;">
+      <button type="button" data-search-close aria-label={en?'Close search':'Cerrar búsqueda'} style="font-family: var(--mono); font-size: 10px; color: var(--fg-5); background: none; border: 1px solid var(--line-2); border-radius: 4px; padding: 4px 8px; cursor: pointer;">esc</button>
     </div>
 
-    <div role="group" aria-label="Filtrar por tipo" style="display: flex; gap: 8px; flex-wrap: wrap; padding: 14px 18px 6px;">
+    <div role="group" aria-label={en?'Filter by type':'Filtrar por tipo'} style="display: flex; gap: 8px; flex-wrap: wrap; padding: 14px 18px 6px;">
       {FILTERS.map((f, i) => (
         <button type="button" class={`sr-chip${i === 0 ? ' on' : ''}`} data-search-filter data-value={f.v} aria-pressed={i === 0 ? 'true' : 'false'}>{f.label}</button>
       ))}
     </div>
 
     <p data-search-count hidden style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5); padding: 8px 18px 4px;"></p>
-    <div data-search-results role="listbox" aria-label="Resultados" hidden style="padding: 4px 10px 8px; max-height: 46vh; overflow: auto;"></div>
-    <p data-search-empty style="font-size: 14px; color: var(--fg-4); padding: 16px 18px 22px;">Escribe para buscar herramientas, cursos, estudios y noticias.</p>
+    <div data-search-results role="listbox" aria-label={en?'Results':'Resultados'} hidden style="padding: 4px 10px 8px; max-height: 46vh; overflow: auto;"></div>
+    <p data-search-empty style="font-size: 14px; color: var(--fg-4); padding: 16px 18px 22px;">{en?'Search tools, courses, research and news.':'Escribe para buscar herramientas, cursos, estudios y noticias.'}</p>
     <div data-search-noresults hidden style="padding: 28px 18px; text-align: center;">
-      <p style="font-family: var(--sans); font-weight: 600; font-size: 16px; color: #fff; margin: 0;">Sin resultados</p>
-      <p style="font-size: 13px; color: var(--fg-5); margin: 6px 0 0;">Prueba otra palabra o quita los filtros.</p>
+      <p style="font-family: var(--sans); font-weight: 600; font-size: 16px; color: #fff; margin: 0;">{en?'No results':'Sin resultados'}</p>
+      <p style="font-size: 13px; color: var(--fg-5); margin: 6px 0 0;">{en?'Try another word or clear the filters.':'Prueba otra palabra o quita los filtros.'}</p>
     </div>
 
     <div style="display: flex; gap: 18px; padding: 11px 18px; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 10.5px; color: var(--fg-5);">
-      <span><b style="color: var(--fg-3);">↑ ↓</b> navegar</span><span><b style="color: var(--fg-3);">↵</b> abrir</span><span><b style="color: var(--fg-3);">esc</b> cerrar</span>
+      <span><b style="color: var(--fg-3);">↑ ↓</b> {en?'navigate':'navegar'}</span><span><b style="color: var(--fg-3);">↵</b> {en?'open':'abrir'}</span><span><b style="color: var(--fg-3);">esc</b> {en?'close':'cerrar'}</span>
     </div>
   </div>
 </div>

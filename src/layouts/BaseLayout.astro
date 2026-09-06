@@ -96,3 +96,5 @@ const graph = { ...entityGraph, "@graph": entityGraph["@graph"].map(entity => en
   });
   document.addEventListener('astro:before-swap', teardownMotion);
 </script>
+
+<script>import {initAssessmentLinks} from "../scripts/assessment-links";document.addEventListener("astro:page-load",initAssessmentLinks);</script>

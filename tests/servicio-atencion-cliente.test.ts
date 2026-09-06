@@ -1,32 +1,13 @@
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
-import { describe, expect, it } from 'vitest';
-
-const PAGE = readFileSync(join(process.cwd(), 'src/pages/servicios/automatizacion-atencion-cliente.astro'), 'utf8');
-
-describe('/servicios/automatizacion-atencion-cliente/', () => {
-  it('cubre problema, casos, flujo, entregables, plazo, precio y límites', () => {
-    expect(PAGE).toContain('El problema habitual');
-    expect(PAGE).toContain('Casos de uso');
-    expect(PAGE).toContain('Ejemplo de flujo');
-    expect(PAGE).toContain('Qué entregamos');
-    expect(PAGE).toContain('de 2 a 4 semanas');
-    expect(PAGE).toContain('Desde 1.500 €');
-    expect(PAGE).toContain('Límites');
-  });
-
-  it('incluye CTA contextuales y medibles', () => {
-    expect(PAGE.match(/href="\/diagnostico-automatizacion-ia\/"/g)).toHaveLength(2);
-    expect(PAGE).toContain('data-track-service="customer_service_automation"');
-    expect(PAGE).toContain('data-track-placement="hero"');
-    expect(PAGE).toContain('data-track-placement="final_cta"');
-  });
-
-  it('incluye metadatos y datos estructurados comerciales', () => {
-    expect(PAGE).toContain('Automatización de atención al cliente con IA | AgentesVA');
-    expect(PAGE).toContain("'@type': 'Service'");
-    expect(PAGE).toContain("'@type': 'FAQPage'");
-    expect(PAGE).toContain('breadcrumbList(trail)');
-    expect(PAGE).toContain("lowPrice: '1500'");
-  });
+import {describe,it,expect} from 'vitest';
+import {readFileSync} from 'node:fs';
+import {services} from '../src/i18n/services';
+import {servicesES} from '../src/i18n/services-es';
+import {localizedPath,assessmentHref} from '../src/i18n/parity';
+import {offerPrice} from '../src/data/service-offer';
+const en=services.find(s=>s.slug==='customer-support')!,es=servicesES.find(s=>s.slug==='customer-support')!;
+describe('automatizacion-atencion-cliente: bilingual commercial contract',()=>{
+ it('keeps useful cases, deliverables and limits in both languages',()=>{for(const copy of [en,es]){expect(copy.examples).toHaveLength(4);expect(copy.deliverables).toHaveLength(6);expect(copy.limit.length).toBeGreaterThan(50);expect(copy.measure.length).toBeGreaterThan(30);}for(const term of ['consultas', 'respuestas', 'excepciones'])expect(JSON.stringify(es).toLowerCase()).toContain(term.toLowerCase());});
+ it('routes both languages to their stable service URL',()=>{expect(localizedPath('es','/services/customer-support/')).toBe('/servicios/automatizacion-atencion-cliente/');expect(readFileSync('src/pages/servicios/automatizacion-atencion-cliente.astro','utf8')).toContain('<ServicePage kind="customer-support"');});
+ it('retains service attribution through the assessment URL',()=>{for(const locale of ['en','es'] as const){const url=new URL(assessmentHref(locale,'hero',en.service),'https://agentesva.com');expect(url.searchParams.get('service')).toBe('customer_service_automation');expect(url.searchParams.get('placement')).toBe('hero');}expect(es.cluster).toBe('customer_service');expect(es.service).toBe(en.service);});
+ it('uses consistent investment ranges in both locales',()=>{expect(offerPrice('scoped','en')).toBe('From €1,500');expect(offerPrice('scoped','es')).toBe('Desde 1.500 €');expect(offerPrice('integrated','es')).toBe('Desde 3.000 €');});
 });

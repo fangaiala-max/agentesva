@@ -1,6 +1,7 @@
 ---
+import sources from '../../data/tool-logo-sources.json';
 interface Props {slug:string;name:string}
 const {slug,name}=Astro.props;
-const hasLogo=['claude','perplexity','canva-ia','notion-ia'].includes(slug);
+const hasLogo=['claude','perplexity','canva-ia','notion-ia'].includes(slug)||sources.some(item=>item.slug===slug);
 ---
 <span class="tool-identity" aria-hidden="true">{hasLogo?<img src={`/tools/logos/${slug}.svg`} width="40" height="40" alt="" loading="lazy"/>:<svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect x="3" y="3" width="12" height="12" rx="3" stroke="currentColor" stroke-width="2"/><rect x="17" y="17" width="12" height="12" rx="3" stroke="currentColor" stroke-width="2"/><path d="M21 4v9M17 8h9M5 23h8" stroke="currentColor" stroke-width="2"/></svg>}</span>

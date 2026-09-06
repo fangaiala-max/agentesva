@@ -140,10 +140,10 @@ describe('guía para convertirse en especialista GEO', () => {
   it('conecta el clúster desde la navegación y las fichas estratégicas', () => {
     const breadcrumbs = readProjectFile('src/data/breadcrumbs.ts');
     expect(breadcrumbs).toContain('SECCIONES.guias');
-    const toolPage = readProjectFile('src/pages/herramienta/[slug].astro');
+    const toolPage = readProjectFile('src/components/english/ToolProfile.astro');
     expect(toolPage).toMatch(/\bchatgpt:\s*\{/);
     expect(toolPage).toMatch(/\bperplexity:\s*\{/);
-    expect(toolPage).toContain("'surfer-seo': {");
+    expect(toolPage).toContain("'surfer-seo':{");
     expect(toolPage).toContain('/guias/seo-para-ia/');
   });
 });

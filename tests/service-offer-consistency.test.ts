@@ -17,15 +17,12 @@ describe('oferta de servicios consistente', () => {
     expect(SERVICE_OFFER.support.price).toBe('Desde 300 €/mes');
   });
 
-  it('mantiene los rangos principales en el hub y las verticales', () => {
-    for (const price of Object.values(SERVICE_OFFER).map((item) => item.price)) expect(hub).toContain(price);
-    for (const page of verticals) {
-      expect(page).toContain(SERVICE_OFFER.scoped.price);
-      expect(page).toContain(SERVICE_OFFER.integrated.price);
-      expect(page).toContain(PRICE_DISCLAIMER);
-      expect(page).toContain('Buen encaje');
-      expect(page).toContain('Límites');
-    }
+  it('shares one price source between the hub, verticals and comparison', () => {
+    const shared=read('src/components/english/ServicePage.astro');
+    expect(shared).toContain("offerPrice('scoped',locale)");
+    expect(shared).toContain("offerPrice('integrated',locale)");
+    expect(read('src/components/shared/PricingComparison.astro')).toContain('offerPrice(o.id,locale)');
+    for(const page of [hub,...verticals])expect(page).toContain('<ServicePage');
   });
 
   it('evita solapamientos en las opciones presupuestarias del diagnóstico', () => {

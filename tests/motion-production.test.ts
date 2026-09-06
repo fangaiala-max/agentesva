@@ -263,7 +263,7 @@ describe('motion production lifecycle', () => {
   });
 
   it('does not delay the hero explanation, actions, or trust evidence', () => {
-    const home = read('src/pages/index.astro');
+    const home = read('src/components/shared/HomePage.astro');
     for (const section of ['explanation', 'actions', 'trust']) {
       const openingTag = home.match(new RegExp(`<[^>]+data-motion-static="${section}"[^>]*>`))?.[0];
       expect(openingTag).toBeTruthy();
