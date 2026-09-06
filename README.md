@@ -2,7 +2,7 @@
 
 English-first website: `/` is English and `/es/` preserves the Spanish homepage. Services, pricing, assessment, tools, courses and prompt experiences have English routes. Editorial English editions are concise adaptations; downloadable products and newsletter delivery remain Spanish.
 
-See [the redesign audit](docs/english-first-audit.md). After `npm run build`, run `node scripts/verify-english-first.mjs` to check generated internal links, language alternatives, headings and image attributes.
+See [the redesign audit](docs/english-first-audit.md) and [the bilingual UI implementation review](docs/21st-bilingual-opportunity-review.md). Home, commercial pages, tool directories/profiles and learning directories now share EN/ES components. `npm run build` verifies 128 core pages and tool profiles; run `node scripts/verify-english-first.mjs` for the broader generated-link and language audit.
 
 Servicio de automatización con inteligencia artificial para PyMEs y autónomos de España y Latinoamérica, respaldado por un directorio y un medio práctico en español. La portada conduce primero al diagnóstico y a la implementación; herramientas, cursos, recursos, estudios, noticias y plantillas quedan disponibles como apoyo para explorar y decidir.
 

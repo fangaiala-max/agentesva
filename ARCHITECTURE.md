@@ -42,7 +42,8 @@ Third-party services
 
 ## Content model
 
-- **Herramientas, cursos y recursos**: JSON en `src/content/`, validado por los esquemas Zod de `src/content.config.ts`.
+- **Herramientas, cursos y recursos**: JSON en `src/content/`, validado por los esquemas Zod de `src/content.config.ts`. Los directorios y las fichas de herramientas comparten componentes EN/ES; las fichas extensas y descargas de cursos/recursos en español se conservan.
+- **Interfaz bilingüe y ofertas**: `src/components/shared/`, `src/i18n/parity.ts` y sus diccionarios mantienen home, navegación, comparaciones y CTAs localizados. `src/data/service-offer.ts` centraliza importes; `offer` conserva la opción elegida en la URL del diagnóstico y `source.offerIntent` en el envío.
 - **Estudios y noticias**: Markdown en `src/content/`, con páginas de listado y detalle prerenderizadas.
 - **Guías**: Markdown en `src/content/guias/`, validado por `src/content-schemas/guias.ts`; admite portada responsiva, FAQ, fuentes, relaciones internas y CTA de servicio o recurso.
 - **Biblioteca de prompts**: 100 plantillas en `src/data/biblioteca/prompts.ts`.
