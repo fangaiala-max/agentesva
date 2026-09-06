@@ -32,13 +32,14 @@ describe('English-first routes and content',()=>{
   document.documentElement.lang='es';expect(diagnosticCopy(result.priority)).toBe('Alta');
  });
  it('retains the Spanish homepage source and tracks all three English assessment CTAs',()=>{
-  const en=readFileSync('src/pages/index.astro','utf8'),es=readFileSync('src/components/SpanishHome.astro','utf8');
-  expect(es).toContain('Diseñamos la tecnología');
-  const links=(en.match(/<a\b[^>]*>/g)??[]).filter(a=>a.includes('href="/assessment/"')&&a.includes('{...tracking}'));
+  const en=readFileSync('src/components/shared/HomePage.astro','utf8'),es=readFileSync('src/pages/es/index.astro','utf8');
+  expect(es).toContain('<HomePage/>');
+  const links=(en.match(/<a\b[^>]*>/g)??[]).filter(a=>a.includes('assessmentHref(locale,')&&a.includes('{...tracking}'));
   expect(links).toHaveLength(3);expect(links.map(a=>a.match(/data-track-placement="([^"]+)"/)?.[1])).toEqual(['hero','mid_page','sticky']);
  });
 });
 it('combines catalog text and category filters and recovers from no results',()=>{
+ document.documentElement.lang='en';
  document.body.innerHTML='<section data-catalog><input data-catalog-search><select data-catalog-filter><option value="">All</option><option>Writing</option><option>Automation</option></select><p data-catalog-count></p><a data-catalog-item data-category="Writing">Claude documents</a><a data-catalog-item data-category="Automation">Make workflows</a><div data-catalog-empty hidden><button data-catalog-reset>Reset</button></div></section>';
  initCatalog();initCatalog();
  const input=document.querySelector('input')!;input.value='nothing';input.dispatchEvent(new Event('input'));

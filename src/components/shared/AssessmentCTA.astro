@@ -1,0 +1,10 @@
+---
+import {localeFor} from '../../i18n/routes';
+import {assessmentHref} from '../../i18n/parity';
+interface Props {placement:string;service?:string;offer?:string;label?:string;class?:string;pageType?:string}
+const {placement,service='general_consulting',offer,label,class:className='en-button',pageType='services'}=Astro.props;
+const locale=localeFor(Astro.url.pathname);
+---
+<a href={assessmentHref(locale,placement,service,offer)} class={className} data-track-event="service_cta_click" data-track-placement={placement} data-track-service={service} data-track-page-type={pageType} data-track-cluster={{customer_service_automation:'customer_service',sales_automation:'sales',process_automation:'operations',team_adoption:'adoption'}[service]??'general'}>{label??(locale==='en'?'Assess my process':'Evaluar mi proceso')}<span aria-hidden="true"> ↗</span></a>
+
+<style>a>span{margin-left:8px}</style>

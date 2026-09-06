@@ -1,0 +1,22 @@
+---
+// Process explanation inspired by 21st.dev Tabs 435 and Process Timeline 1943.
+// Native details keep both branches readable without JavaScript.
+import {localeFor} from '../../i18n/routes';
+const en=localeFor(Astro.url.pathname)==='en';
+const {service='operations'}=Astro.props;
+const flows={
+ 'customer-support':en?['A customer message arrives','Find approved context','Prepare a reply','A person approves the response']:['Llega un mensaje de un cliente','Buscar contexto aprobado','Preparar una respuesta','Una persona aprueba la respuesta'],
+ sales:en?['A lead submits a form','Check consent and duplicates','Assign a CRM owner','Prepare the next follow-up']:['Un contacto envía un formulario','Comprobar consentimiento y duplicados','Asignar responsable en el CRM','Preparar el siguiente seguimiento'],
+ operations:en?['A document arrives','Extract the agreed fields','Validate the information','Update the agreed system']:['Llega un documento','Extraer los campos acordados','Validar la información','Actualizar el sistema acordado']
+};
+const flow=flows[service]??flows.operations;
+---
+<section class="en-section en-shell workflow-explanation" data-workflow-explanation>
+ <div class="en-section-heading"><h2>{en?'Follow one task through the system.':'Sigue una tarea por el sistema.'}</h2><p>{en?'An illustrative workflow. Explore what happens when the input is complete—and when a person needs to step in.':'Un flujo ilustrativo. Explora qué ocurre con una entrada completa y cuándo debe intervenir una persona.'}</p></div>
+ <ol class="workflow-stages">{flow.map((step,i)=><li><span>{String(i+1).padStart(2,'0')}</span><strong>{step}</strong></li>)}</ol>
+ <div class="workflow-branches"><details open><summary>{en?'The expected case':'El caso previsto'}</summary><p>{en?'The required information passes the agreed checks. The workflow prepares the next action and records its outcome. Approvals remain where your team has defined them.':'La información necesaria supera las comprobaciones acordadas. El flujo prepara la siguiente acción y registra el resultado. Las aprobaciones se mantienen donde tu equipo las ha definido.'}</p><span>{en?'Outcome: a traceable next step':'Resultado: un siguiente paso trazable'}</span></details><details><summary>{en?'Missing data or an exception':'Faltan datos o hay una excepción'}</summary><p>{en?'Pause the affected action, keep the original input and notify the assigned person. Resume only after the missing information or decision is provided. No invented data and no silent failure.':'Pausa la acción afectada, conserva la entrada original y avisa al responsable. Continúa cuando se aporte la información o decisión que falta. Sin inventar datos ni ocultar errores.'}</p><span>{en?'Outcome: human review, with context':'Resultado: revisión humana con contexto'}</span></details></div>
+ <p class="en-note">{en?'The tools, permissions and approval rules are validated during scoping. This example does not connect to your accounts.':'Las herramientas, permisos y reglas de aprobación se validan al definir el alcance. Este ejemplo no se conecta a tus cuentas.'}</p>
+</section>
+<style>
+.workflow-stages{display:grid;grid-template-columns:repeat(4,1fr);list-style:none;padding:0;margin:28px 0;gap:1px;background:#d8d7e8;border:1px solid #d8d7e8;border-radius:12px;overflow:hidden}.workflow-stages li{background:#f4f2fc;padding:24px}.workflow-stages span{display:block;font:500 13px var(--mono);color:var(--brand-violet);margin-bottom:18px}.workflow-stages strong{font-size:18px;line-height:1.5}.workflow-branches{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}.workflow-branches details{border:1px solid #d8d7e8;border-radius:10px;padding:20px}.workflow-branches summary{font-weight:650;cursor:pointer;min-height:28px}.workflow-branches p{line-height:1.7;color:#555b71}.workflow-branches span{display:block;font-size:14px;color:var(--brand-blue);border-top:1px solid #d8d7e8;padding-top:16px}@media(max-width:700px){.workflow-stages{grid-template-columns:1fr 1fr}.workflow-branches{grid-template-columns:1fr}}
+</style>

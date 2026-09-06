@@ -1,5 +1,8 @@
+import {ui,localizedPath} from '../i18n/parity';
 /** Astro adaptation of 21st.dev Expanding Cards (5526), Animated Tabs (1115), Comparison Table (7469). */
 export function initToolShowcase() {
+  const locale=document.documentElement.lang==='es'?'es':'en';
+  const tr=(s:string)=>ui(locale,s);
   document.querySelectorAll<HTMLElement>('[data-featured-deck]').forEach(deck=>{
     if(deck.dataset.wired)return;deck.dataset.wired='1';
     const cards=[...deck.querySelectorAll<HTMLElement>('.featured-tool')];
@@ -23,15 +26,15 @@ export function initToolShowcase() {
     const status=root.querySelector<HTMLElement>('[data-compare-status]')!;
     const open=root.querySelector<HTMLButtonElement>('[data-open-compare]')!;
     const dialog=root.querySelector<HTMLDialogElement>('[data-compare-dialog]')!;
-    const update=()=>{tray.hidden=selected.size===0;open.disabled=selected.size!==2;status.textContent=[...selected].map(id=>data.find(t=>t.id===id)?.name).join(' + ')+(selected.size===1?' — choose one more':' — ready to compare');buttons.forEach(b=>{const active=selected.has(b.dataset.compare!);b.setAttribute('aria-pressed',String(active));b.textContent=active?'Remove −':'Compare +';b.disabled=!active&&selected.size===2;});};
+    const update=()=>{tray.hidden=selected.size===0;open.disabled=selected.size!==2;status.textContent=[...selected].map(id=>data.find(t=>t.id===id)?.name).join(' + ')+(selected.size===1?(locale==='en'?' — choose one more':' — elige otra herramienta'):(locale==='en'?' — ready to compare':' — listas para comparar'));buttons.forEach(b=>{const active=selected.has(b.dataset.compare!);b.setAttribute('aria-pressed',String(active));b.textContent=active?tr('Remove −'):tr('Compare +');b.disabled=!active&&selected.size===2;});};
     buttons.forEach(b=>b.addEventListener('click',()=>{const id=b.dataset.compare!;if(selected.has(id))selected.delete(id);else if(selected.size<2)selected.add(id);update();}));
     root.querySelector('[data-clear-compare]')?.addEventListener('click',()=>{selected.clear();update();buttons[0]?.focus();});
     open.addEventListener('click',()=>{const tools=data.filter(t=>selected.has(t.id));if(tools.length!==2)return;
       const table=root.querySelector<HTMLTableElement>('[data-comparison-table]')!;table.replaceChildren();
-      const head=table.createTHead().insertRow();['What matters',...tools.map(t=>t.name)].forEach(name=>{const th=document.createElement('th');th.scope='col';th.textContent=name;head.append(th);});
-      const body=table.createTBody();const rows:[string,(t:Tool)=>string][]=[['Category',t=>t.category],['Useful for',t=>t.description],['Capabilities',t=>t.features.join(' • ')],['First step',t=>t.steps[0]]];
+      const head=table.createTHead().insertRow();[tr('What matters'),...tools.map(t=>t.name)].forEach(name=>{const th=document.createElement('th');th.scope='col';th.textContent=name;head.append(th);});
+      const body=table.createTBody();const rows:[string,(t:Tool)=>string][]=[[tr('Category'),t=>t.category],[tr('Useful for'),t=>t.description],[tr('Capabilities'),t=>t.features.join(' • ')],[tr('First step'),t=>t.steps[0]]];
       rows.forEach(([label,get])=>{const row=body.insertRow();const th=document.createElement('th');th.scope='row';th.textContent=label;row.append(th);tools.forEach(t=>row.insertCell().textContent=get(t));});
-      const row=body.insertRow();const th=document.createElement('th');th.scope='row';th.textContent='Explore';row.append(th);tools.forEach(t=>{const a=document.createElement('a');a.href=`/tools/${t.id}/`;a.textContent=`View ${t.name}`;row.insertCell().append(a);});dialog.showModal();
+      const row=body.insertRow();const th=document.createElement('th');th.scope='row';th.textContent=tr('Explore');row.append(th);tools.forEach(t=>{const a=document.createElement('a');a.href=localizedPath(locale,`/tools/${t.id}/`);a.textContent=`${locale==='en'?'View':'Ver'} ${t.name}`;row.insertCell().append(a);});dialog.showModal();
     });
     root.querySelector('[data-close-compare]')?.addEventListener('click',()=>dialog.close());
   });

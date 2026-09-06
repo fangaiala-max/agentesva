@@ -18,7 +18,7 @@ const groups=en?[
 <footer class="studio-footer" data-pagefind-ignore>
 <div class="studio-footer__grid">
 <div class="studio-footer__brand"><BrandMark home={en?'/':'/es/'} /><p>{en?'Useful automation. Clear systems. People in control.':'Automatización útil. Sistemas claros. Personas al mando.'}</p><a href="mailto:hola@agentesva.com">hola@agentesva.com</a></div>
-{groups.map(([heading,links])=><nav aria-label={heading as string}><h2>{heading}</h2>{(links as string[][]).map(([name,href])=><a href={href}>{name}</a>)}</nav>)}
+{groups.map(([heading,links])=><nav aria-label={heading as string}><h2>{heading}</h2>{(links as string[][]).map(([name,href])=><a href={href} data-astro-reload={['English','Español'].includes(name)?true:undefined} lang={name==='English'?'en':name==='Español'?'es':undefined}>{name}</a>)}</nav>)}
 </div>
 {!en&&!hideNewsletter&&<div class="studio-footer__newsletter"><div><h2>Una idea de IA útil, cada semana.</h2><p>Recibe recursos prácticos en español. Gratis.</p></div><SubscribeForm variant="inline" list="newsletter" source="site_footer" /></div>}
 <div class="studio-footer__bottom"><span>© {new Date().getFullYear()} AgentesVA</span><span>{en?'AI automation for small businesses':'Automatización con IA para pequeños negocios'}</span></div>

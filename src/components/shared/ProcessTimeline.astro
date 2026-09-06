@@ -1,0 +1,20 @@
+---
+import {localeFor} from '../../i18n/routes';
+const en=localeFor(Astro.url.pathname)==='en';
+const steps=en?[
+ ['Understand','Review the task, frequency, tools and risks.','Your process owner + our team','An agreed priority'],
+ ['Design','Define inputs, outputs, exceptions and success.','Our team; you validate the rules','A scope and process map'],
+ ['Build','Connect the workflow in small, reviewable stages.','Our team','A working flow in a test environment'],
+ ['Test','Try normal, incomplete and incorrect inputs.','Both teams','Accepted test cases and exception paths'],
+ ['Hand over','Document, train and launch with a manual fallback.','Both teams','An operating guide and a named owner'],
+ ['Improve','Review incidents and measurements before expanding.','Agreed support owner','A prioritized improvement plan']
+ ]:[
+ ['Entender','Revisar la tarea, frecuencia, herramientas y riesgos.','Tu responsable del proceso y nuestro equipo','Una prioridad acordada'],
+ ['Diseñar','Definir entradas, salidas, excepciones y éxito.','Nuestro equipo; tú validas las reglas','Alcance y mapa del proceso'],
+ ['Construir','Conectar el flujo por etapas que puedas revisar.','Nuestro equipo','Un flujo operativo en pruebas'],
+ ['Probar','Comprobar casos normales, incompletos y erróneos.','Ambos equipos','Casos aceptados y rutas de excepción'],
+ ['Entregar','Documentar, formar y activar con una alternativa manual.','Ambos equipos','Una guía operativa y un responsable'],
+ ['Mejorar','Revisar incidencias y métricas antes de ampliar.','Responsable de soporte acordado','Un plan de mejora priorizado']];
+---
+<section id="process" class="en-section en-shell" data-shared-process><h2>{en?'Six steps. Clear decisions.':'Seis fases. Decisiones claras.'}</h2><p>{en?'Every phase has an owner and an outcome you can review before moving forward.':'Cada fase tiene un responsable y un resultado que puedes revisar antes de avanzar.'}</p><ol class="shared-timeline">{steps.map(([name,description,owner,output],i)=><li><span class="timeline-number">{i+1}</span><div><h3>{name}</h3><p>{description}</p><details><summary>{en?'Owner & deliverable':'Responsable y entregable'}</summary><dl><dt>{en?'Owner':'Responsable'}</dt><dd>{owner}</dd><dt>{en?'Deliverable':'Entregable'}</dt><dd>{output}</dd></dl></details></div></li>)}</ol></section>
+<style>.shared-timeline{list-style:none;padding:0;max-width:880px;margin:40px auto}.shared-timeline li{position:relative;display:grid;grid-template-columns:48px 1fr;gap:24px;padding:0 0 40px}.shared-timeline li:not(:last-child):before{content:'';position:absolute;left:23px;top:46px;bottom:0;width:2px;background:#d7d6e9}.timeline-number{display:grid;place-items:center;width:48px;height:48px;background:var(--brand-gradient);color:white;border-radius:50%}.shared-timeline h3{margin:8px 0;font-size:24px}.shared-timeline p{color:var(--brand-muted);line-height:1.7}.shared-timeline summary{cursor:pointer;padding:12px 0;color:var(--brand-blue);font-weight:600}.shared-timeline details{border-bottom:1px solid #d7d6e9}.shared-timeline dt{font-weight:600}.shared-timeline dd{margin:4px 0 14px;color:var(--brand-muted)}@media(max-width:600px){.shared-timeline li{gap:16px}}</style>

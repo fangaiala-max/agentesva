@@ -19,22 +19,22 @@ describe('navegación comercial', () => {
   });
 
   it('convierte la home en una ruta de venta sin eliminar el directorio', () => {
-    const page = read('src/components/SpanishHome.astro');
-    expect(page).toContain('Diseñamos la tecnología');
+    const page = read('src/components/shared/HomePage.astro');
+    expect(page).toContain('Less chasing.');
     expect(page).toContain('<AutomationDemo />');
     expect(page).toContain('href="#demo"');
     expect(page).toContain('data-track-placement="hero"');
     expect(page).toContain('data-track-placement="sticky"');
     expect(SERVICE_OFFER.scoped.price).toBe('Desde 1.500 €');
-    expect(page.match(/SERVICE_OFFER\.scoped\.price/g)).toHaveLength(1);
-    expect(page).toContain('id="directorio"');
+    expect(page).toContain("offerPrice('scoped',locale)");
+    expect(page).toContain('id="services"');
     expect(AUTOMATION_AREAS.map((area) => area.href)).toContain('/servicios/automatizacion-atencion-cliente/');
   });
 
   it('conecta la oferta principal con servicios, precios, proceso y diagnóstico', () => {
-    const page = read('src/components/SpanishHome.astro');
-    for (const href of ['/precios-automatizacion-ia/', '/como-trabajamos/']) {
-      expect(page).toContain(`href="${href}"`);
+    const page = read('src/components/shared/HomePage.astro');
+    for (const href of ['/pricing/', '/how-we-work/']) {
+      expect(page).toContain(`href={href("${href}")}`);
     }
     expect(AUTOMATION_AREAS.map((area) => area.href)).toEqual([
       '/servicios/automatizacion-atencion-cliente/',
@@ -42,18 +42,18 @@ describe('navegación comercial', () => {
       '/servicios/automatizacion-procesos/',
     ]);
 
-    for (const deliverable of ['Flujo operativo', 'Casos probados', 'Control y relevo']) {
+    for (const deliverable of ['A working workflow', 'Tested cases', 'Documentation & handover']) {
       expect(page).toContain(deliverable);
     }
-    expect(page.indexOf('Flujo operativo')).toBeLessThan(page.indexOf('Casos probados'));
-    expect(page.indexOf('Casos probados')).toBeLessThan(page.indexOf('Control y relevo'));
+    expect(page.indexOf('A working workflow')).toBeLessThan(page.indexOf('Tested cases'));
+    expect(page.indexOf('Tested cases')).toBeLessThan(page.indexOf('Documentation & handover'));
   });
 
   it('mide todos los accesos al diagnóstico con el mismo contrato comercial', () => {
-    const page = read('src/components/SpanishHome.astro');
+    const page = read('src/components/shared/HomePage.astro');
     const trackedCtas = (page.match(/<a\b[^>]*>/g) ?? []).filter(
       (anchor) =>
-        anchor.includes('href="/diagnostico-automatizacion-ia/"') &&
+        anchor.includes('assessmentHref(locale,') &&
         anchor.includes('{...tracking}'),
     );
 
@@ -69,12 +69,12 @@ describe('navegación comercial', () => {
   });
 
   it('atribuye precios, servicios y metodología dentro del recorrido comercial', () => {
-    const page = read('src/components/SpanishHome.astro');
+    const page = read('src/components/shared/HomePage.astro');
     for (const placement of ['pricing', 'methodology']) {
       expect(page).toContain(`data-track-placement="${placement}"`);
     }
     const services = read('src/components/ServiceSpotlightGrid.astro');
-    expect(page).toContain('data-track-service={area.service}');
+    expect(page).toContain('data-track-service={s.service}');
     expect(services).toContain('data-track-placement="service_card"');
     expect(services).toContain('data-track-service={AUTOMATION_AREAS[index].service}');
     expect(AUTOMATION_AREAS.map((area) => area.service)).toEqual([
@@ -85,10 +85,10 @@ describe('navegación comercial', () => {
   });
 
   it('enlaza al directorio completo desde un teaser compacto', () => {
-    const page = read('src/components/SpanishHome.astro');
-    expect(page).toContain('href="/herramientas/"');
+    const page = read('src/components/shared/HomePage.astro');
+    expect(page).toContain('href={href("/tools/")}');
     expect(page).not.toContain('id="tool-search"');
-    expect(read('src/pages/herramientas/index.astro')).toContain('search');
+    expect(read('src/components/english/ToolDirectory.astro')).toContain('search');
   });
 
   it('publica a Elizabeth como fundadora y mantiene a Fernando como editor', () => {

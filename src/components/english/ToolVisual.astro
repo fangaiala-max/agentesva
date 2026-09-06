@@ -1,7 +1,12 @@
 ---
+import {localeFor} from '../../i18n/routes';
+import {ui,localizedPath} from '../../i18n/parity';
+const locale=localeFor(Astro.url.pathname);
+const t=(text:string)=>ui(locale,text);
+const href=(url:string)=>localizedPath(locale,url);
 interface Props {slug:string;features:string[]}
 const {slug,features}=Astro.props;
-const examples:Record<string,string[]>={claude:['A rough brief','A clearer draft','Your final review'],perplexity:['A question worth asking','Sources to explore','Check the evidence'],'canva-ia':['Start with an idea','Explore a visual','Make it yours']};
-const steps=examples[slug]||['Choose a real task',features[0],'Review the result'];
+const examples:Record<string,string[]>={claude:[t("A rough brief"),t("A clearer draft"),t("Your final review")],perplexity:[t("A question worth asking"),t("Sources to explore"),t("Check the evidence")],'canva-ia':[t("Start with an idea"),t("Explore a visual"),t("Make it yours")]};
+const steps=examples[slug]||[t("Choose a real task"),features[0],t("Review the result")];
 ---
-<div class:list={['tool-visual',`visual-${slug}`]} aria-label="Illustrative workflow"><span class="visual-label">From task to first result</span>{steps.map((s,i)=><div class="visual-step"><span class="visual-dot" aria-hidden="true">{i===2?'✓':i+1}</span><span>{s}</span></div>)}<span class="visual-caption">A workflow to explore</span></div>
+<div class:list={['tool-visual',`visual-${slug}`]} aria-label={t("Illustrative workflow")}><span class="visual-label">{t("From task to first result")}</span>{steps.map((s,i)=><div class="visual-step"><span class="visual-dot" aria-hidden="true">{i===2?'✓':i+1}</span><span>{s}</span></div>)}<span class="visual-caption">{t("A workflow to explore")}</span></div>

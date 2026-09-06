@@ -34,7 +34,7 @@ function renderResult(d: ResultData, i: number): string {
   const color = tm?.color ?? 'var(--accent)';
   const title = d.meta.title ?? d.url;
   const badge = tm
-    ? `<span class="sr-badge" style="color:${tm.color};border-color:${tm.border}">${esc(tm.label)}</span>`
+    ? `<span class="sr-badge" style="color:${tm.color};border-color:${tm.border}">${esc(document.documentElement.lang==='en'?({Herramienta:'Tool',Curso:'Course',Estudio:'Research',Noticia:'News',Recurso:'Resource'}[tipo]??tm.label):tm.label)}</span>`
     : '';
   return `<a class="sr-row" id="sr-row-${i}" href="${esc(d.url)}" role="option" aria-selected="false" style="--result-index:${i}">
       <span class="sr-mono" style="background:${color}">${esc((title || '?').charAt(0).toUpperCase())}</span>
@@ -107,7 +107,7 @@ export function createSearch(root: HTMLElement): SearchEngine {
     let pf: any;
     try { pf = await loadPagefind(); }
     catch {
-      results.innerHTML = '<p class="sr-msg">La búsqueda está disponible en el sitio publicado.</p>';
+      results.innerHTML = `<p class="sr-msg">${document.documentElement.lang==='en'?'Search is available on the published site.':'La búsqueda está disponible en el sitio publicado.'}</p>`;
       setState('error');
       return;
     }
@@ -118,7 +118,7 @@ export function createSearch(root: HTMLElement): SearchEngine {
     if (!top.length) { results.innerHTML = ''; setState('none'); return; }
     results.innerHTML = top.map(renderResult).join('');
     const n = search.results.length;
-    count.textContent = `${n} resultado${n === 1 ? '' : 's'}`;
+    count.textContent = `${n} ${document.documentElement.lang==='en'?'result':'resultado'}${n === 1 ? '' : 's'}`;
     setState('results');
   };
 

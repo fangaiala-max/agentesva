@@ -1,6 +1,6 @@
 # Hero: from scattered tasks to a connected workflow
 
-Approved direction 1, implemented on the English homepage. The existing interactive demo below the hero remains available for detailed exploration. The Spanish homepage retains its existing hero.
+Approved direction 1, shared by the English homepage and `/es/` with localized task labels and controls. The existing interactive demo below the hero remains available for detailed exploration.
 
 ## 21st.dev provenance
 
@@ -27,4 +27,4 @@ Browser checks cover pause/resume, completion, replay, reduced motion, navigatio
 Source: `src/components/english/ChaosFlow.astro` and `src/scripts/chaos-flow.ts`.
 Screenshots: `artifacts/english-first/after/chaos-hero-moving.png`, `chaos-hero-final.png`, `chaos-mobile-detail.png`.
 
-This iteration is local and has not been committed or pushed.
+For the subsequent bilingual rollout and its validation, see [the bilingual UI implementation review](21st-bilingual-opportunity-review.md).

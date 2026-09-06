@@ -2,6 +2,22 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [0.8.0.0] - 2026-09-06
+
+### Added
+- Comparación de dos herramientas, fichas con pestañas y guardado también en español, con 16 logos adicionales.
+- Navegación agrupada y búsqueda en ambos idiomas, con acceso al diagnóstico dentro del menú móvil.
+- Explicaciones de procesos con responsables, entregables y rutas de excepción.
+
+### Changed
+- Home, precios, servicios y catálogos comparten componentes en inglés y español, manteniendo la paleta Gemini.
+- Los precios proceden de una fuente común y cada opción conserva su contexto al abrir el diagnóstico o cambiar de idioma.
+- El diagnóstico muestra un resumen de las respuestas antes del envío.
+
+### Fixed
+- La suscripción solo muestra éxito después de una confirmación explícita del servidor.
+- Se conservan enlaces relacionados, datos estructurados y destinos localizados al unificar las fichas.
+
 ## [Unreleased]
 
 ### Changed

@@ -1,0 +1,17 @@
+---
+import {localeFor} from '../../i18n/routes';
+import {localizedPath} from '../../i18n/parity';
+interface Props {title:string;description:string;type?:string;faqs?:readonly (readonly string[])[];items?:{name:string;url:string}[];provider?:string;offer?:number;officialUrl?:string;parent?:{name:string;url:string}}
+const {title,description,type='WebPage',faqs=[],items=[],provider,offer,officialUrl,parent}=Astro.props;
+const locale=localeFor(Astro.url.pathname),site='https://agentesva.com',url=site+Astro.url.pathname;
+const trail=[{name:locale==='en'?'Home':'Inicio',url:localizedPath(locale,'/')},...(parent?[parent]:[]),{name:title,url:Astro.url.pathname}];
+const graph=[{'@type':'WebPage',name:title,description,url,inLanguage:locale},
+...(type!=='WebPage'?[{'@type':type,name:title,description,url,inLanguage:locale,
+...(type==='SoftwareApplication'?{applicationCategory:'BusinessApplication',operatingSystem:'Web',sameAs:officialUrl}:{}),
+...(provider?{provider:{'@type':'Organization',name:provider}}:{}),
+...(offer!==undefined?{offers:{'@type':'AggregateOffer',lowPrice:offer,priceCurrency:'EUR'}}:{})}]:[]),
+{'@type':'BreadcrumbList',itemListElement:trail.map((item,i)=>({'@type':'ListItem',position:i+1,name:item.name,item:site+item.url}))},
+...(faqs.length?[{'@type':'FAQPage',mainEntity:faqs.map(([q,a])=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}}))}]:[]),
+...(items.length?[{'@type':'ItemList',itemListElement:items.map((item,i)=>({'@type':'ListItem',position:i+1,name:item.name,url:site+item.url}))}]:[])];
+---
+<script type="application/ld+json" set:html={JSON.stringify({'@context':'https://schema.org','@graph':graph}).replace(/</g,'\\u003c')} />

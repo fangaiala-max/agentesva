@@ -1,4 +1,5 @@
 ---
+import AssessmentSummary from '../../components/shared/AssessmentSummary.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
@@ -157,7 +158,7 @@ const trail = buildTrail({ name: 'Automation assessment', url: '/assessment' });
         <h3 class="result-subtitle">Why this next step fits</h3>
         <ul data-result-reasons></ul>
         <a class="button-primary result-next-step" data-result-next-step href="#enviar-diagnostico"></a>
-        <form id="enviar-diagnostico" class="contact-form" data-diagnostic-contact novalidate>
+        <AssessmentSummary/><form id="enviar-diagnostico" class="contact-form" data-diagnostic-contact novalidate>
           <h3>Request a follow-up for your business</h3>
           <p>We will reply within one business day with a next step, even if hiring us is not the right answer. You will not be added to the newsletter.</p>
           <div class="contact-grid">

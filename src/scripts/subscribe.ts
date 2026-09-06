@@ -72,9 +72,10 @@ function wire(root: HTMLElement) {
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        throw new Error(data.error || 'No se pudo completar la suscripción.');
+        throw new Error('No se pudo completar la suscripción.');
       }
       const data = await res.json().catch(() => ({}));
+      if (data.success !== true) throw new Error('No se pudo completar la suscripción.');
       form.hidden = true;
       const title = root.querySelector<HTMLElement>('[data-subscribe-success-title]');
       const copy = root.querySelector<HTMLElement>('[data-subscribe-success-copy]');

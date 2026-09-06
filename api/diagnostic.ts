@@ -326,6 +326,7 @@ function sanitizeSource(raw: unknown): Record<string, unknown> {
     referrer: text(source.referrer, 300),
     ctaPlacement: text(source.ctaPlacement, 80),
     serviceIntent: text(source.serviceIntent, 100),
+    offerIntent: text(source.offerIntent, 60),
     utm,
   };
 }

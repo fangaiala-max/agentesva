@@ -34,12 +34,14 @@ export function setupNav(): () => void {
   // Esc cierra, y con Tab fuera del panel también: el menú no debe quedarse
   // abierto tapando contenido cuando el foco ya está en otro sitio.
   const onKeydown = (e: KeyboardEvent) => {
+    if(e.key==='Escape'){nav.querySelectorAll<HTMLDetailsElement>('details[open]').forEach(d=>{d.open=false;d.querySelector<HTMLElement>('summary')?.focus();});}
     if (e.key === 'Escape') close();
   };
 
   const onFocusIn = (e: FocusEvent) => {
     const t = e.target as Node | null;
     if (!t || nav.contains(t) || toggle.contains(t)) return;
+    nav.querySelectorAll<HTMLDetailsElement>('details[open]').forEach(d=>d.open=false);
     if (isOpen()) setOpen(false);
   };
 
@@ -48,7 +50,9 @@ export function setupNav(): () => void {
   // `astro:page-load` y el panel se quedaría abierto.
   const onDocClick = (e: MouseEvent) => {
     const t = e.target as Node | null;
-    if (!t || !isOpen()) return;
+    if (!t) return;
+    if(!nav.contains(t)||(t as HTMLElement).closest?.('a'))nav.querySelectorAll<HTMLDetailsElement>('details[open]').forEach(d=>d.open=false);
+    if(!isOpen()) return;
     if (nav.contains(t)) {
       if ((t as HTMLElement).closest?.('a')) setOpen(false);
       return;

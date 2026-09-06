@@ -1,0 +1,48 @@
+---
+import PageSchema from '../shared/PageSchema.astro';
+import AssessmentCTA from '../shared/AssessmentCTA.astro';
+import CommercialNextSteps from '../CommercialNextSteps.astro';
+import {linksForTool} from '../../data/commercial-links';
+import {toolServiceRecommendation} from '../../data/tool-service-cta';
+import {localeFor} from '../../i18n/routes';
+import {ui,localizedPath} from '../../i18n/parity';
+const locale=localeFor(Astro.url.pathname);
+const t=(text:string)=>ui(locale,text);
+const href=(url:string)=>localizedPath(locale,url);
+import {getCollection} from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../SiteHeader.astro';
+import SiteFooter from '../SiteFooter.astro';
+import translations from '../../i18n/tools.json';
+import '../../styles/english.css';
+import '../../styles/tool-showcase.css';
+import ToolIdentity from './ToolIdentity.astro';
+import ToolVisual from './ToolVisual.astro';
+import {affiliateHref} from '../../data/ir';
+const {tool}=Astro.props;
+const copy=locale==='en'?translations[tool.id as keyof typeof translations]:{description:tool.data.long,features:tool.data.features,steps:tool.data.steps};
+const alternatives=(await getCollection('tools')).filter(c=>c.id!==tool.id&&c.data.cat===tool.data.cat).slice(0,3);
+const name=locale==='es'?tool.data.name:tool.data.name.replace(/ IA$/, ' AI');
+const cat=(await getCollection('categories')).find(c=>c.data.nombre===tool.data.cat);
+const recommendation=toolServiceRecommendation(tool.data);
+const extraGuide:Record<string,{title:string;description:string;href:string}>= {
+ chatgpt:{title:'Cómo aparecer en ChatGPT',description:'Ayuda a los asistentes a encontrar y citar tu marca.',href:'/guias/como-aparecer-en-chatgpt/'},
+ perplexity:{title:'Medir la visibilidad en IA',description:'Compara menciones, citas y evolución de marca.',href:'/guias/medir-visibilidad-en-chatgpt/'},
+ 'surfer-seo':{title:'SEO para IA',description:'Contenido recuperable, autoridad y medición.',href:'/guias/seo-para-ia/'}
+};
+const related=[...linksForTool(tool.id),...(extraGuide[tool.id]?[extraGuide[tool.id]]:[])];
+const faqs=locale==='en'?[
+ ['How should I evaluate this tool?','Use a representative task, verify the output and review permissions and data handling before connecting business information.'],
+ ['Where can I check current prices?','Plans and limits can change. Check the official provider before choosing a plan.']
+]:[
+ ['¿Cómo evalúo esta herramienta?','Utiliza una tarea representativa, verifica el resultado y revisa permisos y tratamiento de datos antes de conectar información del negocio.'],
+ ['¿Dónde consulto los precios actuales?','Los planes y límites pueden cambiar. Consulta al proveedor oficial antes de elegir un plan.'],
+ ...(tool.data.faq??[]).map((f:any)=>[f.q,f.a])
+];
+
+---
+<BaseLayout title={`${name} | AgentesVA`} description={copy.description}>
+<PageSchema title={name} description={copy.description} type="SoftwareApplication" officialUrl={tool.data.url} faqs={faqs} parent={{name:t("AI tools"),url:href("/tools/")}}/><SiteHeader/><main id="main-content" class="en-page tool-showcase-profile" data-pagefind-body data-pagefind-filter="tipo:Herramienta" data-pagefind-meta="tipo:Herramienta" data-track-view="view_ficha" data-track-slug={tool.id} data-track-category={tool.data.cat}><section class="en-hero"><div class="en-shell"><nav class="en-crumbs" aria-label={locale==='en'?'Breadcrumb':'Ruta de navegación'}><a href={href("/")}>{t("Home")}</a><span>/</span><a href={href("/tools/")}>{t("AI tools")}</a><span>/</span><span aria-current="page">{name}</span></nav><div class="en-hero-grid"><div><div class="profile-identity"><ToolIdentity slug={tool.id} name={name}/><span>{t("A practical tool profile")}</span></div><h1>{name}</h1><p class="en-lead">{copy.description}</p><div class="en-actions"><a href={affiliateHref(tool.id,`${locale}-profile-hero`)} data-track-event="affiliate_click" data-track-slug={tool.id} data-track-src={`${locale}-profile-hero`} data-track-has-affiliate={tool.data.affiliateUrl?"1":"0"} class="en-button" target="_blank" rel={tool.data.affiliateUrl?"sponsored nofollow noopener noreferrer":"noopener noreferrer"}>{locale==='en'?'Visit':'Visitar'} {name}<span class="sr-only"> {locale==='en'?'(opens in a new tab)':'(abre en una pestaña nueva)'}</span></a><a href={href("/tools/")} class="en-button en-button--quiet">{t("Compare more tools")}</a><button type="button" id="save-btn" data-slug={tool.id} aria-pressed="false" class="en-button en-button--quiet"><span id="save-label">{locale==='en'?'Save':'Guardar'}</span></button></div><p class="en-note">{t("Check the provider for current availability, plan limits, and pricing.")}</p></div><aside class="profile-visual"><ToolVisual slug={tool.id} features={copy.features}/><p>{t("Illustrative workflow, not a product screenshot.")}</p></aside></div></div></section><section class="en-section en-shell" data-profile-tabs><div class="profile-tabs" role="tablist" aria-label={t("Explore this tool")}><button type="button" role="tab" id="tab-overview" aria-controls="panel-overview" aria-selected="true">{t("Overview")}</button><button type="button" role="tab" id="tab-capabilities" aria-controls="panel-capabilities" aria-selected="false">{t("Capabilities")}</button><button type="button" role="tab" id="tab-start" aria-controls="panel-start" aria-selected="false">{t("Getting started")}</button></div><div class="profile-panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview" tabindex="0"><h2>{t("Start with a useful task.")}</h2><p>{copy.description}</p><p>{t("Try a representative example, check the result, and decide whether it fits the way your team works.")}</p><p>{tool.data.affiliateUrl?t("We may earn a commission if you use our provider link."):t("This profile links to the official provider. Inclusion does not imply a commercial partnership.")}</p></div><div class="profile-panel" id="panel-capabilities" role="tabpanel" aria-labelledby="tab-capabilities" tabindex="0"><h2>{t("What it helps with.")}</h2><ul>{copy.features.map(f=><li>{f}</li>)}</ul></div><div class="profile-panel" id="panel-start" role="tabpanel" aria-labelledby="tab-start" tabindex="0"><h2>{t("Your first useful result.")}</h2><ol>{copy.steps.map(s=><li>{s}</li>)}</ol></div></section><section class="en-section en-shell"><h2>{locale==='en'?'Before you choose':'Antes de elegir'}</h2>{faqs.map(([q,a])=><details><summary>{q}</summary><p>{a}</p></details>)}<h2>{locale==='en'?'Compare alternatives':'Compara alternativas'}</h2><div class="en-catalog-grid">{alternatives.map(a=><a class="en-resource-card" href={href(`/tools/${a.id}/`)}><ToolIdentity slug={a.id} name={a.data.name}/><h3>{a.data.name}</h3><p>{locale==='en'?translations[a.id as keyof typeof translations].description:a.data.desc}</p></a>)}</div></section><div class="en-shell"><CommercialNextSteps links={related} theme="light" pageType="tool_detail" slug={tool.id}/></div><section class="en-close"><div class="en-shell en-close-inner"><div><h2>{t("Need to connect it to your process?")}</h2><p>{t("Find out where automation could make a useful difference.")}</p></div><AssessmentCTA placement="tool_contextual" service={recommendation.service} pageType="tool_detail" class="en-button en-button--white"/></div></section>{cat&&<div class="en-section en-shell"><a href={href(`/tools/category/${cat.id}/`)} class="en-button">{t("Explore related tools")}</a></div>}</main><SiteFooter hideNewsletter/>
+</BaseLayout>
+
+<script>import {initToolShowcase} from "../../scripts/tool-showcase";import {initToolDetail} from "../../scripts/tool-detail";document.addEventListener("astro:page-load",()=>{initToolShowcase();initToolDetail();});</script>
