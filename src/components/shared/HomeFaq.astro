@@ -1,0 +1,80 @@
+---
+import { localeFor } from '../../i18n/routes';
+import { localizedPath } from '../../i18n/parity';
+import { offerPrice } from '../../data/service-offer';
+import { jsonLdSerialize } from '../../data/schema';
+
+const locale = localeFor(Astro.url.pathname);
+const en = locale === 'en';
+const questions = en ? [
+  {
+    question: 'How much does an automation project cost?',
+    answer: `The initial assessment is free. A scope workshop is ${offerPrice('workshop', locale).toLowerCase()}, a first implementation is ${offerPrice('scoped', locale).toLowerCase()}, and work involving several integrations is ${offerPrice('integrated', locale).toLowerCase()}. These are starting prices; tools, permissions and exceptions determine the written proposal. VAT and third-party costs are detailed separately.`,
+    url: '/pricing/', link: 'Compare scope and pricing',
+  },
+  {
+    question: 'How long does implementation take?',
+    answer: 'A first, scoped implementation typically takes 2–4 weeks. Several integrations typically take 4–8 weeks. Timing depends on the agreed scope, access to your tools and representative cases, and your team’s validation. The proposal confirms the schedule.',
+    url: '/how-we-work/', link: 'See the delivery process',
+  },
+  {
+    question: 'What does the working demo show?',
+    answer: 'The demo covers 3 areas: customer support, sales and operations. Each has 2 sample cases: a standard input and an exception. You can inspect all 6 cases and the human review required. These are fictional examples running in your browser, not client results or live integrations. The handover document explains the inputs, boundaries and acceptance checks.',
+    url: '/examples/demo-handover.md', link: 'Read the demo handover (English)',
+  },
+  {
+    question: 'What happens after handover?',
+    answer: `You receive the working workflow, tested cases, documentation and training. Support and optimization are ${offerPrice('support', locale).toLowerCase()} for agreed maintenance, adjustments and reviews. Support scope and response times are confirmed in the proposal.`,
+    url: '/pricing/', link: 'Review ongoing support',
+  },
+] : [
+  {
+    question: '¿Cuánto cuesta un proyecto de automatización?',
+    answer: `El diagnóstico inicial es gratuito. El taller de alcance es ${offerPrice('workshop', locale).toLowerCase()}, la primera implementación es ${offerPrice('scoped', locale).toLowerCase()} y el trabajo con varias integraciones es ${offerPrice('integrated', locale).toLowerCase()}. Son precios de partida; las herramientas, los permisos y las excepciones determinan la propuesta escrita. El IVA y los costes de terceros se detallan por separado.`,
+    url: '/pricing/', link: 'Comparar alcance y precios',
+  },
+  {
+    question: '¿Cuánto tarda la implementación?',
+    answer: 'Una primera implementación acotada suele durar entre 2 y 4 semanas. Varias integraciones suelen requerir entre 4 y 8 semanas. El plazo depende del alcance acordado, del acceso a tus herramientas y casos representativos, y de la validación de tu equipo. La propuesta confirma el calendario.',
+    url: '/how-we-work/', link: 'Ver el proceso de entrega',
+  },
+  {
+    question: '¿Qué muestra la demostración?',
+    answer: 'La demo cubre 3 áreas: atención al cliente, ventas y operaciones. Cada una tiene 2 casos de ejemplo: una entrada normal y una excepción. Puedes revisar los 6 casos y el control humano necesario. Son ejemplos ficticios que se ejecutan en tu navegador, no resultados de clientes ni integraciones reales. El documento de entrega explica las entradas, los límites y las comprobaciones de aceptación.',
+    url: '/examples/demo-handover.md', link: 'Leer la documentación de la demo (inglés)',
+  },
+  {
+    question: '¿Qué ocurre después de la entrega?',
+    answer: `Recibes el flujo operativo, los casos probados, la documentación y la formación. El soporte y la optimización son ${offerPrice('support', locale).toLowerCase()} para el mantenimiento, los ajustes y las revisiones acordados. El alcance del soporte y los tiempos de respuesta se confirman en la propuesta.`,
+    url: '/pricing/', link: 'Consultar el soporte continuo',
+  },
+];
+const schema = {
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: questions.map(({ question, answer }) => ({
+    '@type': 'Question', name: question,
+    acceptedAnswer: { '@type': 'Answer', text: answer },
+  })),
+};
+---
+<section class="process-section home-faq" aria-labelledby="home-faq-title">
+  <div class="agency-shell">
+    <div class="section-heading">
+      <h2 id="home-faq-title">{en ? 'Before you start.' : 'Antes de empezar.'}</h2>
+      <p>{en ? 'Scope, costs and evidence you can inspect.' : 'Alcance, costes y pruebas que puedes revisar.'}</p>
+    </div>
+    {questions.map(({ question, answer, url, link }, index) => (
+      <details class="handover-example" open={index === 0}>
+        <summary>{question}</summary>
+        <p>{answer}</p>
+        <a href={localizedPath(locale, url)}>{link}</a>
+      </details>
+    ))}
+  </div>
+</section>
+<script type="application/ld+json" set:html={jsonLdSerialize(schema)} />
+<style>
+  .home-faq .handover-example { margin-top: 0; border-top: 0; }
+  .home-faq .handover-example:first-of-type { border-top: 1px solid var(--line); }
+  .home-faq .handover-example p { max-width: 78ch; line-height: 1.7; }
+</style>

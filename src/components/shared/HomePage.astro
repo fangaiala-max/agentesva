@@ -13,6 +13,7 @@ import {localeFor} from '../../i18n/routes';
 import {ui,localizedPath,assessmentHref} from '../../i18n/parity';
 import {offerPrice} from '../../data/service-offer';
 import AutomationDemoES from '../home/AutomationDemo.astro';
+import HomeFaq from './HomeFaq.astro';
 import IntegrationsES from '../home/Integrations.astro';
 const locale=localeFor(Astro.url.pathname), en=locale==='en';
 const t=(s:string)=>ui(locale,s), href=(s:string)=>localizedPath(locale,s);
@@ -29,6 +30,7 @@ const tracking = { 'data-track-event': 'service_cta_click', 'data-track-page-typ
 {en?<Integrations />:<IntegrationsES />}
 <section class="diagnostic-close" aria-labelledby="close-title"><div class="agency-shell close-layout"><div><h2 id="close-title">{t("What keeps repeating")}<br />{' '}{t("in your week?")}</h2><p>{t("Tell us about the process. We will help you decide where to start.")}</p></div><div><a href={assessmentHref(locale,"mid_page")} class="agency-button primary" {...tracking} data-track-placement="mid_page">{t("Get my free automation assessment")}<span aria-hidden="true">↗</span></a><small>{t("About 3 minutes · Get an initial recommendation.")}</small></div></div></section>
 <section class="resource-section" aria-labelledby="resource-title"><div class="agency-shell resource-layout"><div><span class="section-number">{t("Build your understanding")}</span><h2 id="resource-title">{t("Useful AI starts")}<br />{' '}{t("with a good question.")}</h2><p>{t("Explore practical tools, guides, and examples to help you make a more informed decision.")}</p><div class="resource-links"><a href={href("/tools/")}>{t("Find an AI tool")}<span aria-hidden="true">↗</span></a><a href={href("/guides/")}>{t("Read a practical guide")}<span aria-hidden="true">↗</span></a><a href={href("/research/")}>{t("Explore our research")}<span aria-hidden="true">↗</span></a></div></div><div class="home-resource-feature"><span class="sample-label">{t("A starting point you can use today")}</span><h3>{t("Give the AI")}<br />{' '}{t("a better brief.")}</h3><p>{t("A clear task, useful context, and a definition of a good result. Explore practical prompts for everyday business work.")}</p><a class="agency-button secondary" href={href("/prompt-library/")}>{t("Explore the prompt library")}</a><p class="home-resource-note">{t("Also available:")}<a href={href("/courses/")}>{t("AI courses")}</a>{t("and")}<a href={href("/resources/")}>{t("downloadable resources")}</a>.</p></div></div></section>
+<HomeFaq />
 </main><SiteFooter hideNewsletter />
 <aside id="cta-bar" class="agency-sticky" aria-label={t("Free assessment")} hidden><span>{t("Make your first workflow clearer.")}</span><a href={assessmentHref(locale,"sticky")} {...tracking} data-track-placement="sticky">{t("Get my free automation assessment")}<span aria-hidden="true">↗</span></a><button type="button" id="cta-dismiss" aria-label={t("Dismiss the assessment reminder")}>×</button></aside>
 </BaseLayout>
