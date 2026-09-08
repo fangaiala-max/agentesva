@@ -2,6 +2,12 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [0.9.2.0] - 2026-09-08
+
+### Changed
+- La página de inicio responde en inglés y español a las preguntas sobre precios, plazos, alcance de la demo y soporte, con enlaces a la documentación y los detalles del servicio.
+- Las respuestas visibles y los datos estructurados FAQ comparten el mismo contenido y los precios se obtienen del catálogo de servicios.
+
 ## [0.9.1.0] - 2026-09-06
 
 ### Fixed
