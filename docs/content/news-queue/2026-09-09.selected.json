@@ -1,0 +1,90 @@
+{
+  "date": "2026-09-09",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "ChatGPT Sketch turns your bad drawings into detailed AI images",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/991727/openai-chatgpt-images-2-5-sketch",
+      "fecha": "2026-09-08T20:16:09.000Z",
+      "resumen": "I used ChatGPT and its Sketch tool to make this AI-generated image of a cat.\t\n\nOpenAI announced ChatGPT Images 2.5 on Tuesday and is adding a new way to tell ChatGPT what you want it to make an image of: by drawing a doodle. With a new feature called Sketch, you can just draw something right inside ChatGPT and then tell ChatGPT how you want it to make an image based on that sketch.\nYou can activat",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "chatgpt-sketch-turns-your-bad-drawings-into-detailed-ai-imag",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.6347912654320987,
+        "authority": 0.9
+      },
+      "score": 0.4852,
+      "tema": "Código"
+    },
+    {
+      "titulo": "AI power users claim Anthropic duped them with subscriptions, and they’re taking it to court",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/990313/anthropic-class-action-lawsuit-pricing-subscription-plans",
+      "fecha": "2026-09-08T17:27:31.000Z",
+      "resumen": "Anthropic says power users are key to its business - it's prioritized them even when it means cutting off other popular applications, like OpenClaw. But some of these same customers say Anthropic misled them into believing they'd get more out of a top-tier pricing subscription than they did. \nIn an expanded class action lawsuit filed today, a group of Claude subscribers say the company deceptively",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "ai-power-users-claim-anthropic-duped-them-with-subscriptions",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5567202777777778,
+        "authority": 0.9
+      },
+      "score": 0.4735,
+      "tema": "Asistentes"
+    },
+    {
+      "titulo": "What OpenAI’s latest controversy tells us about the future of math",
+      "url": "https://www.technologyreview.com/2026/09/08/1143747/what-openais-latest-controversy-tells-us-about-the-future-of-math/",
+      "fecha": "2026-09-09T03:10:08.000Z",
+      "resumen": "OpenAI’s latest mathematical milestone has quickly become mired in controversy. Today, the company announced that its agents have solved one of the Millennium Prize Problems, some of the most important open problems in mathematics. Under normal circumstances, that solution would be a huge feather in OpenAI’s cap. But the announcement has been overshadowed by accusations…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "what-openai-s-latest-controversy-tells-us-about-the-future-o",
+      "signals": {
+        "hn": 2,
+        "reddit": 0,
+        "social": 0.1445275806109889,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.8264502160493827,
+        "authority": 0.95
+      },
+      "score": 0.384,
+      "tema": "Automatización"
+    },
+    {
+      "titulo": "Meta bets on AI agent Muse to catch up in AI race",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/991216/meta-bets-on-ai-agent-muse-to-catch-up-in-ai-race",
+      "fecha": "2026-09-08T19:00:00.000Z",
+      "resumen": "Meta is making another push to bring artificial intelligence to the masses with Muse, a personal assistant it says can put AI in the hands of virtually anyone. The product is the latest step in a multi-billion-dollar strategy overhaul designed to revitalize the company's ailing position in the AI race and help it catch up to rivals like OpenAI, Anthropic, and Google. \nMuse is a \"personal AI agent\"",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "meta-bets-on-ai-agent-muse-to-catch-up-in-ai-race",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5995366358024692,
+        "authority": 0.9
+      },
+      "score": 0.3799,
+      "tema": "Asistentes"
+    }
+  ]
+}
