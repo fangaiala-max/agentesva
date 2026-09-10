@@ -1,0 +1,146 @@
+{
+  "date": "2026-09-10",
+  "generatedAt": "2026-09-10T09:24:22.334Z",
+  "candidates": [
+    {
+      "titulo": "Read the Apple document explaining how new listening features still protect your privacy",
+      "url": "https://www.theverge.com/tech/992919/apple-siri-ai-audio-intelligence-privacy",
+      "fecha": "2026-09-09T20:44:43.000Z",
+      "resumen": "At Wednesday's iPhone Duo launch event, Apple announced a handful of new Siri AI Audio Intelligence features, including Siri Recap, Live Rewind, Sound Recognition, and Music Recognition. Alongside its announcement, Apple released a document laying out how it plans to balance AI \"ambient listening\" and users' privacy. It says the raw audio from the new features \"is handled within dedicated hardware",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "read-the-apple-document-explaining-how-new-listening-feature",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.6483076080246913,
+        "authority": 0.9
+      },
+      "score": 0.4872
+    },
+    {
+      "titulo": "Apple’s new iPhone camera mode promises to prove your photo isn’t AI",
+      "url": "https://www.theverge.com/tech/992766/apple-iphone-18-pro-reference-image",
+      "fecha": "2026-09-09T19:30:12.000Z",
+      "resumen": "Apple is launching a new way to prove that the picture you took isn't manipulated by AI. A new feature, called \"Reference Image,\" will arrive with the iPhone 18 Pro lineup later this month and is supposed to use the device's new camera sensor to \"sign every pixel it sees.\"\nThe iPhone 18 Pro and Pro Max will only authenticate photos when placed into Reference mode. Once the camera captures signed s",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "apple-s-new-iphone-camera-mode-promises-to-prove-your-photo-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.6138091512345679,
+        "authority": 0.9
+      },
+      "score": 0.4821
+    },
+    {
+      "titulo": "Viral AI assistant Instinct now has its own email address",
+      "url": "https://techcrunch.com/2026/09/09/viral-ai-assistant-instinct-now-has-its-own-email-address/",
+      "fecha": "2026-09-09T15:13:12.000Z",
+      "resumen": "Instinct’s new email feature lets the AI agent create and manage accounts, contact businesses, handle support requests, and do more on users' behalf.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "viral-ai-assistant-instinct-now-has-its-own-email-address",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.49482766975308634,
+        "authority": 0.9
+      },
+      "score": 0.4642
+    },
+    {
+      "titulo": "Instacart launches an AI grocery shopping assistant called Clementine",
+      "url": "https://techcrunch.com/2026/09/09/instacart-launches-an-ai-grocery-shopping-assistant-called-clementine/",
+      "fecha": "2026-09-09T13:00:00.000Z",
+      "resumen": "Instacart is the latest app to bake a conversational AI assistant into its platform.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "instacart-launches-an-ai-grocery-shopping-assistant-called-c",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.4331610030864197,
+        "authority": 0.9
+      },
+      "score": 0.455
+    },
+    {
+      "titulo": "Apple Watch’s new AI features are normalizing the idea that technology is always listening",
+      "url": "https://techcrunch.com/2026/09/09/apple-watchs-new-ai-features-are-normalizing-the-idea-that-technology-is-always-listening/",
+      "fecha": "2026-09-09T20:24:48.000Z",
+      "resumen": "Apple says its new watches won’t save raw audio, but features that can transcribe recent speech and summarize ambient conversations raise new questions about consent, privacy, and how people behave when they know they could always be recorded.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "apple-watch-s-new-ai-features-are-normalizing-the-idea-that-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.6390869290123458,
+        "authority": 0.9
+      },
+      "score": 0.3859
+    },
+    {
+      "titulo": "Shipt becomes the latest delivery app with an AI shopping assistant",
+      "url": "https://techcrunch.com/2026/09/09/shipt-becomes-the-latest-delivery-app-with-an-ai-shopping-assistant/",
+      "fecha": "2026-09-09T14:51:45.000Z",
+      "resumen": "Users can ask the assistant to do things like \"Create a cart for my Saturday tailgate for 25 people and include some brunch items,\" or \"Build a cart for easy school lunches and after-school snacks,\" Shipt says.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "shipt-becomes-the-latest-delivery-app-with-an-ai-shopping-as",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.4848971141975309,
+        "authority": 0.9
+      },
+      "score": 0.3627
+    },
+    {
+      "titulo": "Amazon Prime Video’s new AI tech matches lips to dubbed audio",
+      "url": "https://www.theverge.com/tech/991809/amazon-prime-video-ai-lip-sync-dubbing",
+      "fecha": "2026-09-09T13:00:00.000Z",
+      "resumen": "Maxton Hall. | Image: Prime Video\t\n\nAmazon's Prime Video is launching a new AI-powered feature that lines up an actor's mouth with \"human-dubbed\" audio. The feature is only available with the English dub of the German series Maxton Hall for now, but Prime Video plans to expand it to \"additional titles\" in the future.\nIn its announcement, Prime Video says it uses a combination of AI and visual effe",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "amazon-prime-video-s-new-ai-tech-matches-lips-to-dubbed-audi",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.4331610030864197,
+        "authority": 0.9
+      },
+      "score": 0.355
+    }
+  ]
+}
