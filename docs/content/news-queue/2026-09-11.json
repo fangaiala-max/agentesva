@@ -1,0 +1,86 @@
+{
+  "date": "2026-09-11",
+  "generatedAt": "2026-09-11T09:22:54.482Z",
+  "candidates": [
+    {
+      "titulo": "Slack can now vibe-code interactive charts and reports inside chats",
+      "url": "https://www.theverge.com/tech/989853/slackforce-surfaces-launch",
+      "fecha": "2026-09-10T21:25:21.000Z",
+      "resumen": "A new feature coming to Slack will allow you to build interactive reports, polls, dashboards, presentations, microsites, and other tools directly inside a chat. With Slackforce Surfaces, you can describe to Slackbot what you need, and it will use AI to gather information from relevant conversations and connected apps, like Google Drive or Salesforce, to create it.\nOnce Slackbot creates a Surface, ",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "slack-can-now-vibe-code-interactive-charts-and-reports-insid",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.6677972067901234,
+        "authority": 0.9
+      },
+      "score": 0.4902
+    },
+    {
+      "titulo": "Meta’s Muse AI works and creeps me out",
+      "url": "https://www.theverge.com/tech/993391/meta-muse-ai-hands-on",
+      "fecha": "2026-09-10T15:00:00.000Z",
+      "resumen": "I turned my Muse assistant into a purple cat. | Screenshot: The Verge\t\n\nMeta has launched its new Muse assistant, marking the company's first real foray into AI-powered productivity tools. The company says its AI agent can \"take the busywork off your plate\" by helping you with online shopping, emails, trip-planning, and more.  I decided to try out the new tool and see how well it performed - espec",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "meta-s-muse-ai-works-and-creeps-me-out",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.48939442901234564,
+        "authority": 0.9
+      },
+      "score": 0.4634
+    },
+    {
+      "titulo": "Meta’s AI agent Muse is now the No. 2 app in the US",
+      "url": "https://techcrunch.com/2026/09/10/metas-ai-agent-muse-is-now-the-no-2-app-in-the-us/",
+      "fecha": "2026-09-10T19:50:04.000Z",
+      "resumen": "Meta's newest app Muse is off to a slower start than the company's other apps, like Meta AI or Threads.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "meta-s-ai-agent-muse-is-now-the-no-2-app-in-the-us",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.6236845524691359,
+        "authority": 0.9
+      },
+      "score": 0.3836
+    },
+    {
+      "titulo": "Anthropic reveals rogue AI agents hate CAPTCHAs, just like you",
+      "url": "https://techcrunch.com/2026/09/10/anthropic-reveals-rogue-ai-agents-hate-captchas-just-like-you/",
+      "fecha": "2026-09-10T17:54:44.000Z",
+      "resumen": "Come inside the mind of a bot trying to convince the internet it's human.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "anthropic-reveals-rogue-ai-agents-hate-captchas-just-like-yo",
+      "signals": {
+        "hn": 3,
+        "reddit": 0,
+        "social": 0.18237350163834035,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.5702894907407408,
+        "authority": 0.9
+      },
+      "score": 0.3576
+    }
+  ]
+}
