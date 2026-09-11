@@ -33,7 +33,7 @@
     "pagefind": "^1.5.2",
     "postcss": "^8.5.23",
     "rss-parser": "^3.13.0",
-    "sharp": "^0.35.3",
+    "sharp": "^0.35.4",
     "tailwindcss": "^4.3.3",
     "vitest": "^4.1.9",
     "zod": "^4.4.3"
