@@ -20,7 +20,7 @@ describe('navegación comercial', () => {
 
   it('convierte la home en una ruta de venta sin eliminar el directorio', () => {
     const page = read('src/components/shared/HomePage.astro');
-    expect(page).toContain('Less chasing.');
+    expect(page).toContain('Less repetitive work.');
     expect(page).toContain('<AutomationDemo />');
     expect(page).toContain('href="#demo"');
     expect(page).toContain('data-track-placement="hero"');

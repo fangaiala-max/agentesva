@@ -2,6 +2,13 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [0.9.3.0] - 2026-09-12
+
+### Changed
+- La home en español e inglés explica la automatización desde tareas cotidianas: consultas repetidas, seguimiento comercial y copia de datos.
+- La home aclara que el diagnóstico tiene ocho preguntas y muestra la recomendación antes de compartir el email; el recorrido de compra concreta los entregables de cada fase.
+- Las preguntas frecuentes ayudan a evaluar si el negocio está preparado y si puede conservar sus herramientas, con acceso al diagnóstico medido por ubicación.
+
 ## [0.9.2.0] - 2026-09-08
 
 ### Changed
