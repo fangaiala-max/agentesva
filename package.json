@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
-    "ai": "^7.0.31",
+    "ai": "^7.0.91",
     "happy-dom": "^20.11.1",
     "pagefind": "^1.5.2",
     "postcss": "^8.5.23",
