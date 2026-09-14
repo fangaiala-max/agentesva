@@ -1,0 +1,58 @@
+---
+import { founder, person, organization } from '../../data/schema';
+import { localeFor } from '../../i18n/routes';
+import { localizedPath } from '../../i18n/parity';
+
+const locale = localeFor(Astro.url.pathname);
+const en = locale === 'en';
+---
+<section id="about-agentesva" class="process-section home-evidence" aria-labelledby="home-evidence-title">
+  <div class="agency-shell">
+    <div class="section-heading">
+      <h2 id="home-evidence-title">{en ? 'Who is behind AgentesVA?' : '¿Quién está detrás de AgentesVA?'}</h2>
+      <p>{en
+        ? 'AgentesVA builds AI automation for small businesses in 3 areas: customer support, sales follow-up and operations. We also publish practical AI tools, guides and research in English and Spanish.'
+        : 'AgentesVA desarrolla automatizaciones con IA para pequeños negocios en 3 áreas: atención al cliente, seguimiento de ventas y operaciones. También publicamos herramientas, guías y estudios prácticos sobre IA en español e inglés.'}</p>
+    </div>
+    <dl class="evidence-rows">
+      <div>
+        <dt>{en ? 'Founder' : 'Fundadora'}</dt>
+        <dd>{founder.name}. <a href={founder.sameAs[0]}>{en ? 'Professional profile on LinkedIn' : 'Perfil profesional en LinkedIn'}</a>.</dd>
+      </div>
+      <div>
+        <dt>{en ? 'Strategy and editorial direction' : 'Estrategia y dirección editorial'}</dt>
+        <dd>{person.name}. <a href={person.url}>{en ? 'Professional website' : 'Web profesional'}</a> · <a href={person.sameAs[0]}>LinkedIn</a>.</dd>
+      </div>
+      <div>
+        <dt>{en ? 'Evidence you can inspect' : 'Pruebas que puedes revisar'}</dt>
+        <dd>{en
+          ? 'Our interactive demo contains 6 fictional cases: 2 for each service area. The handover documents inputs, exceptions, human review and acceptance checks.'
+          : 'La demo interactiva contiene 6 casos ficticios: 2 por cada área de servicio. La documentación detalla entradas, excepciones, revisión humana y comprobaciones de aceptación.'}
+          {' '}<a href="/examples/demo-handover.md">{en ? 'Read the demo documentation' : 'Leer la documentación de la demo (inglés)'}</a>.
+        </dd>
+      </div>
+      <div>
+        <dt>{en ? 'Editorial standards' : 'Criterios editoriales'}</dt>
+        <dd>{en
+          ? 'Our tool assessments draw on public sources. The methodology explains selection criteria, affiliate links, limitations and corrections.'
+          : 'Nuestras valoraciones de herramientas se basan en fuentes públicas. La metodología explica los criterios de selección, los enlaces de afiliación, las limitaciones y las correcciones.'}
+          {' '}<a href={localizedPath(locale, '/editorial-methodology/')}>{en ? 'Read our methodology' : 'Consultar la metodología'}</a>.
+        </dd>
+      </div>
+      <div>
+        <dt>{en ? 'Contact and official profile' : 'Contacto y perfil oficial'}</dt>
+        <dd><a href={`mailto:${organization.email}`}>{organization.email}</a> · <a href={organization.sameAs[0]} rel="me">Instagram</a> · <a href={organization.sameAs[1]} rel="me">Facebook</a> · <a href={localizedPath(locale, '/legal/')}>{en ? 'Business information' : 'Datos del titular'}</a></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+<style>
+  .home-evidence { border-top: 1px solid var(--line); }
+  .evidence-rows { margin: 0; }
+  .evidence-rows > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 24px; padding: 24px 0; border-top: 1px solid var(--line); }
+  dt { font-weight: 600; font-size: 18px; }
+  dd { margin: 0; max-width: 76ch; color: var(--muted); font-size: 17px; line-height: 1.7; overflow-wrap: anywhere; }
+  a { color: var(--electric); text-decoration: underline; text-underline-offset: 3px; }
+  a:hover { color: var(--brand-hover); }
+  @media (max-width: 640px) { .evidence-rows > div { grid-template-columns: 1fr; gap: 8px; } }
+</style>

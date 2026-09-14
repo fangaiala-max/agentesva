@@ -14,6 +14,8 @@ import {ui,localizedPath,assessmentHref} from '../../i18n/parity';
 import {offerPrice} from '../../data/service-offer';
 import AutomationDemoES from '../home/AutomationDemo.astro';
 import HomeFaq from './HomeFaq.astro';
+import HomeEvidence from './HomeEvidence.astro';
+import { SITE, ORG_ID, WEBSITE_ID, jsonLdSerialize } from '../../data/schema';
 import IntegrationsES from '../home/Integrations.astro';
 const locale=localeFor(Astro.url.pathname), en=locale==='en';
 const t=(s:string)=>ui(locale,s), href=(s:string)=>localizedPath(locale,s);
@@ -24,8 +26,29 @@ const homeServiceDescriptions = {
   process_automation: t("Copying data from emails and documents? Move validated information into your tools and flag missing or inconsistent details."),
 };
 const tracking = { 'data-track-event': 'service_cta_click', 'data-track-page-type': 'home', 'data-track-content-slug': 'home', 'data-track-service': 'general_consulting', 'data-track-cluster': 'general' };
+const title = t('AI automation for small businesses | AgentesVA');
+const description = t('Automate customer enquiries, sales follow-up, and data entry with AI. Explore scope and prices, try the demo, or find your first process to automate.');
+const pageUrl = `${SITE}${Astro.url.pathname}`;
+const homeSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage', '@id': `${pageUrl}#webpage`, url: pageUrl,
+      name: title, description, inLanguage: locale,
+      isPartOf: { '@id': WEBSITE_ID }, about: { '@id': ORG_ID },
+      publisher: { '@id': ORG_ID },
+      mainEntity: services.map(s => ({ '@id': `${SITE}${href(`/services/${s.slug}/`)}#service` })),
+    },
+    ...services.map(s => ({
+      '@type': 'Service', '@id': `${SITE}${href(`/services/${s.slug}/`)}#service`,
+      name: s.title, description: homeServiceDescriptions[s.service],
+      url: `${SITE}${href(`/services/${s.slug}/`)}`, provider: { '@id': ORG_ID },
+    })),
+  ],
+};
 ---
-<BaseLayout title={t("AI automation for small businesses | AgentesVA")} description={t("Automate customer enquiries, sales follow-up, and data entry with AI. Explore scope and prices, try the demo, or find your first process to automate.")}>
+<BaseLayout title={title} description={description}>
+<script type="application/ld+json" set:html={jsonLdSerialize(homeSchema)} />
 <SiteHeader />
 <main id="main-content" class="agency-home english-home" data-pagefind-body>
 <section id="hero" class="agency-hero" aria-labelledby="hero-title"><div class="agency-shell hero-layout"><div class="hero-copy"><span class="hero-eyebrow">{t("AI automation for small businesses")}</span><h1 id="hero-title">{t("Less repetitive work.")}<br />{' '}{t("More time for customers.")}</h1><p class="hero-description" data-motion-static="explanation">{t("We build AI workflows for customer enquiries, sales follow-up, and copying data between tools. Start with one recurring task. Your team decides what needs approval.")}</p><div class="hero-actions" data-motion-static="actions"><a class="agency-button primary" href={assessmentHref(locale,"hero")} {...tracking} data-track-placement="hero">{t("Get my free automation assessment")}<span aria-hidden="true">↗</span></a><a class="agency-button secondary" href="#demo">{t("Try the demo")}</a></div><p class="hero-assurance" data-motion-static="trust">{t("8 questions · About 3 minutes · See your recommendation before sharing your email.")}</p></div><ChaosFlow /></div><div class="agency-shell hero-foot"><span>{t("Customer support, sales, and operations. Connected.")}</span><a href="#services">{t("Explore what we build")}<span aria-hidden="true">↓</span></a></div></section>
@@ -36,6 +59,7 @@ const tracking = { 'data-track-event': 'service_cta_click', 'data-track-page-typ
 <section class="diagnostic-close" aria-labelledby="close-title"><div class="agency-shell close-layout"><div><h2 id="close-title">{t("What keeps repeating")}<br />{' '}{t("in your week?")}</h2><p>{t("Answer 8 questions to see whether your next step is implementation, a scope workshop, or more preparation.")}</p></div><div><a href={assessmentHref(locale,"mid_page")} class="agency-button primary" {...tracking} data-track-placement="mid_page">{t("Get my free automation assessment")}<span aria-hidden="true">↗</span></a><small>{t("8 questions · About 3 minutes · See your recommendation before sharing your email.")}</small></div></div></section>
 <section class="resource-section" aria-labelledby="resource-title"><div class="agency-shell resource-layout"><div><span class="section-number">{t("Build your understanding")}</span><h2 id="resource-title">{t("Still exploring")}<br />{' '}{t("what AI can do?")}</h2><p>{t("Compare tools, read a guide, or try a prompt on a task you already know. Use the resources to decide what your business needs.")}</p><div class="resource-links"><a href={href("/tools/")}>{t("Find an AI tool")}<span aria-hidden="true">↗</span></a><a href={href("/guides/")}>{t("Read a practical guide")}<span aria-hidden="true">↗</span></a><a href={href("/research/")}>{t("Explore our research")}<span aria-hidden="true">↗</span></a></div></div><div class="home-resource-feature"><span class="sample-label">{t("A starting point you can use today")}</span><h3>{t("Give the AI")}<br />{' '}{t("a better brief.")}</h3><p>{t("A clear task, useful context, and a definition of a good result. Explore practical prompts for everyday business work.")}</p><a class="agency-button secondary" href={href("/prompt-library/")}>{t("Explore the prompt library")}</a><p class="home-resource-note">{t("Also available:")}<a href={href("/courses/")}>{t("AI courses")}</a>{t("and")}<a href={href("/resources/")}>{t("downloadable resources")}</a>.</p></div></div></section>
 <HomeFaq />
+<HomeEvidence />
 </main><SiteFooter hideNewsletter />
 <aside id="cta-bar" class="agency-sticky" aria-label={t("Free assessment")} hidden><span>{t("Find your first task to automate.")}</span><a href={assessmentHref(locale,"sticky")} {...tracking} data-track-placement="sticky">{t("Get my free automation assessment")}<span aria-hidden="true">↗</span></a><button type="button" id="cta-dismiss" aria-label={t("Dismiss the assessment reminder")}>×</button></aside>
 </BaseLayout>
