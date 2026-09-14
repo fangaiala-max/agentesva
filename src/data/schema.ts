@@ -18,8 +18,18 @@ export const organization = {
   url: SITE,
   logo: { '@type': 'ImageObject', url: `${SITE}/brand/avatar.png` },
   description: 'Automatización con inteligencia artificial y recursos prácticos en español para negocios.',
+  email: 'hola@agentesva.com',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer enquiries',
+    email: 'hola@agentesva.com',
+    availableLanguage: ['en', 'es'],
+  },
   founder: { '@id': FOUNDER_ID },
-  sameAs: ['https://www.instagram.com/agentesva/'],
+  sameAs: [
+    'https://www.instagram.com/agentesva/',
+    'https://www.facebook.com/agentesva/',
+  ],
 };
 
 export const founder = {
@@ -51,7 +61,7 @@ export const website = {
   '@id': WEBSITE_ID,
   name: 'AgentesVA',
   url: SITE,
-  inLanguage: 'es',
+  inLanguage: ['en', 'es'],
   publisher: { '@id': ORG_ID },
   potentialAction: {
     '@type': 'SearchAction',
