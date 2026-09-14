@@ -2,6 +2,12 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [0.9.4.0] - 2026-09-14
+
+### Changed
+- La home en español e inglés identifica a los responsables de AgentesVA y enlaza sus perfiles, la metodología editorial y la documentación de los seis casos de la demo.
+- Los perfiles oficiales incluyen Facebook e Instagram; los datos estructurados conectan la página de inicio con la organización, el contacto y las tres áreas de servicio.
+
 ## [0.9.3.0] - 2026-09-12
 
 ### Changed
