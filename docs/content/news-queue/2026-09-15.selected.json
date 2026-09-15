@@ -1,0 +1,90 @@
+{
+  "date": "2026-09-15",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "Superhuman acquires YC-backed notetaker Fathom as productivity platforms push for agentic work",
+      "url": "https://techcrunch.com/2026/09/14/superhuman-acquires-yc-backed-notetaker-fathom-as-productivity-platforms-push-for-agentic-work/",
+      "fecha": "2026-09-14T14:45:44.000Z",
+      "resumen": "The notetaker offers a generous free plan, and that has resulted in over 400,000 monthly active users. The company said that over 1 million people have recorded meetings until now.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "superhuman-acquires-yc-backed-notetaker-fathom-as-productivi",
+      "signals": {
+        "hn": 8,
+        "reddit": 0,
+        "social": 0.2890551612219778,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.4712608641975309,
+        "authority": 0.9
+      },
+      "score": 0.4908,
+      "tema": "Automatización"
+    },
+    {
+      "titulo": "Fashion app Daydream uses Apple Intelligence to help you shop the outfits in your camera roll",
+      "url": "https://techcrunch.com/2026/09/14/fashion-discovery-app-daydream-uses-apple-intelligence-to-help-you-shop-the-outfits-saved-in-your-camera-roll/",
+      "fecha": "2026-09-14T17:00:00.000Z",
+      "resumen": "Thanks to the launch of iOS 27, Daydream's app now includes features that can turn saved outfit photos into shoppable results and search for products through Siri without opening the app.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "fashion-app-daydream-uses-apple-intelligence-to-help-you-sho",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5334213580246914,
+        "authority": 0.9
+      },
+      "score": 0.47,
+      "tema": "Actualidad"
+    },
+    {
+      "titulo": "With iOS 27, I’m actually using Siri again",
+      "url": "https://techcrunch.com/2026/09/14/with-ios-27-im-actually-using-siri-again/",
+      "fecha": "2026-09-14T17:10:30.000Z",
+      "resumen": "Apple’s long-delayed Siri overhaul is finally here with iOS 27, and it changes how useful the assistant feels day to day.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "with-ios-27-i-m-actually-using-siri-again",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5382824691358026,
+        "authority": 0.9
+      },
+      "score": 0.3707,
+      "tema": "Asistentes"
+    },
+    {
+      "titulo": "Nvidia CEO Jensen Huang tells Trump ‘we’re not going to let [an AI slowdown] happen’",
+      "url": "https://techcrunch.com/2026/09/14/nvidia-ceo-jensen-huang-tells-trump-were-not-going-to-let-an-ai-slowdown-happen/",
+      "fecha": "2026-09-14T21:51:02.000Z",
+      "resumen": "Though Elon Musk and Sam Altman have supported Dario Amodei's calls to slow the pace of AI development, Jensen Huang seems to feel differently.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "nvidia-ceo-jensen-huang-tells-trump-we-re-not-going-to-let-a",
+      "signals": {
+        "hn": 14,
+        "reddit": 0,
+        "social": 0.3562566592195134,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.6681590123456791,
+        "authority": 0.9
+      },
+      "score": 0.4505,
+      "tema": "Actualidad"
+    }
+  ]
+}
