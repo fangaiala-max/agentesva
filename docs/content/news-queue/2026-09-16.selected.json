@@ -1,0 +1,90 @@
+{
+  "date": "2026-09-16",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "Meta now lets AI agents handle the boring parts of WhatsApp Business setup",
+      "url": "https://techcrunch.com/2026/09/15/meta-now-lets-ai-agents-handle-the-boring-parts-of-whatsapp-business-setup/",
+      "fecha": "2026-09-15T20:12:53.000Z",
+      "resumen": "A new WhatsApp Business MCP server lets developers use AI coding agents like Claude, Cursor, Codex, and ChatGPT to handle setup, messaging templates, testing, and troubleshooting.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "meta-now-lets-ai-agents-handle-the-boring-parts-of-whatsapp-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.6253154706790123,
+        "authority": 0.9
+      },
+      "score": 0.4838,
+      "tema": "Código"
+    },
+    {
+      "titulo": "The AI graveyard: a running list of projects and startups that didn’t make it",
+      "url": "https://techcrunch.com/2026/09/15/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
+      "fecha": "2026-09-15T19:00:00.000Z",
+      "resumen": "From Apple's repeatedly delayed Siri AI to OpenAI's messy \"super app\" launch, here's a look at the AI projects that shut down or missed expectations.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "the-ai-graveyard-a-running-list-of-projects-and-startups-tha",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5915731867283951,
+        "authority": 0.9
+      },
+      "score": 0.4787,
+      "tema": "Automatización"
+    },
+    {
+      "titulo": "Meta expands subscription push with new AI-focused plans",
+      "url": "https://techcrunch.com/2026/09/15/meta-expands-subscription-push-with-new-ai-focused-plans/",
+      "fecha": "2026-09-15T17:05:24.000Z",
+      "resumen": "Meta One bundles expanded access to the company’s AI tools with premium features across Facebook, Instagram, and WhatsApp.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "meta-expands-subscription-push-with-new-ai-focused-plans",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5385176311728395,
+        "authority": 0.9
+      },
+      "score": 0.4708,
+      "tema": "WhatsApp"
+    },
+    {
+      "titulo": "Meta&#8217;s new One subscriptions put a price on social media and AI",
+      "url": "https://www.theverge.com/tech/995453/meta-one-subscriptions-ai",
+      "fecha": "2026-09-15T15:00:00.000Z",
+      "resumen": "Shortly after launching its new do-everything AI assistant Muse, Meta's launching subscription bundles that pair its standalone app subscriptions with extra AI usage. Some of the new Meta One bundles were in testing earlier this year, but are now available globally starting today, with several tiers for individual users, creators, and businesses. Meta says the \"core experience\" on its apps and Met",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "meta-8217-s-new-one-subscriptions-put-a-price-on-social-medi",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.48046207561728393,
+        "authority": 0.9
+      },
+      "score": 0.4621,
+      "tema": "Asistentes"
+    }
+  ]
+}

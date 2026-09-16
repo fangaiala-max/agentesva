@@ -1,0 +1,166 @@
+{
+  "date": "2026-09-16",
+  "generatedAt": "2026-09-16T09:42:12.115Z",
+  "candidates": [
+    {
+      "titulo": "Meta now lets AI agents handle the boring parts of WhatsApp Business setup",
+      "url": "https://techcrunch.com/2026/09/15/meta-now-lets-ai-agents-handle-the-boring-parts-of-whatsapp-business-setup/",
+      "fecha": "2026-09-15T20:12:53.000Z",
+      "resumen": "A new WhatsApp Business MCP server lets developers use AI coding agents like Claude, Cursor, Codex, and ChatGPT to handle setup, messaging templates, testing, and troubleshooting.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "meta-now-lets-ai-agents-handle-the-boring-parts-of-whatsapp-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.6253154706790123,
+        "authority": 0.9
+      },
+      "score": 0.4838
+    },
+    {
+      "titulo": "The AI graveyard: a running list of projects and startups that didn’t make it",
+      "url": "https://techcrunch.com/2026/09/15/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
+      "fecha": "2026-09-15T19:00:00.000Z",
+      "resumen": "From Apple's repeatedly delayed Siri AI to OpenAI's messy \"super app\" launch, here's a look at the AI projects that shut down or missed expectations.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "the-ai-graveyard-a-running-list-of-projects-and-startups-tha",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5915731867283951,
+        "authority": 0.9
+      },
+      "score": 0.4787
+    },
+    {
+      "titulo": "Meta expands subscription push with new AI-focused plans",
+      "url": "https://techcrunch.com/2026/09/15/meta-expands-subscription-push-with-new-ai-focused-plans/",
+      "fecha": "2026-09-15T17:05:24.000Z",
+      "resumen": "Meta One bundles expanded access to the company’s AI tools with premium features across Facebook, Instagram, and WhatsApp.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "meta-expands-subscription-push-with-new-ai-focused-plans",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5385176311728395,
+        "authority": 0.9
+      },
+      "score": 0.4708
+    },
+    {
+      "titulo": "Meta&#8217;s new One subscriptions put a price on social media and AI",
+      "url": "https://www.theverge.com/tech/995453/meta-one-subscriptions-ai",
+      "fecha": "2026-09-15T15:00:00.000Z",
+      "resumen": "Shortly after launching its new do-everything AI assistant Muse, Meta's launching subscription bundles that pair its standalone app subscriptions with extra AI usage. Some of the new Meta One bundles were in testing earlier this year, but are now available globally starting today, with several tiers for individual users, creators, and businesses. Meta says the \"core experience\" on its apps and Met",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "meta-8217-s-new-one-subscriptions-put-a-price-on-social-medi",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.48046207561728393,
+        "authority": 0.9
+      },
+      "score": 0.4621
+    },
+    {
+      "titulo": "Early Anthropic hire, former METR COO have found a way to rein in rogue AI agents",
+      "url": "https://techcrunch.com/2026/09/15/early-anthropic-hire-former-metr-coo-have-found-a-way-to-rein-in-rogue-ai-agents/",
+      "fecha": "2026-09-15T13:00:00.000Z",
+      "resumen": "Their startup, Artificial Intelligence Underwriting Company (AIUC) has raised $40 million in a Series A round led by Ribbit Capital, with participation from First Harmonic.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "early-anthropic-hire-former-metr-coo-have-found-a-way-to-rei",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.42490652006172835,
+        "authority": 0.9
+      },
+      "score": 0.4537
+    },
+    {
+      "titulo": "Nvidia CEO Jensen Huang tells Trump ‘we’re not going to let [an AI slowdown] happen’",
+      "url": "https://techcrunch.com/2026/09/14/nvidia-ceo-jensen-huang-tells-trump-were-not-going-to-let-an-ai-slowdown-happen/",
+      "fecha": "2026-09-14T21:51:02.000Z",
+      "resumen": "Though Elon Musk and Sam Altman have supported Dario Amodei's calls to slow the pace of AI development, Jensen Huang seems to feel differently.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "nvidia-ceo-jensen-huang-tells-trump-we-re-not-going-to-let-a",
+      "signals": {
+        "hn": 17,
+        "reddit": 0,
+        "social": 0.38024191204114793,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.004088618827160384,
+        "authority": 0.9
+      },
+      "score": 0.3617
+    },
+    {
+      "titulo": "This doorbell camera lets a human security guard watch your front door",
+      "url": "https://www.theverge.com/tech/995365/simplisafe-video-doorbell-series-2-virtual-guard-price-specs",
+      "fecha": "2026-09-15T13:36:45.000Z",
+      "resumen": "The new SimpliSafe Video Doorbell Series 2 adds 2K resolution and dual band Wi-Fi. | Image: Simplisafe\t\n\nDIY home security company SimpliSafe is bringing its AI-powered proactive security feature to the front door. The new SimpliSafe Video Doorbell Series 2 launches today for $199.99 and works with the company's Active Guard Outdoor Protection (starting at $49.99 a month). This combines AI analysi",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "this-doorbell-camera-lets-a-human-security-guard-watch-your-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.44192040895061735,
+        "authority": 0.9
+      },
+      "score": 0.3563
+    },
+    {
+      "titulo": "AI agents now have a place to snitch",
+      "url": "https://techcrunch.com/2026/09/15/ai-agents-now-have-a-place-to-snitch/",
+      "fecha": "2026-09-15T17:42:59.000Z",
+      "resumen": "The AI Contact Hotline is designed to be a discreet place where agents that have witnessed misbehavior can tip off authorities.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "ai-agents-now-have-a-place-to-snitch",
+      "signals": {
+        "hn": 3,
+        "reddit": 0,
+        "social": 0.18237350163834035,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.5559173225308642,
+        "authority": 0.9
+      },
+      "score": 0.3555
+    }
+  ]
+}
