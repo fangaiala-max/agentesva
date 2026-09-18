@@ -1,0 +1,90 @@
+{
+  "date": "2026-09-18",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "The FAA’s plan to fix air traffic? $875M worth of AI",
+      "url": "https://techcrunch.com/2026/09/17/the-faas-plan-to-fix-air-traffic-875-million-worth-of-ai/",
+      "fecha": "2026-09-17T22:14:59.000Z",
+      "resumen": "A new AI-based software program is being launched to help air traffic controllers better navigate their jobs as the crossing guards of America's skies.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "the-faa-s-plan-to-fix-air-traffic-875m-worth-of-ai",
+      "signals": {
+        "hn": 37,
+        "reddit": 0,
+        "social": 0.47854145848544755,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.6901051466049383,
+        "authority": 0.9
+      },
+      "score": 0.5089,
+      "tema": "Actualidad"
+    },
+    {
+      "titulo": "Claude Code relaunches Projects to manage multiple AI agents in the cloud",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/997134/anthropic-claude-code-projects",
+      "fecha": "2026-09-17T18:58:05.000Z",
+      "resumen": "The revamped projects feature in Claude Code allows users to run multiple agents under the same roof, with a shared memory, goals, and library of files and artifacts. Similar to Grok Bot and other tools that manage groups of AI agents, each project has \"threads\" running different tasks in parallel, with a \"coordinator\" directing everything: \nUnder the hood, each thread is a Claude Code cloud sessi",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "claude-code-relaunches-projects-to-manage-multiple-ai-agents",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5989477391975309,
+        "authority": 0.9
+      },
+      "score": 0.4798,
+      "tema": "Código"
+    },
+    {
+      "titulo": "Microsoft exec called AI scraping ‘the largest theft of labor in human history,’ new unredacted filings reveal",
+      "url": "https://techcrunch.com/2026/09/17/microsoft-exec-called-ai-scraping-the-largest-theft-of-labor-in-human-history-new-unredacted-filings-reveal/",
+      "fecha": "2026-09-17T19:46:08.000Z",
+      "resumen": "Newly unsealed court filings show Microsoft privately called OpenAI's data practices \"theft\" while both companies scraped paywalled Times content, built datasets from it, and warned internally it would gut publishers.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "microsoft-exec-called-ai-scraping-the-largest-theft-of-labor",
+      "signals": {
+        "hn": 24,
+        "reddit": 0,
+        "social": 0.4234581572170489,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.6211931095679013,
+        "authority": 0.9
+      },
+      "score": 0.4737,
+      "tema": "Marketing"
+    },
+    {
+      "titulo": "Snap is launching a new Specs AI tool, and it’s coming to iOS and Mac",
+      "url": "https://www.theverge.com/tech/996078/snap-specs-intelligence-ai-agent-ios-mac",
+      "fecha": "2026-09-16T23:40:00.000Z",
+      "resumen": "Snap is introducing \"Specs Intelligence,\" a new AI assistant that can connect other digital accounts to help you with things like work tasks and keeping track of travel information. It seems similar to AI assistants like Meta's Muse and Gemini's Spark, though Snap is pitching Specs Intelligence as an \"anticipatory AI service\" that \"helps you manage what needs attention today, so you can make progr",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "snap-is-launching-a-new-specs-ai-tool-and-it-s-coming-to-ios",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.06279804783950615,
+        "authority": 0.9
+      },
+      "score": 0.3994,
+      "tema": "Asistentes"
+    }
+  ]
+}
