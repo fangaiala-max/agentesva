@@ -1,0 +1,27 @@
+{
+  "date": "2026-09-21",
+  "count": 1,
+  "selected": [
+    {
+      "titulo": "Amazon doesn’t trust Meta’s Muse AI agent",
+      "url": "https://www.theverge.com/tech/998078/amazon-blocks-meta-muse-ai-agent-shopping",
+      "fecha": "2026-09-21T09:21:47.000Z",
+      "resumen": "Meta's Muse AI agent has been blocked from shopping Amazon on behalf of its users, GeekWire reports. A popup message started appearing on Sunday for Muse users saying that \"continued access by an unauthorized AI agent violates Amazon's Conditions of Use, to which our customers have agreed.\"\nAccording to GeekWire, Meta didn't notify Amazon that Muse would access its store. Amazon also expressed pri",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "amazon-doesn-t-trust-meta-s-muse-ai-agent",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.9704512885802469,
+        "authority": 0.9
+      },
+      "score": 0.4356,
+      "tema": "Automatización"
+    }
+  ]
+}
