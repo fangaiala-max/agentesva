@@ -1,0 +1,186 @@
+{
+  "date": "2026-09-24",
+  "generatedAt": "2026-09-24T09:43:34.249Z",
+  "candidates": [
+    {
+      "titulo": "Gemini 4 is almost ready, says new Google DeepMind chief",
+      "url": "https://www.theverge.com/tech/999802/google-deepmind-gemini-4-timeline-koray-kavukcuoglu",
+      "fecha": "2026-09-24T09:04:18.000Z",
+      "resumen": "Google is reportedly nearing the launch of its long awaited Gemini 4 model, after dawdling behind rival developers on flagship AI releases. Speaking with The Information during his first media appearance as the leader of Google's DeepMind division, Koray Kavukcuoglu said that Gemini 4 is currently in its refinement stage, and that the company is aiming to launch the model \"much earlier\" than the e",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "gemini-4-is-almost-ready-says-new-google-deepmind-chief",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.9818190663580247,
+        "authority": 0.9
+      },
+      "score": 0.5373
+    },
+    {
+      "titulo": "Meta is making Muse more powerful and will let you video chat with it, too",
+      "url": "https://www.theverge.com/tech/999454/meta-muse-ai-agent-video-chat-connect-2026",
+      "fecha": "2026-09-23T23:19:42.000Z",
+      "resumen": "Meta is quickly iterating on its new Muse AI agent, announcing a bunch of updates today that make the bot more capable and able to chat with you in more ways.\nMuse agents are getting their own email addresses that they can use for accomplishing tasks. You'll also be able to communicate with your Muse agent over the new email addresses, too. In addition, the recently launched Muse Mac app will be g",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "meta-is-making-muse-more-powerful-and-will-let-you-video-cha",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.7111709182098765,
+        "authority": 0.9
+      },
+      "score": 0.4967
+    },
+    {
+      "titulo": "Anthropic&#8217;s biolab made a discovery it&#8217;s comparing to Crispr",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/999470/anthropic-biolab-claude-crispr",
+      "fecha": "2026-09-23T18:00:00.000Z",
+      "resumen": "Anthropic says its AI Claude has \"autonomously discovered\" a new enzyme system similar to machinery behind the powerful gene-editing tool Crispr. It's the first result from Anthropic's newly-launched wet lab and an early test of Claude's usefulness for science as the company prepares to go public. \nThe company says Claude found the enzyme system after searching through a massive database of DNA se",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "anthropic-8217-s-biolab-made-a-discovery-it-8217-s-comparing",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5631616589506173,
+        "authority": 0.9
+      },
+      "score": 0.4745
+    },
+    {
+      "titulo": "ChatGPT mobile app gets voice-based agentic features",
+      "url": "https://techcrunch.com/2026/09/23/chatgpt-mobile-app-gets-voice-based-agentic-features/",
+      "fecha": "2026-09-23T17:00:00.000Z",
+      "resumen": "Pro and Plus users will be able to use the Work tab on their phones to complete agentic tasks.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "chatgpt-mobile-app-gets-voice-based-agentic-features",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5353838811728395,
+        "authority": 0.9
+      },
+      "score": 0.4703
+    },
+    {
+      "titulo": "YouTube will let you build your own algorithm with AI",
+      "url": "https://techcrunch.com/2026/09/23/youtube-will-let-you-build-your-own-algorithm-with-ai/",
+      "fecha": "2026-09-23T14:30:00.000Z",
+      "resumen": "YouTube’s new custom feeds let users describe the videos they want to see in their own words, then use Gemini to build a personalized feed around the request.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "youtube-will-let-you-build-your-own-algorithm-with-ai",
+      "signals": {
+        "hn": 12,
+        "reddit": 0,
+        "social": 0.33743107449949206,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.465939436728395,
+        "authority": 0.9
+      },
+      "score": 0.4117
+    },
+    {
+      "titulo": "Muse is coming to Meta smart glasses",
+      "url": "https://www.theverge.com/tech/999673/meta-connect-2026-muse-glasses-features",
+      "fecha": "2026-09-23T23:40:56.000Z",
+      "resumen": "Just a couple of weeks after launching Muse, Meta announced that it's \"working on\" bringing the agent to its smart glasses, including the new glasses it unveiled at Meta Connect. Users will be able to activate Muse from their glasses by saying its name and ask it to handle tasks like guiding a workout, logging meals, or helping them shop for products they're looking at. \nMuse is just one of severa",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "muse-is-coming-to-meta-smart-glasses",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.7210011651234568,
+        "authority": 0.9
+      },
+      "score": 0.3982
+    },
+    {
+      "titulo": "Snorkel AI triples valuation to $3.5B as demand for AI training data booms",
+      "url": "https://techcrunch.com/2026/09/22/snorkel-ai-triples-valuation-to-3-5b-as-demand-for-ai-training-data-booms/",
+      "fecha": "2026-09-22T21:56:43.000Z",
+      "resumen": "The seven-year-old startup has raised a $350 million Series E to fuel its data-as-a-service approach.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "snorkel-ai-triples-valuation-to-3-5b-as-demand-for-ai-traini",
+      "signals": {
+        "hn": 4,
+        "reddit": 0,
+        "social": 0.21172907860852444,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.006086041666666597,
+        "authority": 0.9
+      },
+      "score": 0.3862
+    },
+    {
+      "titulo": "YouTube Music gets more conversational with new AI features",
+      "url": "https://techcrunch.com/2026/09/23/youtube-music-gets-more-conversational-with-new-ai-features/",
+      "fecha": "2026-09-23T15:19:30.000Z",
+      "resumen": "Built directly into the YouTube Music app, Ask Music lets users describe what they want to hear in everyday language rather than searching for individual songs or artists.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "youtube-music-gets-more-conversational-with-new-ai-features",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.4888561033950617,
+        "authority": 0.9
+      },
+      "score": 0.3633
+    },
+    {
+      "titulo": "YouTube releases new AI features for creators within its Studio app",
+      "url": "https://techcrunch.com/2026/09/23/youtube-releases-new-ai-features-for-creators-within-its-studio-app/",
+      "fecha": "2026-09-23T14:30:00.000Z",
+      "resumen": "YouTube is adding new features to generate ideas and monitor the performance of thumbnails.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "youtube-releases-new-ai-features-for-creators-within-its-stu",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.465939436728395,
+        "authority": 0.9
+      },
+      "score": 0.3599
+    }
+  ]
+}
