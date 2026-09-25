@@ -1,0 +1,90 @@
+{
+  "date": "2026-09-25",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "Why can’t we just keep rogue AIs off the internet?",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/999881/why-cant-we-airgap-rogue-ai-agents",
+      "fecha": "2026-09-24T14:30:00.000Z",
+      "resumen": "AI agents keep getting loose, escaping supposedly secure tests to attack real-world targets, commandeer obscure wikis, and leave instructions for other agents to follow. Researchers are testing these systems precisely because they might behave in unpredictable, even dangerous, ways. So wouldn't it be safer to just keep the agents off the internet?\n\n\"A strict air gap reduces realism … [It's a] trad",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "why-can-t-we-just-keep-rogue-ais-off-the-internet",
+      "signals": {
+        "hn": 15,
+        "reddit": 0,
+        "social": 0.3647470032766807,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.4579225231481482,
+        "authority": 0.9
+      },
+      "score": 0.5228,
+      "tema": "Automatización"
+    },
+    {
+      "titulo": "Gemini can now call businesses for you so you don’t have to wait on hold",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1000116/google-gemini-business-phone-calls",
+      "fecha": "2026-09-24T16:04:31.000Z",
+      "resumen": "Google's launching an \"early experiment\" feature on Pixel 11 that lets users delegate local business calls to Gemini, like making a reservation, checking if a product is in stock, or rescheduling an appointment. According to Google, you don't even need to start the call to have Gemini handle it for you: \nInstead of dialing yourself, just tell Gemini to call on your behalf using the Gemini app on y",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "gemini-can-now-call-businesses-for-you-so-you-don-t-have-to-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5016802391975308,
+        "authority": 0.9
+      },
+      "score": 0.4653,
+      "tema": "Asistentes"
+    },
+    {
+      "titulo": "Ando wants to take on Slack with a team messaging app that lets humans and agents work together",
+      "url": "https://techcrunch.com/2026/09/24/ando-eyes-slack-as-it-builds-team-messaging-platform-for-humans-and-agents-to-work-together/",
+      "fecha": "2026-09-24T14:31:00.000Z",
+      "resumen": "The app gives agents their own identities and inboxes and lets them partake in conversations as naturally as people can.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "ando-wants-to-take-on-slack-with-a-team-messaging-app-that-l",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.4583854861111111,
+        "authority": 0.9
+      },
+      "score": 0.3588,
+      "tema": "Código"
+    },
+    {
+      "titulo": "Meta is going to let you build games with AI right on your phone",
+      "url": "https://www.theverge.com/games/999972/meta-horizon-create-studio-ai-games",
+      "fecha": "2026-09-24T17:52:29.000Z",
+      "resumen": "Meta has a new plan to get people to make games for its Horizon social platform. The company today announced two new development tools  that will let you create games with AI prompts: Horizon Create, a mobile app, and Horizon Studio, a browser app that offers more granular controls. The apps will be available in early access, and interested users can sign up for a waitlist.\nHorizon has struggled a",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "meta-is-going-to-let-you-build-games-with-ai-right-on-your-p",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5516648070987654,
+        "authority": 0.9
+      },
+      "score": 0.3727,
+      "tema": "Automatización"
+    }
+  ]
+}
