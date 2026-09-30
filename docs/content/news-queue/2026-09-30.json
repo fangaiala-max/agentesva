@@ -1,0 +1,206 @@
+{
+  "date": "2026-09-30",
+  "generatedAt": "2026-09-30T10:55:12.595Z",
+  "candidates": [
+    {
+      "titulo": "OpenAI’s latest features take direct aim at the app store model",
+      "url": "https://techcrunch.com/2026/09/29/openais-latest-features-take-direct-aim-at-the-app-store-model/",
+      "fecha": "2026-09-29T20:15:47.000Z",
+      "resumen": "OpenAI is building out the pieces of an alternative to the traditional app store model, turning ChatGPT into a place where software can be discovered and used by people and AI agents alike.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "openai-s-latest-features-take-direct-aim-at-the-app-store-mo",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.592858063271605,
+        "authority": 0.9
+      },
+      "score": 0.4789
+    },
+    {
+      "titulo": "OpenAI takes on Microsoft with the launch of what feels a whole lot like ChatGPT’s own office suite",
+      "url": "https://techcrunch.com/2026/09/29/openai-takes-on-microsoft-with-the-launch-of-what-feels-a-whole-lot-like-chatgpts-own-office-suite/",
+      "fecha": "2026-09-29T17:45:51.000Z",
+      "resumen": "OpenAI's newly announced suite of office features puts it into more direct competition with more traditional software companies.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "openai-takes-on-microsoft-with-the-launch-of-what-feels-a-wh",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5234444830246914,
+        "authority": 0.9
+      },
+      "score": 0.4685
+    },
+    {
+      "titulo": "OpenAI expands ChatGPT’s plug-ins with app-like interfaces and automations",
+      "url": "https://techcrunch.com/2026/09/29/openai-expands-chatgpts-plugins-with-app-like-interfaces-and-automations/",
+      "fecha": "2026-09-29T17:15:00.000Z",
+      "resumen": "OpenAI is expanding ChatGPT plug-ins with dedicated sidebar homes, interactive panels, file viewers, improved discovery, and support for automations.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "openai-expands-chatgpt-s-plug-ins-with-app-like-interfaces-a",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.509162075617284,
+        "authority": 0.9
+      },
+      "score": 0.4664
+    },
+    {
+      "titulo": "OpenAI launches Dots, its Muse competitor",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1002033/openai-dots-launch-muse-competitor",
+      "fecha": "2026-09-29T17:15:00.000Z",
+      "resumen": "Like Muse, OpenAI’s Dots are represented by cute, customizable avatars. | Image: OpenAI\t\n\nOpenAI is responding to Meta's buzzy Muse AI with agentic helpers of its own: Dots. During its DevDay keynote on Tuesday, OpenAI announced that Dots will serve as always-on AI assistants that can \"do nearly anything\" across connected apps in the background while learning your preferences over time.\nThe compan",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "openai-launches-dots-its-muse-competitor",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.509162075617284,
+        "authority": 0.9
+      },
+      "score": 0.4664
+    },
+    {
+      "titulo": "Meta&#8217;s Muse AI sent a YouTuber’s address to a stranger",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1001886/meta-muse-ai-facebook-marketplace-security-concerns",
+      "fecha": "2026-09-29T14:08:21.000Z",
+      "resumen": "Tech YouTuber Matt Robb says that Muse gave out his home address to a total stranger this weekend, after authorizing the bot to handle his Facebook Marketplace account. That's despite Meta placing great emphasis on the security features of Muse when it launched the personal AI agent earlier this month as it tries to catch up with competing AI providers like Anthropic and OpenAI.\n\"Just found out it",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "meta-8217-s-muse-ai-sent-a-youtuber-s-address-to-a-stranger",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.42275003858024685,
+        "authority": 0.9
+      },
+      "score": 0.4534
+    },
+    {
+      "titulo": "OpenAI apologizes to Australia after its AI agents breached government sites",
+      "url": "https://techcrunch.com/2026/09/29/openai-apologizes-to-australia-after-its-ai-agents-breached-government-sites/",
+      "fecha": "2026-09-29T12:45:05.000Z",
+      "resumen": "The company also detailed how some of those breaches had happened, and outlined additional measures it is taking to assess the impact of the events.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "openai-apologizes-to-australia-after-its-ai-agents-breached-",
+      "signals": {
+        "hn": 2,
+        "reddit": 0,
+        "social": 0.1445275806109889,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.3842006558641975,
+        "authority": 0.9
+      },
+      "score": 0.4127
+    },
+    {
+      "titulo": "The internet is convinced Elon Musk’s xAI trolled OpenAI’s ‘Dots’ launch",
+      "url": "https://techcrunch.com/2026/09/29/the-internet-is-convinced-elon-musks-xai-trolled-openais-dots-launch/",
+      "fecha": "2026-09-29T22:20:59.000Z",
+      "resumen": "Before OpenAI launched its new AI agent, Dots, on Tuesday, Elon Musk's xAI had already acquired the domain name \"dot.com,\" which now redirects to the Grok chatbot download page.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "the-internet-is-convinced-elon-musk-s-xai-trolled-openai-s-d",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.650821026234568,
+        "authority": 0.9
+      },
+      "score": 0.3876
+    },
+    {
+      "titulo": "AI-powered app maker Wabi pivots to a messaging experience",
+      "url": "https://techcrunch.com/2026/09/29/ai-powered-app-maker-wabi-pivots-to-a-messaging-experience/",
+      "fecha": "2026-09-29T17:20:00.000Z",
+      "resumen": "Wabi is repositioning its prompt-based app builder as a personal AI agent that can create interfaces on demand, combining chat, apps, and ongoing tasks.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "ai-powered-app-maker-wabi-pivots-to-a-messaging-experience",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5114768904320988,
+        "authority": 0.9
+      },
+      "score": 0.3667
+    },
+    {
+      "titulo": "OpenAI launches Dots, its bubbly agentic avatar",
+      "url": "https://techcrunch.com/2026/09/29/openai-launches-dots-its-bubbly-agentic-avatar/",
+      "fecha": "2026-09-29T17:17:15.000Z",
+      "resumen": "Dots are meant to operate independent of any specific hardware or interface, pursuing user-defined goals continuously in the background with minimal oversight.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "openai-launches-dots-its-bubbly-agentic-avatar",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5102037422839506,
+        "authority": 0.9
+      },
+      "score": 0.3665
+    },
+    {
+      "titulo": "OpenAI launches GPT-6.1 Sol, says it nearly matches GPT-6 Astra and costs less",
+      "url": "https://techcrunch.com/2026/09/29/openai-launches-gpt-6-1-sol-says-it-nearly-matches-gpt-6-astra-and-costs-less/",
+      "fecha": "2026-09-29T17:15:00.000Z",
+      "resumen": "OpenAI says GPT-6.1 Sol delivers significant improvements over GPT-6 Sol across complex professional tasks, including code writing and debugging, document understanding, and executing multistep business workflows.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "openai-launches-gpt-6-1-sol-says-it-nearly-matches-gpt-6-ast",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.509162075617284,
+        "authority": 0.9
+      },
+      "score": 0.3664
+    }
+  ]
+}
