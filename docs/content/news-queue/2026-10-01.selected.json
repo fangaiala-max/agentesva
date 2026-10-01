@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-01",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "Reddit is killing RSS feeds and ending public API access because of AI bots",
+      "url": "https://techcrunch.com/2026/09/30/reddit-is-killing-rss-feeds-ending-public-api-access-because-of-ai-bots/",
+      "fecha": "2026-09-30T17:45:00.000Z",
+      "resumen": "Reddit is ending support for RSS feeds, as the company continues tightening access to its trove of user-generated content.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "reddit-is-killing-rss-feeds-and-ending-public-api-access-bec",
+      "signals": {
+        "hn": 56,
+        "reddit": 0,
+        "social": 0.5318822882772664,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.5095909259259259,
+        "authority": 0.9
+      },
+      "score": 0.5058,
+      "tema": "Marketing"
+    },
+    {
+      "titulo": "Instagram is adding an AI ‘assistant’ to tell you how to post",
+      "url": "https://www.theverge.com/tech/1002402/instagram-ai-edits-assistant-creators-analytics-youtube",
+      "fecha": "2026-09-30T14:30:00.000Z",
+      "resumen": "Instagram is the latest social media platform to add built-in AI-powered features that will give users feedback on their posts. The company announced Wednesday that its standalone Edits app will now include an AI \"creative assistant\" that pulls in data from a user's Instagram account and offers suggestions on what to change.\nUsing the new assistant, creators can ask open-ended questions about what",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "instagram-is-adding-an-ai-assistant-to-tell-you-how-to-post",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.41931314814814824,
+        "authority": 0.9
+      },
+      "score": 0.4529,
+      "tema": "Asistentes"
+    },
+    {
+      "titulo": "Google releases Gemini 4 Argon, called its most powerful model yet",
+      "url": "https://techcrunch.com/2026/09/30/google-releases-gemini-4-argon-called-its-most-powerful-model-yet/",
+      "fecha": "2026-09-30T23:43:07.000Z",
+      "resumen": "Google has released its latest Gemini model, marketing it as a workhorse for coding and cybersecurity work.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "google-releases-gemini-4-argon-called-its-most-powerful-mode",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.6753856790123456,
+        "authority": 0.9
+      },
+      "score": 0.3913,
+      "tema": "Código"
+    },
+    {
+      "titulo": "OpenAI’s Jev clone could help the frontier lab stop its swarming agents",
+      "url": "https://techcrunch.com/2026/09/30/openais-jev-clone-could-help-the-frontier-lab-stop-its-swarming-agents/",
+      "fecha": "2026-09-30T19:00:57.000Z",
+      "resumen": "OpenAI's \"Decisions API\" is a Jev clone that confirms the importance of fast, cheap intelligence.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "openai-s-jev-clone-could-help-the-frontier-lab-stop-its-swar",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.544752962962963,
+        "authority": 0.9
+      },
+      "score": 0.3717,
+      "tema": "Automatización"
+    }
+  ]
+}
