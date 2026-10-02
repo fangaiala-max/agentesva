@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-02",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "Google’s new Guided Vision feature can help you read the fine print",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1003756/google-gemini-live-guided-vision",
+      "fecha": "2026-10-01T19:47:51.000Z",
+      "resumen": "Guided Vision is launching in Gemini Live on compatible Android devices today to use AI to give real-time audio descriptions of anything you point your phone's camera at. By sharing your camera in Gemini Live, you can have Google's AI help with things like reading small text, describing your surroundings, finding or identifying objects around you, and describing details on specific objects. \nLike ",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "google-s-new-guided-vision-feature-can-help-you-read-the-fin",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5804052314814815,
+        "authority": 0.9
+      },
+      "score": 0.4771,
+      "tema": "Código"
+    },
+    {
+      "titulo": "ChatGPT can now virtually try on clothes for you",
+      "url": "https://techcrunch.com/2026/10/01/chatgpt-can-now-virtually-try-on-clothes-for-you/",
+      "fecha": "2026-10-01T19:21:53.000Z",
+      "resumen": "OpenAI is rolling out new shopping features for ChatGPT that let users virtually try on clothing and accessories using their own photos and save products they like to a Favorites library.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "chatgpt-can-now-virtually-try-on-clothes-for-you",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5683836265432098,
+        "authority": 0.9
+      },
+      "score": 0.4753,
+      "tema": "Asistentes"
+    },
+    {
+      "titulo": "AI music maker Suno now generates spoken words",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1003925/suno-speech-ai-voice-feature-beta-availability",
+      "fecha": "2026-10-02T09:42:19.000Z",
+      "resumen": "Suno is branching out from the world of AI music, launching a new feature that generates spoken voices based on scripts or prompted descriptions. Speech is now available in public beta across Suno's web and mobile platforms, and allows you to simultaneously generate voiceovers and background music to accompany them.\n\"Music will always be at the heart of Suno and what we build. At the same time, ou",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "ai-music-maker-suno-now-generates-spoken-words",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.9667323919753087,
+        "authority": 0.9
+      },
+      "score": 0.435,
+      "tema": "Automatización"
+    },
+    {
+      "titulo": "Photon held a funeral for mobile apps. Now it has $4.5M to help replace them with agents.",
+      "url": "https://techcrunch.com/2026/10/01/photon-held-a-funeral-for-mobile-apps-now-it-has-4-5m-to-help-replace-them-with-agents/",
+      "fecha": "2026-10-01T14:00:00.000Z",
+      "resumen": "The startup helps developers build AI agents that work over iMessage, SMS/RCS, email, and other messaging platforms. It's a bet that consumers will increasingly use agents instead of downloading apps.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "photon-held-a-funeral-for-mobile-apps-now-it-has-4-5m-to-hel",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.41936356481481474,
+        "authority": 0.9
+      },
+      "score": 0.4529,
+      "tema": "Código"
+    }
+  ]
+}
