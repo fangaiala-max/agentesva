@@ -17,6 +17,8 @@ Referencia de oficio: la composición existente del propio home, observada en es
 
 - `npm run build`: aprobado, incluidas verificaciones de imágenes sociales, UI bilingüe y SEO.
 - `npm test -- tests/home.test.ts tests/agency-home.test.ts`: 48 pruebas aprobadas.
+- Verificación final para la PR: `npm test` aprobado, 507 pruebas en 60 archivos; nueva ejecución de `npm run build` aprobada.
+- Revisión de «Qué medir»: regla CSS específica para conservar un tamaño de 16 px frente a los estilos generales de las filas de servicio.
 - Home compilado servido localmente en 127.0.0.1:4387; revisión en Chrome.
 - Español: sección de decisión en escritorio y 390 px; entrega a 320 px.
 - Inglés: servicios y criterios de medición a 390 px.
@@ -32,4 +34,4 @@ No se publica un caso real porque no se dispone de evidencia verificada y autori
 
 El aviso de cookies no se renderiza en esta compilación local al faltar la configuración pública de analítica; no se modifica ni se declara corregido su comportamiento en producción. La comprobación con consentimiento activo queda pendiente. Se mantiene la lógica existente que oculta el recordatorio comercial mientras el aviso está visible, cubierta por las pruebas del home.
 
-No se despliega. Los cambios están en el proyecto local.
+Entrega preparada en la rama `feat/home-client-value`, para revisión mediante PR hacia `main`. No se despliega desde esta implementación.
