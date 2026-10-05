@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-05",
+  "generatedAt": "2026-10-05T12:04:03.193Z",
+  "candidates": [
+    {
+      "titulo": "An AI couldn’t beat humans at StarCraft, so it decided to cheat",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1004543/openai-gpt-cheat-starcraft",
+      "fecha": "2026-10-04T15:21:59.000Z",
+      "resumen": "StarSkirmish pits AI-made StarCraft-playing bots against one another, as well as against human-made bots. OpenAI's GPT-6 Astra and Claude Opus 5.5 were essentially tied as the best-performing AI-made bots, but they couldn't top Stardust, the top-rated human-made bot. \nOn Friday, GPT was facing off against Claude and the human-created bot Pluto, but according to Kotaku, it couldn't quite get an edg",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "an-ai-couldn-t-beat-humans-at-starcraft-so-it-decided-to-che",
+      "signals": {
+        "hn": 16,
+        "reddit": 0,
+        "social": 0.372722455587712,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.42496764660493824,
+        "authority": 0.9
+      },
+      "score": 0.5215
+    },
+    {
+      "titulo": "People really hate AI, so why can’t they get enough?",
+      "url": "https://www.technologyreview.com/2026/10/05/1145682/people-really-hate-ai-so-why-cant-they-get-enough/",
+      "fecha": "2026-10-05T08:00:00.000Z",
+      "resumen": "Over the summer I talked to the CEO of Springboards, a startup building an LLM that’s designed to come up with a wider variety of responses than its mainstream rivals do. At the start of the call, he said something that’s been stuck in my head since: “We often say that we’re a self-loathing AI…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "people-really-hate-ai-so-why-can-t-they-get-enough",
+      "signals": {
+        "hn": 4,
+        "reddit": 0,
+        "social": 0.21172907860852444,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.887012399691358,
+        "authority": 0.95
+      },
+      "score": 0.4233
+    }
+  ]
+}
