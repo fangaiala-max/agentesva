@@ -42,11 +42,11 @@ describe('navegación comercial', () => {
       '/servicios/automatizacion-procesos/',
     ]);
 
-    for (const deliverable of ['A working workflow', 'Tested cases', 'Documentation & handover']) {
+    for (const deliverable of ['Working workflow', 'Tested cases', 'Documentation & training']) {
       expect(page).toContain(deliverable);
     }
-    expect(page.indexOf('A working workflow')).toBeLessThan(page.indexOf('Tested cases'));
-    expect(page.indexOf('Tested cases')).toBeLessThan(page.indexOf('Documentation & handover'));
+    expect(page.indexOf('Working workflow')).toBeLessThan(page.indexOf('Tested cases'));
+    expect(page.indexOf('Tested cases')).toBeLessThan(page.indexOf('Documentation & training'));
   });
 
   it('mide todos los accesos al diagnóstico con el mismo contrato comercial', () => {

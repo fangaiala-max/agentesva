@@ -87,3 +87,14 @@
 .english-home .agency-button.primary:hover{background:linear-gradient(110deg,#2545b6,#5533a7 70%,#7f2e72)}
 .english-home .diagnostic-close{background:linear-gradient(110deg,#ecf2ff,#f1edfb 55%,#fbedf5)}
 .english-home .home-services{background:linear-gradient(120deg,#eef3fd,#f3effb)}
+
+/* Connect each service to a practical acceptance measure. */
+.english-home .service-value{min-width:0}
+.english-home .home-service-rows .service-measure{margin-top:14px;font-size:16px;line-height:1.55}
+.service-measure strong{display:block;color:var(--ink);font-size:13px;margin-bottom:3px}
+.delivery-value{margin-top:36px;padding-top:28px;border-top:1px solid var(--line)}
+.delivery-value>h3{font-size:26px;margin:0 0 24px;line-height:1.3}
+.delivery-value dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;margin:0}
+.delivery-value dt{font-size:18px;font-weight:600;margin-bottom:10px}
+.delivery-value dd{margin:0;font-size:16px;line-height:1.65;color:var(--muted)}
+@media(max-width:600px){.home-service-rows .service-value{grid-column:1 / -1}.delivery-value dl{grid-template-columns:1fr;gap:20px}.delivery-value{margin-top:24px}.delivery-value>h3{font-size:24px}}

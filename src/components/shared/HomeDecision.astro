@@ -1,0 +1,46 @@
+---
+import { localeFor } from '../../i18n/routes';
+import { assessmentHref } from '../../i18n/parity';
+const en = localeFor(Astro.url.pathname) === 'en';
+const questions = en ? [
+  ['Frequency', 'How many times a week does this task happen?'],
+  ['Time', 'How long does each case take, including checks and corrections?'],
+  ['Tools & costs', 'Could your existing tools solve it? Include licenses and ongoing support in the comparison.'],
+  ['People & exceptions', 'Who will run the workflow, review exceptions and approve the result?'],
+] : [
+  ['Frecuencia', '¿Cuántas veces por semana se repite esta tarea?'],
+  ['Tiempo', '¿Cuánto lleva cada caso, incluidas las comprobaciones y correcciones?'],
+  ['Herramientas y costes', '¿Podrían resolverlo tus herramientas actuales? Incluye licencias y soporte en la comparación.'],
+  ['Personas y excepciones', '¿Quién operará el flujo, revisará las excepciones y aprobará el resultado?'],
+];
+---
+<section class="home-decision" aria-labelledby="decision-title">
+  <div class="agency-shell decision-layout">
+    <div class="decision-intro">
+      <span class="section-number">{en ? 'Before you invest' : 'Antes de invertir'}</span>
+      <h2 id="decision-title">{en ? 'Is this task worth automating?' : '¿Compensa automatizar esta tarea?'}</h2>
+      <p>{en ? 'Start with one recurring task. Use these four questions to weigh the work it creates against the cost and effort of changing it.' : 'Empieza por una tarea recurrente. Estas cuatro preguntas te ayudan a comparar el trabajo que genera con el coste y el esfuerzo de cambiarla.'}</p>
+      <p class="decision-alternative">{en ? 'Sometimes, a better setup of your current tools is enough. If the process keeps changing, defining it first may be the better next step.' : 'A veces basta con configurar mejor las herramientas que ya usas. Si el proceso cambia cada vez, definirlo puede ser el mejor siguiente paso.'}</p>
+      <a href={assessmentHref(en ? 'en' : 'es', 'value_decision')} data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service="general_consulting" data-track-cluster="general" data-track-placement="value_decision">{en ? 'Find my starting point' : 'Encontrar mi punto de partida'} <span aria-hidden="true">↗</span></a>
+    </div>
+    <ol class="decision-questions">
+      {questions.map(([title, question], i) => <li><span class="decision-index" aria-hidden="true">0{i + 1}</span><div><h3>{title}</h3><p>{question}</p></div></li>)}
+    </ol>
+  </div>
+</section>
+<style>
+  .home-decision { background: var(--surface); color: var(--ink); padding: 72px 0; border-block: 1px solid var(--line); }
+  .decision-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; }
+  .decision-intro h2 { font-size: clamp(32px, 3.5vw, 48px); line-height: 1.12; max-width: 16ch; margin: 16px 0 24px; }
+  .decision-intro p { max-width: 46ch; font-size: 18px; line-height: 1.65; color: var(--muted); }
+  .decision-intro .decision-alternative { font-size: 16px; }
+  .decision-intro a { display: inline-flex; align-items: center; gap: 16px; min-height: 44px; margin-top: 12px; color: var(--electric); text-decoration: underline; text-underline-offset: 4px; font-size: 17px; }
+  .decision-questions { list-style: none; padding: 0; margin: 0; }
+  .decision-questions li { display: grid; grid-template-columns: 32px 1fr; gap: 20px; padding: 22px 0; border-top: 1px solid var(--line); }
+  .decision-questions li:last-child { border-bottom: 1px solid var(--line); }
+  .decision-index { color: var(--electric); font: 13px var(--mono); padding-top: 5px; }
+  .decision-questions h3 { margin: 0 0 8px; font-size: 21px; line-height: 1.3; }
+  .decision-questions p { margin: 0; color: var(--muted); font-size: 17px; line-height: 1.6; }
+  @media(max-width: 800px) { .decision-layout { grid-template-columns: 1fr; gap: 24px; } .decision-intro h2 { max-width: 22ch; } }
+  @media(max-width: 600px) { .home-decision { padding: 36px 0; } .decision-questions li { gap: 12px; padding: 18px 0; } }
+</style>
