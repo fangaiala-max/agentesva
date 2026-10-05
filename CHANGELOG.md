@@ -2,6 +2,13 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [0.9.5.0] - 2026-10-05
+
+### Changed
+- La home en español e inglés explica qué medir en cada área de automatización para evaluar su utilidad.
+- Una guía de cuatro preguntas ayuda a valorar frecuencia, tiempo, costes y revisión humana antes de invertir, con acceso al diagnóstico gratuito.
+- La entrega explica cómo usar el flujo, los casos probados y la documentación y formación, diferenciando el soporte continuo.
+
 ## [0.9.4.0] - 2026-09-14
 
 ### Changed
