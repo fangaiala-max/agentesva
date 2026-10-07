@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-07",
+  "generatedAt": "2026-10-07T11:32:50.125Z",
+  "candidates": [
+    {
+      "titulo": "LibreOffice says ‘no AI’ is now a software feature",
+      "url": "https://techcrunch.com/2026/10/06/libreoffice-says-no-ai-is-now-a-software-feature/",
+      "fecha": "2026-10-06T15:25:00.000Z",
+      "resumen": "The maker of the open source document editor says it has no plans to add AI to its software's default configuration, citing user privacy.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "libreoffice-says-no-ai-is-now-a-software-feature",
+      "signals": {
+        "hn": 28,
+        "reddit": 0,
+        "social": 0.4429835024869623,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.44081693672839506,
+        "authority": 0.9
+      },
+      "score": 0.4555
+    },
+    {
+      "titulo": "Ex-Ramp engineers raise $20M for platform Melius after scrapping their first product",
+      "url": "https://techcrunch.com/2026/10/06/ex-ramp-engineers-raise-20m-for-platform-melius-after-scrapping-their-first-product/",
+      "fecha": "2026-10-06T22:34:03.000Z",
+      "resumen": "Instead of helping marketers manage and optimize ad spend, the company is focusing on building the tools that generate the creative assets and campaigns.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "ex-ramp-engineers-raise-20m-for-platform-melius-after-scrapp",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.6394511959876543,
+        "authority": 0.9
+      },
+      "score": 0.3859
+    },
+    {
+      "titulo": "Mirror Particle is building a ‘world model’ of human behavior",
+      "url": "https://techcrunch.com/2026/10/06/mirror-particle-is-building-a-world-model-of-human-behavior/",
+      "fecha": "2026-10-06T16:35:00.000Z",
+      "resumen": "Mirror Particle will launch at TechCrunch Disrupt's Startup Battlefield 200 with a world model built from scratch to predict human behavior, arguing that LLM role-play falls short for market research and brand strategy.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "mirror-particle-is-building-a-world-model-of-human-behavior",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.4732243441358025,
+        "authority": 0.9
+      },
+      "score": 0.361
+    },
+    {
+      "titulo": "Anthropic is giving startups a free year of Claude Team and $1,000 in credits",
+      "url": "https://techcrunch.com/2026/10/06/anthropic-gives-startups-a-free-year-of-enterprise-service-and-1000-in-token-credits/",
+      "fecha": "2026-10-06T16:00:00.000Z",
+      "resumen": "\"We created this program because we believe the benefits of AI will reach most people through the companies that build on top of models, rather than through the models alone.\"",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "anthropic-is-giving-startups-a-free-year-of-claude-team-and-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.4570206404320988,
+        "authority": 0.9
+      },
+      "score": 0.3586
+    }
+  ]
+}
