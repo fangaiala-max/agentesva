@@ -1,0 +1,206 @@
+{
+  "date": "2026-10-08",
+  "generatedAt": "2026-10-08T11:48:02.427Z",
+  "candidates": [
+    {
+      "titulo": "Muse launches on the iPad",
+      "url": "https://www.theverge.com/tech/1006813/muse-ai-agent-ios-app-ipad-support",
+      "fecha": "2026-10-07T15:37:23.000Z",
+      "resumen": "After launching nearly a month ago and spending several weeks as the top free app in Apple's App Store, the latest update to Meta's Muse iOS app introduces native support for the iPad. A Mac version of Meta's agentic AI tool (designed to compete with OpenClaw, ChatGPT's Dots, and Grok Bot) was released about a week after the original mobile version debuted expanding its usefulness to desktop tasks",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "muse-launches-on-the-ipad",
+      "signals": {
+        "hn": 357,
+        "reddit": 0,
+        "social": 0.7736115952771403,
+        "relevance": 1,
+        "freshness": 0.4395105941358025,
+        "authority": 0.9
+      },
+      "score": 0.8041
+    },
+    {
+      "titulo": "AI could upend food delivery",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1005726/doordash-ai-agentic-food-delivery-bites",
+      "fecha": "2026-10-07T12:00:00.000Z",
+      "resumen": "DoorDash, the leading food delivery app, processed 970 million orders in its second quarter this year and generated $4.5 billion in revenue. A 10-person startup called Bites is a blip in comparison: It has just around 300 restaurants signed up in the Bay Area, where it's operating as a pre-seed startup. But this summer, Bites caught DoorDash's attention.\nIn August, a slew of restaurants in the Bay",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "ai-could-upend-food-delivery",
+      "signals": {
+        "hn": 328,
+        "reddit": 0,
+        "social": 0.762498483259507,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.338870162037037,
+        "authority": 0.9
+      },
+      "score": 0.684
+    },
+    {
+      "titulo": "ChatGPT&#8217;s &#8216;Intelligent UI&#8217; update fills its responses with pictures, charts, and buttons",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1007276/openai-chatgpt-intelligent-ui-gpt-6",
+      "fecha": "2026-10-07T19:10:42.000Z",
+      "resumen": "OpenAI is launching a new Intelligent UI feature in ChatGPT that allows the chatbot to answer your questions with interactive visuals. The update, which is rolling out to all users alongside GPT-6, gives ChatGPT the ability to combine a text response with diagrams, charts, forms, tappable buttons, and more.\nIn a blog post explaining the change, OpenAI says it trained GPT-6 when to generate interac",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "chatgpt-8217-s-8216-intelligent-ui-8217-update-fills-its-res",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5382683101851853,
+        "authority": 0.9
+      },
+      "score": 0.4707
+    },
+    {
+      "titulo": "Meta’s Muse launches on iPad just a month after its mobile debut",
+      "url": "https://techcrunch.com/2026/10/07/metas-muse-launches-on-ipad-just-a-month-after-its-mobile-debut/",
+      "fecha": "2026-10-07T18:30:57.000Z",
+      "resumen": "Meta’s AI agent Muse is now available on iPad, just a month after its mobile debut, as the company rapidly expands the assistant’s reach and integrations.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "meta-s-muse-launches-on-ipad-just-a-month-after-its-mobile-d",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5198655324074074,
+        "authority": 0.9
+      },
+      "score": 0.468
+    },
+    {
+      "titulo": "ChatGPT is getting a lot more visual, with the launch of a new interface",
+      "url": "https://techcrunch.com/2026/10/07/chatgpt-is-getting-a-lot-more-visual-with-the-launch-of-a-new-interface/",
+      "fecha": "2026-10-07T18:00:19.000Z",
+      "resumen": "OpenAI is launching a new user interface that will bring interactive visuals to ChatGPT.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "chatgpt-is-getting-a-lot-more-visual-with-the-launch-of-a-ne",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5056834336419753,
+        "authority": 0.9
+      },
+      "score": 0.4659
+    },
+    {
+      "titulo": "Microsoft is giving Copilot more control over Windows and your files",
+      "url": "https://www.theverge.com/tech/1007113/microsoft-windows-copilot-ai-control-search-hybrid-intelligence",
+      "fecha": "2026-10-07T18:01:20.000Z",
+      "resumen": "At today's Windows and Surface event, Microsoft showed off an upgrade to its Copilot AI system that will give it access to local files on your PC and the ability to take actions across the OS. It's part of an idea Microsoft is calling \"Hybrid Intelligence,\" where apps and tools rely on a mix of local and cloud AI models to accomplish tasks efficiently.\nTo show off how Hybrid Intelligence works, Ja",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "microsoft-is-giving-copilot-more-control-over-windows-and-yo",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.506154112654321,
+        "authority": 0.9
+      },
+      "score": 0.4659
+    },
+    {
+      "titulo": "ChatGPT is getting college planning tools",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1005194/openai-chatgpt-teens-college-planner-notecards",
+      "fecha": "2026-10-07T16:00:00.000Z",
+      "resumen": "A preview of OpenAI’s College Planner. | Image: OpenAI\t\n\nOpenAI is bringing new tools to ChatGPT for Teens, a mode for teens introduced in August with safeguards and break reminders, to help users with the college application process. \n\"College Planner brings together application requirements, deadlines, tasks, and financial-aid steps for schools on a student's list in one plan,\" OpenAI says. \"Stu",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "chatgpt-is-getting-college-planning-tools",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.4499812731481482,
+        "authority": 0.9
+      },
+      "score": 0.4575
+    },
+    {
+      "titulo": "Building a safer path to autonomous industrial AI",
+      "url": "https://www.technologyreview.com/2026/10/08/1144020/building-a-safer-path-to-autonomous-industrial-ai/",
+      "fecha": "2026-10-08T08:17:32.000Z",
+      "resumen": "Industrial AI is entering a new phase. After decades of predictive analytics and other specialized applications, advances in foundation models, physical AI, and agentic AI are making it possible to automate more complex tasks across industrial environments. But unlike AI that operates purely in the digital world, industrial AI can interact directly with physical systems,…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "building-a-safer-path-to-autonomous-industrial-ai",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.9025430015432099,
+        "authority": 0.95
+      },
+      "score": 0.4304
+    },
+    {
+      "titulo": "ChatGPT for Teens is an ‘unacceptable risk,’ says Common Sense Media",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1006355/openai-chatgpt-for-teens-common-sense-media",
+      "fecha": "2026-10-07T09:00:00.000Z",
+      "resumen": "Common Sense Media, a nonprofit that offers reviews of apps, services, and entertainment with a focus on youth safety, today said that OpenAI's ChatGPT for Teens is an \"unacceptable risk.\"\nChatGPT for Teens, introduced in August, has guardrails for teens and is designed to help students learn, but Common Sense Media says that the teen protections offered by the feature \"fall short of what the comp",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "chatgpt-for-teens-is-an-unacceptable-risk-says-common-sense-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.25553682870370364,
+        "authority": 0.9
+      },
+      "score": 0.4283
+    },
+    {
+      "titulo": "Surface RTX Spark Dev Box is available for preorder for $5,999",
+      "url": "https://www.theverge.com/tech/1006915/microsoft-surface-rtx-spark-dev-box-preorder",
+      "fecha": "2026-10-07T17:46:44.000Z",
+      "resumen": "Microsoft's Nvidia-powered Surface RTX Spark Dev Box is available for preorder now and is slated to ship in November for just about $6,000. It's pricier than the DGX Spark mini PC Nvidia launched last year, but PC prices have been climbing due to shortages of RAM and other components.\nThe Dev Box's flat, 3D-printed anodized aluminum chassis doubles as a heatsink and resembles the top vents on an X",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "surface-rtx-spark-dev-box-is-available-for-preorder-for-5-99",
+      "signals": {
+        "hn": 6,
+        "reddit": 0,
+        "social": 0.2559935737386376,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.49939485339506173,
+        "authority": 0.9
+      },
+      "score": 0.3801
+    }
+  ]
+}

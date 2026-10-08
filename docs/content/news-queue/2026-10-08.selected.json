@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-08",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "Muse launches on the iPad",
+      "url": "https://www.theverge.com/tech/1006813/muse-ai-agent-ios-app-ipad-support",
+      "fecha": "2026-10-07T15:37:23.000Z",
+      "resumen": "After launching nearly a month ago and spending several weeks as the top free app in Apple's App Store, the latest update to Meta's Muse iOS app introduces native support for the iPad. A Mac version of Meta's agentic AI tool (designed to compete with OpenClaw, ChatGPT's Dots, and Grok Bot) was released about a week after the original mobile version debuted expanding its usefulness to desktop tasks",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "muse-launches-on-the-ipad",
+      "signals": {
+        "hn": 357,
+        "reddit": 0,
+        "social": 0.7736115952771403,
+        "relevance": 1,
+        "freshness": 0.4395105941358025,
+        "authority": 0.9
+      },
+      "score": 0.8041,
+      "tema": "Asistentes"
+    },
+    {
+      "titulo": "AI could upend food delivery",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1005726/doordash-ai-agentic-food-delivery-bites",
+      "fecha": "2026-10-07T12:00:00.000Z",
+      "resumen": "DoorDash, the leading food delivery app, processed 970 million orders in its second quarter this year and generated $4.5 billion in revenue. A 10-person startup called Bites is a blip in comparison: It has just around 300 restaurants signed up in the Bay Area, where it's operating as a pre-seed startup. But this summer, Bites caught DoorDash's attention.\nIn August, a slew of restaurants in the Bay",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "ai-could-upend-food-delivery",
+      "signals": {
+        "hn": 328,
+        "reddit": 0,
+        "social": 0.762498483259507,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.338870162037037,
+        "authority": 0.9
+      },
+      "score": 0.684,
+      "tema": "Actualidad"
+    },
+    {
+      "titulo": "ChatGPT&#8217;s &#8216;Intelligent UI&#8217; update fills its responses with pictures, charts, and buttons",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1007276/openai-chatgpt-intelligent-ui-gpt-6",
+      "fecha": "2026-10-07T19:10:42.000Z",
+      "resumen": "OpenAI is launching a new Intelligent UI feature in ChatGPT that allows the chatbot to answer your questions with interactive visuals. The update, which is rolling out to all users alongside GPT-6, gives ChatGPT the ability to combine a text response with diagrams, charts, forms, tappable buttons, and more.\nIn a blog post explaining the change, OpenAI says it trained GPT-6 when to generate interac",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "chatgpt-8217-s-8216-intelligent-ui-8217-update-fills-its-res",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5382683101851853,
+        "authority": 0.9
+      },
+      "score": 0.4707,
+      "tema": "Código"
+    },
+    {
+      "titulo": "Building a safer path to autonomous industrial AI",
+      "url": "https://www.technologyreview.com/2026/10/08/1144020/building-a-safer-path-to-autonomous-industrial-ai/",
+      "fecha": "2026-10-08T08:17:32.000Z",
+      "resumen": "Industrial AI is entering a new phase. After decades of predictive analytics and other specialized applications, advances in foundation models, physical AI, and agentic AI are making it possible to automate more complex tasks across industrial environments. But unlike AI that operates purely in the digital world, industrial AI can interact directly with physical systems,…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "building-a-safer-path-to-autonomous-industrial-ai",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.9025430015432099,
+        "authority": 0.95
+      },
+      "score": 0.4304,
+      "tema": "Automatización"
+    }
+  ]
+}
