@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-13",
+  "generatedAt": "2026-10-13T12:28:56.244Z",
+  "candidates": [
+    {
+      "titulo": "AI labs are buying data from dead startups to train their models",
+      "url": "https://www.technologyreview.com/2026/10/13/1145755/ai-labs-buying-data-from-dead-startups-to-train-models/",
+      "fecha": "2026-10-13T09:00:00.000Z",
+      "resumen": "When Keelan Miskell began winding down his crypto startup this year, he didn’t think its data was worth much: the users were anonymous, the company just a few years old. But he’s since turned the firm’s digital archives into real money. He’s netted roughly $25,000 for his code base and a still-pending amount (likely around…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "ai-labs-are-buying-data-from-dead-startups-to-train-their-mo",
+      "signals": {
+        "hn": 1,
+        "reddit": 0,
+        "social": 0.09118675081917017,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.9032697222222222,
+        "authority": 0.95
+      },
+      "score": 0.3715
+    },
+    {
+      "titulo": "Meta has some Wonder Full new AI models",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1009479/meta-muse-wonder-full-ai-model",
+      "fecha": "2026-10-12T17:00:00.000Z",
+      "resumen": "Meta is making up for lost time in the AI race. After launching Muse Spark, the first model from its revamped Superintelligence Labs division, and buzzy AI agent Muse, it's now launching two new models it claims can go toe-to-toe with the industry's best. \nThe new models, Muse Wonder and Muse Wonder Full, are available for Muse Code subscribers starting today. Wonder can also be accessed through t",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "meta-has-some-wonder-full-new-ai-models",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.4588252777777778,
+        "authority": 0.9
+      },
+      "score": 0.3588
+    },
+    {
+      "titulo": "This AI startup says it can generate permit-ready blueprints in minutes",
+      "url": "https://techcrunch.com/2026/10/12/this-ai-startup-says-it-can-generate-permit-ready-blueprints-in-minutes/",
+      "fecha": "2026-10-12T15:27:59.000Z",
+      "resumen": "Blueprints AI, a bootstrapped startup based in Santa Monica, developed software that produces code-compliant construction blueprints from a photo, PDF, or sketch.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "this-ai-startup-says-it-can-generate-permit-ready-blueprints",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.4162249691358024,
+        "authority": 0.9
+      },
+      "score": 0.3524
+    }
+  ]
+}
