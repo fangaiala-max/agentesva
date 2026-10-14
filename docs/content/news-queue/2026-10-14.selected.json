@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-14",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "Google makes it easier to launch your vibe-coded apps",
+      "url": "https://www.theverge.com/tech/1009066/google-play-vibe-coded-android-apps-launch",
+      "fecha": "2026-10-13T17:00:00.000Z",
+      "resumen": "The next time you vibe-code a custom app with Google's AI Studio, you won't have to connect your phone to a computer to install it. On Tuesday, Google announced a new feature in the US that will allow you to launch personal apps directly through the Play Store.\nGoogle first launched the ability to vibe-code personal Android apps in May. Even though you can now launch your custom apps in Google Pla",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "google-makes-it-easier-to-launch-your-vibe-coded-apps",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5293534490740741,
+        "authority": 0.9
+      },
+      "score": 0.4694,
+      "tema": "Código"
+    },
+    {
+      "titulo": "Cerebras CEO says we’re nearing a future where everyone has a personal AI assistant at home",
+      "url": "https://techcrunch.com/2026/10/13/cerebras-ceo-says-were-nearing-a-future-where-everyone-has-a-personal-ai-assistant-at-home/",
+      "fecha": "2026-10-13T23:05:34.000Z",
+      "resumen": "Cerebras CEO Andrew Feldman predicts a future where personal AI assistants become as commonplace as household appliances, running partly on local devices and partly in the cloud.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "cerebras-ceo-says-we-re-nearing-a-future-where-everyone-has-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.6985972762345679,
+        "authority": 0.9
+      },
+      "score": 0.3948,
+      "tema": "Asistentes"
+    },
+    {
+      "titulo": "Facebook is giving users more control over their algorithm",
+      "url": "https://techcrunch.com/2026/10/13/facebook-is-giving-users-more-control-over-their-algorithm/",
+      "fecha": "2026-10-13T18:05:24.000Z",
+      "resumen": "Meta announced the launch of its new AI-powered feature, “Your Algorithm,” a feature it first launched on Instagram.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "facebook-is-giving-users-more-control-over-their-algorithm",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5596312268518518,
+        "authority": 0.9
+      },
+      "score": 0.3739,
+      "tema": "Actualidad"
+    },
+    {
+      "titulo": "Laplace Intelligence red-teams robots and self-driving cars before they hit the real world",
+      "url": "https://techcrunch.com/2026/10/13/laplace-intelligence-red-teams-robots-and-self-driving-cars-before-they-hit-the-real-world/",
+      "fecha": "2026-10-13T17:30:00.000Z",
+      "resumen": "University of Michigan spinout Laplace Intelligence uses AI agents and interactive simulation to stress-test robots and self-driving vehicles before deployment. The profitable startup is competing in Startup Battlefield at TechCrunch Disrupt, October 13-15 in San Francisco.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "laplace-intelligence-red-teams-robots-and-self-driving-cars-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.543242337962963,
+        "authority": 0.9
+      },
+      "score": 0.3715,
+      "tema": "Automatización"
+    }
+  ]
+}

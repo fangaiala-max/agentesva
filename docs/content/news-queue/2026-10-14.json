@@ -1,0 +1,206 @@
+{
+  "date": "2026-10-14",
+  "generatedAt": "2026-10-14T09:56:35.793Z",
+  "candidates": [
+    {
+      "titulo": "Google makes it easier to launch your vibe-coded apps",
+      "url": "https://www.theverge.com/tech/1009066/google-play-vibe-coded-android-apps-launch",
+      "fecha": "2026-10-13T17:00:00.000Z",
+      "resumen": "The next time you vibe-code a custom app with Google's AI Studio, you won't have to connect your phone to a computer to install it. On Tuesday, Google announced a new feature in the US that will allow you to launch personal apps directly through the Play Store.\nGoogle first launched the ability to vibe-code personal Android apps in May. Even though you can now launch your custom apps in Google Pla",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "google-makes-it-easier-to-launch-your-vibe-coded-apps",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5293534490740741,
+        "authority": 0.9
+      },
+      "score": 0.4694
+    },
+    {
+      "titulo": "Google Play now lets anyone build private, vibe-coded apps that run on Android",
+      "url": "https://techcrunch.com/2026/10/13/google-play-now-supports-private-vibe-coded-apps-built-just-for-you/",
+      "fecha": "2026-10-13T17:00:00.000Z",
+      "resumen": "Google is making it easier to build and use personal Android apps created with AI, without having to make them available to everyone on the Play Store.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "google-play-now-lets-anyone-build-private-vibe-coded-apps-th",
+      "signals": {
+        "hn": 23,
+        "reddit": 0,
+        "social": 0.4180878330684994,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.5293534490740741,
+        "authority": 0.9
+      },
+      "score": 0.4575
+    },
+    {
+      "titulo": "Cerebras CEO says we’re nearing a future where everyone has a personal AI assistant at home",
+      "url": "https://techcrunch.com/2026/10/13/cerebras-ceo-says-were-nearing-a-future-where-everyone-has-a-personal-ai-assistant-at-home/",
+      "fecha": "2026-10-13T23:05:34.000Z",
+      "resumen": "Cerebras CEO Andrew Feldman predicts a future where personal AI assistants become as commonplace as household appliances, running partly on local devices and partly in the cloud.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "cerebras-ceo-says-we-re-nearing-a-future-where-everyone-has-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.6985972762345679,
+        "authority": 0.9
+      },
+      "score": 0.3948
+    },
+    {
+      "titulo": "Facebook is giving users more control over their algorithm",
+      "url": "https://techcrunch.com/2026/10/13/facebook-is-giving-users-more-control-over-their-algorithm/",
+      "fecha": "2026-10-13T18:05:24.000Z",
+      "resumen": "Meta announced the launch of its new AI-powered feature, “Your Algorithm,” a feature it first launched on Instagram.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "facebook-is-giving-users-more-control-over-their-algorithm",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5596312268518518,
+        "authority": 0.9
+      },
+      "score": 0.3739
+    },
+    {
+      "titulo": "Laplace Intelligence red-teams robots and self-driving cars before they hit the real world",
+      "url": "https://techcrunch.com/2026/10/13/laplace-intelligence-red-teams-robots-and-self-driving-cars-before-they-hit-the-real-world/",
+      "fecha": "2026-10-13T17:30:00.000Z",
+      "resumen": "University of Michigan spinout Laplace Intelligence uses AI agents and interactive simulation to stress-test robots and self-driving vehicles before deployment. The profitable startup is competing in Startup Battlefield at TechCrunch Disrupt, October 13-15 in San Francisco.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "laplace-intelligence-red-teams-robots-and-self-driving-cars-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.543242337962963,
+        "authority": 0.9
+      },
+      "score": 0.3715
+    },
+    {
+      "titulo": "Pluto Security raises $42M as AI gives enterprise security teams a new headache",
+      "url": "https://techcrunch.com/2026/10/13/pluto-security-raises-42m-as-ai-gives-enterprise-security-teams-a-new-headache/",
+      "fecha": "2026-10-13T17:18:25.000Z",
+      "resumen": "The problem with giving everyone in a company access to AI tools is that people will use them in unexpected ways. And that fact is steadily seeding fears that companies now have new, gaping security holes in their systems or, at least, will soon.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "pluto-security-raises-42m-as-ai-gives-enterprise-security-te",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5378796836419754,
+        "authority": 0.9
+      },
+      "score": 0.3707
+    },
+    {
+      "titulo": "Facebook will let you customize your feed algorithm using AI",
+      "url": "https://www.theverge.com/tech/1010344/meta-facebook-your-algorithm-ai",
+      "fecha": "2026-10-13T17:01:31.000Z",
+      "resumen": "Facebook's new \"Your Algorithm\" feature will let you directly add and manage topics you want to see in your feed and Facebook Reels. Meta says your recommendations \"respond right away\" after you make updates using the new feature by hitting \"interested\" or \"not interested\" for different topics. Your Algorithm previously launched on Instagram earlier this year, and Meta also launched a similar \"Dea",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "facebook-will-let-you-customize-your-feed-algorithm-using-ai",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5300556095679012,
+        "authority": 0.9
+      },
+      "score": 0.3695
+    },
+    {
+      "titulo": "Google finally releases Gemini 4 Argon",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1009862/google-releases-gemini-4-argon",
+      "fecha": "2026-10-13T16:00:00.000Z",
+      "resumen": "After months sitting on the sidelines of the frontier AI race, Google has finally launched its long-awaited Gemini 4 Argon model, claiming it can compete with the best the industry has to offer. \nGoogle says Argon delivers \"frontier reasoning and improved performance across complex workflows,\" while cutting down on hedging, repetition, and the cliches that continue to plague AI chatbots. The compa",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "google-finally-releases-gemini-4-argon",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5015756712962962,
+        "authority": 0.9
+      },
+      "score": 0.3652
+    },
+    {
+      "titulo": "Epic shifts to &#8216;AI-accelerated development&#8217; for upcoming Disney game",
+      "url": "https://www.theverge.com/games/1010097/epic-games-disney-project-ai-coding-art",
+      "fecha": "2026-10-13T15:12:59.000Z",
+      "resumen": "Epic Games plans to use AI to generate code and art for an unannounced Disney game, which is now delayed from its original March release window, according to a report from Bloomberg. The project's developers have been given an \"AI-first\" mandate directing them to use tools like Anthropic's Claude more to finish the game. \nAccording to Bloomberg, one of the game's directors said in a message to sta",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "epic-shifts-to-8216-ai-accelerated-development-8217-for-upco",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.4798086959876543,
+        "authority": 0.9
+      },
+      "score": 0.362
+    },
+    {
+      "titulo": "SpaceXSI bundles X Premium, Grok, and Cursor into one subscription",
+      "url": "https://techcrunch.com/2026/10/13/spacexsi-bundles-x-premium-grok-and-cursor-into-one-subscription/",
+      "fecha": "2026-10-13T13:50:19.000Z",
+      "resumen": "The new X Subscription combines X's paid features with AI tools like Grok and Cursor, offering plans ranging from $8 to $200 per month.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "spacexsi-bundles-x-premium-grok-and-cursor-into-one-subscrip",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.44153709104938277,
+        "authority": 0.9
+      },
+      "score": 0.3562
+    }
+  ]
+}
