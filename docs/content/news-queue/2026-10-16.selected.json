@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-16",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "ChatGPT can peek at your Chrome tabs now",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1012510/openai-chatgpt-google-chrome-tabs",
+      "fecha": "2026-10-15T22:43:23.000Z",
+      "resumen": "OpenAI's ChatGPT Atlas browser is gone, but now ChatGPT's Google Chrome extension is getting some upgrades that allow it to use the browser tabs you already have open. With the extension installed, OpenAI says ChatGPT can now view your browser tabs when you tag Chrome in ChatGPT's web or desktop app, posting a demo video showing someone asking ChatGPT to compare the three tabs they have open with ",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "chatgpt-can-peek-at-your-chrome-tabs-now",
+      "signals": {
+        "hn": 7,
+        "reddit": 0,
+        "social": 0.27356025245751053,
+        "relevance": 1,
+        "freshness": 0.7001639120370371,
+        "authority": 0.9
+      },
+      "score": 0.6181,
+      "tema": "Código"
+    },
+    {
+      "titulo": "Google’s Universal Cart shopping tool launches in the US",
+      "url": "https://techcrunch.com/2026/10/15/googles-universal-cart-shopping-tool-launches-in-the-us/",
+      "fecha": "2026-10-15T14:29:33.000Z",
+      "resumen": "The new shopping tool is available in the U.S. across Google Search and the Gemini app.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "google-s-universal-cart-shopping-tool-launches-in-the-us",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.47153736882716046,
+        "authority": 0.9
+      },
+      "score": 0.4607,
+      "tema": "Asistentes"
+    },
+    {
+      "titulo": "Sega pulls Total War: Shogun 2 remaster from sale following disastrous launch",
+      "url": "https://www.theverge.com/games/1012512/sega-total-war-shogun-2-remaster-pulled",
+      "fecha": "2026-10-15T22:35:55.000Z",
+      "resumen": "Sega is removing Total War: Shogun 2 - Complete Edition from storefronts following a disastrous launch where users complained about issues like bugs and upscaling that appears to have been done by AI.\nComplete Edition, a remaster of the 2011 strategy game, launched on Tuesday, and it bundled the main game and all of its DLC with promised upgrades including \"improved visuals,\" \"1440p and 4K UI scal",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "sega-pulls-total-war-shogun-2-remaster-from-sale-following-d",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.6967071219135803,
+        "authority": 0.9
+      },
+      "score": 0.3945,
+      "tema": "Actualidad"
+    },
+    {
+      "titulo": "The tech backlash is now in theaters",
+      "url": "https://www.theverge.com/entertainment/1012438/hollywood-tech-backlash-you-can-see-everything-musk-the-social-reckoning-artificial",
+      "fecha": "2026-10-15T21:39:52.000Z",
+      "resumen": "Though movies about disruptive tech founders are nothing new, 2026 has been unusually stacked with features that take a much more critical look at how Silicon Valley is reshaping our reality. Aaron Sorkin's The Social Reckoning frames Mark Zuckerberg as a robotic villain whose ambitions are destabilizing society. Nathan Fielder and Lance Oppenheim's You Can See Everything paints a damning picture ",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "the-tech-backlash-is-now-in-theaters",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.6707580478395061,
+        "authority": 0.9
+      },
+      "score": 0.3906,
+      "tema": "Marketing"
+    }
+  ]
+}
