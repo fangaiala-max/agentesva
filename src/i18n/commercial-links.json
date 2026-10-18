@@ -1,0 +1,46 @@
+{
+  "/guias/chatbot-para-pymes/": [
+    "Chatbots for small businesses",
+    "What to automate, when to hand over and what to measure."
+  ],
+  "/guias/automatizar-whatsapp-empresa/": [
+    "Automate WhatsApp",
+    "Official channels, integrations and human control."
+  ],
+  "/guias/automatizar-seguimiento-de-leads/": [
+    "Lead follow-up",
+    "Capture, CRM, ownership and follow-up cadence."
+  ],
+  "/guias/make-vs-n8n-vs-zapier/": [
+    "Make vs n8n vs Zapier",
+    "Choose for your workflow, operations and real cost."
+  ],
+  "/guias/cuanto-cuesta-automatizar-un-negocio/": [
+    "What automation costs",
+    "Starting prices, cost factors and return calculations."
+  ],
+  "/guias/procesos-que-conviene-automatizar-primero/": [
+    "What to automate first",
+    "A matrix to prioritize your first project."
+  ],
+  "/estudios/ia-para-atencion-al-cliente/": [
+    "AI tools for customer support",
+    "Compare options and use cases."
+  ],
+  "/precios-automatizacion-ia/": [
+    "Automation pricing",
+    "Understand the scope at each starting investment."
+  ],
+  "/guias/como-aparecer-en-chatgpt/": [
+    "How to appear in ChatGPT",
+    "Help AI systems find, understand and cite your brand."
+  ],
+  "/guias/medir-visibilidad-en-chatgpt/": [
+    "Measure visibility in AI search",
+    "Track mentions, citations and changes over time."
+  ],
+  "/guias/seo-para-ia/": [
+    "SEO for AI search",
+    "Retrievable content, entity authority and measurement."
+  ]
+}

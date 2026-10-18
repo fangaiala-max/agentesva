@@ -1,0 +1,6 @@
+---
+import {getCollection} from 'astro:content';
+import ToolDirectory from '../../../components/english/ToolDirectory.astro';
+export async function getStaticPaths(){return (await getCollection('categories')).map(c=>({params:{category:c.id}}));}
+---
+<ToolDirectory category={Astro.params.category} />

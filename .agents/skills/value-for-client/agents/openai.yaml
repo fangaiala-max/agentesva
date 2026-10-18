@@ -1,0 +1,4 @@
+interface:
+  display_name: "Value for Client"
+  short_description: "Evalúa valor, encaje y compra desde el cliente"
+  default_prompt: "Usa $value-for-client para analizar este material y recomendar qué conservar, optimizar o replantear con evidencia."

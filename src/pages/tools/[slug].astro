@@ -1,0 +1,6 @@
+---
+import {getCollection} from 'astro:content';
+import ToolProfile from '../../components/english/ToolProfile.astro';
+export async function getStaticPaths(){return (await getCollection('tools')).map(tool=>({params:{slug:tool.id},props:{tool}}));}
+---
+<ToolProfile tool={Astro.props.tool}/>

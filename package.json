@@ -1,13 +1,13 @@
 {
   "name": "agentesva-astro",
   "type": "module",
-  "version": "0.3.2.0",
+  "version": "0.9.5",
   "private": true,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "postbuild": "pagefind --site .vercel/output/static",
+    "postbuild": "node scripts/generate-social-images.mjs && node scripts/verify-social-images.mjs && node scripts/verify-built-geo-guide.mjs && node scripts/verify-built-bilingual-ui.mjs && node scripts/verify-built-seo.mjs && pagefind --site .vercel/output/static",
     "preview": "astro preview",
     "test": "vitest run",
     "astro": "astro",
@@ -18,12 +18,12 @@
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.19",
-    "@astrojs/sitemap": "^3.7.3",
-    "@astrojs/vercel": "^11.0.3",
+    "@astrojs/sitemap": "^3.7.4",
+    "@astrojs/vercel": "^11.0.11",
     "@fontsource-variable/dm-sans": "^5.3.0",
     "@fontsource-variable/jetbrains-mono": "^5.2.8",
     "@fontsource/dm-serif-display": "^5.2.8",
-    "astro": "^7.1.4",
+    "astro": "^7.3.5",
     "astro-icon": "^1.1.5"
   },
   "devDependencies": {
@@ -33,6 +33,7 @@
     "pagefind": "^1.5.2",
     "postcss": "^8.5.23",
     "rss-parser": "^3.13.0",
+    "sharp": "^0.35.3",
     "tailwindcss": "^4.3.3",
     "vitest": "^4.1.9",
     "zod": "^4.4.3"

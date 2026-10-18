@@ -1,0 +1,52 @@
+---
+import {serviceSeo} from '../../i18n/service-seo';
+import FitGuide from '../shared/FitGuide.astro';
+import PageSchema from '../shared/PageSchema.astro';
+import WorkflowExplanation from '../shared/WorkflowExplanation.astro';
+import CommercialNextSteps from '../CommercialNextSteps.astro';
+import {serviceClusterLinks} from '../../data/commercial-links';
+import {OFFER_AMOUNTS} from '../../data/service-offer';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../SiteHeader.astro';
+import SiteFooter from '../SiteFooter.astro';
+import { services as servicesEN, serviceFaq as faqEN } from '../../i18n/services';
+import { servicesES, faqES } from '../../i18n/services-es';
+import {localeFor} from '../../i18n/routes';
+import {localizedPath,ui} from '../../i18n/parity';
+import {offerPrice} from '../../data/service-offer';
+import PricingComparison from '../shared/PricingComparison.astro';
+import ProcessTimeline from '../shared/ProcessTimeline.astro';
+import ConversionBanner from '../shared/ConversionBanner.astro';
+import AssessmentCTA from '../shared/AssessmentCTA.astro';
+const locale=localeFor(Astro.url.pathname);const en=locale==='en';const t=(s:string)=>ui(locale,s);const href=(s:string)=>localizedPath(locale,s);
+const services=en?servicesEN:servicesES;const serviceFaq=en?faqEN:faqES;
+import '../../styles/english.css';
+interface Props { kind: string }
+const { kind } = Astro.props;
+const service = services.find(s=>s.slug===kind);
+const pricing = kind==='pricing'; const process = kind==='how-we-work';
+const title=service?.title ?? (pricing?t("Pricing"):process?t("How we work"):t("AI automation services"));
+const headline=service?.headline ?? (pricing?t("A clear scope. A sensible first investment."):process?t("From repetitive task to reliable workflow."):t("Your team has better things to do."));
+const description=service?.description ?? (pricing?t("Understand the starting investment before we talk. The final proposal depends on your process, tools, data, and exceptions."):process?t("We reduce uncertainty at every stage, with explicit responsibilities, real tests, and a system your team can understand."):t("We design and implement AI automation for customer support, sales, and operations. Start with one process. Keep control as you grow."));
+const seo=serviceSeo[locale][kind as keyof typeof serviceSeo.en] ?? serviceSeo[locale].services;
+const faqs=pricing?[
+ [t("Are these fixed quotes?"),t("No. These are indicative starting prices. Scope, integrations, data volume, access, risk, training, and support affect the final quote.")],
+ [t("Are software licenses included?"),t("Only if the proposal explicitly includes them. Software licenses, APIs, messaging, and applicable VAT are detailed separately.")],
+ [t("Does the free assessment commit me to anything?"),t("No. It helps you identify a useful priority and decide whether an implementation is appropriate.")],
+ [t("What does ongoing support cover?"),t("Agreed incident handling, adjustments, and reviews of workflow measurements. The proposal defines the support scope.")],
+]:[...('faqs' in seo?seo.faqs:[]),...serviceFaq];
+const tracking={'data-track-event':'service_cta_click','data-track-page-type':service?'service_detail':pricing?'pricing':'services','data-track-service':service?.service??'general_consulting','data-track-cluster':service?.cluster??'general'};
+---
+<BaseLayout title={`${seo.title} | AgentesVA`} description={description}>
+<PageSchema title={title} description={description} type={process?'WebPage':'Service'} faqs={faqs} provider="AgentesVA" offer={process?undefined:pricing?OFFER_AMOUNTS.workshop:OFFER_AMOUNTS.scoped} parent={service?{name:t("Services"),url:href("/services/")}:undefined}/><SiteHeader />
+<main id="main-content" class="en-page" data-pagefind-body>
+<section class="en-hero"><div class="en-shell"><nav class="en-crumbs" aria-label={locale==='en'?'Breadcrumb':'Ruta de navegación'}><a href={href("/")}>{t("Home")}</a><span>/</span>{service&&<><a href={href("/services/")}>{t("Services")}</a><span>/</span></>}<span aria-current="page">{title}</span></nav><div class="en-hero-grid"><div><p class="en-kicker">{title}</p><h1>{headline}</h1><p class="en-lead">{description}</p><div class="en-actions"><AssessmentCTA placement="hero" service={service?.service} pageType={pricing?'pricing':process?'methodology':'services'}/><a class="en-button en-button--quiet" href={pricing?'#compare':process?'#process':'#explore'}>{pricing?t("Compare the options"):process?t("See the process"):t("Explore what we can build")}</a></div><p class="en-note">{t("Free initial assessment \u00b7 About 3 minutes")}</p></div><aside class="en-margin-note"><span class="en-node" aria-hidden="true">↳</span><h2>{pricing?t("Start small. Know what comes next."):process?t("Your team stays in control."):t("A working system, with a human owner.")}</h2><p>{service?.limit??t("We agree the boundaries, test the exceptions, and document the handover. No unexplained black box.")}</p></aside></div></div></section>
+{pricing ? <PricingComparison/> : process ? <ProcessTimeline/>
+: service ? <><section id="explore" class="en-section en-shell"><div class="en-section-heading"><h2>{t("What this looks like in practice.")}</h2><p>{t("Use cases to scope around your process, tools, and team.")}</p></div><div class="en-use-cases">{service.examples.map(([name,text])=><article><h3>{name}</h3><p>{text}</p></article>)}</div></section><section class="en-section en-tinted"><div class="en-shell en-split"><div><h2>{t("What you receive.")}</h2><ul class="en-checklist">{service.deliverables.map(item=><li>{item}</li>)}</ul></div><aside class="en-investment"><h3>{t("One useful first workflow.")}</h3><strong>{offerPrice('scoped',locale)}</strong><p>{en?`Typically 2–4 weeks. Several integrations: ${offerPrice('integrated',locale)}, typically 4–8 weeks.`:`Normalmente 2–4 semanas. Varias integraciones: ${offerPrice('integrated',locale)}, normalmente 4–8 semanas.`}</p><a href={href("/pricing/")}>{t("See scope and pricing")}</a><hr/><h3>{t("Measure what changes.")}</h3><p>{service.measure}</p></aside></div></section></>
+: <section id="explore" class="en-section en-shell"><div class="en-section-heading"><h2>{t("Three places to start.")}</h2><p>{t("Choose the part of the business where repetitive work creates the most friction.")}</p></div><div class="en-service-list">{services.map(s=><a href={href(`/services/${s.slug}/`)} class="en-service-row" {...tracking} data-track-service={s.service} data-track-cluster={s.cluster} data-track-placement="service_card"><h3>{s.title}</h3><p>{s.description}</p><span aria-hidden="true">↗</span></a>)}</div><div class="en-support"><h3>{en?'A first implementation':'Una primera implementación'}: {offerPrice('scoped',locale)}</h3><p>{en?`A free assessment helps identify your priority. Scope workshop: ${offerPrice('workshop',locale)}, when needed.`:`El diagnóstico gratuito identifica tu prioridad. Taller de alcance: ${offerPrice('workshop',locale)}, cuando sea necesario.`}</p><a href={href("/pricing/")}>{t("Explore pricing and scope")}</a></div></section>}
+{service&&<><WorkflowExplanation service={service.slug}/><div class="en-shell"><CommercialNextSteps links={serviceClusterLinks[service.slug==='customer-support'?'atencion':service.slug==='sales'?'ventas':'procesos']} theme="light" pageType="service_detail" slug={service.slug}/></div></>}
+{!pricing&&<FitGuide/>}<section class="en-section en-shell en-faq"><div><p class="en-kicker">{t("Before you decide")}</p><h2>{t("Good questions.")}<br/>{t("Straight answers.")}</h2></div><div>{faqs.map(([q,a])=><details><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>)}</div></section>
+<ConversionBanner service={service?.service}/>
+</main><SiteFooter hideNewsletter />
+<script type="application/ld+json" set:html={JSON.stringify({'@context':'https://schema.org','@type':'WebPage',name:title,description,inLanguage:locale,url:Astro.url.href.replace(Astro.url.origin,'https://agentesva.com')}).replace(/</g,'\\u003c')} />
+</BaseLayout>

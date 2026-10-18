@@ -169,7 +169,7 @@ describe('subscribe — alta en Brevo', () => {
   it('DOI: list=newsletter + template → doubleOptinConfirmation', async () => {
     process.env.BREVO_DOI_TEMPLATE_ID = '42';
     const res = makeRes();
-    await handler(makeReq({ body: { email: 'user@example.com', list: 'newsletter' } }), res);
+    await handler(makeReq({ body: { email: 'user@example.com', list: 'newsletter', consent: true } }), res);
     const { endpoint, payload } = lastCall();
     expect(endpoint).toBe('https://api.brevo.com/v3/contacts/doubleOptinConfirmation');
     expect(payload.templateId).toBe(42);
@@ -180,6 +180,13 @@ describe('subscribe — alta en Brevo', () => {
 });
 
 describe('subscribe — registro de consentimiento (RGPD)', () => {
+  it('rechaza una suscripción a newsletter sin consentimiento', async () => {
+    const res = makeRes();
+    await handler(makeReq({ body: { email: 'user@example.com', list: 'newsletter' } }), res);
+    expect(res.statusCode).toBe(422);
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
   it('consent=true guarda OPT_IN_AT (ISO) y OPT_IN_SOURCE', async () => {
     const res = makeRes();
     await handler(makeReq({ body: { email: 'user@example.com', list: 'newsletter', consent: true } }), res);
@@ -234,14 +241,32 @@ describe('subscribe → GA4 newsletter_submit', () => {
         <div data-subscribe-error hidden></div>
       </div>`;
     // @ts-expect-error mock fetch OK
-    global.fetch = async () => ({ ok: true, json: async () => ({}) });
+    global.fetch = async () => ({ ok: true, json: async () => ({success:true}) });
     initSubscribe();
     const form = document.querySelector('form') as HTMLFormElement;
     form.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
     await new Promise((r) => setTimeout(r, 0));
     // @ts-expect-error dataLayer inyectado
     const evs = (window.dataLayer as unknown[]) ?? [];
-    const fired = evs.some((e) => Array.isArray(e) && e[0] === 'event' && e[1] === 'newsletter_submit');
+    const fired = evs.some((entry) => {
+      if (!entry || typeof entry !== 'object' || !('length' in entry)) return false;
+      const command = Array.from(entry as ArrayLike<unknown>);
+      return command[0] === 'event' && command[1] === 'newsletter_submit';
+    });
     expect(fired).toBe(true);
   });
+});
+
+it.each(['en','es'])('keeps the form retryable when HTTP 200 has no success acknowledgement (%s)',async lang=>{
+ document.documentElement.lang=lang;
+ document.body.innerHTML='<div data-subscribe-root><form data-subscribe><input data-subscribe-email value="test@example.com"><button data-subscribe-submit>Send</button></form><div data-subscribe-success hidden></div><p data-subscribe-error hidden></p></div>';
+ // @ts-expect-error minimal response mock
+ global.fetch=async()=>({ok:true,json:async()=>({})});
+ initSubscribe();document.querySelector('form')!.dispatchEvent(new Event('submit',{cancelable:true,bubbles:true}));
+ await new Promise(r=>setTimeout(r,0));
+ expect(document.querySelector('form')!.hidden).toBe(false);
+ expect(document.querySelector<HTMLElement>('[data-subscribe-success]')!.hidden).toBe(true);
+ expect(document.querySelector<HTMLButtonElement>('button')!.disabled).toBe(false);
+ expect(document.querySelector('[data-subscribe-error]')!.textContent).toContain(lang==='en'?'could not be completed':'No se pudo completar');
+ document.documentElement.lang='es';
 });

@@ -1,0 +1,640 @@
+# Backlog de crecimiento — AgentesVA
+
+**Dirección estratégica:** AgentesVA es primero un motor de captación para servicios de automatización con IA. La afiliación queda aplazada hasta validar tráfico, intención y demanda de implementación.
+
+**Objetivo de negocio:** convertir tráfico orgánico, directo y referido en diagnósticos completados, oportunidades cualificadas y proyectos de implementación.
+
+**Orden obligatorio de trabajo:**
+
+1. Instrumentación y embudo.
+2. Diagnóstico y superficies comerciales.
+3. Integración del funnel en el contenido existente.
+4. Crecimiento SEO y conversión.
+5. Operaciones offline, prueba social y distribución.
+
+## Criterios de prioridad
+
+- **P0:** imprescindible para captar o medir demanda. Bloquea el resto.
+- **P1:** aumenta tráfico cualificado o conversión después de tener el embudo.
+- **P2:** escala canales que ya muestran señales positivas.
+- **P3:** experimento posterior; no debe desplazar P0/P1.
+
+Estimaciones: **S** ≤ 1 día · **M** 2–4 días · **L** 5–10 días · **XL** requiere dividirse.
+
+---
+
+# Fase 1 — Código primero
+
+## P0 · Medición y embudo comercial
+
+### GROW-001 — Definir el contrato de eventos del funnel
+
+- **Estado:** completado el 4 ago 2026 — [`docs/analytics-events.md`](docs/analytics-events.md)
+- **Impacto:** crítico
+- **Esfuerzo:** S
+- **Dependencias:** ninguna
+- **Tarea:** documentar nombres, propiedades y disparadores de los eventos: `service_cta_click`, `diagnostic_started`, `diagnostic_step_completed`, `diagnostic_completed`, `lead_qualified`, `booking_started` y `booking_completed`.
+- **Aceptación:** existe una tabla versionada con evento, disparador, propiedades permitidas y página; no se transmiten datos personales a GA4.
+- **Métrica:** 100% de los pasos principales observables en DebugView/Realtime tras consentimiento.
+
+### GROW-002 — Instrumentar CTAs y embudo en GA4
+
+- **Estado:** completado el 4 ago 2026 — contrato runtime y tests en `src/scripts/track.ts` / `tests/track.test.ts`; los placements se conectarán al crear cada superficie.
+- **Impacto:** crítico
+- **Esfuerzo:** M
+- **Dependencias:** GROW-001
+- **Tarea:** extender el sistema actual `data-track-*` para medir página de entrada, clúster, servicio, ubicación del CTA y progreso del diagnóstico.
+- **Aceptación:** tests unitarios; los eventos se emiten una sola vez con ClientRouter y solo después de consentimiento; el build sigue verde.
+- **Métrica:** ratio visita → CTA → inicio → finalización calculable sin hojas manuales.
+
+### GROW-003 — Crear `/diagnostico-automatizacion-ia/`
+
+- **Estado:** completado el 8 ago 2026 — interfaz de 8 pasos, validación, resultado determinista, consentimiento y entrega segura verificados; la ruta entra al sitemap con la release `0.5.0.0`.
+- **Impacto:** crítico
+- **Esfuerzo:** L
+- **Dependencias:** GROW-001, definición offline mínima de cualificación OFL-001
+- **Tarea:** diagnóstico de 6–8 pasos: negocio, equipo, objetivo, proceso, volumen, herramientas actuales, presupuesto y plazo.
+- **Aceptación:** progreso visible, navegación accesible, validación, resultado inmediato útil, consentimiento, estado de error y confirmación; funciona sin pérdida de datos al retroceder entre pasos.
+- **Métrica:** ≥40% de finalización entre usuarios que comienzan.
+
+### GROW-004 — Implementar recepción segura de leads
+
+- **Estado:** actualizado el 8 ago 2026 — endpoint server-side, validación, honeypot, rate limit por instancia, evidencia de consentimiento y entrega directa a Notion con deduplicación de mejor esfuerzo por `Submission ID`; falta configurar la integración interna en Vercel y confirmar la entrega real desde Preview.
+- **Impacto:** crítico
+- **Esfuerzo:** M
+- **Dependencias:** GROW-003, OFL-001
+- **Tarea:** endpoint server-side con validación, honeypot/rate limit razonable y entrega al CRM o Brevo. No exponer webhooks sensibles en cliente.
+- **Aceptación:** esquema de payload probado; respuestas 2xx/4xx/5xx claras; logs sin datos personales completos; prueba de envío en staging.
+- **Métrica:** ≥99% de envíos válidos aceptados; errores observables.
+
+### GROW-005 — Construir resultado y enrutamiento del diagnóstico
+
+- **Estado:** completado el 8 ago 2026 — resultado determinista con prioridad, complejidad, tres oportunidades por objetivo y siguiente paso específico; reglas y renderizado seguro cubiertos por tests.
+- **Impacto:** crítico
+- **Esfuerzo:** M
+- **Dependencias:** GROW-003, GROW-004
+- **Tarea:** devolver prioridad recomendada, 2–3 oportunidades, complejidad orientativa y siguiente paso. Leads con encaje alto van a reserva; el resto recibe recursos/newsletter.
+- **Aceptación:** reglas deterministas y testeadas; ningún resultado promete ahorro no sustentado; existe ruta clara para cada perfil.
+- **Métrica:** diagnóstico completado → reserva iniciada ≥15% en perfiles cualificados.
+
+### GROW-006 — Crear página de gracias específica del diagnóstico
+
+- **Estado:** completado el 8 ago 2026 — confirmación SSR `noindex` con expectativa, salida por perfil, reserva opcional instrumentada, fallback seguro y exclusión del sitemap.
+- **Impacto:** alto
+- **Esfuerzo:** S
+- **Dependencias:** GROW-005
+- **Tarea:** página `noindex` con resumen, próximos pasos, expectativa de respuesta y CTA de reserva cuando corresponda.
+- **Aceptación:** no existe callejón sin salida; el evento `diagnostic_completed` no se duplica al recargar.
+- **Métrica:** resultado cualificado → reserva iniciada medible; `booking_completed` queda reservado para un callback verificable del proveedor.
+
+## P0 · Oferta visible y páginas comerciales
+
+### GROW-007 — Crear hub `/servicios/`
+
+- **Estado:** completado el 4 ago 2026 — hub comercial con tres líneas de servicio, proceso, precios orientativos, criterios de encaje, FAQ, datos estructurados y CTA medidos hacia el diagnóstico.
+- **Impacto:** crítico
+- **Esfuerzo:** M
+- **Dependencias:** OFL-001, OFL-002
+- **Tarea:** explicar problemas resueltos, servicios, proceso, rangos de inversión, prueba disponible y CTA al diagnóstico.
+- **Aceptación:** title, description, canonical, BreadcrumbList, Service JSON-LD cuando corresponda y enlaces a los tres servicios.
+- **Métrica:** visita a servicios → diagnóstico iniciado ≥8%.
+
+### GROW-008 — Página de automatización de atención al cliente
+
+- **Estado:** completado el 5 ago 2026 — página comercial con casos de uso, flujo supervisado, entregables, plazos, rangos, límites, FAQ, schema y CTA contextual medido.
+- **Impacto:** crítico
+- **Esfuerzo:** M
+- **Dependencias:** GROW-007, OFL-002
+- **Ruta:** `/servicios/automatizacion-atencion-cliente/`
+- **Aceptación:** problema, casos de uso, ejemplo de flujo, entregables, plazo, rango de precio, límites, FAQ y CTA contextual.
+- **Métrica:** leads cualificados atribuidos a este servicio.
+
+### GROW-009 — Página de automatización de ventas y seguimiento
+
+- **Estado:** completado el 5 ago 2026 — página comercial con captación, cualificación, CRM, asignación, seguimiento, entregables, rangos, límites, FAQ, schema y CTA atribuido.
+- **Impacto:** crítico
+- **Esfuerzo:** M
+- **Dependencias:** GROW-007, OFL-002
+- **Ruta:** `/servicios/automatizacion-ventas/`
+- **Aceptación:** mismos requisitos de GROW-008 adaptados a captación, cualificación, CRM y seguimiento.
+- **Métrica:** leads cualificados atribuidos a este servicio.
+
+### GROW-010 — Página de automatización de operaciones
+
+- **Estado:** completado el 5 ago 2026 — página comercial sobre documentos, reporting y tareas administrativas con flujo, entregables, rangos, límites, FAQ, schema y CTA atribuido.
+- **Impacto:** crítico
+- **Esfuerzo:** M
+- **Dependencias:** GROW-007, OFL-002
+- **Ruta:** `/servicios/automatizacion-procesos/`
+- **Aceptación:** mismos requisitos de GROW-008 adaptados a documentos, reporting y tareas administrativas.
+- **Métrica:** leads cualificados atribuidos a este servicio.
+
+### GROW-011 — Publicar precios orientativos y criterios de encaje
+
+- **Estado:** completado el 5 ago 2026 — oferta base y criterios documentados como fuente común; rangos auditados en hub, servicios y diagnóstico, con límites presupuestarios sin solapamientos y prueba de consistencia.
+- **Impacto:** alto
+- **Esfuerzo:** S
+- **Dependencias:** OFL-001
+- **Tarea:** incorporar rangos de inversión, qué incluyen y qué hace variar el precio; indicar claramente para quién no es el servicio.
+- **Aceptación:** el rango es consistente en home, servicios, diagnóstico y FAQ; no se presentan presupuestos cerrados como promesas.
+- **Métrica:** menor proporción de leads sin presupuesto; mayor ratio lead → reunión.
+
+### GROW-012 — Crear `/precios-automatizacion-ia/`
+
+- **Estado:** completado el 5 ago 2026 — página con cinco niveles, inclusiones, variables, criterios, FAQ, schema y CTA medido.
+- **Impacto:** alto
+- **Esfuerzo:** M
+- **Dependencias:** GROW-007–011, OFL-001
+- **Ruta:** `/precios-automatizacion-ia/`
+- **Tarea:** explicar los niveles de inversión, qué incluye cada uno, qué variables cambian el presupuesto y qué opción corresponde a cada grado de madurez.
+- **Aceptación:** diagnóstico gratuito, taller desde 300 €, implementación acotada desde 1.500 €, varias integraciones desde 3.000 € y soporte desde 300 €/mes; rangos orientativos, FAQ, schema y CTA medido.
+- **Métrica:** visita a precios → diagnóstico iniciado ≥10%; menor proporción de leads sin presupuesto.
+
+### GROW-013 — Crear `/como-trabajamos/`
+
+- **Estado:** completado el 5 ago 2026 — página con seis fases, responsabilidades, decisiones, límites, FAQ, schema y CTA medido.
+- **Impacto:** alto
+- **Esfuerzo:** M
+- **Dependencias:** GROW-007–012, OFL-002
+- **Ruta:** `/como-trabajamos/`
+- **Tarea:** explicar diagnóstico, diseño, implementación, pruebas, puesta en marcha y soporte, incluyendo responsabilidades, entregables, plazos y criterios de decisión.
+- **Aceptación:** proceso verificable, expectativas de ambas partes, límites, FAQ, schema, enlaces a servicios y CTA medido.
+- **Métrica:** visita a metodología → diagnóstico iniciado ≥8%; mayor ratio lead → reunión.
+
+## P0 · Conectar el activo SEO existente con el servicio
+
+### GROW-014 — Añadir CTA contextual a fichas de herramientas
+
+- **Estado:** completado el 5 ago 2026 — componente reutilizable con mapeo para diez categorías, CTA medido, ejemplo, coste, dificultad y compatibilidad; “Visitar sitio” queda como acción secundaria en hero.
+- **Impacto:** crítico
+- **Esfuerzo:** M
+- **Dependencias:** GROW-003, GROW-008–010
+- **Tarea:** mapear cada categoría a un servicio y mostrar un bloque relevante: “¿Quieres implementarla en tu negocio?”. Mantener “Visitar sitio” como acción secundaria.
+- **Aceptación:** componente reutilizable, copy por categoría, placement medido y sin CTA genérico duplicado.
+- **Métrica:** ficha → diagnóstico iniciado ≥3%.
+
+### GROW-015 — Añadir CTA contextual a estudios
+
+- **Estado:** completado el 5 ago 2026 — los ocho estudios muestran CTA tras el resumen y al final, con destino contextual y placements diferenciados.
+- **Impacto:** crítico
+- **Esfuerzo:** M
+- **Dependencias:** GROW-003, GROW-008–010
+- **Tarea:** incluir CTA después del resumen/comparativa y al final, usando el problema tratado por el estudio.
+- **Aceptación:** los ocho estudios enlazan al diagnóstico o servicio correcto; eventos diferenciados por placement.
+- **Métrica:** estudio → diagnóstico iniciado ≥5%.
+
+### GROW-016 — Reorientar la home hacia implementación
+
+- **Estado:** reforzado el 8 ago 2026 en `v0.5.1.0` — la portada ordena diagnóstico, tres servicios, entregables, proceso y precio inicial antes del directorio; todos los accesos comerciales quedan atribuidos por placement.
+- **Impacto:** crítico
+- **Esfuerzo:** L
+- **Dependencias:** GROW-003, GROW-007–011
+- **Tarea:** el hero debe prometer detección e implementación de automatizaciones. Priorizar diagnóstico, tres problemas, proceso, prueba y servicios; conservar el directorio como exploración secundaria.
+- **Aceptación:** un CTA primario por viewport; directorio accesible; sin dos promociones simultáneas del mismo pack; no empeoran accesibilidad ni rendimiento.
+- **Métrica:** home → diagnóstico iniciado ≥8%.
+
+### GROW-017 — Actualizar navegación y footer
+
+- **Estado:** completado el 5 ago 2026 — header y footer incorporan Servicios, Precios, Cómo trabajamos y Diagnóstico; el directorio y Estudios conservan acceso editorial.
+- **Impacto:** alto
+- **Esfuerzo:** S
+- **Dependencias:** GROW-007
+- **Tarea:** añadir “Servicios” y “Diagnóstico” sin diluir la navegación; relegar secciones editoriales secundarias si es necesario.
+- **Aceptación:** header, menú móvil, footer, breadcrumbs y schema usan rutas consistentes.
+- **Métrica:** CTR hacia servicios y diagnóstico.
+
+## P1 · SEO de intención comercial
+
+### GROW-018 — Crear mapa de keywords por problema e intención
+
+- **Estado:** completado el 5 ago 2026 — mapa canónico de páginas comerciales y seis piezas de soporte con intención, query, variantes, CTA, madre, enlaces y reglas anticanibalización.
+- **Impacto:** alto
+- **Esfuerzo:** M
+- **Dependencias:** GROW-008–010
+- **Tarea:** asignar una keyword primaria y variantes a cada página; separar intención informativa, comparativa, comercial y local para evitar canibalización.
+- **Aceptación:** cada URL tiene intención, query principal, secundarias, CTA, página madre y enlaces previstos.
+- **Métrica:** cero páginas nuevas sin keyword e intención asignadas.
+
+### GROW-019 — Crear seis piezas de soporte comercial
+
+- **Estado:** completado el 5 ago 2026 — publicadas seis guías bajo `/guias/` con respuesta ejecutiva, desarrollo práctico original, FAQs, fuentes, enlaces de clúster, CTA contextual doble y datos estructurados.
+- **Impacto:** alto
+- **Esfuerzo:** XL, dividir en seis entregas
+- **Dependencias:** GROW-018, protocolo de fact-checking
+- **Temas iniciales:** chatbot para PyME; automatizar WhatsApp; seguimiento de leads; Make vs n8n vs Zapier; coste de automatizar un negocio; procesos que conviene automatizar primero.
+- **Aceptación:** respuesta breve inicial, profundidad práctica, fuentes, ejemplos, enlaces al clúster y CTA contextual; sin texto programático repetido.
+- **Métrica:** impresiones no-brand, CTR y diagnósticos asistidos por pieza.
+
+### GROW-020 — Reforzar enlazado interno por clúster
+
+- **Estado:** completado el 5 ago 2026 — conectados servicios, seis guías, tres estudios y once fichas prioritarias mediante módulos contextuales bidireccionales, anclas descriptivas y tracking de navegación interna.
+- **Impacto:** alto
+- **Esfuerzo:** M
+- **Dependencias:** GROW-008–010, GROW-019
+- **Tarea:** enlazar herramienta ↔ estudio ↔ guía ↔ servicio con anclas descriptivas; añadir “siguiente decisión” en páginas sin salida.
+- **Aceptación:** toda página comercial recibe enlaces desde al menos tres páginas relevantes; ningún contenido prioritario queda huérfano.
+- **Métrica:** profundidad de navegación y páginas por sesión del clúster.
+
+### GROW-021 — Optimizar snippets con datos de Search Console
+
+- **Impacto:** alto
+- **Esfuerzo:** M recurrente
+- **Dependencias:** cuatro semanas de datos posteriores al cambio
+- **Tarea:** revisar queries con impresiones altas, posiciones 3–15 o CTR inferior al esperado; ajustar title, description y encabezado sin cambiar intención.
+- **Aceptación:** registro antes/después por URL; no modificar más de una variable principal por prueba.
+- **Métrica:** mejora de CTR y clics no-brand a 28 días.
+
+### GROW-022 — Añadir campos de decisión a las 10 fichas prioritarias
+
+- **Impacto:** alto
+- **Esfuerzo:** L
+- **Dependencias:** OFL-003
+- **Tarea:** precio real, límites del plan gratis, español, dificultad, integraciones, “elige si”, “evita si” y última verificación.
+- **Aceptación:** schema actualizado, datos visibles y verificables, fecha de revisión y tests de contenido.
+- **Métrica:** ficha → CTA de proveedor o diagnóstico; tiempo útil en página.
+
+### GROW-023 — Plantilla SEO para casos prácticos
+
+- **Impacto:** alto
+- **Esfuerzo:** M
+- **Dependencias:** OFL-004
+- **Tarea:** colección/rutas para situación, proceso anterior, solución, diagrama, herramientas, plazo, resultado y disclaimer de demo cuando aplique.
+- **Aceptación:** CaseStudy/Article schema apropiado, enlaces a servicio y diagnóstico, OG específico y campos que impiden publicar métricas sin fuente.
+- **Métrica:** tráfico y leads asistidos por casos.
+
+## P1 · Tráfico directo y retorno
+
+### GROW-024 — Reposicionar newsletter y segmentar interés
+
+- **Impacto:** alto
+- **Esfuerzo:** M
+- **Dependencias:** OFL-005
+- **Tarea:** promesa centrada en una automatización aplicable por semana; capturar interés en ventas, atención, marketing u operaciones.
+- **Aceptación:** formularios, payload y etiquetas/listas actualizados; consentimiento explícito; migración compatible con formularios actuales.
+- **Métrica:** conversión por placement, confirmación DOI y engagement por segmento.
+
+### GROW-025 — Crear calculadora de ahorro por automatización
+
+- **Impacto:** medio-alto
+- **Esfuerzo:** L
+- **Dependencias:** OFL-006
+- **Tarea:** horas por tarea, frecuencia, coste/hora y porcentaje automatizable; resultado conservador con metodología visible.
+- **Aceptación:** funciona en cliente, accesible, sin almacenar datos sensibles; resultado compartible y CTA al diagnóstico.
+- **Métrica:** calculadora completada → diagnóstico iniciado ≥10%.
+
+### GROW-026 — Añadir parámetros UTM y atribución first/last touch
+
+- **Impacto:** alto
+- **Esfuerzo:** M
+- **Dependencias:** GROW-001
+- **Tarea:** conservar campaña y primera landing hasta el envío del lead sin transmitir PII a analítica.
+- **Aceptación:** el CRM recibe fuente, medio, campaña y landing; pruebas para tráfico directo y ausencia de UTM.
+- **Métrica:** ≥90% de oportunidades con fuente atribuida.
+
+## P2 · Escala SEO y distribución técnica
+
+### GROW-027 — Páginas sectoriales, solo después de validar demanda
+
+- **Impacto:** medio-alto
+- **Esfuerzo:** XL
+- **Dependencias:** al menos 10 diagnósticos y OFL-007
+- **Tarea:** lanzar máximo tres sectores con procesos, ejemplos y lenguaje propios; prohibidas las páginas programáticas superficiales.
+- **Aceptación:** evidencia de demanda, contenido original, CTA y caso/demostración sectorial.
+- **Métrica:** leads cualificados por sector.
+
+### GROW-028 — Sistema de actualización de precios y fichas
+
+- **Impacto:** medio
+- **Esfuerzo:** L
+- **Dependencias:** GROW-022
+- **Tarea:** guardar `verifiedAt`, avisar de fichas caducadas y mostrar fecha de revisión.
+- **Aceptación:** el build o CI identifica fichas prioritarias con más de 90 días sin verificar.
+- **Métrica:** porcentaje de fichas prioritarias vigentes.
+
+### GROW-029 — Preparar páginas/activos enlazables con datos propios
+
+- **Impacto:** medio-alto
+- **Esfuerzo:** L
+- **Dependencias:** OFL-008
+- **Tarea:** soporte técnico para informe, dataset/metodología, gráficos compartibles y URLs estables.
+- **Aceptación:** fuentes, metodología, fecha, embeds/descargas y CTA editorial presentes.
+- **Métrica:** dominios de referencia y menciones.
+
+## P3 · Pospuesto
+
+### GROW-030 — Activar afiliación
+
+- **Estado:** pospuesto por decisión estratégica
+- **Condición de entrada:** tráfico orgánico estable y evidencia de salidas a proveedores que no canibalizan servicios.
+- **Tarea futura:** poblar `affiliateUrl` solo para herramientas relevantes y aprobadas; medir ingreso por 1.000 sesiones cualificadas.
+- **Regla:** nunca sustituir el CTA de diagnóstico en páginas con intención de implementación.
+
+---
+
+# Programa CRO 2026 — Conversión integral antes de Paid
+
+**Objetivo:** mejorar primero la conversión completa de la web. Se excluyen el lanzamiento de campañas, los píxeles publicitarios y las automatizaciones sociales. Sí se prepara la atribución necesaria para Paid posterior.
+
+**Protecciones:** durante la Fase 1 permanecen intactas la lógica de clasificación del diagnóstico, la integración CRM, el consentimiento explícito, la validación server-side y los rangos de precio centrales.
+
+## Fase CRO 1 — Confianza y coherencia comercial
+
+### GROW-031 — Eliminar prueba social no verificable
+
+- **Estado:** ✅ Completada · 25 ago 2026
+- **Prioridad:** P0
+- **Esfuerzo:** S
+- **Dependencias:** ninguna
+- **Tarea:** retirar “+1.200 negocios” de home, newsletter, estadísticas y documentación de copy. Sustituirlo por mensajes verificables, sin fabricar cifras.
+- **Aceptación:** `rg '1[.]200|data-count="1200"|usan la IA mejor' src docs` no encuentra afirmaciones públicas no verificadas.
+- **Métrica:** cero claims comerciales sin fuente.
+
+### GROW-032 — Unificar el posicionamiento de AgentesVA
+
+- **Estado:** ✅ Completada · 25 ago 2026
+- **Prioridad:** P0
+- **Esfuerzo:** M
+- **Dependencias:** GROW-031
+- **Tarea:** definir AgentesVA como servicio de automatización respaldado por recursos editoriales. Actualizar ticker, footer y mensajes secundarios para que “directorio” no compita con la oferta. Mantener herramientas y newsletter como rutas secundarias.
+- **Aceptación:** home, header y footer expresan la misma jerarquía: Implementamos → Evaluamos → Enseñamos.
+
+### GROW-033 — Unificar la promesa y corregir el hero
+
+- **Estado:** ✅ Completada · 25 ago 2026
+- **Prioridad:** P0
+- **Esfuerzo:** S
+- **Dependencias:** GROW-032
+- **Tarea:** usar “3 minutos” en todos los accesos al diagnóstico, retirar `blur-in` del H1 para no ocultar el elemento LCP y aplicar un titular orientado al beneficio.
+- **Aceptación:** una única duración en toda la web; H1 visible desde el primer render; sin desbordamiento móvil.
+- **Verificación:** tests, build y revisión visual desktop/móvil.
+- **Resultado:** 439 tests aprobados, build de producción correcto y revisión visual sin desbordamiento a 1440 px y 390 px.
+
+## Fase CRO 2 — Reducir fricción del funnel
+
+### GROW-034 — Optimizar el primer paso del diagnóstico
+
+- **Prioridad:** P0
+- **Esfuerzo:** M
+- **Dependencias:** GROW-033
+- **Tarea:** empezar por una pregunta de objetivo con opciones y mover el campo libre de negocio a un paso posterior. Revisar si tamaño de equipo y herramientas actuales influyen en el resultado; si no, moverlos al contexto de contacto o eliminarlos.
+- **Aceptación:** todas las preguntas afectan la recomendación o tienen una justificación operativa documentada.
+- **Métrica:** avance del paso 1 y finalización total.
+
+### GROW-035 — Mantener el contexto entre servicio y diagnóstico
+
+- **Prioridad:** P0
+- **Esfuerzo:** S
+- **Dependencias:** GROW-034
+- **Tarea:** aceptar `?objetivo=ventas|atencion|operaciones`, preseleccionar la respuesta y conservar el servicio de origen como dato no sensible.
+- **Aceptación:** cada landing abre un diagnóstico contextualizado y los accesos directos siguen funcionando.
+
+### GROW-036 — Crear shell de conversión para diagnóstico y gracias
+
+- **Prioridad:** P1
+- **Esfuerzo:** M
+- **Dependencias:** GROW-032
+- **Tarea:** usar navegación reducida y eliminar newsletter y rutas editoriales competitivas del footer de diagnóstico y gracias. Mantener privacidad, contacto y acceso a la home.
+- **Aceptación:** estas páginas tienen una sola conversión principal y no crean callejones sin salida.
+
+### GROW-037 — Convertir precios en una escalera de decisión
+
+- **Prioridad:** P1
+- **Esfuerzo:** M
+- **Dependencias:** GROW-032
+- **Tarea:** presentar Diagnóstico → Taller si hace falta → Implementación → Soporte. Destacar la ruta recomendada y añadir duración, entregable, exclusiones y CTA contextual.
+- **Aceptación:** el usuario puede identificar su siguiente paso sin comparar cinco tarjetas equivalentes.
+
+## Fase CRO 3 — Aumentar confianza y capacidad percibida
+
+### GROW-038 — Añadir prueba de entrega y bloque de equipo
+
+- **Prioridad:** P0
+- **Esfuerzo:** M
+- **Dependencias:** OFL-004
+- **Tarea:** publicar una demostración o caso verificable con situación, flujo, controles, plazo y resultado medido. Añadir roles y credenciales relevantes del equipo.
+- **Aceptación:** ninguna demo se presenta como cliente; toda métrica tiene fuente o metodología.
+
+### GROW-039 — Unificar el diseño de las páginas comerciales
+
+- **Prioridad:** P1
+- **Esfuerzo:** L
+- **Dependencias:** GROW-032
+- **Tarea:** migrar precios, servicios y “Cómo trabajamos” al sistema navy/azul oficial reutilizando tokens y componentes existentes.
+- **Aceptación:** el recorrido comercial no cambia de identidad visual; contraste, foco y responsive verificados.
+
+### GROW-040 — Actualizar previews sociales
+
+- **Prioridad:** P1
+- **Esfuerzo:** M
+- **Dependencias:** GROW-032
+- **Tarea:** sustituir el OG global desactualizado, crear variantes para home, diagnóstico y servicios, y añadir texto alternativo, dimensiones y tipo.
+- **Aceptación:** ninguna preview publica “+120 herramientas verificadas”; cada página comercial tiene preview coherente con su oferta.
+
+## Fase CRO 4 — Medición completa
+
+### GROW-041 — Completar la observabilidad del diagnóstico
+
+- **Prioridad:** P0
+- **Esfuerzo:** M
+- **Dependencias:** GROW-034
+- **Tarea:** medir vista, primera interacción, paso visto/completado, resultado, contacto iniciado, error y envío. Instrumentar el CTA global del header sin transmitir datos personales.
+- **Aceptación:** puede calcularse abandono por paso, incluido el primer campo.
+
+### Extensión CRO de GROW-026 — Atribución first/last touch
+
+- **Estado:** promovida al programa CRO; ampliar la tarea existente.
+- Capturar UTM, landing inicial, referrer, `gclid` y `fbclid`, y guardarlos en campos separados del CRM.
+- **Aceptación:** tráfico directo, orgánico, referido y campañas quedan diferenciados; ausencia de UTM no produce errores.
+
+### GROW-042 — Registrar reservas completadas
+
+- **Prioridad:** P0 antes de Paid
+- **Esfuerzo:** M
+- **Dependencias:** GROW-026
+- **Tarea:** conectar webhook del proveedor de agenda, asociar reserva con `submissionId` y emitir `booking_completed` desde una fuente verificable.
+- **Aceptación:** puede calcularse diagnóstico → lead cualificado → reserva iniciada → reserva completada.
+
+### GROW-043 — Verificar configuración de reserva en despliegue
+
+- **Prioridad:** P0
+- **Esfuerzo:** S
+- **Dependencias:** ninguna
+- **Tarea:** fallar la verificación de producción si `BOOKING_URL` o el secreto de firma no son válidos. Mantener fallback por email únicamente como contingencia.
+- **Aceptación:** un lead cualificado nunca pierde la reserva por una configuración silenciosamente ausente.
+
+## Fase CRO 5 — Optimización basada en datos
+
+### GROW-044 — Ejecutar programa de experimentación CRO
+
+- **Prioridad:** P1
+- **Esfuerzo:** recurrente
+- **Dependencias:** GROW-041, GROW-026
+- **Tarea:** probar secuencialmente primer paso, hero con prueba, CTA, presentación del resultado y escalera de precios.
+- **Aceptación:** una variable principal por experimento, hipótesis previa y ventana mínima acordada.
+- **Métrica principal:** diagnósticos enviados y leads cualificados, no solo clics.
+
+## Dependencias del programa CRO
+
+```text
+GROW-031 → GROW-032 → GROW-033 → GROW-034 → GROW-035
+                 ├──→ GROW-036
+                 ├──→ GROW-037
+                 ├──→ GROW-039
+                 └──→ GROW-040
+
+OFL-004 ─────────────→ GROW-038
+
+GROW-034 → GROW-041 ─┬→ GROW-044
+GROW-026 ─────────────┤
+                     └→ GROW-042
+GROW-043 puede ejecutarse en paralelo
+```
+
+## Definición de éxito del programa CRO
+
+1. No existen claims públicos sin evidencia.
+2. La marca se entiende como servicio en cinco segundos.
+3. Todo el sitio promete la misma duración del diagnóstico.
+4. El H1 es visible desde el primer render.
+5. El funnel conserva el contexto de la landing.
+6. Puede medirse abandono por paso, origen del lead y reserva completada.
+7. Existe al menos una prueba de entrega verificable.
+8. Tests y build pasan en cada fase.
+
+---
+
+# Fase 2 — Trabajo offline
+
+Estas tareas requieren decisiones, experiencia del fundador, contacto humano o sistemas externos. Deben empezar cuando desbloqueen una tarea de código, pero no sustituyen el orden de implementación anterior.
+
+## P0 · Definición comercial
+
+### OFL-001 — Definir oferta, cualificación y rangos de inversión
+
+- **Estado:** completado el 4 ago 2026 — [`docs/service-offer.md`](docs/service-offer.md)
+- Elegir ticket mínimo, servicios incluidos, exclusiones, territorio, capacidad mensual y señales de lead cualificado.
+- Definir qué perfiles reciben llamada, recurso o taller de pago.
+- **Entregable:** ficha operativa de una página usada por GROW-003, GROW-005 y GROW-011.
+
+### OFL-002 — Diseñar los tres paquetes de servicio
+
+- Atención al cliente, ventas/seguimiento y operaciones.
+- Para cada uno: problema, entregables, plazo, stack habitual, dependencias del cliente, rango y mantenimiento.
+- **Entregable:** contenido aprobado para GROW-007–010.
+
+### OFL-003 — Investigación manual de las 10 herramientas prioritarias
+
+- Verificar precio, límites, español, integraciones, privacidad, dificultad y casos de uso.
+- Guardar URL y fecha de cada fuente.
+- **Entregable:** matriz fact-checkeada para GROW-022.
+
+## P1 · Prueba y ventas
+
+### OFL-004 — Crear tres demostraciones y conseguir el primer caso real
+
+- Una demo por servicio con diagrama y resultado verificable.
+- Etiquetar las demos como demostraciones, nunca como clientes.
+- Ofrecer una implementación piloto a un negocio con acceso a métricas iniciales y finales.
+- **Entregable:** evidencia para GROW-016 y GROW-023.
+
+### OFL-005 — Escribir secuencia de bienvenida segmentada
+
+- Email 0: entrega/promesa.
+- Email 1: detectar el proceso adecuado.
+- Email 2: caso o demo.
+- Email 3: errores y límites.
+- Email 4: invitación al diagnóstico.
+- **Entregable:** copy y automatización en Brevo para GROW-024.
+
+### OFL-006 — Aprobar supuestos de la calculadora
+
+- Definir fórmula conservadora, límites de automatización y disclaimer.
+- Validar tres ejemplos de negocio.
+- **Entregable:** especificación para GROW-025.
+
+### OFL-007 — Entrevistar a 10 prospectos antes de crear páginas sectoriales
+
+- Registrar sector, proceso doloroso, frecuencia, coste actual, herramientas, presupuesto y objeciones.
+- **Gate:** no ejecutar GROW-027 sin patrones repetidos en al menos tres entrevistas.
+
+## P1 · Distribución y tráfico referido
+
+### OFL-008 — Producir un estudio con datos propios
+
+- Tema recomendado: procesos que más tiempo consumen en pequeñas empresas o coste real de automatizarlos.
+- Documentar muestra, metodología y limitaciones.
+- **Entregable:** dataset y narrativa para GROW-029.
+
+### OFL-009 — Crear lista de 30 partners potenciales
+
+- Agencias de marketing, consultores, implementadores CRM, asesorías digitales, asociaciones y comunidades de PyMEs.
+- Priorizar acceso a clientes sobre tamaño de audiencia.
+- **Métrica:** 10 conversaciones, 3 pruebas de colaboración, 1 lead referido.
+
+### OFL-010 — Diseñar oferta para partners
+
+- Modelo: el partner conserva la relación; AgentesVA diagnostica e implementa.
+- Definir referral fee, white-label opcional, responsabilidad y protección de cuenta.
+- **Entregable:** one-pager y email de contacto.
+
+### OFL-011 — Cadencia de distribución del contenido
+
+- Por cada guía: 2 publicaciones de LinkedIn, 1 carrusel/diagrama, 1 newsletter y 1 vídeo breve.
+- Reutilizar ideas, no copiar el artículo completo.
+- **Métrica:** sesiones directas, búsquedas de marca, suscripciones y diagnósticos asistidos.
+
+## P2 · Operación comercial
+
+### OFL-012 — Pipeline de ventas y SLA
+
+- Estados: nuevo, cualificado, contacto, reunión, propuesta, ganado, perdido.
+- Definir responsable, siguiente acción, motivo de pérdida y tiempo máximo de respuesta.
+- **Métrica:** respuesta <1 día laborable; conversión por etapa visible.
+
+### OFL-013 — Guion de discovery y plantilla de propuesta
+
+- El guion debe cuantificar volumen, tiempo, coste, riesgo y resultado esperado.
+- La propuesta debe incluir alcance, exclusiones, hitos, accesos, soporte y medición.
+- **Métrica:** reunión → propuesta y propuesta → cliente.
+
+### OFL-014 — Sistema mensual de decisión
+
+- Revisión conjunta de Search Console, GA4, CRM y ventas.
+- Decidir qué clúster ampliar, qué página actualizar y qué canal detener.
+- **Regla:** no escalar por tráfico; escalar por oportunidades cualificadas e ingresos asistidos.
+
+---
+
+# Orden recomendado de ejecución
+
+## Sprint 1 — Fundamentos comerciales y medición
+
+`OFL-001` → `OFL-002` → `GROW-001` → `GROW-002` → `GROW-007` → `GROW-011` → `GROW-012` → `GROW-013`
+
+## Sprint 2 — Diagnóstico
+
+`GROW-003` → `GROW-004` → `GROW-005` → `GROW-006`
+
+## Sprint 3 — Superficies de conversión
+
+`GROW-008` → `GROW-009` → `GROW-010` → `GROW-014` → `GROW-015` → `GROW-017`
+
+## Sprint 4 — Home y adquisición
+
+`OFL-004` → `GROW-016` → `GROW-018` → primeras entregas de `GROW-019` → `GROW-020`
+
+## Sprint 5 — Retención y optimización
+
+`OFL-005` → `GROW-024` → `GROW-026` → `GROW-021` → `GROW-022`
+
+---
+
+# Definición de éxito a 90 días
+
+- Embudo completo medible desde landing hasta oportunidad.
+- Tres servicios publicados con rangos y criterios de encaje.
+- Diagnóstico funcional y conectado al sistema comercial.
+- Las páginas de mayor tráfico conducen a una acción comercial relevante.
+- Al menos un caso real o tres demos claramente etiquetadas.
+- Primeras 10 oportunidades cualificadas con fuente atribuida.
+- Decisión de continuar, modificar o descartar cada clúster basada en oportunidades, no solo en visitas.

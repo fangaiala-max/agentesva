@@ -69,7 +69,7 @@ const jsonLd = {
   <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
   <SiteHeader />
 
-  <main class="noticias">
+  <main id="main-content" class="noticias">
     <Breadcrumb trail={trail} />
 
     <header class="masthead">
@@ -255,8 +255,3 @@ const jsonLd = {
     .masthead__titulo { letter-spacing: -0.03em; }
   }
 </style>
-
-<script>
-  import { initMotion } from '../../scripts/motion';
-  document.addEventListener('astro:page-load', () => initMotion());
-</script>

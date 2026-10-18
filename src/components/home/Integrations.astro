@@ -1,0 +1,9 @@
+---
+const rows = [
+  [{ symbol: '◌', label: 'Mensajería' }, { symbol: '↗', label: 'CRM' }, { symbol: '▤', label: 'Documentos' }, { symbol: '▦', label: 'Hojas de cálculo' }],
+  [{ symbol: '☷', label: 'Formularios' }, { symbol: '✉', label: 'Correo' }, { symbol: '◎', label: 'Revisión humana' }, { symbol: '⌘', label: 'Flujos de trabajo' }],
+];
+---
+<section class="integration-section" aria-labelledby="integration-title" data-integrations data-paused="true">
+  <div class="agency-shell integration-layout"><div><span class="section-number">02 / CONEXIONES ÚTILES</span><h2 id="integration-title">Conectamos las herramientas que ya utilizas.</h2><p>Diseñamos el recorrido entre tus canales, tus datos y tu equipo. La conexión concreta se valida según accesos, permisos y alcance.</p><a href="/servicios/" class="text-link">Explorar servicios <span aria-hidden="true">↗</span></a></div><div class="integration-visual"><div class="integration-rows">{rows.map((row, i) => <div class:list={['integration-track', { reverse: i === 1 }]}>{[0, 1].map((copy) => <ul aria-hidden={copy === 1 ? 'true' : undefined}>{row.map((item) => <li><span aria-hidden="true">{item.symbol}</span><strong>{item.label}</strong></li>)}</ul>)}</div>)}</div><div class="integration-caption"><span>Categorías de sistemas · alcance a validar</span><button type="button" data-integrations-pause aria-pressed="false" disabled>Pausar movimiento</button></div></div></div>
+</section>

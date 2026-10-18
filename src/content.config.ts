@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { guideSchema } from './content-schemas/guias';
 
 // Directorio de herramientas de IA (#50). El `id` de cada entrada = nombre de
 // archivo = slug. El build falla si un JSON no cumple el esquema.
@@ -97,6 +98,14 @@ const estudios = defineCollection({
       })
       .optional(),
   }),
+});
+
+// Guías comerciales — contenido evergreen que responde una duda concreta y
+// conduce a la siguiente decisión (servicio o diagnóstico), sin competir con
+// las páginas transaccionales.
+const guias = defineCollection({
+  loader: glob({ pattern: '*.md', base: './src/content/guias' }),
+  schema: guideSchema,
 });
 
 // Noticias — actualidad de IA curada, resumida en español original con atribución.
@@ -210,4 +219,4 @@ const recursosCategorias = defineCollection({
   }),
 });
 
-export const collections = { tools, categories, estudios, noticias, cursos, cursosCategorias, recursos, recursosCategorias };
+export const collections = { tools, categories, estudios, guias, noticias, cursos, cursosCategorias, recursos, recursosCategorias };

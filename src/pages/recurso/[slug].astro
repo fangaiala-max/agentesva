@@ -83,7 +83,7 @@ const pageTitle = recurso.biblioteca ? `${recurso.titulo} | AgentesVA` : `${recu
   <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
   <SiteHeader />
 
-  <main
+  <main id="main-content"
     data-pagefind-body
     data-pagefind-filter="tipo:Recurso"
     data-pagefind-meta="tipo:Recurso"
@@ -111,6 +111,7 @@ const pageTitle = recurso.biblioteca ? `${recurso.titulo} | AgentesVA` : `${recu
     {recurso.biblioteca && (
       <>
         <p style="font-size: 16px; line-height: 1.7; color: var(--fg-2); margin: 34px 0 0; max-width: 62ch;">{recurso.long}</p>
+        <p style="font-family: var(--sans); font-size: 16px; margin: 14px 0 0;"><a href="/prompts" style="color: var(--accent);">Explorar colecciones de prompts por objetivo →</a></p>
         <BibliotecaIA />
 
         <div style="margin-top: 48px; max-width: 62ch;">
@@ -188,11 +189,9 @@ const pageTitle = recurso.biblioteca ? `${recurso.titulo} | AgentesVA` : `${recu
 
 <script>
   import { initToolDetail } from '../../scripts/tool-detail';
-  import { initMotion } from '../../scripts/motion';
   import { initBiblioteca, initBibliotecaCopy } from '../../scripts/biblioteca';
   document.addEventListener('astro:page-load', () => {
     initToolDetail();
-    initMotion();
     initBiblioteca();
     initBibliotecaCopy();
   });
