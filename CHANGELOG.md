@@ -2,6 +2,41 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [0.9.5.0] - 2026-10-05
+
+### Changed
+- La home en español e inglés explica qué medir en cada área de automatización para evaluar su utilidad.
+- Una guía de cuatro preguntas ayuda a valorar frecuencia, tiempo, costes y revisión humana antes de invertir, con acceso al diagnóstico gratuito.
+- La entrega explica cómo usar el flujo, los casos probados y la documentación y formación, diferenciando el soporte continuo.
+
+## [0.9.4.0] - 2026-09-14
+
+### Changed
+- La home en español e inglés identifica a los responsables de AgentesVA y enlaza sus perfiles, la metodología editorial y la documentación de los seis casos de la demo.
+- Los perfiles oficiales incluyen Facebook e Instagram; los datos estructurados conectan la página de inicio con la organización, el contacto y las tres áreas de servicio.
+
+## [0.9.3.0] - 2026-09-12
+
+### Changed
+- La home en español e inglés explica la automatización desde tareas cotidianas: consultas repetidas, seguimiento comercial y copia de datos.
+- La home aclara que el diagnóstico tiene ocho preguntas y muestra la recomendación antes de compartir el email; el recorrido de compra concreta los entregables de cada fase.
+- Las preguntas frecuentes ayudan a evaluar si el negocio está preparado y si puede conservar sus herramientas, con acceso al diagnóstico medido por ubicación.
+
+## [0.9.2.0] - 2026-09-08
+
+### Changed
+- La página de inicio responde en inglés y español a las preguntas sobre precios, plazos, alcance de la demo y soporte, con enlaces a la documentación y los detalles del servicio.
+- Las respuestas visibles y los datos estructurados FAQ comparten el mismo contenido y los precios se obtienen del catálogo de servicios.
+
+## [0.9.1.0] - 2026-09-06
+
+### Fixed
+- El recordatorio del diagnóstico deja de ocultarse y reaparecer al pasar sobre contenido durante el scroll, en inglés y español.
+- El recordatorio respeta el aviso de cookies, conserva el cierre durante la sesión y deja de aparecer tras alcanzar la sección final del diagnóstico.
+
+### Changed
+- Texto base de 18px y textos pequeños aproximadamente 2px mayores en navegación, tarjetas, tablas y controles, conservando la escala de titulares grandes.
+
 ## [0.9.0.0] - 2026-09-06
 
 ### Added

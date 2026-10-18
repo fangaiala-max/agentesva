@@ -1,3 +1,5 @@
+import {setupDiagnosticBanner} from './diagnostic-banner';
+export {setupDiagnosticBanner} from './diagnostic-banner';
 import { DEMO_MODES, DEMO_MODE_KEYS, type DemoMode, type DemoExample } from '../data/automation-demo';
 
 type Cleanup = () => void;
@@ -165,35 +167,6 @@ function setupIntegrations(root: HTMLElement): Cleanup {
   return () => { observer.disconnect(); button.removeEventListener('click', click); document.removeEventListener('visibilitychange', sync); media.removeEventListener('change', sync); fine.removeEventListener('change', sync); root.dataset.paused = 'true'; };
 }
 
-export function setupDiagnosticBanner(hero: HTMLElement, banner: HTMLElement): Cleanup {
-  const key = 'agentesva:cta-dismissed';
-  let dismissed = false;
-  try { dismissed = sessionStorage.getItem(key) === '1'; } catch { /* Optional storage. */ }
-  let pastHero = false; let endVisible = false;
-  let frame = 0;
-  const occupied = () => {
-    const width = Math.min(window.innerWidth - 20, window.innerWidth <= 800 ? 250 : 470);
-    const left = window.innerWidth - width - 10;
-    const top = window.innerHeight - 95;
-    return Array.from(document.querySelectorAll<HTMLElement>('main a, main button, main p, main h2, main h3, main ol, main dl, main form, footer, [data-cookie-banner]')).some(node => {
-      const box = node.getBoundingClientRect();
-      return box.width > 0 && box.height > 0 && box.right > left && box.left < window.innerWidth && box.bottom > top && box.top < window.innerHeight;
-    });
-  };
-  const sync = () => { banner.hidden = dismissed || !pastHero || endVisible || occupied(); };
-  const observer = new IntersectionObserver(([entry]) => { pastHero = !entry.isIntersecting && entry.boundingClientRect.bottom <= 0; sync(); });
-  observer.observe(hero);
-  const end = document.querySelector('.diagnostic-close');
-  const endObserver = new IntersectionObserver(([entry]) => { endVisible = entry.isIntersecting; sync(); });
-  if (end) endObserver.observe(end);
-  const dismiss = () => { dismissed = true; try { sessionStorage.setItem(key, '1'); } catch { /* Optional storage. */ } sync(); };
-  const button = banner.querySelector<HTMLButtonElement>('#cta-dismiss')!;
-  const onScroll = () => { if (!frame) frame = requestAnimationFrame(() => { frame = 0; sync(); }); };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-  button.addEventListener('click', dismiss); sync();
-  return () => { observer.disconnect(); endObserver.disconnect(); cancelAnimationFrame(frame); window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); button.removeEventListener('click', dismiss); banner.hidden = true; };
-}
 
 export function teardownAgencyHome() { activeCleanup(); activeCleanup = () => {}; }
 export function initAgencyHome() {

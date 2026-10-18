@@ -28,3 +28,9 @@ Source: `src/components/english/ChaosFlow.astro` and `src/scripts/chaos-flow.ts`
 Screenshots: `artifacts/english-first/after/chaos-hero-moving.png`, `chaos-hero-final.png`, `chaos-mobile-detail.png`.
 
 For the subsequent bilingual rollout and its validation, see [the bilingual UI implementation review](21st-bilingual-opportunity-review.md).
+
+## Assessment reminder and readability
+
+The EN and ES homes share `src/scripts/diagnostic-banner.ts`. The reminder appears after the hero, waits for cookie preferences to close, and stays dismissed for the session when closed. Reaching the full assessment section retires it for that page visit. Ordinary scrolling content no longer hides/reopens it, and observers are disconnected on navigation.
+
+Small fixed text sizes across shared styles were increased by approximately 2px (minimum 12px), with an 18px default body size. Large display headings retain their existing scale. Mobile EN/ES banner scrolling and dismissal, mobile tool cards, and desktop pricing were checked after the update.

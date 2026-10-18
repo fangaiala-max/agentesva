@@ -41,7 +41,7 @@ it('pauses an offscreen sequence and resumes on intersection', () => {
   observers[0].callback([{ isIntersecting: true }]); vi.advanceTimersByTime(3000); expect(render).toHaveBeenLastCalledWith(3, true);
 });
 
-it('shows the diagnostic banner only beyond the hero, hides near content, and persists dismissal', () => {
+it('shows the diagnostic banner beyond the hero and persists dismissal', () => {
   const callbacks: Array<(entries: any[]) => void> = [];
   vi.stubGlobal('IntersectionObserver', class { constructor(callback: any) { callbacks.push(callback); } observe() {} disconnect() {} });
   sessionStorage.clear();
@@ -51,9 +51,40 @@ it('shows the diagnostic banner only beyond the hero, hides near content, and pe
   expect(banner.hidden).toBe(true);
   callbacks[0]([{ isIntersecting: false, boundingClientRect: { bottom: -1 } }]);
   expect(banner.hidden).toBe(false);
-  callbacks[1]([{ isIntersecting: true }]); expect(banner.hidden).toBe(true);
-  callbacks[1]([{ isIntersecting: false }]); expect(banner.hidden).toBe(false);
+  const content = document.createElement('p'); content.textContent = 'Scrolling content'; document.querySelector('main')!.append(content);
+  content.getBoundingClientRect = () => ({left:0,right:window.innerWidth,top:window.innerHeight-80,bottom:window.innerHeight,width:window.innerWidth,height:80} as DOMRect);
+  window.dispatchEvent(new Event('scroll')); vi.advanceTimersByTime(20); expect(banner.hidden).toBe(false);
   click('#cta-dismiss'); expect(banner.hidden).toBe(true); expect(sessionStorage.getItem('agentesva:cta-dismissed')).toBe('1');
   clean(); callbacks.length = 0; clean = setupDiagnosticBanner(document.querySelector('#hero')!, banner);
   callbacks[0]([{ isIntersecting: false, boundingClientRect: { bottom: -1 } }]); expect(banner.hidden).toBe(true);
+});
+
+it('keeps the reminder retired after reaching the closing CTA', () => {
+  const callbacks: Array<(entries: any[]) => void> = [];
+  vi.stubGlobal('IntersectionObserver', class { constructor(callback: any) { callbacks.push(callback); } observe() {} disconnect() {} });
+  sessionStorage.clear();
+  document.body.innerHTML = '<main><section id="hero"></section><section class="diagnostic-close"></section></main><aside id="cta-bar"><button id="cta-dismiss">Close</button></aside>';
+  const banner = document.querySelector<HTMLElement>('#cta-bar')!;
+  clean = setupDiagnosticBanner(document.querySelector('#hero')!, banner);
+  callbacks[0]([{isIntersecting:false,boundingClientRect:{bottom:-10}}]);
+  expect(banner.hidden).toBe(false);
+  callbacks[1]([{isIntersecting:true}]);
+  callbacks[1]([{isIntersecting:false}]);
+  callbacks[0]([{isIntersecting:false,boundingClientRect:{bottom:-20}}]);
+  expect(banner.hidden).toBe(true);
+});
+
+it('waits for cookie preferences without depending on scrolling', () => {
+  const callbacks: Array<(entries: any[]) => void> = [];
+  let mutation: () => void = () => {};
+  vi.stubGlobal('IntersectionObserver', class { constructor(callback: any) { callbacks.push(callback); } observe() {} disconnect() {} });
+  vi.stubGlobal('MutationObserver', class { constructor(callback: any) { mutation=callback; } observe() {} disconnect() {} });
+  sessionStorage.clear();
+  document.body.innerHTML = '<section id="hero"></section><div data-consent-banner></div><aside id="cta-bar"><button id="cta-dismiss">Close</button></aside>';
+  const banner=document.querySelector<HTMLElement>('#cta-bar')!;
+  clean=setupDiagnosticBanner(document.querySelector('#hero')!,banner);
+  callbacks[0]([{isIntersecting:false,boundingClientRect:{bottom:-10}}]);
+  expect(banner.hidden).toBe(true);
+  document.querySelector<HTMLElement>('[data-consent-banner]')!.hidden=true; mutation();
+  expect(banner.hidden).toBe(false);
 });
