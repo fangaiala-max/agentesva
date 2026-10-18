@@ -1,12 +1,30 @@
 ---
 import { localeFor } from '../../i18n/routes';
-import { localizedPath } from '../../i18n/parity';
+import { localizedPath, assessmentHref } from '../../i18n/parity';
 import { offerPrice } from '../../data/service-offer';
 import { jsonLdSerialize } from '../../data/schema';
 
 const locale = localeFor(Astro.url.pathname);
 const en = locale === 'en';
+const assessmentTracking = {
+  'data-track-event': 'service_cta_click',
+  'data-track-page-type': 'home',
+  'data-track-content-slug': 'home',
+  'data-track-service': 'general_consulting',
+  'data-track-cluster': 'general',
+  'data-track-placement': 'faq',
+};
 const questions = en ? [
+  {
+    question: 'How do I know if my business is ready?',
+    answer: 'Start with a task that repeats, a person who owns it, and access to the tools and examples involved. If the process changes every time or has no clear owner, define it first. The free assessment helps you choose an initial next step; feasibility is checked before implementation.',
+    url: '/assessment/', link: 'Assess my process',
+  },
+  {
+    question: 'Can we keep our current tools?',
+    answer: 'Often, yes. We check whether your tools allow the connection, what access is needed, and what limitations apply before agreeing the scope. We also define which actions can run automatically and which need your team’s approval.',
+    url: '/how-we-work/', link: 'See how we define the workflow',
+  },
   {
     question: 'How much does an automation project cost?',
     answer: `The initial assessment is free. A scope workshop is ${offerPrice('workshop', locale).toLowerCase()}, a first implementation is ${offerPrice('scoped', locale).toLowerCase()}, and work involving several integrations is ${offerPrice('integrated', locale).toLowerCase()}. These are starting prices; tools, permissions and exceptions determine the written proposal. VAT and third-party costs are detailed separately.`,
@@ -28,6 +46,16 @@ const questions = en ? [
     url: '/pricing/', link: 'Review ongoing support',
   },
 ] : [
+  {
+    question: '¿Cómo sé si mi negocio está preparado?',
+    answer: 'Empieza por una tarea que se repita, una persona responsable y acceso a las herramientas y ejemplos del proceso. Si cambia cada vez o no tiene un responsable claro, conviene definirlo primero. El diagnóstico gratuito te orienta sobre el siguiente paso; la viabilidad se comprueba antes de implementar.',
+    url: '/assessment/', link: 'Evaluar mi proceso',
+  },
+  {
+    question: '¿Podemos seguir usando nuestras herramientas?',
+    answer: 'En muchos casos, sí. Antes de acordar el alcance, comprobamos si tus herramientas permiten la conexión, qué accesos necesitamos y qué limitaciones existen. También definimos qué acciones pueden ejecutarse automáticamente y cuáles necesitan la aprobación de tu equipo.',
+    url: '/how-we-work/', link: 'Ver cómo definimos el proceso',
+  },
   {
     question: '¿Cuánto cuesta un proyecto de automatización?',
     answer: `El diagnóstico inicial es gratuito. El taller de alcance es ${offerPrice('workshop', locale).toLowerCase()}, la primera implementación es ${offerPrice('scoped', locale).toLowerCase()} y el trabajo con varias integraciones es ${offerPrice('integrated', locale).toLowerCase()}. Son precios de partida; las herramientas, los permisos y las excepciones determinan la propuesta escrita. El IVA y los costes de terceros se detallan por separado.`,
@@ -67,7 +95,7 @@ const schema = {
       <details class="handover-example" open={index === 0}>
         <summary>{question}</summary>
         <p>{answer}</p>
-        <a href={localizedPath(locale, url)}>{link}</a>
+        <a href={url === '/assessment/' ? assessmentHref(locale, 'faq') : localizedPath(locale, url)} {...(url === '/assessment/' ? assessmentTracking : {})}>{link}</a>
       </details>
     ))}
   </div>

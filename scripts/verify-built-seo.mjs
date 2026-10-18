@@ -13,6 +13,28 @@ for(const file of files(root).filter(f=>f.endsWith('/index.html'))){
  const d=w.document;d.write(readFileSync(file,'utf8'));
  const skip=d.querySelector('.skip-link');if(skip)assert(d.querySelector(skip.getAttribute('href')),route+' skip target');
  const graphs=[...d.querySelectorAll('script[type="application/ld+json"]')].flatMap(s=>{const j=JSON.parse(s.textContent);return j['@graph']??[j]});
+ if(route==='/'||route==='/es/'){
+  const main=d.querySelector('main');
+  const org=graphs.find(g=>g['@type']==='Organization');
+  const page=graphs.find(g=>g['@type']==='WebPage');
+  assert.equal(page?.url,'https://agentesva.com'+route,route+' home canonical schema');
+  assert.equal(page?.inLanguage,d.documentElement.lang,route+' home schema language');
+  assert.equal(page?.about?.['@id'],org?.['@id'],route+' home organization reference');
+  for(const url of org.sameAs)assert(main.querySelector(`a[href="${url}"]`),route+' visible official profile '+url);
+  const founder=graphs.find(g=>g['@id']===org.founder['@id']);
+  assert(main.textContent.includes(founder.name),route+' visible founder');
+  assert(main.querySelector(`a[href="mailto:${org.email}"]`),route+' visible contact');
+  const services=graphs.filter(g=>g['@type']==='Service');
+  assert.equal(services.length,3,route+' three service areas');
+  for(const service of services){
+   assert(main.textContent.includes(service.name)&&main.textContent.includes(service.description),route+' service evidence');
+   assert.equal(service.provider['@id'],org['@id'],route+' service provider');
+   assert(page.mainEntity.some(ref=>ref['@id']===service['@id']),route+' linked service');
+  }
+  const faq=graphs.find(g=>g['@type']==='FAQPage');
+  assert(faq?.mainEntity.length>=6,route+' home FAQ');
+  for(const q of faq.mainEntity){assert(main.textContent.includes(q.name),route+' visible question');assert(main.textContent.includes(q.acceptedAnswer.text),route+' visible answer');}
+ }
  if(/^\/(services\/(customer-support|sales|operations)|servicios\/automatizacion-(atencion-cliente|ventas|procesos))\/$/.test(route)){
   const faq=graphs.find(g=>g['@type']==='FAQPage');
   assert(faq?.mainEntity.length>=9,route+' service-specific FAQ');
