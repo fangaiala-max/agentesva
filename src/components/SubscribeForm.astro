@@ -5,8 +5,9 @@ interface Props {
   variant?: 'landing' | 'inline';
   list?: string;
   cta?: string;
+  source?: string;
 }
-const { variant = 'inline', list = 'newsletter', cta = 'Suscríbete' } = Astro.props;
+const { variant = 'inline', list = 'newsletter', cta = 'Suscríbete', source = 'site_footer' } = Astro.props;
 const landing = variant === 'landing';
 const pad = landing ? '15px 18px' : '12px 14px';
 const fs = landing ? '15.5px' : '14px';
@@ -14,7 +15,7 @@ const maxw = landing ? '480px' : '420px';
 ---
 
 <div data-subscribe-root style={`max-width: ${maxw};`}>
-  <form data-subscribe data-list={list} novalidate style="display: flex; gap: 8px; flex-wrap: wrap;">
+  <form data-subscribe data-list={list} data-source={source} novalidate style="display: flex; gap: 8px; flex-wrap: wrap;">
     <!-- honeypot anti-bots: oculto a humanos, lo rellenan los bots -->
     <div aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">
       <label>No rellenar este campo
@@ -46,8 +47,8 @@ const maxw = landing ? '480px' : '420px';
   </form>
 
   <div data-subscribe-success hidden role="status" style="border: 1px solid var(--line-2); background: var(--panel-3); border-radius: 2px; padding: 16px 20px; margin-top: 18px;">
-    <span style="font-family: var(--mono); font-size: 12px; color: var(--green);">✓ Revisa tu correo</span>
-    <p style="font-size: 13.5px; color: var(--fg-3); margin: 6px 0 0;">Te hemos enviado un email para <strong style="color: var(--fg-2);">confirmar tu suscripción</strong>. Al confirmar recibirás el Pack de 30 prompts.</p>
+    <span data-subscribe-success-title style="font-family: var(--mono); font-size: 12px; color: var(--green);">✓ Revisa tu correo</span>
+    <p data-subscribe-success-copy style="font-size: 13.5px; color: var(--fg-3); margin: 6px 0 0;">Te hemos enviado un email para <strong style="color: var(--fg-2);">confirmar tu suscripción</strong>. Al confirmar recibirás el Pack de 30 prompts.</p>
   </div>
   <p data-subscribe-error hidden role="alert" style="font-family: var(--mono); font-size: 12px; color: #ff6b6b; margin-top: 12px;"></p>
 </div>

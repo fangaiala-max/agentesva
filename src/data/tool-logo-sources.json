@@ -1,0 +1,121 @@
+[
+  {
+    "title": "OpenAI",
+    "category": "AI",
+    "svgUrl": "https://svgl.app/library/openai.svg",
+    "darkSvgUrl": "https://svgl.app/library/openai_dark.svg",
+    "websiteUrl": "https://openai.com/",
+    "slug": "chatgpt"
+  },
+  {
+    "title": "Gemini",
+    "category": "Google, AI",
+    "svgUrl": "https://svgl.app/library/gemini.svg",
+    "websiteUrl": "https://gemini.google.com/",
+    "slug": "gemini"
+  },
+  {
+    "title": "n8n",
+    "category": "Platform, Automation, AI",
+    "svgUrl": "https://svgl.app/library/n8n.svg",
+    "websiteUrl": "https://n8n.io/",
+    "slug": "n8n"
+  },
+  {
+    "title": "Midjourney",
+    "category": "AI, Software",
+    "svgUrl": "https://svgl.app/library/midjourney.svg",
+    "darkSvgUrl": "https://svgl.app/library/midjourney-dark.svg",
+    "websiteUrl": "https://www.midjourney.com/",
+    "slug": "midjourney"
+  },
+  {
+    "title": "Grok",
+    "category": "AI",
+    "svgUrl": "https://svgl.app/library/grok-light.svg",
+    "darkSvgUrl": "https://svgl.app/library/grok-dark.svg",
+    "websiteUrl": "https://grok.com/",
+    "slug": "grok"
+  },
+  {
+    "title": "GitHub Copilot",
+    "category": "Software",
+    "svgUrl": "https://svgl.app/library/copilot.svg",
+    "darkSvgUrl": "https://svgl.app/library/copilot_dark.svg",
+    "websiteUrl": "https://github.com/features/copilot",
+    "slug": "github-copilot"
+  },
+  {
+    "title": "Microsoft Copilot",
+    "category": "AI, Software, Devtool, Microsoft",
+    "svgUrl": "https://svgl.app/library/microsoft-copilot.svg",
+    "websiteUrl": "https://copilot.microsoft.com/",
+    "slug": "microsoft-copilot"
+  },
+  {
+    "title": "Cursor",
+    "category": "Software",
+    "svgUrl": "https://svgl.app/library/cursor_light.svg",
+    "darkSvgUrl": "https://svgl.app/library/cursor_dark.svg",
+    "websiteUrl": "https://www.cursor.com",
+    "slug": "cursor"
+  },
+  {
+    "title": "v0",
+    "category": "Vercel",
+    "svgUrl": "https://svgl.app/library/v0_light.svg",
+    "darkSvgUrl": "https://svgl.app/library/v0_dark.svg",
+    "websiteUrl": "https://v0.dev/",
+    "slug": "v0"
+  },
+  {
+    "title": "Runway",
+    "category": "AI",
+    "svgUrl": "https://svgl.app/library/runway.svg",
+    "websiteUrl": "https://runwayml.com/",
+    "slug": "runway"
+  },
+  {
+    "title": "bolt",
+    "category": "Devtool",
+    "svgUrl": "https://svgl.app/library/bolt-new.svg",
+    "darkSvgUrl": "https://svgl.app/library/bolt-new_dark.svg",
+    "websiteUrl": "https://bolt.new/",
+    "slug": "bolt"
+  },
+  {
+    "title": "Suno",
+    "category": "AI",
+    "svgUrl": "https://svgl.app/library/suno.svg",
+    "websiteUrl": "https://suno.com/",
+    "slug": "suno"
+  },
+  {
+    "title": "Mistral AI",
+    "category": "AI",
+    "svgUrl": "https://svgl.app/library/mistral-ai_logo.svg",
+    "websiteUrl": "https://mistral.ai/",
+    "slug": "mistral"
+  },
+  {
+    "title": "Replit",
+    "category": "AI",
+    "svgUrl": "https://svgl.app/library/replit.svg",
+    "websiteUrl": "https://replit.com/",
+    "slug": "replit"
+  },
+  {
+    "title": "DeepSeek",
+    "category": "AI",
+    "svgUrl": "https://svgl.app/library/deepseek.svg",
+    "websiteUrl": "https://deepseek.com/",
+    "slug": "deepseek"
+  },
+  {
+    "title": "Hugging Face",
+    "category": "AI",
+    "svgUrl": "https://svgl.app/library/hugging_face.svg",
+    "websiteUrl": "https://huggingface.co/",
+    "slug": "huggingchat"
+  }
+]

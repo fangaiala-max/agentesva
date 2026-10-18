@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SystemPreview from '../components/home/SystemPreview.astro';
+import AutomationDemo from '../components/home/AutomationDemo.astro';
+import Integrations from '../components/home/Integrations.astro';
+import ResourceSignup from '../components/home/ResourceSignup.astro';
+import { SERVICE_OFFER, PRICE_DISCLAIMER } from '../data/service-offer';
+import { AUTOMATION_AREAS } from '../data/automation-areas';
+import '../styles/agency-home.css';
+const tracking = { 'data-track-event': 'service_cta_click', 'data-track-page-type': 'home', 'data-track-content-slug': 'home', 'data-track-service': 'general_consulting', 'data-track-cluster': 'general' };
+---
+<BaseLayout title="Diseño de sistemas y automatización con IA | AgentesVA" description="Diseñamos e implementamos automatizaciones para conectar atención, ventas y operaciones. Prueba una demo y descubre qué proceso automatizar en tu negocio.">
+  <SiteHeader />
+  <main id="main-content" class="agency-home">
+    <section id="hero" class="agency-hero" aria-labelledby="hero-title">
+      <div class="agency-shell hero-layout">
+        <div class="hero-copy"><span class="hero-eyebrow">DISEÑO DE SISTEMAS · AUTOMATIZACIÓN · IA APLICADA</span><h1 id="hero-title">Diseñamos la tecnología<br /><span>que hace avanzar tu negocio.</span></h1><p class="hero-description" data-motion-static="explanation">Diseñamos e implementamos automatizaciones para conectar atención, ventas y operaciones. Sistemas claros, probados y bajo tu control.</p><div class="hero-actions" data-motion-static="actions"><a class="agency-button primary" href="#demo">Ver una demo <span aria-hidden="true">↗</span></a><a class="agency-button secondary" href="/diagnostico-automatizacion-ia/" {...tracking} data-track-placement="hero">Diagnosticar mi proceso</a></div><p class="hero-assurance" data-motion-static="trust">Un proceso concreto. Un sistema que puedes entender.</p></div>
+        <SystemPreview />
+      </div>
+      <div class="agency-shell hero-foot"><span>Interfaces claras. Sistemas conectados. Decisiones humanas.</span><a href="#demo">Explora cómo funciona <span aria-hidden="true">↓</span></a></div>
+    </section>
+    <AutomationDemo />
+    <Integrations />
+    <section class="process-section" aria-labelledby="process-title"><div class="agency-shell">
+      <div class="section-heading"><div><span class="section-number">03 / DEL PROCESO AL SISTEMA</span><h2 id="process-title">Primero claridad.<br /><em>Después inversión.</em></h2></div><p>Un primer proyecto con alcance definido.<br />Sin cambiar todo tu negocio de golpe.</p></div>
+      <div class="buying-path"><article><span class="path-index">01</span><h3>Diagnosticar</h3><p>Identificamos la tarea, su frecuencia y quién responde de ella.</p><strong>{SERVICE_OFFER.diagnostic.price}</strong><small>Diagnóstico inicial · 3 minutos</small></article><article><span class="path-index">02</span><h3>Definir</h3><p>Mapeamos el flujo, las excepciones y el criterio de éxito.</p><strong>{SERVICE_OFFER.workshop.price}</strong><small>Taller de alcance cuando sea necesario</small></article><article><span class="path-index">03</span><h3>Implementar</h3><p>Conectamos, probamos y documentamos un flujo operativo.</p><strong>{SERVICE_OFFER.scoped.price}</strong><small>{SERVICE_OFFER.scoped.timeline} · alcance acotado</small></article></div>
+      <div class="scope-footer"><p>{PRICE_DISCLAIMER} La propuesta concreta depende de herramientas, datos, permisos y excepciones.</p><div><a href="/precios-automatizacion-ia/" {...tracking} data-track-placement="pricing">Ver precios y alcance ↗</a><a href="/como-trabajamos/" {...tracking} data-track-placement="methodology">Cómo trabajamos ↗</a></div></div>
+      <div class="delivery-strip"><span>Qué recibes</span><p>Flujo operativo</p><p>Casos probados</p><p>Control y relevo</p></div>
+    </div></section>
+    <section class="diagnostic-close" aria-labelledby="close-title"><div class="agency-shell close-layout"><div><span class="section-number">EL SIGUIENTE PASO ES TUYO</span><h2 id="close-title">¿Qué proceso te<br />está frenando?</h2><p>Cuéntanos qué se repite cada semana. Te ayudamos a decidir por dónde empezar.</p></div><div><a href="/diagnostico-automatizacion-ia/" class="agency-button light" {...tracking} data-track-placement="mid_page">Hacer diagnóstico gratuito <span aria-hidden="true">↗</span></a><small>3 minutos · Recomendación inicial en pantalla</small></div></div></section>
+    <section id="directorio" class="resource-section" aria-labelledby="resource-title"><div class="agency-shell resource-layout"><div><span class="section-number">PARA SEGUIR EXPLORANDO</span><h2 id="resource-title">Ideas y herramientas<br />para dar el primer paso.</h2><p>Guías, comparativas y recursos en español para tomar decisiones con más contexto.</p><div class="resource-links"><a href="/herramientas/">Directorio completo <span aria-hidden="true">↗</span></a><a href="/guias/">Guías prácticas <span aria-hidden="true">↗</span></a><a href="/estudios/">Comparativas <span aria-hidden="true">↗</span></a></div><nav class="home-service-links" aria-label="Áreas de automatización">{AUTOMATION_AREAS.map(area => <a href={area.href} data-track-event="service_cta_click" data-track-page-type="home" data-track-content-slug="home" data-track-service={area.service} data-track-cluster={area.cluster} data-track-placement="service_card">{area.label}</a>)}</nav></div><div id="pack" class="resource-signup"><span class="sample-label">RECURSOS GRATUITOS</span><h3>Un poco de IA útil.<br />Cada semana.</h3><p>Suscríbete y recibe el Pack de Recursos IA: prompts y plantillas para empezar.</p><ResourceSignup /><a class="text-link" href="/prompts/">Explorar prompts sin suscribirme ↗</a></div></div></section>
+  </main>
+  <SiteFooter hideNewsletter />
+  <aside id="cta-bar" class="agency-sticky" aria-label="Diagnóstico gratuito" hidden><span>Tu primer proceso, más claro.</span><a href="/diagnostico-automatizacion-ia/" {...tracking} data-track-placement="sticky">Diagnóstico gratuito <span aria-hidden="true">↗</span></a><button type="button" id="cta-dismiss" aria-label="Cerrar aviso de diagnóstico">×</button></aside>
+</BaseLayout>
+<script>
+  import { initAgencyHome, teardownAgencyHome } from '../scripts/agency-home';
+  import { initSubscribe } from '../scripts/subscribe';
+  document.addEventListener('astro:page-load', () => { if(document.documentElement.lang==='es') { initAgencyHome(); initSubscribe(); } });
+  document.addEventListener('astro:before-swap', teardownAgencyHome);
+</script>

@@ -1,4 +1,5 @@
 ---
+import {socialImagePath} from '../../lib/social-image.mjs';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
@@ -16,6 +17,9 @@ import EstudioFaq from '../../components/EstudioFaq.astro';
 import EstudioFuentes from '../../components/EstudioFuentes.astro';
 import EstudioBonus from '../../components/EstudioBonus.astro';
 import ToolCallout from '../../components/ToolCallout.astro';
+import StudyServiceCTA from '../../components/StudyServiceCTA.astro';
+import CommercialNextSteps from '../../components/CommercialNextSteps.astro';
+import { linksForStudy } from '../../data/commercial-links';
 
 export async function getStaticPaths() {
   const estudios = await getCollection('estudios');
@@ -25,6 +29,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 const d = entry.data;
+const clusterLinks = linksForStudy(entry.id);
 
 const allTools = (await getCollection('tools')).map(toTool);
 const related = d.herramientas
@@ -63,7 +68,7 @@ const graph: any[] = [
     publisher: organization,
     mainEntityOfPage: canonical,
     url: canonical,
-    image: `${site}/og.png`,
+    image: `${site}${socialImagePath(Astro.url.pathname,d.titulo)}`,
   },
   breadcrumbList(trail),
 ];
@@ -79,11 +84,11 @@ if (d.fuentes?.length) {
 const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
 ---
 
-<BaseLayout title={`${d.titulo} | AgentesVA`} description={d.descripcion}>
+<BaseLayout title={`${d.titulo} | AgentesVA`} description={d.descripcion} ogType="article">
   <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
   <SiteHeader />
 
-  <main
+  <main id="main-content"
     data-pagefind-body
     data-pagefind-filter="tipo:Estudio"
     data-pagefind-meta="tipo:Estudio"
@@ -97,6 +102,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
     <p style="font-family: var(--mono); font-size: 11px; color: var(--fg-5); margin: 16px 0 0;">Por Fernando Angulo · AgentesVA · {fechaFmt}</p>
 
     <EstudioResumen puntos={d.resumen} />
+    <StudyServiceCTA slug={entry.id} placement="after_summary" />
     <EstudioResumirIA url={canonical} prompt={d.iaPrompt} />
     <EstudioNota texto={d.porQueImporta} />
     <EstudioComparativa criterios={d.comparativa?.criterios} filas={d.comparativa?.filas} />
@@ -109,6 +115,8 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
     <EstudioFaq items={d.faq} />
     <EstudioBonus titulo={d.bonus?.titulo} intro={d.bonus?.intro} herramientas={d.bonus?.herramientas} nota={d.bonus?.nota} />
     <EstudioFuentes items={d.fuentes} />
+    <CommercialNextSteps links={clusterLinks} title="Continúa desde la comparativa" pageType="study" slug={entry.id} />
+    <StudyServiceCTA slug={entry.id} placement="final" />
 
     {related.length > 0 && (
       <section style="margin-top: 48px; border-top: 1px solid var(--line); padding-top: 28px;">
@@ -140,8 +148,3 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
 
   <SiteFooter />
 </BaseLayout>
-
-<script>
-  import { initMotion } from '../../scripts/motion';
-  document.addEventListener('astro:page-load', () => initMotion());
-</script>

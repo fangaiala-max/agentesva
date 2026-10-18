@@ -1,0 +1,57 @@
+/* Shared brand palette for both languages. Provider logos and semantic states retain their colors. */
+:root {
+ --brand-blue:#315bda; --brand-violet:#6944bf; --brand-rose:#963d88;
+ --brand-gradient:linear-gradient(110deg,var(--brand-blue),var(--brand-violet) 70%,var(--brand-rose));
+ --brand-gradient-hover:linear-gradient(110deg,#2545b6,#5533a7 70%,#7f2e72);
+ --brand-halo:radial-gradient(ellipse at 85% 35%,#7b4da01c,transparent 52%),radial-gradient(ellipse at 35% 0,#3d68ac18,transparent 55%);
+ --brand-paper:#faf9ff; --brand-tint:#f0effa; --brand-ink:#171a2b; --brand-muted:#595f75;
+ --brand-link-dark:#b8c7ff; --brand-link-light:#315bda;
+ --bg:var(--brand-ink); --bg-2:#131625; --panel:#1e2236; --panel-2:#272b43; --panel-3:#191d30;
+ --line:#343a53; --line-2:#4e5775; --line-3:#8793b5; --grid:#343a53;
+ --fg:#faf9ff; --fg-2:#dce0f0; --fg-3:#b9c0d8; --fg-4:#aeb7d1; --fg-5:#aeb7d1;
+ --accent:var(--brand-blue); --blue-deep:#2545b6;
+}
+body {--fg-4:#aeb7d1;--fg-5:#aeb7d1}
+body .studio-header,body .studio-footer{background-color:var(--brand-ink)}
+body .studio-nav{background-color:var(--brand-ink)}
+body :is(.studio-cta,.agency-button.primary,.en-button:not(.en-button--quiet):not(.en-button--white),.button-primary,[data-subscribe-submit],[data-consent-accept]){background:var(--brand-gradient)!important;color:#fff!important;border-color:transparent}
+body :is(.studio-cta,.agency-button.primary,.en-button:not(.en-button--quiet):not(.en-button--white),.button-primary,[data-subscribe-submit],[data-consent-accept]):hover:not(:disabled){background:var(--brand-gradient-hover)!important}
+body main:not(.en-page):not(.english-home) :is(a.button,button[type=submit],[style*="background: var(--accent)"]):not(input):not(progress){background:var(--brand-gradient)!important;color:#fff!important}
+body :is(a,button)[style*="background: var(--accent)"]{background:var(--brand-gradient)!important;color:#fff!important}
+body main:not(.en-page):not(.english-home) :is(a,.eyebrow)[style*="color: var(--accent)"]:not([style*="background: var(--accent)"]){color:var(--brand-link-dark)!important}
+body :is(.prose,.legal-body,[data-consent-banner]) a{color:var(--brand-link-dark)}
+body .en-page :is(.en-card-action,.en-prose a,.en-article a){color:var(--brand-link-light)}
+body :is(.en-page,.english-home){--en-ink:var(--brand-ink);--en-muted:var(--brand-muted);--en-paper:var(--brand-paper)}
+body .en-hero{background:var(--brand-halo),var(--brand-ink)}
+body .en-close{background:var(--brand-gradient)}
+body :is(.en-resource-card,.tool-card,.card,.service-card){border-color:var(--line-2)}
+body .en-page :is(.en-resource-card,.card){border-color:#d7d6e9}
+body .en-page :is(.en-resource-card,.card):hover{border-color:var(--brand-violet)}
+body :is(.searchwrap,.options label):focus-within{border-color:#b296ff!important}
+body .options label:has(input:checked){border-color:#b296ff;background:#302948}
+body .progress-track span{background:var(--brand-gradient)}
+body .en-page :is(.en-investment,.en-empty,.en-source-note,.en-tool-icon){background:var(--brand-tint)}
+body .en-page :is(table thead,table th){background:#eeedf9}
+body main:not(.en-page):not(.english-home) form:not([role=search]) :is(input:not([type=radio]):not([type=checkbox]),textarea,select){background:var(--panel-3)!important}
+body :is(input,textarea,select){accent-color:var(--brand-violet)}
+body :is(input,textarea,select)::placeholder{color:#aeb7d1}
+body .en-page :is(input,textarea,select)::placeholder{color:#686e82}
+body :is(.chip,.seg,[role=tab])[aria-selected=true],body .chip[aria-pressed=true]{background:var(--brand-gradient)!important;color:#fff!important;border-color:transparent!important}
+body :is(.chip,.seg,[role=tab]):focus-visible{outline-color:#b296ff!important}
+body:has(main .levels) .hero,body:has(main .phases) .hero,body:has(main .hero__grid) .hero{background:var(--brand-halo),var(--brand-ink)!important;background-size:auto!important}
+body .agency-home:not(.english-home){--paper:var(--brand-paper);--ink:var(--brand-ink);--electric:var(--brand-blue);--blue-light:#b8c7ff;background:var(--brand-ink)}
+body .agency-home:not(.english-home) :is(.agency-hero,.integration-section,.process-section,.resource-section){background:var(--brand-halo),var(--brand-ink)}
+body .agency-home:not(.english-home) .diagnostic-close{background:var(--brand-gradient)}
+body .agency-home:not(.english-home) .demo-section{background:var(--brand-paper)}
+body .agency-home:not(.english-home) .demo-section .section-number{color:var(--brand-muted)}
+body .agency-sticky{background:var(--panel);border-color:var(--line-2)}
+body .agency-sticky a{background:var(--brand-gradient);color:#fff}
+body .brand-mark__va{color:#cfb5f5}
+body :focus-visible{outline-color:#b296ff!important}
+/* Scoped legacy form rules need explicit priority for the shared palette. */
+body main:not(.en-page) .eyebrow{color:var(--brand-link-dark)!important}
+body .progress-track span{background:var(--brand-gradient)!important}
+body .options label:has(input:checked){border-color:#b296ff!important;background:#302948!important}
+body .options input{accent-color:#b296ff!important}
+body :is(.en-page,.english-home) .eyebrow{color:var(--brand-muted)!important}
+body .en-hero .eyebrow,body .english-home .agency-hero .eyebrow{color:var(--brand-link-dark)!important}

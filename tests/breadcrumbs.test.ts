@@ -176,12 +176,14 @@ describe('paridad HTML / JSON-LD', () => {
 });
 
 describe('columna vertebral de navegación', () => {
-  it('expone las cinco secciones que renderizan header y footer', () => {
+  it('expone las siete secciones que renderizan header y footer', () => {
     expect(SECCIONES_NAV.map((s) => s.name)).toEqual([
       'Herramientas',
       'Cursos',
+      'Prompts',
       'Recursos',
       'Estudios',
+      'Guías',
       'Noticias',
     ]);
   });
@@ -202,6 +204,7 @@ describe('columna vertebral de navegación', () => {
   it('el pie enlaza todas las páginas indexables que no son sección', () => {
     const urls = PIE_SECUNDARIO.map((s) => s.url);
     expect(urls).toContain('/metodologia');
+    expect(urls).toContain('/generador-de-prompts');
     expect(urls).toContain('/newsletter');
     expect(urls).toContain('/privacidad');
     expect(urls).toContain('/aviso-legal');
