@@ -56,21 +56,21 @@ No hace falta pagar para empezar a sacarle partido a la IA. Hay herramientas con
 
 ## Asistentes para escribir, resumir y responder
 
-**[ChatGPT](/herramienta/chatgpt)** es el mejor punto de partida para casi cualquier tarea: redactar un email, resumir una reunión, traducir o resolver una duda en lenguaje normal. Su plan gratuito te da acceso a un modelo muy capaz, con un tope de unos 10 mensajes cada 5 horas (chatgpt.com/pricing, jun 2026); en Estados Unidos, el plan gratis muestra anuncios. Para el día a día de un autónomo cunde de sobra: le dictas cuatro ideas sueltas y te devuelve un email presentable, o le pegas las notas de una reunión y te saca las tareas en una lista.
+**[ChatGPT](/herramienta/chatgpt/)** es el mejor punto de partida para casi cualquier tarea: redactar un email, resumir una reunión, traducir o resolver una duda en lenguaje normal. Su plan gratuito te da acceso a un modelo muy capaz, con un tope de unos 10 mensajes cada 5 horas (chatgpt.com/pricing, jun 2026); en Estados Unidos, el plan gratis muestra anuncios. Para el día a día de un autónomo cunde de sobra: le dictas cuatro ideas sueltas y te devuelve un email presentable, o le pegas las notas de una reunión y te saca las tareas en una lista.
 
-**[Gemini](/herramienta/gemini)** es el asistente de Google y uno de los más generosos en gratis: chateas sin pagar y, sobre todo, se conecta con Gmail, Docs y Drive para trabajar sobre tu propia información. Por ejemplo, le pides que te resuma un correo larguísimo o que te redacte un borrador directamente en un Doc, sin copiar y pegar de un lado a otro. Si ya vives en Google Workspace, es la opción que menos fricción te va a dar.
+**[Gemini](/herramienta/gemini/)** es el asistente de Google y uno de los más generosos en gratis: chateas sin pagar y, sobre todo, se conecta con Gmail, Docs y Drive para trabajar sobre tu propia información. Por ejemplo, le pides que te resuma un correo larguísimo o que te redacte un borrador directamente en un Doc, sin copiar y pegar de un lado a otro. Si ya vives en Google Workspace, es la opción que menos fricción te va a dar.
 
-**[Claude](/herramienta/claude)** destaca cuando el trabajo es escribir y analizar: redacta y resume documentos largos con un tono natural y mantiene el contexto mejor que la media. Su plan gratuito tiene un tope de uso diario, así que es ideal para tareas puntuales de calidad más que para machacarlo todo el día.
+**[Claude](/herramienta/claude/)** destaca cuando el trabajo es escribir y analizar: redacta y resume documentos largos con un tono natural y mantiene el contexto mejor que la media. Su plan gratuito tiene un tope de uso diario, así que es ideal para tareas puntuales de calidad más que para machacarlo todo el día.
 
-**[DeepSeek](/herramienta/deepseek)** es la opción más radical: su chat es **completamente gratuito**, sin plan de pago. Razona bien y es especialmente fuerte con código. La única salvedad: es una empresa china y tus datos pasan por sus servidores, así que evítalo para información sensible.
+**[DeepSeek](/herramienta/deepseek/)** es la opción más radical: su chat es **completamente gratuito**, sin plan de pago. Razona bien y es especialmente fuerte con código. La única salvedad: es una empresa china y tus datos pasan por sus servidores, así que evítalo para información sensible.
 
 ## Para investigar con fuentes
 
-**[Perplexity](/herramienta/perplexity)** mezcla buscador y asistente: responde a tu pregunta y **enlaza las fuentes** para que las verifiques. Para estudiar tu mercado, vigilar a la competencia o comprobar un dato antes de usarlo, es lo más cómodo que hay gratis: le preguntas "¿qué precios maneja la competencia en mi sector?" y te responde con el rango y los enlaces para confirmarlo. El plan gratuito da búsquedas básicas ilimitadas y unas pocas búsquedas avanzadas al día.
+**[Perplexity](/herramienta/perplexity/)** mezcla buscador y asistente: responde a tu pregunta y **enlaza las fuentes** para que las verifiques. Para estudiar tu mercado, vigilar a la competencia o comprobar un dato antes de usarlo, es lo más cómodo que hay gratis: le preguntas "¿qué precios maneja la competencia en mi sector?" y te responde con el rango y los enlaces para confirmarlo. El plan gratuito da búsquedas básicas ilimitadas y unas pocas búsquedas avanzadas al día.
 
 ## Para diseño y redes
 
-**[Canva IA](/herramienta/canva-ia)** pone el diseño al alcance de cualquiera: plantillas, generación de imágenes y textos con IA para que tus redes y tus documentos luzcan profesionales sin saber diseñar. Su plan gratuito incluye unos 50 créditos de IA al mes para funciones como Magic Write y la generación de imágenes (canva.com/help/ai-access, jun 2026): suficiente para probarlo y crear lo justo, aunque para un volumen serio de diseño te quedarás corto.
+**[Canva IA](/herramienta/canva-ia/)** pone el diseño al alcance de cualquiera: plantillas, generación de imágenes y textos con IA para que tus redes y tus documentos luzcan profesionales sin saber diseñar. Su plan gratuito incluye unos 50 créditos de IA al mes para funciones como Magic Write y la generación de imágenes (canva.com/help/ai-access, jun 2026): suficiente para probarlo y crear lo justo, aunque para un volumen serio de diseño te quedarás corto.
 
 ## ¿Hasta dónde llega lo gratis?
 

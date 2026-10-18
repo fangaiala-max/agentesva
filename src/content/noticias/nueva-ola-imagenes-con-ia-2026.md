@@ -14,11 +14,11 @@ Crear imágenes con IA ha dado un salto de calidad en lo que va de 2026. La nuev
 
 Los nombres que están moviendo el listón:
 
-- **[Gemini](/herramienta/gemini)**, de Google, integró su modelo de imagen (apodado "Nano Banana") y atrajo a millones de usuarios nuevos a la app en cuestión de semanas, sobre todo por su **realismo** y lo fácil que es editar una foto a base de pedírselo.
-- **[ChatGPT](/herramienta/chatgpt)** genera imágenes con su modelo más reciente, fuerte en **seguir instrucciones complejas** y manejar texto dentro de la imagen.
-- **[Grok](/herramienta/grok)**, de xAI, crea imágenes (y vídeo) con su modelo Aurora desde el propio chat.
-- **[Midjourney](/herramienta/midjourney)** sigue siendo la referencia en **acabado y estilo** para piezas con personalidad de marca.
-- **[Ideogram](/herramienta/ideogram)** mantiene su corona en lo que peor se le da al resto: **texto legible** dentro de la imagen, ideal para carteles y posts.
+- **[Gemini](/herramienta/gemini/)**, de Google, integró su modelo de imagen (apodado "Nano Banana") y atrajo a millones de usuarios nuevos a la app en cuestión de semanas, sobre todo por su **realismo** y lo fácil que es editar una foto a base de pedírselo.
+- **[ChatGPT](/herramienta/chatgpt/)** genera imágenes con su modelo más reciente, fuerte en **seguir instrucciones complejas** y manejar texto dentro de la imagen.
+- **[Grok](/herramienta/grok/)**, de xAI, crea imágenes (y vídeo) con su modelo Aurora desde el propio chat.
+- **[Midjourney](/herramienta/midjourney/)** sigue siendo la referencia en **acabado y estilo** para piezas con personalidad de marca.
+- **[Ideogram](/herramienta/ideogram/)** mantiene su corona en lo que peor se le da al resto: **texto legible** dentro de la imagen, ideal para carteles y posts.
 
 A esto se suma **FLUX.2**, un modelo de código abierto que cualquiera puede usar o autoalojar, lo que abarata aún más generar imágenes a medida.
 

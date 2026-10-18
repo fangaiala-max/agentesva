@@ -1,5 +1,5 @@
-import { beforeEach, describe, expect, it } from 'vitest';
-import { initDirectory, setupBookmarks } from '../src/scripts/directory';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { initDirectory, setupBookmarks, setupCounters } from '../src/scripts/directory';
 
 function mount() {
   document.body.innerHTML = `
@@ -11,9 +11,43 @@ function mount() {
 
 const buttons = () => Array.from(document.querySelectorAll<HTMLButtonElement>('[data-bookmark]'));
 
+function installIntersectionObserver() {
+  let callback: IntersectionObserverCallback = () => {};
+  const observe = vi.fn();
+  const unobserve = vi.fn();
+  const disconnect = vi.fn();
+
+  class TestIntersectionObserver {
+    constructor(nextCallback: IntersectionObserverCallback) { callback = nextCallback; }
+    observe = observe;
+    unobserve = unobserve;
+    disconnect = disconnect;
+    takeRecords() { return []; }
+    root = null;
+    rootMargin = '0px';
+    thresholds = [0.4];
+  }
+
+  vi.stubGlobal('IntersectionObserver', TestIntersectionObserver);
+
+  return {
+    notify(entries: IntersectionObserverEntry[]) {
+      callback(entries, {} as IntersectionObserver);
+    },
+    observe,
+    unobserve,
+    disconnect,
+  };
+}
+
 beforeEach(() => {
   localStorage.clear();
   mount();
+});
+
+afterEach(() => {
+  vi.restoreAllMocks();
+  vi.unstubAllGlobals();
 });
 
 describe('setupBookmarks', () => {
@@ -84,5 +118,104 @@ describe('initDirectory — colisiones entre páginas (View Transitions)', () =>
     initDirectory();
     (document.querySelector('[data-bookmark]') as HTMLElement).click();
     expect(localStorage.getItem('agentesva:saved')).toBeNull();
+  });
+
+  it('libera los contadores al abandonar el directorio', () => {
+    document.body.innerHTML = '<div id="tool-grid"></div><span data-count="54">54</span>';
+    const observer = installIntersectionObserver();
+    initDirectory();
+    document.body.innerHTML = '<main>Página ajena</main>';
+    initDirectory();
+
+    expect(observer.disconnect).toHaveBeenCalledOnce();
+  });
+});
+
+describe('setupCounters — contenido y ciclo de vida', () => {
+  it('conserva el valor final hasta entrar en pantalla y libera observer/RAF', () => {
+    document.body.innerHTML = '<span data-count="54">54</span>';
+    const el = document.querySelector<HTMLElement>('[data-count]')!;
+    const observer = installIntersectionObserver();
+    const requestFrame = vi.spyOn(window, 'requestAnimationFrame').mockReturnValue(7);
+    const cancelFrame = vi.spyOn(window, 'cancelAnimationFrame');
+
+    const cleanup = setupCounters();
+    expect(el.textContent).toBe('54');
+
+    observer.notify([{ isIntersecting: true, target: el } as IntersectionObserverEntry]);
+    expect(el.textContent).toBe('0');
+    expect(requestFrame).toHaveBeenCalled();
+
+    cleanup();
+    expect(observer.disconnect).toHaveBeenCalledOnce();
+    expect(cancelFrame).toHaveBeenCalledWith(7);
+
+  });
+
+  it('ignora entradas no visibles y completa la cuenta sin dejar otro frame', () => {
+    document.body.innerHTML = '<span data-count="54">54</span>';
+    const el = document.querySelector<HTMLElement>('[data-count]')!;
+    const observer = installIntersectionObserver();
+    vi.spyOn(performance, 'now').mockReturnValue(100);
+    const callbacks = new Map<number, FrameRequestCallback>();
+    let frameId = 0;
+    const requestFrame = vi.spyOn(window, 'requestAnimationFrame').mockImplementation((callback) => {
+      callbacks.set(++frameId, callback);
+      return frameId;
+    });
+
+    setupCounters();
+    observer.notify([{ isIntersecting: false, target: el } as IntersectionObserverEntry]);
+    expect(requestFrame).not.toHaveBeenCalled();
+    expect(el.textContent).toBe('54');
+
+    observer.notify([{ isIntersecting: true, target: el } as IntersectionObserverEntry]);
+    callbacks.get(1)!(800);
+    expect(Number(el.textContent)).toBeGreaterThan(0);
+    expect(Number(el.textContent)).toBeLessThan(54);
+    callbacks.get(2)!(1500);
+    expect(el.textContent).toBe('54');
+    expect(requestFrame).toHaveBeenCalledTimes(2);
+
+    observer.notify([{ isIntersecting: true, target: el } as IntersectionObserverEntry]);
+    expect(requestFrame).toHaveBeenCalledTimes(2);
+  });
+
+  it('mantiene el valor final sin observer con movimiento reducido o API ausente', () => {
+    document.body.innerHTML = '<span data-count="54">54</span>';
+    const matchMedia = vi.spyOn(window, 'matchMedia').mockReturnValue({ matches: true } as MediaQueryList);
+    const requestFrame = vi.spyOn(window, 'requestAnimationFrame');
+
+    setupCounters();
+    expect(document.querySelector('[data-count]')?.textContent).toBe('54');
+    expect(requestFrame).not.toHaveBeenCalled();
+
+    matchMedia.mockReturnValue({ matches: false } as MediaQueryList);
+    vi.stubGlobal('IntersectionObserver', undefined);
+    setupCounters();
+    expect(document.querySelector('[data-count]')?.textContent).toBe('54');
+    expect(requestFrame).not.toHaveBeenCalled();
+  });
+
+  it('cancela una cuenta activa si se activa movimiento reducido', () => {
+    document.body.innerHTML = '<span data-count="54">54</span>';
+    const el = document.querySelector<HTMLElement>('[data-count]')!;
+    let notifyMedia: (event: MediaQueryListEvent) => void = () => {};
+    const observer = installIntersectionObserver();
+    vi.spyOn(window, 'matchMedia').mockReturnValue({
+      matches: false,
+      addEventListener: (_type, listener) => { notifyMedia = listener as (event: MediaQueryListEvent) => void; },
+      removeEventListener: vi.fn(),
+    } as unknown as MediaQueryList);
+    vi.spyOn(window, 'requestAnimationFrame').mockReturnValue(9);
+    const cancelFrame = vi.spyOn(window, 'cancelAnimationFrame');
+
+    setupCounters();
+    observer.notify([{ isIntersecting: true, target: el } as IntersectionObserverEntry]);
+    expect(el.textContent).toBe('0');
+
+    notifyMedia({ matches: true } as MediaQueryListEvent);
+    expect(cancelFrame).toHaveBeenCalledWith(9);
+    expect(el.textContent).toBe('54');
   });
 });

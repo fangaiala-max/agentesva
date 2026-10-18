@@ -6,5 +6,12 @@ export default defineConfig({
     include: ['tests/**/*.test.ts'],
     setupFiles: ['tests/setup.ts'],
     restoreMocks: true,
+    environmentOptions: {
+      happyDOM: {
+        settings: {
+          handleDisabledFileLoadingAsSuccess: true,
+        },
+      },
+    },
   },
 });

@@ -52,25 +52,25 @@ bonus:
 
 Copiar datos de una app a otra, avisar de cada pedido, archivar facturas... son tareas que repites cada día y que **una automatización puede hacer sola**. No hace falta programar: conectas tus herramientas, defines qué dispara qué, y dejas que el trabajo ocurra solo en segundo plano. Estas son las mejores opciones para una PyME, qué hace cada una, cuánto cuestan y cuál encaja contigo.
 
-## [Zapier](/herramienta/zapier): lo más fácil para empezar
+## [Zapier](/herramienta/zapier/): lo más fácil para empezar
 
 Zapier conecta tus aplicaciones para que pasen cosas solas: un formulario que crea un contacto en el CRM, un pedido que te avisa por WhatsApp, una factura que se archiva en Drive. Es el **más fácil de usar** y el que más integraciones listas tiene —miles de apps—, así que casi seguro que ya soporta las que usas.
 
 Su plan gratuito da 100 tareas al mes con flujos de hasta 2 pasos (zapier.com/pricing, jun 2026): suficiente para automatizar una o dos cosas y ver el valor. Cobra **por tarea** (cada acción que se ejecuta), así que a mucho volumen se encarece. **Mejor para:** empezar sin complicarte y conectar herramientas populares.
 
-## [Make](/herramienta/make): flujos visuales más potentes
+## [Make](/herramienta/make/): flujos visuales más potentes
 
 Make (antes Integromat) une tus herramientas en **flujos visuales** que puedes ver y ramificar como un diagrama. Es más potente que Zapier para automatizaciones con muchos pasos, condiciones y caminos distintos. Y, al contrario de lo que se suele creer, **tiene plan gratuito**: 1.000 operaciones al mes (make.com/pricing, jun 2026).
 
 Su gran ventaja es el precio: cobra por operación de forma más granular, lo que suele salir bastante más barato que Zapier para el mismo trabajo. A cambio, la curva de aprendizaje es un pelín mayor. **Mejor para:** flujos complejos y quien quiera ajustar el coste.
 
-## [n8n](/herramienta/n8n): control total (y autoalojable)
+## [n8n](/herramienta/n8n/): control total (y autoalojable)
 
 n8n es una plataforma de automatización **de código abierto**: conecta apps y APIs en flujos visuales, con la opción de **autoalojarla** en tu propio servidor. Si lo haces, es gratis y sin límite de ejecuciones. Además cobra por ejecución de flujo (no por paso), así que un flujo de 20 pasos cuenta como una sola ejecución —lo que la hace, con diferencia, la más barata a gran escala—.
 
 ¿El precio a pagar? Pide un perfil algo más técnico para sacarle partido, sobre todo si la autoalojas. **Mejor para:** equipos con algo de mano técnica o que necesitan controlar dónde corren sus datos.
 
-## [Bardeen](/herramienta/bardeen): automatizar lo que haces en el navegador
+## [Bardeen](/herramienta/bardeen/): automatizar lo que haces en el navegador
 
 Bardeen es distinto: automatiza **tareas del navegador** con ayuda de la IA —extraer datos de una web, rellenar el CRM, enviar mensajes— sin código. Es especialmente útil para ventas y operaciones: por ejemplo, sacar una lista de contactos de LinkedIn a una hoja en un par de clics. Su plan gratuito incluye 100 créditos al mes para acciones no premium (bardeen.ai/pricing, jun 2026). **Mejor para:** tareas repetitivas dentro del navegador y prospección.
 

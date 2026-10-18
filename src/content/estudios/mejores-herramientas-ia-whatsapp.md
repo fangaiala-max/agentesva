@@ -53,19 +53,19 @@ bonus:
 
 Atender WhatsApp a mano consume horas y, fuera de horario, se pierden ventas. La buena noticia: hay herramientas de IA que **responden, captan datos y venden por ti las 24 horas**, sin que tengas que estar pendiente del móvil. Aquí van las que de verdad funcionan para una PyME, qué hace cada una y cuál encaja contigo —sin tecnicismos.
 
-## [ManyChat](/herramienta/manychat) y [Tidio](/herramienta/tidio): empezar rápido y gratis
+## [ManyChat](/herramienta/manychat/) y [Tidio](/herramienta/tidio/): empezar rápido y gratis
 
 **ManyChat** es de los más usados para **vender** por WhatsApp e Instagram: responde 24/7, capta clientes desde un comentario o una historia y manda campañas. Tiene plan gratuito (limitado) y un editor visual donde montas el bot arrastrando bloques; el Pro arranca en unos 15 $/mes. Ideal para tiendas y servicios locales que viven de las redes.
 
 **Tidio** combina chat en vivo con un bot de IA (Lyro) que responde dudas en tu web, WhatsApp e Instagram, y recupera carritos abandonados. Su plan gratuito cubre hasta 50 conversaciones (tidio.com/pricing, jun 2026). **Mejor para:** tiendas online que quieren unir la web y WhatsApp en un mismo sitio.
 
-## [Landbot](/herramienta/landbot) y [Chatfuel](/herramienta/chatfuel): captar y vender en redes
+## [Landbot](/herramienta/landbot/) y [Chatfuel](/herramienta/chatfuel/): captar y vender en redes
 
 **Landbot** brilla **captando y guiando**: con su editor visual montas conversaciones que llevan al cliente paso a paso y recogen sus datos sin sonar a robot. Tiene plan gratuito para chatbots web; los planes con WhatsApp suben de precio. **Mejor para:** captar y cualificar leads antes de que hablen con tu equipo.
 
 **Chatfuel** automatiza ventas por WhatsApp, Instagram y Facebook con respuestas de IA y recuperación de ventas. Su plan gratuito llega a 50 conversaciones al mes. **Mejor para:** comercio y agencias que reciben la mayoría de mensajes por redes.
 
-## [Wati](/herramienta/wati): para equipos y campañas (API oficial)
+## [Wati](/herramienta/wati/): para equipos y campañas (API oficial)
 
 **Wati** es una plataforma sobre la **API oficial de WhatsApp Business**: bandeja compartida para que todo el equipo atienda desde el mismo número, campañas, plantillas aprobadas y chatbots sin código. No tiene plan gratuito (desde ~49 $/mes, wati.io/pricing, jun 2026), pero es lo que necesitas cuando varias personas atienden o quieres enviar campañas sin riesgo. **Mejor para:** equipos con volumen.
 
@@ -97,4 +97,4 @@ La idea no es robotizar el trato, sino quitarte de encima lo repetitivo para que
 - **Ventas por Instagram + WhatsApp** → Chatfuel.
 - **Equipo de ventas/soporte con volumen** → Wati (API oficial).
 
-Empieza por la opción gratuita que mejor encaje, monta un flujo simple (saludo → pregunta → respuesta o derivar a una persona) y ve ampliando. Lo importante es **dejar de perder mensajes fuera de horario**. Y si lo tuyo es más dar soporte que vender, mira nuestra guía de [IA para la atención al cliente](/estudios/ia-para-atencion-al-cliente).
+Empieza por la opción gratuita que mejor encaje, monta un flujo simple (saludo → pregunta → respuesta o derivar a una persona) y ve ampliando. Lo importante es **dejar de perder mensajes fuera de horario**. Y si lo tuyo es más dar soporte que vender, mira nuestra guía de [IA para la atención al cliente](/estudios/ia-para-atencion-al-cliente/).

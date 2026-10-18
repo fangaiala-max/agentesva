@@ -1,70 +1,82 @@
-# AgentesVA — Astro
+# AgentesVA
 
-Astro 5.x scaffold conviviendo con el sitio HTML estático de la raíz del repo. Producción sigue sirviéndose desde `/index.html` en Vercel; este subdirectorio se migrará página a página.
+English-first website: `/` is English and `/es/` preserves the Spanish homepage. Services, pricing, assessment, tools, courses and prompt experiences have English routes. Editorial English editions are concise adaptations; downloadable products and newsletter delivery remain Spanish.
+
+See [the redesign audit](docs/english-first-audit.md) and [the bilingual UI implementation review](docs/21st-bilingual-opportunity-review.md). Home, commercial pages, tool directories/profiles and learning directories now share EN/ES components. `npm run build` verifies 128 core pages and tool profiles, then checks generated SEO metadata, FAQ/schema consistency, breadcrumbs and category indexability; run `node scripts/verify-english-first.mjs` for the broader generated-link and language audit.
+
+Servicio de automatización con inteligencia artificial para PyMEs y autónomos de España y Latinoamérica, respaldado por un directorio y un medio práctico en español. La portada conduce primero al diagnóstico y a la implementación; herramientas, cursos, recursos, estudios, noticias y plantillas quedan disponibles como apoyo para explorar y decidir.
 
 ## Comandos
 
 ```bash
-cd astro
 npm install
 npm run dev      # http://localhost:4321
-npm run build    # genera ./dist
+npm run test     # Vitest + happy-dom
+npm run build    # Astro + portadas sociales + verificaciones OG/GEO/SEO + índice Pagefind
 npm run preview
 ```
 
 ## Stack
 
-- Astro 5 (`output: 'static'`, adapter Vercel)
-- Tailwind 4 (integración PostCSS vía `@tailwindcss/postcss`)
-- `@astrojs/sitemap`, `@astrojs/rss`, `@astrojs/vercel`, `astro-icon`
-- Content Collections: `blog`, `casos`, `industrias`
+- Astro 7 con salida estática y adaptador de Vercel.
+- Tailwind 4 mediante PostCSS y estilos propios en `src/styles/global.css`.
+- Content Collections para herramientas, cursos, recursos, estudios, noticias y guías.
+- Vitest + happy-dom para pruebas unitarias y de scripts de cliente.
+- Pagefind para la búsqueda global del contenido prerenderizado.
 
-## Añadir un post de blog
+## Superficie pública
 
-Crea `src/content/blog/<slug>.md`:
+- `/` — ruta comercial principal: diagnóstico, tres áreas de automatización, entregables, proceso y precio inicial antes del contenido editorial.
+- `/herramientas/` — directorio y categorías de herramientas de IA.
+- `/cursos/` — cursos seleccionados y organizados por categoría.
+- `/recursos/` — biblioteca, packs y otros recursos prácticos.
+- `/estudios/` y `/noticias/` — contenido editorial en español.
+- `/guias/` — guías prácticas sobre automatización, SEO para IA, visibilidad en asistentes y desarrollo profesional GEO.
+- `/prompts/` — seis colecciones de prompts para ChatGPT, marketing, ventas, redes sociales, atención al cliente y PyMEs.
+- `/generador-de-prompts/` — generador local que estructura el prompt sin enviar los campos a un servidor.
+- `/servicios/`, `/precios-automatizacion-ia/` y `/como-trabajamos/` — oferta comercial, rangos y proceso de implementación.
+- `/diagnostico-automatizacion-ia/` — diagnóstico de ocho pasos con recomendación inmediata y entrega segura del lead.
+- `/gracias-diagnostico/` — cierre dinámico `noindex`; ofrece reserva cuando `BOOKING_URL` y un secreto de firma están configurados, y una alternativa segura si no.
 
-```md
----
-title: "Cómo automatizar reservas con WhatsApp + Make"
-description: "Tutorial paso a paso..."
-publishedAt: 2026-05-01
-tags: ["make", "whatsapp", "restaurantes"]
-pillar: "make-tutorial"
-draft: false
----
+## Contenido y datos
 
-Contenido del post en Markdown / MDX...
+- `src/content/tools/` — fichas de herramientas.
+- `src/content/cursos/` y `src/content/recursos/` — catálogo educativo y recursos.
+- `src/content/estudios/` y `src/content/noticias/` — publicaciones Markdown.
+- `src/content/guias/` — guías Markdown con portada opcional, FAQ, fuentes, lecturas relacionadas y CTA contextual.
+- `src/data/biblioteca/` — prompts y blueprints de la Biblioteca de IA.
+- `src/data/prompt-landings.ts` — metadatos y selección de plantillas de las colecciones SEO.
+
+Los esquemas de `src/content.config.ts` y `src/content-schemas/guias.ts` validan el contenido durante `npm run build`; el `postbuild` también comprueba los metadatos sociales de la guía profesional GEO y las fechas del sitemap del clúster.
+
+## Entrega
+
+Las pull requests generan una preview en Vercel. Al fusionar en `main`, Vercel construye y publica producción. Antes de abrir una PR deben pasar:
+
+```bash
+npm run test
+npm run build
 ```
 
-(En Week 2 se añadirá `src/pages/blog/[slug].astro` para renderizar.)
+Para probar el cierre cualificado con reserva en local:
 
-## Plan de migración Week 2
+```bash
+DIAGNOSTIC_ALLOWED_ORIGINS=http://localhost:4321 \
+NOTION_TOKEN=token-de-integracion-interna \
+NOTION_DATA_SOURCE_ID=id-de-pipeline-de-leads \
+DIAGNOSTIC_SIGNING_SECRET=secreto-local-de-32-caracteres \
+BOOKING_URL=https://calendly.com/tu-cuenta/revision-automatizacion npm run dev
+```
 
-Páginas pendientes de migrar desde la raíz HTML:
+La integración de Notion debe tener acceso a `Pipeline de leads`; la API deduplica por `Submission ID` antes de crear o actualizar el registro.
 
-- [ ] `/servicios/`
-- [ ] `/catalogo/`
-- [ ] `/como-funciona/`
-- [ ] `/precios/`
-- [ ] `/diagnostico/`
-- [ ] `/sobre/`
-- [ ] `/faq/`
-- [ ] `/blueprints/`
-- [ ] `/guias/`
-- [ ] `/gracias/`, `/gracias-gratis/`
-- [ ] `/legal/*` (3 páginas)
-- [ ] `/templates/*`
-- [ ] `/api/*` → `src/pages/api/*.ts` (Vercel functions)
-- [ ] `/blog/[slug].astro` + index
-- [ ] `/industrias/[slug].astro` (genera 12 páginas)
-- [ ] `/casos/[slug].astro` (genera 3 páginas)
-- [ ] `MobileNav` real (bottom nav móvil)
-- [ ] Sitemap canónico (vía `@astrojs/sitemap`)
-- [ ] RSS feed para blog (`src/pages/rss.xml.ts`)
-- [ ] Verificar paridad visual con QA + Playwright
+## Documentación
 
-## Tracking
-
-- GA4: `G-87SBNWCTWZ`
-- Mixpanel: `8fa5118db89d01d0316661d3b0adcc39` (host EU)
-- Calendly click tracking en `BaseLayout.astro`
+- [`ARCHITECTURE.md`](./ARCHITECTURE.md) — topología, contenido, variables y despliegue.
+- [`DESIGN.md`](./DESIGN.md) — sistema visual y patrones de interacción.
+- [`OPERATIONS.md`](./OPERATIONS.md) — operación, alertas y respuesta a incidentes.
+- [`TESTING.md`](./TESTING.md) — estrategia y convenciones de pruebas.
+- [Revisión SEO/GEO/AIO](docs/seo-geo-aio-post-design-review.md) — comparación del rediseño y correcciones bilingües verificadas.
+- [Imágenes sociales y favicon](docs/social-images.md) — generación de portadas EN/ES, versiones de URL y validación.
+- [`CHANGELOG.md`](./CHANGELOG.md) — historial de versiones.
+- [`TODOS.md`](./TODOS.md) — trabajo pendiente priorizado.

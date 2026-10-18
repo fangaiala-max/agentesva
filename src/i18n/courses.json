@@ -1,0 +1,82 @@
+{
+  "domestika-ia-imagen": {
+    "title": "Midjourney courses on Domestika",
+    "description": "A selection of Spanish-language courses on Midjourney and AI image creation, taught by design and illustration professionals. Topics range from first prompts to more advanced visual techniques. Courses are purchased individually.",
+    "language": "Spanish"
+  },
+  "fastai-practical-dl": {
+    "title": "Practical Deep Learning for Coders",
+    "description": "A practical fast.ai course for people who already program. It starts with applications in vision, text, and tabular data, then introduces the underlying theory and deployment. The course and accompanying book are available online.",
+    "language": "English"
+  },
+  "seguridad-llm": {
+    "title": "LLM security: defending against prompt injection",
+    "description": "A practical developer mini-course that uses a RAG application lab to explore direct and indirect prompt injection. It covers application design, guardrails, and regression evaluations, with Python examples that can run locally with Ollama or a compatible API.",
+    "language": "Spanish"
+  },
+  "generative-ai-for-beginners-ms": {
+    "title": "Generative AI for Beginners",
+    "description": "Microsoft’s open course introduces generative AI concepts and building applications through lessons with Python and TypeScript examples. The materials are hosted on GitHub under an MIT license.",
+    "language": "English"
+  },
+  "chatgpt-prompt-engineering-dlai": {
+    "title": "ChatGPT Prompt Engineering for Developers",
+    "description": "A short DeepLearning.AI course with OpenAI, taught by Isa Fulford and Andrew Ng. It explores clear prompts, summarization, classification, text transformation, and API examples through practical notebooks.",
+    "language": "English"
+  },
+  "elementos-de-ia": {
+    "title": "Elements of AI",
+    "description": "An introductory online course from the University of Helsinki and MinnaLearn. It explains AI, machine learning, and their implications without requiring programming experience. Spanish-language material is available.",
+    "language": "English and Spanish"
+  },
+  "intro-imagen-generativa-google": {
+    "title": "Introduction to Image Generation",
+    "description": "A short Google Cloud Skills Boost course introducing diffusion models and the ideas behind AI image generation, with a practical example using Vertex AI.",
+    "language": "English"
+  },
+  "intro-ia-generativa-google": {
+    "title": "Introduction to Generative AI",
+    "description": "A Google Cloud Skills Boost microcourse explaining generative AI, its uses, and how it differs from traditional machine learning. Designed as a first step before deeper study.",
+    "language": "English"
+  },
+  "huggingface-llm-course": {
+    "title": "Hugging Face LLM Course",
+    "description": "An open course on language models and text processing, covering Transformers, fine-tuning, and deployment with the Transformers, Datasets, and Tokenizers libraries. Python knowledge is expected; some deep learning background is useful.",
+    "language": "English, with community translations"
+  },
+  "ml-crash-course-google": {
+    "title": "Machine Learning Crash Course",
+    "description": "Google for Developers’ introduction to machine learning combines videos, interactive visualizations, and exercises covering regression, classification, neural networks, and language models. Some programming background is useful.",
+    "language": "English, with localized material"
+  },
+  "prompt-engineering-vanderbilt": {
+    "title": "Prompt Engineering Specialization",
+    "description": "A three-course Vanderbilt University specialization on Coursera. Learn to structure and improve prompts for practical generative AI tasks. The catalog describes paid course access and tool requirements; check the course page before enrolling.",
+    "language": "English, with Spanish dubbing"
+  },
+  "google-ai-essentials": {
+    "title": "Google AI Essentials",
+    "description": "A Google course on Coursera about using AI for everyday work: drafting, organizing ideas, handling small tasks, and using AI responsibly. No previous experience is required. Check the provider for current enrollment options.",
+    "language": "English, with Spanish dubbing"
+  },
+  "anthropic-prompt-tutorial": {
+    "title": "Anthropic’s Interactive Prompt Engineering Tutorial",
+    "description": "An open tutorial from Anthropic exploring prompt structure, common mistakes, and techniques through basic, intermediate, and advanced interactive notebooks. Work through the exercises at your own pace.",
+    "language": "English"
+  },
+  "linkedin-ia-productividad": {
+    "title": "AI courses on LinkedIn Learning",
+    "description": "A catalog of short professional courses covering AI productivity, generative tools, prompts, and workplace applications. Access depends on the provider’s subscription terms. Language and subtitles vary by course.",
+    "language": "Varies by course"
+  },
+  "ai-for-everyone": {
+    "title": "AI for Everyone",
+    "description": "Andrew Ng’s nontechnical DeepLearning.AI course explains what AI can and cannot do and how to identify organizational opportunities. It is designed for managers and decision-makers rather than programmers. Check Coursera for current enrollment and certificate requirements.",
+    "language": "English, with Spanish dubbing"
+  },
+  "platzi-intro-ia": {
+    "title": "Introduction to Artificial Intelligence",
+    "description": "A Spanish-language introductory Platzi course on what AI is, what it can do, and how to start using it in everyday work. No prior experience is required. The original catalog identifies this introduction as free; other courses have separate access terms.",
+    "language": "Spanish"
+  }
+}

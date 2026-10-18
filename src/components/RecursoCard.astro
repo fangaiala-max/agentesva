@@ -1,6 +1,7 @@
 ---
 import type { Recurso } from '../data/recursos';
 import { PRECIO_COLOR, tipoLabel } from '../data/recursos';
+import { crumbPath } from '../data/breadcrumbs';
 
 interface Props { recurso: Recurso }
 const { recurso } = Astro.props;
@@ -18,7 +19,7 @@ const search = `${recurso.titulo} ${recurso.desc} ${recurso.formato} ${recurso.c
   data-search={search}
   style="position: relative; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 14px;"
 >
-  <a href={`/recurso/${recurso.slug}`} aria-label={`Ver ${recurso.titulo}`} style="position: absolute; inset: 0; z-index: 1; border-radius: 8px;"></a>
+  <a href={crumbPath(`/recurso/${recurso.slug}`)} aria-label={`Ver ${recurso.titulo}`} style="position: absolute; inset: 0; z-index: 1; border-radius: 8px;"></a>
   <div style="display: flex; align-items: flex-start; gap: 13px;">
     <div transition:name={`mono-recurso-${recurso.slug}`} style={`width: 42px; height: 42px; border-radius: 9px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 19px; color: #fff; background: ${recurso.color};`}>{initial}</div>
     <div style="flex: 1; min-width: 0;">

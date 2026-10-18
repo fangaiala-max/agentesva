@@ -1,0 +1,303 @@
+{
+  "guides/automatizar-seguimiento-de-leads": {
+    "title": "Automate lead follow-up without losing the conversation",
+    "description": "A practical approach to connecting forms, CRM, email, and messaging around a clear next action.",
+    "points": [
+      "Centralize incoming leads before building sequences.",
+      "Prioritize fit and intent, not only arrival time.",
+      "Stop reminders when someone responds and preserve the conversation in the CRM."
+    ],
+    "body": "Map every source: forms, calls, events, messaging, campaigns, and referrals. For each one, record what information arrives, where it is stored, who responds, and the expected response time. A lead left in an unowned inbox is a process problem before it is a software problem. Start with a minimum useful record: source, need, contact details, applicable consent, owner, status, and next action. Automate speed and consistency while leaving valuable conversations to a person."
+  },
+  "guides/automatizar-whatsapp-empresa": {
+    "title": "Automate WhatsApp while keeping the human connection",
+    "description": "Define what to automate, what information to connect, and when a person should take over.",
+    "points": [
+      "Separate incoming customer messages from outgoing notifications.",
+      "Connect conversations to your CRM, scheduling, or support system.",
+      "Design the human handover and record of actions from the start."
+    ],
+    "body": "WhatsApp is a channel, not a process. Start with a repeated conversation that ends in an observable outcome: an appointment, a coverage check, a document request, or a status update. Group recent messages into questions answered by stable information, questions that require a system lookup, and cases that need human judgment. Use that distinction to define the workflow. Validate the official platform requirements, permissions, and available integrations for the intended market before implementation."
+  },
+  "guides/chatbot-para-pymes": {
+    "title": "A practical first chatbot for a small business",
+    "description": "Choose one useful conversation, connect the right information, and make it easy to reach a person.",
+    "points": [
+      "Start with a repetitive, low-risk conversation.",
+      "Specify when and how a person intervenes.",
+      "Measure resolution, handover, and conversion, not just chat volume."
+    ],
+    "body": "A good first chatbot answers frequent questions, collects necessary information, or routes a request correctly. Look for sufficient volume, repetition, and an answer that can be checked. Review recent conversations and group them by reason for contact. Identify which need access to another system and which require judgment. A narrow, measurable scope is easier to test than a bot expected to answer everything. Treat the path to a human as part of the main experience."
+  },
+  "guides/como-aparecer-en-chatgpt": {
+    "title": "Help ChatGPT discover and describe your business",
+    "description": "Make your business information accessible, consistent, and supported by clear sources.",
+    "points": [
+      "Check crawling, indexing, and relevant search-bot access.",
+      "Publish consistent facts about your brand, category, offer, and audience.",
+      "Test neutral questions and record the platform, date, prompt, and response."
+    ],
+    "body": "Being mentioned in an AI answer, being described accurately, and receiving a linked citation are different outcomes. Answers vary with the question, context, available features, and retrieved sources. Start with accessible pages that state who the business is, what it offers, and whom it serves. Support the information with consistent external sources. Record repeatable observations rather than treating one answer as a fixed ranking. These steps improve eligibility; they do not guarantee a mention or citation."
+  },
+  "guides/como-convertirse-en-especialista-geo": {
+    "title": "Becoming a GEO specialist: skills and a 90-day plan",
+    "description": "Build SEO foundations, measurement skills, and a documented project that shows what you can implement.",
+    "points": [
+      "GEO extends SEO",
+      " it does not replace it.",
+      "Show method, evidence, implementation, and limitations in your portfolio.",
+      "Use 90 days to build a demonstrable case, without treating it as a job guarantee."
+    ],
+    "body": "A GEO specialist investigates how a brand appears in generative answers, translates findings into technical and editorial changes, and measures what happens afterward. The original guide draws on Citable Agency’s review of 262 roles. A practical portfolio should include a baseline, clear hypotheses, changes you actually implemented, and a later measurement. Start with SEO fundamentals, add answer measurement and source analysis, then document a complete experiment. Screenshots alone do not explain causality or demonstrate implementation ability."
+  },
+  "guides/cuanto-cuesta-automatizar-un-negocio": {
+    "title": "What does business automation cost?",
+    "description": "Understand the budget beyond the first build: design, implementation, software usage, and maintenance.",
+    "points": [
+      "Separate discovery, implementation, operating costs, and support.",
+      "Budget for exceptions, testing, and recovery from failures.",
+      "Choose a first case with an outcome you can measure."
+    ],
+    "body": "AgentesVA’s indicative starting prices are €300 for a scope workshop, €1,500 for a scoped implementation, €3,000 for several integrations, and €300 per month for support. A reliable quote considers systems, data, volume, permissions, exceptions, and the level of reliability required. Test duplicates, empty fields, expired permissions, API limits, and unavailable destination systems. Compare the investment with an observed baseline of time, errors, and business impact. A price that covers only the ideal path leaves important work unbudgeted."
+  },
+  "guides/make-vs-n8n-vs-zapier": {
+    "title": "Make, n8n, or Zapier: choose around the workflow",
+    "description": "Compare setup effort, control, maintenance, and operating cost using a representative process.",
+    "points": [
+      "Test an actual workflow rather than comparing integration counts.",
+      "Calculate execution and usage costs with your own volume.",
+      "Include monitoring, maintenance, and the team’s technical capacity."
+    ],
+    "body": "Zapier commonly suits familiar automations where straightforward setup matters. Make provides a visual canvas for branches and data transformations. n8n offers flexibility for teams that need custom logic or deployment options. Those broad distinctions are a starting point, not a substitute for testing. An advertised integration may not expose the event, action, or field your process needs. Verify current licenses and plans, then evaluate the whole operating cost, including the person responsible for keeping the workflow healthy."
+  },
+  "guides/medir-visibilidad-en-chatgpt": {
+    "title": "Measure your brand’s visibility in ChatGPT",
+    "description": "Track mentions, accuracy, sources, competitors, and business outcomes through a repeatable set of questions.",
+    "points": [
+      "Keep prompts, market, and measurement frequency consistent.",
+      "Separate presence, accuracy, sentiment, competition, and commercial outcomes.",
+      "Save the complete response and date before interpreting changes."
+    ],
+    "body": "Referral traffic records only visits that follow a measurable click. Someone may see a brand in an answer, remember it, and visit through another channel later. To observe visibility directly, define a stable set of relevant questions and record the platform, date, full response, brand mention, description, competitors, and linked sources. Combine these observations with referral data and broader brand trends. A single answer is an observation, not a reliable trend or proof that a change caused an improvement."
+  },
+  "guides/procesos-que-conviene-automatizar-primero": {
+    "title": "Which business process should you automate first?",
+    "description": "Prioritize recurring work with clear rules, accessible data, and a measurable outcome.",
+    "points": [
+      "Standardize the process before moving it into software.",
+      "Favor meaningful impact and manageable complexity for the first pilot.",
+      "Keep human review where ambiguity or consequences matter."
+    ],
+    "body": "Record repetitive tasks for a week: frequency, time per case, systems involved, waiting time, and common errors. Score candidates on volume, effort, impact, integration difficulty, and risk. Good first projects have an owner, representative examples, and a result that can be checked. Avoid starting with poorly understood, exceptional, or high-impact work. Select one bounded process and establish a baseline before building so the later result can be assessed against something concrete."
+  },
+  "guides/seo-para-ia": {
+    "title": "SEO for AI search: make your business understandable",
+    "description": "Combine technical access, useful content, clear entities, and evidence to support discovery in AI search.",
+    "points": [
+      "Maintain crawling, indexing, internal links, and useful content.",
+      "Explain who the brand is, what it offers, whom it serves, and the evidence behind it.",
+      "Measure mentions and accuracy as well as clicks."
+    ],
+    "body": "AI search does not remove the need for a sound website. Accessible pages, clear structure, useful answers, and consistent business information remain the foundation. Write content that directly answers a real question and separates facts from interpretation. Connect related pages and support important claims with sources. Monitor how the brand is described across a defined set of questions. Track accuracy and cited sources separately from traffic, and avoid treating an isolated response as proof of a stable position."
+  },
+  "research/alternativas-a-chatgpt-en-espanol": {
+    "title": "Alternatives to ChatGPT for Spanish-language work",
+    "description": "Compare assistants by the actual task: writing, research, coding, or working with your documents.",
+    "points": [
+      "Test the same representative task in more than one assistant.",
+      "Consider Claude, Gemini, Perplexity, DeepSeek, Copilot, and Mistral according to the workflow.",
+      "Check current plans, data controls, and limitations before committing."
+    ],
+    "body": "The original comparison explores alternatives to using one assistant for everything. Writing long documents, researching a market, and developing code place different demands on a tool. Choose a realistic sample, provide the same context, and evaluate the result rather than the brand’s popularity. Consider how much editing is needed, whether sources can be checked, and how the tool fits existing systems. A general assistant plus one specialist may be more useful than several overlapping subscriptions."
+  },
+  "research/chatgpt-vs-claude-para-tu-negocio": {
+    "title": "ChatGPT or Claude for your business?",
+    "description": "Compare general-purpose assistance, writing, and document analysis with a real business task.",
+    "points": [
+      "Use a consistent brief for both assistants.",
+      "Evaluate accuracy, editing effort, and handling of long documents.",
+      "Choose based on your workload rather than one impressive answer."
+    ],
+    "body": "The original comparison positions ChatGPT as a broad everyday assistant and Claude as a strong option for writing and extended document work. Both need a clear brief and human review. Try a typical email, report, or source document and compare the quality of the result, the effort to correct it, and the fit with your team’s working style. Check the provider’s current plan limits rather than relying on historical price comparisons. Some teams use both for different tasks."
+  },
+  "research/herramientas-ia-para-automatizar-tareas": {
+    "title": "Tools for automating repetitive tasks",
+    "description": "Compare visual automation platforms for the work between your applications.",
+    "points": [
+      "Start with one recurring task.",
+      "Verify the exact trigger, action, and fields you need.",
+      "Compare usage costs and maintenance responsibilities."
+    ],
+    "body": "Common first workflows include transferring a lead to a CRM, sending an internal order notification, or filing an invoice. The original review compares Make, Zapier, n8n, and browser automation tools such as Bardeen. Their billing units and deployment models differ, so a headline subscription price does not tell the whole story. Test a representative flow, including incomplete records and failed requests. Expand only after the first workflow has an owner and a reliable operating process."
+  },
+  "research/ia-para-atencion-al-cliente": {
+    "title": "Using AI in customer support",
+    "description": "Handle frequent questions and route exceptions without trapping customers in a bot conversation.",
+    "points": [
+      "Use an approved source of answers.",
+      "Choose tools around your support channels.",
+      "Provide a clear handover to a person."
+    ],
+    "body": "The original review covers tools such as Tidio, ManyChat, Chatfuel, Landbot, and Wati for different support and messaging workflows. Start with questions that have a verifiable answer: opening hours, coverage, or an order status retrieved from an authorized system. Define when the assistant should stop and ask for help. A useful support system resolves or routes the request and records the outcome. It should not merely generate more conversation."
+  },
+  "research/mejores-herramientas-ia-gratis": {
+    "title": "Build a useful AI toolkit before paying",
+    "description": "Explore writing, research, and design tools using a task-based trial.",
+    "points": [
+      "Start with one general-purpose assistant.",
+      "Add a specialist only when a task justifies it.",
+      "Upgrade when an observed limitation affects regular work."
+    ],
+    "body": "The original review explores assistants such as ChatGPT, Gemini, Claude, and DeepSeek, research with Perplexity, and design with Canva. Free access and plan limits change, so check the provider when deciding. Use the first trial to answer a practical question: does this tool produce something useful for this week’s work? Record time spent checking and editing, not just generation time. Avoid collecting subscriptions before you know which tasks recur."
+  },
+  "research/mejores-herramientas-ia-para-crear-imagenes": {
+    "title": "AI tools for business images",
+    "description": "Compare visual tools for templates, concepts, image editing, and text within images.",
+    "points": [
+      "Choose around the intended visual output.",
+      "Check generated lettering, details, and brand consistency.",
+      "Review the provider’s terms for the intended use."
+    ],
+    "body": "The original review covers Canva, Midjourney, Ideogram, Adobe Firefly, Krea, and Leonardo AI. A social template, product concept, and finished advertisement need different levels of control. Use a brief with the same subject, composition, and output size when comparing tools. Review details closely before sharing or publishing. Generation is one stage of a design process that still includes editing, consistency checks, and deciding whether the image communicates the right idea."
+  },
+  "research/mejores-herramientas-ia-para-redes-sociales": {
+    "title": "AI tools for social content",
+    "description": "Connect writing and visual production while preserving your editorial judgment.",
+    "points": [
+      "Use approved brand information as context.",
+      "Pair a writing workflow with a visual workflow.",
+      "Review accuracy and tone before publishing."
+    ],
+    "body": "The original review examines Copy.ai, Jasper, Writesonic, Canva, Ideogram, and video tools. A small team often benefits from a simple workflow: prepare a clear brief, draft the copy, create the visual, and review the pair together. Test a tool on your own subject matter instead of generic examples. Templates can speed up production, but the final decision about usefulness, brand voice, and publication should stay with the team."
+  },
+  "research/mejores-herramientas-ia-whatsapp": {
+    "title": "Tools for business WhatsApp workflows",
+    "description": "Compare shared inboxes, conversational builders, and messaging automation around a defined task.",
+    "points": [
+      "Decide whether you need support, lead capture, or notifications.",
+      "Check official channel access, consent, and integration requirements.",
+      "Start with a simple flow and a reliable human handover."
+    ],
+    "body": "The original comparison covers ManyChat, Tidio, Landbot, Chatfuel, and Wati. Their capabilities and access conditions vary, so validate the specific channel setup before choosing. Map a first conversation from greeting to useful outcome: collect the necessary context, answer from an approved source, or route the request. Connect the result to the system where work actually happens. A conversation without ownership or a next action is still an unresolved process."
+  },
+  "news/agentes-de-ia-que-hacen-el-trabajo-solos": {
+    "title": "AI agents move from answers toward actions",
+    "description": "An overview of the shift from conversational assistants to systems that can carry out multi-step tasks.",
+    "points": [
+      "Separate a generated plan from an executed action.",
+      "Define the tools and permissions an agent can use.",
+      "Keep review points for consequential actions."
+    ],
+    "body": "The original article explores agents that connect tools and information to complete a sequence of work. For a small business, the useful question is which bounded process can be tested safely and measured. Start with explicit inputs, an owner, and a clear stopping condition. Review the original article and its linked source for the announcement context; this English overview does not establish current product availability."
+  },
+  "news/asistentes-de-ia-que-toman-notas-de-tus-reuniones": {
+    "title": "AI assistants for meeting notes",
+    "description": "A look at transcription, summaries, and action items as a repeatable meeting workflow.",
+    "points": [
+      "Check compatibility with the meeting platform.",
+      "Inform participants and obtain the required agreement.",
+      "Review decisions and action owners in the summary."
+    ],
+    "body": "The original article discusses tools such as Fathom and Otter for capturing meetings. A transcript can help preserve context, while a summary makes decisions and follow-up easier to find. Platform access rules and product features change, so check the current integration before relying on automatic attendance. Keep a person responsible for checking names, commitments, and sensitive information before sharing a summary."
+  },
+  "news/asistentes-ia-gratis-para-tu-negocio": {
+    "title": "Trying an AI assistant in your business",
+    "description": "A starting point for comparing general-purpose assistants on a real task.",
+    "points": [
+      "Choose one task you already understand.",
+      "Compare the output with your usual process.",
+      "Check current access and limits with the provider."
+    ],
+    "body": "The original article highlights Gemini, Microsoft Copilot, and DeepSeek as accessible ways to try AI-assisted work. Drafting a routine message, summarizing a non-sensitive document, or exploring a topic can provide a useful first comparison. Judge the assistant by whether the result is accurate and usable after review. Current plans and integrations should be checked on the linked provider pages."
+  },
+  "news/cuidado-al-compartir-chats-de-ia-pueden-acabar-en-google": {
+    "title": "Public AI chat links deserve a careful review",
+    "description": "Shared conversations can expose information beyond the audience originally intended.",
+    "points": [
+      "Review what a public link contains.",
+      "Remove sensitive details before sharing.",
+      "Use a controlled excerpt when the full conversation is unnecessary."
+    ],
+    "body": "The original report describes shared AI conversations appearing in search results. The practical issue is the difference between privately working in a chat and publishing a link to it. Review existing shared links and understand the provider’s visibility settings. Treat a conversation containing business or personal data with the same care as another shared document. The original article retains the reporting date and source attribution."
+  },
+  "news/editores-de-codigo-con-ia": {
+    "title": "Building software with AI-assisted editors",
+    "description": "How conversational tools support prototyping and development.",
+    "points": [
+      "Write a concrete brief with expected behavior.",
+      "Review the generated code and dependencies.",
+      "Test the result before relying on it."
+    ],
+    "body": "The original article introduces Cursor, v0, Bolt, and GitHub Copilot. They support different parts of a development workflow, from editor assistance to interface generation and application prototypes. Describing a feature can speed up a first draft, but a working implementation still needs review, tests, and clear responsibility for maintenance. Pick a small feature and judge the full result, not only the first preview."
+  },
+  "news/ia-potente-y-gratis-modelos-abiertos-de-china": {
+    "title": "Open models and the economics of AI access",
+    "description": "An overview of how openly available models broaden the options for building and testing AI tools.",
+    "points": [
+      "Distinguish model availability from hosted-service terms.",
+      "Review the license for the specific model.",
+      "Understand where data is processed in the chosen deployment."
+    ],
+    "body": "The original article discusses models from organizations including DeepSeek, Alibaba, Moonshot, and Mistral. Open availability can make experimentation easier, but access to model weights is different from using a provider’s web service. Evaluate the actual model, license, infrastructure, and data flow for your task. This overview preserves the topic of the original reporting without treating historical comparisons as a current ranking."
+  },
+  "news/la-ia-entra-en-la-ciberseguridad-y-tu-pyme-es-objetivo": {
+    "title": "AI and cybersecurity for smaller businesses",
+    "description": "A look at AI’s role in both defensive tools and more convincing scams.",
+    "points": [
+      "Maintain strong access controls and backups.",
+      "Verify urgent requests through a separate trusted channel.",
+      "Keep sensitive information out of unapproved tools."
+    ],
+    "body": "The original article discusses AI-based security tools and the use of AI in phishing. For a small team, operational basics and clear verification procedures remain important. Do not rely on a chatbot alone to determine whether a payment request or message is legitimate. The source article contains announcement dates that require editorial rechecking; this overview focuses on its practical theme rather than repeating those rollout claims."
+  },
+  "news/microsoft-unifica-copilot-en-una-super-app": {
+    "title": "Microsoft’s direction for a more unified Copilot",
+    "description": "An overview of the reported shift toward connected chat, coding, and agent experiences.",
+    "points": [
+      "Distinguish an announcement from a generally available feature.",
+      "Verify the exact subscription and tenant requirements.",
+      "Test permissions and review controls before adoption."
+    ],
+    "body": "The original article reports Microsoft’s plans to bring different Copilot experiences together and discusses workflows that can act on business information. A single interface does not remove the need to understand what the system can access or change. Check the linked original reporting and Microsoft’s current documentation for availability, pricing, and product names. Evaluate a representative task before committing a team workflow."
+  },
+  "news/nueva-ola-imagenes-con-ia-2026": {
+    "title": "The changing landscape of AI image tools",
+    "description": "An overview of image generation, editing, and text rendering for business visuals.",
+    "points": [
+      "Compare tools using the same visual brief.",
+      "Check fine details and lettering.",
+      "Review output rights for the intended use."
+    ],
+    "body": "The original article discusses image capabilities across assistants and specialist generators, including Gemini, ChatGPT, Grok, Midjourney, and Ideogram. The practical opportunity is faster exploration of a visual idea. The finished asset still needs inspection for accuracy, brand consistency, and suitability. Consult the linked provider sources for current models and access rather than treating the original article’s launch details as a live product list."
+  },
+  "news/perplexity-llega-a-windows-agente-que-usa-tu-pc": {
+    "title": "Desktop agents and the work between applications",
+    "description": "A look at software that can carry out tasks across local applications and online services.",
+    "points": [
+      "Understand which actions happen locally and which use cloud services.",
+      "Check access to files, accounts, and applications.",
+      "Evaluate the cost against a repeatable business task."
+    ],
+    "body": "The original report covers Perplexity’s desktop-agent direction and the tradeoffs of connecting local work to cloud capabilities. The meaningful test is whether a bounded workflow becomes more reliable and useful after accounting for review time. Verify current platform support, subscription requirements, and permissions with the provider. Keep an explicit review step before an agent changes or shares important information."
+  },
+  "news/video-con-ia-avatares-y-clips-para-tu-negocio": {
+    "title": "AI video: avatars, clips, and business communication",
+    "description": "Choose between script-led avatar videos and generated visual clips according to the message.",
+    "points": [
+      "Use avatar tools for script-led explanations.",
+      "Use clip generators for visual concepts and short scenes.",
+      "Review narration, captions, and rights before sharing."
+    ],
+    "body": "The original article compares HeyGen and Synthesia for avatar-based communication with Runway and Pika for generated clips and creative effects. A training explanation and a social advertisement have different needs. Start with a script or visual brief, then assess the complete output: clarity, timing, pronunciation, captions, and editing effort. Check current plans and output terms on the provider’s site."
+  },
+  "news/whatsapp-estrena-agente-de-ia-para-negocios": {
+    "title": "Business AI inside messaging platforms",
+    "description": "An overview of AI-assisted customer conversations, product questions, and appointment workflows.",
+    "points": [
+      "Check availability in the intended market.",
+      "Keep the workflow focused on a defined business task.",
+      "Provide a clear route to a person."
+    ],
+    "body": "The original article discusses Meta’s business-agent direction and third-party tools for WhatsApp workflows. Product rollout, platform terms, and regional access can vary. Before implementation, confirm the official capabilities available to the business and connect conversations to the place where the team manages work. The English overview focuses on the practical workflow; the Spanish source retains the original announcement and references."
+  }
+}

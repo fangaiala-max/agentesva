@@ -54,25 +54,25 @@ bonus:
 
 Ya no necesitas un banco de imágenes ni un diseñador para cada publicación. Con una buena descripción, la IA **genera imágenes de producto, anuncios, fondos y carteles** en segundos. Pero no todas las herramientas valen para lo mismo —ni todas son igual de seguras para uso comercial—, así que vamos a verlas una a una según para qué las quieras.
 
-## [Canva IA](/herramienta/canva-ia) y [Leonardo AI](/herramienta/leonardo-ai): lo más fácil para empezar
+## [Canva IA](/herramienta/canva-ia/) y [Leonardo AI](/herramienta/leonardo-ai/): lo más fácil para empezar
 
 **Canva IA** genera imágenes y las combina con plantillas y una edición sencilla, todo en el mismo sitio: es la opción ideal si no sabes de diseño. Le pides "una imagen para un post de oferta de verano" y la tienes lista para publicar, con el texto encima, en minutos. Su plan gratuito incluye unos 50 créditos de IA al mes.
 
 **Leonardo AI** sube el listón de calidad y te da **control fino del estilo**, con 150 tokens gratis al día para experimentar (leonardo.ai/pricing, jun 2026); los planes de pago, desde unos 10 $/mes, añaden licencia comercial. **Mejor para:** quien quiere más calidad y estilo sin renunciar a un plan gratis para probar.
 
-## [Midjourney](/herramienta/midjourney): máxima calidad y personalidad de marca
+## [Midjourney](/herramienta/midjourney/): máxima calidad y personalidad de marca
 
 **Midjourney** sigue siendo de las **mejores calidades** del mercado: perfecta para conceptos de marca, moodboards y piezas con personalidad que de verdad llaman la atención. No tiene plan gratuito —arranca en unos 10 $/mes (con un número limitado de generaciones)— pero todos sus planes incluyen derechos de uso comercial. **Mejor para:** cuando la imagen tiene que tener un acabado y una estética que destaquen.
 
-## [Ideogram](/herramienta/ideogram): carteles y posts con texto dentro
+## [Ideogram](/herramienta/ideogram/): carteles y posts con texto dentro
 
 El gran dolor de cabeza de la IA de imágenes es **el texto**: la mayoría escribe garabatos. **Ideogram** es la excepción: genera texto correcto y legible dentro de la imagen, lo que la hace única para carteles, portadas, logos sencillos y posts donde la palabra manda. Tiene un plan gratuito con unas 10 imágenes a la semana; de pago, desde unos 7 $/mes. **Mejor para:** cualquier pieza donde el texto sea protagonista.
 
-## [Adobe Firefly](/herramienta/adobe-firefly): uso comercial sin líos de derechos
+## [Adobe Firefly](/herramienta/adobe-firefly/): uso comercial sin líos de derechos
 
 **Adobe Firefly** es la IA generativa de Adobe, entrenada con **contenido licenciado** y pensada para **uso comercial seguro**: es la opción más tranquila cuando la imagen va a una campaña de pago o a un producto y necesitas defensa legal. Se integra en Photoshop e Illustrator y tiene créditos gratuitos para empezar. **Mejor para:** publicidad y trabajo de cliente donde la licencia importa.
 
-## [Krea](/herramienta/krea): iterar rápido (y vídeo)
+## [Krea](/herramienta/krea/): iterar rápido (y vídeo)
 
 **Krea** genera y mejora imágenes (y también vídeo) **en tiempo real**, con upscaling para subir la resolución. Su plan gratuito, con unas 50 generaciones diarias, es de los más generosos, ideal para probar muchas ideas a toda velocidad antes de quedarte con una. **Mejor para:** explorar y iterar rápido sin gastar.
 
@@ -101,4 +101,4 @@ La diferencia entre una imagen mediocre y una que parece de profesional suele es
 - **Uso comercial tranquilo** → Adobe Firefly.
 - **Iterar y mejorar rápido** → Krea.
 
-Para una PyME, lo práctico es empezar con una gratuita (Canva IA, Leonardo o Krea), generar varias opciones y quedarte con la que encaje con tu marca. Y si tu objetivo es alimentar tus redes, combínalas con nuestra guía de [herramientas de IA para redes sociales](/estudios/mejores-herramientas-ia-para-redes-sociales).
+Para una PyME, lo práctico es empezar con una gratuita (Canva IA, Leonardo o Krea), generar varias opciones y quedarte con la que encaje con tu marca. Y si tu objetivo es alimentar tus redes, combínalas con nuestra guía de [herramientas de IA para redes sociales](/estudios/mejores-herramientas-ia-para-redes-sociales/).

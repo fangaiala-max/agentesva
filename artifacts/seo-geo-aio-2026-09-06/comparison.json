@@ -1,0 +1,3433 @@
+{
+  "counts": [
+    306,
+    306
+  ],
+  "removed": [],
+  "added": [],
+  "issues": [
+    {
+      "p": "/googleb15b297fd282b611/",
+      "h1": [],
+      "invalid": false
+    }
+  ],
+  "duplicateTitles": [
+    {
+      "value": "Adobe Firefly | AgentesVA",
+      "paths": [
+        "/herramienta/adobe-firefly/",
+        "/tools/adobe-firefly/"
+      ]
+    },
+    {
+      "value": "Bardeen | AgentesVA",
+      "paths": [
+        "/herramienta/bardeen/",
+        "/tools/bardeen/"
+      ]
+    },
+    {
+      "value": "Bolt.new | AgentesVA",
+      "paths": [
+        "/herramienta/bolt/",
+        "/tools/bolt/"
+      ]
+    },
+    {
+      "value": "Brevo | AgentesVA",
+      "paths": [
+        "/herramienta/brevo/",
+        "/tools/brevo/"
+      ]
+    },
+    {
+      "value": "Chatfuel | AgentesVA",
+      "paths": [
+        "/herramienta/chatfuel/",
+        "/tools/chatfuel/"
+      ]
+    },
+    {
+      "value": "ChatGPT | AgentesVA",
+      "paths": [
+        "/herramienta/chatgpt/",
+        "/tools/chatgpt/"
+      ]
+    },
+    {
+      "value": "Claude | AgentesVA",
+      "paths": [
+        "/herramienta/claude/",
+        "/tools/claude/"
+      ]
+    },
+    {
+      "value": "Copy.ai | AgentesVA",
+      "paths": [
+        "/herramienta/copy-ai/",
+        "/tools/copy-ai/"
+      ]
+    },
+    {
+      "value": "Cursor | AgentesVA",
+      "paths": [
+        "/herramienta/cursor/",
+        "/tools/cursor/"
+      ]
+    },
+    {
+      "value": "DeepL | AgentesVA",
+      "paths": [
+        "/herramienta/deepl/",
+        "/tools/deepl/"
+      ]
+    },
+    {
+      "value": "DeepSeek | AgentesVA",
+      "paths": [
+        "/herramienta/deepseek/",
+        "/tools/deepseek/"
+      ]
+    },
+    {
+      "value": "Descript | AgentesVA",
+      "paths": [
+        "/herramienta/descript/",
+        "/tools/descript/"
+      ]
+    },
+    {
+      "value": "ElevenLabs | AgentesVA",
+      "paths": [
+        "/herramienta/elevenlabs/",
+        "/tools/elevenlabs/"
+      ]
+    },
+    {
+      "value": "Fathom | AgentesVA",
+      "paths": [
+        "/herramienta/fathom/",
+        "/tools/fathom/"
+      ]
+    },
+    {
+      "value": "Gamma | AgentesVA",
+      "paths": [
+        "/herramienta/gamma/",
+        "/tools/gamma/"
+      ]
+    },
+    {
+      "value": "Gemini | AgentesVA",
+      "paths": [
+        "/herramienta/gemini/",
+        "/tools/gemini/"
+      ]
+    },
+    {
+      "value": "GitHub Copilot | AgentesVA",
+      "paths": [
+        "/herramienta/github-copilot/",
+        "/tools/github-copilot/"
+      ]
+    },
+    {
+      "value": "Grammarly | AgentesVA",
+      "paths": [
+        "/herramienta/grammarly/",
+        "/tools/grammarly/"
+      ]
+    },
+    {
+      "value": "Grok | AgentesVA",
+      "paths": [
+        "/herramienta/grok/",
+        "/tools/grok/"
+      ]
+    },
+    {
+      "value": "HeyGen | AgentesVA",
+      "paths": [
+        "/herramienta/heygen/",
+        "/tools/heygen/"
+      ]
+    },
+    {
+      "value": "HuggingChat | AgentesVA",
+      "paths": [
+        "/herramienta/huggingchat/",
+        "/tools/huggingchat/"
+      ]
+    },
+    {
+      "value": "Ideogram | AgentesVA",
+      "paths": [
+        "/herramienta/ideogram/",
+        "/tools/ideogram/"
+      ]
+    },
+    {
+      "value": "Jasper | AgentesVA",
+      "paths": [
+        "/herramienta/jasper/",
+        "/tools/jasper/"
+      ]
+    },
+    {
+      "value": "Krea | AgentesVA",
+      "paths": [
+        "/herramienta/krea/",
+        "/tools/krea/"
+      ]
+    },
+    {
+      "value": "Landbot | AgentesVA",
+      "paths": [
+        "/herramienta/landbot/",
+        "/tools/landbot/"
+      ]
+    },
+    {
+      "value": "Leonardo AI | AgentesVA",
+      "paths": [
+        "/herramienta/leonardo-ai/",
+        "/tools/leonardo-ai/"
+      ]
+    },
+    {
+      "value": "Mailchimp | AgentesVA",
+      "paths": [
+        "/herramienta/mailchimp/",
+        "/tools/mailchimp/"
+      ]
+    },
+    {
+      "value": "Make | AgentesVA",
+      "paths": [
+        "/herramienta/make/",
+        "/tools/make/"
+      ]
+    },
+    {
+      "value": "ManyChat | AgentesVA",
+      "paths": [
+        "/herramienta/manychat/",
+        "/tools/manychat/"
+      ]
+    },
+    {
+      "value": "Mem | AgentesVA",
+      "paths": [
+        "/herramienta/mem/",
+        "/tools/mem/"
+      ]
+    },
+    {
+      "value": "Microsoft Copilot | AgentesVA",
+      "paths": [
+        "/herramienta/microsoft-copilot/",
+        "/tools/microsoft-copilot/"
+      ]
+    },
+    {
+      "value": "Midjourney | AgentesVA",
+      "paths": [
+        "/herramienta/midjourney/",
+        "/tools/midjourney/"
+      ]
+    },
+    {
+      "value": "Mistral (Le Chat) | AgentesVA",
+      "paths": [
+        "/herramienta/mistral/",
+        "/tools/mistral/"
+      ]
+    },
+    {
+      "value": "Murf | AgentesVA",
+      "paths": [
+        "/herramienta/murf/",
+        "/tools/murf/"
+      ]
+    },
+    {
+      "value": "n8n | AgentesVA",
+      "paths": [
+        "/herramienta/n8n/",
+        "/tools/n8n/"
+      ]
+    },
+    {
+      "value": "Otter.ai | AgentesVA",
+      "paths": [
+        "/herramienta/otter/",
+        "/tools/otter/"
+      ]
+    },
+    {
+      "value": "Perplexity | AgentesVA",
+      "paths": [
+        "/herramienta/perplexity/",
+        "/tools/perplexity/"
+      ]
+    },
+    {
+      "value": "Pika | AgentesVA",
+      "paths": [
+        "/herramienta/pika/",
+        "/tools/pika/"
+      ]
+    },
+    {
+      "value": "Play.ht | AgentesVA",
+      "paths": [
+        "/herramienta/playht/",
+        "/tools/playht/"
+      ]
+    },
+    {
+      "value": "Relevance AI | AgentesVA",
+      "paths": [
+        "/herramienta/relevance-ai/",
+        "/tools/relevance-ai/"
+      ]
+    },
+    {
+      "value": "Replit | AgentesVA",
+      "paths": [
+        "/herramienta/replit/",
+        "/tools/replit/"
+      ]
+    },
+    {
+      "value": "Runway | AgentesVA",
+      "paths": [
+        "/herramienta/runway/",
+        "/tools/runway/"
+      ]
+    },
+    {
+      "value": "Suno | AgentesVA",
+      "paths": [
+        "/herramienta/suno/",
+        "/tools/suno/"
+      ]
+    },
+    {
+      "value": "Surfer SEO | AgentesVA",
+      "paths": [
+        "/herramienta/surfer-seo/",
+        "/tools/surfer-seo/"
+      ]
+    },
+    {
+      "value": "Synthesia | AgentesVA",
+      "paths": [
+        "/herramienta/synthesia/",
+        "/tools/synthesia/"
+      ]
+    },
+    {
+      "value": "Tidio | AgentesVA",
+      "paths": [
+        "/herramienta/tidio/",
+        "/tools/tidio/"
+      ]
+    },
+    {
+      "value": "Tome | AgentesVA",
+      "paths": [
+        "/herramienta/tome/",
+        "/tools/tome/"
+      ]
+    },
+    {
+      "value": "v0 | AgentesVA",
+      "paths": [
+        "/herramienta/v0/",
+        "/tools/v0/"
+      ]
+    },
+    {
+      "value": "Wati | AgentesVA",
+      "paths": [
+        "/herramienta/wati/",
+        "/tools/wati/"
+      ]
+    },
+    {
+      "value": "Writesonic | AgentesVA",
+      "paths": [
+        "/herramienta/writesonic/",
+        "/tools/writesonic/"
+      ]
+    },
+    {
+      "value": "Zapier | AgentesVA",
+      "paths": [
+        "/herramienta/zapier/",
+        "/tools/zapier/"
+      ]
+    },
+    {
+      "value": "Marketing | AgentesVA",
+      "paths": [
+        "/herramientas/marketing/",
+        "/tools/category/marketing/"
+      ]
+    },
+    {
+      "value": "Productividad | AgentesVA",
+      "paths": [
+        "/herramientas/productividad/",
+        "/recursos/productividad/"
+      ]
+    },
+    {
+      "value": "WhatsApp | AgentesVA",
+      "paths": [
+        "/herramientas/whatsapp/",
+        "/tools/category/whatsapp/"
+      ]
+    },
+    {
+      "value": "Atención al cliente | AgentesVA",
+      "paths": [
+        "/recursos/atencion-cliente/",
+        "/servicios/automatizacion-atencion-cliente/"
+      ]
+    },
+    {
+      "value": "Customer support | AgentesVA",
+      "paths": [
+        "/resources/category/atencion-cliente/",
+        "/services/customer-support/"
+      ]
+    },
+    {
+      "value": "Productivity | AgentesVA",
+      "paths": [
+        "/resources/category/productividad/",
+        "/tools/category/productividad/"
+      ]
+    }
+  ],
+  "duplicateDescriptions": [
+    {
+      "value": "Explore practical courses for decision-makers, creators, and developers. Check the teaching language and provider before enrolling.",
+      "paths": [
+        "/courses/category/automatizacion-agentes/",
+        "/courses/category/fundamentos/",
+        "/courses/category/imagen-generativa/",
+        "/courses/category/negocio/",
+        "/courses/category/prompts/",
+        "/courses/"
+      ]
+    },
+    {
+      "value": "Cursos prácticos para responsables, creadores y desarrolladores. Revisa idioma, nivel y condiciones del proveedor antes de inscribirte.",
+      "paths": [
+        "/cursos/automatizacion-agentes/",
+        "/cursos/fundamentos/",
+        "/cursos/imagen-generativa/",
+        "/cursos/",
+        "/cursos/negocio/",
+        "/cursos/prompts/"
+      ]
+    },
+    {
+      "value": "Explora herramientas de IA por tarea y compara sus usos.",
+      "paths": [
+        "/herramientas/asistentes/",
+        "/herramientas/automatizacion/",
+        "/herramientas/codigo/",
+        "/herramientas/diseno/",
+        "/herramientas/escritura/",
+        "/herramientas/",
+        "/herramientas/marketing/",
+        "/herramientas/productividad/",
+        "/herramientas/video/",
+        "/herramientas/voz/",
+        "/herramientas/whatsapp/"
+      ]
+    },
+    {
+      "value": "Practical English prompts for everyday work, marketing, sales, customer support, and small business operations. Copy and adapt them to your task.",
+      "paths": [
+        "/prompt-library/atencion-cliente/",
+        "/prompt-library/chatgpt/",
+        "/prompt-library/empresas-pymes/",
+        "/prompt-library/",
+        "/prompt-library/marketing/",
+        "/prompt-library/redes-sociales/",
+        "/prompt-library/ventas/"
+      ]
+    },
+    {
+      "value": "Plantillas, prompts y materiales prácticos. Consulta el idioma y las condiciones de acceso antes de continuar.",
+      "paths": [
+        "/recursos/atencion-cliente/",
+        "/recursos/contenido/",
+        "/recursos/desarrollo-ia/",
+        "/recursos/",
+        "/recursos/productividad/",
+        "/recursos/ventas-marketing/"
+      ]
+    },
+    {
+      "value": "Practical templates, prompts, and learning materials. Resource languages and access conditions are shown before you continue.",
+      "paths": [
+        "/resources/category/atencion-cliente/",
+        "/resources/category/contenido/",
+        "/resources/category/desarrollo-ia/",
+        "/resources/category/productividad/",
+        "/resources/category/ventas-marketing/",
+        "/resources/"
+      ]
+    },
+    {
+      "value": "Explore AI tools by task and compare their uses.",
+      "paths": [
+        "/tools/category/asistentes/",
+        "/tools/category/automatizacion/",
+        "/tools/category/codigo/",
+        "/tools/category/diseno/",
+        "/tools/category/escritura/",
+        "/tools/category/marketing/",
+        "/tools/category/productividad/",
+        "/tools/category/video/",
+        "/tools/category/voz/",
+        "/tools/category/whatsapp/",
+        "/tools/"
+      ]
+    }
+  ],
+  "diff": [
+    {
+      "path": "/como-trabajamos/",
+      "title": [
+        "Cómo trabajamos automatizaciones con IA | AgentesVA",
+        "Cómo trabajamos | AgentesVA"
+      ],
+      "words": [
+        179,
+        323
+      ],
+      "faq": [
+        4,
+        5
+      ],
+      "links": [
+        3,
+        4
+      ]
+    },
+    {
+      "path": "/cursos/automatizacion-agentes/",
+      "title": [
+        "Cursos de IA de Automatización y agentes | AgentesVA",
+        "Automatización y agentes | AgentesVA"
+      ],
+      "words": [
+        61,
+        115
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        5,
+        4
+      ]
+    },
+    {
+      "path": "/cursos/fundamentos/",
+      "title": [
+        "Cursos de IA de Fundamentos de IA | AgentesVA",
+        "Fundamentos de IA | AgentesVA"
+      ],
+      "words": [
+        99,
+        162
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        7,
+        6
+      ]
+    },
+    {
+      "path": "/cursos/imagen-generativa/",
+      "title": [
+        "Cursos de IA de Imagen y generativa | AgentesVA",
+        "Imagen y generativa | AgentesVA"
+      ],
+      "words": [
+        54,
+        111
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        5,
+        4
+      ]
+    },
+    {
+      "path": "/cursos/",
+      "title": [
+        "Cursos de IA — gratis y de pago | AgentesVA",
+        "Cursos de IA | AgentesVA"
+      ],
+      "words": [
+        359,
+        510
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        22,
+        18
+      ]
+    },
+    {
+      "path": "/cursos/negocio/",
+      "title": [
+        "Cursos de IA de IA para tu negocio | AgentesVA",
+        "IA para tu negocio | AgentesVA"
+      ],
+      "words": [
+        100,
+        181
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        7,
+        6
+      ]
+    },
+    {
+      "path": "/cursos/prompts/",
+      "title": [
+        "Cursos de IA de Prompts e ingeniería de prompts | AgentesVA",
+        "Prompts e ingeniería de prompts | AgentesVA"
+      ],
+      "words": [
+        104,
+        186
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        7,
+        6
+      ]
+    },
+    {
+      "path": "/es/",
+      "title": [
+        "Diseño de sistemas y automatización con IA | AgentesVA",
+        "Automatización con IA para pymes | AgentesVA"
+      ],
+      "words": [
+        533,
+        614
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        17,
+        19
+      ]
+    },
+    {
+      "path": "/herramienta/adobe-firefly/",
+      "title": [
+        "Adobe Firefly — IA de imagen segura para uso comercial. | AgentesVA",
+        "Adobe Firefly | AgentesVA"
+      ],
+      "words": [
+        220,
+        219
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/bardeen/",
+      "title": [
+        "Bardeen — Automatiza tareas repetitivas del navegador. | AgentesVA",
+        "Bardeen | AgentesVA"
+      ],
+      "words": [
+        225,
+        221
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/bolt/",
+      "title": [
+        "Bolt.new — Apps full-stack en el navegador, por chat. | AgentesVA",
+        "Bolt.new | AgentesVA"
+      ],
+      "words": [
+        208,
+        209
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/brevo/",
+      "title": [
+        "Brevo — Email + SMS + CRM, con IA y plan gratis. | AgentesVA",
+        "Brevo | AgentesVA"
+      ],
+      "words": [
+        234,
+        231
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        16,
+        11
+      ]
+    },
+    {
+      "path": "/herramienta/canva-ia/",
+      "title": [
+        "Canva IA — Diseña posts e imágenes de marca al instante. | AgentesVA",
+        "Canva IA | AgentesVA"
+      ],
+      "words": [
+        239,
+        232
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/chatfuel/",
+      "title": [
+        "Chatfuel — Automatiza ventas por WhatsApp e Instagram. | AgentesVA",
+        "Chatfuel | AgentesVA"
+      ],
+      "words": [
+        234,
+        231
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        16,
+        11
+      ]
+    },
+    {
+      "path": "/herramienta/chatgpt/",
+      "title": [
+        "ChatGPT — El asistente de IA más versátil para el día a día. | AgentesVA",
+        "ChatGPT | AgentesVA"
+      ],
+      "words": [
+        292,
+        274
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        15,
+        10
+      ]
+    },
+    {
+      "path": "/herramienta/claude/",
+      "title": [
+        "Claude — Ideal para textos largos y trabajo que exige criterio. | AgentesVA",
+        "Claude | AgentesVA"
+      ],
+      "words": [
+        236,
+        231
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/copy-ai/",
+      "title": [
+        "Copy.ai — Textos de venta, email y blog en segundos. | AgentesVA",
+        "Copy.ai | AgentesVA"
+      ],
+      "words": [
+        207,
+        206
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/cursor/",
+      "title": [
+        "Cursor — El editor de código pensado para la IA. | AgentesVA",
+        "Cursor | AgentesVA"
+      ],
+      "words": [
+        224,
+        225
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/deepl/",
+      "title": [
+        "DeepL — La mejor traducción automática, y corrector. | AgentesVA",
+        "DeepL | AgentesVA"
+      ],
+      "words": [
+        207,
+        209
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/deepseek/",
+      "title": [
+        "DeepSeek — Razonamiento de calidad, gratis. | AgentesVA",
+        "DeepSeek | AgentesVA"
+      ],
+      "words": [
+        213,
+        224
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/descript/",
+      "title": [
+        "Descript — Edita vídeo y podcast editando el texto. | AgentesVA",
+        "Descript | AgentesVA"
+      ],
+      "words": [
+        216,
+        217
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/elevenlabs/",
+      "title": [
+        "ElevenLabs — Voces de IA naturales en español. | AgentesVA",
+        "ElevenLabs | AgentesVA"
+      ],
+      "words": [
+        213,
+        216
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/fathom/",
+      "title": [
+        "Fathom — Graba, transcribe y resume tus reuniones gratis. | AgentesVA",
+        "Fathom | AgentesVA"
+      ],
+      "words": [
+        201,
+        205
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/gamma/",
+      "title": [
+        "Gamma — Crea presentaciones y webs con IA. | AgentesVA",
+        "Gamma | AgentesVA"
+      ],
+      "words": [
+        216,
+        215
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/gemini/",
+      "title": [
+        "Gemini — El asistente de IA de Google, integrado con tus apps. | AgentesVA",
+        "Gemini | AgentesVA"
+      ],
+      "words": [
+        245,
+        236
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/github-copilot/",
+      "title": [
+        "GitHub Copilot — Tu copiloto de programación en el editor. | AgentesVA",
+        "GitHub Copilot | AgentesVA"
+      ],
+      "words": [
+        221,
+        222
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/grammarly/",
+      "title": [
+        "Grammarly — Corrige gramática y mejora tu tono. | AgentesVA",
+        "Grammarly | AgentesVA"
+      ],
+      "words": [
+        212,
+        215
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/grok/",
+      "title": [
+        "Grok — Ideal para seguir tendencias y conversaciones de X en tiempo real. | AgentesVA",
+        "Grok | AgentesVA"
+      ],
+      "words": [
+        297,
+        283
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/heygen/",
+      "title": [
+        "HeyGen — Avatares y vídeos con IA en minutos. | AgentesVA",
+        "HeyGen | AgentesVA"
+      ],
+      "words": [
+        218,
+        224
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/hubspot-ia/",
+      "title": [
+        "HubSpot IA — CRM con IA para vender y fidelizar. | AgentesVA",
+        "HubSpot IA | AgentesVA"
+      ],
+      "words": [
+        244,
+        247
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        16,
+        11
+      ]
+    },
+    {
+      "path": "/herramienta/huggingchat/",
+      "title": [
+        "HuggingChat — Ideal para probar modelos de IA open source sin pagar. | AgentesVA",
+        "HuggingChat | AgentesVA"
+      ],
+      "words": [
+        244,
+        251
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/ideogram/",
+      "title": [
+        "Ideogram — Genera imágenes con texto legible. | AgentesVA",
+        "Ideogram | AgentesVA"
+      ],
+      "words": [
+        204,
+        212
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/jasper/",
+      "title": [
+        "Jasper — Redacta marketing con la voz de tu marca. | AgentesVA",
+        "Jasper | AgentesVA"
+      ],
+      "words": [
+        209,
+        217
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/krea/",
+      "title": [
+        "Krea — Crea y edita imágenes con IA en tiempo real. | AgentesVA",
+        "Krea | AgentesVA"
+      ],
+      "words": [
+        212,
+        218
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/landbot/",
+      "title": [
+        "Landbot — Chatbots conversacionales sin escribir código. | AgentesVA",
+        "Landbot | AgentesVA"
+      ],
+      "words": [
+        246,
+        241
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        16,
+        11
+      ]
+    },
+    {
+      "path": "/herramienta/leonardo-ai/",
+      "title": [
+        "Leonardo AI — Imágenes y arte con IA, con plan gratuito. | AgentesVA",
+        "Leonardo AI | AgentesVA"
+      ],
+      "words": [
+        224,
+        222
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/mailchimp/",
+      "title": [
+        "Mailchimp — Email marketing con ayuda de IA. | AgentesVA",
+        "Mailchimp | AgentesVA"
+      ],
+      "words": [
+        233,
+        232
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        16,
+        11
+      ]
+    },
+    {
+      "path": "/herramienta/make/",
+      "title": [
+        "Make — Automatiza procesos conectando tus apps, sin código. | AgentesVA",
+        "Make | AgentesVA"
+      ],
+      "words": [
+        241,
+        238
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        16,
+        11
+      ]
+    },
+    {
+      "path": "/herramienta/manychat/",
+      "title": [
+        "ManyChat — Bots de WhatsApp e Instagram que venden por ti. | AgentesVA",
+        "ManyChat | AgentesVA"
+      ],
+      "words": [
+        251,
+        236
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        16,
+        11
+      ]
+    },
+    {
+      "path": "/herramienta/mem/",
+      "title": [
+        "Mem — Toma notas y deja que la IA las organice. | AgentesVA",
+        "Mem | AgentesVA"
+      ],
+      "words": [
+        220,
+        213
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/microsoft-copilot/",
+      "title": [
+        "Microsoft Copilot — El asistente de IA de Microsoft para el día a día. | AgentesVA",
+        "Microsoft Copilot | AgentesVA"
+      ],
+      "words": [
+        238,
+        234
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/midjourney/",
+      "title": [
+        "Midjourney — Imágenes de alta calidad a partir de texto. | AgentesVA",
+        "Midjourney | AgentesVA"
+      ],
+      "words": [
+        215,
+        225
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/mistral/",
+      "title": [
+        "Mistral (Le Chat) — Asistente de IA europeo, rápido y privado. | AgentesVA",
+        "Mistral (Le Chat) | AgentesVA"
+      ],
+      "words": [
+        228,
+        215
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/murf/",
+      "title": [
+        "Murf — Locuta vídeos y presentaciones con voces IA. | AgentesVA",
+        "Murf | AgentesVA"
+      ],
+      "words": [
+        208,
+        211
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/n8n/",
+      "title": [
+        "n8n — Automatiza flujos con control total (open source). | AgentesVA",
+        "n8n | AgentesVA"
+      ],
+      "words": [
+        252,
+        244
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        16,
+        11
+      ]
+    },
+    {
+      "path": "/herramienta/notion-ia/",
+      "title": [
+        "Notion IA — Tu espacio de trabajo con IA integrada. | AgentesVA",
+        "Notion IA | AgentesVA"
+      ],
+      "words": [
+        233,
+        231
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/otter/",
+      "title": [
+        "Otter.ai — Transcribe reuniones y saca los acuerdos. | AgentesVA",
+        "Otter.ai | AgentesVA"
+      ],
+      "words": [
+        214,
+        214
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/perplexity/",
+      "title": [
+        "Perplexity — Buscador con IA que responde citando sus fuentes. | AgentesVA",
+        "Perplexity | AgentesVA"
+      ],
+      "words": [
+        245,
+        230
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        15,
+        10
+      ]
+    },
+    {
+      "path": "/herramienta/pika/",
+      "title": [
+        "Pika — Crea vídeos cortos con IA al instante. | AgentesVA",
+        "Pika | AgentesVA"
+      ],
+      "words": [
+        209,
+        212
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/playht/",
+      "title": [
+        "Play.ht — Genera y clona voces ultra-realistas. | AgentesVA",
+        "Play.ht | AgentesVA"
+      ],
+      "words": [
+        218,
+        217
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/relevance-ai/",
+      "title": [
+        "Relevance AI — Monta agentes de IA que ejecutan tareas por ti. | AgentesVA",
+        "Relevance AI | AgentesVA"
+      ],
+      "words": [
+        229,
+        217
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/replit/",
+      "title": [
+        "Replit — Crea apps en el navegador con un agente IA. | AgentesVA",
+        "Replit | AgentesVA"
+      ],
+      "words": [
+        235,
+        226
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/runway/",
+      "title": [
+        "Runway — Genera vídeo con IA y herramientas mágicas. | AgentesVA",
+        "Runway | AgentesVA"
+      ],
+      "words": [
+        209,
+        215
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/suno/",
+      "title": [
+        "Suno — Compón canciones completas a partir de una idea. | AgentesVA",
+        "Suno | AgentesVA"
+      ],
+      "words": [
+        216,
+        217
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/surfer-seo/",
+      "title": [
+        "Surfer SEO — Escribe contenido que rankea en Google. | AgentesVA",
+        "Surfer SEO | AgentesVA"
+      ],
+      "words": [
+        238,
+        236
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        15,
+        10
+      ]
+    },
+    {
+      "path": "/herramienta/synthesia/",
+      "title": [
+        "Synthesia — Vídeos con avatares IA a partir de un guion. | AgentesVA",
+        "Synthesia | AgentesVA"
+      ],
+      "words": [
+        215,
+        220
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/tidio/",
+      "title": [
+        "Tidio — Chat en vivo + bot de IA para atender y vender. | AgentesVA",
+        "Tidio | AgentesVA"
+      ],
+      "words": [
+        257,
+        243
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        16,
+        11
+      ]
+    },
+    {
+      "path": "/herramienta/tome/",
+      "title": [
+        "Tome — Presentaciones que cuentan una historia. | AgentesVA",
+        "Tome | AgentesVA"
+      ],
+      "words": [
+        206,
+        211
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/v0/",
+      "title": [
+        "v0 — Crea interfaces web describiéndolas. | AgentesVA",
+        "v0 | AgentesVA"
+      ],
+      "words": [
+        217,
+        218
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/wati/",
+      "title": [
+        "Wati — Gestiona WhatsApp Business a escala. | AgentesVA",
+        "Wati | AgentesVA"
+      ],
+      "words": [
+        228,
+        229
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        16,
+        11
+      ]
+    },
+    {
+      "path": "/herramienta/writesonic/",
+      "title": [
+        "Writesonic — Artículos optimizados para SEO con IA. | AgentesVA",
+        "Writesonic | AgentesVA"
+      ],
+      "words": [
+        211,
+        207
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        14,
+        9
+      ]
+    },
+    {
+      "path": "/herramienta/zapier/",
+      "title": [
+        "Zapier — La forma más sencilla de automatizar tareas. | AgentesVA",
+        "Zapier | AgentesVA"
+      ],
+      "words": [
+        255,
+        245
+      ],
+      "faq": [
+        4,
+        2
+      ],
+      "links": [
+        16,
+        11
+      ]
+    },
+    {
+      "path": "/herramientas/asistentes/",
+      "title": [
+        "Herramientas de IA de Asistentes | AgentesVA",
+        "Asistentes | AgentesVA"
+      ],
+      "words": [
+        97,
+        571
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        21,
+        23
+      ]
+    },
+    {
+      "path": "/herramientas/automatizacion/",
+      "title": [
+        "Herramientas de IA de Automatización | AgentesVA",
+        "Automatización | AgentesVA"
+      ],
+      "words": [
+        63,
+        387
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        15,
+        17
+      ]
+    },
+    {
+      "path": "/herramientas/codigo/",
+      "title": [
+        "Herramientas de IA de Código | AgentesVA",
+        "Código | AgentesVA"
+      ],
+      "words": [
+        54,
+        328
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        13,
+        15
+      ]
+    },
+    {
+      "path": "/herramientas/diseno/",
+      "title": [
+        "Herramientas de IA de Diseño | AgentesVA",
+        "Diseño | AgentesVA"
+      ],
+      "words": [
+        69,
+        386
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        15,
+        17
+      ]
+    },
+    {
+      "path": "/herramientas/escritura/",
+      "title": [
+        "Herramientas de IA de Escritura | AgentesVA",
+        "Escritura | AgentesVA"
+      ],
+      "words": [
+        50,
+        315
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        13,
+        15
+      ]
+    },
+    {
+      "path": "/herramientas/",
+      "title": [
+        "Herramientas de IA — Directorio | AgentesVA",
+        "Herramientas de IA | AgentesVA"
+      ],
+      "words": [
+        455,
+        2415
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        119,
+        115
+      ]
+    },
+    {
+      "path": "/herramientas/marketing/",
+      "title": [
+        "Herramientas de IA de Marketing | AgentesVA",
+        "Marketing | AgentesVA"
+      ],
+      "words": [
+        46,
+        294
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        11,
+        13
+      ]
+    },
+    {
+      "path": "/herramientas/productividad/",
+      "title": [
+        "Herramientas de IA de Productividad | AgentesVA",
+        "Productividad | AgentesVA"
+      ],
+      "words": [
+        49,
+        311
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        13,
+        15
+      ]
+    },
+    {
+      "path": "/herramientas/video/",
+      "title": [
+        "Herramientas de IA de Vídeo | AgentesVA",
+        "Vídeo | AgentesVA"
+      ],
+      "words": [
+        52,
+        329
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        13,
+        15
+      ]
+    },
+    {
+      "path": "/herramientas/voz/",
+      "title": [
+        "Herramientas de IA de Voz | AgentesVA",
+        "Voz | AgentesVA"
+      ],
+      "words": [
+        47,
+        293
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        11,
+        13
+      ]
+    },
+    {
+      "path": "/herramientas/whatsapp/",
+      "title": [
+        "Herramientas de IA de WhatsApp | AgentesVA",
+        "WhatsApp | AgentesVA"
+      ],
+      "words": [
+        56,
+        336
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        13,
+        15
+      ]
+    },
+    {
+      "path": "/how-we-work/",
+      "words": [
+        323,
+        358
+      ],
+      "faq": [
+        0,
+        5
+      ],
+      "links": [
+        4,
+        4
+      ]
+    },
+    {
+      "path": "/precios-automatizacion-ia/",
+      "title": [
+        "Precios de automatización con IA | AgentesVA",
+        "Precios | AgentesVA"
+      ],
+      "words": [
+        204,
+        277
+      ],
+      "faq": [
+        4,
+        4
+      ],
+      "links": [
+        3,
+        8
+      ]
+    },
+    {
+      "path": "/pricing/",
+      "words": [
+        251,
+        260
+      ],
+      "faq": [
+        0,
+        4
+      ],
+      "links": [
+        4,
+        8
+      ]
+    },
+    {
+      "path": "/recursos/atencion-cliente/",
+      "title": [
+        "Recursos de IA de Atención al cliente | AgentesVA",
+        "Atención al cliente | AgentesVA"
+      ],
+      "words": [
+        54,
+        95
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        4,
+        3
+      ]
+    },
+    {
+      "path": "/recursos/contenido/",
+      "title": [
+        "Recursos de IA de Contenido | AgentesVA",
+        "Contenido | AgentesVA"
+      ],
+      "words": [
+        17,
+        53
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        3,
+        2
+      ]
+    },
+    {
+      "path": "/recursos/desarrollo-ia/",
+      "title": [
+        "Recursos de IA de Desarrollo con IA | AgentesVA",
+        "Desarrollo con IA | AgentesVA"
+      ],
+      "words": [
+        49,
+        92
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        4,
+        3
+      ]
+    },
+    {
+      "path": "/recursos/",
+      "title": [
+        "Recursos de IA — packs de prompts, skills y plantillas | AgentesVA",
+        "Recursos | AgentesVA"
+      ],
+      "words": [
+        158,
+        189
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        10,
+        6
+      ]
+    },
+    {
+      "path": "/recursos/productividad/",
+      "title": [
+        "Recursos de IA de Productividad | AgentesVA",
+        "Productividad | AgentesVA"
+      ],
+      "words": [
+        70,
+        116
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        5,
+        4
+      ]
+    },
+    {
+      "path": "/recursos/ventas-marketing/",
+      "title": [
+        "Recursos de IA de Ventas y marketing | AgentesVA",
+        "Ventas y marketing | AgentesVA"
+      ],
+      "words": [
+        22,
+        59
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        3,
+        2
+      ]
+    },
+    {
+      "path": "/services/customer-support/",
+      "words": [
+        360,
+        558
+      ],
+      "faq": [
+        0,
+        5
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/services/",
+      "words": [
+        313,
+        362
+      ],
+      "faq": [
+        0,
+        5
+      ],
+      "links": [
+        8,
+        8
+      ]
+    },
+    {
+      "path": "/services/operations/",
+      "words": [
+        343,
+        541
+      ],
+      "faq": [
+        0,
+        5
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/services/sales/",
+      "words": [
+        357,
+        549
+      ],
+      "faq": [
+        0,
+        5
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/servicios/automatizacion-atencion-cliente/",
+      "title": [
+        "Automatización de atención al cliente con IA | AgentesVA",
+        "Atención al cliente | AgentesVA"
+      ],
+      "words": [
+        604,
+        499
+      ],
+      "faq": [
+        5,
+        5
+      ],
+      "links": [
+        8,
+        9
+      ]
+    },
+    {
+      "path": "/servicios/automatizacion-procesos/",
+      "title": [
+        "Automatización de procesos con IA para PyMEs | AgentesVA",
+        "Operaciones | AgentesVA"
+      ],
+      "words": [
+        578,
+        481
+      ],
+      "faq": [
+        5,
+        5
+      ],
+      "links": [
+        8,
+        9
+      ]
+    },
+    {
+      "path": "/servicios/automatizacion-ventas/",
+      "title": [
+        "Automatización de ventas y CRM con IA | AgentesVA",
+        "Ventas y seguimiento | AgentesVA"
+      ],
+      "words": [
+        618,
+        493
+      ],
+      "faq": [
+        5,
+        5
+      ],
+      "links": [
+        8,
+        9
+      ]
+    },
+    {
+      "path": "/servicios/",
+      "title": [
+        "Servicios de automatización con IA para PyMEs | AgentesVA",
+        "Servicios de automatización con IA | AgentesVA"
+      ],
+      "words": [
+        588,
+        319
+      ],
+      "faq": [
+        5,
+        5
+      ],
+      "links": [
+        9,
+        8
+      ]
+    },
+    {
+      "path": "/tools/adobe-firefly/",
+      "title": [
+        "Adobe Firefly: uses and getting started | AgentesVA",
+        "Adobe Firefly | AgentesVA"
+      ],
+      "words": [
+        150,
+        231
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/bardeen/",
+      "title": [
+        "Bardeen: uses and getting started | AgentesVA",
+        "Bardeen | AgentesVA"
+      ],
+      "words": [
+        143,
+        223
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/bolt/",
+      "title": [
+        "Bolt.new: uses and getting started | AgentesVA",
+        "Bolt.new | AgentesVA"
+      ],
+      "words": [
+        148,
+        231
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/brevo/",
+      "title": [
+        "Brevo: uses and getting started | AgentesVA",
+        "Brevo | AgentesVA"
+      ],
+      "words": [
+        147,
+        247
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        11
+      ]
+    },
+    {
+      "path": "/tools/canva-ia/",
+      "title": [
+        "Canva AI: uses and getting started | AgentesVA",
+        "Canva AI | AgentesVA"
+      ],
+      "words": [
+        149,
+        232
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/category/asistentes/",
+      "title": [
+        "Assistants: practical tools for your business | AgentesVA",
+        "Assistants | AgentesVA"
+      ],
+      "words": [
+        598,
+        591
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        23,
+        23
+      ]
+    },
+    {
+      "path": "/tools/category/automatizacion/",
+      "title": [
+        "Automation: practical tools for your business | AgentesVA",
+        "Automation | AgentesVA"
+      ],
+      "words": [
+        443,
+        436
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        17,
+        17
+      ]
+    },
+    {
+      "path": "/tools/category/codigo/",
+      "title": [
+        "Coding: practical tools for your business | AgentesVA",
+        "Coding | AgentesVA"
+      ],
+      "words": [
+        389,
+        382
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        15,
+        15
+      ]
+    },
+    {
+      "path": "/tools/category/diseno/",
+      "title": [
+        "Design: practical tools for your business | AgentesVA",
+        "Design | AgentesVA"
+      ],
+      "words": [
+        435,
+        428
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        17,
+        17
+      ]
+    },
+    {
+      "path": "/tools/category/escritura/",
+      "title": [
+        "Writing: practical tools for your business | AgentesVA",
+        "Writing | AgentesVA"
+      ],
+      "words": [
+        365,
+        358
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        15,
+        15
+      ]
+    },
+    {
+      "path": "/tools/category/marketing/",
+      "title": [
+        "Marketing: practical tools for your business | AgentesVA",
+        "Marketing | AgentesVA"
+      ],
+      "words": [
+        332,
+        325
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        13,
+        13
+      ]
+    },
+    {
+      "path": "/tools/category/productividad/",
+      "title": [
+        "Productivity: practical tools for your business | AgentesVA",
+        "Productivity | AgentesVA"
+      ],
+      "words": [
+        388,
+        381
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        15,
+        15
+      ]
+    },
+    {
+      "path": "/tools/category/video/",
+      "title": [
+        "Video: practical tools for your business | AgentesVA",
+        "Video | AgentesVA"
+      ],
+      "words": [
+        370,
+        363
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        15,
+        15
+      ]
+    },
+    {
+      "path": "/tools/category/voz/",
+      "title": [
+        "Voice: practical tools for your business | AgentesVA",
+        "Voice | AgentesVA"
+      ],
+      "words": [
+        312,
+        305
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        13,
+        13
+      ]
+    },
+    {
+      "path": "/tools/category/whatsapp/",
+      "title": [
+        "WhatsApp: practical tools for your business | AgentesVA",
+        "WhatsApp | AgentesVA"
+      ],
+      "words": [
+        371,
+        364
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        15,
+        15
+      ]
+    },
+    {
+      "path": "/tools/chatfuel/",
+      "title": [
+        "Chatfuel: uses and getting started | AgentesVA",
+        "Chatfuel | AgentesVA"
+      ],
+      "words": [
+        139,
+        241
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        11
+      ]
+    },
+    {
+      "path": "/tools/chatgpt/",
+      "title": [
+        "ChatGPT: uses and getting started | AgentesVA",
+        "ChatGPT | AgentesVA"
+      ],
+      "words": [
+        152,
+        255
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        10
+      ]
+    },
+    {
+      "path": "/tools/claude/",
+      "title": [
+        "Claude: uses and getting started | AgentesVA",
+        "Claude | AgentesVA"
+      ],
+      "words": [
+        157,
+        242
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/copy-ai/",
+      "title": [
+        "Copy.ai: uses and getting started | AgentesVA",
+        "Copy.ai | AgentesVA"
+      ],
+      "words": [
+        139,
+        220
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/cursor/",
+      "title": [
+        "Cursor: uses and getting started | AgentesVA",
+        "Cursor | AgentesVA"
+      ],
+      "words": [
+        146,
+        231
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/deepl/",
+      "title": [
+        "DeepL: uses and getting started | AgentesVA",
+        "DeepL | AgentesVA"
+      ],
+      "words": [
+        135,
+        217
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/deepseek/",
+      "title": [
+        "DeepSeek: uses and getting started | AgentesVA",
+        "DeepSeek | AgentesVA"
+      ],
+      "words": [
+        130,
+        227
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/descript/",
+      "title": [
+        "Descript: uses and getting started | AgentesVA",
+        "Descript | AgentesVA"
+      ],
+      "words": [
+        141,
+        225
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/elevenlabs/",
+      "title": [
+        "ElevenLabs: uses and getting started | AgentesVA",
+        "ElevenLabs | AgentesVA"
+      ],
+      "words": [
+        132,
+        209
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/fathom/",
+      "title": [
+        "Fathom: uses and getting started | AgentesVA",
+        "Fathom | AgentesVA"
+      ],
+      "words": [
+        131,
+        213
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/gamma/",
+      "title": [
+        "Gamma: uses and getting started | AgentesVA",
+        "Gamma | AgentesVA"
+      ],
+      "words": [
+        144,
+        221
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/gemini/",
+      "title": [
+        "Gemini: uses and getting started | AgentesVA",
+        "Gemini | AgentesVA"
+      ],
+      "words": [
+        145,
+        236
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/github-copilot/",
+      "title": [
+        "GitHub Copilot: uses and getting started | AgentesVA",
+        "GitHub Copilot | AgentesVA"
+      ],
+      "words": [
+        138,
+        224
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/grammarly/",
+      "title": [
+        "Grammarly: uses and getting started | AgentesVA",
+        "Grammarly | AgentesVA"
+      ],
+      "words": [
+        140,
+        220
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/grok/",
+      "title": [
+        "Grok: uses and getting started | AgentesVA",
+        "Grok | AgentesVA"
+      ],
+      "words": [
+        145,
+        236
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/heygen/",
+      "title": [
+        "HeyGen: uses and getting started | AgentesVA",
+        "HeyGen | AgentesVA"
+      ],
+      "words": [
+        139,
+        226
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/hubspot-ia/",
+      "title": [
+        "HubSpot AI: uses and getting started | AgentesVA",
+        "HubSpot AI | AgentesVA"
+      ],
+      "words": [
+        145,
+        244
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        11
+      ]
+    },
+    {
+      "path": "/tools/huggingchat/",
+      "title": [
+        "HuggingChat: uses and getting started | AgentesVA",
+        "HuggingChat | AgentesVA"
+      ],
+      "words": [
+        141,
+        232
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/ideogram/",
+      "title": [
+        "Ideogram: uses and getting started | AgentesVA",
+        "Ideogram | AgentesVA"
+      ],
+      "words": [
+        137,
+        224
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/",
+      "title": [
+        "AI tools: practical tools for your business | AgentesVA",
+        "AI tools | AgentesVA"
+      ],
+      "words": [
+        2872,
+        2865
+      ],
+      "faq": [
+        0,
+        0
+      ],
+      "links": [
+        115,
+        115
+      ]
+    },
+    {
+      "path": "/tools/jasper/",
+      "title": [
+        "Jasper: uses and getting started | AgentesVA",
+        "Jasper | AgentesVA"
+      ],
+      "words": [
+        136,
+        217
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/krea/",
+      "title": [
+        "Krea: uses and getting started | AgentesVA",
+        "Krea | AgentesVA"
+      ],
+      "words": [
+        138,
+        223
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/landbot/",
+      "title": [
+        "Landbot: uses and getting started | AgentesVA",
+        "Landbot | AgentesVA"
+      ],
+      "words": [
+        143,
+        246
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        11
+      ]
+    },
+    {
+      "path": "/tools/leonardo-ai/",
+      "title": [
+        "Leonardo AI: uses and getting started | AgentesVA",
+        "Leonardo AI | AgentesVA"
+      ],
+      "words": [
+        136,
+        221
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/mailchimp/",
+      "title": [
+        "Mailchimp: uses and getting started | AgentesVA",
+        "Mailchimp | AgentesVA"
+      ],
+      "words": [
+        134,
+        236
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        11
+      ]
+    },
+    {
+      "path": "/tools/make/",
+      "title": [
+        "Make: uses and getting started | AgentesVA",
+        "Make | AgentesVA"
+      ],
+      "words": [
+        136,
+        243
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        11
+      ]
+    },
+    {
+      "path": "/tools/manychat/",
+      "title": [
+        "ManyChat: uses and getting started | AgentesVA",
+        "ManyChat | AgentesVA"
+      ],
+      "words": [
+        135,
+        239
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        11
+      ]
+    },
+    {
+      "path": "/tools/mem/",
+      "title": [
+        "Mem: uses and getting started | AgentesVA",
+        "Mem | AgentesVA"
+      ],
+      "words": [
+        135,
+        214
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/microsoft-copilot/",
+      "title": [
+        "Microsoft Copilot: uses and getting started | AgentesVA",
+        "Microsoft Copilot | AgentesVA"
+      ],
+      "words": [
+        136,
+        227
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/midjourney/",
+      "title": [
+        "Midjourney: uses and getting started | AgentesVA",
+        "Midjourney | AgentesVA"
+      ],
+      "words": [
+        138,
+        223
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/mistral/",
+      "title": [
+        "Mistral (Le Chat): uses and getting started | AgentesVA",
+        "Mistral (Le Chat) | AgentesVA"
+      ],
+      "words": [
+        145,
+        236
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/murf/",
+      "title": [
+        "Murf: uses and getting started | AgentesVA",
+        "Murf | AgentesVA"
+      ],
+      "words": [
+        141,
+        213
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/n8n/",
+      "title": [
+        "n8n: uses and getting started | AgentesVA",
+        "n8n | AgentesVA"
+      ],
+      "words": [
+        144,
+        251
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        11
+      ]
+    },
+    {
+      "path": "/tools/notion-ia/",
+      "title": [
+        "Notion AI: uses and getting started | AgentesVA",
+        "Notion AI | AgentesVA"
+      ],
+      "words": [
+        144,
+        224
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/otter/",
+      "title": [
+        "Otter.ai: uses and getting started | AgentesVA",
+        "Otter.ai | AgentesVA"
+      ],
+      "words": [
+        137,
+        217
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/perplexity/",
+      "title": [
+        "Perplexity: uses and getting started | AgentesVA",
+        "Perplexity | AgentesVA"
+      ],
+      "words": [
+        140,
+        245
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        10
+      ]
+    },
+    {
+      "path": "/tools/pika/",
+      "title": [
+        "Pika: uses and getting started | AgentesVA",
+        "Pika | AgentesVA"
+      ],
+      "words": [
+        136,
+        223
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/playht/",
+      "title": [
+        "Play.ht: uses and getting started | AgentesVA",
+        "Play.ht | AgentesVA"
+      ],
+      "words": [
+        137,
+        212
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/relevance-ai/",
+      "title": [
+        "Relevance AI: uses and getting started | AgentesVA",
+        "Relevance AI | AgentesVA"
+      ],
+      "words": [
+        151,
+        231
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/replit/",
+      "title": [
+        "Replit: uses and getting started | AgentesVA",
+        "Replit | AgentesVA"
+      ],
+      "words": [
+        134,
+        222
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/runway/",
+      "title": [
+        "Runway: uses and getting started | AgentesVA",
+        "Runway | AgentesVA"
+      ],
+      "words": [
+        141,
+        225
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/suno/",
+      "title": [
+        "Suno: uses and getting started | AgentesVA",
+        "Suno | AgentesVA"
+      ],
+      "words": [
+        128,
+        204
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/surfer-seo/",
+      "title": [
+        "Surfer SEO: uses and getting started | AgentesVA",
+        "Surfer SEO | AgentesVA"
+      ],
+      "words": [
+        135,
+        230
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        10
+      ]
+    },
+    {
+      "path": "/tools/synthesia/",
+      "title": [
+        "Synthesia: uses and getting started | AgentesVA",
+        "Synthesia | AgentesVA"
+      ],
+      "words": [
+        133,
+        217
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/tidio/",
+      "title": [
+        "Tidio: uses and getting started | AgentesVA",
+        "Tidio | AgentesVA"
+      ],
+      "words": [
+        136,
+        241
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        11
+      ]
+    },
+    {
+      "path": "/tools/tome/",
+      "title": [
+        "Tome: uses and getting started | AgentesVA",
+        "Tome | AgentesVA"
+      ],
+      "words": [
+        159,
+        239
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/v0/",
+      "title": [
+        "v0: uses and getting started | AgentesVA",
+        "v0 | AgentesVA"
+      ],
+      "words": [
+        141,
+        229
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/wati/",
+      "title": [
+        "Wati: uses and getting started | AgentesVA",
+        "Wati | AgentesVA"
+      ],
+      "words": [
+        137,
+        242
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        11
+      ]
+    },
+    {
+      "path": "/tools/writesonic/",
+      "title": [
+        "Writesonic: uses and getting started | AgentesVA",
+        "Writesonic | AgentesVA"
+      ],
+      "words": [
+        135,
+        216
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        9
+      ]
+    },
+    {
+      "path": "/tools/zapier/",
+      "title": [
+        "Zapier: uses and getting started | AgentesVA",
+        "Zapier | AgentesVA"
+      ],
+      "words": [
+        137,
+        242
+      ],
+      "faq": [
+        0,
+        2
+      ],
+      "links": [
+        6,
+        11
+      ]
+    }
+  ],
+  "liveMismatch": [
+    "/tools/",
+    "/herramientas/"
+  ]
+}

@@ -58,7 +58,7 @@ bonus:
 
 ChatGPT abrió la puerta de la IA a millones de personas, pero no es la única opción —y para muchas tareas, ni siquiera la mejor. Si trabajas en español y quieres un asistente que encaje con tu negocio (y, de paso, ahorrar), hay alternativas serias: varias gratis y con un español impecable. Te las analizamos una a una, sin tecnicismos, y al final te dejamos un bonus con las que casi nadie menciona todavía.
 
-## [Claude](/herramienta/claude) — la mejor para textos largos
+## [Claude](/herramienta/claude/) — la mejor para textos largos
 
 Claude, de Anthropic, es la alternativa más sólida cuando el trabajo exige criterio: redactar una propuesta, analizar un contrato, resumir un informe de decenas de páginas. Mantiene el hilo de conversaciones largas mejor que la media y escribe en un español natural, sin sonar a máquina. Tiene plan gratuito para probarlo y el plan Pro cuesta 20 $/mes (claude.com/pricing, jun 2026), que multiplica el uso disponible.
 
@@ -66,7 +66,7 @@ En la práctica, un caso típico: le pegas un contrato de 30 páginas y le pides
 
 ¿Su límite? El plan gratis se queda corto si lo usas a diario —llegarás al tope de mensajes en una sesión intensa— y su búsqueda web no está tan integrada como en Gemini o Perplexity, así que para datos de actualidad no es la primera opción. **Mejor para:** servicios profesionales, asesorías y cualquiera que escriba o analice mucho texto.
 
-## [Gemini](/herramienta/gemini) — gratis y dentro de Google
+## [Gemini](/herramienta/gemini/) — gratis y dentro de Google
 
 Gemini es el asistente de Google, y su gran ventaja es que ya vive donde tú trabajas: Gmail, Docs, Drive y Meet. Si tu PyME usa Google Workspace, es la integración más natural. Maneja el español a nivel excelente y tiene una capa gratuita generosa. Cuando necesites más, el plan de entrada —Gemini AI Plus— es de los más baratos del mercado: 4,99 €/mes en España (gemini.google/subscriptions, jun 2026).
 
@@ -74,7 +74,7 @@ Lo notas en el día a día: redactas un borrador dentro de un Doc, resumes un hi
 
 ¿Su límite? Para tareas muy especializadas —razonamiento muy profundo, documentos enormes o un tono editorial muy cuidado— Claude suele afinar más, y si no usas las apps de Google buena parte de su ventaja desaparece. **Mejor para:** equipos que ya están en el ecosistema Google y quieren IA sin cambiar de herramientas.
 
-## [Perplexity](/herramienta/perplexity) — la que cita sus fuentes
+## [Perplexity](/herramienta/perplexity/) — la que cita sus fuentes
 
 Perplexity no es solo un chat: es un buscador con IA que **responde citando de dónde sale cada dato**. Para investigar un mercado, vigilar a la competencia o comprobar una cifra antes de usarla, no hay nada más cómodo: te da la respuesta y los enlaces para verificarla. Responde en español automáticamente, aunque muchas fuentes que cita estén en inglés.
 
@@ -82,19 +82,19 @@ Un ejemplo concreto: le preguntas "¿qué precios manejan mis competidores en re
 
 Tiene plan gratuito con búsquedas básicas ilimitadas y un número limitado de búsquedas avanzadas al día; el plan Pro cuesta 20 $/mes y las desbloquea. **Mejor para:** investigación de mercado, vigilancia de competencia y cualquier tarea donde necesites datos verificables.
 
-## [Microsoft Copilot](/herramienta/microsoft-copilot) — si ya vives en Office
+## [Microsoft Copilot](/herramienta/microsoft-copilot/) — si ya vives en Office
 
 Copilot es la IA de Microsoft y su fuerte es la integración con Windows, Edge y, sobre todo, Office. Es gratis en la web (copilot.microsoft.com) para chatear, buscar y generar imágenes. Ojo a un cambio reciente: desde abril de 2026, el Copilot gratuito ya no incluye las apps de Office de escritorio; para tenerlo dentro de Word, Excel u Outlook necesitas Microsoft 365 Personal, desde 9,99 $/mes (microsoft.com, jun 2026).
 
 Donde de verdad brilla es dentro de Office: le pides a Excel que te explique una fórmula o detecte tendencias en una tabla, o a Word que redacte un primer borrador a partir de cuatro notas. Si tu equipo ya vive en Outlook y Teams, la IA aparece justo donde la necesitas, sin abrir otra pestaña. **Mejor para:** PyMEs que ya trabajan con Microsoft 365 y quieren la IA dentro de sus documentos. Fuera de ese universo, pierde buena parte de su gracia.
 
-## [DeepSeek](/herramienta/deepseek) — potente y gratis
+## [DeepSeek](/herramienta/deepseek/) — potente y gratis
 
 DeepSeek es la sorpresa de la lista: un asistente con muy buen razonamiento y especialmente fuerte con código, **gratuito en su web** y sin plan de pago para el chat. Para un equipo pequeño que quiere capacidad sin coste, es difícil de batir. Responde en español, aunque a veces cambia al inglés en sus razonamientos más largos.
 
 Si alguien de tu equipo trastea con scripts, automatizaciones o una web, DeepSeek le resuelve dudas de programación a un nivel que normalmente toca pagar en otras herramientas. Y para razonar un problema con varios pasos —"si subo precios un 8 %, ¿cómo afecta a mi margen?"— se defiende muy bien. La advertencia importante: es una empresa china y tus datos pasan por sus servidores, así que evítalo para información sensible o de clientes europeos. **Mejor para:** tareas técnicas y de código cuando el presupuesto es cero.
 
-## [Mistral](/herramienta/mistral) — la europea con RGPD
+## [Mistral](/herramienta/mistral/) — la europea con RGPD
 
 Mistral, con su asistente Le Chat, es la apuesta europea: rápida, multilingüe y con un argumento que a muchas PyMEs les importa —es una empresa europea con enfoque en la privacidad y el RGPD—. Tiene plan gratuito y el plan Pro cuesta 14,99 €/mes (mistral.ai/pricing, jun 2026).
 

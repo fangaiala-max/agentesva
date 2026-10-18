@@ -9,6 +9,7 @@ _archive/
 
 # Superpowers brainstorm sessions
 .superpowers/
+.worktrees/
 
 # Backups
 *.bak
@@ -57,3 +58,7 @@ dist/
 # Brand asset generator (source HTML; outputs go to public/brand)
 brand-build/
 .gstack/
+.env*
+
+# Per-page OG cards are generated from built HTML.
+/public/social/og/

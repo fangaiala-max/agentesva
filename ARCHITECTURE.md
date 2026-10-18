@@ -1,6 +1,6 @@
 # Architecture — agentesva.com
 
-Static-first Astro site on Vercel + 2 serverless functions for form/webhook handling. No database. All persistence is in third-party SaaS (Brevo for email, HubSpot for CRM, Make.com for workflows, Mixpanel/GA4 for analytics).
+Static-first Astro site on Vercel + serverless functions for form/API handling. No database propia. All persistence is in third-party SaaS (Brevo for email, Notion for the diagnostic CRM, HubSpot and GA4).
 
 ## Topology
 
@@ -11,26 +11,28 @@ Browser
   ▼
 Vercel
   ├── Static prerender (Astro `output: 'static'` + @astrojs/vercel adapter)
-  │     └── 73 pages: home, blog, catalogo, servicios, sobre, legal, etc.
+  │     └── 130+ pages: directorio, cursos, recursos, estudios, noticias,
+  │         colecciones de prompts, guías, servicios y diagnóstico.
   │
   └── Serverless Functions (Node 24 LTS, Fluid Compute)
         ├── /api/subscribe   → Brevo Contacts API (newsletter / voice waitlist)
+        ├── /api/diagnostic  → Notion API (diagnóstico comercial con deduplicación)
+        ├── /gracias-diagnostico → cierre SSR noindex según resultado del diagnóstico
         └── /api/wa          → Twilio WhatsApp webhook (signed verification)
 
-Third-party (browser-side)
+Third-party services
   ├── Brevo (transactional + lists, double opt-in)
   ├── HubSpot CRM + Forms (tracking + identify)
-  ├── Make.com webhook (diagnostico quiz → AI diagnostic email)
-  ├── Calendly (audit booking)
-  ├── Google Analytics 4 + Mixpanel EU (analytics)
-  └── Google Fonts (Fraunces, Inter Tight, JetBrains Mono, Material Symbols)
+  ├── Notion (Pipeline de leads del diagnóstico)
+  ├── Proveedor de reserva configurable mediante URL HTTPS
+  └── Google Analytics 4 tras consentimiento
 ```
 
 ## Stack
 
 | Layer | Tech | Version |
 |---|---|---|
-| Framework | Astro | 5.14 |
+| Framework | Astro | 7.1 |
 | Adapter | @astrojs/vercel | static prerender |
 | Styling | Tailwind 4 (integración PostCSS) + custom CSS tokens | — |
 | Functions runtime | Node.js | 24 LTS (Vercel default) |
@@ -40,10 +42,13 @@ Third-party (browser-side)
 
 ## Content model
 
-- **Blog posts**: Markdown in `astro/src/content/blog/` with Zod schema (`title ≤70`, `description 120–160`, `pillar` enum, optional `faqs` array)
-- **Casos**: `astro/src/content/casos/` — métricas reales bajo NDA
-- **Industrias**: `astro/src/content/industrias/`
-- **Agentes/Prompts catalog**: `astro/src/data/agents.ts` (TypeScript module, not Content Collection)
+- **Herramientas, cursos y recursos**: JSON en `src/content/`, validado por los esquemas Zod de `src/content.config.ts`. Los directorios y las fichas de herramientas comparten componentes EN/ES; las fichas extensas y descargas de cursos/recursos en español se conservan.
+- **Interfaz bilingüe y ofertas**: `src/components/shared/`, `src/i18n/parity.ts` y sus diccionarios mantienen home, navegación, comparaciones y CTAs localizados. `src/data/service-offer.ts` centraliza importes; `offer` conserva la opción elegida en la URL del diagnóstico y `source.offerIntent` en el envío.
+- **Estudios y noticias**: Markdown en `src/content/`, con páginas de listado y detalle prerenderizadas.
+- **Guías**: Markdown en `src/content/guias/`, validado por `src/content-schemas/guias.ts`; admite portada responsiva, FAQ, fuentes, relaciones internas y CTA de servicio o recurso.
+- **Biblioteca de prompts**: 100 plantillas en `src/data/biblioteca/prompts.ts`.
+- **Colecciones SEO de prompts**: configuración en `src/data/prompt-landings.ts`; genera `/prompts/` y seis rutas temáticas.
+- **Generador de prompts**: `/generador-de-prompts/`; estructura el texto en el navegador mediante `src/scripts/prompt-generator.ts`, sin enviar los campos a un servidor.
 
 ## Funnel paths (source of truth)
 
@@ -52,8 +57,9 @@ Third-party (browser-side)
 | `/blog/` newsletter | inline EmailSignup | `POST /api/subscribe { list:'newsletter' }` | Brevo list 9 |
 | `/#voice-waitlist` | inline EmailSignup | `POST /api/subscribe { list:'voice-waitlist' }` | Brevo list 10 |
 | `/catalogo/` 7-agentes | inline form | `POST /api/subscribe { list:'newsletter' }` + HubSpot `_hsq.identify` | Brevo list 9 + HubSpot |
-| `/diagnostico/` quiz | 5-step form | `POST hook.eu1.make.com/...` + HubSpot Forms `submissions/v3` | Make scenario → Claude API → email + HubSpot CRM |
-| All audit CTAs | n/a | redirect `https://calendly.com/fangaiala/auditoria-gratis-agentesva-30-min` | Calendly |
+| `/diagnostico-automatizacion-ia/` | formulario de 8 pasos | `POST /api/diagnostic` | Pipeline de leads en Notion → `/gracias-diagnostico/` |
+| Resultado cualificado | CTA posterior al envío | `BOOKING_URL` HTTPS opcional | Proveedor de reserva; fallback a email si falta |
+| Resultado no cualificado | CTA posterior al envío | rutas internas según perfil | taller, guía o revisión manual |
 
 ## Security headers (vercel.json)
 
@@ -81,8 +87,15 @@ Production: Vercel Project → Settings → Environment Variables.
 | `TWILIO_AUTH_TOKEN` | `/api/wa.js` | WhatsApp webhook signature |
 | `WA_VERIFY_TOKEN` | `/api/wa.js` | Twilio challenge-response |
 | `PUBLIC_GA4_ID` | `ConsentBanner.astro` / `consent.ts` | GA4 Measurement ID (`G-…`); gatea el banner de consentimiento + analytics. Vacío = feature desactivada |
+| `NOTION_TOKEN` | `/api/diagnostic.ts` | Token de integración interna con acceso a `Pipeline de leads` |
+| `NOTION_DATA_SOURCE_ID` | `/api/diagnostic.ts` | Fuente de datos donde la API crea o actualiza leads por `Submission ID` |
+| `DIAGNOSTIC_SIGNING_SECRET` | `/api/diagnostic.ts` y `/gracias-diagnostico.astro` | Secreto de 24+ caracteres para firmar resultados; sin él, la página nunca expone la reserva |
+| `DIAGNOSTIC_ALLOWED_ORIGINS` | `/api/diagnostic.ts` | Orígenes permitidos, separados por comas; sin wildcard |
+| `BOOKING_URL` | `/gracias-diagnostico.astro` | URL HTTPS opcional para reservar; sin valor usa un contacto por email seguro |
 
-Make.com webhook URL is **client-side fetched** (inline in `/diagnostico/`), so it lives in the codebase, not as a secret. Anyone with the URL can ping it; treat it as public.
+El token de Notion y el secreto de firma se usan solo en servidor. No deben exponerse al cliente ni incorporarse a una variable `PUBLIC_*`. La API firma el resultado con HMAC-SHA256 y una caducidad de 30 minutos; la página de cierre degrada accesos directos, caducados o manipulados a revisión manual.
+
+La API agrupa envíos concurrentes con el mismo `Submission ID` dentro de cada instancia y consulta Notion antes de crear. Como Notion no ofrece una restricción única para esta propiedad, la deduplicación entre dos instancias simultáneas es de mejor esfuerzo; cualquier duplicado excepcional se reconcilia por `Submission ID` en el pipeline.
 
 ## DNS records (Cloudflare, agentesva.com)
 
@@ -97,7 +110,7 @@ Make.com webhook URL is **client-side fetched** (inline in `/diagnostico/`), so 
 
 1. PR opened → Vercel preview deploy (auth-walled)
 2. PR merge to `main` → Vercel production deploy (auto-rolling)
-3. Build: `cd astro && npm run build` → `astro/dist/` → root mirror copied (legacy convention)
+3. Build: `npm run build` → Astro genera `dist/client/` y la salida Vercel → se generan las portadas sociales PNG por página y se verifican dimensiones, favicon y coherencia OG/Twitter/schema → el verificador comprueba los metadatos de la guía profesional GEO y las fechas del sitemap del clúster en `dist/client/` → los verificadores de paridad bilingüe y SEO comprueban el HTML de `.vercel/output/static` → Pagefind indexa esa misma salida
 4. Schemas validated at build (Zod blocks invalid frontmatter)
 
 ## Performance budget (target / actual mobile)
@@ -112,15 +125,16 @@ Make.com webhook URL is **client-side fetched** (inline in `/diagnostico/`), so 
 
 ## What this project is NOT
 
-- **No database**: zero `DATABASE_URL`, zero ORM. State lives in Brevo/HubSpot/Make.
+- **No database propia**: zero `DATABASE_URL`, zero ORM. State lives in Brevo, HubSpot and Notion.
 - **No auth**: site is fully public. Forms accept any email.
-- **No SSR**: every page is prerendered HTML. The 2 functions are isolated POST handlers.
-- **No background jobs**: webhooks are fire-and-forget. Long-running diagnostics live in Make.com, not Vercel.
+- **SSR mínimo**: el contenido público se prerenderiza; `/gracias-diagnostico/` es dinámico para leer el resultado y `BOOKING_URL` sin cachear ni indexar la respuesta.
+- **No background jobs**: el diagnóstico clasifica y persiste el lead en Notion dentro de la misma petición acotada por timeout.
 
 ## Related docs
 
 - [`CLAUDE.md`](./CLAUDE.md) — instructions for Claude Code sessions
 - [`DESIGN.md`](./DESIGN.md) — design tokens, components, brand
+- [`docs/social-images.md`](./docs/social-images.md) — per-page social cards, favicon exports and build validation
 - [`docs/blog-fact-checking-protocol.md`](./docs/blog-fact-checking-protocol.md) — Tier A/B/C/D claim verification protocol
 - [`docs/blog-keyword-research.md`](./docs/blog-keyword-research.md) — Semrush keyword strategy per pillar
 - [`docs/fact-checks/*.md`](./docs/fact-checks/) — per-post fact-check audits

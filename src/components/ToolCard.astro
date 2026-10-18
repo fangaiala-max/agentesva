@@ -1,11 +1,15 @@
 ---
+import InteractiveCard from './InteractiveCard.astro';
 import type { Tool } from '../data/tools';
 import { PRICE_COLOR, badgesFor } from '../data/tools';
+import { crumbPath } from '../data/breadcrumbs';
+import { buildSearchIndex } from '../data/search-intents';
 import Badge from './Badge.astro';
 import AffiliateCTA from './AffiliateCTA.astro';
 
 interface Props {
   tool: Tool;
+  interactive?: boolean;
   /** transition:name del monograma — desactivar en renders duplicados (estantes/destacada) */
   morph?: boolean;
   /** botón "Añadir a comparar" (solo donde exista la barra de comparación, ej. home) */
@@ -13,15 +17,17 @@ interface Props {
   /** placement para el CTA de salida (ej. "card-home"); habilita el botón "Visitar ↗" */
   surface?: string;
 }
-const { tool, morph = true, compare = false, surface } = Astro.props;
+const { tool, morph = true, compare = false, surface, interactive = false } = Astro.props;
 const initial = tool.name.charAt(0);
 const priceColor = PRICE_COLOR[tool.price];
 const badges = badgesFor(tool);
-const search = `${tool.name} ${tool.desc} ${tool.cat}`.toLowerCase();
+// Incluye sinónimos de intención: la gente busca "facturas" o "atender
+// clientes", no "Automatización" ni "WhatsApp". Ver src/data/search-intents.ts.
+const search = buildSearchIndex(tool.name, tool.desc, tool.cat);
 const monoStyle = `width: 42px; height: 42px; border-radius: 9px; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 19px; color: #fff; background: ${tool.color};`;
 ---
 
-<article
+<InteractiveCard as="article" enabled={interactive} intensity={2} accent={tool.color}
   class="lift tool-card spotlight"
   data-cat={tool.cat}
   data-search={search}
@@ -32,10 +38,10 @@ const monoStyle = `width: 42px; height: 42px; border-radius: 9px; flex: none; di
   data-orden={tool.orden}
   data-ideal={tool.ideal}
   data-color={tool.color}
-  style="position: relative; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 14px;"
+  style="position: relative; background: var(--panel); border: 1px solid var(--line); border-radius: 0; padding: 20px; display: flex; flex-direction: column; gap: 14px;"
 >
   <a
-    href={`/herramienta/${tool.slug}`}
+    href={crumbPath(`/herramienta/${tool.slug}`)}
     aria-label={`Ver ${tool.name}`}
     style="position: absolute; inset: 0; z-index: 1; border-radius: 8px;"
   ></a>
@@ -50,10 +56,10 @@ const monoStyle = `width: 42px; height: 42px; border-radius: 9px; flex: none; di
     )}
     <div style="flex: 1; min-width: 0;">
       <div style="display: flex; align-items: center; gap: 7px; flex-wrap: wrap;">
-        <span style="font-family: var(--sans); font-weight: 600; font-size: 16px; color: #fff;">{tool.name}</span>
+        <span style="font-family: var(--sans); font-weight: 600; font-size: 17px; color: #fff;">{tool.name}</span>
         {badges.map((b) => <Badge badge={b} />)}
       </div>
-      <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5); margin-top: 3px;">{tool.cat}</div>
+      <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-5); margin-top: 4px;">{tool.cat}</div>
     </div>
     <div style="display: flex; gap: 2px; flex: none;">
       {compare && (
@@ -80,16 +86,16 @@ const monoStyle = `width: 42px; height: 42px; border-radius: 9px; flex: none; di
       </button>
     </div>
   </div>
-  <p style="margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--fg-3);">{tool.desc}</p>
+  <p style="margin: 0; font-size: 15px; line-height: 1.55; color: var(--fg-3);">{tool.desc}</p>
   <div class="tc-foot" style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto;">
-    <span style="font-family: var(--mono); font-size: 12px; color: var(--fg-2);"><span style="color: var(--gold);">★</span> {tool.rating}</span>
+    <span style="font-family: var(--mono); font-size: 13px; color: var(--fg-2);"><span style="color: var(--gold);">★</span> {tool.rating}</span>
     <div style="display: flex; align-items: center; gap: 8px;">
       {surface && (
         <span style="position: relative; z-index: 2;">
           <AffiliateCTA slug={tool.slug} src={surface} variant="inline" label="Visitar ↗" hasAffiliate={Boolean(tool.affiliateUrl)} />
         </span>
       )}
-      <span style={`font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: ${priceColor}; border: 1px solid var(--line-2); padding: 4px 9px; border-radius: 20px;`}>{tool.price}</span>
+      <span style={`font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: ${priceColor}; border: 1px solid var(--line-2); padding: 4px 9px; border-radius: 20px;`}>{tool.price}</span>
     </div>
   </div>
-</article>
+</InteractiveCard>

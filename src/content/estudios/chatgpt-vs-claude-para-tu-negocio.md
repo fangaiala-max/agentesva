@@ -48,7 +48,7 @@ bonus:
 
 Son los dos asistentes de IA más usados, y la pregunta es constante: **¿ChatGPT o Claude para mi negocio?** La respuesta corta es que depende de lo que hagas más. La larga —en qué destaca cada uno, cuánto cuestan y cuándo usar uno u otro— es la que te ahorra pagar por la herramienta equivocada. Te la contamos sin tecnicismos.
 
-## [ChatGPT](/herramienta/chatgpt): el todoterreno
+## [ChatGPT](/herramienta/chatgpt/): el todoterreno
 
 ChatGPT, de OpenAI, es el más **versátil** para el día a día. Entiende lo que le pides en lenguaje normal y salta de una tarea a otra sin despeinarse: redactar un email o un anuncio, resumir una reunión, traducir, generar imágenes, resolver una duda técnica o ayudarte con una hoja de cálculo. Si solo vas a aprender a usar una herramienta de IA, es el punto de partida más cómodo porque hace un poco de todo y muy bien.
 
@@ -58,7 +58,7 @@ En lo práctico: el plan gratuito te deja probarlo de sobra para el día a día,
 
 ¿Su límite? Justo por ser bueno en todo, en tareas muy especializadas —redactar un informe largo con un tono impecable, analizar un contrato de 40 páginas— hay opciones que afinan más. **Mejor para:** autónomos y equipos pequeños que quieren una sola herramienta para casi todo.
 
-## [Claude](/herramienta/claude): textos largos y criterio
+## [Claude](/herramienta/claude/): textos largos y criterio
 
 Claude, de Anthropic, es la opción cuando el trabajo es **escribir y analizar**. Destaca redactando y analizando documentos extensos con un tono natural —no suena a robot— y mantiene el hilo de conversaciones y documentos largos mejor que la media. Si tu día incluye contratos, informes, propuestas o PDFs de muchas páginas, la diferencia se nota enseguida.
 

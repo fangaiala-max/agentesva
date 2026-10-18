@@ -1,10 +1,13 @@
 ---
+import {socialImagePath} from '../../lib/social-image.mjs';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection, render } from 'astro:content';
 import { toTool } from '../../data/tools';
 import { jsonLdSerialize, organization, person, SITE as site } from '../../data/schema';
+import { crumbPath, breadcrumbList, SECCIONES, trail as buildTrail } from '../../data/breadcrumbs';
 import EstudioResumen from '../../components/EstudioResumen.astro';
 import EstudioResumirIA from '../../components/EstudioResumirIA.astro';
 import EstudioNota from '../../components/EstudioNota.astro';
@@ -14,6 +17,9 @@ import EstudioFaq from '../../components/EstudioFaq.astro';
 import EstudioFuentes from '../../components/EstudioFuentes.astro';
 import EstudioBonus from '../../components/EstudioBonus.astro';
 import ToolCallout from '../../components/ToolCallout.astro';
+import StudyServiceCTA from '../../components/StudyServiceCTA.astro';
+import CommercialNextSteps from '../../components/CommercialNextSteps.astro';
+import { linksForStudy } from '../../data/commercial-links';
 
 export async function getStaticPaths() {
   const estudios = await getCollection('estudios');
@@ -23,6 +29,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 const d = entry.data;
+const clusterLinks = linksForStudy(entry.id);
 
 const allTools = (await getCollection('tools')).map(toTool);
 const related = d.herramientas
@@ -43,7 +50,11 @@ const relatedNoticias = noticias
   .slice(0, 3)
   .map((x) => x.n);
 
-const fechaFmt = d.fecha.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
+// UTC, igual que la tarjeta que enlaza aquí: si no, en una máquina de build con
+// desfase negativo la ficha anuncia un día distinto que el listado.
+const fechaFmt = d.fecha.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+
+const trail = buildTrail(SECCIONES.estudios, { name: d.titulo, url: `/estudios/${entry.id}` });
 
 const graph: any[] = [
   {
@@ -57,16 +68,9 @@ const graph: any[] = [
     publisher: organization,
     mainEntityOfPage: canonical,
     url: canonical,
-    image: `${site}/og.png`,
+    image: `${site}${socialImagePath(Astro.url.pathname,d.titulo)}`,
   },
-  {
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${site}/` },
-      { '@type': 'ListItem', position: 2, name: 'Estudios', item: `${site}/estudios/` },
-      { '@type': 'ListItem', position: 3, name: d.titulo, item: canonical },
-    ],
-  },
+  breadcrumbList(trail),
 ];
 if (d.faq?.length) {
   graph.push({
@@ -80,20 +84,17 @@ if (d.fuentes?.length) {
 const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
 ---
 
-<BaseLayout title={`${d.titulo} | AgentesVA`} description={d.descripcion}>
+<BaseLayout title={`${d.titulo} | AgentesVA`} description={d.descripcion} ogType="article">
   <script type="application/ld+json" set:html={jsonLdSerialize(jsonLd)} />
   <SiteHeader />
 
-  <main
+  <main id="main-content"
     data-pagefind-body
     data-pagefind-filter="tipo:Estudio"
     data-pagefind-meta="tipo:Estudio"
     style="max-width: 760px; margin: 0 auto; padding: 40px 32px 64px;"
   >
-    <nav aria-label="Migas" data-pagefind-ignore style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-5);">
-      <a href="/" class="navlink" style="color: var(--fg-4); text-decoration: none;">Inicio</a> <span aria-hidden="true">/</span>
-      <a href="/estudios" class="navlink" style="color: var(--fg-4); text-decoration: none;">Estudios</a> <span aria-hidden="true">/</span> {d.tema}
-    </nav>
+    <Breadcrumb trail={trail} />
 
     <p style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 24px 0 0;">{d.tema}</p>
     <h1 style="font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 5.5vw, 46px); line-height: 1.08; letter-spacing: -0.03em; color: #fff; margin: 10px 0 0;">{d.titulo}</h1>
@@ -101,6 +102,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
     <p style="font-family: var(--mono); font-size: 11px; color: var(--fg-5); margin: 16px 0 0;">Por Fernando Angulo · AgentesVA · {fechaFmt}</p>
 
     <EstudioResumen puntos={d.resumen} />
+    <StudyServiceCTA slug={entry.id} placement="after_summary" />
     <EstudioResumirIA url={canonical} prompt={d.iaPrompt} />
     <EstudioNota texto={d.porQueImporta} />
     <EstudioComparativa criterios={d.comparativa?.criterios} filas={d.comparativa?.filas} />
@@ -113,6 +115,8 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
     <EstudioFaq items={d.faq} />
     <EstudioBonus titulo={d.bonus?.titulo} intro={d.bonus?.intro} herramientas={d.bonus?.herramientas} nota={d.bonus?.nota} />
     <EstudioFuentes items={d.fuentes} />
+    <CommercialNextSteps links={clusterLinks} title="Continúa desde la comparativa" pageType="study" slug={entry.id} />
+    <StudyServiceCTA slug={entry.id} placement="final" />
 
     {related.length > 0 && (
       <section style="margin-top: 48px; border-top: 1px solid var(--line); padding-top: 28px;">
@@ -130,7 +134,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
         <h2 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0;">Noticias relacionadas</h2>
         <div style="display: grid; gap: 10px; margin-top: 16px;">
           {relatedNoticias.map((n) => (
-            <a href={`/noticias/${n.id}`} class="lift" style="display: block; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; text-decoration: none;">
+            <a href={crumbPath(`/noticias/${n.id}`)} class="lift" style="display: block; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; text-decoration: none;">
               <span style="font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent);">{n.data.tema}</span>
               <span style="display: block; font-family: var(--sans); font-weight: 600; font-size: 15px; color: #fff; margin-top: 4px;">{n.data.titulo}</span>
             </a>
@@ -144,8 +148,3 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
 
   <SiteFooter />
 </BaseLayout>
-
-<script>
-  import { initMotion } from '../../scripts/motion';
-  document.addEventListener('astro:page-load', () => initMotion());
-</script>

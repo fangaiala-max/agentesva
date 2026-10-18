@@ -1,0 +1,146 @@
+[
+  {
+    "path": "/",
+    "result": "200 https://agentesva.com/ 36478",
+    "error": "",
+    "file": "/private/tmp/agentesva-seo-live/home.html"
+  },
+  {
+    "path": "/es/",
+    "result": "200 https://agentesva.com/es/ 37342",
+    "error": "",
+    "file": "/private/tmp/agentesva-seo-live/es.html"
+  },
+  {
+    "path": "/services/",
+    "result": "200 https://agentesva.com/services/ 26377",
+    "error": "",
+    "file": "/private/tmp/agentesva-seo-live/services.html"
+  },
+  {
+    "path": "/servicios/",
+    "result": "200 https://agentesva.com/servicios/ 26841",
+    "error": "",
+    "file": "/private/tmp/agentesva-seo-live/servicios.html"
+  },
+  {
+    "path": "/services/customer-support/",
+    "result": "200 https://agentesva.com/services/customer-support/ 29898",
+    "error": "",
+    "file": "/private/tmp/agentesva-seo-live/services__customer-support.html"
+  },
+  {
+    "path": "/servicios/automatizacion-atencion-cliente/",
+    "result": "200 https://agentesva.com/servicios/automatizacion-atencion-cliente/ 30053",
+    "error": "",
+    "file": "/private/tmp/agentesva-seo-live/servicios__automatizacion-atencion-cliente.html"
+  },
+  {
+    "path": "/pricing/",
+    "result": "200 https://agentesva.com/pricing/ 26144",
+    "error": "",
+    "file": "/private/tmp/agentesva-seo-live/pricing.html"
+  },
+  {
+    "path": "/precios-automatizacion-ia/",
+    "result": "200 https://agentesva.com/precios-automatizacion-ia/ 26865",
+    "error": "",
+    "file": "/private/tmp/agentesva-seo-live/precios-automatizacion-ia.html"
+  },
+  {
+    "path": "/how-we-work/",
+    "result": "200 https://agentesva.com/how-we-work/ 27658",
+    "error": "",
+    "file": "/private/tmp/agentesva-seo-live/how-we-work.html"
+  },
+  {
+    "path": "/como-trabajamos/",
+    "result": "200 https://agentesva.com/como-trabajamos/ 28039",
+    "error": "",
+    "file": "/private/tmp/agentesva-seo-live/como-trabajamos.html"
+  },
+  {
+    "path": "/tools/",
+    "result": "200 https://agentesva.com/tools/ 101758",
+    "error": "",
+    "file": "/private/tmp/agentesva-seo-live/tools.html"
+  },
+  {
+    "path": "/herramientas/",
+    "result": "200 https://agentesva.com/herramientas/ 99110",
+    "error": "",
+    "file": "/private/tmp/agentesva-seo-live/herramientas.html"
+  },
+  {
+    "path": "/tools/claude/",
+    "result": "200 https://agentesva.com/tools/claude/ 25360",
+    "error": "",
+    "file": "/private/tmp/agentesva-seo-live/tools__claude.html"
+  },
+  {
+    "path": "/herramienta/claude/",
+    "result": "200 https://agentesva.com/herramienta/claude/ 25754",
+    "error": "",
+    "file": "/private/tmp/agentesva-seo-live/herramienta__claude.html"
+  },
+  {
+    "path": "/courses/",
+    "result": "200 https://agentesva.com/courses/ 33689",
+    "error": "",
+    "file": "/private/tmp/agentesva-seo-live/courses.html"
+  },
+  {
+    "path": "/cursos/",
+    "result": "200 https://agentesva.com/cursos/ 31954",
+    "error": "",
+    "file": "/private/tmp/agentesva-seo-live/cursos.html"
+  },
+  {
+    "path": "/resources/",
+    "result": "200 https://agentesva.com/resources/ 23241",
+    "error": "",
+    "file": "/private/tmp/agentesva-seo-live/resources.html"
+  },
+  {
+    "path": "/recursos/",
+    "result": "200 https://agentesva.com/recursos/ 23675",
+    "error": "",
+    "file": "/private/tmp/agentesva-seo-live/recursos.html"
+  },
+  {
+    "path": "/guias/seo-para-ia/",
+    "result": "200 https://agentesva.com/guias/seo-para-ia/ 52964",
+    "error": "",
+    "file": "/private/tmp/agentesva-seo-live/guias__seo-para-ia.html"
+  },
+  {
+    "path": "/guides/seo-para-ia/",
+    "result": "200 https://agentesva.com/guides/seo-para-ia/ 22057",
+    "error": "",
+    "file": "/private/tmp/agentesva-seo-live/guides__seo-para-ia.html"
+  },
+  {
+    "path": "/robots.txt",
+    "result": "200 https://agentesva.com/robots.txt 733",
+    "error": "",
+    "file": "/private/tmp/agentesva-seo-live/robots.txt.html"
+  },
+  {
+    "path": "/llms.txt",
+    "result": "200 https://agentesva.com/llms.txt 3303",
+    "error": "",
+    "file": "/private/tmp/agentesva-seo-live/llms.txt.html"
+  },
+  {
+    "path": "/sitemap-index.xml",
+    "result": "200 https://agentesva.com/sitemap-index.xml 227",
+    "error": "",
+    "file": "/private/tmp/agentesva-seo-live/sitemap-index.xml.html"
+  },
+  {
+    "path": "/sitemap-0.xml",
+    "result": "200 https://agentesva.com/sitemap-0.xml 124713",
+    "error": "",
+    "file": "/private/tmp/agentesva-seo-live/sitemap-0.xml.html"
+  }
+]

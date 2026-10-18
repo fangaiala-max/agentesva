@@ -1,5 +1,9 @@
 ---
 import '../styles/global.css';
+import {socialImagePath} from '../lib/social-image.mjs';
+import '../styles/refinement.css';
+import '../styles/spectrum.css';
+import { localeFor, alternatePath } from '../i18n/routes';
 import '@fontsource/dm-serif-display/400.css';
 import '@fontsource/dm-serif-display/400-italic.css';
 import '@fontsource-variable/dm-sans';
@@ -7,31 +11,40 @@ import '@fontsource-variable/jetbrains-mono';
 import { ClientRouter } from 'astro:transitions';
 import { entityGraph, jsonLdSerialize, SITE } from '../data/schema';
 import ConsentBanner from '../components/ConsentBanner.astro';
+import ToastRegion from '../components/ToastRegion.astro';
 
 export interface Props {
   title: string;
   description: string;
   canonical?: string;
   ogImage?: string;
+  ogType?: 'website' | 'article';
   noindex?: boolean;
 }
 const {
   title,
   description,
   canonical = new URL(Astro.url.pathname, SITE).href,
-  ogImage = `${SITE}/og.png`,
+  ogImage: customOgImage,
+  ogType = 'website',
   noindex = false,
 } = Astro.props;
+const lang = localeFor(Astro.url.pathname);
+const ogImage = customOgImage ?? (noindex ? `${SITE}${lang === "en" ? "/brand/og-en.png" : "/og.png"}` : `${SITE}${socialImagePath(Astro.url.pathname,title)}`);
+const alternate = alternatePath(Astro.url.pathname);
+const enHref = lang === "en" ? canonical : alternate ? new URL(alternate, SITE).href : undefined;
+const esHref = lang === "es" ? canonical : alternate ? new URL(alternate, SITE).href : undefined;
+const graph = { ...entityGraph, "@graph": entityGraph["@graph"].map(entity => entity["@type"] === "WebSite" ? {...entity, inLanguage:["en","es"]} : entity["@type"] === "Organization" ? {...entity, logo:{"@type":"ImageObject",url:`${SITE}/brand/mark.svg`},description:lang === "en" ? "AI automation and practical resources for small businesses." : entity.description} : entity) };
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" href="/favicon.svg?v=gemini-2" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.png?v=gemini-2" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=gemini-2" />
     <title>{title}</title>
     <meta name="description" content={description} />
     {
@@ -42,39 +55,51 @@ const {
       )
     }
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang="es" href={canonical} />
-    <link rel="alternate" hreflang="x-default" href={canonical} />
+    {!noindex && enHref && <link rel="alternate" hreflang="en" href={enHref} />}
+    {!noindex && esHref && <link rel="alternate" hreflang="es" href={esHref} />}
+    {!noindex && enHref && <link rel="alternate" hreflang="x-default" href={enHref} />}
     <link rel="alternate" type="application/rss+xml" title="AgentesVA — IA en español" href="/rss.xml" />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:locale" content="es" />
-    <meta property="og:locale:alternate" content="es_MX" />
-    <meta property="og:locale:alternate" content="es_ES" />
+    {!customOgImage && <><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:image:type" content="image/png" /></>}
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:locale" content={lang === "en" ? "en_US" : "es_ES"} />
+    <meta property="og:locale:alternate" content={lang === "en" ? "es_ES" : "en_US"} />
     <meta property="og:site_name" content="AgentesVA" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={title} />
 
-    <script type="application/ld+json" set:html={jsonLdSerialize(entityGraph)} />
+    <script type="application/ld+json" set:html={jsonLdSerialize(graph)} />
     <ClientRouter />
   </head>
   <body class="min-h-screen">
     <slot />
     <ConsentBanner />
+    <ToastRegion />
   </body>
 </html>
 
 <script>
   import { initTracking, fireViewEvents } from '../scripts/track';
+  import { initMotion, teardownMotion } from '../scripts/motion';
   document.addEventListener('astro:page-load', () => {
+    const main = document.querySelector("main");
+    if (main && !main.id) main.id = "main-content";
+    const skip = document.querySelector<HTMLAnchorElement>(".skip-link");
+    if (skip && main) skip.href = `#${main.id}`;
     initTracking();
     fireViewEvents();
+    initMotion();
   });
+  document.addEventListener('astro:before-swap', teardownMotion);
 </script>
 
+<script>import {initAssessmentLinks} from "../scripts/assessment-links";document.addEventListener("astro:page-load",initAssessmentLinks);</script>

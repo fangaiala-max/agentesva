@@ -1,0 +1,59 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+interface Props extends HTMLAttributes<'div'> {
+  as?: 'div' | 'article' | 'aside' | 'section' | 'a';
+  href?: string;
+  intensity?: number;
+  accent?: string;
+  enabled?: boolean;
+}
+const { as: Tag = 'div', class: className, style, intensity = 4, accent = '#91a8ff', enabled = true, ...attributes } = Astro.props;
+---
+<Tag {...attributes} class:list={[className, { 'interactive-card': enabled }]} data-interactive-card={enabled ? '' : undefined} data-card-intensity={enabled ? intensity : undefined} style={`${style || ''};--card-accent:${accent};`}>
+  <slot />
+  {enabled && <span class="interactive-card__edge" aria-hidden="true"></span>}
+</Tag>
+
+<style is:global>
+  .interactive-card {
+    position: relative;
+    isolation: isolate;
+    --card-x: 50%; --card-y: 35%; --card-rx: 0deg; --card-ry: 0deg;
+  }
+  .interactive-card > .interactive-card__edge {
+    position: absolute; inset: -1px; z-index: 5; border-radius: inherit;
+    padding: 1.5px; pointer-events: none;
+    background: radial-gradient(240px circle at var(--card-x) var(--card-y), #fff 0%, var(--card-accent) 20%, transparent 75%);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    opacity: .3; transition: opacity .25s;
+  }
+  .interactive-card:is(:hover, :focus-within) > .interactive-card__edge { opacity: 1; }
+  .interactive-card:focus-within { outline: 2px solid var(--card-accent); outline-offset: 4px; }
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .interactive-card[data-card-ready], .interactive-card[data-card-ready]:hover {
+      transform: perspective(1000px) rotateX(var(--card-rx)) rotateY(var(--card-ry));
+      transition: transform .2s ease-out, box-shadow .25s, border-color .25s;
+    }
+    .decision-card.interactive-card[data-card-ready] {
+      overflow: visible;
+      transform-style: preserve-3d;
+    }
+    .decision-card.interactive-card[data-card-ready] h2[data-card-depth] { transform: translateZ(28px); }
+    .decision-card.interactive-card[data-card-ready] ol[data-card-depth] { transform: translateZ(16px); }
+    .interactive-card[data-card-active] {
+      z-index: 2;
+      box-shadow: 0 26px 45px -22px #000, 0 6px 0 -2px #121727, 0 7px 0 -2px color-mix(in srgb, var(--card-accent) 45%, transparent);
+    }
+    .interactive-card[data-card-ready] [data-card-depth] {
+      translate: var(--card-layer-x, 0px) var(--card-layer-y, 0px);
+      transition: translate .2s ease-out;
+    }
+  }
+  @media (hover: none), (prefers-reduced-motion: reduce) {
+    .interactive-card, .interactive-card:hover { transform: none !important; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .interactive-card, .interactive-card > .interactive-card__edge { transition: none !important; }
+  }
+</style>
