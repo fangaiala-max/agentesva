@@ -1,0 +1,704 @@
+{
+  "adobe-firefly": {
+    "description": "Generate and edit images with Adobe’s AI tools, including generative fill and integrations with Photoshop and Illustrator.",
+    "features": [
+      "Commercial image workflows",
+      "Generative fill",
+      "Adobe app integrations"
+    ],
+    "steps": [
+      "Open Firefly",
+      "Describe the image you need",
+      "Edit the result or continue in Photoshop"
+    ]
+  },
+  "bardeen": {
+    "description": "Automate repeated browser tasks such as extracting information and updating a CRM using visual playbooks.",
+    "features": [
+      "Web data extraction",
+      "Browser automation",
+      "Ready-made playbooks"
+    ],
+    "steps": [
+      "Install the Bardeen extension",
+      "Choose or create a playbook",
+      "Test it on a routine task"
+    ]
+  },
+  "bolt": {
+    "description": "Build and preview full-stack applications in the browser from a written description, then refine the result through chat.",
+    "features": [
+      "App generation from a brief",
+      "Live preview",
+      "Deployment tools"
+    ],
+    "steps": [
+      "Open Bolt.new",
+      "Describe the application",
+      "Review, edit, and deploy it"
+    ]
+  },
+  "brevo": {
+    "description": "Bring email campaigns, SMS, messaging, and CRM work together, with AI assistance for campaign copy.",
+    "features": [
+      "Email and messaging campaigns",
+      "CRM tools",
+      "AI writing assistance"
+    ],
+    "steps": [
+      "Create a Brevo account",
+      "Import contacts you have permission to use",
+      "Draft and review a campaign"
+    ]
+  },
+  "canva-ia": {
+    "description": "Use templates, AI image generation, and simple editing tools to create designs for your business.",
+    "features": [
+      "Social and advertising templates",
+      "Text-to-image generation",
+      "Background removal"
+    ],
+    "steps": [
+      "Open Canva",
+      "Choose a template or generate an image",
+      "Adapt the colors and copy to your brand"
+    ]
+  },
+  "chatfuel": {
+    "description": "Build conversational workflows for WhatsApp, Instagram, and Facebook to handle questions and collect customer information.",
+    "features": [
+      "Messaging bots",
+      "AI-assisted responses",
+      "Sales conversation workflows"
+    ],
+    "steps": [
+      "Create an account",
+      "Connect an approved channel",
+      "Design and test the conversation"
+    ]
+  },
+  "chatgpt": {
+    "description": "Draft, summarize, translate, and explore questions through a natural-language conversation. Give it context and review the output before using it.",
+    "features": [
+      "Draft emails and posts",
+      "Summarize documents",
+      "Develop ideas"
+    ],
+    "steps": [
+      "Open ChatGPT",
+      "Describe the task and provide context",
+      "Ask for specific revisions"
+    ]
+  },
+  "claude": {
+    "description": "Work with long documents and writing tasks through a conversational assistant. Upload source material and ask for a draft, summary, or analysis.",
+    "features": [
+      "Long-document analysis",
+      "Writing and editing",
+      "PDF summaries"
+    ],
+    "steps": [
+      "Create a Claude account",
+      "Upload a document or paste text",
+      "Request a focused summary or draft"
+    ]
+  },
+  "copy-ai": {
+    "description": "Create marketing and sales copy and organize repeatable content workflows for a go-to-market team.",
+    "features": [
+      "Copy templates",
+      "Content workflows",
+      "Marketing and sales drafts"
+    ],
+    "steps": [
+      "Create an account",
+      "Choose a template",
+      "Describe the product and review the draft"
+    ]
+  },
+  "cursor": {
+    "description": "Use AI assistance inside a code editor to understand a repository and make changes across files.",
+    "features": [
+      "Code editing from instructions",
+      "Project context",
+      "Integrated AI assistance"
+    ],
+    "steps": [
+      "Install Cursor",
+      "Open your project",
+      "Request a specific change and review the diff"
+    ]
+  },
+  "deepl": {
+    "description": "Translate text and documents, or use DeepL Write to improve phrasing and style.",
+    "features": [
+      "Text translation",
+      "Document translation",
+      "Writing assistance"
+    ],
+    "steps": [
+      "Open DeepL",
+      "Paste text or upload a document",
+      "Review and copy the translation"
+    ]
+  },
+  "deepseek": {
+    "description": "Use a conversational assistant for reasoning, mathematics, and programming tasks.",
+    "features": [
+      "Reasoning assistance",
+      "Code help",
+      "Web chat"
+    ],
+    "steps": [
+      "Open DeepSeek Chat",
+      "Describe the problem",
+      "Use reasoning mode when the task needs it"
+    ]
+  },
+  "descript": {
+    "description": "Edit a video or podcast through its transcript, with tools for removing filler words and preparing audio.",
+    "features": [
+      "Text-based editing",
+      "Filler-word removal",
+      "Automatic transcription"
+    ],
+    "steps": [
+      "Create an account",
+      "Upload a recording",
+      "Edit the transcript and export"
+    ]
+  },
+  "elevenlabs": {
+    "description": "Turn scripts into natural-sounding speech for videos, advertisements, and tutorials.",
+    "features": [
+      "AI voiceovers",
+      "Script narration",
+      "Voice cloning"
+    ],
+    "steps": [
+      "Create an account",
+      "Paste a script and choose an authorized voice",
+      "Review and download the audio"
+    ]
+  },
+  "fathom": {
+    "description": "Record, transcribe, and summarize online meetings, with markers for important moments.",
+    "features": [
+      "Meeting summaries",
+      "Key-moment highlights",
+      "Video-call integrations"
+    ],
+    "steps": [
+      "Connect your meeting platform",
+      "Record with the participants’ agreement",
+      "Review the summary afterward"
+    ]
+  },
+  "gamma": {
+    "description": "Create presentations, documents, and webpages from a topic or outline, then refine the layout and content.",
+    "features": [
+      "Presentation generation",
+      "Automatic layouts",
+      "Documents and webpages"
+    ],
+    "steps": [
+      "Create an account",
+      "Enter a topic or outline",
+      "Review the content and customize the design"
+    ]
+  },
+  "gemini": {
+    "description": "Use Google’s AI assistant to write, answer questions, and analyze material, with connections to Google Workspace.",
+    "features": [
+      "Writing assistance",
+      "Image and document analysis",
+      "Workspace integration"
+    ],
+    "steps": [
+      "Open Gemini with a Google account",
+      "Describe your task",
+      "Connect relevant Google apps when appropriate"
+    ]
+  },
+  "github-copilot": {
+    "description": "Get code suggestions and chat assistance inside your editor for explanations, refactoring, and fixes.",
+    "features": [
+      "Code completion",
+      "Code explanation",
+      "Editor integration"
+    ],
+    "steps": [
+      "Enable Copilot",
+      "Install the editor extension",
+      "Review suggestions as you write"
+    ]
+  },
+  "grammarly": {
+    "description": "Review grammar, tone, and style, with AI support for rewriting and drafting across supported apps.",
+    "features": [
+      "Grammar and tone checks",
+      "AI rewriting",
+      "Browser integration"
+    ],
+    "steps": [
+      "Install Grammarly",
+      "Write in a supported app",
+      "Review the suggestions"
+    ]
+  },
+  "grok": {
+    "description": "Explore questions and conversations with xAI’s assistant, including information from X and image generation.",
+    "features": [
+      "Questions about X discussions",
+      "Trend exploration",
+      "Chat and image generation"
+    ],
+    "steps": [
+      "Open Grok",
+      "Ask about a topic or conversation",
+      "Check the source information before using it"
+    ]
+  },
+  "heygen": {
+    "description": "Create avatar videos from a script for training, marketing, and communication, including video translation.",
+    "features": [
+      "Avatar videos",
+      "Video translation",
+      "Script-based production"
+    ],
+    "steps": [
+      "Create an account",
+      "Choose an avatar and write a script",
+      "Review and export the video"
+    ]
+  },
+  "hubspot-ia": {
+    "description": "Organize contacts and opportunities in a CRM, with AI assistance for writing and follow-up tasks.",
+    "features": [
+      "Contact and opportunity management",
+      "Email drafting",
+      "Follow-up automation"
+    ],
+    "steps": [
+      "Create an account",
+      "Import your contacts",
+      "Use AI assistance for agreed tasks"
+    ]
+  },
+  "huggingchat": {
+    "description": "Try open AI models through Hugging Face’s conversational interface and compare them on a real task.",
+    "features": [
+      "Open-model chat",
+      "Model selection",
+      "Task comparison"
+    ],
+    "steps": [
+      "Open HuggingChat",
+      "Choose an available model",
+      "Ask your question and compare the response"
+    ]
+  },
+  "ideogram": {
+    "description": "Generate images that incorporate readable text, such as posters and social graphics.",
+    "features": [
+      "Text in generated images",
+      "Poster concepts",
+      "Visual exploration"
+    ],
+    "steps": [
+      "Open Ideogram",
+      "Describe the image and exact text",
+      "Review and download the result"
+    ]
+  },
+  "jasper": {
+    "description": "Create marketing copy and campaign content with a consistent brand voice across a team.",
+    "features": [
+      "Brand voice",
+      "Marketing templates",
+      "Team workflows"
+    ],
+    "steps": [
+      "Create an account",
+      "Define your brand voice",
+      "Draft and review campaign content"
+    ]
+  },
+  "krea": {
+    "description": "Generate and refine images and video with tools for fast creative iteration and upscaling.",
+    "features": [
+      "Real-time generation",
+      "Image enhancement",
+      "Image and video workflows"
+    ],
+    "steps": [
+      "Create an account",
+      "Choose an image or video tool",
+      "Iterate and export"
+    ]
+  },
+  "landbot": {
+    "description": "Design conversational assistants with a visual editor to guide visitors and collect lead information.",
+    "features": [
+      "Visual chatbot builder",
+      "Lead qualification",
+      "Website and WhatsApp workflows"
+    ],
+    "steps": [
+      "Create an account",
+      "Build a conversation with blocks",
+      "Test and publish it to your channel"
+    ]
+  },
+  "leonardo-ai": {
+    "description": "Generate images with model and style controls, then refine the visual direction.",
+    "features": [
+      "Image generation",
+      "Style controls",
+      "Model selection"
+    ],
+    "steps": [
+      "Create an account",
+      "Describe your image",
+      "Adjust the model and review the result"
+    ]
+  },
+  "mailchimp": {
+    "description": "Create email campaigns with AI help for subject lines, copy, and sending recommendations.",
+    "features": [
+      "Subject-line drafting",
+      "Campaign automation",
+      "Email content assistance"
+    ],
+    "steps": [
+      "Create an account",
+      "Import permission-based contacts",
+      "Draft and review your campaign"
+    ]
+  },
+  "make": {
+    "description": "Connect applications such as email, spreadsheets, and CRM tools through visual automation workflows.",
+    "features": [
+      "App connections",
+      "Visual workflow builder",
+      "Repeated-task automation"
+    ],
+    "steps": [
+      "Create an account",
+      "Choose the apps to connect",
+      "Build and test a scenario"
+    ]
+  },
+  "manychat": {
+    "description": "Design messaging conversations to answer common questions, capture information, and support sales follow-up.",
+    "features": [
+      "Messaging automation",
+      "Instagram lead capture",
+      "WhatsApp campaigns"
+    ],
+    "steps": [
+      "Connect an approved account",
+      "Design the conversation flow",
+      "Test before activating it"
+    ]
+  },
+  "mem": {
+    "description": "Organize notes and retrieve information through AI-assisted search and questions about your own material.",
+    "features": [
+      "Automatic organization",
+      "Questions about notes",
+      "Related-idea discovery"
+    ],
+    "steps": [
+      "Create an account",
+      "Add notes",
+      "Ask questions about the information"
+    ]
+  },
+  "microsoft-copilot": {
+    "description": "Use Microsoft’s assistant for conversational questions, web research, and image generation.",
+    "features": [
+      "Web-connected chat",
+      "Image generation",
+      "Microsoft integrations"
+    ],
+    "steps": [
+      "Open Microsoft Copilot",
+      "Ask a question or describe an image",
+      "Review the response and sources"
+    ]
+  },
+  "midjourney": {
+    "description": "Generate visual concepts and images from text descriptions, with controls for style and format.",
+    "features": [
+      "Image generation",
+      "Style and format controls",
+      "Brand concept exploration"
+    ],
+    "steps": [
+      "Open Midjourney",
+      "Describe the visual direction",
+      "Review and refine the image"
+    ]
+  },
+  "mistral": {
+    "description": "Use Mistral’s Le Chat for conversational work and document tasks through a European AI provider.",
+    "features": [
+      "Conversational assistance",
+      "Document tasks",
+      "Web interface"
+    ],
+    "steps": [
+      "Open Le Chat",
+      "Create an account",
+      "Ask a question or upload a document"
+    ]
+  },
+  "murf": {
+    "description": "Turn scripts into voiceovers and synchronize narration with music and video in a studio editor.",
+    "features": [
+      "Multilingual voices",
+      "Studio editor",
+      "Video synchronization"
+    ],
+    "steps": [
+      "Create an account",
+      "Paste a script and select a voice",
+      "Review and export the narration"
+    ]
+  },
+  "n8n": {
+    "description": "Build visual workflows connecting apps and APIs, with custom logic and self-hosting options.",
+    "features": [
+      "App and API connections",
+      "Self-hosting option",
+      "Custom workflow logic"
+    ],
+    "steps": [
+      "Choose a cloud or self-hosted setup",
+      "Build a workflow with nodes",
+      "Test the connections before activating it"
+    ]
+  },
+  "notion-ia": {
+    "description": "Draft and summarize content inside a workspace that combines notes, documents, databases, and tasks.",
+    "features": [
+      "Writing inside documents",
+      "Project organization",
+      "Workspace databases"
+    ],
+    "steps": [
+      "Open your workspace",
+      "Use the AI tools in a page",
+      "Review a draft or summary"
+    ]
+  },
+  "otter": {
+    "description": "Transcribe meetings and review summaries and action items through calendar and meeting integrations.",
+    "features": [
+      "Meeting transcription",
+      "Summaries and actions",
+      "Calendar connections"
+    ],
+    "steps": [
+      "Create an account",
+      "Connect your calendar",
+      "Review the transcript and actions after the meeting"
+    ]
+  },
+  "perplexity": {
+    "description": "Research questions through an assistant that links to sources, helping you trace and check its answers.",
+    "features": [
+      "Source-linked answers",
+      "Market research",
+      "Topic summaries"
+    ],
+    "steps": [
+      "Open Perplexity",
+      "Ask a focused research question",
+      "Read the linked sources"
+    ]
+  },
+  "pika": {
+    "description": "Generate short videos from text or images and experiment with animation and creative effects.",
+    "features": [
+      "Text-to-video",
+      "Image animation",
+      "Creative effects"
+    ],
+    "steps": [
+      "Open Pika",
+      "Describe a video or upload an image",
+      "Generate and review the result"
+    ]
+  },
+  "playht": {
+    "description": "Generate speech and work with voice APIs for narration and voice-agent applications.",
+    "features": [
+      "Speech generation",
+      "Voice cloning",
+      "Voice API"
+    ],
+    "steps": [
+      "Create an account",
+      "Choose an authorized voice and provide text",
+      "Review the output or connect the API"
+    ]
+  },
+  "relevance-ai": {
+    "description": "Build AI agents and connect tools and data into workflows for tasks such as research and classification.",
+    "features": [
+      "No-code agents",
+      "Connected tools and data",
+      "Use-case templates"
+    ],
+    "steps": [
+      "Create an account",
+      "Build a first agent",
+      "Give it a bounded task and test its tools"
+    ]
+  },
+  "replit": {
+    "description": "Build applications in a browser-based development environment with AI assistance and deployment tools.",
+    "features": [
+      "Browser coding",
+      "AI app development",
+      "Deployment"
+    ],
+    "steps": [
+      "Create an account",
+      "Describe the app",
+      "Review, test, and refine the implementation"
+    ]
+  },
+  "runway": {
+    "description": "Generate video from text or images and use AI editing tools for tasks such as background removal.",
+    "features": [
+      "Video generation",
+      "AI editing",
+      "Scene refinement"
+    ],
+    "steps": [
+      "Create an account",
+      "Choose a video tool",
+      "Generate, review, and export"
+    ]
+  },
+  "suno": {
+    "description": "Create songs from a written description, combining generated music and vocals.",
+    "features": [
+      "Text-to-song",
+      "Music and vocals",
+      "Creative variations"
+    ],
+    "steps": [
+      "Open Suno",
+      "Describe the style and lyrics",
+      "Review the generated song"
+    ]
+  },
+  "surfer-seo": {
+    "description": "Analyze competing content and use editorial guidance for structure, coverage, and optimization.",
+    "features": [
+      "Content guidance",
+      "Competitor analysis",
+      "AI-assisted editor"
+    ],
+    "steps": [
+      "Create an account",
+      "Enter the target topic",
+      "Write and review the recommendations"
+    ]
+  },
+  "synthesia": {
+    "description": "Create avatar-based videos for training and internal communication from a script.",
+    "features": [
+      "Multilingual avatars",
+      "Video templates",
+      "Script-based production"
+    ],
+    "steps": [
+      "Create an account",
+      "Select an avatar and prepare a script",
+      "Review and share the video"
+    ]
+  },
+  "tidio": {
+    "description": "Combine live chat and AI-assisted answers in a shared customer conversation workflow.",
+    "features": [
+      "AI customer answers",
+      "Live chat",
+      "Customer support workflows"
+    ],
+    "steps": [
+      "Create an account",
+      "Install the website widget",
+      "Add approved FAQs and test responses"
+    ]
+  },
+  "tome": {
+    "description": "The original catalog describes Tome as a tool for narrative presentations and sales proposals. Check the provider’s current offering before planning a workflow around it.",
+    "features": [
+      "Presentation narratives",
+      "AI-assisted content",
+      "Proposal concepts"
+    ],
+    "steps": [
+      "Visit the provider",
+      "Check the current product offering",
+      "Confirm availability before adopting it"
+    ]
+  },
+  "v0": {
+    "description": "Generate web interfaces from a written brief or image, then iterate on the design and code.",
+    "features": [
+      "UI generation",
+      "React and Tailwind code",
+      "Chat-based iteration"
+    ],
+    "steps": [
+      "Open v0",
+      "Describe the interface",
+      "Review and adapt the generated code"
+    ]
+  },
+  "wati": {
+    "description": "Manage WhatsApp Business conversations through a shared inbox, campaign templates, and chatbot workflows.",
+    "features": [
+      "Shared team inbox",
+      "Campaign templates",
+      "Chatbot builder"
+    ],
+    "steps": [
+      "Request an account",
+      "Connect an approved business number",
+      "Design and test the workflow"
+    ]
+  },
+  "writesonic": {
+    "description": "Draft longer articles with an AI-assisted editor and research support for content workflows.",
+    "features": [
+      "Article drafting",
+      "Research assistance",
+      "AI editor"
+    ],
+    "steps": [
+      "Create an account",
+      "Provide the topic and brief",
+      "Edit and verify the draft"
+    ]
+  },
+  "zapier": {
+    "description": "Connect application events to actions, such as creating a CRM contact from a form submission.",
+    "features": [
+      "App integrations",
+      "Workflow templates",
+      "Event-triggered actions"
+    ],
+    "steps": [
+      "Create an account",
+      "Choose a trigger",
+      "Define and test the action"
+    ]
+  }
+}

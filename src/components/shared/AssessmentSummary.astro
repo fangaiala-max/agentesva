@@ -1,0 +1,6 @@
+---
+import {localeFor} from '../../i18n/routes';
+const en=localeFor(Astro.url.pathname)==='en';
+---
+<details class="assessment-review"><summary>{en?'Review what you will send':'Revisa lo que vas a enviar'}</summary><p>{en?'Your answers and the contact details below will be sent together. You can restart the assessment to change your answers.':'Tus respuestas se enviarán junto con los datos de contacto que indiques debajo. Puedes reiniciar el diagnóstico para cambiar las respuestas.'}</p><ul data-assessment-review></ul></details>
+<style>.assessment-review{margin-top:24px;padding:18px;border:1px solid var(--line);border-radius:8px}.assessment-review summary{cursor:pointer;font-weight:600;min-height:28px}.assessment-review p,.assessment-review li{font-size:14px;line-height:1.7}.assessment-review li{margin-bottom:8px;overflow-wrap:anywhere}</style>

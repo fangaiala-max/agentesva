@@ -1,0 +1,6 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';import SiteHeader from '../SiteHeader.astro';import SiteFooter from '../SiteFooter.astro';import {legalPages} from '../../i18n/legal';import '../../styles/english.css';
+interface Props {kind:keyof typeof legalPages}
+const copy=legalPages[Astro.props.kind];
+---
+<BaseLayout title={`${copy.title} | AgentesVA`} description={copy.description}><SiteHeader/><main id="main-content" class="en-page"><section class="en-hero"><div class="en-shell"><nav class="en-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>{copy.title}</span></nav><div class="en-hero-grid"><div><h1>{copy.title}</h1><p class="en-lead">{copy.description}</p><p class="en-note">Source policy last updated: {copy.updated}</p></div></div></div></section><article class="en-section en-shell en-article">{copy.sections.map(([title,text])=><section><h2>{title}</h2><p>{text}</p></section>)}<p>Questions? <a href="mailto:hola@agentesva.com">Contact hola@agentesva.com</a>.</p><nav class="en-actions" aria-label="Related policies"><a href="/privacy/">Privacy policy</a><a href="/cookie-policy/">Cookie policy</a><a href="/legal/">Legal notice</a></nav></article></main><SiteFooter hideNewsletter/></BaseLayout>

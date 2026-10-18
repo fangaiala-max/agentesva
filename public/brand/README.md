@@ -1,13 +1,17 @@
 # AgentesVA — Brand & Social Kit
 
-Assets de marca generados desde el diseño **AgentesVA - Brand & Social Kit** (claude.ai/design).
-Hospedados en `agentesva.com/brand/…` y versionados aquí.
+## Current social identity
 
-## Identidad
+The current OG cards use the Gemini palette (blue, violet and pink), with localized titles and a separate card for every indexable page and study. Commercial pages use a light background; editorial content uses midnight navy. The social monogram is a simplified AV for small sizes. The website header logo is unchanged.
 
-- **Logotipo:** wordmark **AgentesVA** en `DM Serif Display` (tracking −0.025em) + glifo **[IA]** en `JetBrains Mono`, superíndice azul — nunca otro color. Margen de respeto = altura de la "A". Mínimo 96px de ancho.
-- **Tipografía:** `DM Serif Display` (display/titulares + wordmark) · `DM Sans` (cuerpo/UI) · `JetBrains Mono` (etiquetas).
-- **Color:** negro `#08080B` · azul primario `#0040FF` (superficies claras) · azul acento `#5B7CFF` (superficies oscuras) · claro `#FAFAF7` · gris `#6B6B6B` · verde estado `#4ec98a`.
+- `social-mark.png`: source artwork for social cards and favicon exports.
+- `/favicon.svg`, `/favicon.png`, `/apple-touch-icon.png`: matching icon exports.
+- `/brand/og-en.png` and `/og.png`: English and Spanish generic fallback cards.
+- `/social/og/*.png`: page-specific cards generated during each build, 1200×630.
+
+See [generation and validation](../../docs/social-images.md). Earlier social platform banners below are legacy exports and are not used as website OG defaults.
+
+## Legacy social exports
 
 ## Assets (tamaño nativo)
 
@@ -23,6 +27,6 @@ Hospedados en `agentesva.com/brand/…` y versionados aquí.
 | `brand/instagram-post.png` | Post de Instagram | 1080 × 1080 |
 | `brand/instagram-story.png` | Story de Instagram | 1080 × 1920 |
 
-## Regenerar
+## Legacy generator
 
 Las fuentes HTML viven en `brand-build/` (gitignored). `node brand-build/gen.mjs` regenera las páginas y se renderizan a PNG con el navegador a viewport nativo (dpr 1).

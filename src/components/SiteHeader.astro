@@ -1,100 +1,43 @@
 ---
-// Ticker + cabecera sticky del directorio "Futurista".
+import BrandMark from './BrandMark.astro';
 import SearchModal from './SearchModal.astro';
-import { getCollection } from 'astro:content';
-import { toolsClaim } from '../data/tools';
-import { frescura, ultimaActualizacion } from '../data/frescura';
-import { crumbPath, SECCIONES_NAV } from '../data/breadcrumbs';
-
-const [tools, estudios, noticias] = await Promise.all([
-  getCollection('tools'),
-  getCollection('estudios'),
-  getCollection('noticias'),
-]);
-
-// Claim del ticker derivado del dato real (redondeado a la baja).
-const claim = toolsClaim(tools.length);
-
-// Frescura real del sitio: última fecha editorial publicada. Cuando exista
-// `addedAt` en tools, añadir aquí las altas del directorio como señal.
-const fresca = frescura(
-  ultimaActualizacion([
-    ...estudios.map((e) => e.data.actualizado ?? e.data.fecha),
-    ...noticias.map((n) => n.data.fecha),
-  ]),
-);
-const tickerItems = `+${claim} herramientas de IA revisadas  ·  Sin ruido, solo lo que funciona  ·  Asistentes  ·  Automatización  ·  WhatsApp  ·  Marketing  ·  Pack de Recursos IA gratis  ·  `;
+import {assessmentHref} from '../i18n/parity';
+import { localeFor, alternatePath, normalizePath } from '../i18n/routes';
+const en=localeFor(Astro.url.pathname)==='en';
+const path=normalizePath(Astro.url.pathname);
+const nav=en? [['Services','/services/'],['How we work','/how-we-work/'],['Pricing','/pricing/'],['Explore AI','/tools/']] : [['Servicios','/servicios/'],['Cómo trabajamos','/como-trabajamos/'],['Precios','/precios-automatizacion-ia/'],['Herramientas','/herramientas/']];
+const alternate=alternatePath(path);
 ---
-
-<!-- ===== TICKER ===== -->
-<div style="border-bottom: 1px solid var(--line); overflow: hidden; background: var(--bg-2);">
-  <div style="display: flex; align-items: center;">
-    {fresca && (
-      <div style="flex: none; display: flex; align-items: center; gap: 8px; padding: 9px 18px; border-right: 1px solid var(--line); background: var(--panel-3);">
-        <span
-          style={`width: 7px; height: 7px; border-radius: 50%; background: ${fresca.fresco ? 'var(--green)' : 'var(--fg-4)'};${fresca.fresco ? ' animation: dotPulse 1.6s ease-in-out infinite;' : ''}`}
-        ></span>
-        <time
-          datetime={fresca.iso}
-          style="font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-2); white-space: nowrap;"
-        >{fresca.label}</time>
-      </div>
-    )}
-    <div style="overflow: hidden; flex: 1; white-space: nowrap;">
-      <div style="display: inline-flex; animation: marquee 28s linear infinite; will-change: transform;">
-        <span style="font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5); padding: 9px 0;">{tickerItems}</span>
-        <span aria-hidden="true" style="font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-5); padding: 9px 0;">{tickerItems}</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ===== HEADER ===== -->
-<header style="position: sticky; top: 0; z-index: 50; background: rgba(10,26,51,0.82); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line);">
-  <div style="max-width: 1200px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
-    <a href="/" style="display: flex; align-items: baseline; gap: 3px; text-decoration: none;">
-      <span style="font-family: var(--serif); font-weight: 400; font-size: 24px; letter-spacing: -0.025em; color: #fff;">AgentesVA</span>
-      <sup style="font-family: var(--mono); font-size: 10px; font-weight: 600; color: var(--accent); top: -0.7em; animation: glowPulse 3s ease-in-out infinite; border-radius: 3px;">[IA]</sup>
-    </a>
-    <nav id="site-nav" class="sitenav" aria-label="Principal" style="display: flex; gap: 24px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;">
-      {
-        SECCIONES_NAV.map((s, i) => (
-          <a class="navlink" href={crumbPath(s.url)} style={`color: ${i === 0 ? '#fff' : 'var(--fg-4)'}; text-decoration: none;`}>
-            {s.name}
-          </a>
-        ))
-      }
-    </nav>
-    <div style="display: flex; align-items: center; gap: 14px;">
-      <button
-        type="button"
-        class="navtoggle"
-        data-nav-toggle
-        aria-label="Abrir menú"
-        aria-expanded="false"
-        aria-controls="site-nav"
-      >
-        <span class="navtoggle__bars" aria-hidden="true"></span>
-      </button>
-      <button type="button" data-search-open aria-label="Buscar en el sitio (⌘K)" style="display: flex; align-items: center; gap: 8px; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 6px; padding: 8px 11px; cursor: pointer;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--fg-3)" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
-        <span style="font-family: var(--mono); font-size: 10px; color: var(--fg-5); border: 1px solid var(--line-2); border-radius: 4px; padding: 2px 6px;">⌘K</span>
-      </button>
-      <a href="/newsletter" class="shimmer magnetic" data-magnetic style="font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--bg); background: var(--accent); padding: 9px 18px; border-radius: 2px; text-decoration: none; animation: glowPulse 3.4s ease-in-out infinite;">Suscríbete</a>
-    </div>
-  </div>
+<a class="skip-link" href={path==='/buscar/'?'#buscar-root':'#main-content'}>{en?'Skip to content':'Saltar al contenido'}</a>
+<header class="studio-header" data-pagefind-ignore>
+<div class="studio-header__inner">
+<BrandMark home={en?'/':'/es/'} />
+<nav id="site-nav" class="studio-nav" aria-label={en?'Main navigation':'Navegación principal'}>
+{nav.slice(0,3).map(([label,href])=><a href={href} aria-current={path===href||path.startsWith(href)?'page':undefined}>{label}</a>)}
+<details class="explore-menu"><summary>{en?'Explore AI':'Explorar IA'}</summary><div class="explore-panel">{(en?[
+ ['AI tools','Find a tool for a real task.','/tools/'],['Courses','Build a useful skill.','/courses/'],['Guides','Understand the next step.','/guides/'],['Research','Explore evidence and comparisons.','/research/'],['Resources','Templates and practical downloads.','/resources/'],['Prompt library','Give AI a better brief.','/prompt-library/']
+ ]:[['Herramientas','Encuentra una herramienta para tu tarea.','/herramientas/'],['Cursos','Desarrolla una habilidad útil.','/cursos/'],['Guías','Comprende el siguiente paso.','/guias/'],['Estudios','Explora evidencias y comparativas.','/estudios/'],['Recursos','Plantillas y descargas prácticas.','/recursos/'],['Prompts','Dale mejores instrucciones a la IA.','/prompts/']]).map(([name,description,url])=><a href={url}><strong>{name}</strong><span>{description}</span></a>)}</div></details>
+<button class="nav-mobile-search" type="button" data-search-open>{en?'Search the site':'Buscar en el sitio'}</button>
+<a class="nav-mobile-cta" href={assessmentHref(en?'en':'es','mobile_menu')} data-track-event="service_cta_click" data-track-placement="mobile_menu" data-track-page-type="navigation" data-track-service="general_consulting" data-track-cluster="general">{en?'Get my free assessment':'Hacer el diagnóstico gratuito'} ↗</a>
+</nav>
+<div class="studio-actions">
+{alternate?<a class="studio-language" href={alternate} lang={en?'es':'en'} data-astro-reload hreflang={en?'es':'en'} aria-label={en?'Ver esta página en español':'Read this page in English'}>{en?'ES':'EN'}</a>:<a class="studio-language" href={en?'/es/':'/'} lang={en?'es':'en'} aria-label={en?'Spanish home':'English home'}>{en?'ES':'EN'}</a>}
+{<button class="studio-search" type="button" data-search-open aria-label={en?'Search the site':'Buscar en el sitio'}>⌕</button>}
+<a class="studio-cta" href={assessmentHref(en?'en':'es','header')} data-track-event="service_cta_click" data-track-page-type="navigation" data-track-service="general_consulting" data-track-cluster="general" data-track-placement="header">{en?'Get my free automation assessment':'Evaluar mi proceso'}<span aria-hidden="true">↗</span></a>
+<button class="studio-toggle" type="button" data-nav-toggle aria-label={en?'Open menu':'Abrir menú'} aria-expanded="false" aria-controls="site-nav"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></button>
+</div></div>
 </header>
 <SearchModal />
-
+<style>
+.studio-header{position:sticky;top:0;z-index:50;background:#171a2bf5;border-bottom:1px solid #303749;color:#fff;backdrop-filter:blur(14px)}.studio-header__inner{width:min(1280px,calc(100% - 64px));margin:auto;min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:26px}.studio-nav{display:flex;gap:27px;align-items:center}.studio-nav a{font:450 14px var(--sans);text-decoration:none;color:#c8cfde;padding:14px 0;white-space:nowrap}.studio-nav a:hover,.studio-nav a[aria-current]{color:#fff}.studio-nav a[aria-current]{box-shadow:0 2px #8fa6ff}.studio-actions{display:flex;align-items:center;gap:14px}.studio-language,.studio-search{flex-shrink:0;display:grid;place-items:center;width:44px;height:44px;border:1px solid #46506a;border-radius:8px;background:transparent;color:#dce4f8;text-decoration:none;font-size:13px}.studio-search{font-size:25px;cursor:pointer}.studio-cta{display:flex;gap:18px;align-items:center;justify-content:center;padding:13px 17px;min-height:46px;border-radius:8px;background:linear-gradient(110deg,#315bda,#6944bf 70%,#963d88);color:white;text-decoration:none;font-size:13px;font-weight:550;white-space:nowrap}.studio-cta:hover{background:#2545b6}.studio-toggle{flex-shrink:0;display:none;background:transparent;border:1px solid #46506a;color:#fff;border-radius:8px;width:44px;height:44px;place-items:center;cursor:pointer}
+@media(max-width:1100px){.studio-nav{gap:18px}.studio-cta{font-size:12px;max-width:165px;white-space:normal}.studio-header__inner{gap:18px}}
+@media(max-width:900px){.studio-header__inner{width:calc(100% - 36px);min-height:78px}.studio-toggle{display:grid}.studio-nav{display:none;position:absolute;top:100%;left:0;right:0;background:#171a2b;border-bottom:1px solid #46506a;padding:15px 24px 22px;box-shadow:0 16px 24px #0003;gap:0;flex-direction:column;align-items:stretch}.studio-nav[data-open]{display:flex}.studio-nav a{font-size:16px;padding:16px}.studio-cta{max-width:none}.studio-search{display:none}}
+@media(max-width:600px){.studio-header__inner{gap:10px}.studio-actions{gap:7px}.studio-cta{display:none}.studio-language{width:44px}.studio-toggle{width:44px}}
+.explore-menu{position:relative}.explore-menu summary{padding:14px 0;color:#dce4f8;font-size:14px;cursor:pointer;list-style:none}.explore-menu summary:after{content:'⌄';margin-left:8px}.explore-panel{position:absolute;right:0;top:100%;width:540px;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:20px;background:var(--brand-ink);border:1px solid #46506a;border-radius:14px;box-shadow:0 20px 40px #0003}.explore-panel a{display:block;padding:14px;white-space:normal}.explore-panel a:hover{background:#272b43;border-radius:8px}.explore-panel strong{display:block;color:white}.explore-panel span{display:block;font-size:13px;margin-top:6px;line-height:1.5;color:#b9c0d8}.nav-mobile-cta,.nav-mobile-search{display:none!important}@media(max-width:900px){.explore-menu summary{padding:16px;font-size:16px}.explore-panel{position:static;width:auto;grid-template-columns:1fr;box-shadow:none;padding:8px;border-radius:8px}.studio-nav{max-height:calc(100dvh - 78px);overflow:auto}.nav-mobile-cta,.nav-mobile-search{display:block!important;padding:16px!important;border-radius:8px;font:inherit;text-align:left}.nav-mobile-cta{background:var(--brand-gradient);color:#fff!important;margin-top:10px}.nav-mobile-search{color:#dce4f8;border:1px solid #46506a;background:none;cursor:pointer;margin-top:12px}}
+</style>
 <script>
-  import { setupNav } from '../scripts/nav';
-
-  // Los listeners van a `document`, que sobrevive a las navegaciones cliente de
-  // ClientRouter, así que hay que soltar los de la página anterior antes de
-  // cablear los nuevos para que no se acumulen (mismo patrón que SearchModal).
-  let teardown: (() => void) | null = null;
-  document.addEventListener('astro:page-load', () => {
-    teardown?.();
-    teardown = setupNav();
-  });
+import { setupNav } from '../scripts/nav';
+let cleanup=()=>{};
+document.addEventListener('astro:page-load',()=>{cleanup();cleanup=setupNav();});
+document.addEventListener('astro:before-swap',()=>cleanup());
 </script>

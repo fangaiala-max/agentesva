@@ -1,0 +1,8 @@
+---
+import {localeFor} from '../../i18n/routes';
+import {FIT_BASELINE} from '../../data/service-offer';
+const en=localeFor(Astro.url.pathname)==='en';
+const good=en?['A recurring process','An internal owner','Access to tools and representative cases','A measurable outcome']:FIT_BASELINE.good;
+const notYet=en?['The process is still unstable','There is no internal owner','There is no legitimate access to the data','The goal is to automate everything at once']:FIT_BASELINE.notYet;
+---
+<section class="en-section en-shell"><div class="en-section-heading"><h2>{en?'Is this a useful next step?':'¿Es un siguiente paso útil?'}</h2><p>{en?'A clear starting point makes the implementation easier to operate and measure.':'Un punto de partida claro facilita operar y medir la implementación.'}</p></div><div class="en-split"><div><h3>{en?'A good fit':'Buen encaje'}</h3><ul class="en-checklist">{good.map(x=><li>{x}</li>)}</ul></div><div><h3>{en?'Clarify these first':'Aclara esto primero'}</h3><ul>{notYet.map(x=><li>{x}</li>)}</ul></div></div></section>
