@@ -1,0 +1,115 @@
+- link "Skip to content":
+  - /url: /assessment/?placement=sticky&service=general_consulting#main-content
+- banner:
+  - link "AgentesVA — home":
+    - /url: /
+    - text: AgentesVA
+    - generic: Applied intelligence
+  - text: ⌄
+  - link "Ver esta página en español":
+    - /url: /diagnostico-automatizacion-ia/?placement=sticky&service=general_consulting
+    - text: ES
+  - button "Open menu":
+- main:
+  - navigation "Ruta de navegación":
+    - list:
+      - link "Inicio":
+        - /url: /
+      - generic: /
+      - generic: Automation assessment
+  - text: Free assessment · About 3 minutes · 8 questions
+  - heading "Find your first worthwhile workflow." [level=1]
+  - paragraph: Answer eight questions about your business. Get a practical priority and a sensible next step, based on the information you provide.
+  - generic: Your answers are processed in this browser first. They are sent only when you request follow-up and accept the privacy policy.
+  - region "Assessment":
+    - text: Your next step
+    - heading "Make the opportunity more concrete." [level=2]
+    - paragraph: Examples and practical resources are likely to be more useful right now than a custom implementation.
+    - generic "Recommendation summary":
+      - generic: Priority
+      - strong: Exploring
+      - generic: Estimated complexity
+      - strong: Low
+    - heading "Three opportunities to explore" [level=3]
+    - list:
+      - listitem: Map repetitive tasks and estimate the time they take.
+      - listitem: Choose a small, measurable, reversible first use case.
+      - listitem: Compare tools after defining the process.
+    - heading "Why this next step fits" [level=3]
+    - list:
+      - listitem: Practical guidance and resources to clarify the opportunity are a better fit right now.
+    - link "Learn how to prioritize a workflow":
+      - /url: /guides/procesos-que-conviene-automatizar-primero/
+    - generic "Review what you will send"
+    - heading "Request a follow-up for your business" [level=3]
+    - paragraph: We will reply within one business day with a next step, even if hiring us is not the right answer. You will not be added to the newsletter.
+    - text: Name
+    - textbox "Name"
+    - text: Email
+    - textbox "Email"
+    - text: Company Optional
+    - textbox "Company Optional"
+    - text: Your role Optional
+    - textbox "Your role Optional"
+    - text: Leave this field empty
+    - textbox
+    - checkbox "I agree that AgentesVA may process my answers and contact details to review the assessment and respond to my request, as described in the privacy policy (opens in a new tab)."
+    - text: I agree that AgentesVA may process my answers and contact details to review the assessment and respond to my request, as described in the
+    - link "privacy policy (opens in a new tab)":
+      - /url: /privacy/
+    - text: .
+    - button "Send my assessment"
+    - button "Start again"
+- contentinfo:
+  - link "AgentesVA — home":
+    - /url: /
+    - text: AgentesVA
+    - generic: Applied intelligence
+  - paragraph: Useful automation. Clear systems. People in control.
+  - link "hola@agentesva.com":
+    - /url: mailto:hola@agentesva.com
+  - navigation "Work with us":
+    - heading "Work with us" [level=2]
+    - link "Services":
+      - /url: /services/
+    - link "Pricing":
+      - /url: /pricing/
+    - link "How we work":
+      - /url: /how-we-work/
+    - link "Free assessment":
+      - /url: /assessment/?placement=contextual&service=general_consulting
+  - navigation "Explore AI":
+    - heading "Explore AI" [level=2]
+    - link "Tools":
+      - /url: /tools/
+    - link "Guides":
+      - /url: /guides/
+    - link "Research":
+      - /url: /research/
+    - link "Courses":
+      - /url: /courses/
+    - link "Resources":
+      - /url: /resources/
+    - link "Prompts":
+      - /url: /prompt-library/
+    - link "News":
+      - /url: /news/
+  - navigation "About this site":
+    - heading "About this site" [level=2]
+    - link "Editorial methodology":
+      - /url: /editorial-methodology/
+    - link "Newsletter (Spanish)":
+      - /url: /updates/
+    - link "Prompt builder":
+      - /url: /prompt-builder/
+    - link "Privacy":
+      - /url: /privacy/
+    - link "Cookies":
+      - /url: /cookie-policy/
+    - link "Legal notice":
+      - /url: /legal/
+    - link "Español":
+      - /url: /es/
+  - generic: © 2026 AgentesVA
+  - generic: AI automation for small businesses
+- generic: Free automation assessment | AgentesVA

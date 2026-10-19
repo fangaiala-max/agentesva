@@ -1,0 +1,12 @@
+
+> agentesva-astro@0.9.5 test
+> vitest run
+
+
+ RUN  v4.1.11 /private/tmp/agentesva-editorial-20261018
+
+
+ Test Files  61 passed (61)
+      Tests  510 passed (510)
+   Start at  19:58:50
+   Duration  2.10s (transform 1.41s, setup 629ms, import 2.26s, tests 1.27s, environment 8.77s)

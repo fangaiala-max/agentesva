@@ -15,7 +15,8 @@ describe('programa CRO — fase 1', () => {
   it('no publica la prueba social provisional como si fuera un dato real', () => {
     const publicCopy = [...readTree('src'), ...readTree('docs')].join('\n');
 
-    expect(publicCopy).not.toMatch(/(?:1[.]200|data-count="1200"|usan la IA mejor)/i);
+    // A numerical worked example is legitimate; the provisional audience claim is not.
+    expect(publicCopy).not.toMatch(/(?:1[.]200\s+(?:personas|negocios|empresas|usuarios|profesionales)|data-count="1200"|usan la IA mejor)/i);
   });
 
   it('presenta AgentesVA como servicio antes que como directorio', () => {

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+import { parseFrontmatter } from 'astro/markdown';
 import { linksForStudy, linksForTool, serviceClusterLinks } from '../src/data/commercial-links';
 
 const root = process.cwd();
@@ -27,9 +28,12 @@ describe('GROW-020 commercial internal linking', () => {
   it('gives every guide at least three descriptive internal links', () => {
     for (const file of fs.readdirSync(guidesDir).filter((name) => name.endsWith('.md'))) {
       const source = fs.readFileSync(path.join(guidesDir, file), 'utf8');
-      const related = source.split('relacionados:')[1]?.split('faq:')[0] ?? '';
-      expect((related.match(/href: "\//g) ?? []).length, file).toBeGreaterThanOrEqual(3);
-      expect(related, file).not.toContain('titulo: "Leer más"');
+      const related = parseFrontmatter(source).frontmatter.relacionados;
+      expect(related.length, file).toBeGreaterThanOrEqual(3);
+      for (const link of related) {
+        expect(link.href, file).toMatch(/^\/(?!\/)/);
+        expect(link.titulo, file).not.toBe('Leer más');
+      }
     }
   });
 

@@ -2,7 +2,7 @@
 titulo: "Cómo automatizar el seguimiento de leads sin quemar oportunidades"
 descripcion: "Un sistema práctico para responder, cualificar y dar seguimiento a leads conectando formularios, CRM, email y mensajería."
 fecha: 2026-08-05
-actualizado: 2026-08-05
+actualizado: 2026-10-18
 tema: Ventas y seguimiento
 respuesta: "El seguimiento de leads debe automatizar velocidad y consistencia, no conversaciones genéricas. Captura la fuente, responde de inmediato, cualifica con pocos datos, asigna responsable y crea una cadencia que se detiene al recibir respuesta. Los leads con mayor intención deben llegar antes a una persona."
 puntosClave:
@@ -36,16 +36,17 @@ fuentes:
   - titulo: "Guide to the General Data Protection Regulation"
     url: "https://commission.europa.eu/law/law-topic/data-protection/data-protection-eu_en"
     editor: "Comisión Europea"
-  - titulo: "Google and Yahoo email sender requirements"
+  - titulo: "Email sender guidelines"
     url: "https://support.google.com/a/answer/81126"
     editor: "Google"
+    fecha: "2026-10-18"
 ---
 
 ## Dibuja el recorrido antes de automatizarlo
 
 Enumera cada fuente de entrada: formulario, llamada, evento, WhatsApp, campaña o recomendación. Para cada una, define qué datos llegan, dónde se guardan, quién responde y cuál es el plazo esperado. Si una oportunidad puede quedar en una hoja personal o una bandeja sin responsable, ese es el primer problema.
 
-El registro mínimo suele incluir origen, necesidad, datos de contacto, consentimiento aplicable, responsable, estado y siguiente acción. Evita pedir diez campos solo para alimentar un score: cada fricción reduce la finalización y muchos datos se pueden obtener durante la conversación.
+El registro mínimo suele incluir origen, necesidad, datos de contacto, consentimiento aplicable, responsable, estado y siguiente acción. Evita pedir diez campos solo para alimentar un score: pedir información que todavía no necesitas añade esfuerzo y puede dificultar la respuesta. Muchos datos se pueden obtener durante la conversación.
 
 ## Una arquitectura sencilla
 
@@ -58,6 +59,14 @@ Una cualificación inicial puede combinar encaje (sector, tamaño, problema) e i
 Cada mensaje debe aportar una razón para responder: aclarar una pregunta, ofrecer un ejemplo relevante o facilitar una reserva. Configura condiciones de salida por respuesta, reunión, baja o cambio de estado. Sin ellas, el sistema puede continuar escribiendo después de que ventas ya habló con la persona.
 
 Ejemplo: respuesta inmediata con expectativas; tarea al responsable en minutos; recordatorio interno si no actuó; segundo contacto con un caso comparable; cierre educado que permite retomar más adelante. La automatización coordina al equipo además de enviar mensajes.
+
+## Antes de activar el envío automático
+
+Revisión del canal email: **18 de octubre de 2026**. [Google exige SPF o DKIM a quienes envían a cuentas Gmail personales](https://support.google.com/a/answer/81126). Para remitentes de más de 5.000 mensajes diarios a esas cuentas exige SPF, DKIM y DMARC; sus mensajes de marketing y suscripción deben permitir baja con un clic y mostrar un enlace visible de baja. Son requisitos del proveedor y del canal; no demuestran que una lista tenga permiso comercial.
+
+Antes de activar una cadencia, comprueba la autenticación con el proveedor de correo y ensaya la respuesta, el rebote y la baja. Recomendamos que cualquier señal de parada cancele también los mensajes ya programados en otros sistemas. Una baja guardada en el CRM no basta si la herramienta de envío no la recibe.
+
+**Prueba propuesta:** crea un contacto de prueba, programa la secuencia y responde desde su buzón. Verifica que se registra la respuesta, se asigna una tarea y no sale el siguiente mensaje. Repite con una baja y con un contacto duplicado. Revisa la cola antes de reintentar una sincronización: un fallo de conexión no autoriza a mandar dos veces.
 
 ## Qué medir
 

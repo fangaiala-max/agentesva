@@ -1,0 +1,113 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+import ReadingProgress from './ReadingProgress.astro';
+import { SITE, person, organization, jsonLdSerialize } from '../data/schema';
+import { socialImagePath } from '../lib/social-image.mjs';
+import '../styles/buying-guides.css';
+
+interface Props {
+  data: CollectionEntry<'guias'>['data'];
+  slug: string;
+  lang: 'en' | 'es';
+  headings: { depth: number; slug: string; text: string }[];
+}
+const { data: d, slug, lang, headings } = Astro.props;
+const en = lang === 'en';
+const section = en ? 'guides' : 'guias';
+const canonical = `${SITE}/${section}/${slug}/`;
+const date = d.actualizado.toLocaleDateString(en ? 'en-GB' : 'es-ES', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+const toc = headings.filter(h => h.depth === 2);
+const series = { processes: en ? '01 / Workflows' : '01 / Procesos', claude: '02 / Claude', social: en ? '03 / Social media' : '03 / Redes sociales' };
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'Article', headline: d.titulo, description: d.descripcion, inLanguage: lang, datePublished: d.fecha.toISOString(), dateModified: d.actualizado.toISOString(), author: person, publisher: organization, mainEntityOfPage: canonical, url: canonical, image: `${SITE}${socialImagePath(Astro.url.pathname, d.seoTitulo ?? d.titulo)}`, citation: d.fuentes.map(f => ({ '@type': 'CreativeWork', name: f.titulo, url: f.url })) },
+    { '@type': 'FAQPage', mainEntity: d.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+    { '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: en ? 'Home' : 'Inicio', item: `${SITE}${en ? '/' : '/es/'}` },
+      { '@type': 'ListItem', position: 2, name: en ? 'Practical guides' : 'Guías prácticas', item: `${SITE}/${section}/` },
+      { '@type': 'ListItem', position: 3, name: d.titulo, item: canonical },
+    ] },
+  ],
+};
+---
+<BaseLayout title={`${d.seoTitulo ?? d.titulo} | AgentesVA`} description={d.descripcion} ogType="article">
+  <script type="application/ld+json" set:html={jsonLdSerialize(schema)} />
+  <ReadingProgress />
+  <SiteHeader />
+  <main id="main-content" class="buying-guide en-page" data-pagefind-body data-pagefind-filter="tipo:Guía">
+    <header class="buying-guide__hero">
+      <div class="buying-guide__shell">
+        <nav class="buying-guide__crumbs" aria-label={en ? 'Breadcrumb' : 'Ruta de navegación'}>
+          <a href={en ? '/' : '/es/'}>{en ? 'Home' : 'Inicio'}</a><span aria-hidden="true">/</span>
+          <a href={`/${section}/`}>{en ? 'Guides' : 'Guías'}</a><span aria-hidden="true">/</span>
+          <span aria-current="page">{en ? 'Buying guide' : 'Guía de compra'}</span>
+        </nav>
+        <div class="buying-guide__hero-grid">
+          <div>
+            <p class="buying-guide__eyebrow">{d.visual && series[d.visual]} <span>{en ? 'AGENTESVA / FIELD NOTES' : 'AGENTESVA / NOTAS DE CAMPO'}</span></p>
+            <h1>{d.titulo}</h1>
+            <p class="buying-guide__dek">{d.descripcion}</p>
+            <p class="buying-guide__byline">Fernando Angulo <span aria-hidden="true">·</span> {en ? 'Reviewed' : 'Revisado'} <time datetime={d.actualizado.toISOString().slice(0, 10)}>{date}</time></p>
+            <a class="buying-guide__jump" href="#guide-content">{en ? 'Find your starting point' : 'Encuentra por dónde empezar'} <span aria-hidden="true">↘</span></a>
+          </div>
+          {d.portada && <figure class="buying-guide__cover">
+            <img src={d.portada.src} alt={d.portada.alt} width={d.portada.width} height={d.portada.height} loading="eager" fetchpriority="high" decoding="async" />
+            <figcaption>{en ? 'Choose by the job. Keep the useful part.' : 'Elige por el trabajo. Conserva lo que aporta valor.'}</figcaption>
+          </figure>}
+        </div>
+      </div>
+    </header>
+    <div class="buying-guide__shell buying-guide__reading">
+      <aside class="buying-guide__sidebar">
+        <details class="buying-guide__contents" open>
+          <summary>{en ? 'In this guide' : 'En esta guía'} <span aria-hidden="true">+</span></summary>
+          <nav aria-label={en ? 'Article contents' : 'Contenido del artículo'}>
+            <ol>{toc.map(h => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+          </nav>
+        </details>
+        <p class="buying-guide__sidebar-note">{en ? 'Free options. Real limits. A practical next step.' : 'Opciones gratuitas. Límites claros. Un siguiente paso útil.'}</p>
+      </aside>
+      <article id="guide-content" class="buying-guide__body"><slot /></article>
+    </div>
+    <section class="buying-guide__related buying-guide__shell" aria-labelledby="next-read">
+      <p class="buying-guide__eyebrow">{en ? 'Keep exploring' : 'Sigue explorando'}</p>
+      <h2 id="next-read">{en ? 'Make the next decision easier.' : 'Haz más fácil tu siguiente decisión.'}</h2>
+      <div>{d.relacionados.map(r => <a href={r.href}>{r.titulo}<span aria-hidden="true">↗</span></a>)}</div>
+    </section>
+  </main>
+  <SiteFooter hideNewsletter />
+</BaseLayout>
+<script>
+  function revealGuideSection(hash: string) {
+    let target: HTMLElement | null = null;
+    try { target = document.getElementById(decodeURIComponent(hash.slice(1))); } catch { return; }
+    if (!target?.closest('.buying-guide')) return;
+    let detail = target.closest<HTMLDetailsElement>('details');
+    while (detail) {
+      detail.open = true;
+      detail = detail.parentElement?.closest<HTMLDetailsElement>('details') ?? null;
+    }
+  }
+  function prepareGuideTables() {
+    const contents = document.querySelector<HTMLDetailsElement>('.buying-guide__contents');
+    if (contents && !contents.dataset.initialized) {
+      contents.open = window.matchMedia('(min-width: 1000px)').matches;
+      contents.dataset.initialized = 'true';
+    }
+    document.querySelectorAll<HTMLElement>('.buying-guide__body table').forEach(table => {
+      table.tabIndex = 0;
+      table.setAttribute('aria-label', document.documentElement.lang === 'en' ? 'Comparison table; scroll horizontally for more columns' : 'Tabla comparativa; desplaza horizontalmente para ver más columnas');
+    });
+    if (window.location.hash) revealGuideSection(window.location.hash);
+  }
+  document.addEventListener('astro:page-load', prepareGuideTables);
+  document.addEventListener('click', event => {
+    const link = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>('.buying-guide a[href^="#"]') : null;
+    if (link?.hash) revealGuideSection(link.hash);
+  });
+  window.addEventListener('hashchange', () => revealGuideSection(window.location.hash));
+</script>

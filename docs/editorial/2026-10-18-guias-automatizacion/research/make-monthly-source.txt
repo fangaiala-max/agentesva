@@ -1,0 +1,87 @@
+: Pricing
+  - heading "Plans that grow with you" [level=1]
+  - paragraph: Whether you're new to automation or using it to run your entire business, there's a plan for you.
+  - paragraph: How many credits per month?
+  - button "What are credits?"
+  - paragraph: 10,000 credits/mo
+  - group "Billing period":
+    - button "Monthly billing" [pressed]:
+      - generic: Monthly billing
+    - button "Annual billing":
+      - generic: Annual billing
+  - slider "How many credits per month?": "0"
+  - heading "Free" [level=2]
+  - generic: $0
+  - generic: /mo
+  - paragraph: Exploring visual-first automation
+  - link "Get started, Free plan":
+    - /url: https://www.make.com/en/register
+    - generic: Get started
+  - generic: "Free includes:"
+  - list:
+    - listitem: 1,000 credits/month
+    - listitem: No-code visual workflow builder
+    - listitem: 3,500+ apps
+    - listitem: Routers & filters
+    - listitem: Customer support
+    - listitem: 15-minute minimum interval between runs
+  - heading "Core" [level=2]
+  - generic: $16
+  - generic: /mo
+  - paragraph: Automating fundamental use cases
+  - generic: $1.60
+  - generic: /1,000 credits
+  - link "Get started, Core plan":
+    - /url: https://www.make.com/en/register
+    - generic: Get started
+  - generic: "Everything in Free, plus:"
+  - list:
+    - listitem: Unlimited active scenarios
+    - listitem: More control with scheduled scenarios, down to the minute
+    - listitem: Increased data transfer limits
+    - listitem: Access to the Make API
+  - heading "Pro" [level=2]
+  - generic: Popular
+  - generic: $28
+  - generic: /mo
+  - paragraph: Automating advanced use cases
+  - generic: $2.80
+  - generic: /1,000 credits
+  - link "Get started, Pro plan":
+    - /url: https://www.make.com/en/register
+    - generic: Get started
+  - generic: "Everything in Core, plus:"
+  - list:
+    - listitem: Priority scenario execution
+    - listitem: Custom variables
+    - listitem: Full-text execution log search
+  - heading "Teams" [level=2]
+  - generic: $51
+  - generic: /mo
+  - paragraph: Automating & collaborating across teams
+  - generic: $5.10
+  - generic: /1,000 credits
+  - link "Get started, Teams plan":
+    - /url: https://www.make.com/en/register
+    - generic: Get started
+  - generic: "Everything in Pro, plus:"
+  - list:
+    - listitem: Teams and team roles
+    - listitem: Create and share scenario templates
+  - heading "Enterprise" [level=2]
+  - generic: Custom
+  - paragraph: Scaling powerful automation across departments
+  - link "Talk to sales, Enterprise plan":
+    - /url: /talk-to-sales
+    - generic: Talk to sales
+  - generic: "Everything in Teams, plus:"
+  - list:
+    - listitem: Custom functions support
+    - listitem: Enterprise app integrations
+    - listitem: 24/7 Enterprise support
+    - listitem: Access to Value Engineering team
+    - listitem: Overage protection
+    - listitem: Advanced security features
+  - generic: "Monthly billing, 10,000 credits: Free $0 per month, Core $16 per month, Pro $28 per month, Teams $51 per month, Enterprise Custom."
+  - table "Compare plans":
+    - row "Feature Free Core Pro Te

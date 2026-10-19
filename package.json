@@ -1,13 +1,13 @@
 {
   "name": "agentesva-astro",
   "type": "module",
-  "version": "0.9.5",
+  "version": "0.10.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "postbuild": "node scripts/generate-social-images.mjs && node scripts/verify-social-images.mjs && node scripts/verify-built-geo-guide.mjs && node scripts/verify-built-bilingual-ui.mjs && node scripts/verify-built-seo.mjs && pagefind --site .vercel/output/static",
+    "postbuild": "node scripts/generate-social-images.mjs && node scripts/verify-social-images.mjs && node scripts/verify-built-geo-guide.mjs && node scripts/verify-built-bilingual-ui.mjs && node scripts/verify-built-seo.mjs && node scripts/verify-built-buying-guides.mjs && pagefind --site .vercel/output/static",
     "preview": "astro preview",
     "test": "vitest run",
     "astro": "astro",

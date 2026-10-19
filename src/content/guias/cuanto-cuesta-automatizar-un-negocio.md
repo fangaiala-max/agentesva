@@ -2,7 +2,7 @@
 titulo: "Cuánto cuesta automatizar un negocio: rangos y variables"
 descripcion: "Rangos orientativos y método para presupuestar una automatización, desde un taller inicial hasta integraciones con varios sistemas."
 fecha: 2026-08-05
-actualizado: 2026-08-05
+actualizado: 2026-10-18
 tema: Coste y retorno
 respuesta: "Como referencia de AgentesVA, un taller estratégico parte de 300 €, una implementación sencilla de 1.500 €, una automatización con varias integraciones de 3.000 € y el soporte de 300 €/mes. El coste real depende del proceso, sistemas, excepciones, datos y nivel de fiabilidad; debe compararse con tiempo ahorrado, errores evitados e ingresos recuperados."
 puntosClave:
@@ -39,9 +39,15 @@ fuentes:
   - titulo: "Credits and operations"
     url: "https://help.make.com/credits-and-operations"
     editor: "Make"
-  - titulo: "How pay-per-task billing works"
-    url: "https://help.zapier.com/hc/en-us/articles/15279018245901-How-pay-per-task-billing-works-in-Zapier"
+    fecha: "2026-10-18"
+  - titulo: "Tarifas de uso por acción"
+    url: "https://zapier.com/pricing/rates"
     editor: "Zapier"
+    fecha: "2026-10-18"
+  - titulo: "Planes y precios de n8n"
+    url: "https://n8n.io/pricing/"
+    editor: "n8n"
+    fecha: "2026-10-18"
 ---
 
 ## De qué se compone el presupuesto
@@ -60,9 +66,34 @@ Una implementación sencilla puede conectar un formulario con CRM, validación y
 
 Calcula un escenario conservador:
 
-**beneficio mensual = horas evitadas × coste completo por hora + errores evitados + margen de oportunidades recuperadas − coste operativo**.
+**beneficio mensual = horas evitadas × coste completo por hora + coste evitado por errores + margen de oportunidades recuperadas − coste operativo**.
 
-Después divide inversión inicial entre beneficio mensual para estimar recuperación. No contabilices todo el tiempo como ahorro si el equipo no puede reasignarlo; usa solo la parte que realmente mejora capacidad, plazo o calidad.
+Después divide inversión inicial entre beneficio mensual para estimar recuperación, solo si el beneficio es positivo y razonablemente estable. Si es cero o negativo, esta fórmula no ofrece un plazo de recuperación. No contabilices todo el tiempo como ahorro si el equipo no puede reasignarlo; usa solo la parte que realmente mejora capacidad, plazo o calidad.
+
+## Presupuesta el uso, no solo la suscripción
+
+**Revisión: 18 de octubre de 2026.** Separa en la propuesta el servicio de AgentesVA de los contratos de software, los impuestos aplicables y el consumo variable. Un precio «por mes» puede exigir pago anual. Una prueba temporal tampoco equivale a un plan gratuito permanente.
+
+[Make factura créditos](https://help.make.com/credits-and-operations), [Zapier publica tarifas por acción](https://zapier.com/pricing/rates) y [n8n Cloud utiliza ejecuciones completas](https://n8n.io/pricing/). Para contrastar entradas gratuitas y precios actuales, consulta la [comparativa Make, n8n y Zapier](/guias/make-vs-n8n-vs-zapier/). Evita multiplicar solicitudes por una unidad supuestamente común.
+
+Pide un presupuesto operativo con estos datos:
+
+| Partida | Qué debe quedar escrito |
+|---|---|
+| Volumen | Entradas normales, picos y crecimiento previsto |
+| Uso de software | Pasos facturables, consultas, reintentos y límites |
+| Servicios externos | Consumo de IA, mensajería, almacenamiento u otras APIs |
+| Personas | Quién revisa excepciones, mantiene el flujo y recibe alertas |
+| Contrato | Titular de las cuentas, renovaciones, excedentes e impuestos |
+| Salida | Documentación y acceso para continuar con otro responsable |
+
+No todas las partidas aplican a todos los proyectos. Una automatización dentro de tu herramienta actual puede necesitar menos proveedores y coordinación.
+
+### Un ejemplo de retorno con todas las horas
+
+**Ejemplo hipotético, no resultado de cliente ni presupuesto:** el trabajo manual ocupa 20 horas al mes; la revisión y el mantenimiento posteriores requieren 5. Con un coste completo supuesto de 20 €/hora, la capacidad liberada se valora en 300 €/mes. Si las licencias y servicios consumen 60 €/mes, quedan 240 €/mes antes de otros costes. Una inversión supuesta de 1.500 € tardaría unos 6,25 meses en recuperarse bajo esas condiciones.
+
+Si contratas soporte aparte, inclúyelo y vuelve a calcular. Si esas horas no se reasignan o no evitan un gasto real, registra la mejora como capacidad o servicio; no la presentes como dinero ahorrado en caja. Antes de avanzar, compara también simplificar el proceso, usar una función nativa o mantener el trabajo manual.
 
 ## Cómo reducir riesgo sin recortar lo importante
 

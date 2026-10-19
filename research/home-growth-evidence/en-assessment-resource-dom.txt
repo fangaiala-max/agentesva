@@ -1,0 +1,107 @@
+- link "Skip to content":
+  - /url: "#main-content"
+- banner:
+  - link "AgentesVA — home":
+    - /url: /
+    - text: AgentesVA
+    - generic: Applied intelligence
+  - text: ⌄
+  - link "Ver esta página en español":
+    - /url: /guias/procesos-que-conviene-automatizar-primero/
+    - text: ES
+  - button "Open menu":
+- main:
+  - navigation "Breadcrumb":
+    - link "Home":
+      - /url: /
+    - generic: /
+    - link "Practical guides":
+      - /url: /guides/
+    - generic: /
+    - generic: Which business process should you automate first?
+  - paragraph: English overview
+  - heading "Which business process should you automate first?" [level=1]
+  - paragraph: Prioritize recurring work with clear rules, accessible data, and a measurable outcome.
+  - paragraph:
+    - text: "Original publication:"
+    - time: 5 August 2026
+  - article:
+    - paragraph:
+      - text: This is a concise English adaptation.
+      - link "Read the full Spanish edition":
+        - /url: /guias/procesos-que-conviene-automatizar-primero/
+      - text: for the complete analysis, tables, and reporting context.
+    - heading "The practical takeaway" [level=2]
+    - paragraph: "Record repetitive tasks for a week: frequency, time per case, systems involved, waiting time, and common errors. Score candidates on volume, effort, impact, integration difficulty, and risk. Good first projects have an owner, representative examples, and a result that can be checked. Avoid starting with poorly understood, exceptional, or high-impact work. Select one bounded process and establish a baseline before building so the later result can be assessed against something concrete."
+    - heading "Keep these points in mind." [level=2]
+    - list:
+      - listitem: Standardize the process before moving it into software.
+      - listitem: Favor meaningful impact and manageable complexity for the first pilot.
+      - listitem: Keep human review where ambiguity or consequences matter.
+    - heading "Sources in the original edition" [level=2]
+    - list:
+      - 'link "Source 1: www.nist.gov (opens in a new tab)"':
+        - /url: https://www.nist.gov/itl/ai-risk-management-framework
+        - text: "Source 1: www.nist.gov"
+        - generic: (opens in a new tab)
+      - 'link "Source 2: digital-strategy.ec.europa.eu (opens in a new tab)"':
+        - /url: https://digital-strategy.ec.europa.eu/en/policies/digitalisation-europe
+        - text: "Source 2: digital-strategy.ec.europa.eu"
+        - generic: (opens in a new tab)
+    - heading "Turn the idea into a useful workflow." [level=3]
+    - paragraph: Identify a recurring task, define its owner, and decide what a good result looks like.
+    - link "Take the free automation assessment":
+      - /url: /assessment/?placement=contextual&service=general_consulting
+- contentinfo:
+  - link "AgentesVA — home":
+    - /url: /
+    - text: AgentesVA
+    - generic: Applied intelligence
+  - paragraph: Useful automation. Clear systems. People in control.
+  - link "hola@agentesva.com":
+    - /url: mailto:hola@agentesva.com
+  - navigation "Work with us":
+    - heading "Work with us" [level=2]
+    - link "Services":
+      - /url: /services/
+    - link "Pricing":
+      - /url: /pricing/
+    - link "How we work":
+      - /url: /how-we-work/
+    - link "Free assessment":
+      - /url: /assessment/?placement=contextual&service=general_consulting
+  - navigation "Explore AI":
+    - heading "Explore AI" [level=2]
+    - link "Tools":
+      - /url: /tools/
+    - link "Guides":
+      - /url: /guides/
+    - link "Research":
+      - /url: /research/
+    - link "Courses":
+      - /url: /courses/
+    - link "Resources":
+      - /url: /resources/
+    - link "Prompts":
+      - /url: /prompt-library/
+    - link "News":
+      - /url: /news/
+  - navigation "About this site":
+    - heading "About this site" [level=2]
+    - link "Editorial methodology":
+      - /url: /editorial-methodology/
+    - link "Newsletter (Spanish)":
+      - /url: /updates/
+    - link "Prompt builder":
+      - /url: /prompt-builder/
+    - link "Privacy":
+      - /url: /privacy/
+    - link "Cookies":
+      - /url: /cookie-policy/
+    - link "Legal notice":
+      - /url: /legal/
+    - link "Español":
+      - /url: /es/
+  - generic: © 2026 AgentesVA
+  - generic: AI automation for small businesses
+- generic: Which business process should you automate first? | AgentesVA

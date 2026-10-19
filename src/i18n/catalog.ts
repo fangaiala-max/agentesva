@@ -7,7 +7,7 @@ export interface CatalogItem { id:string; title:string; description:string; cate
 export const sectionCopy:Record<Section,{title:string;headline:string;description:string}> = {
  courses:{title:'AI courses',headline:'Learn something you can put to work.',description:'Explore practical courses for decision-makers, creators, and developers. Check the teaching language and provider before enrolling.'},
  resources:{title:'Resources',headline:'A useful place to start.',description:'Practical templates, prompts, and learning materials. Resource languages and access conditions are shown before you continue.'},
- guides:{title:'Practical guides',headline:'Understand the next step.',description:'English overviews of our practical guides, with the complete Spanish editions available alongside them.'},
+ guides:{title:'Practical guides',headline:'Understand the next step.',description:'Detailed buying guides and clearly labelled English overviews, with Spanish editions and original sources alongside them.'},
  research:{title:'Research & comparisons',headline:'Compare with a purpose.',description:'English overviews of our tool comparisons and practical research. Follow the original editions for detailed tables and sources.'},
  news:{title:'AI news',headline:'What it means for your work.',description:'English overviews of our reporting archive. Each overview links to its original edition and reporting sources.'},
 };
@@ -27,11 +27,12 @@ export async function getCatalog(section:Section):Promise<CatalogItem[]> {
  }
  const collection={guides:'guias',research:'estudios',news:'noticias'}[section] as 'guias'|'estudios'|'noticias';
  const entries=await getCollection(collection);
+ const fullGuides = section === 'guides' ? new Set((await getCollection('guideTranslations')).map(e => e.id)) : new Set<string>();
  return entries.map(entry=>{
   const key=`${section}/${entry.id}` as keyof typeof editorial;
   const copy=editorial[key];
   const data=entry.data as {fecha:Date;fuentes?:{titulo:string;url:string}[];fuente?:{nombre:string;url:string}};
-  return {id:entry.id,...copy,category:sectionCopy[section].title,original:`/${collection}/${entry.id}/`,date:data.fecha.toISOString().slice(0,10),overview:true,sources:data.fuentes?.map(s=>({label:s.titulo,href:s.url}))??(data.fuente?[{label:data.fuente.nombre,href:data.fuente.url}]:[])};
+  return {id:entry.id,...copy,category:sectionCopy[section].title,original:`/${collection}/${entry.id}/`,date:data.fecha.toISOString().slice(0,10),overview:!fullGuides.has(entry.id),sources:data.fuentes?.map(s=>({label:s.titulo,href:s.url}))??(data.fuente?[{label:data.fuente.nombre,href:data.fuente.url}]:[])};
  });
 }
 export async function getCategories(section:Section){

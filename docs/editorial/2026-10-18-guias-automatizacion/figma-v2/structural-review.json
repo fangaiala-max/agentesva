@@ -1,0 +1,651 @@
+{
+  "processes": {
+    "page": "0:1",
+    "frames": [
+      {
+        "id": "3:125",
+        "name": "processes-atlas-es",
+        "width": 1200,
+        "height": 755,
+        "descendantCounts": {
+          "FRAME": 14,
+          "TEXT": 16,
+          "RECTANGLE": 7,
+          "VECTOR": 2,
+          "ELLIPSE": 8
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "3:173",
+        "name": "processes-case-es",
+        "width": 1200,
+        "height": 817,
+        "descendantCounts": {
+          "FRAME": 12,
+          "TEXT": 14,
+          "VECTOR": 2
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "3:202",
+        "name": "processes-infographic-es",
+        "width": 1200,
+        "height": 968,
+        "descendantCounts": {
+          "FRAME": 11,
+          "TEXT": 11,
+          "RECTANGLE": 9
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "3:234",
+        "name": "processes-atlas-es-mobile",
+        "width": 600,
+        "height": 1180,
+        "descendantCounts": {
+          "FRAME": 20,
+          "TEXT": 16,
+          "RECTANGLE": 7,
+          "VECTOR": 2,
+          "ELLIPSE": 8
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "3:288",
+        "name": "processes-case-es-mobile",
+        "width": 600,
+        "height": 977,
+        "descendantCounts": {
+          "FRAME": 6,
+          "TEXT": 12
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "3:307",
+        "name": "processes-infographic-es-mobile",
+        "width": 600,
+        "height": 1403,
+        "descendantCounts": {
+          "FRAME": 11,
+          "TEXT": 11,
+          "RECTANGLE": 9
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:2",
+        "name": "processes-atlas-en",
+        "width": 1200,
+        "height": 755,
+        "descendantCounts": {
+          "FRAME": 14,
+          "TEXT": 16,
+          "RECTANGLE": 7,
+          "VECTOR": 2,
+          "ELLIPSE": 8
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:50",
+        "name": "processes-case-en",
+        "width": 1200,
+        "height": 817,
+        "descendantCounts": {
+          "FRAME": 12,
+          "TEXT": 14,
+          "VECTOR": 2
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:79",
+        "name": "processes-infographic-en",
+        "width": 1200,
+        "height": 968,
+        "descendantCounts": {
+          "FRAME": 11,
+          "TEXT": 11,
+          "RECTANGLE": 9
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:111",
+        "name": "processes-atlas-en-mobile",
+        "width": 600,
+        "height": 1126,
+        "descendantCounts": {
+          "FRAME": 20,
+          "TEXT": 16,
+          "RECTANGLE": 7,
+          "VECTOR": 2,
+          "ELLIPSE": 8
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:165",
+        "name": "processes-case-en-mobile",
+        "width": 600,
+        "height": 911,
+        "descendantCounts": {
+          "FRAME": 6,
+          "TEXT": 12
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:184",
+        "name": "processes-infographic-en-mobile",
+        "width": 600,
+        "height": 1289,
+        "descendantCounts": {
+          "FRAME": 11,
+          "TEXT": 11,
+          "RECTANGLE": 9
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      }
+    ]
+  },
+  "claude": {
+    "page": "2:2",
+    "frames": [
+      {
+        "id": "5:216",
+        "name": "claude-atlas-es",
+        "width": 1200,
+        "height": 817,
+        "descendantCounts": {
+          "FRAME": 13,
+          "TEXT": 16,
+          "RECTANGLE": 23,
+          "VECTOR": 1,
+          "ELLIPSE": 5
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:275",
+        "name": "claude-case-es",
+        "width": 1200,
+        "height": 958,
+        "descendantCounts": {
+          "FRAME": 7,
+          "TEXT": 12
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:295",
+        "name": "claude-infographic-es",
+        "width": 1200,
+        "height": 856,
+        "descendantCounts": {
+          "FRAME": 20,
+          "TEXT": 17,
+          "RECTANGLE": 12
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:345",
+        "name": "claude-atlas-es-mobile",
+        "width": 600,
+        "height": 1207,
+        "descendantCounts": {
+          "FRAME": 19,
+          "TEXT": 16,
+          "RECTANGLE": 23,
+          "VECTOR": 1,
+          "ELLIPSE": 5
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:410",
+        "name": "claude-case-es-mobile",
+        "width": 600,
+        "height": 940,
+        "descendantCounts": {
+          "FRAME": 7,
+          "TEXT": 12
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:430",
+        "name": "claude-infographic-es-mobile",
+        "width": 600,
+        "height": 1284,
+        "descendantCounts": {
+          "FRAME": 21,
+          "TEXT": 17,
+          "RECTANGLE": 12
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:481",
+        "name": "claude-atlas-en",
+        "width": 1200,
+        "height": 817,
+        "descendantCounts": {
+          "FRAME": 13,
+          "TEXT": 16,
+          "RECTANGLE": 23,
+          "VECTOR": 1,
+          "ELLIPSE": 5
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:540",
+        "name": "claude-case-en",
+        "width": 1200,
+        "height": 958,
+        "descendantCounts": {
+          "FRAME": 7,
+          "TEXT": 12
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:560",
+        "name": "claude-infographic-en",
+        "width": 1200,
+        "height": 829,
+        "descendantCounts": {
+          "FRAME": 20,
+          "TEXT": 17,
+          "RECTANGLE": 12
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:610",
+        "name": "claude-atlas-en-mobile",
+        "width": 600,
+        "height": 1234,
+        "descendantCounts": {
+          "FRAME": 19,
+          "TEXT": 16,
+          "RECTANGLE": 23,
+          "VECTOR": 1,
+          "ELLIPSE": 5
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:675",
+        "name": "claude-case-en-mobile",
+        "width": 600,
+        "height": 940,
+        "descendantCounts": {
+          "FRAME": 7,
+          "TEXT": 12
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:695",
+        "name": "claude-infographic-en-mobile",
+        "width": 600,
+        "height": 1284,
+        "descendantCounts": {
+          "FRAME": 21,
+          "TEXT": 17,
+          "RECTANGLE": 12
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      }
+    ]
+  },
+  "social": {
+    "page": "2:3",
+    "frames": [
+      {
+        "id": "5:746",
+        "name": "social-atlas-es",
+        "width": 1200,
+        "height": 755,
+        "descendantCounts": {
+          "FRAME": 13,
+          "TEXT": 15,
+          "RECTANGLE": 18,
+          "VECTOR": 1,
+          "ELLIPSE": 6
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:800",
+        "name": "social-case-es",
+        "width": 1200,
+        "height": 939,
+        "descendantCounts": {
+          "FRAME": 41,
+          "TEXT": 42
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:884",
+        "name": "social-infographic-es",
+        "width": 1200,
+        "height": 860,
+        "descendantCounts": {
+          "FRAME": 14,
+          "TEXT": 18,
+          "RECTANGLE": 37,
+          "VECTOR": 2,
+          "ELLIPSE": 9
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:965",
+        "name": "social-atlas-es-mobile",
+        "width": 600,
+        "height": 1180,
+        "descendantCounts": {
+          "FRAME": 19,
+          "TEXT": 15,
+          "RECTANGLE": 18,
+          "VECTOR": 1,
+          "ELLIPSE": 6
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:1025",
+        "name": "social-case-es-mobile",
+        "width": 600,
+        "height": 1434,
+        "descendantCounts": {
+          "FRAME": 41,
+          "TEXT": 42
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:1109",
+        "name": "social-infographic-es-mobile",
+        "width": 600,
+        "height": 1321,
+        "descendantCounts": {
+          "FRAME": 22,
+          "TEXT": 18,
+          "RECTANGLE": 37,
+          "VECTOR": 2,
+          "ELLIPSE": 9
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:1198",
+        "name": "social-atlas-en",
+        "width": 1200,
+        "height": 794,
+        "descendantCounts": {
+          "FRAME": 13,
+          "TEXT": 15,
+          "RECTANGLE": 18,
+          "VECTOR": 1,
+          "ELLIPSE": 6
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:1252",
+        "name": "social-case-en",
+        "width": 1200,
+        "height": 912,
+        "descendantCounts": {
+          "FRAME": 41,
+          "TEXT": 42
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:1336",
+        "name": "social-infographic-en",
+        "width": 1200,
+        "height": 860,
+        "descendantCounts": {
+          "FRAME": 14,
+          "TEXT": 18,
+          "RECTANGLE": 37,
+          "VECTOR": 2,
+          "ELLIPSE": 9
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:1417",
+        "name": "social-atlas-en-mobile",
+        "width": 600,
+        "height": 1181,
+        "descendantCounts": {
+          "FRAME": 19,
+          "TEXT": 15,
+          "RECTANGLE": 18,
+          "VECTOR": 1,
+          "ELLIPSE": 6
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:1477",
+        "name": "social-case-en-mobile",
+        "width": 600,
+        "height": 1407,
+        "descendantCounts": {
+          "FRAME": 41,
+          "TEXT": 42
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      },
+      {
+        "id": "5:1561",
+        "name": "social-infographic-en-mobile",
+        "width": 600,
+        "height": 1283,
+        "descendantCounts": {
+          "FRAME": 22,
+          "TEXT": 18,
+          "RECTANGLE": 37,
+          "VECTOR": 2,
+          "ELLIPSE": 9
+        },
+        "fontFamilies": [
+          "JetBrains Mono",
+          "DM Sans"
+        ],
+        "images": [],
+        "textOverflows": []
+      }
+    ]
+  }
+}

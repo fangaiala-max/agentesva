@@ -1,0 +1,674 @@
+[
+  {
+    "file": "public/images/guides/figma/processes-atlas-es.png",
+    "nodeId": "3:125",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=3-125",
+    "width": 1200,
+    "height": 755,
+    "bytes": 82253,
+    "sha256": "1202b2040fb44730f2b6564d8becd9617df6c314b37a15193c2333305e99422c",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/processes-case-es.png",
+    "nodeId": "3:173",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=3-173",
+    "width": 1200,
+    "height": 817,
+    "bytes": 71261,
+    "sha256": "52810edc0396094c1cbeb84e3e776cc8a6e85078551e57344f98adbb43ce1adc",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/processes-infographic-es.png",
+    "nodeId": "3:202",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=3-202",
+    "width": 1200,
+    "height": 968,
+    "bytes": 87295,
+    "sha256": "35f8951d27176985b1591243c4a7f28ce017b36a670c9109983491b48dcb26ce",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/processes-atlas-es-mobile.png",
+    "nodeId": "3:234",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=3-234",
+    "width": 600,
+    "height": 1180,
+    "bytes": 81248,
+    "sha256": "d937efe5b72127cdc1ea022f9e8b46731ba8c67843c58d0aa94e556437522e1d",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/processes-case-es-mobile.png",
+    "nodeId": "3:288",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=3-288",
+    "width": 600,
+    "height": 977,
+    "bytes": 66323,
+    "sha256": "ab1beef3fd30d8dffbd42a19de73c8dbdd22d2c5894130b691998c0b0324a830",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/processes-infographic-es-mobile.png",
+    "nodeId": "3:307",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=3-307",
+    "width": 600,
+    "height": 1403,
+    "bytes": 81306,
+    "sha256": "0b2571c2d78d4ef91c8ce7943dd19a5d662289e4546d76086080ac2f58849ade",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/processes-atlas-en.png",
+    "nodeId": "5:2",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-2",
+    "width": 1200,
+    "height": 755,
+    "bytes": 81790,
+    "sha256": "55358629a83ff804894ba005ebd98c020ae5d57eec973f59fc64cdeef73ea873",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/processes-case-en.png",
+    "nodeId": "5:50",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-50",
+    "width": 1200,
+    "height": 817,
+    "bytes": 69979,
+    "sha256": "f5df283940e6c86f46b7b328a4f8610bb7ae0eba3830e9091fc7210a2c6eb451",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/processes-infographic-en.png",
+    "nodeId": "5:79",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-79",
+    "width": 1200,
+    "height": 968,
+    "bytes": 82115,
+    "sha256": "e67f77817dd3e2df6f2876e529d5646c3572c39a43ca78d44fb8cbb441cb6b25",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/processes-atlas-en-mobile.png",
+    "nodeId": "5:111",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-111",
+    "width": 600,
+    "height": 1126,
+    "bytes": 79077,
+    "sha256": "a299f2ef6289a5a550ce9b182c735ddd089fa7a1b66f45d52cf9058b79e9051b",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/processes-case-en-mobile.png",
+    "nodeId": "5:165",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-165",
+    "width": 600,
+    "height": 911,
+    "bytes": 62038,
+    "sha256": "eeb2f8a8ac4aef8f3762e5006c3a71802b04aabc42a71c1591571aa57819a338",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/processes-infographic-en-mobile.png",
+    "nodeId": "5:184",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-184",
+    "width": 600,
+    "height": 1289,
+    "bytes": 73030,
+    "sha256": "06a03b89fdbefa1009e5ff644ad52cad558fe585d556e7dbe948e152d8d47e8c",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/claude-atlas-es.png",
+    "nodeId": "5:216",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-216",
+    "width": 1200,
+    "height": 817,
+    "bytes": 98630,
+    "sha256": "c444a081ef40234a12ea77ae06de8e92bdf2aeeb885a9a31d7124ec2d6fbf106",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/claude-case-es.png",
+    "nodeId": "5:275",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-275",
+    "width": 1200,
+    "height": 958,
+    "bytes": 78302,
+    "sha256": "051de07e21b6950418a11380980da56efd8cb869534dbc56af45c6107f96aae9",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/claude-infographic-es.png",
+    "nodeId": "5:295",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-295",
+    "width": 1200,
+    "height": 856,
+    "bytes": 84044,
+    "sha256": "9a4227cd5dea0dbdc80bdd38cbc2047195681a5c80cd53f968b05e471f7cf540",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/claude-atlas-es-mobile.png",
+    "nodeId": "5:345",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-345",
+    "width": 600,
+    "height": 1207,
+    "bytes": 93322,
+    "sha256": "80e691563d67b56bc6c01adeb5807f3e534f59d64c7111e59e420fe6c7bafee3",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/claude-case-es-mobile.png",
+    "nodeId": "5:410",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-410",
+    "width": 600,
+    "height": 940,
+    "bytes": 69217,
+    "sha256": "145200750ffe41dcaf8df65654a7f7df4532dba7519aa7da04638801fe68fbc5",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/claude-infographic-es-mobile.png",
+    "nodeId": "5:430",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-430",
+    "width": 600,
+    "height": 1284,
+    "bytes": 85343,
+    "sha256": "23bbde6ee112c15990f52215315a405d88446dee805e506e567b20cc5c7f8fcb",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/claude-atlas-en.png",
+    "nodeId": "5:481",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-481",
+    "width": 1200,
+    "height": 817,
+    "bytes": 98144,
+    "sha256": "018c343c03209b283b5f5b91acba045d4528500451a5e6b4aa74d62c9b92769c",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/claude-case-en.png",
+    "nodeId": "5:540",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-540",
+    "width": 1200,
+    "height": 958,
+    "bytes": 81461,
+    "sha256": "68f18b9dc9a9b0dba4277001d365a8714a4f937e46ec2bac29b182cd57bfae5a",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/claude-infographic-en.png",
+    "nodeId": "5:560",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-560",
+    "width": 1200,
+    "height": 829,
+    "bytes": 75209,
+    "sha256": "45c4de3476fb15ddd67d92775ce9490e7a90d28bc52bd54d419a967182dda50d",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/claude-atlas-en-mobile.png",
+    "nodeId": "5:610",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-610",
+    "width": 600,
+    "height": 1234,
+    "bytes": 93843,
+    "sha256": "eca960d03022fc59d44ce3741f285f54ee39c4813c4e4f59f50056b0d4e9cf41",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/claude-case-en-mobile.png",
+    "nodeId": "5:675",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-675",
+    "width": 600,
+    "height": 940,
+    "bytes": 71226,
+    "sha256": "9cd6c4705a248e7b27b044593c24761ba3644d6da6763a4604ee5380a5ffc681",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/claude-infographic-en-mobile.png",
+    "nodeId": "5:695",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-695",
+    "width": 600,
+    "height": 1284,
+    "bytes": 78717,
+    "sha256": "5f2aea4927f93caf136c0c6eb17d62d9e41cf121e306d5d2530b0f8bb49a37b5",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/social-atlas-es.png",
+    "nodeId": "5:746",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-746",
+    "width": 1200,
+    "height": 755,
+    "bytes": 81519,
+    "sha256": "63bd4de67eaba8b59cebc8c85891d56f5e103f711c63e19100d391dab43af666",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/social-case-es.png",
+    "nodeId": "5:800",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-800",
+    "width": 1200,
+    "height": 939,
+    "bytes": 89418,
+    "sha256": "da54cfd2db775dda3a32b65d8b3e81add9cd83b1582ec816751c1b151d1134e1",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/social-infographic-es.png",
+    "nodeId": "5:884",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-884",
+    "width": 1200,
+    "height": 860,
+    "bytes": 82748,
+    "sha256": "d5c37768e5f6d5f158cde87294de76f8092ebc252717d73b4ee8b3e9afbce4ad",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/social-atlas-es-mobile.png",
+    "nodeId": "5:965",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-965",
+    "width": 600,
+    "height": 1180,
+    "bytes": 81170,
+    "sha256": "29034e7f465be0e26a0d51431f0f435cf9607014cac64c96a3c574b74ea46026",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/social-case-es-mobile.png",
+    "nodeId": "5:1025",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-1025",
+    "width": 600,
+    "height": 1434,
+    "bytes": 87248,
+    "sha256": "eb1fdc6f9f7bf0bc60717b717caeea8e6a0cb3e2310b07ae7bc78820c22878da",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/social-infographic-es-mobile.png",
+    "nodeId": "5:1109",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-1109",
+    "width": 600,
+    "height": 1321,
+    "bytes": 81673,
+    "sha256": "c9dd21bead8a9a228e186c8f1e373e2ec25368ee11bc980cd0aeb1f439ebd050",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/social-atlas-en.png",
+    "nodeId": "5:1198",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-1198",
+    "width": 1200,
+    "height": 794,
+    "bytes": 84972,
+    "sha256": "e1a913a306ad2c4dcbe03b82f2174d39677185db5d8a63dc0f8882ec49495ab5",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/social-case-en.png",
+    "nodeId": "5:1252",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-1252",
+    "width": 1200,
+    "height": 912,
+    "bytes": 84697,
+    "sha256": "bd9b2000e2efb8d996b1dfebc67cead6d0e90f129a21b101a9ad65c96382a640",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/social-infographic-en.png",
+    "nodeId": "5:1336",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-1336",
+    "width": 1200,
+    "height": 860,
+    "bytes": 85247,
+    "sha256": "2a9675f7a4e53f4f0daddb30fd87fbf36dd85a66fd8ea077e4809d59efe0bbc8",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/social-atlas-en-mobile.png",
+    "nodeId": "5:1417",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-1417",
+    "width": 600,
+    "height": 1181,
+    "bytes": 81859,
+    "sha256": "80bbc2df5e3e10fb3229499b970bfd78f6681d9acf1146c6245b9eb1682f2bbd",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/social-case-en-mobile.png",
+    "nodeId": "5:1477",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-1477",
+    "width": 600,
+    "height": 1407,
+    "bytes": 82451,
+    "sha256": "46712f4d180df8eada7bec13a98e354b1d91232f13ffeb5c701915e174004de7",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/social-infographic-en-mobile.png",
+    "nodeId": "5:1561",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-1561",
+    "width": 600,
+    "height": 1283,
+    "bytes": 83628,
+    "sha256": "1c43ddb53622f5321a6352c06873401cf2bf3c77e69e6e589485cba390325f59",
+    "format": "png",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "PNG export visually reviewed"
+  },
+  {
+    "file": "public/images/guides/figma/processes-infographic-es.svg",
+    "nodeId": "3:202",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=3-202",
+    "width": 1200,
+    "height": 968,
+    "bytes": 273387,
+    "sha256": "3f89a271e768bb6db735c000460ef8f9c540f16ff11977a6ff6d62657759af60",
+    "format": "svg",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "native SVG export; dimensions and raster render verified"
+  },
+  {
+    "file": "public/images/guides/figma/processes-infographic-en.svg",
+    "nodeId": "5:79",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-79",
+    "width": 1200,
+    "height": 968,
+    "bytes": 233321,
+    "sha256": "e103c7d3060a3215fc91f9b98ffd5ddbd2554a1315aaf0166dc4e731e153d2cc",
+    "format": "svg",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "native SVG export; dimensions and raster render verified"
+  },
+  {
+    "file": "public/images/guides/figma/claude-infographic-es.svg",
+    "nodeId": "5:295",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-295",
+    "width": 1200,
+    "height": 856,
+    "bytes": 342356,
+    "sha256": "99b18600de3ed263b3d14a7ea6666247e8aab348bc7b4d1cb4f009a4abd5a2cd",
+    "format": "svg",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "native SVG export; dimensions and raster render verified"
+  },
+  {
+    "file": "public/images/guides/figma/claude-infographic-en.svg",
+    "nodeId": "5:560",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-560",
+    "width": 1200,
+    "height": 829,
+    "bytes": 288285,
+    "sha256": "69ae677275c9ccef40f1f20f278d1048c2c2bd1e17dd415bc979c4fabe9a4d18",
+    "format": "svg",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "native SVG export; dimensions and raster render verified"
+  },
+  {
+    "file": "public/images/guides/figma/social-infographic-es.svg",
+    "nodeId": "5:884",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-884",
+    "width": 1200,
+    "height": 860,
+    "bytes": 280079,
+    "sha256": "4f40c96dbf65967ef73ff029d944dee22ad95e2b38e1796ee82f9200218f8354",
+    "format": "svg",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "native SVG export; dimensions and raster render verified"
+  },
+  {
+    "file": "public/images/guides/figma/social-infographic-en.svg",
+    "nodeId": "5:1336",
+    "source": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt?node-id=5-1336",
+    "width": 1200,
+    "height": 860,
+    "bytes": 272079,
+    "sha256": "ac663fb2d3fe428e5c5cdb589c29249e606a2328e0e0db13140d730e08eae61c",
+    "format": "svg",
+    "fonts": [
+      "DM Sans",
+      "JetBrains Mono"
+    ],
+    "origin": "native Figma MCP export",
+    "review": "native SVG export; dimensions and raster render verified"
+  }
+]
