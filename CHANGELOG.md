@@ -2,6 +2,17 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [0.10.1.0] - 2026-10-19
+
+### Added
+- La demo en español e inglés permite pasar al diagnóstico conservando el área explorada, con contexto visible y sin responder preguntas por el visitante.
+- La medición distingue una demo ejecutada, su finalización y la recomendación mostrada antes de solicitar contacto.
+
+### Fixed
+- Las pestañas, controles y textos de la demo pueden adaptarse a pantallas estrechas; la revisión visual en navegador sigue pendiente.
+- El diagnóstico inglés muestra Home y Breadcrumb y mantiene las mismas migas en sus datos estructurados.
+- La medición deja de encolar eventos tras denegar analítica aunque el script de GA4 siga cargado; se conservan los hitos de contacto aceptado y cualificación automática.
+
 ## [0.10.0.0] - 2026-10-18
 
 ### Added

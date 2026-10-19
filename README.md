@@ -80,5 +80,6 @@ La integración de Notion debe tener acceso a `Pipeline de leads`; la API dedupl
 - [Revisión SEO/GEO/AIO](docs/seo-geo-aio-post-design-review.md) — comparación del rediseño y correcciones bilingües verificadas.
 - [Imágenes sociales y favicon](docs/social-images.md) — generación de portadas EN/ES, versiones de URL y validación.
 - [Entrega editorial y growth de octubre](docs/editorial/2026-10-18-guias-automatizacion/README.md) — seis guías visuales, originales Figma, auditoría de la home, refresh y validación pendiente en navegador.
+- [Seguimiento de la auditoría de growth](docs/growth/2026-10-19-home-growth/README.md) — contexto demo/diagnóstico, nuevos hitos de medición y comprobaciones públicas de las seis guías; revisión visual y Search Console pendientes.
 - [`CHANGELOG.md`](./CHANGELOG.md) — historial de versiones.
 - [`TODOS.md`](./TODOS.md) — trabajo pendiente priorizado.
