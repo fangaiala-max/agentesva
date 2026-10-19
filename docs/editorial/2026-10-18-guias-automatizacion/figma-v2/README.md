@@ -19,6 +19,6 @@ Internal benchmark: the earlier generic process chain in `public/images/guides/b
 
 The local article layout now leads with a visual shortlist, uses native expandable tool reviews and comparison tables, retains free-plan/trial labels and full source-linked copy, and ends with the new infographic. Direct links open the relevant review.
 
-Validation: 510 tests pass; production build and all existing SEO/bilingual checks pass; six built articles retain their full bodies, localized figures, downloads, canonical/hreflang and valid local links. Browser layout, focus/keyboard interaction and actual breakpoint behavior remain unverified because the browser connection is unavailable. Export inspection does not substitute for whole-page browser QA.
+Validation: 519 tests pass across 62 files, including execution of the real fragment-navigation script; production build and all existing SEO/bilingual checks pass; six built articles retain their full bodies, localized figures, downloads, canonical/hreflang and valid local links. Browser layout, focus/keyboard interaction and actual breakpoint behavior remain unverified because the browser connection is unavailable. Export inspection does not substitute for whole-page browser QA.
 
-No publishing, push, PR, merge or deployment.
+The user subsequently authorized pushing the branch and opening a PR for review. Merge and public deployment remain unauthorized.

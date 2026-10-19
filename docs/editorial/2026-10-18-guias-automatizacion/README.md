@@ -22,9 +22,9 @@ Cada edición contiene respuesta rápida, comparación, criterios por situación
 
 ## Validación y límite pendiente
 
-510/510 pruebas. Build de producción correcto, 304 URLs en sitemap. Se verificaron las seis páginas compiladas: artículos completos, 7/10/7 recomendaciones, figuras localizadas, dos descargas finales, enlaces internos, anclas, canonical/hreflang, schema y dimensiones reales de las imágenes. Revisión independiente de cumplimiento y revisión técnica estática: aprobadas.
+519/519 pruebas en 62 archivos, incluida la navegación por fragmentos del script real. Build de producción correcto, 304 URLs en sitemap. Se verificaron las seis páginas compiladas: artículos completos, 7/10/7 recomendaciones, figuras localizadas, dos descargas finales, enlaces internos, anclas, canonical/hreflang, schema y dimensiones reales de las imágenes. Revisión independiente de cumplimiento y revisión técnica estática: aprobadas.
 
-La home sí fue recorrida en producción antes de la interrupción. Las 24 exportaciones PNG de las guías fueron revisadas visualmente. Queda pendiente la revisión en navegador de las seis páginas nuevas, sus interacciones de teclado y su composición en escritorio y móvil: Chrome sigue sin aparecer disponible, incluso después del aviso de reconexión y de reiniciar el control. No se declara aceptada esa parte por inferencia de las pruebas estáticas.
+La home sí fue recorrida en producción antes de la interrupción. Las 36 exportaciones PNG de Figma fueron revisadas visualmente; las seis infografías SVG se analizaron y rasterizaron para revisión. Queda pendiente la revisión en navegador de las seis páginas nuevas, sus interacciones de teclado y su composición en escritorio y móvil: Chrome sigue sin aparecer disponible, incluso después del aviso de reconexión y de reiniciar el control. No se declara aceptada esa parte por inferencia de las pruebas estáticas.
 
 ## Cómo ver la maqueta
 
@@ -36,7 +36,7 @@ python3 -m http.server 4358 --bind 127.0.0.1 --directory site
 
 Abrir `http://127.0.0.1:4358/_review/`. Usar HTTP local para que las rutas absolutas, tipografías y estilos funcionen. Es una maqueta estática; los servicios de backend y el envío de formularios no se incluyen en esta copia. Los enlaces públicos de fuentes conservan su destino externo.
 
-Los archivos fuente del proyecto están en `/Users/fernandoangulo/Sitios web/05-agentesva/.worktrees/editorial-local`. El checkout original y su trabajo previo se han conservado. No se ha hecho push, PR, merge ni despliegue.
+Los archivos fuente del proyecto están en `/Users/fernandoangulo/Sitios web/05-agentesva/.worktrees/editorial-local`. Es un checkout independiente persistente, con historial y dependencias locales. El checkout original y su trabajo previo se han conservado. El usuario autorizó posteriormente subir la rama y abrir una PR; la fusión y el despliegue siguen sin autorización.
 
 ## Código editable instalado en local
 

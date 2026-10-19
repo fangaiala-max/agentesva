@@ -30,7 +30,8 @@ La columna "Dónde" nombra ejemplos representativos de cada capa, no el índice 
 | API/CRM | Validación server-side, creación/actualización en Notion, deduplicación concurrente por instancia, consentimiento y reintentos transitorios | `tests/diagnostic-api.test.ts`, `tests/diagnostic-notion.test.ts` |
 | Guards de fuente | Lo que no se puede ejercitar sin arrancar Astro: leen el `.astro` y fallan si se pierde el cableado (props de `ArticleCard`, rutas de prompts) o si vuelve un handler en línea que la CSP bloquea | `tests/noticias-listado.test.ts`, `tests/prompts-pages.test.ts`, `tests/csp-inline-handlers.test.ts` |
 | Contrato editorial GEO | Schema, atribución de datos, recursos visuales, enlazado interno, metadatos sociales, sitemap y legibilidad móvil de la guía | `tests/especialista-geo-guide.test.ts` |
-| Build | Esquemas Zod de content collections y verificación del HTML/sitemap generado; un contenido o metadato inválido rompe `npm run build` | `src/content.config.ts`, `src/content-schemas/guias.ts`, `scripts/verify-built-geo-guide.mjs`, `scripts/verify-built-bilingual-ui.mjs`, `scripts/verify-built-seo.mjs` |
+| Guías visuales bilingües | Paridad de cuerpos y fuentes, figuras y descargas; ejecución del script real para revelar reseñas por enlace/fragmento e inicializar contenido tras navegación Astro | `tests/visual-buying-guides.test.ts`, `tests/visual-buying-guide-navigation.test.ts` |
+| Build | Esquemas Zod de content collections y verificación del HTML/sitemap generado; un contenido o metadato inválido rompe `npm run build` | `src/content.config.ts`, `src/content-schemas/guias.ts`, `scripts/verify-built-geo-guide.mjs`, `scripts/verify-built-bilingual-ui.mjs`, `scripts/verify-built-seo.mjs`, `scripts/verify-built-buying-guides.mjs` |
 | Smoke manual | Flujos reales en navegador (dev/preview) antes de shippear | /qa, /verify |
 
 ## Convenciones
@@ -46,6 +47,8 @@ La columna "Dónde" nombra ejemplos representativos de cada capa, no el índice 
 `npm run build` comprueba el HTML de 128 páginas principales y fichas: idioma, navegación móvil, destinos de CTA, intención de precios, timeline, pestañas y datos estructurados. `tests/bilingual-ui.test.ts` cubre filtros combinados, guardado y conservación del contexto al cambiar de idioma.
 
 Las comprobaciones de formulario simulan respuestas HTTP; no prueban autenticación de Brevo, reenvío ni entrega efectiva de email.
+
+Las seis guías visuales se verifican también en el HTML compilado: cuerpos completos, reseñas desplegables, figuras localizadas, descargas, enlaces internos, anclas, canonical/hreflang y dimensiones de imágenes. Estas comprobaciones y happy-dom no prueban composición visual, scroll real, foco ni teclado en navegador; esa revisión de escritorio y móvil sigue pendiente en la entrega editorial de octubre.
 
 ### SEO regression guard
 

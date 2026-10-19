@@ -50,12 +50,12 @@ Por artículo: portada conceptual; diagrama intermedio con alternativa textual; 
 
 Se aplicaron `head-of-content`, `head-of-design` y `value-for-client`: selección por trabajo, coste total, entrada gratuita, límites, aceptación y alternativa de no comprar. Los roles describen skills aplicadas, no firmas de profesionales externos. Revisión independiente de cumplimiento: aprobada después de corregir la URL española del diagnóstico. Revisión independiente de calidad estática: aprobada. La revisión no acredita rendimiento comparativo de proveedores.
 
-Las portadas conceptuales se generaron con imagegen; los diagramas y las infografías se construyeron con la tipografía DM Sans real del proyecto y equivalencia textual en el artículo. Se revisaron las 24 exportaciones PNG, incluidas las composiciones específicas para móvil. El manifiesto distingue fuente vectorial y exportación. No hay logos de clientes ni métricas inventadas.
+Las portadas conceptuales se generaron con imagegen. La revisión vigente usa 36 composiciones nativas editables en Figma, con DM Sans y JetBrains Mono: atlas de selección, ejemplo e infografía, en ambos idiomas y tamaños de escritorio/móvil. Se revisaron las 36 exportaciones PNG y las seis infografías SVG; el [manifiesto Figma](figma-v2/asset-manifest.json) identifica originales y exportaciones. La carpeta `visuals/` conserva la primera iteración. No hay logos de clientes ni métricas inventadas.
 
 ## Estado de aceptación
 
 - Investigación y redacción: realizadas con fuentes oficiales y fecha de consulta.
 - Implementación bilingüe, figuras, descargas y metadatos: validada en el HTML compilado.
-- Pruebas: 510/510; build de producción y comprobaciones SEO/bilingües: correctos.
+- Pruebas: 519/519 en 62 archivos, incluida navegación por fragmentos; build de producción y comprobaciones SEO/bilingües: correctos.
 - Revisión visual de las páginas nuevas en navegador, escritorio/móvil: **pendiente**; la conexión de Chrome dejó de estar disponible. La revisión de las imágenes exportadas sí está completada.
-- Publicación, PR, merge y despliegue: no realizados ni autorizados para esta entrega.
+- PR: el usuario autorizó posteriormente subir la rama y abrirla para revisión. Publicación, merge y despliegue siguen sin autorización.

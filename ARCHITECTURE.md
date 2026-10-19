@@ -46,6 +46,7 @@ Third-party services
 - **Interfaz bilingüe y ofertas**: `src/components/shared/`, `src/i18n/parity.ts` y sus diccionarios mantienen home, navegación, comparaciones y CTAs localizados. `src/data/service-offer.ts` centraliza importes; `offer` conserva la opción elegida en la URL del diagnóstico y `source.offerIntent` en el envío.
 - **Estudios y noticias**: Markdown en `src/content/`, con páginas de listado y detalle prerenderizadas.
 - **Guías**: Markdown en `src/content/guias/`, validado por `src/content-schemas/guias.ts`; admite portada responsiva, FAQ, fuentes, relaciones internas y CTA de servicio o recurso.
+- **Guías visuales bilingües**: las entradas con `visual` se renderizan mediante `src/components/VisualBuyingGuide.astro`; sus ediciones inglesas completas viven en `src/content/guide-translations/` con el mismo esquema. Las demás rutas inglesas conservan sus resúmenes identificados como tales. Figuras y descargas nativas de Figma en `public/images/guides/figma/`; procedencia y validación en [la entrega editorial](docs/editorial/2026-10-18-guias-automatizacion/README.md).
 - **Biblioteca de prompts**: 100 plantillas en `src/data/biblioteca/prompts.ts`.
 - **Colecciones SEO de prompts**: configuración en `src/data/prompt-landings.ts`; genera `/prompts/` y seis rutas temáticas.
 - **Generador de prompts**: `/generador-de-prompts/`; estructura el texto en el navegador mediante `src/scripts/prompt-generator.ts`, sin enviar los campos a un servidor.
@@ -110,7 +111,7 @@ La API agrupa envíos concurrentes con el mismo `Submission ID` dentro de cada i
 
 1. PR opened → Vercel preview deploy (auth-walled)
 2. PR merge to `main` → Vercel production deploy (auto-rolling)
-3. Build: `npm run build` → Astro genera `dist/client/` y la salida Vercel → se generan las portadas sociales PNG por página y se verifican dimensiones, favicon y coherencia OG/Twitter/schema → el verificador comprueba los metadatos de la guía profesional GEO y las fechas del sitemap del clúster en `dist/client/` → los verificadores de paridad bilingüe y SEO comprueban el HTML de `.vercel/output/static` → Pagefind indexa esa misma salida
+3. Build: `npm run build` → Astro genera `dist/client/` y la salida Vercel → se generan las portadas sociales PNG por página y se verifican dimensiones, favicon y coherencia OG/Twitter/schema → el verificador comprueba los metadatos de la guía profesional GEO y las fechas del sitemap del clúster en `dist/client/` → los verificadores de paridad bilingüe, SEO y guías visuales comprueban el HTML de `.vercel/output/static` → Pagefind indexa esa misma salida
 4. Schemas validated at build (Zod blocks invalid frontmatter)
 
 ## Performance budget (target / actual mobile)

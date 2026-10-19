@@ -1,6 +1,6 @@
 # AgentesVA
 
-English-first website: `/` is English and `/es/` preserves the Spanish homepage. Services, pricing, assessment, tools, courses and prompt experiences have English routes. Editorial English editions are concise adaptations; downloadable products and newsletter delivery remain Spanish.
+English-first website: `/` is English and `/es/` preserves the Spanish homepage. Services, pricing, assessment, tools, courses and prompt experiences have English routes. Three visual buying guides have complete English editions; other editorial English editions remain clearly labelled concise adaptations. Downloadable products and newsletter delivery remain Spanish.
 
 See [the redesign audit](docs/english-first-audit.md) and [the bilingual UI implementation review](docs/21st-bilingual-opportunity-review.md). Home, commercial pages, tool directories/profiles and learning directories now share EN/ES components. `npm run build` verifies 128 core pages and tool profiles, then checks generated SEO metadata, FAQ/schema consistency, breadcrumbs and category indexability; run `node scripts/verify-english-first.mjs` for the broader generated-link and language audit.
 
@@ -44,10 +44,11 @@ npm run preview
 - `src/content/cursos/` y `src/content/recursos/` — catálogo educativo y recursos.
 - `src/content/estudios/` y `src/content/noticias/` — publicaciones Markdown.
 - `src/content/guias/` — guías Markdown con portada opcional, FAQ, fuentes, lecturas relacionadas y CTA contextual.
+- `src/content/guide-translations/` — ediciones inglesas completas de las tres guías visuales; comparten esquema y `VisualBuyingGuide.astro` con sus versiones españolas.
 - `src/data/biblioteca/` — prompts y blueprints de la Biblioteca de IA.
 - `src/data/prompt-landings.ts` — metadatos y selección de plantillas de las colecciones SEO.
 
-Los esquemas de `src/content.config.ts` y `src/content-schemas/guias.ts` validan el contenido durante `npm run build`; el `postbuild` también comprueba los metadatos sociales de la guía profesional GEO y las fechas del sitemap del clúster.
+Los esquemas de `src/content.config.ts` y `src/content-schemas/guias.ts` validan el contenido durante `npm run build`; el `postbuild` también comprueba los metadatos sociales de la guía profesional GEO, las fechas del sitemap del clúster y las seis guías visuales completas, con figuras, descargas, enlaces y metadatos bilingües.
 
 ## Entrega
 
@@ -78,5 +79,6 @@ La integración de Notion debe tener acceso a `Pipeline de leads`; la API dedupl
 - [`TESTING.md`](./TESTING.md) — estrategia y convenciones de pruebas.
 - [Revisión SEO/GEO/AIO](docs/seo-geo-aio-post-design-review.md) — comparación del rediseño y correcciones bilingües verificadas.
 - [Imágenes sociales y favicon](docs/social-images.md) — generación de portadas EN/ES, versiones de URL y validación.
+- [Entrega editorial y growth de octubre](docs/editorial/2026-10-18-guias-automatizacion/README.md) — seis guías visuales, originales Figma, auditoría de la home, refresh y validación pendiente en navegador.
 - [`CHANGELOG.md`](./CHANGELOG.md) — historial de versiones.
 - [`TODOS.md`](./TODOS.md) — trabajo pendiente priorizado.

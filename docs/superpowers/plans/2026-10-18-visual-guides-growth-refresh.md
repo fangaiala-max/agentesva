@@ -10,7 +10,7 @@
 
 ## Tasks
 
-- [x] Inspect source, preserve dirty original checkout and create isolated feature worktree at /tmp/agentesva-editorial-20261018 from current main fa29ea0.
+- [x] Inspect source and preserve dirty original checkout. Initial isolated checkout from main fa29ea0 was moved from `/tmp/agentesva-editorial-20261018` to the persistent independent checkout `/Users/fernandoangulo/Sitios web/05-agentesva/.worktrees/editorial-local`, with history and locally installed dependencies.
 - [x] Research official sources and write complete Spanish drafts with costs, free limits, examples, decision criteria and sources.
 - [x] Translate all three guides completely into English; preserve scope, sources, prices and limitations. Files: docs/editorial/2026-10-18-guias-automatizacion/0*-*.en.md.
 - [x] Audit production home EN/ES including demo, assessment handoff and mobile. Write home-growth-audit.md, evidence and prioritized recommendations; do not modify the home merely because a report recommends changes.
@@ -18,11 +18,14 @@
 - [x] Build VisualBuyingGuide.astro and its scoped stylesheet. Add a guide visual-kind field and full-English-translation collection; branch the two existing guide render paths only when a visual edition exists.
 - [x] Create three conceptual covers, three explanatory diagrams per language and three final infographics per language. Use actual brand fonts, clear units, no fabricated statistics; keep source assets and manifest.
 - [x] Convert the six drafts into validated collection entries; insert inline diagrams and final downloadable infographics. Keep all sources and substantive copy; remove workflow placeholders. Add the three English directory descriptions after the refresh editor finishes its existing-key changes.
-- [x] Verify article/asset integrity, English/Spanish parity and factual limits; 510 tests and production build pass. All six built HTML pages verified for complete copy, internal targets, figures, downloads, canonical/hreflang and intrinsic image dimensions.
+- [x] Verify article/asset integrity, English/Spanish parity and factual limits; 519 tests in 62 files and production build pass. All six built HTML pages verified for complete copy, internal targets, figures, downloads, canonical/hreflang and intrinsic image dimensions. The real client script is exercised for fragment reveal and Astro navigation initialization.
 - [x] Review all diagram/infographic exports in desktop and mobile compositions.
+- [x] Revise the reading path with native Figma originals: 36 editable frames, 36 responsive PNG exports and six final SVG infographics; preserve complete copy in native expandable reviews and comparisons.
 - [ ] Browser preview of six whole pages at desktop and mobile: blocked by unavailable Chrome connection; do not infer layout acceptance from static checks.
 - [x] Obtain spec-compliance review before final quality review; resolve supported findings and rerun affected checks.
 - [x] Deliver reviewable local preview, source files, graphics, growth report and refresh record. No push, PR, merge or public deployment without a later request.
+
+The user subsequently requested a PR, authorizing the branch push and review request. Merge and public deployment remain outside that authorization.
 
 ## Acceptance details
 
