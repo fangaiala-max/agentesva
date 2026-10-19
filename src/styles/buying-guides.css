@@ -1,0 +1,60 @@
+.buying-guide{background:#faf9ff;color:#171a2b;--guide-muted:#595f75;--guide-line:#d8d9e8;--guide-accent:#315bda;font-family:var(--sans);overflow-wrap:anywhere}
+.buying-guide__shell{width:min(1240px,calc(100% - 80px));margin-inline:auto}
+.buying-guide__hero{background:#171a2b;color:#faf9ff;padding:28px 0 72px}
+.buying-guide__crumbs{display:flex;gap:12px;flex-wrap:wrap;font:500 11px/1.5 var(--mono);color:#b9c0d8;margin-bottom:48px}
+.buying-guide__crumbs a{color:#dce0f0;text-decoration:none}
+.buying-guide__hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+.buying-guide__eyebrow{font:600 11px/1.6 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#b8c7ff;margin:0 0 18px}
+.buying-guide__eyebrow span{display:block;color:#b9c0d8;letter-spacing:.12em;margin-top:9px}
+.buying-guide h1{font:570 clamp(36px,4.4vw,64px)/1.04 var(--sans);letter-spacing:-.045em;margin:0;color:#faf9ff;text-wrap:balance}
+.buying-guide__dek{font-size:18px;line-height:1.65;color:#dce0f0;max-width:36em;margin:24px 0}
+.buying-guide__byline{font:400 11px/1.8 var(--mono);color:#b9c0d8;display:flex;gap:9px;flex-wrap:wrap}
+.buying-guide__jump{display:inline-flex;gap:28px;align-items:center;color:#fff;font-weight:600;font-size:14px;text-decoration:none;border-bottom:1px solid #8793b5;padding:14px 0;margin-top:16px}
+.buying-guide__cover{margin:0;min-width:0}
+.buying-guide__cover img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:8px}
+.buying-guide__cover figcaption{font:400 10px/1.6 var(--mono);color:#b9c0d8;padding:12px 0 0}
+.buying-guide__reading{display:grid;grid-template-columns:210px minmax(0,800px);gap:64px;padding-block:64px 32px;align-items:start}
+.buying-guide__sidebar{position:sticky;top:110px;max-height:calc(100vh - 130px);overflow:auto;scrollbar-width:thin}
+.buying-guide__contents summary{display:flex;justify-content:space-between;font:600 12px/1.5 var(--mono);cursor:pointer;list-style:none;padding:16px 0;border-block:1px solid var(--guide-line)}
+.buying-guide__contents summary::-webkit-details-marker{display:none}
+.buying-guide__contents[open] summary span{transform:rotate(45deg)}
+.buying-guide__contents ol{padding:12px 0 0;list-style:none;margin:0}
+.buying-guide__contents li{margin:0;border-bottom:1px solid var(--guide-line)}
+.buying-guide__contents a{display:block;padding:10px 0;color:#595f75;font-size:12px;line-height:1.55;text-decoration:none}
+.buying-guide__contents a:hover{color:#315bda}
+.buying-guide__sidebar-note{font-size:12px;line-height:1.7;color:#595f75;margin-top:22px;max-width:17em}
+.buying-guide__body{min-width:0;font-size:17px;line-height:1.8}
+.buying-guide__body>p:first-child{font-size:22px;line-height:1.6;letter-spacing:-.015em;margin-top:0}
+.buying-guide__body :is(h2,h3){font-family:var(--sans);color:#171a2b;scroll-margin-top:110px;text-wrap:balance}
+.buying-guide__body h2{font-size:clamp(26px,3vw,36px);font-weight:580;line-height:1.15;letter-spacing:-.028em;margin:66px 0 24px;padding-top:30px;border-top:1px solid var(--guide-line)}
+.buying-guide__body h3{font-size:21px;line-height:1.35;margin:32px 0 12px;font-weight:600}
+.buying-guide__body p{margin:0 0 22px}
+.buying-guide__body strong{font-weight:650;color:#171a2b}
+.buying-guide__body :is(ul,ol){padding-left:24px;margin:20px 0 28px}
+.buying-guide__body li{margin:12px 0;padding-left:4px}
+.buying-guide__body a{color:#315bda;text-underline-offset:4px;text-decoration-thickness:1px}
+.buying-guide__body a:hover{color:#5533a7}
+.buying-guide__body table{display:block;width:100%;max-width:100%;overflow-x:auto;border:1px solid var(--guide-line);border-radius:8px;border-collapse:separate;border-spacing:0;margin:26px 0 20px;font-size:13px;line-height:1.6;overscroll-behavior-inline:contain}
+.buying-guide__body :is(th,td){padding:17px 18px;min-width:150px;vertical-align:top;text-align:left;border-bottom:1px solid var(--guide-line);color:#171a2b}
+.buying-guide__body th{font-weight:650;background:#eeedf9;position:sticky;top:0}
+.buying-guide__body td{background:#fff}
+.buying-guide__body tr:last-child td{border-bottom:0}
+.buying-guide__body :is(th,td):first-child{min-width:175px}
+.buying-guide__body blockquote{margin:28px 0;padding:24px 28px;border-left:3px solid #6944bf;background:#f0effa;border-radius:0 8px 8px 0}
+.buying-guide__body figure{margin:38px 0}
+.buying-guide__body figure img{display:block;width:100%;height:auto;border-radius:8px}
+.buying-guide__body figcaption{font-size:12px;line-height:1.65;color:#595f75;margin:12px 0}
+.buying-guide__body .guide-download{display:inline-flex;gap:14px;align-items:center;min-height:44px;padding:9px 16px;border:1px solid #315bda;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;margin-top:12px}
+.buying-guide__body .guide-feature{padding:1px 28px 10px;background:#fff;border:1px solid var(--guide-line);border-radius:12px;margin:32px 0}
+.buying-guide__body .guide-feature h2{border:0;padding-top:0;margin-top:26px}
+.buying-guide__body .guide-feature p{font-size:16px}
+.buying-guide__related{padding-block:40px 80px;border-top:1px solid var(--guide-line)}
+.buying-guide__related .buying-guide__eyebrow{color:#595f75}
+.buying-guide__related h2{font:550 clamp(24px,3vw,36px)/1.2 var(--sans);letter-spacing:-.03em;color:#171a2b}
+.buying-guide__related>div{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:26px}
+.buying-guide__related a{display:flex;align-items:start;justify-content:space-between;gap:20px;background:#fff;border:1px solid var(--guide-line);border-radius:8px;color:#171a2b;font-size:15px;line-height:1.5;font-weight:550;padding:22px;text-decoration:none}
+.buying-guide__related a span{color:#315bda}
+@media(min-width:1000px){.buying-guide__contents summary span{display:none}}
+@media(max-width:1000px){.buying-guide__shell{width:calc(100% - 48px)}.buying-guide__hero-grid{gap:30px}.buying-guide__reading{grid-template-columns:1fr;gap:30px;padding-top:32px}.buying-guide__sidebar{position:static;max-height:none}.buying-guide__sidebar-note{display:none}.buying-guide__contents nav ol{display:grid;grid-template-columns:1fr 1fr;column-gap:24px}.buying-guide__body{max-width:800px;margin-inline:auto}}
+@media(max-width:650px){.buying-guide__shell{width:calc(100% - 40px)}.buying-guide__hero{padding-bottom:32px}.buying-guide__crumbs{font-size:10px;margin-bottom:32px;gap:9px}.buying-guide__hero-grid{grid-template-columns:1fr;gap:26px}.buying-guide h1{font-size:38px}.buying-guide__dek{font-size:16px;margin-block:20px}.buying-guide__cover{max-width:100%}.buying-guide__cover figcaption{font-size:10px}.buying-guide__eyebrow span{display:none}.buying-guide__byline{font-size:10px}.buying-guide__jump{margin-top:10px;padding-block:12px}.buying-guide__body{font-size:16px;line-height:1.75}.buying-guide__body>p:first-child{font-size:19px}.buying-guide__body h2{margin-top:46px;font-size:27px;padding-top:24px}.buying-guide__body table{font-size:12px}.buying-guide__body :is(th,td){padding:13px 14px;min-width:155px}.buying-guide__body .guide-feature{padding-inline:18px;margin-block:26px}.buying-guide__body .guide-feature h2{font-size:25px}.buying-guide__body .guide-feature p{font-size:15px}.buying-guide__contents nav ol{display:block}.buying-guide__related>div{grid-template-columns:1fr}.buying-guide__related{padding-bottom:48px}}
+@media(prefers-reduced-motion:reduce){.buying-guide *{scroll-behavior:auto!important}}

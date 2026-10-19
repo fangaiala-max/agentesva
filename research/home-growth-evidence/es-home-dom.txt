@@ -1,0 +1,413 @@
+- link "Saltar al contenido":
+  - /url: "#main-content"
+- banner:
+  - link "AgentesVA — inicio":
+    - /url: /es/
+    - text: AgentesVA
+    - generic: Inteligencia aplicada
+  - navigation "Navegación principal":
+    - link "Servicios":
+      - /url: /servicios/
+    - link "Cómo trabajamos":
+      - /url: /como-trabajamos/
+    - link "Precios":
+      - /url: /precios-automatizacion-ia/
+    - generic "Explorar IA⌄"
+  - link "Read this page in English":
+    - /url: /
+    - text: EN
+  - button "Buscar en el sitio": ⌕
+  - link "Evaluar mi proceso":
+    - /url: /diagnostico-automatizacion-ia/?placement=header&service=general_consulting
+    - text: Evaluar mi proceso
+    - generic: ↗
+- main:
+  - region "Menos tareas repetidas. Más tiempo para tus clientes.":
+    - generic: Automatización con IA para pymes
+    - heading "Menos tareas repetidas. Más tiempo para tus clientes." [level=1]:
+      - text: Menos tareas repetidas.
+      - text: Más tiempo para tus clientes.
+    - paragraph: Creamos automatizaciones con IA para responder consultas, hacer seguimiento comercial y pasar datos entre herramientas. Empezamos por una tarea recurrente. Tu equipo decide qué necesita aprobación.
+    - link "Obtener mi diagnóstico gratuito":
+      - /url: /diagnostico-automatizacion-ia/?placement=hero&service=general_consulting
+      - text: Obtener mi diagnóstico gratuito
+      - generic: ↗
+    - link "Probar la demo":
+      - /url: "#demo"
+    - paragraph: 8 preguntas · Unos 3 minutos · Ve tu recomendación antes de dejar tu email.
+    - figure "De tareas dispersas a un siguiente paso claro.":
+      - generic: De tareas dispersas a un siguiente paso claro.
+      - generic: ↗
+      - strong: Seguimiento
+      - generic: Un contacto pendiente
+      - generic: ≋
+      - strong: Factura
+      - generic: Un importe por revisar
+      - generic: ↩
+      - strong: Mensaje
+      - generic: Una respuesta por redactar
+      - generic: AV
+      - strong: Flujo conectado
+      - generic: Clasifica. Revisa. Prepara.
+      - generic: ✓
+      - strong: Tu equipo decide.
+      - text: Borradores listos.
+      - text: Excepciones señaladas.
+      - generic: Revisión humana
+      - status: Tareas dispersas. Falta un sistema.
+      - button "Pausar"
+      - button "Repetir" [disabled]
+      - paragraph: Flujo ilustrativo. Sin datos reales ni envío de mensajes.
+    - generic: Atención al cliente, ventas y operaciones. Conectadas.
+    - link "Explorar qué construimos":
+      - /url: "#services"
+      - text: Explorar qué construimos
+      - generic: ↓
+  - heading "¿Qué repite tu equipo cada día?" [level=2]:
+    - text: ¿Qué repite tu equipo
+    - text: cada día?
+  - paragraph:
+    - text: Elige una tarea que reconozcas.
+    - text: Descubre qué podemos automatizar y dónde interviene tu equipo.
+  - link "Atención al cliente ¿Respondes las mismas preguntas una y otra vez? Clasifica mensajes, prepara respuestas con información aprobada y deriva los casos inusuales a tu equipo. Qué medir Compara el tiempo de preparación de respuestas y las correcciones de tu equipo.":
+    - /url: /servicios/automatizacion-atencion-cliente/
+    - heading "Atención al cliente" [level=3]
+    - paragraph: ¿Respondes las mismas preguntas una y otra vez? Clasifica mensajes, prepara respuestas con información aprobada y deriva los casos inusuales a tu equipo.
+    - paragraph:
+      - strong: Qué medir
+      - text: Compara el tiempo de preparación de respuestas y las correcciones de tu equipo.
+    - generic: ↗
+  - link "Ventas y seguimiento ¿Llevas el seguimiento de memoria? Conecta formularios con tu CRM, asigna cada consulta y prepara el siguiente mensaje para revisión. Qué medir Revisa las consultas sin asignar y el tiempo hasta el siguiente contacto.":
+    - /url: /servicios/automatizacion-ventas/
+    - heading "Ventas y seguimiento" [level=3]
+    - paragraph: ¿Llevas el seguimiento de memoria? Conecta formularios con tu CRM, asigna cada consulta y prepara el siguiente mensaje para revisión.
+    - paragraph:
+      - strong: Qué medir
+      - text: Revisa las consultas sin asignar y el tiempo hasta el siguiente contacto.
+    - generic: ↗
+  - link "Operaciones ¿Copias datos de correos y documentos? Lleva la información validada a tus herramientas y detecta datos incompletos o incoherentes. Qué medir Compara el tiempo de copia de datos y los errores que requieren revisión.":
+    - /url: /servicios/automatizacion-procesos/
+    - heading "Operaciones" [level=3]
+    - paragraph: ¿Copias datos de correos y documentos? Lleva la información validada a tus herramientas y detecta datos incompletos o incoherentes.
+    - paragraph:
+      - strong: Qué medir
+      - text: Compara el tiempo de copia de datos y los errores que requieren revisión.
+    - generic: ↗
+  - region "Prueba una automatización.":
+    - text: 01 / EXPLORA EL SISTEMA
+    - heading "Prueba una automatización." [level=2]:
+      - text: Prueba una
+      - emphasis: automatización.
+    - paragraph:
+      - text: Una entrada, un flujo y una decisión.
+      - text: Elige un caso y observa qué hace el sistema.
+    - generic: Demostración interactiva · datos de ejemplo
+    - generic: Simulación local
+    - tablist "Área de automatización":
+      - tab "Atención" [selected]: ◌Atención
+      - tab "Ventas": ↗Ventas
+      - tab "Operaciones": ▤Operaciones
+    - tabpanel "Atención":
+      - heading "Una consulta. Un siguiente paso claro." [level=3]
+      - paragraph: Organiza los mensajes, prepara una respuesta y deja la decisión en manos de tu equipo.
+      - article:
+        - generic: ENTRADA
+        - generic: ↘
+        - generic: Elige un ejemplo
+        - combobox "Elige un ejemplo":
+          - option "Consulta sobre un pedido" [selected]
+          - option "Falta el número de pedido"
+        - text: Mensaje de ejemplo
+        - paragraph: Hola, ¿cuándo llega mi pedido AV-2048? Lo necesito para el viernes.
+        - text: Contenido ficticio · no se enviará
+      - generic: FLUJO
+      - list:
+        - generic: "01"
+        - strong: Mensaje recibido
+        - generic: En espera
+        - generic: "02"
+        - strong: Clasificación
+        - generic: En espera
+        - generic: "03"
+        - strong: Borrador de respuesta
+        - generic: En espera
+        - generic: "04"
+        - strong: Revisión humana
+        - generic: En espera
+      - article:
+        - generic: RESULTADO
+        - generic: AV-2048
+        - generic: Listo para ejecutar
+        - term: Referencia
+        - definition: AV-2048
+        - term: Tipo de consulta
+        - definition: Estado del pedido
+        - term: Responsable
+        - definition: Equipo de atención
+        - paragraph: Ejecuta el ejemplo para ver el resultado y el siguiente paso.
+        - generic: ◎
+        - paragraph: Una persona confirma la fecha y aprueba el envío.
+      - button "Ejecutar demo ↗"
+      - button "Restablecer"
+      - status: "Ejemplo preparado: Consulta sobre un pedido. Pulsa Ejecutar demo."
+      - paragraph: Prototipo ilustrativo. No es un sistema de cliente ni un producto a la venta. No usa IA en vivo ni envía mensajes.
+      - link "Explorar este servicio ↗":
+        - /url: /servicios/automatizacion-atencion-cliente/
+  - region "¿Compensa automatizar esta tarea?":
+    - text: Antes de invertir
+    - heading "¿Compensa automatizar esta tarea?" [level=2]
+    - paragraph: Empieza por una tarea recurrente. Estas cuatro preguntas te ayudan a comparar el trabajo que genera con el coste y el esfuerzo de cambiarla.
+    - paragraph: A veces basta con configurar mejor las herramientas que ya usas. Si el proceso cambia cada vez, definirlo puede ser el mejor siguiente paso.
+    - link "Encontrar mi punto de partida":
+      - /url: /diagnostico-automatizacion-ia/?placement=value_decision&service=general_consulting
+      - text: Encontrar mi punto de partida
+      - generic: ↗
+    - list:
+      - generic: "01"
+      - heading "Frecuencia" [level=3]
+      - paragraph: ¿Cuántas veces por semana se repite esta tarea?
+      - generic: "02"
+      - heading "Tiempo" [level=3]
+      - paragraph: ¿Cuánto lleva cada caso, incluidas las comprobaciones y correcciones?
+      - generic: "03"
+      - heading "Herramientas y costes" [level=3]
+      - paragraph: ¿Podrían resolverlo tus herramientas actuales? Incluye licencias y soporte en la comparación.
+      - generic: "04"
+      - heading "Personas y excepciones" [level=3]
+      - paragraph: ¿Quién operará el flujo, revisará las excepciones y aprobará el resultado?
+  - region "Un proceso. Un alcance claro.":
+    - text: Una forma práctica de empezar
+    - heading "Un proceso. Un alcance claro." [level=2]:
+      - text: Un proceso.
+      - text: Un alcance claro.
+    - paragraph:
+      - text: Ten claro qué contratas en cada paso.
+      - text: Acordamos el alcance antes de implementar.
+    - article:
+      - text: "01"
+      - heading "Elige por dónde empezar" [level=3]
+      - paragraph: Responde 8 preguntas sobre tu proceso y recibe una prioridad inicial y un siguiente paso.
+      - strong: Gratis
+      - generic: Diagnóstico inicial · Unos 3 minutos
+    - article:
+      - text: "02"
+      - heading "Define el alcance" [level=3]
+      - paragraph: Si el proceso necesita más definición, concretamos las herramientas, las excepciones y los criterios para aceptar la entrega.
+      - strong: Desde 300 €
+      - generic: Taller de alcance, cuando sea necesario
+    - article:
+      - text: "03"
+      - heading "Construimos y entregamos" [level=3]
+      - paragraph: Recibe un flujo operativo, pruebas, documentación y formación para la persona que lo gestionará.
+      - strong: Desde 1.500 €
+      - generic: Normalmente 2–4 semanas · Alcance definido
+    - paragraph: Precios iniciales orientativos. La propuesta depende de herramientas, datos, permisos y excepciones. IVA y costes de terceros se detallan por separado.
+    - link "Explorar precios y alcance":
+      - /url: /precios-automatizacion-ia/
+    - link "Cómo trabajamos":
+      - /url: /como-trabajamos/
+    - generic "Ver la documentación de esta demo"
+    - generic "Preparado para quien lo va a usar.":
+      - heading "Preparado para quien lo va a usar." [level=3]
+      - term: Flujo operativo
+      - definition: Para la tarea y las herramientas acordadas en el alcance.
+      - term: Casos probados
+      - definition: Para comprobar el comportamiento esperado y las excepciones que debe revisar tu equipo.
+      - term: Documentación y formación
+      - definition: Instrucciones y formación para la persona responsable de operar el flujo. El soporte continuo se acuerda por separado.
+  - region "Conectamos las herramientas que ya utilizas.":
+    - text: 02 / CONEXIONES ÚTILES
+    - heading "Conectamos las herramientas que ya utilizas." [level=2]
+    - paragraph: Diseñamos el recorrido entre tus canales, tus datos y tu equipo. La conexión concreta se valida según accesos, permisos y alcance.
+    - link "Explorar servicios":
+      - /url: /servicios/
+      - text: Explorar servicios
+      - generic: ↗
+    - list:
+      - generic: ◌
+      - strong: Mensajería
+      - generic: ↗
+      - strong: CRM
+      - generic: ▤
+      - strong: Documentos
+      - generic: ▦
+      - strong: Hojas de cálculo
+    - list:
+      - generic: ◌
+      - strong: Mensajería
+      - generic: ↗
+      - strong: CRM
+      - generic: ▤
+      - strong: Documentos
+      - generic: ▦
+      - strong: Hojas de cálculo
+    - list:
+      - generic: ☷
+      - strong: Formularios
+      - generic: ✉
+      - strong: Correo
+      - generic: ◎
+      - strong: Revisión humana
+      - generic: ⌘
+      - strong: Flujos de trabajo
+    - list:
+      - generic: ☷
+      - strong: Formularios
+      - generic: ✉
+      - strong: Correo
+      - generic: ◎
+      - strong: Revisión humana
+      - generic: ⌘
+      - strong: Flujos de trabajo
+    - generic: Categorías de sistemas · alcance a validar
+    - button "Pausar movimiento"
+  - region "¿Qué se repite en tu semana?":
+    - heading "¿Qué se repite en tu semana?" [level=2]:
+      - text: ¿Qué se repite
+      - text: en tu semana?
+    - paragraph: Responde 8 preguntas para saber si el siguiente paso es implementar, definir el alcance en un taller o preparar mejor el proceso.
+    - link "Obtener mi diagnóstico gratuito":
+      - /url: /diagnostico-automatizacion-ia/?placement=mid_page&service=general_consulting
+      - text: Obtener mi diagnóstico gratuito
+      - generic: ↗
+    - generic: 8 preguntas · Unos 3 minutos · Ve tu recomendación antes de dejar tu email.
+  - region "¿Quieres entender la IA antes de contratar?":
+    - text: Aprende para decidir
+    - heading "¿Quieres entender la IA antes de contratar?" [level=2]:
+      - text: ¿Quieres entender la IA
+      - text: antes de contratar?
+    - paragraph: Compara herramientas, lee una guía o prueba un prompt con una tarea que conozcas. Usa estos recursos para decidir qué necesita tu negocio.
+    - link "Encuentra una herramienta de IA":
+      - /url: /herramientas/
+      - text: Encuentra una herramienta de IA
+      - generic: ↗
+    - link "Lee una guía práctica":
+      - /url: /guias/
+      - text: Lee una guía práctica
+      - generic: ↗
+    - link "Explora nuestros estudios":
+      - /url: /estudios/
+      - text: Explora nuestros estudios
+      - generic: ↗
+    - text: Un punto de partida para hoy
+    - heading "Dale a la IA mejores instrucciones." [level=3]:
+      - text: Dale a la IA
+      - text: mejores instrucciones.
+    - paragraph: Una tarea clara, contexto útil y una definición del resultado esperado. Explora prompts para el trabajo diario de tu negocio.
+    - link "Explorar la biblioteca de prompts":
+      - /url: /prompts/
+    - paragraph:
+      - text: "También disponibles:"
+      - link "Cursos de IA":
+        - /url: /cursos/
+      - text: "y"
+      - link "recursos descargables":
+        - /url: /recursos/
+      - text: .
+  - region "Antes de empezar.":
+    - heading "Antes de empezar." [level=2]
+    - paragraph: Alcance, costes y pruebas que puedes revisar.
+    - generic "¿Cómo sé si mi negocio está preparado?"
+    - paragraph: Empieza por una tarea que se repita, una persona responsable y acceso a las herramientas y ejemplos del proceso. Si cambia cada vez o no tiene un responsable claro, conviene definirlo primero. El diagnóstico gratuito te orienta sobre el siguiente paso; la viabilidad se comprueba antes de implementar.
+    - link "Evaluar mi proceso":
+      - /url: /diagnostico-automatizacion-ia/?placement=faq&service=general_consulting
+    - generic "¿Podemos seguir usando nuestras herramientas?"
+    - generic "¿Cuánto cuesta un proyecto de automatización?"
+    - generic "¿Cuánto tarda la implementación?"
+    - generic "¿Qué muestra la demostración?"
+    - generic "¿Qué ocurre después de la entrega?"
+  - region "¿Quién está detrás de AgentesVA?":
+    - heading "¿Quién está detrás de AgentesVA?" [level=2]
+    - paragraph: "AgentesVA desarrolla automatizaciones con IA para pequeños negocios en 3 áreas: atención al cliente, seguimiento de ventas y operaciones. También publicamos herramientas, guías y estudios prácticos sobre IA en español e inglés."
+    - term: Fundadora
+    - definition:
+      - text: Elizabeth Salguero.
+      - link "Perfil profesional en LinkedIn":
+        - /url: https://www.linkedin.com/in/elizabethsalguero/
+      - text: .
+    - term: Estrategia y dirección editorial
+    - definition:
+      - text: Fernando Angulo.
+      - link "Web profesional":
+        - /url: https://fernandoangulo.com
+      - text: ·
+      - link "LinkedIn":
+        - /url: https://www.linkedin.com/in/fernandoangulo/
+      - text: .
+    - term: Pruebas que puedes revisar
+    - definition:
+      - text: "La demo interactiva contiene 6 casos ficticios: 2 por cada área de servicio. La documentación detalla entradas, excepciones, revisión humana y comprobaciones de aceptación."
+      - link "Leer la documentación de la demo (inglés)":
+        - /url: /examples/demo-handover.md
+      - text: .
+    - term: Criterios editoriales
+    - definition:
+      - text: Nuestras valoraciones de herramientas se basan en fuentes públicas. La metodología explica los criterios de selección, los enlaces de afiliación, las limitaciones y las correcciones.
+      - link "Consultar la metodología":
+        - /url: /metodologia/
+      - text: .
+    - term: Contacto y perfil oficial
+    - definition:
+      - link "hola@agentesva.com":
+        - /url: mailto:hola@agentesva.com
+      - text: ·
+      - link "Instagram":
+        - /url: https://www.instagram.com/agentesva/
+      - text: ·
+      - link "Facebook":
+        - /url: https://www.facebook.com/agentesva/
+      - text: ·
+      - link "Datos del titular":
+        - /url: /aviso-legal/
+- contentinfo:
+  - link "AgentesVA — inicio":
+    - /url: /es/
+    - text: AgentesVA
+    - generic: Inteligencia aplicada
+  - paragraph: Automatización útil. Sistemas claros. Personas al mando.
+  - link "hola@agentesva.com":
+    - /url: mailto:hola@agentesva.com
+  - navigation "Trabajemos juntos":
+    - heading "Trabajemos juntos" [level=2]
+    - link "Servicios":
+      - /url: /servicios/
+    - link "Precios":
+      - /url: /precios-automatizacion-ia/
+    - link "Cómo trabajamos":
+      - /url: /como-trabajamos/
+    - link "Diagnóstico gratuito":
+      - /url: /diagnostico-automatizacion-ia/?placement=contextual&service=general_consulting
+  - navigation "Explora la IA":
+    - heading "Explora la IA" [level=2]
+    - link "Herramientas":
+      - /url: /herramientas/
+    - link "Guías":
+      - /url: /guias/
+    - link "Estudios":
+      - /url: /estudios/
+    - link "Cursos":
+      - /url: /cursos/
+    - link "Recursos":
+      - /url: /recursos/
+    - link "Prompts":
+      - /url: /prompts/
+    - link "Noticias":
+      - /url: /noticias/
+  - navigation "Sobre este sitio":
+    - heading "Sobre este sitio" [level=2]
+    - link "Metodología":
+      - /url: /metodologia/
+    - link "Generador de prompts":
+      - /url: /generador-de-prompts/
+    - link "Newsletter":
+      - /url: /newsletter/
+    - link "Privacidad":
+      - /url: /privacidad/
+    - link "Cookies":
+      - /url: /cookies/
+    - link "Aviso legal":
+      - /url: /aviso-legal/
+    - link "English":
+      - /url: /
+  - generic: © 2026 AgentesVA
+  - generic: Automatización con IA para pequeños negocios

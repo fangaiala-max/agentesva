@@ -1,0 +1,400 @@
+- link "Skip to content":
+  - /url: "#main-content"
+- banner:
+  - link "AgentesVA — home":
+    - /url: /
+    - text: AgentesVA
+    - generic: Applied intelligence
+  - navigation "Main navigation":
+    - link "Services":
+      - /url: /services/
+    - link "How we work":
+      - /url: /how-we-work/
+    - link "Pricing":
+      - /url: /pricing/
+    - generic "Explore AI⌄"
+  - link "Ver esta página en español":
+    - /url: /es/
+    - text: ES
+  - button "Search the site": ⌕
+  - link "Get my free automation assessment":
+    - /url: /assessment/?placement=header&service=general_consulting
+    - text: Get my free automation assessment
+    - generic: ↗
+- main:
+  - region "Less repetitive work. More time for customers.":
+    - generic: AI automation for small businesses
+    - heading "Less repetitive work. More time for customers." [level=1]:
+      - text: Less repetitive work.
+      - text: More time for customers.
+    - paragraph: We build AI workflows for customer enquiries, sales follow-up, and copying data between tools. Start with one recurring task. Your team decides what needs approval.
+    - link "Get my free automation assessment":
+      - /url: /assessment/?placement=hero&service=general_consulting
+      - text: Get my free automation assessment
+      - generic: ↗
+    - link "Try the demo":
+      - /url: "#demo"
+    - paragraph: 8 questions · About 3 minutes · See your recommendation before sharing your email.
+    - figure "From scattered tasks to a clear next step.":
+      - generic: From scattered tasks to a clear next step.
+      - generic: ↗
+      - strong: Follow-up
+      - generic: A lead waiting
+      - generic: ≋
+      - strong: Invoice
+      - generic: A total to check
+      - generic: ↩
+      - strong: Message
+      - generic: A reply to draft
+      - generic: AV
+      - strong: Connected flow
+      - generic: Sort. Check. Prepare.
+      - generic: ✓
+      - strong: Your team decides.
+      - text: Drafts ready.
+      - text: Exceptions flagged.
+      - generic: Human review
+      - status: Ready for human review.
+      - button "Pause" [disabled]
+      - button "Replay"
+      - paragraph: Illustrative workflow. No live data or messages sent.
+    - generic: Customer support, sales, and operations. Connected.
+    - link "Explore what we build":
+      - /url: "#services"
+      - text: Explore what we build
+      - generic: ↓
+  - heading "What does your team keep doing by hand?" [level=2]:
+    - text: What does your team
+    - text: keep doing by hand?
+  - paragraph:
+    - text: Choose a task you recognise.
+    - text: See what we can automate and where your team steps in.
+  - link "Customer support Answering the same questions again? Sort incoming messages, prepare answers from approved information, and send unusual cases to your team. What to measure Compare response preparation time and the corrections your team makes.":
+    - /url: /services/customer-support/
+    - heading "Customer support" [level=3]
+    - paragraph: Answering the same questions again? Sort incoming messages, prepare answers from approved information, and send unusual cases to your team.
+    - paragraph:
+      - strong: What to measure
+      - text: Compare response preparation time and the corrections your team makes.
+    - generic: ↗
+  - link "Sales & follow-up Following up from memory? Connect forms to your CRM, assign each enquiry, and prepare the next message for review. What to measure Track unassigned enquiries and time to the next follow-up.":
+    - /url: /services/sales/
+    - heading "Sales & follow-up" [level=3]
+    - paragraph: Following up from memory? Connect forms to your CRM, assign each enquiry, and prepare the next message for review.
+    - paragraph:
+      - strong: What to measure
+      - text: Track unassigned enquiries and time to the next follow-up.
+    - generic: ↗
+  - link "Operations Copying data from emails and documents? Move validated information into your tools and flag missing or inconsistent details. What to measure Compare time spent copying data and errors that need review.":
+    - /url: /services/operations/
+    - heading "Operations" [level=3]
+    - paragraph: Copying data from emails and documents? Move validated information into your tools and flag missing or inconsistent details.
+    - paragraph:
+      - strong: What to measure
+      - text: Compare time spent copying data and errors that need review.
+    - generic: ↗
+  - region "See the workflow. Try the exceptions.":
+    - text: Explore a working example
+    - heading "See the workflow. Try the exceptions." [level=2]:
+      - text: See the workflow.
+      - text: Try the exceptions.
+    - paragraph:
+      - text: One input, a workflow, and a decision.
+      - text: Choose a case and see what happens next.
+    - generic: Interactive demonstration · sample data
+    - generic: Local simulation
+    - tablist "Automation area":
+      - tab "Support" [selected]: ◌Support
+      - tab "Sales": ↗Sales
+      - tab "Operations": ▤Operations
+    - tabpanel "Support":
+      - heading "One question. One clear next step." [level=3]
+      - paragraph: Organize messages, prepare a response, and leave the decision with your team.
+      - article:
+        - generic: Input
+        - generic: ↘
+        - generic: Choose an example
+        - combobox "Choose an example":
+          - option "Order status question" [selected]
+          - option "Missing order number"
+        - text: Sample message
+        - paragraph: Hi, when will my order AV-2048 arrive? I need it by Friday.
+        - text: Fictional content · nothing is sent
+      - button "Run the demo ↗"
+      - button "Reset"
+      - status: "Example ready: Order status question. Select Run the demo."
+      - article:
+        - generic: Result
+        - generic: AV-2048
+        - generic: Ready to run
+        - term: Reference
+        - definition: AV-2048
+        - term: Question type
+        - definition: Order status
+        - term: Owner
+        - definition: Support team
+        - paragraph: Run the example to see the result and the next step.
+        - generic: ◎
+        - paragraph: A person confirms the date and approves the message.
+      - generic "See the workflow steps"
+      - paragraph: An illustrative prototype using sample data. No live AI calls, customer systems, or messages sent.
+      - link "Explore this service ↗":
+        - /url: /services/customer-support/
+  - region "Is this task worth automating?":
+    - text: Before you invest
+    - heading "Is this task worth automating?" [level=2]
+    - paragraph: Start with one recurring task. Use these four questions to weigh the work it creates against the cost and effort of changing it.
+    - paragraph: Sometimes, a better setup of your current tools is enough. If the process keeps changing, defining it first may be the better next step.
+    - link "Find my starting point":
+      - /url: /assessment/?placement=value_decision&service=general_consulting
+      - text: Find my starting point
+      - generic: ↗
+    - list:
+      - generic: "01"
+      - heading "Frequency" [level=3]
+      - paragraph: How many times a week does this task happen?
+      - generic: "02"
+      - heading "Time" [level=3]
+      - paragraph: How long does each case take, including checks and corrections?
+      - generic: "03"
+      - heading "Tools & costs" [level=3]
+      - paragraph: Could your existing tools solve it? Include licenses and ongoing support in the comparison.
+      - generic: "04"
+      - heading "People & exceptions" [level=3]
+      - paragraph: Who will run the workflow, review exceptions and approve the result?
+  - region "One process. A clear scope.":
+    - text: A practical way to start
+    - heading "One process. A clear scope." [level=2]:
+      - text: One process.
+      - text: A clear scope.
+    - paragraph:
+      - text: Know what you are buying at each step.
+      - text: Agree the scope before implementation.
+    - article:
+      - text: "01"
+      - heading "Choose where to start" [level=3]
+      - paragraph: Answer 8 questions about your process and receive an initial priority and next step.
+      - strong: Free
+      - generic: Initial assessment · About 3 minutes
+    - article:
+      - text: "02"
+      - heading "Define the scope" [level=3]
+      - paragraph: When the task needs more definition, map the tools, exceptions, and criteria for a successful delivery.
+      - strong: From €300
+      - generic: A scope workshop, when needed
+    - article:
+      - text: "03"
+      - heading "Build & hand over" [level=3]
+      - paragraph: Receive a working workflow, tests, documentation, and training for the person who will run it.
+      - strong: From €1,500
+      - generic: Typically 2–4 weeks · Defined scope
+    - paragraph: Indicative starting prices. Your proposal depends on tools, data, permissions, and exceptions. VAT and third-party costs are detailed separately.
+    - link "Explore pricing and scope":
+      - /url: /pricing/
+    - link "How we work":
+      - /url: /how-we-work/
+    - generic "See the documentation behind this demo"
+    - generic "Ready for the person who will run it.":
+      - heading "Ready for the person who will run it." [level=3]
+      - term: Working workflow
+      - definition: For the task and tools agreed in your scope.
+      - term: Tested cases
+      - definition: To check the expected behaviour and the exceptions your team needs to review.
+      - term: Documentation & training
+      - definition: Instructions and training for the person responsible for operating the workflow. Ongoing support is agreed separately.
+  - region "Your tools. Working together.":
+    - text: Connect the tools you use
+    - heading "Your tools. Working together." [level=2]
+    - paragraph: We connect your channels, data, and team. Each integration is checked against the access, permissions, and scope of your project.
+    - link "Explore services":
+      - /url: /services/
+      - text: Explore services
+      - generic: ↗
+    - list:
+      - generic: ◌
+      - strong: Messaging
+      - generic: ↗
+      - strong: CRM
+      - generic: ▤
+      - strong: Documents
+      - generic: ▦
+      - strong: Spreadsheets
+    - list:
+      - generic: ◌
+      - strong: Messaging
+      - generic: ↗
+      - strong: CRM
+      - generic: ▤
+      - strong: Documents
+      - generic: ▦
+      - strong: Spreadsheets
+    - list:
+      - generic: ☷
+      - strong: Forms
+      - generic: ✉
+      - strong: Email
+      - generic: ◎
+      - strong: Human review
+      - generic: ⌘
+      - strong: Workflows
+    - list:
+      - generic: ☷
+      - strong: Forms
+      - generic: ✉
+      - strong: Email
+      - generic: ◎
+      - strong: Human review
+      - generic: ⌘
+      - strong: Workflows
+    - generic: System categories · connections depend on scope
+    - button "Pause movement"
+  - region "What keeps repeating in your week?":
+    - heading "What keeps repeating in your week?" [level=2]:
+      - text: What keeps repeating
+      - text: in your week?
+    - paragraph: Answer 8 questions to see whether your next step is implementation, a scope workshop, or more preparation.
+    - link "Get my free automation assessment":
+      - /url: /assessment/?placement=mid_page&service=general_consulting
+      - text: Get my free automation assessment
+      - generic: ↗
+    - generic: 8 questions · About 3 minutes · See your recommendation before sharing your email.
+  - region "Still exploring what AI can do?":
+    - text: Build your understanding
+    - heading "Still exploring what AI can do?" [level=2]:
+      - text: Still exploring
+      - text: what AI can do?
+    - paragraph: Compare tools, read a guide, or try a prompt on a task you already know. Use the resources to decide what your business needs.
+    - link "Find an AI tool":
+      - /url: /tools/
+      - text: Find an AI tool
+      - generic: ↗
+    - link "Read a practical guide":
+      - /url: /guides/
+      - text: Read a practical guide
+      - generic: ↗
+    - link "Explore our research":
+      - /url: /research/
+      - text: Explore our research
+      - generic: ↗
+    - text: A starting point you can use today
+    - heading "Give the AI a better brief." [level=3]:
+      - text: Give the AI
+      - text: a better brief.
+    - paragraph: A clear task, useful context, and a definition of a good result. Explore practical prompts for everyday business work.
+    - link "Explore the prompt library":
+      - /url: /prompt-library/
+    - paragraph:
+      - text: "Also available:"
+      - link "AI courses":
+        - /url: /courses/
+      - text: and
+      - link "downloadable resources":
+        - /url: /resources/
+      - text: .
+  - region "Before you start.":
+    - heading "Before you start." [level=2]
+    - paragraph: Scope, costs and evidence you can inspect.
+    - generic "How do I know if my business is ready?"
+    - paragraph: Start with a task that repeats, a person who owns it, and access to the tools and examples involved. If the process changes every time or has no clear owner, define it first. The free assessment helps you choose an initial next step; feasibility is checked before implementation.
+    - link "Assess my process":
+      - /url: /assessment/?placement=faq&service=general_consulting
+    - generic "Can we keep our current tools?"
+    - generic "How much does an automation project cost?"
+    - generic "How long does implementation take?"
+    - generic "What does the working demo show?"
+    - generic "What happens after handover?"
+  - region "Who is behind AgentesVA?":
+    - heading "Who is behind AgentesVA?" [level=2]
+    - paragraph: "AgentesVA builds AI automation for small businesses in 3 areas: customer support, sales follow-up and operations. We also publish practical AI tools, guides and research in English and Spanish."
+    - term: Founder
+    - definition:
+      - text: Elizabeth Salguero.
+      - link "Professional profile on LinkedIn":
+        - /url: https://www.linkedin.com/in/elizabethsalguero/
+      - text: .
+    - term: Strategy and editorial direction
+    - definition:
+      - text: Fernando Angulo.
+      - link "Professional website":
+        - /url: https://fernandoangulo.com
+      - text: ·
+      - link "LinkedIn":
+        - /url: https://www.linkedin.com/in/fernandoangulo/
+      - text: .
+    - term: Evidence you can inspect
+    - definition:
+      - text: "Our interactive demo contains 6 fictional cases: 2 for each service area. The handover documents inputs, exceptions, human review and acceptance checks."
+      - link "Read the demo documentation":
+        - /url: /examples/demo-handover.md
+      - text: .
+    - term: Editorial standards
+    - definition:
+      - text: Our tool assessments draw on public sources. The methodology explains selection criteria, affiliate links, limitations and corrections.
+      - link "Read our methodology":
+        - /url: /editorial-methodology/
+      - text: .
+    - term: Contact and official profile
+    - definition:
+      - link "hola@agentesva.com":
+        - /url: mailto:hola@agentesva.com
+      - text: ·
+      - link "Instagram":
+        - /url: https://www.instagram.com/agentesva/
+      - text: ·
+      - link "Facebook":
+        - /url: https://www.facebook.com/agentesva/
+      - text: ·
+      - link "Business information":
+        - /url: /legal/
+- contentinfo:
+  - link "AgentesVA — home":
+    - /url: /
+    - text: AgentesVA
+    - generic: Applied intelligence
+  - paragraph: Useful automation. Clear systems. People in control.
+  - link "hola@agentesva.com":
+    - /url: mailto:hola@agentesva.com
+  - navigation "Work with us":
+    - heading "Work with us" [level=2]
+    - link "Services":
+      - /url: /services/
+    - link "Pricing":
+      - /url: /pricing/
+    - link "How we work":
+      - /url: /how-we-work/
+    - link "Free assessment":
+      - /url: /assessment/?placement=contextual&service=general_consulting
+  - navigation "Explore AI":
+    - heading "Explore AI" [level=2]
+    - link "Tools":
+      - /url: /tools/
+    - link "Guides":
+      - /url: /guides/
+    - link "Research":
+      - /url: /research/
+    - link "Courses":
+      - /url: /courses/
+    - link "Resources":
+      - /url: /resources/
+    - link "Prompts":
+      - /url: /prompt-library/
+    - link "News":
+      - /url: /news/
+  - navigation "About this site":
+    - heading "About this site" [level=2]
+    - link "Editorial methodology":
+      - /url: /editorial-methodology/
+    - link "Newsletter (Spanish)":
+      - /url: /updates/
+    - link "Prompt builder":
+      - /url: /prompt-builder/
+    - link "Privacy":
+      - /url: /privacy/
+    - link "Cookies":
+      - /url: /cookie-policy/
+    - link "Legal notice":
+      - /url: /legal/
+    - link "Español":
+      - /url: /es/
+  - generic: © 2026 AgentesVA
+  - generic: AI automation for small businesses

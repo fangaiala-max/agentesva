@@ -56,6 +56,9 @@ for(const file of files(root).filter(f=>f.endsWith('/index.html'))){
  w.close();count++;
 }
 assert.equal(profiles,108);
-assert.equal((sitemap.match(/<loc>/g)||[]).length,298);
-console.log(`SEO verification passed: ${count} HTML pages, ${profiles} tool profiles, 298 sitemap URLs.`);
+assert.equal((sitemap.match(/<loc>/g)||[]).length,304);
+for(const section of ['guias','guides'])for(const slug of ['mejores-herramientas-automatizar-procesos','mejores-skills-claude-gratis-pago','mejores-herramientas-automatizar-redes-sociales']){
+ assert(sitemap.includes(`<loc>https://agentesva.com/${section}/${slug}/</loc>`),`${section}/${slug} full guide in sitemap`);
+}
+console.log(`SEO verification passed: ${count} HTML pages, ${profiles} tool profiles, 304 sitemap URLs.`);
 process.exit(0);

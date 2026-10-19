@@ -7,17 +7,17 @@
       "Prioritize fit and intent, not only arrival time.",
       "Stop reminders when someone responds and preserve the conversation in the CRM."
     ],
-    "body": "Map every source: forms, calls, events, messaging, campaigns, and referrals. For each one, record what information arrives, where it is stored, who responds, and the expected response time. A lead left in an unowned inbox is a process problem before it is a software problem. Start with a minimum useful record: source, need, contact details, applicable consent, owner, status, and next action. Automate speed and consistency while leaving valuable conversations to a person."
+    "body": "Map every source: forms, calls, events, messaging, campaigns, and referrals. Record what arrives, where it is stored, who responds, and the expected response time. Stop the sequence when the person responds, books, opts out, or changes status. Checked October 18, 2026: Google requires SPF or DKIM for senders to personal Gmail accounts. For senders exceeding 5,000 daily messages to those accounts, it requires SPF, DKIM, and DMARC, plus one-click unsubscribe and a visible unsubscribe link for marketing and subscribed messages. These channel requirements do not establish permission to contact a lead. Test replies, bounces, opt-outs, and duplicates before activation, including messages queued in another system. Preserve source, need, contact details, applicable permission, owner, status, and next action. Measure effective contacts and opportunities alongside response time."
   },
   "guides/automatizar-whatsapp-empresa": {
     "title": "Automate WhatsApp while keeping the human connection",
     "description": "Define what to automate, what information to connect, and when a person should take over.",
     "points": [
-      "Separate incoming customer messages from outgoing notifications.",
+      "Check the 24-hour service window and approved-template requirements before sending reminders.",
       "Connect conversations to your CRM, scheduling, or support system.",
       "Design the human handover and record of actions from the start."
     ],
-    "body": "WhatsApp is a channel, not a process. Start with a repeated conversation that ends in an observable outcome: an appointment, a coverage check, a document request, or a status update. Group recent messages into questions answered by stable information, questions that require a system lookup, and cases that need human judgment. Use that distinction to define the workflow. Validate the official platform requirements, permissions, and available integrations for the intended market before implementation."
+    "body": "WhatsApp is a channel, not a process. Start with a repeated conversation that ends in an observable outcome: an appointment, a document request, or a status update. Keep the human handover visible. Checked October 18, 2026: each customer message opens or resets a 24-hour service window. Outside it, an approved template is required. Record contact permission and honor opt-outs. Meta’s pricing is based on delivered messages and varies by recipient market and category; service messages in the window have no Meta charge. The provider may still charge for its platform. Estimate Meta and provider costs separately using your intended message mix."
   },
   "guides/chatbot-para-pymes": {
     "title": "A practical first chatbot for a small business",
@@ -58,17 +58,17 @@
       "Budget for exceptions, testing, and recovery from failures.",
       "Choose a first case with an outcome you can measure."
     ],
-    "body": "AgentesVA’s indicative starting prices are €300 for a scope workshop, €1,500 for a scoped implementation, €3,000 for several integrations, and €300 per month for support. A reliable quote considers systems, data, volume, permissions, exceptions, and the level of reliability required. Test duplicates, empty fields, expired permissions, API limits, and unavailable destination systems. Compare the investment with an observed baseline of time, errors, and business impact. A price that covers only the ideal path leaves important work unbudgeted."
+    "body": "AgentesVA’s indicative starting prices remain €300 for a scope workshop, €1,500 for a scoped implementation, €3,000 for several integrations, and €300 per month for support. These are starting references, not a fixed quote. Budget separately for software, variable usage, external APIs, applicable taxes, review work, and maintenance. A monthly headline may require an annual commitment; a temporary trial is different from a permanent free plan. Record normal volume, peaks, retries, account ownership, renewals, and the person handling exceptions. Compare the investment with an observed baseline of time, errors, and business impact. Subtract the work that remains after automation. A payback calculation requires a positive, reasonably stable net monthly benefit; time released is not automatically cash saved. Simplifying the process, using an existing application, or continuing manually can be valid alternatives."
   },
   "guides/make-vs-n8n-vs-zapier": {
     "title": "Make, n8n, or Zapier: choose around the workflow",
     "description": "Compare setup effort, control, maintenance, and operating cost using a representative process.",
     "points": [
       "Test an actual workflow rather than comparing integration counts.",
-      "Calculate execution and usage costs with your own volume.",
+      "Compare free-plan limits and measured usage; credits, tasks, and executions are different units.",
       "Include monitoring, maintenance, and the team’s technical capacity."
     ],
-    "body": "Zapier commonly suits familiar automations where straightforward setup matters. Make provides a visual canvas for branches and data transformations. n8n offers flexibility for teams that need custom logic or deployment options. Those broad distinctions are a starting point, not a substitute for testing. An advertised integration may not expose the event, action, or field your process needs. Verify current licenses and plans, then evaluate the whole operating cost, including the person responsible for keeping the workflow healthy."
+    "body": "Zapier commonly suits familiar automations where straightforward setup matters. Make provides a visual canvas for branches and data transformations. n8n offers flexibility for teams that need custom logic or deployment options. Checked October 18, 2026: Make Free includes 1,000 monthly credits; Core starts at US$12 per month billed annually, or US$16 on monthly billing, for 10,000 monthly credits. Zapier Free includes 100 monthly tasks and two-step Zaps; Professional starts at US$19.99 per month billed annually. n8n Cloud Starter costs €20 per month billed annually for 2,500 monthly executions; Community is self-hosted and Cloud offers a temporary trial. Credits, tasks, and executions are different units. Annual prices require the annual commitment. Verify the selected plan, taxes, external services, maintenance, and actual usage before buying. Try a native rule or a manual template first if it already solves the task."
   },
   "guides/medir-visibilidad-en-chatgpt": {
     "title": "Measure your brand’s visibility in ChatGPT",
@@ -299,5 +299,35 @@
       "Provide a clear route to a person."
     ],
     "body": "The original article discusses Meta’s business-agent direction and third-party tools for WhatsApp workflows. Product rollout, platform terms, and regional access can vary. Before implementation, confirm the official capabilities available to the business and connect conversations to the place where the team manages work. The English overview focuses on the practical workflow; the Spanish source retains the original announcement and references."
+  },
+  "guides/mejores-herramientas-automatizar-procesos": {
+    "title": "7 process automation tools: free and paid options",
+    "description": "Choose by the work you need to get done. Compare Make, Zapier, n8n and native alternatives, with free limits, costs and practical ways to evaluate them.",
+    "body": "The best tool completes a useful job and is something your team can maintain. If your process already lives inside one application, try its native automation first. To connect several applications without coding, start by comparing Make and Zapier. If you need technical control, compare n8n, Activepieces and Apps Script. In a Microsoft environment, include Power Automate.",
+    "points": [
+      "Start with a built-in feature if it solves the job.",
+      "Compare the cost of a completed job, not unlike billing units.",
+      "Assign an owner for failures and maintenance."
+    ]
+  },
+  "guides/mejores-skills-claude-gratis-pago": {
+    "title": "10 Claude skills and packs: free and paid options",
+    "description": "Choose skills for documents, marketing, design and development, with free alternatives, two paid packs and the costs to check before buying.",
+    "body": "Start with the work you repeat, rather than downloading a huge library. For documents, check Claude's included capabilities first. For your own way of working, consider creating a skill. If you need marketing, design or development help, select a library that fits that discipline. A paid pack earns its place when its preparation and maintenance save work you were actually going to do.",
+    "points": [
+      "Distinguish skills, plugins, connectors and the execution environment.",
+      "A pack price does not necessarily include APIs or external services.",
+      "Judge a skill by its output and the corrections it needs."
+    ]
+  },
+  "guides/mejores-herramientas-automatizar-redes-sociales": {
+    "title": "7 social media automation tools: free and paid options",
+    "description": "Compare tools for scheduling, reviewing and measuring social media. Free plans, costs per channel or brand and examples for starting with a small workflow.",
+    "body": "If you only need Facebook and Instagram, try Meta Business Suite first. For a simple queue across several networks, compare Buffer and Publer. If you need a view organized by brand and reporting, include Metricool. For a visual content operation, compare Later; for organizing reusable content, SocialBee; for work involving more coordination and community management, evaluate Hootsuite.",
+    "points": [
+      "A free queue is not a monthly allowance.",
+      "Calculate cost using your actual profiles, brands and people.",
+      "Confirm publication and keep a way to correct or remove content."
+    ]
   }
 }

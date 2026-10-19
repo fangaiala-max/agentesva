@@ -13,6 +13,7 @@ export const guideSchema = z.object({
   tema: z.string(),
   respuesta: z.string(),
   puntosClave: z.array(z.string()).min(3),
+  visual: z.enum(['processes', 'claude', 'social']).optional(),
   portada: z.object({
     src: internalPath,
     srcMovil: internalPath.optional(),

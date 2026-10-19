@@ -2,7 +2,7 @@
 titulo: "Cómo automatizar WhatsApp en una empresa sin perder el trato humano"
 descripcion: "Qué automatizar en WhatsApp, qué requiere la plataforma oficial y cómo diseñar una derivación humana que no frustre al cliente."
 fecha: 2026-08-05
-actualizado: 2026-08-05
+actualizado: 2026-10-18
 tema: WhatsApp para empresas
 respuesta: "Automatiza en WhatsApp la recepción, clasificación, respuestas operativas y avisos; conserva la intervención humana para excepciones, negociación y situaciones sensibles. Una implantación profesional debe usar la plataforma oficial, consentimiento y plantillas cuando sean necesarias, además de registrar el resultado en el sistema de trabajo."
 puntosClave:
@@ -36,6 +36,14 @@ fuentes:
   - titulo: "WhatsApp Business Platform documentation"
     url: "https://developers.facebook.com/docs/whatsapp/"
     editor: "Meta"
+  - titulo: "Precios de WhatsApp Business Platform"
+    url: "https://business.whatsapp.com/products/platform-pricing"
+    editor: "Meta"
+    fecha: "2026-10-18"
+  - titulo: "WhatsApp Business Messaging Policy"
+    url: "https://business.whatsapp.com/policy"
+    editor: "Meta"
+    fecha: "2026-10-18"
   - titulo: "General Data Protection Regulation"
     url: "https://commission.europa.eu/law/law-topic/data-protection/data-protection-eu_en"
     editor: "Comisión Europea"
@@ -53,12 +61,20 @@ Una primera automatización puede recibir el mensaje, reconocer el motivo, pedir
 
 Para solicitudes salientes —recordatorios, seguimiento o cambios de estado— registra la base de consentimiento, utiliza las plantillas exigidas por la plataforma y ofrece una forma sencilla de dejar de recibir mensajes.
 
+## Ventana de atención y plantillas: qué cambia en el flujo
+
+Según la [política de WhatsApp Business consultada el 18 de octubre de 2026](https://business.whatsapp.com/policy), cada mensaje del cliente abre o renueva una ventana de atención de **24 horas**. Dentro puedes responder sin plantilla; fuera, necesitas una plantilla aprobada. Conserva el permiso de contacto y respeta las bajas. La aprobación de una plantilla no sustituye ese permiso.
+
+**Ejemplo propuesto:** una persona pide presupuesto hoy; si el recordatorio sale cuando la ventana ha caducado, el flujo debe comprobar el permiso y usar la plantilla apropiada. Si no puede hacerlo, crea una tarea para revisar el siguiente paso. No envíes el texto libre como si la conversación siguiera abierta.
+
 ## Integraciones que aportan valor
 
 La conexión con CRM evita contactos duplicados y conserva el historial. La agenda permite ofrecer huecos reales. Un sistema de tickets asigna responsables y prioridades. La base de conocimiento limita las respuestas a información aprobada. Integrar todo desde el primer día no siempre compensa: empieza con el sistema que elimina más trabajo manual.
 
 ## Costes y riesgos que suelen olvidarse
 
-El presupuesto no es solo la herramienta. Incluye configuración de la cuenta, proveedor o infraestructura, conversaciones o uso, integración, mantenimiento y revisión del contenido. También hay que prever qué ocurre cuando una API falla, cambia un dato o nadie responde a una derivación.
+El presupuesto no es solo la herramienta. Incluye configuración de la cuenta, proveedor o infraestructura, mensajes facturables, integración, mantenimiento y revisión del contenido. También hay que prever qué ocurre cuando una API falla, cambia un dato o nadie responde a una derivación.
+
+La [tarifa oficial consultada el 18 de octubre de 2026](https://business.whatsapp.com/products/platform-pricing) se basa en mensajes entregados y depende del mercado del destinatario y de la categoría. Meta no cobra los mensajes de servicio dentro de la ventana de atención; el proveedor puede facturar su plataforma. No presupuestes una tarifa universal «por conversación»: separa los cargos de Meta y los del proveedor, y pide una estimación con tu mezcla de mensajes.
 
 Un piloto debe probar mensajes fuera de horario, audios, documentos incorrectos, duplicados y clientes que cambian de intención. Si el equipo puede explicar quién recibe cada excepción, el proceso está listo para crecer.

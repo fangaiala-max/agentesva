@@ -1,0 +1,113 @@
+What are agent skills?
+
+An agent skill is a small folder an AI coding agent can load on demand. It holds a SKILL.md file, with a short description of when to use it and step-by-step instructions, plus any scripts the agent should run. Claude Code reads every skill's description at start-up; when your request matches one, it pulls in the full instructions and calls the scripts. Cursor and other agents that support the SKILL.md format work the same way.
+
+Skills turn "the agent could probably figure this out" into "the agent does this the same reliable way every time". Each skill in these packs is a SKILL.md plus a small Python command-line tool that calls the provider's official API directly. Nothing is proxied through a third party, and you can read every line.
+
+How to install Claude Code skills
+Unzip the pack you downloaded from Gumroad.
+Run the installer: ./install.sh copies each skill into ~/.claude/skills. For another agent, set the folder: SKILLS_DIR=/path/to/skills ./install.sh. Existing skills are never overwritten.
+Add your keys: copy .env.example to .env and fill in only the services you use. The included QUICKSTART walks through each one.
+Ask in plain English. The agent picks the right skills, and you get real results from your own accounts.
+
+Requirements: Python 3.10+. Some skills need their pip requirements or a provider CLI; the film-maker skill needs ffmpeg.
+
+Founder Ops Skill Pack: 18 agent skills for your startup back office
+
+Monday morning, and the answers you need are scattered across your bank, your card platform, GitHub, Linear, your calendar and a dozen inboxes. Ask your agent "What's our cash position and what needs my signature?" and get a real answer from your own accounts in seconds.
+
+Get Founder Ops on Gumroad — $79
+One-time payment. All 18 skills, installer, quickstart and changelog.
+
+Who it's for
+Founders and solo operators wearing the finance, ops and engineering-lead hats at once
+Small teams already living in Claude Code or Cursor who want their agent to reach the tools the company runs on
+Technical operators who prefer a script they can read over another SaaS dashboard
+Every skill and what it does
+DocuSign — Send, track and bulk-download envelopes, with automatic signature, name and date placement.
+Mercury — Read bank balances, accounts and transactions (a read-only token is recommended).
+Ramp — Cards, spend and reimbursements from your Ramp account.
+AWS — Inventory, cost reports, security audits and cleanup, with dry runs first.
+Render — Services, deploys, logs and environment variables.
+Modal — Spend, daily burn, month-end projection, and safe scale and stop.
+GitHub — Pull requests, reviews and CI status.
+Linear — Issues, projects and cycles.
+Gmail — Read, search, draft and send email, and look up Google contacts; supports multiple accounts.
+Google Calendar — Read, create and manage calendar events; supports multiple accounts.
+Google Docs — Create and edit Docs, including Markdown to Doc.
+Google Sheets — Read and write sheets, update cells and create new sheets.
+Google Slides — Create and manage presentations, with PDF and PPTX export.
+Google Drive — Folder and file management: move archives, datasets and other files in and out of Drive.
+Slack — Read, search and send, plus an optional allow-listed Slack-to-agent bridge.
+Notion — Read databases and pages, query entries and export content.
+Figma — Read files, export assets and manage comments.
+LinkedIn — Post, comment and react on profiles and company pages (company-page posting needs LinkedIn API approval).
+Example: your Monday founder brief
+
+Ask "Give me my Monday founder brief: cash, spend, PRs and today's meetings." The agent reads your Mercury balance, Ramp spend, GitHub review queue, Linear sprint and Google Calendar, then writes a one-page brief and saves it to Google Docs.
+
+"What are we spending on cloud this month, and what's idle?" pulls AWS and Modal costs with a month-end projection and cleanup candidates.
+
+"Which contracts are still waiting on a signature?" lists recent DocuSign envelopes, flags stale ones and downloads completed PDFs.
+
+Built to be safe
+Sending, deleting, scaling and stopping need explicit flags, and many commands dry-run first.
+Credentials stay in each skill's local, git-ignored config. A read-only token is recommended for bank data.
+Includes a .env.example, a per-skill quickstart and a one-command installer.
+
+All example data in these images is made up for illustration.
+
+Creator Skill Pack: 8 agent skills for images, video, voice, music and decks
+
+Stop bouncing between five browser tabs to make one post. Ask your agent for an image, a video clip, a soundtrack, a voiceover or a slide deck, and it makes it. Ask for a 30-second teaser and it storyboards the shots, animates them, writes and voices the narration, adds a music bed and stitches the final cut.
+
+Get the Creator pack on Gumroad — $39
+One-time payment. All 8 skills, installer, quickstart and changelog.
+
+Who it's for
+Creators and small brands who want a week of content without a week of production
+Marketers and founders who need quick decks, social cards, promo clips and voiceovers
+DJs who want liked songs and playlists turned into a buy list
+Anyone in Claude Code or Cursor who wants their agent to make media, not just text
+Every skill and what it does
+nano-banana-pro — Image generation and editing with Google Gemini.
+fal-video — Text-to-video and image-to-video with fal.ai models.
+film-maker — Short-film pipeline: keyframes, clips, narration and music, stitched with ffmpeg.
+fal-music — Music, beats and audio beds via fal.ai.
+eleven-labs — Text-to-speech, voice listing and voice management with ElevenLabs.
+gamma — Presentations, documents, webpages and social cards from Markdown or a prompt, with PDF and PPTX export.
+youtube — Videos, playlists and channels, plus exporting liked videos or a playlist as a DJ crate.
+spotify — Liked songs, playlists, top and recent tracks, exported as a crate CSV for Beatport matching (read-only).
+Example: a 30-second teaser from one prompt
+
+Ask "Make a 30-second teaser for our café's new cold brew, with a voiceover and a lo-fi beat." The film-maker skill generates five keyframes, animates them into clips, records narration with ElevenLabs, generates a music bed and stitches everything into a vertical video.
+
+"Plan next week's content and make the assets" gives a seven-day calendar with an image, carousel, voiceover or short for each day.
+
+"Turn the songs I liked this month into a DJ crate" gives a CSV with clean search keys, ready for store matching.
+
+All example data in these images is made up for illustration.
+
+Which pack is right for you?
+	Founder Ops	Creator
+Skills	18	8
+Focus	Finance, contracts, cloud, engineering, Google Workspace, team tools	Images, video, voice, music, decks, DJ crates
+Price	$79 one-time	$39 one-time
+Works with	Claude Code, Cursor, any SKILL.md agent
+	Buy Founder Ops	Buy Creator
+FAQ
+What are agent skills?
+Which agents do these skill packs work with?
+How do I install Claude Code skills?
+Are API keys, credits or a hosted service included?
+
+No. You use your own accounts and keys and pay each provider directly, with no markup. The skills run on your machine and call each official API directly, so your data goes only to those services.
+
+What do I need installed?
+Do I need every service in the pack?
+Is it safe to let an agent touch my accounts?
+Can I edit the skills or use them commercially?
+
+Yes, you can modify them. The single-buyer license covers personal or internal business use; resale and redistribution are not allowed. Rights to generated media depend on each provider's terms.
+
+Any limits I should know about?

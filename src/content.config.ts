@@ -108,6 +108,13 @@ const guias = defineCollection({
   schema: guideSchema,
 });
 
+// Complete English editions of selected guides; other guides retain their
+// explicitly labelled English overviews.
+const guideTranslations = defineCollection({
+  loader: glob({ pattern: '*.md', base: './src/content/guide-translations' }),
+  schema: guideSchema,
+});
+
 // Noticias — actualidad de IA curada, resumida en español original con atribución.
 const noticias = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/noticias' }),
@@ -219,4 +226,4 @@ const recursosCategorias = defineCollection({
   }),
 });
 
-export const collections = { tools, categories, estudios, guias, noticias, cursos, cursosCategorias, recursos, recursosCategorias };
+export const collections = { tools, categories, estudios, guias, guideTranslations, noticias, cursos, cursosCategorias, recursos, recursosCategorias };

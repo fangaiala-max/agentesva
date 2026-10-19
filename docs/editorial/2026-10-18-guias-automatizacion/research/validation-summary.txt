@@ -1,0 +1,14 @@
+Validation date: 2026-10-18
+Base: fa29ea028ff184fdfbd5125ea5c47d54fa52d356
+Branch: feat/visual-guides-growth-refresh
+npm test: exit 0, 61 files, 510 tests passed
+npm run build: exit 0, production + postbuild checks
+SEO: 310 HTML index pages, 108 tool profiles, 304 sitemap URLs
+Bilingual UI: 128 page checks passed
+Buying guide verifier: 6 full articles, canonical/hreflang, local targets/anchors, recommendation/table counts, final figures/downloads and actual PNG dimensions passed
+Article body words excluding header/footer: ES processes2699, EN processes2680, ES Claude2840, EN Claude2834, ES social2828, EN social2787
+Independent specification review: pass after correcting ES assessment URL
+Independent static code-quality review: pass, including new postbuild verifier
+Visual exports: 24 PNG contact-sheet compositions reviewed; three original covers reviewed
+Browser page QA: unavailable; user reported reconnecting, subsequent fresh inventory still apps[]/browsers[]; direct selected Chrome unavailable; control reset did not restore availability
+No public publication, PR, merge or deployment
