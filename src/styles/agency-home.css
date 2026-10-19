@@ -91,3 +91,21 @@
 .agency-sticky a{white-space:normal;line-height:1.4;min-width:0}
 .agency-sticky button{flex:none;min-width:44px;min-height:44px}
 @media(max-width:540px){.agency-sticky{max-width:calc(100vw - 20px)}.agency-sticky a{font-size:15px}}
+
+/* Keep the demo's intrinsic content shrinkable and its assessment action distinct. */
+.simulation-stage > *, .demo-workflow li > div, .demo-controls, .demo-actions,
+.demo-input select, .demo-bottom-actions { min-width:0; }
+.demo-input select { max-width:100%; }
+.demo-output dl > div > *, .demo-bottom a { overflow-wrap:anywhere; }
+.demo-bottom a { white-space:normal; }
+.demo-bottom-actions { display:flex; flex-wrap:wrap; align-items:center; gap:14px; }
+.demo-bottom .agency-button.primary { color:#fff; min-height:44px; }
+@media (max-width:540px) {
+  .mode-dock { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); width:calc(100% - 20px); border-radius:18px; }
+  .mode-dock button { min-width:0; min-height:44px; padding:10px 5px; white-space:normal; overflow-wrap:anywhere; line-height:1.35; border-radius:12px; }
+  .mode-dock button span { display:block; margin:0 0 4px; }
+  .simulation-stage { grid-template-columns:minmax(0,1fr); }
+  .demo-actions { flex-wrap:wrap; justify-content:flex-start; }
+  .demo-actions .agency-button { min-width:0; }
+  .demo-bottom-actions { width:100%; }
+}

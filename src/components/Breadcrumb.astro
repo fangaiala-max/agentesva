@@ -2,14 +2,15 @@
 // Miga de pan visible. Sólo presentación: el mismo array `trail` alimenta el
 // nodo BreadcrumbList del JSON-LD de la página, así que no pueden separarse.
 // Ocupa la ranura de los antiguos enlaces «← Volver a X» y reutiliza su estilo.
+import { localeFor, type Locale } from '../i18n/routes';
 import { crumbPath, type Crumb } from '../data/breadcrumbs';
 
-interface Props { trail: Crumb[] }
-const { trail } = Astro.props;
+interface Props { trail: Crumb[]; locale?: Locale }
+const { trail, locale = localeFor(Astro.url.pathname) } = Astro.props;
 ---
 
 <nav
-  aria-label="Ruta de navegación"
+  aria-label={locale === 'en' ? 'Breadcrumb' : 'Ruta de navegación'}
   data-pagefind-ignore
   style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;"
 >

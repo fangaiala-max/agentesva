@@ -64,7 +64,7 @@
 .english-home .section-heading{margin-bottom:20px;gap:12px}.english-home .section-heading h2{font-size:32px}
 .english-home .demo-intro{min-height:0;padding:16px}.english-home .demo-intro h3{font-size:23px}
 .english-home .demo-intro p{display:none}
-.english-home .simulation-stage{grid-template-columns:1fr;padding:0 14px 16px;gap:16px}
+.english-home .simulation-stage{grid-template-columns:minmax(0,1fr);padding:0 14px 16px;gap:16px}
 .english-home .demo-input{grid-column:1;grid-row:1;padding:14px}
 .english-home .demo-controls{grid-column:1;grid-row:2}
 .english-home .demo-output{grid-column:1;grid-row:3;padding:14px}
