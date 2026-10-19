@@ -38,6 +38,18 @@ describe.each([['en', setupEn], ['es', setupEs]] as const)('%s demo growth', (lo
     click('[data-demo-run]'); vi.advanceTimersByTime(3000);
     expect(events().map((event: unknown[]) => event[1])).toEqual(['demo_started','demo_completed','demo_started','demo_completed']);
   });
+  it('keeps the demo working without analytics when consent storage is blocked', () => {
+    fixture(locale); cleanup = setup(root());
+    const consentRead = vi.spyOn(window.localStorage, 'getItem').mockImplementation(() => { throw new DOMException('Storage is blocked', 'SecurityError'); });
+    try {
+      expect(document.head.querySelector('[data-ga4]')).not.toBeNull();
+      click('[data-demo-run]');
+      expect(root().dataset.state).toBe('running');
+      vi.advanceTimersByTime(3000);
+      expect(root().dataset.state).toBe('complete');
+      expect(events()).toHaveLength(0);
+    } finally { consentRead.mockRestore(); }
+  });
   it('preserves assessment path/query and updates mode attribution without answers', () => {
     fixture(locale); cleanup = setup(root()); click('[data-demo-mode="sales"]');
     const link = document.querySelector<HTMLAnchorElement>('[data-demo-assessment]')!;

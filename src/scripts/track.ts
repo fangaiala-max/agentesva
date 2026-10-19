@@ -90,7 +90,12 @@ const ENUMS: Partial<Record<string, ReadonlySet<string>>> = {
 const SAFE_VALUE = /^[\p{L}\p{N}_./-]{1,100}$/u;
 
 export function track(event: string, params: Record<string, unknown> = {}): boolean {
-  if (getConsent() === 'denied' || !isGA4Loaded()) return false;
+  try {
+    if (getConsent() === 'denied' || !isGA4Loaded()) return false;
+  } catch {
+    // Storage can be blocked; optional analytics must not interrupt the UI.
+    return false;
+  }
   pushGtagCommand('event', event, params);
   return true;
 }
