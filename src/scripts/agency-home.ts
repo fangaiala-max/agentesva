@@ -1,3 +1,4 @@
+import { trackGrowthEvent } from './track';
 import {setupDiagnosticBanner} from './diagnostic-banner';
 export {setupDiagnosticBanner} from './diagnostic-banner';
 import { DEMO_MODES, DEMO_MODE_KEYS, type DemoMode, type DemoExample } from '../data/automation-demo';
@@ -58,6 +59,8 @@ export function setupAutomationDemo(root: HTMLElement): Cleanup {
       label.textContent = finished && i === 3 ? sample().status : item.dataset.stepState === 'done' ? 'Completado' : item.dataset.stepState === 'active' ? 'En curso…' : 'En espera';
     });
   };
+  let running = false;
+  const demoParams = () => ({ page_type: 'home', placement: 'demo', cluster: DEMO_MODES[mode].cluster, service: DEMO_MODES[mode].service, demo_case: example });
   const sequence = createSequence(root, 4, (step, finished) => {
     root.dataset.state = finished ? 'complete' : 'running';
     paintSteps(step, finished);
@@ -66,8 +69,13 @@ export function setupAutomationDemo(root: HTMLElement): Cleanup {
     text('[data-demo-result-state]', finished ? sample().status : `Paso ${step + 1} de 4`);
     text('[data-demo-result]', finished ? sample().result : 'El ejemplo está recorriendo el flujo. El resultado aparecerá aquí.');
     status.textContent = finished ? `Demo finalizada. ${sample().status}. ${sample().handoff}` : `Paso ${step + 1} de 4: ${DEMO_MODES[mode].steps[step]}.`;
+    if (finished && running) {
+      running = false;
+      trackGrowthEvent('demo_completed', demoParams());
+    }
   });
   const render = () => {
+    running = false;
     const content = DEMO_MODES[mode];
     const data = sample();
     root.dataset.mode = mode;
@@ -88,6 +96,15 @@ export function setupAutomationDemo(root: HTMLElement): Cleanup {
     $('[data-demo-fields]').replaceChildren(...data.fields.map(([key, value]) => { const row = document.createElement('div'); const dt = document.createElement('dt'); const dd = document.createElement('dd'); dt.textContent = key; dd.textContent = value; row.append(dt, dd); return row; }));
     text('[data-demo-result-state]', 'Listo para ejecutar'); text('[data-demo-result]', 'Ejecuta el ejemplo para ver el resultado y el siguiente paso.'); text('[data-demo-handoff]', data.handoff);
     const link = $<HTMLAnchorElement>('[data-demo-service]'); link.href = content.href; link.dataset.trackService = content.service; link.dataset.trackCluster = content.cluster;
+    const assessment = root.querySelector<HTMLAnchorElement>('[data-demo-assessment]');
+    if (assessment) {
+      const url = new URL(assessment.href, window.location.href);
+      url.searchParams.set('placement', 'demo_assessment');
+      url.searchParams.set('service', content.service);
+      assessment.href = url.pathname + url.search + url.hash;
+      assessment.dataset.trackService = content.service;
+      assessment.dataset.trackCluster = content.cluster;
+    }
     run.disabled = false; run.textContent = 'Ejecutar demo ↗';
     status.textContent = `Ejemplo preparado: ${data.label}. Pulsa Ejecutar demo.`;
   };
@@ -107,10 +124,10 @@ export function setupAutomationDemo(root: HTMLElement): Cleanup {
   });
   select.disabled = false; reset.disabled = false;
   select.addEventListener('change', () => { sequence.cancel(); example = select.value === 'exception' ? 'exception' : 'standard'; render(); }, { signal: controller.signal });
-  run.addEventListener('click', () => { if (!run.disabled) sequence.start(); }, { signal: controller.signal });
+  run.addEventListener('click', () => { if (!run.disabled) { running = true; trackGrowthEvent('demo_started', demoParams()); sequence.start(); } }, { signal: controller.signal });
   reset.addEventListener('click', () => { sequence.cancel(); render(); }, { signal: controller.signal });
   render();
-  return () => { controller.abort(); sequence.dispose(); };
+  return () => { running = false; controller.abort(); sequence.dispose(); };
 }
 
 function setupPreview(root: HTMLElement): Cleanup {

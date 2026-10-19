@@ -1,0 +1,64 @@
+{
+  "checkedAt": "2026-10-19T22:45:10.861Z",
+  "method": "Public HTTP, HTML metadata, robots.txt and sitemap inspection; not a Google index inspection.",
+  "urls": [
+    {
+      "url": "https://agentesva.com/guias/mejores-herramientas-automatizar-procesos/",
+      "httpStatus": 200,
+      "canonical": "https://agentesva.com/guias/mejores-herramientas-automatizar-procesos/",
+      "language": "es",
+      "sitemapListed": true,
+      "noindexDirectiveFound": false,
+      "googleIndexStatus": "not inspected - authenticated Search Console access unavailable"
+    },
+    {
+      "url": "https://agentesva.com/guides/mejores-herramientas-automatizar-procesos/",
+      "httpStatus": 200,
+      "canonical": "https://agentesva.com/guides/mejores-herramientas-automatizar-procesos/",
+      "language": "en",
+      "sitemapListed": true,
+      "noindexDirectiveFound": false,
+      "googleIndexStatus": "not inspected - authenticated Search Console access unavailable"
+    },
+    {
+      "url": "https://agentesva.com/guias/mejores-skills-claude-gratis-pago/",
+      "httpStatus": 200,
+      "canonical": "https://agentesva.com/guias/mejores-skills-claude-gratis-pago/",
+      "language": "es",
+      "sitemapListed": true,
+      "noindexDirectiveFound": false,
+      "googleIndexStatus": "not inspected - authenticated Search Console access unavailable"
+    },
+    {
+      "url": "https://agentesva.com/guides/mejores-skills-claude-gratis-pago/",
+      "httpStatus": 200,
+      "canonical": "https://agentesva.com/guides/mejores-skills-claude-gratis-pago/",
+      "language": "en",
+      "sitemapListed": true,
+      "noindexDirectiveFound": false,
+      "googleIndexStatus": "not inspected - authenticated Search Console access unavailable"
+    },
+    {
+      "url": "https://agentesva.com/guias/mejores-herramientas-automatizar-redes-sociales/",
+      "httpStatus": 200,
+      "canonical": "https://agentesva.com/guias/mejores-herramientas-automatizar-redes-sociales/",
+      "language": "es",
+      "sitemapListed": true,
+      "noindexDirectiveFound": false,
+      "googleIndexStatus": "not inspected - authenticated Search Console access unavailable"
+    },
+    {
+      "url": "https://agentesva.com/guides/mejores-herramientas-automatizar-redes-sociales/",
+      "httpStatus": 200,
+      "canonical": "https://agentesva.com/guides/mejores-herramientas-automatizar-redes-sociales/",
+      "language": "en",
+      "sitemapListed": true,
+      "noindexDirectiveFound": false,
+      "googleIndexStatus": "not inspected - authenticated Search Console access unavailable"
+    }
+  ],
+  "pending": [
+    "Authenticated Search Console URL Inspection for discovery/index state, last crawl and Google-selected canonical.",
+    "Whole-page browser review and GA4 Realtime/DebugView receipt confirmation."
+  ]
+}

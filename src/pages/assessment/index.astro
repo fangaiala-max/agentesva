@@ -4,9 +4,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
-import { trail as buildTrail } from '../../data/breadcrumbs';
+import { breadcrumbList, type Crumb } from '../../data/breadcrumbs';
+import { jsonLdSerialize } from '../../data/schema';
 
-const trail = buildTrail({ name: 'Automation assessment', url: '/assessment' });
+const trail: Crumb[] = [{ name: 'Home', url: '/' }, { name: 'Automation assessment', url: '/assessment/' }];
 ---
 
 <BaseLayout
@@ -17,11 +18,13 @@ const trail = buildTrail({ name: 'Automation assessment', url: '/assessment' });
 
   <main id="main-content" class="diagnostic-shell" data-diagnostic-root>
     <Breadcrumb trail={trail} />
+    <script type="application/ld+json" set:html={jsonLdSerialize({ '@context': 'https://schema.org', ...breadcrumbList(trail) })} />
 
     <header class="diagnostic-intro">
       <span class="eyebrow">Free assessment · About 3 minutes · 8 questions</span>
       <h1>Find your first worthwhile workflow.</h1>
       <p>Answer eight questions about your business. Get a practical priority and a sensible next step, based on the information you provide.</p>
+      <p class="privacy-note" data-assessment-context hidden></p>
       <div class="privacy-note">Your answers are processed in this browser first. They are sent only when you request follow-up and accept the privacy policy.</div>
     </header>
 

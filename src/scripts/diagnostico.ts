@@ -48,6 +48,23 @@ function wire(root: HTMLElement): void {
   if (root.dataset.diagnosticWired === '1') return;
   root.dataset.diagnosticWired = '1';
 
+  const context = root.querySelector<HTMLElement>('[data-assessment-context]');
+  if (context) {
+    const services: Record<string, readonly [string, string]> = {
+      customer_service_automation: ['customer support', 'atención al cliente'],
+      sales_automation: ['sales', 'ventas'],
+      process_automation: ['operations', 'operaciones'],
+      general_consulting: ['automation consulting', 'consultoría de automatización'],
+    };
+    const service = new URLSearchParams(window.location.search).get('service') || '';
+    const area = Object.hasOwn(services, service) ? services[service] : undefined;
+    const english = document.documentElement.lang === 'en';
+    context.hidden = !area;
+    context.textContent = area ? (english
+      ? `Starting context: ${area[0]}. You can choose any area below.`
+      : `Contexto inicial: ${area[1]}. Puedes elegir cualquier área a continuación.`) : '';
+  }
+
   const form = root.querySelector<HTMLFormElement>('[data-diagnostic-form]');
   const steps = Array.from(root.querySelectorAll<HTMLFieldSetElement>('[data-step]'));
   const back = root.querySelector<HTMLButtonElement>('[data-back]');
@@ -154,7 +171,7 @@ function wire(root: HTMLElement): void {
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
-    if (!validCurrentStep()) return;
+    if (currentResult || !validCurrentStep()) return;
     const diagnostic = classifyDiagnostic(answers(form));
     currentResult = diagnostic;
     trackGrowthEvent('diagnostic_step_completed', {
@@ -179,6 +196,12 @@ function wire(root: HTMLElement): void {
     }
     renderDiagnosticPlan(result, diagnostic);
     result.hidden = false;
+    trackGrowthEvent('diagnostic_recommendation_viewed', {
+      result_type: diagnostic.resultType,
+      qualification_band: diagnostic.qualificationBand,
+      cluster: diagnostic.cluster,
+      service: diagnostic.service,
+    });
     result.focus({ preventScroll: true });
     result.scrollIntoView({ block: 'start' });
   });

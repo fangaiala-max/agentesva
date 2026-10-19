@@ -20,7 +20,7 @@ const answers: DiagnosticAnswers = {
 function fixture(): void {
   document.body.innerHTML = `
     <main data-diagnostic-root>
-      <div class="progress-wrap"></div>
+      <p data-assessment-context hidden></p><div class="progress-wrap"></div>
       <span data-step-current></span>
       <div data-progress></div>
       <div data-progress-bar></div>
@@ -82,6 +82,9 @@ function contactState() {
 
 describe('envío del diagnóstico', () => {
   beforeEach(() => {
+    sessionStorage.clear();
+    document.documentElement.lang = 'es';
+    window.history.replaceState(null, '', '/diagnostico-automatizacion-ia/');
     fixture();
     vi.clearAllMocks();
     vi.stubGlobal('fetch', vi.fn());
@@ -142,6 +145,8 @@ describe('envío del diagnóstico', () => {
     expect(error.textContent).toBe('No se pudo enviar el diagnóstico. Inténtalo de nuevo.');
     expect(submit.disabled).toBe(false);
     expect(submit.textContent).toBe('Enviar diagnóstico →');
+    expect(vi.mocked(trackGrowthEvent).mock.calls.map(call => call[0])).not.toContain('diagnostic_completed');
+    expect(vi.mocked(trackGrowthEvent).mock.calls.map(call => call[0])).not.toContain('lead_qualified');
   });
 
   it('permite reintentar después de un rechazo de red', async () => {
@@ -198,5 +203,33 @@ describe('envío del diagnóstico', () => {
       }),
     } as Response);
     await vi.waitFor(() => expect(window.location.pathname).toBe('/gracias-diagnostico/'));
+  });
+});
+
+describe('local assessment recommendation and service context', () => {
+  beforeEach(() => { sessionStorage.clear(); fixture(); vi.clearAllMocks(); vi.stubGlobal('fetch', vi.fn()); window.history.replaceState(null, '', '/assessment/'); });
+  const reveal = () => document.querySelector<HTMLFormElement>('[data-diagnostic-form]')!.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+  it('emits one recommendation before any contact, ignores duplicate init/submit and permits restart', () => {
+    initDiagnostic(); initDiagnostic(); reveal(); reveal();
+    const result = classifyDiagnostic(answers);
+    expect(vi.mocked(trackGrowthEvent).mock.calls.filter(call => call[0] === 'diagnostic_recommendation_viewed')).toEqual([['diagnostic_recommendation_viewed', { result_type: result.resultType, qualification_band: result.qualificationBand, cluster: result.cluster, service: result.service }]]);
+    expect(fetch).not.toHaveBeenCalled();
+    expect(vi.mocked(trackGrowthEvent).mock.calls.some(call => ['diagnostic_completed', 'lead_qualified'].includes(call[0]))).toBe(false);
+    document.querySelector<HTMLButtonElement>('[data-restart]')!.click(); reveal();
+    expect(vi.mocked(trackGrowthEvent).mock.calls.filter(call => call[0] === 'diagnostic_recommendation_viewed')).toHaveLength(2);
+  });
+  it.each(['en','es'])('shows recognized service context in %s without prefilling answers', locale => {
+    document.documentElement.lang = locale; window.history.replaceState(null, '', '/assessment/?service=sales_automation&placement=demo_assessment');
+    document.querySelectorAll('input').forEach(input => { input.checked = false; input.value = ''; }); document.querySelector('textarea')!.value = '';
+    initDiagnostic();
+    const notice = document.querySelector<HTMLElement>('[data-assessment-context]')!;
+    expect(notice.hidden).toBe(false); expect(notice.textContent).toContain(locale === 'en' ? 'sales' : 'ventas');
+    expect(document.querySelector('input:checked')).toBeNull(); expect(document.querySelector('textarea')!.value).toBe('');
+    expect(new FormData(document.querySelector('[data-diagnostic-form]')!).get('goal')).toBe('');
+  });
+  it.each(['unknown','Ada@example.com','<img src=x>'])('ignores unrecognized/free-text service %s', service => {
+    window.history.replaceState(null, '', '/assessment/?service=' + encodeURIComponent(service)); initDiagnostic();
+    expect(document.querySelector<HTMLElement>('[data-assessment-context]')!.hidden).toBe(true);
+    expect(document.querySelector('[data-assessment-context]')!.textContent).toBe('');
   });
 });

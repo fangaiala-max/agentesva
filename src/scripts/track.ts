@@ -1,11 +1,14 @@
 // Eventos GA4 respetando el consentimiento. CSP-safe (módulo 'self'; no scripts inline,
 // no dependencias nuevas). Reutiliza el patrón dataLayer de consent.ts: sólo emite si
-// GA4 está cargado (= consentimiento analítico concedido); si no, no-op silencioso.
-import { isGA4Loaded, pushGtagCommand } from './consent';
+// GA4 está cargado y el consentimiento no está denegado; si no, no-op silencioso.
+import { getConsent, isGA4Loaded, pushGtagCommand } from './consent';
 
 export const GROWTH_EVENTS = [
   'service_cta_click',
   'resource_cta_click',
+  'demo_started',
+  'demo_completed',
+  'diagnostic_recommendation_viewed',
   'diagnostic_started',
   'diagnostic_step_completed',
   'diagnostic_completed',
@@ -30,6 +33,18 @@ const EVENT_PARAMS: Record<GrowthEvent, { required: readonly string[]; allowed: 
   resource_cta_click: {
     required: ['page_type', 'placement', 'resource_id', 'destination'],
     allowed: ['page_type', 'content_slug', 'placement', 'resource_id', 'destination'],
+  },
+  demo_started: {
+    required: ['page_type', 'placement', 'cluster', 'service', 'demo_case'],
+    allowed: [...COMMON_GROWTH_PARAMS, 'demo_case'],
+  },
+  demo_completed: {
+    required: ['page_type', 'placement', 'cluster', 'service', 'demo_case'],
+    allowed: [...COMMON_GROWTH_PARAMS, 'demo_case'],
+  },
+  diagnostic_recommendation_viewed: {
+    required: ['result_type'],
+    allowed: ['result_type', 'qualification_band', 'cluster', 'service'],
   },
   diagnostic_started: {
     required: ['page_type', 'placement'],
@@ -58,6 +73,8 @@ const EVENT_PARAMS: Record<GrowthEvent, { required: readonly string[]; allowed: 
 };
 
 const ENUMS: Partial<Record<string, ReadonlySet<string>>> = {
+  demo_case: new Set(['standard', 'exception']),
+  result_type: new Set(['qualified_call', 'paid_workshop', 'self_serve_resources', 'manual_review']),
   cluster: new Set(['customer_service', 'sales', 'operations', 'general']),
   service: new Set([
     'customer_service_automation',
@@ -73,7 +90,12 @@ const ENUMS: Partial<Record<string, ReadonlySet<string>>> = {
 const SAFE_VALUE = /^[\p{L}\p{N}_./-]{1,100}$/u;
 
 export function track(event: string, params: Record<string, unknown> = {}): boolean {
-  if (!isGA4Loaded()) return false;
+  try {
+    if (getConsent() === 'denied' || !isGA4Loaded()) return false;
+  } catch {
+    // Storage can be blocked; optional analytics must not interrupt the UI.
+    return false;
+  }
   pushGtagCommand('event', event, params);
   return true;
 }

@@ -29,6 +29,7 @@ Este documento es la fuente de verdad para los eventos de adquisición y convers
 | `destination` | enum | `stripe` | Destino de pago configurado del recurso. |
 | `step` | integer serializado | `3` | Número del paso del diagnóstico. |
 | `step_id` | enum | `business_goal` | Identificador estable del paso. |
+| `demo_case` | enum | `standard`, `exception` | Caso ilustrativo de la demo, nunca su texto. |
 | `result_type` | enum | `qualified_call` | Ruta de resultado, nunca las respuestas. |
 | `qualification_band` | enum | `high` | Banda agregada `low`, `medium` o `high`. |
 | `booking_provider` | enum | `calendly`, `cal`, `external` | Proveedor de reserva derivado de la URL HTTPS configurada. |
@@ -54,9 +55,13 @@ Este documento es la fuente de verdad para los eventos de adquisición y convers
 - `process_automation`
 - `general_consulting`
 
+`result_type`: `qualified_call`, `paid_workshop`, `self_serve_resources`, `manual_review`.
+
+`demo_case`: `standard`, `exception`.
+
 `placement` se compone como `{page_type}_{position}`. Posiciones iniciales: `hero`, `midpage`, `bottom`, `card`, `nav` y `result`.
 
-Placements controlados de la portada comercial: `hero`, `hero_pricing`, `service_card`, `methodology`, `mid_page` y `sticky`. Permiten distinguir el diagnóstico principal, la consulta de precios, las tres áreas de servicio, el proceso, el cierre intermedio y la barra fija sin enviar el texto visible del CTA.
+Placements controlados de la portada comercial: `hero`, `hero_pricing`, `service_card`, `methodology`, `mid_page`, `sticky`, `demo_service` y `demo_assessment`. La ejecución de la demo usa `demo`. Permiten distinguir el diagnóstico principal, la consulta de precios, las tres áreas de servicio, el proceso, el cierre intermedio y la barra fija sin enviar el texto visible del CTA.
 
 ## Propiedades prohibidas
 
@@ -76,7 +81,8 @@ No deben aparecer en `data-track-*`, llamadas a `track()` ni configuración de G
 service_cta_click
   → diagnostic_started
   → diagnostic_step_completed (1..N)
-  → diagnostic_completed
+  → diagnostic_recommendation_viewed (resultado local)
+  → diagnostic_completed (contacto aceptado)
   → lead_qualified
   → booking_started
   → booking_completed
@@ -90,10 +96,13 @@ service_cta_click
 |---|---|---|---|---|
 | `service_cta_click` | Click en un CTA que conduce a diagnóstico o servicio. | `page_type`, `placement` | `content_slug`, `cluster`, `service` | Home, fichas, estudios, guías, navegación y servicios. |
 | `resource_cta_click` | Click al Payment Link de un recurso editorial. | `page_type`, `placement`, `resource_id`, `destination` | `content_slug` | Guías y recursos editoriales. |
+| `demo_started` | Ejecución o repetición iniciada por el visitante. | `page_type`, `placement`, `cluster`, `service`, `demo_case` | `content_slug` | Demo de portada; placement `demo`. |
+| `demo_completed` | La misma ejecución alcanza su estado final real. | `page_type`, `placement`, `cluster`, `service`, `demo_case` | `content_slug` | Demo de portada; placement `demo`. |
+| `diagnostic_recommendation_viewed` | Se muestra la recomendación local tras completar las respuestas. | `result_type` | `qualification_band`, `cluster`, `service` | Diagnóstico, antes de enviar contacto. |
 | `diagnostic_started` | Primera interacción válida del paso 1, no la mera vista. | `page_type`, `placement` | `cluster`, `service` | Diagnóstico. |
 | `diagnostic_step_completed` | El usuario valida un paso y avanza. | `step`, `step_id` | `cluster`, `service` | Diagnóstico. |
 | `diagnostic_completed` | El servidor acepta el envío final. | `result_type` | `qualification_band`, `cluster`, `service` | Diagnóstico/resultado. |
-| `lead_qualified` | Las reglas asignan una ruta comercial. | `qualification_band`, `result_type` | `cluster`, `service` | Servidor o resultado; una vez por diagnóstico aceptado. |
+| `lead_qualified` | Un envío aceptado por el servidor recibe automáticamente `qualified_call`. | `qualification_band`, `result_type` | `cluster`, `service` | Servidor o resultado; una vez por diagnóstico aceptado. |
 | `booking_started` | Click hacia el proveedor de reserva desde un resultado cualificado. | `booking_provider`, `placement` | `cluster`, `service`, `qualification_band` | Resultado, gracias o servicio. |
 | `booking_completed` | Confirmación verificable del proveedor, no la carga del calendario. | `booking_provider` | `cluster`, `service` | Callback/webhook o página de confirmación validada. |
 
@@ -139,6 +148,12 @@ track('diagnostic_step_completed', {
 });
 ```
 
+`demo_started` y `demo_completed` excluyen el ejemplo SSR y las vistas automáticas. Cada repetición es una ejecución nueva. Cancelar, restablecer, cambiar de modo/caso o desmontar la página no completa una ejecución. Movimiento reducido completa exactamente una vez.
+
+`diagnostic_recommendation_viewed` ocurre una vez por recomendación mostrada; un submit sintético repetido no crea otra vista. Reiniciar permite una nueva recomendación. No representa un lead ni una entrega de contacto.
+
+Si el visitante deniega o revoca el consentimiento, el tracker no añade eventos aunque el script GA4 permanezca en el documento.
+
 `diagnostic_completed` se emite únicamente después de una respuesta exitosa del endpoint. `booking_completed` exige confirmación real; no puede inferirse de un click.
 
 ## Conversiones de GA4
@@ -154,6 +169,9 @@ Mantener como microconversiones para análisis:
 - `service_cta_click`
 - `resource_cta_click`
 - `diagnostic_started`
+- `demo_started`
+- `demo_completed`
+- `diagnostic_recommendation_viewed`
 - `booking_started`
 - `newsletter_submit`
 
@@ -163,7 +181,9 @@ Mantener como microconversiones para análisis:
 |---|---|
 | CTR comercial | `service_cta_click / sesión con CTA` |
 | Inicio de diagnóstico | `diagnostic_started / service_cta_click` |
-| Finalización | `diagnostic_completed / diagnostic_started` |
+| Recomendación local | `diagnostic_recommendation_viewed / diagnostic_started` |
+| Entrega de contacto | `diagnostic_completed / diagnostic_recommendation_viewed` |
+| Finalización de demo | `demo_completed / demo_started` |
 | Cualificación | `lead_qualified / diagnostic_completed` |
 | Inicio de reserva | `booking_started / lead_qualified` |
 | Reserva confirmada | `booking_completed / booking_started` |

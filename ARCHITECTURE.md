@@ -111,7 +111,7 @@ La API agrupa envíos concurrentes con el mismo `Submission ID` dentro de cada i
 
 1. PR opened → Vercel preview deploy (auth-walled)
 2. PR merge to `main` → Vercel production deploy (auto-rolling)
-3. Build: `npm run build` → Astro genera `dist/client/` y la salida Vercel → se generan las portadas sociales PNG por página y se verifican dimensiones, favicon y coherencia OG/Twitter/schema → el verificador comprueba los metadatos de la guía profesional GEO y las fechas del sitemap del clúster en `dist/client/` → los verificadores de paridad bilingüe, SEO y guías visuales comprueban el HTML de `.vercel/output/static` → Pagefind indexa esa misma salida
+3. Build: `npm run build` → Astro genera `dist/client/` y la salida Vercel → se generan las portadas sociales PNG por página y se verifican dimensiones, favicon y coherencia OG/Twitter/schema → el verificador comprueba los metadatos de la guía profesional GEO y las fechas del sitemap del clúster en `dist/client/` → los verificadores de paridad bilingüe, SEO, guías visuales y recorrido demo/diagnóstico (`scripts/verify-built-home-growth.mjs`) comprueban el HTML de `.vercel/output/static` → Pagefind indexa esa misma salida
 4. Schemas validated at build (Zod blocks invalid frontmatter)
 
 ## Performance budget (target / actual mobile)
