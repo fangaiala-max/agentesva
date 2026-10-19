@@ -2,6 +2,17 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [0.10.0.0] - 2026-10-18
+
+### Added
+- Tres guías completas en español e inglés para elegir herramientas de automatización de procesos, skills de Claude y automatización de redes sociales, con opciones gratuitas, costes, límites y fuentes originales.
+- Mapas de decisión, ejemplos e infografías descargables creados en Figma, con versiones para móvil y escritorio.
+- Informe de crecimiento de la home con evidencias y recomendaciones priorizadas, y una entrega local persistente para revisar las guías.
+
+### Changed
+- Las nuevas guías permiten explorar primero las imágenes y abrir comparativas, recomendaciones detalladas y preguntas frecuentes cuando se necesitan.
+- Cuatro guías existentes y sus resúmenes en inglés actualizan costes, requisitos y criterios de decisión.
+
 ## [0.9.5.0] - 2026-10-05
 
 ### Changed
