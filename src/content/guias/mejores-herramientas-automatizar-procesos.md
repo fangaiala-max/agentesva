@@ -20,7 +20,20 @@ Esta guía te ayuda a escoger una primera opción y a decidir cuándo pagar. Pue
 
 **Revisión: 18 de octubre de 2026.** Los precios conservan su moneda original. Un importe mensual con facturación anual exige pagar el periodo anual; no equivale a contratar un mes. Impuestos, servicios conectados, IA externa e implementación pueden añadir costes.
 
+
+<figure class="guide-atlas">
+  <picture>
+    <source media="(max-width: 600px)" srcset="/images/guides/figma/processes-atlas-es-mobile.png" width="600" height="1180">
+    <img src="/images/guides/figma/processes-atlas-es.png" alt="Empieza por una función nativa, conecta aplicaciones o asume la operación técnica. Elige por el trabajo." width="1200" height="755" loading="lazy" decoding="async">
+  </picture>
+  <figcaption>Empieza por una función nativa, conecta aplicaciones o asume la operación técnica. Elige por el trabajo.</figcaption>
+
+</figure>
+
 ## Elige por el trabajo que necesitas quitarte de encima
+
+<details class="guide-table-detail">
+<summary>Abrir la tabla de decisión completa</summary>
 
 | Tu situación | Primera opción que probaríamos | Antes de pagar, comprueba |
 |---|---|---|
@@ -31,6 +44,8 @@ Esta guía te ayuda a escoger una primera opción y a decidir cuándo pagar. Pue
 | El trabajo ya sucede en Microsoft | Power Automate | Licencias existentes, conectores y ejecución atendida o desatendida |
 | La operación vive alrededor de registros y estados | Airtable | Límite de ejecuciones y coste de los usuarios con acceso de pago |
 | Tu equipo trabaja con Sheets, Docs y Gmail y puede mantener código | Apps Script | Cuotas, propietario de los disparadores y mantenimiento |
+
+</details>
 
 El orden responde a situaciones de uso. No es una clasificación de velocidad ni un premio a la herramienta con más funciones.
 
@@ -44,6 +59,9 @@ No necesitas automatizar una tarea que ocurre pocas veces y que se resuelve bien
 
 ## Qué puedes hacer gratis y qué cambia al pagar
 
+<details class="guide-table-detail">
+<summary>Comparar opciones, límites gratuitos y costes</summary>
+
 | Herramienta | Entrada gratuita | Referencia de pago consultada | Unidad que debes vigilar |
 |---|---|---|---|
 | Make | 1.000 créditos al mes; dos escenarios activos; intervalo mínimo programado de 15 minutos | Core: 12 USD/mes con pago anual, 10.000 créditos/mes; 16 USD en modalidad mensual | Créditos por acciones; algunos usos tienen reglas distintas |
@@ -54,11 +72,14 @@ No necesitas automatizar una tarea que ocurre pocas veces y que se resuelve bien
 | Airtable | 100 ejecuciones de automatización/mes por espacio de trabajo | Team: 20 USD/usuario/mes con pago anual | Usuarios facturables y ejecuciones del espacio |
 | Apps Script | Sin licencia adicional del editor; sujeto a cuotas | No tiene un plan «Pro» de Apps Script; otros servicios pueden costar | Tiempo de desarrollo, cuotas y APIs utilizadas |
 
+</details>
+
 Fuentes de la tabla: [Make](https://www.make.com/pricing), [Zapier](https://zapier.com/pricing), [n8n Cloud](https://n8n.io/pricing/), [n8n Community](https://docs.n8n.io/deploy/host-n8n/community-edition-features/), [Activepieces](https://www.activepieces.com/pricing), [Power Automate](https://www.microsoft.com/en-us/power-platform/products/power-automate/pricing), [Airtable: precios](https://airtable.com/pricing), [Airtable: límites](https://support.airtable.com/articles/3669392397-getting-started-with-airtable-automations) y [Apps Script: cuotas](https://developers.google.com/apps-script/guides/services/quotas). Consulta: 18 de octubre de 2026.
 
 **Dos matices de compra.** Autoalojar una edición sin coste de licencia no elimina servidor, copias, actualizaciones y soporte. Además, la página de Activepieces consultada presenta mensajes distintos sobre la reposición del cupo Free; verifica ese comportamiento dentro de tu cuenta antes de depender de él.
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">01</span><span class="guide-feature__label"><strong>Make</strong><span>para visualizar un proceso con varias rutas</span><small>Plan gratuito · opciones de pago</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 1. Make: para visualizar un proceso con varias rutas
 
@@ -74,9 +95,10 @@ Make permite construir escenarios que conectan aplicaciones y transforman inform
 
 **Cuándo elegir otra opción:** si todo se puede resolver dentro del formulario o del CRM, añade primero esa regla nativa. Crear otra plataforma solo para enviar una notificación puede aumentar el mantenimiento.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">02</span><span class="guide-feature__label"><strong>Zapier</strong><span>para empezar con una conexión sencilla</span><small>Plan gratuito · opciones de pago</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 2. Zapier: para empezar con una conexión sencilla
 
@@ -92,9 +114,10 @@ Zapier organiza sus automatizaciones en Zaps: un evento de entrada y las accione
 
 **Cuándo descartarlo:** si buscas operar una infraestructura propia o una transformación extensa que el equipo mantiene mejor con código. Tampoco pagues por la amplitud del catálogo si solo vas a utilizar una conexión.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">03</span><span class="guide-feature__label"><strong>n8n</strong><span>para quien puede asumir la operación técnica</span><small>Community autoalojada · prueba Cloud</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 3. n8n: para quien puede asumir la operación técnica
 
@@ -110,9 +133,10 @@ n8n ofrece una edición Community autoalojada y planes Cloud. La documentación 
 
 **Cuándo descartarlo:** si nadie va a mantenerlo. Una licencia gratuita con una operación abandonada puede resultar más cara que un servicio alojado. Revisa también la licencia para tu modalidad de uso; Community no significa permiso universal de reventa.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">04</span><span class="guide-feature__label"><strong>Activepieces</strong><span>para comparar una alternativa visual con opciones de alojamiento</span><small>Plan gratuito · opciones de pago</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 4. Activepieces: para comparar una alternativa visual con opciones de alojamiento
 
@@ -126,18 +150,18 @@ Activepieces combina flujos e integraciones mediante sus «pieces». La oferta c
 
 **Cuándo elegir otra opción:** si falta una integración decisiva y no puedes mantener la conexión adicional. No conviertas «se puede llamar a una API» en «lo puede operar cualquier persona».
 
-</section>
+</details>
 
 ## Un flujo completo también necesita una salida para los errores
 
 **El flujo:** entrada → comprobación → acción preparada → revisión → resultado confirmado. Desde la comprobación y la acción sale una segunda ruta: incidencia → responsable → reintento sin duplicados.
 
-<figure class="guide-flow">
+<figure class="guide-case">
   <picture>
-    <source media="(max-width: 600px)" srcset="/images/guides/buying/processes-flow-es-mobile.png" width="600" height="1180">
-    <img src="/images/guides/buying/processes-flow-es.png" alt="Diagrama de los pasos descritos en el texto que lo acompaña." width="1200" height="660" loading="lazy" decoding="async">
+    <source media="(max-width: 600px)" srcset="/images/guides/figma/processes-case-es-mobile.png" width="600" height="977">
+    <img src="/images/guides/figma/processes-case-es.png" alt="Ejemplo propuesto: una solicitud válida actualiza una ficha; un dato ausente pasa a una persona. Reintenta con el mismo ID." width="1200" height="817" loading="lazy" decoding="async">
   </picture>
-  <figcaption>Flujo propuesto; no representa un resultado probado de cliente.</figcaption>
+  <figcaption>Ejemplo propuesto: una solicitud válida actualiza una ficha; un dato ausente pasa a una persona. Reintenta con el mismo ID.</figcaption>
 
 </figure>
 
@@ -146,7 +170,8 @@ Imagina que el formulario entra bien, pero el CRM no responde. Un proceso fiable
 
 Esta es la pregunta que conecta la selección con la operación: **¿quién verá el próximo fallo y qué podrá hacer con él?**
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">05</span><span class="guide-feature__label"><strong>Power Automate</strong><span>para aprovechar el entorno Microsoft</span><small>Prueba / comprueba tu licencia</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 5. Power Automate: para aprovechar el entorno Microsoft
 
@@ -162,9 +187,10 @@ Power Automate permite flujos cloud y automatización de escritorio. La tarifa P
 
 **Cuándo descartarlo:** si eliges Microsoft solo por esta automatización y eso obliga a trasladar el resto del trabajo sin una razón operativa. Una suscripción barata por usuario no resuelve por sí sola una mala integración.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">06</span><span class="guide-feature__label"><strong>Airtable Automations</strong><span>para automatizar alrededor de registros</span><small>Plan gratuito · opciones de pago</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 6. Airtable Automations: para automatizar alrededor de registros
 
@@ -178,9 +204,10 @@ Airtable es una alternativa cuando el proceso puede expresarse como registros, e
 
 **Cuándo descartarlo:** si ya existe una fuente de verdad que cumple bien esa función. Crear otra base para copiar el CRM puede generar dos versiones del mismo cliente.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">07</span><span class="guide-feature__label"><strong>Google Apps Script</strong><span>para un proceso pequeño con mantenimiento claro</span><small>Editor sin licencia adicional · cuotas</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 7. Google Apps Script: para un proceso pequeño con mantenimiento claro
 
@@ -194,7 +221,7 @@ Apps Script permite ampliar y automatizar productos de Google con JavaScript. No
 
 **Cuándo elegir otra opción:** si el script depende de una cuenta personal que desaparecerá cuando alguien deje el equipo, o si solo una persona entiende cómo funciona. La aparente gratuidad no compensa esa dependencia.
 
-</section>
+</details>
 
 ## Compara el coste de un trabajo terminado
 
@@ -212,6 +239,9 @@ El ahorro también necesita una cuenta completa: tiempo manual anterior menos ti
 
 ## Una prueba de siete días antes de comprometerte
 
+<details class="guide-table-detail">
+<summary>Abrir la tabla de decisión completa</summary>
+
 | Momento propuesto | Trabajo | Evidencia para decidir |
 |---|---|---|
 | Preparación | Escoger una tarea, entrada, salida y responsable | Un ejemplo correcto y sus excepciones |
@@ -220,9 +250,14 @@ El ahorro también necesita una cuenta completa: tiempo manual anterior menos ti
 | Uso supervisado | Ejecutar una muestra representativa | Tiempo, consumo y correcciones registrados |
 | Decisión | Mantener, simplificar, pagar o parar | Comparación con el proceso anterior |
 
+</details>
+
 Siete días es una propuesta de organización, no una garantía de que todo proceso se valide en una semana. Un flujo infrecuente o con excepciones importantes necesitará más observación.
 
 ## Preguntas frecuentes
+
+<details class="guide-deep-dive">
+<summary>Leer las respuestas prácticas</summary>
 
 ### ¿Cuál elegir si empiezo sin presupuesto?
 
@@ -236,22 +271,23 @@ Solo cuando la tarea la necesita. Copiar una fecha validada o asignar por una re
 
 Cuando el flujo depende de varias personas o sistemas, sus fallos tienen consecuencias relevantes o no hay un responsable capaz de mantenerlo. Para explorar tu caso, puedes empezar por el [diagnóstico gratuito de AgentesVA](https://agentesva.com/diagnostico-automatizacion-ia/). También puedes simplificar el proceso antes de contratar una implementación.
 
-## Infografía final: de tu problema a una primera prueba
+</details>
+
+## Infografía final: del volumen a la factura
 
 **Quédate con estas decisiones:**
 
-- **Ya está en una aplicación:** prueba su automatización nativa. Airtable o Power Automate pueden encajar si ya trabajas allí.
-- **Varias aplicaciones, reglas visibles:** compara Make y Zapier con el mismo caso.
-- **APIs, código y responsable técnico:** compara n8n, Activepieces y Apps Script.
-- **Antes de pagar:** completa una prueba, mide consumo y revisiones, comprueba el fallo y documenta quién mantiene el flujo.
-- **Decisión:** conservar, simplificar, ampliar o detener. El resultado útil manda sobre el número de automatizaciones.
+- **Cuenta hipotética:** 300 solicitudes por cuatro acciones facturables simples dan un punto de partida de 1.200 acciones, antes de repeticiones o consultas adicionales.
+- **Unidades distintas:** créditos, tareas y ejecuciones no son equivalentes. Aplica las reglas de cada proveedor con tus conectores y tu recorrido real.
+- **Antes de pagar:** comprueba la salida correcta, los fallos visibles y un responsable de mantenimiento.
+- **Coste completo:** incluye revisión, reintentos y servicios externos. Esta cuenta explica el volumen; no es una factura ni un presupuesto.
 
 <figure class="guide-infographic">
   <picture>
-    <source media="(max-width: 600px)" srcset="/images/guides/buying/processes-infographic-es-mobile.png" width="600" height="2000">
-    <img src="/images/guides/buying/processes-infographic-es.png" alt="Resumen visual de las recomendaciones y condiciones explicadas arriba." width="1200" height="1550" loading="lazy" decoding="async">
+    <source media="(max-width: 600px)" srcset="/images/guides/figma/processes-infographic-es-mobile.png" width="600" height="1403">
+    <img src="/images/guides/figma/processes-infographic-es.png" alt="Cuenta hipotética de acciones. Créditos, tareas y ejecuciones siguen reglas distintas; no es una factura." width="1200" height="968" loading="lazy" decoding="async">
   </picture>
-  <figcaption>Guarda esta guía de decisión. El detalle y las fuentes están en el artículo.</figcaption>
-  <a class="guide-download" href="/images/guides/buying/processes-infographic-es.png" download>Descargar infografía (PNG) <span aria-hidden="true">↓</span></a>
-  <a class="guide-download" href="/images/guides/buying/processes-infographic-es.svg" download>Descargar vector editable (SVG) <span aria-hidden="true">↓</span></a>
+  <figcaption>Cuenta hipotética de acciones. Créditos, tareas y ejecuciones siguen reglas distintas; no es una factura.</figcaption>
+  <a class="guide-download" href="/images/guides/figma/processes-infographic-es.png" download>Descargar infografía (PNG) <span aria-hidden="true">↓</span></a>
+  <a class="guide-download" href="/images/guides/figma/processes-infographic-es.svg" download>Descargar vector editable (SVG) <span aria-hidden="true">↓</span></a>
 </figure>

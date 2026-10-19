@@ -20,7 +20,20 @@ Esta selección reúne **skills individuales y packs**, identificados como tales
 
 **Revisión: 18 de octubre de 2026.** Evaluamos documentación, repositorios y páginas de sus autores. No compramos los packs comerciales ni ejecutamos una comparación de rendimiento entre ellos. Donde solo hay evidencia del vendedor, lo indicamos.
 
+
+<figure class="guide-atlas">
+  <picture>
+    <source media="(max-width: 600px)" srcset="/images/guides/figma/claude-atlas-es-mobile.png" width="600" height="1207">
+    <img src="/images/guides/figma/claude-atlas-es.png" alt="Elige archivos de trabajo, un método reutilizable o servicios conectados. La guía explica disponibilidad, licencias y costes." width="1200" height="817" loading="lazy" decoding="async">
+  </picture>
+  <figcaption>Elige archivos de trabajo, un método reutilizable o servicios conectados. La guía explica disponibilidad, licencias y costes.</figcaption>
+
+</figure>
+
 ## Primero, cuatro piezas que no conviene mezclar
+
+<details class="guide-table-detail">
+<summary>Abrir la tabla de decisión completa</summary>
 
 | Pieza | Para qué sirve | Ejemplo de decisión |
 |---|---|---|
@@ -28,6 +41,8 @@ Esta selección reúne **skills individuales y packs**, identificados como tales
 | Conector o herramienta | Dar acceso a una capacidad o a un sistema | Leer una tabla o crear un documento en una aplicación |
 | Plugin | Agrupar capacidades y configuración; puede incluir skills | Instalar una colección compatible con tu entorno |
 | Entorno y plan | Determinar dónde se ejecuta y qué recursos tiene disponibles | Claude en la web, Cowork o Claude Code |
+
+</details>
 
 La documentación de Anthropic describe las skills como carpetas de instrucciones, scripts y recursos que Claude carga cuando son pertinentes. Su disponibilidad y funcionamiento dependen del entorno. [Qué son las skills](https://support.claude.com/en/articles/12512176-what-are-skills).
 
@@ -48,6 +63,9 @@ La licencia del contenido y el coste de ejecutarlo son decisiones diferentes.
 
 ## Comparativa rápida: elige una tarea, no una colección por su tamaño
 
+<details class="guide-table-detail">
+<summary>Comparar opciones, límites gratuitos y costes</summary>
+
 | Opción | Tipo | Trabajo para el que la probaríamos | Coste del paquete o capacidad | Límite que importa |
 |---|---|---|---|---|
 | xlsx | Skill documental | Hojas con fórmulas y estructura | Capacidad documental de Claude; fuente de referencia pública | Revisar fórmulas, tipos y entradas |
@@ -61,11 +79,14 @@ La licencia del contenido y el coste de ejecutarlo son decisiones diferentes.
 | Creator Skill Pack | Pack comercial | Preparar producción multimedia con herramientas externas | 39 USD, pago único anunciado | APIs y créditos externos aparte |
 | Founder Ops Skill Pack | Pack comercial | Coordinar operaciones desde un agente técnico | 79 USD, pago único anunciado | Cuentas, permisos y configuración aparte |
 
+</details>
+
 Fuentes: [repositorio de Anthropic](https://github.com/anthropics/skills), [Marketing Skills](https://github.com/coreyhaines31/marketingskills), [Superpowers](https://github.com/obra/superpowers) y [página del creador de los packs comerciales](https://agent-skill-packs.pages.dev/). Los dos precios de pago son los anunciados por el vendedor el 18 de octubre de 2026, antes de posibles impuestos y consumo externo.
 
 **Matiz de licencia:** el repositorio de Anthropic diferencia ejemplos abiertos de las skills documentales docx, pdf, pptx y xlsx, publicadas como código fuente disponible con condiciones propias. No presentes todas como si compartieran una licencia abierta. [Información del repositorio](https://github.com/anthropics/skills).
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">01</span><span class="guide-feature__label"><strong>xlsx</strong><span>para dejar de reconstruir hojas cada semana</span><small>Capacidad incluida · límites del plan</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 1. xlsx: para dejar de reconstruir hojas cada semana
 
@@ -77,9 +98,10 @@ La skill xlsx está orientada a hojas de cálculo: creación, edición, fórmula
 
 **Cuándo te aporta poco:** cuando una tabla sencilla en tu aplicación actual resuelve el trabajo. No traslades un proceso estable a una hoja generada solo porque puedes hacerlo.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">02</span><span class="guide-feature__label"><strong>docx</strong><span>para propuestas y documentos que deben seguir siendo editables</span><small>Capacidad incluida · límites del plan</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 2. docx: para propuestas y documentos que deben seguir siendo editables
 
@@ -91,9 +113,10 @@ docx sirve para trabajar con documentos de Word y su estructura. La considerarí
 
 **Cuándo no es suficiente:** cuando el documento necesita una decisión especializada que todavía nadie ha tomado. Una skill puede organizar un contrato o una propuesta; eso no valida sus condiciones por sí mismo.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">03</span><span class="guide-feature__label"><strong>pptx</strong><span>para convertir una narrativa en una presentación revisable</span><small>Capacidad incluida · límites del plan</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 3. pptx: para convertir una narrativa en una presentación revisable
 
@@ -105,9 +128,10 @@ pptx está diseñada para crear y modificar presentaciones. Es una entrada útil
 
 **Cuándo elegir otra ruta:** si necesitas una dirección visual muy específica, trabaja primero el concepto. Generar más páginas de una dirección débil solo multiplica la corrección.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">04</span><span class="guide-feature__label"><strong>pdf</strong><span>para extraer y preparar información sin perder su contexto</span><small>Capacidad incluida · límites del plan</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 4. pdf: para extraer y preparar información sin perder su contexto
 
@@ -119,25 +143,26 @@ La skill pdf reúne procedimientos para trabajar con archivos PDF. Puede ayudar 
 
 **Cuándo aporta poco:** si necesitas un archivo que otra persona modifique a menudo, quizá convenga entregar DOCX o XLSX y exportar el PDF al final.
 
-</section>
+</details>
 
-## Una skill útil conecta tres capas
+## El pack es solo una parte del sistema
 
-**El flujo:** tu método → recursos y herramientas permitidas → salida comprobable. Debajo: contexto de entrada, criterios de revisión y una ruta para lo que falta.
+**El flujo:** instrucciones y recursos → entorno compatible → cuentas y permisos → consumo externo. Cada capa necesita una comprobación distinta; comprar una no activa automáticamente las demás.
 
-<figure class="guide-flow">
+<figure class="guide-case">
   <picture>
-    <source media="(max-width: 600px)" srcset="/images/guides/buying/claude-flow-es-mobile.png" width="600" height="1180">
-    <img src="/images/guides/buying/claude-flow-es.png" alt="Diagrama de los pasos descritos en el texto que lo acompaña." width="1200" height="660" loading="lazy" decoding="async">
+    <source media="(max-width: 600px)" srcset="/images/guides/figma/claude-case-es-mobile.png" width="600" height="940">
+    <img src="/images/guides/figma/claude-case-es.png" alt="El pack, el entorno Claude, las cuentas conectadas y el consumo externo son capas distintas que debes comprobar." width="1200" height="958" loading="lazy" decoding="async">
   </picture>
-  <figcaption>Flujo propuesto; no representa un resultado probado de cliente.</figcaption>
+  <figcaption>El pack, el entorno Claude, las cuentas conectadas y el consumo externo son capas distintas que debes comprobar.</figcaption>
 
 </figure>
 
 
 Por ejemplo, una skill de propuestas necesita el método comercial, una plantilla aprobada y reglas para las incógnitas. Si solo dice «actúa como un experto», deja sin definir gran parte del trabajo. Si además exige enviar el documento sin revisión, puede introducir una acción que no necesitas.
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">05</span><span class="guide-feature__label"><strong>skill-creator</strong><span>para convertir tu forma de trabajar en un procedimiento</span><small>Ejemplo público gratuito</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 5. skill-creator: para convertir tu forma de trabajar en un procedimiento
 
@@ -149,9 +174,10 @@ skill-creator ayuda a crear, mejorar y evaluar skills. Su procedimiento contempl
 
 **Cuándo no crearla:** si es una tarea excepcional o todavía no sabes qué resultado necesitas. Un encargo claro puede ser suficiente.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">06</span><span class="guide-feature__label"><strong>frontend-design</strong><span>para dar una dirección concreta a una interfaz</span><small>Ejemplo público gratuito</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 6. frontend-design: para dar una dirección concreta a una interfaz
 
@@ -163,9 +189,10 @@ frontend-design es un ejemplo de Anthropic orientado a interfaces web con decisi
 
 **Cuándo descartarla:** si la tarea consiste en una modificación pequeña dentro de un sistema ya definido y la skill intenta sustituirlo. Conservar un componente claro también es una buena decisión de diseño.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">07</span><span class="guide-feature__label"><strong>Marketing Skills</strong><span>para estructurar trabajo de marketing</span><small>Gratis · MIT</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 7. Marketing Skills: para estructurar trabajo de marketing
 
@@ -177,9 +204,10 @@ La biblioteca de Corey Haines incluye skills de copywriting, CRO, SEO, analític
 
 **Cuándo aporta poco:** si no has definido qué vendes ni para quién. La biblioteca puede ayudarte a formular preguntas, pero no debería inventar clientes, entrevistas o resultados.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">08</span><span class="guide-feature__label"><strong>Superpowers</strong><span>para desarrollar software con un proceso explícito</span><small>Gratis · MIT</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 8. Superpowers: para desarrollar software con un proceso explícito
 
@@ -191,9 +219,10 @@ Superpowers es una biblioteca y metodología de desarrollo que combina skills pa
 
 **Cuándo elegir otra ruta:** para una tarea editorial sencilla puede introducir más coordinación de la necesaria. Una metodología completa de software no es la primera compra para alguien que solo necesita preparar documentos.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">09</span><span class="guide-feature__label"><strong>Creator Skill Pack</strong><span>pago por una producción multimedia ya conectada</span><small>39 USD, pago único · consumo externo aparte</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 9. Creator Skill Pack: pago por una producción multimedia ya conectada
 
@@ -207,9 +236,10 @@ El creador anuncia ocho skills y un precio único de **39 USD**. El paquete incl
 
 **Límite de esta recomendación:** verificamos la oferta pública, no la calidad del código entregado ni sus resultados mediante una compra y prueba. El vendedor anuncia una licencia de comprador único para uso personal o interno; no redistribuyas el paquete sin comprobar sus condiciones.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">10</span><span class="guide-feature__label"><strong>Founder Ops Skill Pack</strong><span>pago por coordinar herramientas operativas</span><small>79 USD, pago único · consumo externo aparte</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 10. Founder Ops Skill Pack: pago por coordinar herramientas operativas
 
@@ -223,13 +253,16 @@ El mismo creador anuncia dieciocho skills por **79 USD**, pago único, para oper
 
 **Cuándo descartarlo:** si el equipo no puede revisar la configuración o solo necesita un resumen de una herramienta que ya lo genera. Verificar una página comercial no equivale a auditar el paquete comprado.
 
-</section>
+</details>
 
 ## Cuándo pagar por una skill y cuándo crear la tuya
 
 Un pack de pago puede reducir preparación si contiene un procedimiento pertinente, ejemplos, documentación y mantenimiento que necesitas. Una biblioteca gratuita puede exigir adaptación. Una skill propia puede encajar mejor con un método específico del negocio.
 
 La pregunta de compra es: **¿qué trabajo concreto dejaré de hacer y qué seguirá a mi cargo?**
+
+<details class="guide-table-detail">
+<summary>Abrir la tabla de decisión completa</summary>
 
 | Pregunta al proveedor o al repositorio | Señal útil | Razón para posponer |
 |---|---|---|
@@ -238,6 +271,8 @@ La pregunta de compra es: **¿qué trabajo concreto dejaré de hacer y qué segu
 | ¿Qué cuesta usarlo? | Licencia y consumos separados | «Pago único» sin explicar las APIs |
 | ¿Cómo se actualiza? | Versiones y condiciones de soporte | Mantenimiento indefinido ambiguo |
 | ¿Cómo se revisa? | Casos de prueba y límites visibles | Garantías universales de resultados |
+
+</details>
 
 **No pagues dos veces por el mismo valor.** Si una función ya incluida resuelve el problema, el paquete debe justificar qué preparación o capacidad añade.
 
@@ -254,6 +289,9 @@ Para skills personales en Claude, la ayuda describe la carga del paquete desde C
 
 ## Preguntas frecuentes
 
+<details class="guide-deep-dive">
+<summary>Leer las respuestas prácticas</summary>
+
 ### ¿Una skill de pago hace a Claude más inteligente?
 
 No cambia por sí sola el modelo. Puede aportar instrucciones, herramientas y recursos que organicen mejor una tarea. Evalúa el resultado de ese trabajo, con tus datos y criterios.
@@ -266,23 +304,24 @@ La ayuda actual incluye Free entre los planes con skills, bajo sus condiciones. 
 
 Las que puedas justificar por una tarea. No hay un número universal. Empieza por una y conserva una lista con su propósito, procedencia, dependencias y última revisión.
 
-## Infografía final: qué añadir a Claude según tu trabajo
+</details>
+
+## Infografía final: comprueba la entrega
 
 **Quédate con estas decisiones:**
 
-- **Archivos:** xlsx, docx, pptx y pdf. Empieza por la capacidad incluida y revisa el archivo.
-- **Tu método:** skill-creator. Aporta ejemplos y criterios de aceptación.
-- **Un oficio:** Marketing Skills, frontend-design o Superpowers, según la tarea.
-- **Servicios multimedia u operativos:** evalúa un pack de pago si sus conexiones te evitan preparación real.
-- **Antes de comprar:** entorno compatible + dependencias + coste externo + muestra + mantenimiento.
-- **Resultado:** una entrega comprobable, menos correcciones o una capacidad que necesitabas. Instalar más skills no es la métrica.
+- **XLSX:** cambia una entrada y comprueba un total a mano.
+- **DOCX:** edita el documento y revisa alcance, nombres y estructura.
+- **PPTX:** abre cada diapositiva; revisa recortes y fuentes.
+- **PDF:** extrae un fragmento y verifica orden y tablas.
+- **Decisión:** conserva la skill si mejora una tarea que realmente repites. Estas pruebas son propuestas, no resultados medidos; utiliza muestras autorizadas y comprueba omisiones y correcciones.
 
 <figure class="guide-infographic">
   <picture>
-    <source media="(max-width: 600px)" srcset="/images/guides/buying/claude-infographic-es-mobile.png" width="600" height="2370">
-    <img src="/images/guides/buying/claude-infographic-es.png" alt="Resumen visual de las recomendaciones y condiciones explicadas arriba." width="1200" height="1830" loading="lazy" decoding="async">
+    <source media="(max-width: 600px)" srcset="/images/guides/figma/claude-infographic-es-mobile.png" width="600" height="1284">
+    <img src="/images/guides/figma/claude-infographic-es.png" alt="Pruebas propuestas: cambia una entrada de la hoja, edita el documento, revisa cada diapositiva y verifica la extracción del PDF." width="1200" height="856" loading="lazy" decoding="async">
   </picture>
-  <figcaption>Guarda esta guía de decisión. El detalle y las fuentes están en el artículo.</figcaption>
-  <a class="guide-download" href="/images/guides/buying/claude-infographic-es.png" download>Descargar infografía (PNG) <span aria-hidden="true">↓</span></a>
-  <a class="guide-download" href="/images/guides/buying/claude-infographic-es.svg" download>Descargar vector editable (SVG) <span aria-hidden="true">↓</span></a>
+  <figcaption>Pruebas propuestas: cambia una entrada de la hoja, edita el documento, revisa cada diapositiva y verifica la extracción del PDF.</figcaption>
+  <a class="guide-download" href="/images/guides/figma/claude-infographic-es.png" download>Descargar infografía (PNG) <span aria-hidden="true">↓</span></a>
+  <a class="guide-download" href="/images/guides/figma/claude-infographic-es.svg" download>Descargar vector editable (SVG) <span aria-hidden="true">↓</span></a>
 </figure>

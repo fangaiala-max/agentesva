@@ -99,9 +99,9 @@ The pdf skill brings together procedures for working with PDF files. It can help
 
 **When it adds little:** if someone else needs to edit the file frequently, it may be better to deliver DOCX or XLSX and export a PDF at the end.
 
-## A useful skill connects three layers
+## The pack is only part of the system
 
-**Proposed editorial diagram:** your method → permitted resources and tools → checkable output. Underneath: input context, review criteria and a route for missing information.
+**Proposed editorial diagram:** instructions and resources → a compatible environment → accounts and permissions → external usage. Each layer needs a different check; buying one does not automatically activate the others.
 
 For example, a proposal skill needs the sales method, an approved template and rules for unknowns. If it simply says “act as an expert,” much of the work remains undefined. If it also requires sending the document without review, it may introduce an action you do not need.
 
@@ -210,15 +210,12 @@ The current help documentation includes Free among plans with skills, subject to
 
 As many as you can justify through a task. There is no universal number. Start with one and keep a list of its purpose, origin, dependencies and last review.
 
-## Final infographic: what to add to Claude for your work
+## Final infographic: check the deliverable
 
 **Infographic content, with a text equivalent:**
 
-- **Files:** xlsx, docx, pptx and pdf. Start with the included capability and review the file.
-- **Your method:** skill-creator. Supply examples and acceptance criteria.
-- **A discipline:** Marketing Skills, frontend-design or Superpowers, depending on the task.
-- **Multimedia or operational services:** evaluate a paid pack if its connections save real preparation work.
-- **Before buying:** compatible environment + dependencies + external cost + sample + maintenance.
-- **Result:** a checkable deliverable, fewer corrections or a capability you needed. Installing more skills is not the metric.
-
-*Final visual awaiting layout and export. Keep external costs and the distinction between an individual skill and a pack visible.*
+- **XLSX:** change an input and check a total by hand.
+- **DOCX:** edit the document and check scope, names and structure.
+- **PPTX:** open every slide; check crops and sources.
+- **PDF:** extract a section and verify order and tables.
+- **Decision:** keep the skill if it helps a task you actually repeat. These checks are proposed, not measured results; use authorized samples and check omissions and corrections.

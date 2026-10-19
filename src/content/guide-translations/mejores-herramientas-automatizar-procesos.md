@@ -20,7 +20,20 @@ This guide helps you choose a starting point and decide when paying makes sense.
 
 **Reviewed: October 18, 2026.** Prices retain their original currencies. A monthly equivalent billed annually requires payment for the annual period; it does not mean you can buy one month at that rate. Taxes, connected services, external AI and implementation can add costs.
 
+
+<figure class="guide-atlas">
+  <picture>
+    <source media="(max-width: 600px)" srcset="/images/guides/figma/processes-atlas-en-mobile.png" width="600" height="1126">
+    <img src="/images/guides/figma/processes-atlas-en.png" alt="Start with a built-in feature, connect applications, or take technical ownership. Choose by the work." width="1200" height="755" loading="lazy" decoding="async">
+  </picture>
+  <figcaption>Start with a built-in feature, connect applications, or take technical ownership. Choose by the work.</figcaption>
+
+</figure>
+
 ## Choose by the work you need to take off your plate
+
+<details class="guide-table-detail">
+<summary>Open the detailed decision table</summary>
 
 | Your situation | First option we would try | Check before paying |
 |---|---|---|
@@ -31,6 +44,8 @@ This guide helps you choose a starting point and decide when paying makes sense.
 | The work already happens in Microsoft | Power Automate | Existing licenses, connectors and attended or unattended execution |
 | Your operation revolves around records and statuses | Airtable | Run limits and the cost of users with billable access |
 | Your team uses Sheets, Docs and Gmail and can maintain code | Apps Script | Quotas, trigger ownership and maintenance |
+
+</details>
 
 The order reflects different situations. It is not a speed ranking or an award for the tool with the most features.
 
@@ -44,6 +59,9 @@ You do not need to automate an occasional task that a template already handles w
 
 ## What you can do free and what changes when you pay
 
+<details class="guide-table-detail">
+<summary>Compare options, free limits and costs</summary>
+
 | Tool | Free starting point | Paid reference reviewed | Unit to watch |
 |---|---|---|---|
 | Make | 1,000 credits per month; two active scenarios; minimum scheduled interval of 15 minutes | Core: USD 12/month billed annually, 10,000 credits/month; USD 16 billed monthly | Credits per action; some uses have different rules |
@@ -54,11 +72,14 @@ You do not need to automate an occasional task that a template already handles w
 | Airtable | 100 automation runs/month per workspace | Team: USD 20/user/month billed annually | Billable users and workspace runs |
 | Apps Script | No additional editor license; quotas apply | No Apps Script “Pro” plan; other services may cost money | Development time, quotas and APIs used |
 
+</details>
+
 Table sources: [Make](https://www.make.com/pricing), [Zapier](https://zapier.com/pricing), [n8n Cloud](https://n8n.io/pricing/), [n8n Community](https://docs.n8n.io/deploy/host-n8n/community-edition-features/), [Activepieces](https://www.activepieces.com/pricing), [Power Automate](https://www.microsoft.com/en-us/power-platform/products/power-automate/pricing), [Airtable pricing](https://airtable.com/pricing), [Airtable limits](https://support.airtable.com/articles/3669392397-getting-started-with-airtable-automations) and [Apps Script quotas](https://developers.google.com/apps-script/guides/services/quotas). Accessed October 18, 2026.
 
 **Two buying details matter.** Self-hosting an edition with no license fee still leaves you with servers, backups, updates and support. The Activepieces page we reviewed also contains differing messages about replenishment of the Free allowance; verify that behavior inside your account before relying on it.
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">01</span><span class="guide-feature__label"><strong>Make</strong><span>for seeing a process with several routes</span><small>Free plan · paid options</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 1. Make: for seeing a process with several routes
 
@@ -74,9 +95,10 @@ Make lets you build scenarios that connect applications and transform informatio
 
 **When to choose another option:** if the form or CRM can handle everything internally, add that native rule first. Introducing another platform just to send a notification can increase maintenance.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">02</span><span class="guide-feature__label"><strong>Zapier</strong><span>for starting with a simple connection</span><small>Free plan · paid options</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 2. Zapier: for starting with a simple connection
 
@@ -92,9 +114,10 @@ Zapier organizes automations into Zaps: an incoming event and subsequent actions
 
 **When to rule it out:** if you want to operate your own infrastructure or need extensive transformations that your team can maintain more easily in code. Do not pay for the catalog's breadth if you will use only one connection.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">03</span><span class="guide-feature__label"><strong>n8n</strong><span>for teams that can take on technical operations</span><small>Self-hosted Community · Cloud trial</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 3. n8n: for teams that can take on technical operations
 
@@ -110,9 +133,10 @@ n8n offers a self-hosted Community edition and Cloud plans. Its documentation di
 
 **When to rule it out:** if nobody will maintain it. A free license supporting an abandoned operation can cost more than a hosted service. Also review the license for your intended use; Community does not mean unrestricted permission to resell.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">04</span><span class="guide-feature__label"><strong>Activepieces</strong><span>for comparing a visual alternative with hosting options</span><small>Free plan · paid options</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 4. Activepieces: for comparing a visual alternative with hosting options
 
@@ -126,18 +150,18 @@ Activepieces combines workflows and integrations through its “pieces.” The o
 
 **When to choose another option:** if a critical integration is missing and you cannot maintain the additional connection. “It can call an API” does not mean “anyone can operate it.”
 
-</section>
+</details>
 
 ## A complete workflow also needs an exit for errors
 
 **The workflow:** input → validation → prepared action → review → confirmed result. A second route branches from validation and the action: issue → owner → retry without duplicates.
 
-<figure class="guide-flow">
+<figure class="guide-case">
   <picture>
-    <source media="(max-width: 600px)" srcset="/images/guides/buying/processes-flow-en-mobile.png" width="600" height="1180">
-    <img src="/images/guides/buying/processes-flow-en.png" alt="Diagram of the steps described in the surrounding text." width="1200" height="660" loading="lazy" decoding="async">
+    <source media="(max-width: 600px)" srcset="/images/guides/figma/processes-case-en-mobile.png" width="600" height="911">
+    <img src="/images/guides/figma/processes-case-en.png" alt="Proposed example: a valid request updates one record; missing data goes to a person. Retry with the same ID." width="1200" height="817" loading="lazy" decoding="async">
   </picture>
-  <figcaption>A proposed workflow, not a tested customer result.</figcaption>
+  <figcaption>Proposed example: a valid request updates one record; missing data goes to a person. Retry with the same ID.</figcaption>
 
 </figure>
 
@@ -146,7 +170,8 @@ Imagine that the form arrives correctly but the CRM does not respond. A reliable
 
 This question connects selection with operation: **who will see the next failure, and what will they be able to do about it?**
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">05</span><span class="guide-feature__label"><strong>Power Automate</strong><span>for making use of a Microsoft environment</span><small>Trial / check your licence</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 5. Power Automate: for making use of a Microsoft environment
 
@@ -162,9 +187,10 @@ Power Automate supports cloud flows and desktop automation. The Premium price re
 
 **When to rule it out:** if choosing Microsoft solely for this automation forces you to move the rest of the work without an operational reason. A low subscription price per user does not resolve a poor integration by itself.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">06</span><span class="guide-feature__label"><strong>Airtable Automations</strong><span>for working around records</span><small>Free plan · paid options</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 6. Airtable Automations: for working around records
 
@@ -178,9 +204,10 @@ Airtable is an alternative when a process can be expressed as records, statuses 
 
 **When to rule it out:** if an existing source of truth already serves that purpose well. Creating another database to copy the CRM can produce two versions of the same customer.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">07</span><span class="guide-feature__label"><strong>Google Apps Script</strong><span>for a small process with clear maintenance</span><small>No extra editor licence · usage limits</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 7. Google Apps Script: for a small process with clear maintenance
 
@@ -194,7 +221,7 @@ Apps Script lets you extend and automate Google products using JavaScript. No ad
 
 **When to choose another option:** if the script depends on a personal account that will disappear when someone leaves, or if only one person understands how it works. The apparent lack of license cost does not compensate for that dependency.
 
-</section>
+</details>
 
 ## Compare the cost of a finished job
 
@@ -212,6 +239,9 @@ Savings need a complete calculation too: previous manual time minus review, exce
 
 ## A proposed seven-day trial before committing
 
+<details class="guide-table-detail">
+<summary>Open the detailed decision table</summary>
+
 | Suggested stage | Work | Evidence for the decision |
 |---|---|---|
 | Preparation | Choose one task, input, output and owner | A valid example and its exceptions |
@@ -220,9 +250,14 @@ Savings need a complete calculation too: previous manual time minus review, exce
 | Supervised use | Run a representative sample | Recorded time, consumption and corrections |
 | Decision | Keep, simplify, pay or stop | Comparison with the previous process |
 
+</details>
+
 Seven days is a proposed way to organize the work, not a guarantee that every process can be validated in a week. An infrequent workflow or one with important exceptions needs more observation.
 
 ## Frequently asked questions
+
+<details class="guide-deep-dive">
+<summary>Read the practical answers</summary>
 
 ### Which should I choose with no budget?
 
@@ -236,22 +271,23 @@ Only when the task needs it. Copying a validated date or assigning work accordin
 
 When a flow depends on several people or systems, failures have meaningful consequences, or there is nobody able to maintain it. To explore your situation, you can start with the [free AgentesVA assessment](https://agentesva.com/assessment/). Simplifying the process before commissioning implementation is also an option.
 
-## Final infographic: from your problem to a first trial
+</details>
+
+## Final infographic: from volume to a bill
 
 **Keep these decisions in mind:**
 
-- **Already inside one application:** try its native automation. Airtable or Power Automate may fit if you already work there.
-- **Several applications, visible rules:** compare Make and Zapier using the same case.
-- **APIs, code and a technical owner:** compare n8n, Activepieces and Apps Script.
-- **Before paying:** complete a trial, measure consumption and review work, test failure handling and document who maintains the flow.
-- **Decision:** keep, simplify, expand or stop. The useful result matters more than the number of automations.
+- **Hypothetical count:** 300 requests with four simple billable actions give a starting point of 1,200 actions, before retries or additional lookups.
+- **Different units:** credits, tasks and executions are not interchangeable. Apply each provider's rules to your connectors and actual workflow.
+- **Before paying:** check correct output, visible failures and a named maintenance owner.
+- **Full cost:** include review, retries and external services. This calculation explains volume; it is not a bill or a quote.
 
 <figure class="guide-infographic">
   <picture>
-    <source media="(max-width: 600px)" srcset="/images/guides/buying/processes-infographic-en-mobile.png" width="600" height="2000">
-    <img src="/images/guides/buying/processes-infographic-en.png" alt="Visual summary of the recommendations and conditions explained above." width="1200" height="1550" loading="lazy" decoding="async">
+    <source media="(max-width: 600px)" srcset="/images/guides/figma/processes-infographic-en-mobile.png" width="600" height="1289">
+    <img src="/images/guides/figma/processes-infographic-en.png" alt="Hypothetical action count. Credits, tasks and executions follow different provider rules; this is not a bill." width="1200" height="968" loading="lazy" decoding="async">
   </picture>
-  <figcaption>Save this decision guide. Full details and source links are in the article.</figcaption>
-  <a class="guide-download" href="/images/guides/buying/processes-infographic-en.png" download>Download the infographic (PNG) <span aria-hidden="true">↓</span></a>
-  <a class="guide-download" href="/images/guides/buying/processes-infographic-en.svg" download>Download editable vector (SVG) <span aria-hidden="true">↓</span></a>
+  <figcaption>Hypothetical action count. Credits, tasks and executions follow different provider rules; this is not a bill.</figcaption>
+  <a class="guide-download" href="/images/guides/figma/processes-infographic-en.png" download>Download the infographic (PNG) <span aria-hidden="true">↓</span></a>
+  <a class="guide-download" href="/images/guides/figma/processes-infographic-en.svg" download>Download editable vector (SVG) <span aria-hidden="true">↓</span></a>
 </figure>

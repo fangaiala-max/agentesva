@@ -10,14 +10,14 @@ Cinco acciones preparadas para revisión local. No publicado. Rama: `feat/visual
 | Skills de Claude | [Texto completo](02-mejores-skills-claude.md) | [Full guide](02-best-claude-skills.en.md) | 10 |
 | Automatizar redes sociales | [Texto completo](03-herramientas-automatizar-redes-sociales.md) | [Full guide](03-social-media-automation-tools.en.md) | 7 |
 
-Cada edición contiene respuesta rápida, comparación, criterios por situación, ejemplos propuestos, límites, precios/unidades comprobados, alternativa gratuita y un plan de prueba. Incluye portada original, diagrama y cierre con infografía descargable. Fuentes oficiales y consulta del 18 de octubre. No se realizaron pruebas comparativas de producto ni se compraron los packs comerciales de skills.
+Cada edición contiene respuesta rápida, comparación, criterios por situación, ejemplos propuestos, límites, precios/unidades comprobados, alternativa gratuita y un plan de prueba. Incluye portada original, atlas visual de selección, ejemplo explicativo y cierre con infografía descargable. Las reseñas completas y las tablas se abren a petición. Fuentes oficiales y consulta del 18 de octubre. No se realizaron pruebas comparativas de producto ni se compraron los packs comerciales de skills.
 
 ## Auditoría y actualización
 
 - [Informe detallado de la home](home-growth-audit.md): diagnóstico por bloques, evidencia de producción EN/ES, cinco prioridades, propuestas de copy, contrato de medición y criterios de aceptación. Prioridades inmediatas: demo en 320 px y separación de activación/contacto/oportunidad real. Los cambios recomendados en la home no están ejecutados.
 - [Refresh de contenido existente](existing-content-refresh.md): cuatro guías españolas y cuatro resúmenes ingleses actualizados —Make/n8n/Zapier, coste, WhatsApp y seguimiento de leads—; seis guías conservadas con justificación. Selección por utilidad y vigencia; no por un ranking de tráfico con muestra insuficiente.
 - [Brief y dirección aplicados](brief.md): `head-of-content`, `head-of-design` y `value-for-client`.
-- [Manifiesto gráfico](visuals/asset-manifest.json): 51 archivos web, dimensiones y SHA-256; SVG con tipografía trazada, PNG y JPG. El generador Python conserva las etiquetas como texto editable; los SVG son editables como vectores.
+- [Nueva entrega Figma](figma-v2/README.md): 36 composiciones nativas editables, 36 PNG responsive y 6 SVG de infografías. El [manifiesto vigente](figma-v2/asset-manifest.json) identifica cada nodo, exportación y checksum. Las portadas originales se conservan; la carpeta `visuals/` recoge la primera iteración.
 - [Revisión gráfica de procesos](visuals/processes-contact-sheet.png), [Claude](visuals/claude-contact-sheet.png) y [redes](visuals/social-contact-sheet.png).
 
 ## Validación y límite pendiente
@@ -47,3 +47,5 @@ npm run dev -- --host 127.0.0.1 --port 4359
 ```
 
 Guías en desarrollo: http://127.0.0.1:4359/guias/ y http://127.0.0.1:4359/guides/. Los cambios en los archivos fuente se reflejan mediante el servidor de desarrollo.
+
+La revisión Figma reduce un 62–66% el texto HTML expuesto inicialmente, conserva el detalle desplegable y añade tres figuras nativas por artículo. [Ver metodología y resultados](figma-v2/reading-path-comparison.json).

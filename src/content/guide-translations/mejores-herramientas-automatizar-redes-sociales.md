@@ -20,9 +20,22 @@ The best purchase depends on what consumes your time: preparing content, adaptin
 
 **Prices and limits checked on October 18, 2026.** We retain original currencies and distinguish annual billing, monthly billing and temporary trials. Prices do not represent the total cost of content production or necessarily include taxes and add-ons.
 
+
+<figure class="guide-atlas">
+  <picture>
+    <source media="(max-width: 600px)" srcset="/images/guides/figma/social-atlas-en-mobile.png" width="600" height="1181">
+    <img src="/images/guides/figma/social-atlas-en.png" alt="Choose by the bottleneck: a small queue, editorial planning, or coordination between people." width="1200" height="794" loading="lazy" decoding="async">
+  </picture>
+  <figcaption>Choose by the bottleneck: a small queue, editorial planning, or coordination between people.</figcaption>
+
+</figure>
+
 ## What to automate to make the work lighter
 
 Choose the stage before comparing applications:
+
+<details class="guide-table-detail">
+<summary>Open the detailed decision table</summary>
 
 | Stage | Useful result | What still needs an owner |
 |---|---|---|
@@ -34,9 +47,14 @@ Choose the stage before comparing applications:
 | Conversation | Classified messages and prepared replies | Sensitive cases and those requiring judgment |
 | Measurement | Comparable results and identifiable links | Interpretation and the next decision |
 
+</details>
+
 Scheduling more posts does not demonstrate better results. Automation has value when it reduces work or errors without making the audience's experience worse.
 
 ## Quick comparison of free and paid options
+
+<details class="guide-table-detail">
+<summary>Compare options, free limits and costs</summary>
 
 | Tool | What you can try free | Paid reference | Unit that can change your bill |
 |---|---|---|---|
@@ -47,6 +65,8 @@ Scheduling more posts does not demonstrate better results. Automation has value 
 | Later | Temporary trial; we do not treat it as a permanent free plan | Starter: USD 18.75/month billed annually in the offer reviewed | Social Sets, users, posts and extras depending on plan |
 | SocialBee | Temporary trial | Bootstrap: USD 29/month or USD 290/year | Profiles, workspaces, users and add-ons |
 | Hootsuite | Fourteen-day temporary trial | Paid plans; confirm local rates and seats in the configurator | Users, plan, accounts and features |
+
+</details>
 
 Sources: [Meta Business Suite](https://www.facebook.com/business/tools/meta-business-suite), [Buffer](https://buffer.com/pricing), [Metricool](https://metricool.com/pricing/), [Publer plans](https://publer.com/plans), [Publer pricing explanation](https://publer.com/help/en/article/what-are-publers-plans-and-pricing-15h4yqh), [Later](https://later.com/pricing/), [SocialBee](https://socialbee.com/pricing/) and [Hootsuite](https://www.hootsuite.com/plans).
 
@@ -62,7 +82,8 @@ The decision rests on five questions: networks and formats you need, review proc
 
 We did not add tools simply because they generate text. Writing a draft is one stage. Having a piece approved, adapted and published is another.
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">01</span><span class="guide-feature__label"><strong>Meta Business Suite</strong><span>the first trial for Facebook and Instagram</span><small>Free native tool</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 1. Meta Business Suite: the first trial for Facebook and Instagram
 
@@ -78,9 +99,10 @@ Meta's tool lets you manage content on its platforms and plan posts. It is an in
 
 **What not to expect:** scheduling does not replace editorial work. A scheduled piece still needs review if an offer, price or circumstance changes.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">02</span><span class="guide-feature__label"><strong>Buffer</strong><span>a straightforward queue for several networks</span><small>Free plan · paid options</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 2. Buffer: a straightforward queue for several networks
 
@@ -96,9 +118,10 @@ Buffer Free lets you connect up to three channels and maintain ten scheduled pos
 
 **When to rule it out:** if your main need is managing many brands with different organizational requirements or more complex customer service. Compare that specific task before expanding your subscription.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">03</span><span class="guide-feature__label"><strong>Metricool</strong><span>for organizing work around brands and reports</span><small>Free plan · paid options</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 3. Metricool: for organizing work around brands and reports
 
@@ -114,9 +137,10 @@ Metricool Free allows one brand and twenty posts per month, with exclusions incl
 
 **When to choose another option:** if Free excludes your primary network and you only need a small queue another tool already offers at no cost. A brand publishing a few posts does not need to buy based on the maximum number of brands advertised.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">04</span><span class="guide-feature__label"><strong>Publer</strong><span>from a small queue to more organized scheduling</span><small>Free plan · paid options</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 4. Publer: from a small queue to more organized scheduling
 
@@ -132,27 +156,26 @@ Publer Free offers three accounts, excluding X, and ten scheduled posts at a tim
 
 **When to rule it out:** if the project depends on an API or integration your plan does not permit. Establish that dependency before building the rest of the workflow.
 
-</section>
+</details>
 
-## A useful calendar has two routes
+## A queue is not a monthly quota
 
-**The workflow:** idea → draft → adaptation → approval → scheduling → confirmation → learning. At any stage, a piece can branch toward “correct or withdraw.”
+**The workflow:** compare pending capacity with usage per period. Buffer Free allows ten queued posts per channel; Metricool Free allows twenty posts per month for one brand. Do not turn those limits into a single measure of “free posts.”
 
-<figure class="guide-flow">
+<figure class="guide-case">
   <picture>
-    <source media="(max-width: 600px)" srcset="/images/guides/buying/social-flow-en-mobile.png" width="600" height="1180">
-    <img src="/images/guides/buying/social-flow-en.png" alt="Diagram of the steps described in the surrounding text." width="1200" height="660" loading="lazy" decoding="async">
+    <source media="(max-width: 600px)" srcset="/images/guides/figma/social-case-en-mobile.png" width="600" height="1407">
+    <img src="/images/guides/figma/social-case-en.png" alt="Free plans checked 18 October 2026: Buffer allows 10 pending posts per channel across 3 channels for 1 user; Metricool allows 20 posts/month for 1 brand and excludes LinkedIn and X." width="1200" height="912" loading="lazy" decoding="async">
   </picture>
-  <figcaption>A proposed workflow, not a tested customer result.</figcaption>
+  <figcaption>Free plans checked 18 October 2026: Buffer allows 10 pending posts per channel across 3 channels for 1 user; Metricool allows 20 posts/month for 1 brand and excludes LinkedIn and X.</figcaption>
 
 </figure>
 
 
-That second route matters. A news item may lose relevance, a promotion may sell out, or a link may change. The calendar should let a person pause a piece without having to remember every queue.
+Buffer also limits the plan to three channels and one user. In Metricool, check the networks: Free excludes LinkedIn and X. The plan table and its sources retain these conditions next to each option.
 
-**Example:** a post is approved for Thursday. On Wednesday, one condition of the offer changes. The procedure should state who corrects the content and who checks that the change reaches every channel.
-
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">05</span><span class="guide-feature__label"><strong>Later</strong><span>for planning a visual content operation</span><small>Trial · paid plans</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 5. Later: for planning a visual content operation
 
@@ -168,9 +191,10 @@ Later organizes its plans through Social Sets and limits per profile. The review
 
 **When to choose another option:** if you only schedule a few text posts and do not use what distinguishes this workflow. A visual calendar is not a requirement for every strategy.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">06</span><span class="guide-feature__label"><strong>SocialBee</strong><span>for reusing content thoughtfully</span><small>Trial · paid plans</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 6. SocialBee: for reusing content thoughtfully
 
@@ -186,9 +210,10 @@ SocialBee offers planning and publishing, category-based organization and conten
 
 **When to rule it out:** if most of your content changes quickly or you do not yet have a library worth reusing. Repeating irrelevant material does not solve the lack of a useful idea.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">07</span><span class="guide-feature__label"><strong>Hootsuite</strong><span>for work requiring more coordination and community management</span><small>Trial · paid plans</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 7. Hootsuite: for work requiring more coordination and community management
 
@@ -204,7 +229,7 @@ Hootsuite brings together planning, publishing, an inbox and analytics or listen
 
 **When to rule it out:** if one person only needs to schedule a few pieces. The breadth of a suite can become setup work that never pays back.
 
-</section>
+</details>
 
 ## Calculate the price using your actual configuration
 
@@ -223,6 +248,9 @@ Also check the cost of leaving: can you retain copy, files, dates, links and res
 
 ## The first week: automate one complete stretch of work
 
+<details class="guide-table-detail">
+<summary>Open the detailed decision table</summary>
+
 | Step | Proposed action | Signal that it is complete |
 |---|---|---|
 | 1 | Choose one brand and its necessary networks | A defined list of profiles and owners |
@@ -231,6 +259,8 @@ Also check the cost of leaving: can you retain copy, files, dates, links and res
 | 4 | Schedule and check | Correct time zone, links, format and files |
 | 5 | Confirm publication | The piece appears on the channel without duplicates |
 | 6 | Review response and visits | Learning tied to specific pieces |
+
+</details>
 
 This is a proposed work plan, not a promise of results in seven days. Keep the volume small so you can review the complete cycle.
 
@@ -244,6 +274,9 @@ When data is limited, retain qualitative examples: questions received, objection
 
 ## Frequently asked questions
 
+<details class="guide-deep-dive">
+<summary>Read the practical answers</summary>
+
 ### Does an external tool reduce reach?
 
 This guide does not present a test establishing a general effect of scheduling tools on reach. Do not base a purchase on universal promises about the algorithm. Check formats, content quality and observed results within their limits.
@@ -256,24 +289,25 @@ You can organize messages and prepare drafts according to the capabilities avail
 
 When a specific limitation prevents you from completing the work, or a plan reduces a burden you have measured. If a free option already supports your operation, you can keep it and put the budget toward content or audience care.
 
-## Final infographic: your next tool depends on the bottleneck
+</details>
+
+## Final infographic: from approved to published
 
 **Keep these decisions in mind:**
 
-- **Only Facebook and Instagram:** start with Meta Business Suite.
-- **A small queue across several networks:** compare Buffer and Publer.
-- **Brands and reports:** evaluate Metricool and the plan that actually includes your networks.
-- **Visual organization:** compare Later using your number of profiles.
-- **A reusable library:** evaluate SocialBee and its rules for keeping content current.
-- **Coordination and community management:** test the complete route in Hootsuite.
-- **Before paying:** test the format, confirm publication, calculate the team cost and retain your assets.
+- **Prepare:** identifiable copy, asset and sources.
+- **Approve:** a person authorizes the final version.
+- **Schedule:** check the channel, date, time zone and files.
+- **Confirm:** verify that the post appears on the network and is not duplicated.
+- **If the context changes:** pause, correct and approve again. For example, if a Thursday offer changes on Wednesday, the procedure should say who corrects it and who checks each channel.
+- **Retain:** keep copy, files, links and results so you can correct a post or change tools. This is a proposed workflow, not a customer result.
 
 <figure class="guide-infographic">
   <picture>
-    <source media="(max-width: 600px)" srcset="/images/guides/buying/social-infographic-en-mobile.png" width="600" height="2740">
-    <img src="/images/guides/buying/social-infographic-en.png" alt="Visual summary of the recommendations and conditions explained above." width="1200" height="2110" loading="lazy" decoding="async">
+    <source media="(max-width: 600px)" srcset="/images/guides/figma/social-infographic-en-mobile.png" width="600" height="1283">
+    <img src="/images/guides/figma/social-infographic-en.png" alt="Proposed workflow: prepare, approve, schedule and confirm. When context changes, pause, correct and approve again." width="1200" height="860" loading="lazy" decoding="async">
   </picture>
-  <figcaption>Save this decision guide. Full details and source links are in the article.</figcaption>
-  <a class="guide-download" href="/images/guides/buying/social-infographic-en.png" download>Download the infographic (PNG) <span aria-hidden="true">↓</span></a>
-  <a class="guide-download" href="/images/guides/buying/social-infographic-en.svg" download>Download editable vector (SVG) <span aria-hidden="true">↓</span></a>
+  <figcaption>Proposed workflow: prepare, approve, schedule and confirm. When context changes, pause, correct and approve again.</figcaption>
+  <a class="guide-download" href="/images/guides/figma/social-infographic-en.png" download>Download the infographic (PNG) <span aria-hidden="true">↓</span></a>
+  <a class="guide-download" href="/images/guides/figma/social-infographic-en.svg" download>Download editable vector (SVG) <span aria-hidden="true">↓</span></a>
 </figure>

@@ -27,7 +27,18 @@ describe('complete bilingual buying guides', () => {
         const window = new Window();
         window.document.write(body);
         const figures = [...window.document.querySelectorAll('figure')];
-        expect(figures).toHaveLength(2);
+        expect(figures).toHaveLength(3);
+        expect(figures[0].classList.contains('guide-atlas')).toBe(true);
+        expect(figures[1].classList.contains('guide-case')).toBe(true);
+        for (const figure of figures) {
+          expect(figure.querySelector('img')?.getAttribute('src')).toContain('/images/guides/figma/');
+        }
+        const reviews = [...window.document.querySelectorAll('details.guide-feature')];
+        expect(reviews).toHaveLength(slug.includes('skills') ? 10 : 7);
+        for (const review of reviews) {
+          expect(review.hasAttribute('open')).toBe(false);
+          expect(review.querySelector('summary strong')?.textContent.trim().length).toBeGreaterThan(1);
+        }
         const end = figures.at(-1)!;
         expect(end.classList.contains('guide-infographic')).toBe(true);
         expect(end.querySelectorAll('a[download]')).toHaveLength(2);

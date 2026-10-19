@@ -192,14 +192,11 @@ Solo cuando la tarea la necesita. Copiar una fecha validada o asignar por una re
 
 Cuando el flujo depende de varias personas o sistemas, sus fallos tienen consecuencias relevantes o no hay un responsable capaz de mantenerlo. Para explorar tu caso, puedes empezar por el [diagnóstico gratuito de AgentesVA](https://agentesva.com/diagnostico-automatizacion-ia/). También puedes simplificar el proceso antes de contratar una implementación.
 
-## Infografía final: de tu problema a una primera prueba
+## Infografía final: del volumen a la factura
 
 **Contenido de la infografía, con equivalente textual:**
 
-- **Ya está en una aplicación:** prueba su automatización nativa. Airtable o Power Automate pueden encajar si ya trabajas allí.
-- **Varias aplicaciones, reglas visibles:** compara Make y Zapier con el mismo caso.
-- **APIs, código y responsable técnico:** compara n8n, Activepieces y Apps Script.
-- **Antes de pagar:** completa una prueba, mide consumo y revisiones, comprueba el fallo y documenta quién mantiene el flujo.
-- **Decisión:** conservar, simplificar, ampliar o detener. El resultado útil manda sobre el número de automatizaciones.
-
-*Cierre visual pendiente de maquetación y exportación. La infografía no debe presentar categorías de encaje como un ranking de rendimiento.*
+- **Cuenta hipotética:** 300 solicitudes por cuatro acciones facturables simples dan un punto de partida de 1.200 acciones, antes de repeticiones o consultas adicionales.
+- **Unidades distintas:** créditos, tareas y ejecuciones no son equivalentes. Aplica las reglas de cada proveedor con tus conectores y tu recorrido real.
+- **Antes de pagar:** comprueba la salida correcta, los fallos visibles y un responsable de mantenimiento.
+- **Coste completo:** incluye revisión, reintentos y servicios externos. Esta cuenta explica el volumen; no es una factura ni un presupuesto.

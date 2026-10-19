@@ -1,0 +1,59 @@
+{
+  "method": "Article HTML text nodes; closed details contribute only their summary. Graphic labels, header, footer and TOC excluded. Measures initial prose exposure, not reading time or user outcomes.",
+  "pages": [
+    {
+      "route": "/guias/mejores-herramientas-automatizar-procesos/",
+      "initialHtmlWords": 2715,
+      "htmlSha256": "d5a3f39a04699ccac54c32d4242d66efabf1611b435420341b0e6176f5858b9e",
+      "initialHtmlWordsAfter": 935,
+      "reductionPercent": 66,
+      "figures": 3,
+      "closedReviews": 7
+    },
+    {
+      "route": "/guias/mejores-skills-claude-gratis-pago/",
+      "initialHtmlWords": 2860,
+      "htmlSha256": "087eb26f37572f7e9c340afd7510b98b99497e209d3c2dbc3590f506701203e8",
+      "initialHtmlWordsAfter": 1076,
+      "reductionPercent": 62,
+      "figures": 3,
+      "closedReviews": 10
+    },
+    {
+      "route": "/guias/mejores-herramientas-automatizar-redes-sociales/",
+      "initialHtmlWords": 2843,
+      "htmlSha256": "d8ffb8a28ef2c1cde9437d8a708b9fc58537ced703b11bfa003ae67a9f65de6b",
+      "initialHtmlWordsAfter": 1074,
+      "reductionPercent": 62,
+      "figures": 3,
+      "closedReviews": 7
+    },
+    {
+      "route": "/guides/mejores-herramientas-automatizar-procesos/",
+      "initialHtmlWords": 2696,
+      "htmlSha256": "738c3d3298f9e63b86bc1293d695984ec1bd3f37f32629e41baf3f706cb234c7",
+      "initialHtmlWordsAfter": 918,
+      "reductionPercent": 66,
+      "figures": 3,
+      "closedReviews": 7
+    },
+    {
+      "route": "/guides/mejores-skills-claude-gratis-pago/",
+      "initialHtmlWords": 2854,
+      "htmlSha256": "fda9e8b9f6bf557eb6294e47c016bdcf4d68b34f82ecb46a19c6d3dc1c965e15",
+      "initialHtmlWordsAfter": 1052,
+      "reductionPercent": 63,
+      "figures": 3,
+      "closedReviews": 10
+    },
+    {
+      "route": "/guides/mejores-herramientas-automatizar-redes-sociales/",
+      "initialHtmlWords": 2802,
+      "htmlSha256": "ccb8d03bb5e60026c43bbad99778d9f13f676a1f9cce094ec2d2ad5b48a16373",
+      "initialHtmlWordsAfter": 1025,
+      "reductionPercent": 63,
+      "figures": 3,
+      "closedReviews": 7
+    }
+  ]
+}

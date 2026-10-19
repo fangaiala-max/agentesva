@@ -82,6 +82,16 @@ const schema = {
   <SiteFooter hideNewsletter />
 </BaseLayout>
 <script>
+  function revealGuideSection(hash: string) {
+    let target: HTMLElement | null = null;
+    try { target = document.getElementById(decodeURIComponent(hash.slice(1))); } catch { return; }
+    if (!target?.closest('.buying-guide')) return;
+    let detail = target.closest<HTMLDetailsElement>('details');
+    while (detail) {
+      detail.open = true;
+      detail = detail.parentElement?.closest<HTMLDetailsElement>('details') ?? null;
+    }
+  }
   function prepareGuideTables() {
     const contents = document.querySelector<HTMLDetailsElement>('.buying-guide__contents');
     if (contents && !contents.dataset.initialized) {
@@ -92,6 +102,12 @@ const schema = {
       table.tabIndex = 0;
       table.setAttribute('aria-label', document.documentElement.lang === 'en' ? 'Comparison table; scroll horizontally for more columns' : 'Tabla comparativa; desplaza horizontalmente para ver más columnas');
     });
+    if (window.location.hash) revealGuideSection(window.location.hash);
   }
   document.addEventListener('astro:page-load', prepareGuideTables);
+  document.addEventListener('click', event => {
+    const link = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>('.buying-guide a[href^="#"]') : null;
+    if (link?.hash) revealGuideSection(link.hash);
+  });
+  window.addEventListener('hashchange', () => revealGuideSection(window.location.hash));
 </script>

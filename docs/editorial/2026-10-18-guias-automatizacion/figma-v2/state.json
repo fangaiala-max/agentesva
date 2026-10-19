@@ -1,0 +1,261 @@
+{
+  "fileKey": "uuDKTEYcwWqKNGevy5l2Xt",
+  "fileUrl": "https://www.figma.com/design/uuDKTEYcwWqKNGevy5l2Xt",
+  "scope": "Native editorial illustrations, 3 per guide, complete ES/EN and desktop/mobile compositions; integrate into local guides and shorten initial reading path. No full component library.",
+  "pages": {
+    "processes": "0:1",
+    "claude": "2:2",
+    "social": "2:3"
+  },
+  "assets": [
+    {
+      "id": "3:125",
+      "name": "processes-atlas-es",
+      "width": 1200,
+      "height": 755
+    },
+    {
+      "id": "3:173",
+      "name": "processes-case-es",
+      "width": 1200,
+      "height": 817
+    },
+    {
+      "id": "3:202",
+      "name": "processes-infographic-es",
+      "width": 1200,
+      "height": 968
+    },
+    {
+      "id": "3:234",
+      "name": "processes-atlas-es-mobile",
+      "width": 600,
+      "height": 1180
+    },
+    {
+      "id": "3:288",
+      "name": "processes-case-es-mobile",
+      "width": 600,
+      "height": 977
+    },
+    {
+      "id": "3:307",
+      "name": "processes-infographic-es-mobile",
+      "width": 600,
+      "height": 1403
+    },
+    {
+      "id": "5:2",
+      "name": "processes-atlas-en",
+      "width": 1200,
+      "height": 755,
+      "textNodes": 16
+    },
+    {
+      "id": "5:50",
+      "name": "processes-case-en",
+      "width": 1200,
+      "height": 817,
+      "textNodes": 14
+    },
+    {
+      "id": "5:79",
+      "name": "processes-infographic-en",
+      "width": 1200,
+      "height": 968,
+      "textNodes": 11
+    },
+    {
+      "id": "5:111",
+      "name": "processes-atlas-en-mobile",
+      "width": 600,
+      "height": 1126,
+      "textNodes": 16
+    },
+    {
+      "id": "5:165",
+      "name": "processes-case-en-mobile",
+      "width": 600,
+      "height": 911,
+      "textNodes": 12
+    },
+    {
+      "id": "5:184",
+      "name": "processes-infographic-en-mobile",
+      "width": 600,
+      "height": 1289,
+      "textNodes": 11
+    },
+    {
+      "id": "5:216",
+      "name": "claude-atlas-es",
+      "width": 1200,
+      "height": 817,
+      "textNodes": 16
+    },
+    {
+      "id": "5:275",
+      "name": "claude-case-es",
+      "width": 1200,
+      "height": 958,
+      "textNodes": 12
+    },
+    {
+      "id": "5:295",
+      "name": "claude-infographic-es",
+      "width": 1200,
+      "height": 856,
+      "textNodes": 17
+    },
+    {
+      "id": "5:345",
+      "name": "claude-atlas-es-mobile",
+      "width": 600,
+      "height": 1207,
+      "textNodes": 16
+    },
+    {
+      "id": "5:410",
+      "name": "claude-case-es-mobile",
+      "width": 600,
+      "height": 940,
+      "textNodes": 12
+    },
+    {
+      "id": "5:430",
+      "name": "claude-infographic-es-mobile",
+      "width": 600,
+      "height": 1284,
+      "textNodes": 17
+    },
+    {
+      "id": "5:481",
+      "name": "claude-atlas-en",
+      "width": 1200,
+      "height": 817,
+      "textNodes": 16
+    },
+    {
+      "id": "5:540",
+      "name": "claude-case-en",
+      "width": 1200,
+      "height": 958,
+      "textNodes": 12
+    },
+    {
+      "id": "5:560",
+      "name": "claude-infographic-en",
+      "width": 1200,
+      "height": 829,
+      "textNodes": 17
+    },
+    {
+      "id": "5:610",
+      "name": "claude-atlas-en-mobile",
+      "width": 600,
+      "height": 1234,
+      "textNodes": 16
+    },
+    {
+      "id": "5:675",
+      "name": "claude-case-en-mobile",
+      "width": 600,
+      "height": 940,
+      "textNodes": 12
+    },
+    {
+      "id": "5:695",
+      "name": "claude-infographic-en-mobile",
+      "width": 600,
+      "height": 1284,
+      "textNodes": 17
+    },
+    {
+      "id": "5:746",
+      "name": "social-atlas-es",
+      "width": 1200,
+      "height": 755,
+      "textNodes": 15
+    },
+    {
+      "id": "5:800",
+      "name": "social-case-es",
+      "width": 1200,
+      "height": 939,
+      "textNodes": 42
+    },
+    {
+      "id": "5:884",
+      "name": "social-infographic-es",
+      "width": 1200,
+      "height": 860,
+      "textNodes": 18
+    },
+    {
+      "id": "5:965",
+      "name": "social-atlas-es-mobile",
+      "width": 600,
+      "height": 1180,
+      "textNodes": 15
+    },
+    {
+      "id": "5:1025",
+      "name": "social-case-es-mobile",
+      "width": 600,
+      "height": 1434,
+      "textNodes": 42
+    },
+    {
+      "id": "5:1109",
+      "name": "social-infographic-es-mobile",
+      "width": 600,
+      "height": 1321,
+      "textNodes": 18
+    },
+    {
+      "id": "5:1198",
+      "name": "social-atlas-en",
+      "width": 1200,
+      "height": 794,
+      "textNodes": 15
+    },
+    {
+      "id": "5:1252",
+      "name": "social-case-en",
+      "width": 1200,
+      "height": 912,
+      "textNodes": 42
+    },
+    {
+      "id": "5:1336",
+      "name": "social-infographic-en",
+      "width": 1200,
+      "height": 860,
+      "textNodes": 18
+    },
+    {
+      "id": "5:1417",
+      "name": "social-atlas-en-mobile",
+      "width": 600,
+      "height": 1181,
+      "textNodes": 15
+    },
+    {
+      "id": "5:1477",
+      "name": "social-case-en-mobile",
+      "width": 600,
+      "height": 1407,
+      "textNodes": 42
+    },
+    {
+      "id": "5:1561",
+      "name": "social-infographic-en-mobile",
+      "width": 600,
+      "height": 1283,
+      "textNodes": 18
+    }
+  ],
+  "status": "36 native frames and 42 exports completed; integrated in all 6 local guide editions",
+  "browserPageQA": "unavailable: no connected browsers/apps",
+  "exportReview": "36 PNG exports visually reviewed via six full contact sheets"
+}

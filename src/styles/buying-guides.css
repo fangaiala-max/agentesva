@@ -58,3 +58,34 @@
 @media(max-width:1000px){.buying-guide__shell{width:calc(100% - 48px)}.buying-guide__hero-grid{gap:30px}.buying-guide__reading{grid-template-columns:1fr;gap:30px;padding-top:32px}.buying-guide__sidebar{position:static;max-height:none}.buying-guide__sidebar-note{display:none}.buying-guide__contents nav ol{display:grid;grid-template-columns:1fr 1fr;column-gap:24px}.buying-guide__body{max-width:800px;margin-inline:auto}}
 @media(max-width:650px){.buying-guide__shell{width:calc(100% - 40px)}.buying-guide__hero{padding-bottom:32px}.buying-guide__crumbs{font-size:10px;margin-bottom:32px;gap:9px}.buying-guide__hero-grid{grid-template-columns:1fr;gap:26px}.buying-guide h1{font-size:38px}.buying-guide__dek{font-size:16px;margin-block:20px}.buying-guide__cover{max-width:100%}.buying-guide__cover figcaption{font-size:10px}.buying-guide__eyebrow span{display:none}.buying-guide__byline{font-size:10px}.buying-guide__jump{margin-top:10px;padding-block:12px}.buying-guide__body{font-size:16px;line-height:1.75}.buying-guide__body>p:first-child{font-size:19px}.buying-guide__body h2{margin-top:46px;font-size:27px;padding-top:24px}.buying-guide__body table{font-size:12px}.buying-guide__body :is(th,td){padding:13px 14px;min-width:155px}.buying-guide__body .guide-feature{padding-inline:18px;margin-block:26px}.buying-guide__body .guide-feature h2{font-size:25px}.buying-guide__body .guide-feature p{font-size:15px}.buying-guide__contents nav ol{display:block}.buying-guide__related>div{grid-template-columns:1fr}.buying-guide__related{padding-bottom:48px}}
 @media(prefers-reduced-motion:reduce){.buying-guide *{scroll-behavior:auto!important}}
+
+/* Visual reading path: native Figma figures lead; full reviews stay available. */
+.buying-guide__body .guide-atlas{margin:36px -16px 46px}
+.buying-guide__body .guide-case{margin:32px -16px 42px}
+.buying-guide__body .guide-feature{padding:0;margin:18px 0;overflow:clip}
+.buying-guide__body .guide-feature>summary{display:grid;grid-template-columns:38px minmax(0,1fr) 24px;gap:18px;align-items:start;cursor:pointer;padding:24px;list-style:none}
+.buying-guide__body .guide-feature>summary::-webkit-details-marker{display:none}
+.buying-guide__body .guide-feature[open]>summary{border-bottom:1px solid var(--guide-line);background:#f6f5fd}
+.buying-guide__body .guide-feature__number{font:500 12px/1.6 var(--mono);color:#6944bf;padding-top:6px}
+.buying-guide__body .guide-feature__label{display:grid;gap:8px}
+.buying-guide__body .guide-feature__label strong{font-size:26px;line-height:1.2;font-weight:600;letter-spacing:-.025em}
+.buying-guide__body .guide-feature__label>span{font-size:15px;line-height:1.5;color:#595f75}
+.buying-guide__body .guide-feature__label>small{font-size:12px;line-height:1.5;color:#5533a7}
+.buying-guide__body .guide-feature__toggle{font-size:25px;line-height:1;color:#315bda;text-align:center}
+.buying-guide__body .guide-feature[open] .guide-feature__toggle{transform:rotate(45deg)}
+.buying-guide__body .guide-feature>:not(summary){margin-left:28px;margin-right:28px}
+.buying-guide__body .guide-feature h2{font-size:25px;margin-top:28px}
+.buying-guide__body :is(.guide-table-detail,.guide-deep-dive){border:1px solid #d8d9e8;border-radius:10px;margin:22px 0 30px;background:#fff;min-width:0}
+.buying-guide__body :is(.guide-table-detail,.guide-deep-dive)>summary{padding:18px 22px;cursor:pointer;color:#315bda;font-size:15px;line-height:1.5;font-weight:600}
+.buying-guide__body .guide-table-detail table{margin:0;border:0;border-radius:0 0 10px 10px}
+.buying-guide__body .guide-deep-dive>:not(summary){margin-left:24px;margin-right:24px}
+.buying-guide__body summary:focus-visible{outline:3px solid #315bda;outline-offset:-4px;border-radius:8px}
+@media(max-width:650px){
+ .buying-guide__body :is(.guide-atlas,.guide-case){margin-inline:-8px}
+ .buying-guide__body .guide-feature>summary{grid-template-columns:26px minmax(0,1fr) 20px;gap:10px;padding:20px 16px}
+ .buying-guide__body .guide-feature__label strong{font-size:23px}
+ .buying-guide__body .guide-feature__label>span{font-size:14px}
+ .buying-guide__body .guide-feature>:not(summary){margin-inline:18px}
+ .buying-guide__body .guide-feature h2{font-size:23px}
+ .buying-guide__body :is(.guide-table-detail,.guide-deep-dive)>summary{padding:17px 18px;font-size:14px}
+}

@@ -192,14 +192,11 @@ Only when the task needs it. Copying a validated date or assigning work accordin
 
 When a flow depends on several people or systems, failures have meaningful consequences, or there is nobody able to maintain it. To explore your situation, you can start with the [free AgentesVA assessment](https://agentesva.com/assessment/). Simplifying the process before commissioning implementation is also an option.
 
-## Final infographic: from your problem to a first trial
+## Final infographic: from volume to a bill
 
 **Infographic content, with a text equivalent:**
 
-- **Already inside one application:** try its native automation. Airtable or Power Automate may fit if you already work there.
-- **Several applications, visible rules:** compare Make and Zapier using the same case.
-- **APIs, code and a technical owner:** compare n8n, Activepieces and Apps Script.
-- **Before paying:** complete a trial, measure consumption and review work, test failure handling and document who maintains the flow.
-- **Decision:** keep, simplify, expand or stop. The useful result matters more than the number of automations.
-
-*Final visual awaiting layout and export. The infographic must not present categories of fit as a performance ranking.*
+- **Hypothetical count:** 300 requests with four simple billable actions give a starting point of 1,200 actions, before retries or additional lookups.
+- **Different units:** credits, tasks and executions are not interchangeable. Apply each provider's rules to your connectors and actual workflow.
+- **Before paying:** check correct output, visible failures and a named maintenance owner.
+- **Full cost:** include review, retries and external services. This calculation explains volume; it is not a bill or a quote.

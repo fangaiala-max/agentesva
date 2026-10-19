@@ -99,9 +99,9 @@ La skill pdf reúne procedimientos para trabajar con archivos PDF. Puede ayudar 
 
 **Cuándo aporta poco:** si necesitas un archivo que otra persona modifique a menudo, quizá convenga entregar DOCX o XLSX y exportar el PDF al final.
 
-## Una skill útil conecta tres capas
+## El pack es solo una parte del sistema
 
-**Diagrama editorial propuesto:** tu método → recursos y herramientas permitidas → salida comprobable. Debajo: contexto de entrada, criterios de revisión y una ruta para lo que falta.
+**Diagrama editorial propuesto:** instrucciones y recursos → entorno compatible → cuentas y permisos → consumo externo. Cada capa necesita una comprobación distinta; comprar una no activa automáticamente las demás.
 
 Por ejemplo, una skill de propuestas necesita el método comercial, una plantilla aprobada y reglas para las incógnitas. Si solo dice «actúa como un experto», deja sin definir gran parte del trabajo. Si además exige enviar el documento sin revisión, puede introducir una acción que no necesitas.
 
@@ -210,15 +210,12 @@ La ayuda actual incluye Free entre los planes con skills, bajo sus condiciones. 
 
 Las que puedas justificar por una tarea. No hay un número universal. Empieza por una y conserva una lista con su propósito, procedencia, dependencias y última revisión.
 
-## Infografía final: qué añadir a Claude según tu trabajo
+## Infografía final: comprueba la entrega
 
 **Contenido de la infografía, con equivalente textual:**
 
-- **Archivos:** xlsx, docx, pptx y pdf. Empieza por la capacidad incluida y revisa el archivo.
-- **Tu método:** skill-creator. Aporta ejemplos y criterios de aceptación.
-- **Un oficio:** Marketing Skills, frontend-design o Superpowers, según la tarea.
-- **Servicios multimedia u operativos:** evalúa un pack de pago si sus conexiones te evitan preparación real.
-- **Antes de comprar:** entorno compatible + dependencias + coste externo + muestra + mantenimiento.
-- **Resultado:** una entrega comprobable, menos correcciones o una capacidad que necesitabas. Instalar más skills no es la métrica.
-
-*Cierre visual pendiente de maquetación y exportación. Mantener visibles el coste externo y la diferencia entre skill individual y pack.*
+- **XLSX:** cambia una entrada y comprueba un total a mano.
+- **DOCX:** edita el documento y revisa alcance, nombres y estructura.
+- **PPTX:** abre cada diapositiva; revisa recortes y fuentes.
+- **PDF:** extrae un fragmento y verifica orden y tablas.
+- **Decisión:** conserva la skill si mejora una tarea que realmente repites. Estas pruebas son propuestas, no resultados medidos; utiliza muestras autorizadas y comprueba omisiones y correcciones.

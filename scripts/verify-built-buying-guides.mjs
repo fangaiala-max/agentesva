@@ -26,6 +26,12 @@ for (const [slug, kind, entries] of definitions) for (const lang of ['es', 'en']
   assert(article, `${route} full article`);
   assert(article.textContent.split(/\s+/).length > 2200, `${route} substantive full edition`);
   assert.equal(article.querySelectorAll('.guide-feature').length, entries, `${route} recommendation count`);
+  assert.equal(article.querySelectorAll('details.guide-feature:not([open])').length, entries, `${route} compact reviews with full details available`);
+  assert.equal(article.querySelectorAll('details.guide-feature h2').length, entries, `${route} full review headings render inside native details`);
+  assert.equal(article.querySelectorAll('figure').length, 3, `${route} three visual reading breaks`);
+  assert(article.querySelector('figure.guide-atlas'), `${route} early visual shortlist`);
+  assert(article.querySelector('figure.guide-case'), `${route} concrete visual example`);
+  for (const figure of article.querySelectorAll('figure')) assert(!figure.closest('details'), `${route} figures visible on the initial reading path`);
   assert([...article.querySelectorAll('table')].some(table => table.querySelectorAll('tbody tr').length === entries), `${route} complete comparison table`);
   assert(!doc.querySelector('.en-source-note'), `${route} no overview fallback`);
   assert(article.lastElementChild.matches('figure.guide-infographic'), `${route} final infographic`);

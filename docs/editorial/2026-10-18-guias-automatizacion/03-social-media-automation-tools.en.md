@@ -112,13 +112,11 @@ Publer Free offers three accounts, excluding X, and ten scheduled posts at a tim
 
 **When to rule it out:** if the project depends on an API or integration your plan does not permit. Establish that dependency before building the rest of the workflow.
 
-## A useful calendar has two routes
+## A queue is not a monthly quota
 
-**Proposed editorial diagram:** idea → draft → adaptation → approval → scheduling → confirmation → learning. At any stage, a piece can branch toward “correct or withdraw.”
+**Proposed editorial diagram:** compare pending capacity with usage per period. Buffer Free allows ten queued posts per channel; Metricool Free allows twenty posts per month for one brand. Do not turn those limits into a single measure of “free posts.”
 
-That second route matters. A news item may lose relevance, a promotion may sell out, or a link may change. The calendar should let a person pause a piece without having to remember every queue.
-
-**Example:** a post is approved for Thursday. On Wednesday, one condition of the offer changes. The procedure should state who corrects the content and who checks that the change reaches every channel.
+Buffer also limits the plan to three channels and one user. In Metricool, check the networks: Free excludes LinkedIn and X. The plan table and its sources retain these conditions next to each option.
 
 ## 5. Later: for planning a visual content operation
 
@@ -212,16 +210,13 @@ You can organize messages and prepare drafts according to the capabilities avail
 
 When a specific limitation prevents you from completing the work, or a plan reduces a burden you have measured. If a free option already supports your operation, you can keep it and put the budget toward content or audience care.
 
-## Final infographic: your next tool depends on the bottleneck
+## Final infographic: from approved to published
 
 **Infographic content, with a text equivalent:**
 
-- **Only Facebook and Instagram:** start with Meta Business Suite.
-- **A small queue across several networks:** compare Buffer and Publer.
-- **Brands and reports:** evaluate Metricool and the plan that actually includes your networks.
-- **Visual organization:** compare Later using your number of profiles.
-- **A reusable library:** evaluate SocialBee and its rules for keeping content current.
-- **Coordination and community management:** test the complete route in Hootsuite.
-- **Before paying:** test the format, confirm publication, calculate the team cost and retain your assets.
-
-*Final visual awaiting layout and export. Show the difference between a queue limit and a monthly allowance alongside the free options.*
+- **Prepare:** identifiable copy, asset and sources.
+- **Approve:** a person authorizes the final version.
+- **Schedule:** check the channel, date, time zone and files.
+- **Confirm:** verify that the post appears on the network and is not duplicated.
+- **If the context changes:** pause, correct and approve again. For example, if a Thursday offer changes on Wednesday, the procedure should say who corrects it and who checks each channel.
+- **Retain:** keep copy, files, links and results so you can correct a post or change tools. This is a proposed workflow, not a customer result.

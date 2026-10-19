@@ -112,13 +112,11 @@ Publer Free ofrece tres cuentas, salvo X, y diez publicaciones programadas a la 
 
 **Cuándo descartarlo:** si tu proyecto depende de una API o integración que tu plan no permite. Define esa dependencia antes de construir el resto del flujo.
 
-## Un calendario útil tiene dos rutas
+## Una cola no es un cupo mensual
 
-**Diagrama editorial propuesto:** idea → borrador → adaptación → aprobación → programación → confirmación → aprendizaje. Desde cualquier fase puede salir una pieza hacia «corregir o retirar».
+**Diagrama editorial propuesto:** compara capacidad pendiente y consumo por periodo. Buffer Free permite diez publicaciones en cola por canal; Metricool Free permite veinte publicaciones al mes para una marca. No conviertas esos límites en una única medida de «publicaciones gratis».
 
-La segunda ruta importa. Una noticia puede dejar de ser oportuna; una promoción puede agotarse; el enlace puede cambiar. El calendario debe permitir que una persona pause una pieza, sin obligarla a revisar todas las colas de memoria.
-
-**Ejemplo:** tienes una publicación aprobada para el jueves. El miércoles cambia una condición de la oferta. El procedimiento debe decir quién corrige el contenido y quién comprueba que el cambio llegó a cada canal.
+En Buffer también cuentan los tres canales y el único usuario. En Metricool debes comprobar las redes: Free excluye LinkedIn y X. La tabla de planes y sus fuentes conserva estas condiciones junto a cada opción.
 
 ## 5. Later: para planificar una operación de contenido visual
 
@@ -212,16 +210,13 @@ Puedes organizar mensajes y preparar borradores según las capacidades disponibl
 
 Cuando una limitación concreta impide completar tu trabajo o el plan reduce una carga que has medido. Si tu operación ya funciona con una opción gratuita, puedes conservarla y destinar el presupuesto a contenido o atención.
 
-## Infografía final: tu siguiente herramienta depende del cuello de botella
+## Infografía final: del aprobado al publicado
 
 **Contenido de la infografía, con equivalente textual:**
 
-- **Solo Facebook e Instagram:** empieza por Meta Business Suite.
-- **Una cola pequeña en varias redes:** compara Buffer y Publer.
-- **Marcas e informes:** evalúa Metricool y el plan que realmente incluye tus redes.
-- **Organización visual:** compara Later con tu número de perfiles.
-- **Biblioteca reutilizable:** evalúa SocialBee y sus reglas de vigencia.
-- **Coordinación y atención:** prueba el recorrido completo en Hootsuite.
-- **Antes de pagar:** prueba el formato, confirma la publicación, calcula el coste por equipo y conserva tus activos.
-
-*Cierre visual pendiente de maquetación y exportación. Mostrar la diferencia entre límite de cola y cupo mensual junto a la selección gratuita.*
+- **Preparar:** texto, pieza y fuentes identificables.
+- **Aprobar:** una persona autoriza la versión final.
+- **Programar:** comprueba canal, fecha, zona horaria y archivos.
+- **Confirmar:** verifica que la pieza aparece en la red y no está duplicada.
+- **Si cambia el contexto:** pausa, corrige y vuelve a aprobar. Por ejemplo, si cambia el miércoles una oferta prevista para el jueves, el procedimiento debe decir quién corrige y quién comprueba cada canal.
+- **Conservar:** guarda textos, archivos, enlaces y resultados para corregir o cambiar de herramienta. Es un flujo propuesto, no un resultado de cliente.

@@ -20,9 +20,22 @@ La mejor compra depende de lo que te consume tiempo: preparar el contenido, adap
 
 **Precios y límites consultados el 18 de octubre de 2026.** Conservamos las monedas originales y distinguimos facturación anual, mensual y pruebas temporales. Los importes no representan el coste total de producción de contenido ni incluyen necesariamente impuestos o complementos.
 
+
+<figure class="guide-atlas">
+  <picture>
+    <source media="(max-width: 600px)" srcset="/images/guides/figma/social-atlas-es-mobile.png" width="600" height="1180">
+    <img src="/images/guides/figma/social-atlas-es.png" alt="Elige por el cuello de botella: una cola pequeña, planificación editorial o coordinación entre personas." width="1200" height="755" loading="lazy" decoding="async">
+  </picture>
+  <figcaption>Elige por el cuello de botella: una cola pequeña, planificación editorial o coordinación entre personas.</figcaption>
+
+</figure>
+
 ## Qué automatizar para que el trabajo sea más ligero
 
 Elige la etapa antes de comparar aplicaciones:
+
+<details class="guide-table-detail">
+<summary>Abrir la tabla de decisión completa</summary>
 
 | Etapa | Resultado útil | Qué debería seguir teniendo un responsable |
 |---|---|---|
@@ -34,9 +47,14 @@ Elige la etapa antes de comparar aplicaciones:
 | Conversación | Mensajes clasificados y respuestas preparadas | Casos sensibles o que necesitan criterio |
 | Medición | Resultados comparables y enlaces identificables | La interpretación y la siguiente decisión |
 
+</details>
+
 Programar más publicaciones no demuestra mejores resultados. La automatización tiene valor cuando reduce trabajo o errores sin empeorar lo que recibe la audiencia.
 
 ## Comparativa rápida de opciones gratuitas y de pago
+
+<details class="guide-table-detail">
+<summary>Comparar opciones, límites gratuitos y costes</summary>
 
 | Herramienta | Qué puedes probar gratis | Referencia de pago | La unidad que puede cambiar tu factura |
 |---|---|---|---|
@@ -47,6 +65,8 @@ Programar más publicaciones no demuestra mejores resultados. La automatización
 | Later | Prueba temporal; no la tratamos como plan gratuito permanente | Starter: 18,75 USD/mes con pago anual en la oferta consultada | Social Sets, usuarios, publicaciones y extras según plan |
 | SocialBee | Prueba temporal | Bootstrap: 29 USD/mes o 290 USD/año | Perfiles, espacios, usuarios y complementos |
 | Hootsuite | Prueba temporal de catorce días | Planes de pago; confirmar tarifa local y asientos en el configurador | Usuarios, plan, cuentas y funciones |
+
+</details>
 
 Fuentes: [Meta Business Suite](https://www.facebook.com/business/tools/meta-business-suite), [Buffer](https://buffer.com/pricing), [Metricool](https://metricool.com/pricing/), [Publer: planes](https://publer.com/plans), [Publer: explicación de precios](https://publer.com/help/en/article/what-are-publers-plans-and-pricing-15h4yqh), [Later](https://later.com/pricing/), [SocialBee](https://socialbee.com/pricing/) y [Hootsuite](https://www.hootsuite.com/plans).
 
@@ -62,7 +82,8 @@ La decisión se basa en cinco preguntas: redes y formatos que necesitas, forma d
 
 No añadimos herramientas solo por su generador de texto. Escribir un borrador es una etapa. Tener la pieza aprobada, adaptada y publicada es otra.
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">01</span><span class="guide-feature__label"><strong>Meta Business Suite</strong><span>la primera prueba si trabajas en Facebook e Instagram</span><small>Herramienta nativa gratuita</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 1. Meta Business Suite: la primera prueba si trabajas en Facebook e Instagram
 
@@ -78,9 +99,10 @@ La herramienta de Meta permite gestionar contenido de sus plataformas y planific
 
 **Lo que no debes esperar:** que la programación sustituya el trabajo editorial o que una pieza programada quede exenta de revisión si cambia una oferta, un precio o una circunstancia.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">02</span><span class="guide-feature__label"><strong>Buffer</strong><span>una cola sencilla para varias redes</span><small>Plan gratuito · opciones de pago</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 2. Buffer: una cola sencilla para varias redes
 
@@ -96,9 +118,10 @@ Buffer Free permite conectar hasta tres canales y mantener diez publicaciones pr
 
 **Cuándo descartarlo:** si tu necesidad principal es administrar muchas marcas con otros criterios de organización o un servicio de atención más complejo. Compara esa tarea específica antes de ampliar la suscripción.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">03</span><span class="guide-feature__label"><strong>Metricool</strong><span>para organizar el trabajo alrededor de marcas e informes</span><small>Plan gratuito · opciones de pago</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 3. Metricool: para organizar el trabajo alrededor de marcas e informes
 
@@ -114,9 +137,10 @@ Metricool Free permite una marca y veinte publicaciones al mes, con exclusiones 
 
 **Cuándo elegir otra opción:** si tu red principal no entra en Free y solo buscas una cola pequeña que otra herramienta ya permite sin coste. Una marca con pocas publicaciones no necesita contratar por el máximo de marcas anunciado.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">04</span><span class="guide-feature__label"><strong>Publer</strong><span>para pasar de una cola pequeña a programación más organizada</span><small>Plan gratuito · opciones de pago</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 4. Publer: para pasar de una cola pequeña a programación más organizada
 
@@ -132,27 +156,26 @@ Publer Free ofrece tres cuentas, salvo X, y diez publicaciones programadas a la 
 
 **Cuándo descartarlo:** si tu proyecto depende de una API o integración que tu plan no permite. Define esa dependencia antes de construir el resto del flujo.
 
-</section>
+</details>
 
-## Un calendario útil tiene dos rutas
+## Una cola no es un cupo mensual
 
-**El flujo:** idea → borrador → adaptación → aprobación → programación → confirmación → aprendizaje. Desde cualquier fase puede salir una pieza hacia «corregir o retirar».
+**El flujo:** compara capacidad pendiente y consumo por periodo. Buffer Free permite diez publicaciones en cola por canal; Metricool Free permite veinte publicaciones al mes para una marca. No conviertas esos límites en una única medida de «publicaciones gratis».
 
-<figure class="guide-flow">
+<figure class="guide-case">
   <picture>
-    <source media="(max-width: 600px)" srcset="/images/guides/buying/social-flow-es-mobile.png" width="600" height="1180">
-    <img src="/images/guides/buying/social-flow-es.png" alt="Diagrama de los pasos descritos en el texto que lo acompaña." width="1200" height="660" loading="lazy" decoding="async">
+    <source media="(max-width: 600px)" srcset="/images/guides/figma/social-case-es-mobile.png" width="600" height="1434">
+    <img src="/images/guides/figma/social-case-es.png" alt="Planes gratuitos revisados el 18 de octubre de 2026: Buffer permite 10 publicaciones pendientes por canal, 3 canales y 1 usuario; Metricool permite 20 publicaciones al mes para 1 marca, sin LinkedIn ni X." width="1200" height="939" loading="lazy" decoding="async">
   </picture>
-  <figcaption>Flujo propuesto; no representa un resultado probado de cliente.</figcaption>
+  <figcaption>Planes gratuitos revisados el 18 de octubre de 2026: Buffer permite 10 publicaciones pendientes por canal, 3 canales y 1 usuario; Metricool permite 20 publicaciones al mes para 1 marca, sin LinkedIn ni X.</figcaption>
 
 </figure>
 
 
-La segunda ruta importa. Una noticia puede dejar de ser oportuna; una promoción puede agotarse; el enlace puede cambiar. El calendario debe permitir que una persona pause una pieza, sin obligarla a revisar todas las colas de memoria.
+En Buffer también cuentan los tres canales y el único usuario. En Metricool debes comprobar las redes: Free excluye LinkedIn y X. La tabla de planes y sus fuentes conserva estas condiciones junto a cada opción.
 
-**Ejemplo:** tienes una publicación aprobada para el jueves. El miércoles cambia una condición de la oferta. El procedimiento debe decir quién corrige el contenido y quién comprueba que el cambio llegó a cada canal.
-
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">05</span><span class="guide-feature__label"><strong>Later</strong><span>para planificar una operación de contenido visual</span><small>Prueba temporal · planes de pago</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 5. Later: para planificar una operación de contenido visual
 
@@ -168,9 +191,10 @@ Later organiza sus planes mediante Social Sets y límites por perfil. La oferta 
 
 **Cuándo elegir otra opción:** si solo programas unas pocas publicaciones de texto y no utilizas lo que diferencia este flujo. Un calendario visual no es un requisito para toda estrategia.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">06</span><span class="guide-feature__label"><strong>SocialBee</strong><span>para reutilizar contenido con criterio</span><small>Prueba temporal · planes de pago</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 6. SocialBee: para reutilizar contenido con criterio
 
@@ -186,9 +210,10 @@ SocialBee ofrece planificación y publicación, organización por categorías y 
 
 **Cuándo descartarlo:** si la mayor parte de tu contenido cambia deprisa o si todavía no tienes una biblioteca que valga la pena reutilizar. Repetir material irrelevante no resuelve la falta de una idea útil.
 
-</section>
+</details>
 
-<section class="guide-feature">
+<details class="guide-feature">
+<summary><span class="guide-feature__number" aria-hidden="true">07</span><span class="guide-feature__label"><strong>Hootsuite</strong><span>para una operación con más coordinación y atención</span><small>Prueba temporal · planes de pago</small></span><span class="guide-feature__toggle" aria-hidden="true">+</span></summary>
 
 ## 7. Hootsuite: para una operación con más coordinación y atención
 
@@ -204,7 +229,7 @@ Hootsuite reúne planificación, publicación, bandeja de mensajes y funciones d
 
 **Cuándo descartarlo:** si una persona solo necesita programar pocas piezas. La amplitud de una suite puede convertirse en trabajo de configuración que no recuperas.
 
-</section>
+</details>
 
 ## Calcula el precio con tu configuración real
 
@@ -223,6 +248,9 @@ Comprueba también el coste de salida: ¿puedes conservar textos, archivos, fech
 
 ## La primera semana: automatiza un tramo completo
 
+<details class="guide-table-detail">
+<summary>Abrir la tabla de decisión completa</summary>
+
 | Paso | Acción propuesta | Señal de que está resuelto |
 |---|---|---|
 | 1 | Escoger una marca y las redes necesarias | Una lista cerrada de perfiles y responsables |
@@ -231,6 +259,8 @@ Comprueba también el coste de salida: ¿puedes conservar textos, archivos, fech
 | 4 | Programar y comprobar | Zona horaria, enlaces, formato y archivos correctos |
 | 5 | Confirmar publicación | La pieza aparece en el canal y no está duplicada |
 | 6 | Revisar respuesta y visitas | Aprendizaje ligado a piezas concretas |
+
+</details>
 
 Este es un plan propuesto de trabajo, no una garantía de resultados en siete días. El volumen debe ser pequeño para que puedas revisar el ciclo completo.
 
@@ -244,6 +274,9 @@ Con pocos datos, conserva ejemplos de calidad: preguntas recibidas, objeciones q
 
 ## Preguntas frecuentes
 
+<details class="guide-deep-dive">
+<summary>Leer las respuestas prácticas</summary>
+
 ### ¿Una herramienta externa reduce el alcance?
 
 Esta guía no presenta una prueba que permita afirmar un efecto general del programador sobre el alcance. No bases la compra en promesas universales sobre el algoritmo. Comprueba formatos, calidad del contenido y resultados observados con sus límites.
@@ -256,24 +289,25 @@ Puedes organizar mensajes y preparar borradores según las capacidades disponibl
 
 Cuando una limitación concreta impide completar tu trabajo o el plan reduce una carga que has medido. Si tu operación ya funciona con una opción gratuita, puedes conservarla y destinar el presupuesto a contenido o atención.
 
-## Infografía final: tu siguiente herramienta depende del cuello de botella
+</details>
+
+## Infografía final: del aprobado al publicado
 
 **Quédate con estas decisiones:**
 
-- **Solo Facebook e Instagram:** empieza por Meta Business Suite.
-- **Una cola pequeña en varias redes:** compara Buffer y Publer.
-- **Marcas e informes:** evalúa Metricool y el plan que realmente incluye tus redes.
-- **Organización visual:** compara Later con tu número de perfiles.
-- **Biblioteca reutilizable:** evalúa SocialBee y sus reglas de vigencia.
-- **Coordinación y atención:** prueba el recorrido completo en Hootsuite.
-- **Antes de pagar:** prueba el formato, confirma la publicación, calcula el coste por equipo y conserva tus activos.
+- **Preparar:** texto, pieza y fuentes identificables.
+- **Aprobar:** una persona autoriza la versión final.
+- **Programar:** comprueba canal, fecha, zona horaria y archivos.
+- **Confirmar:** verifica que la pieza aparece en la red y no está duplicada.
+- **Si cambia el contexto:** pausa, corrige y vuelve a aprobar. Por ejemplo, si cambia el miércoles una oferta prevista para el jueves, el procedimiento debe decir quién corrige y quién comprueba cada canal.
+- **Conservar:** guarda textos, archivos, enlaces y resultados para corregir o cambiar de herramienta. Es un flujo propuesto, no un resultado de cliente.
 
 <figure class="guide-infographic">
   <picture>
-    <source media="(max-width: 600px)" srcset="/images/guides/buying/social-infographic-es-mobile.png" width="600" height="2740">
-    <img src="/images/guides/buying/social-infographic-es.png" alt="Resumen visual de las recomendaciones y condiciones explicadas arriba." width="1200" height="2110" loading="lazy" decoding="async">
+    <source media="(max-width: 600px)" srcset="/images/guides/figma/social-infographic-es-mobile.png" width="600" height="1321">
+    <img src="/images/guides/figma/social-infographic-es.png" alt="Flujo propuesto: prepara, aprueba, programa y confirma. Si cambia el contexto, pausa, corrige y vuelve a aprobar." width="1200" height="860" loading="lazy" decoding="async">
   </picture>
-  <figcaption>Guarda esta guía de decisión. El detalle y las fuentes están en el artículo.</figcaption>
-  <a class="guide-download" href="/images/guides/buying/social-infographic-es.png" download>Descargar infografía (PNG) <span aria-hidden="true">↓</span></a>
-  <a class="guide-download" href="/images/guides/buying/social-infographic-es.svg" download>Descargar vector editable (SVG) <span aria-hidden="true">↓</span></a>
+  <figcaption>Flujo propuesto: prepara, aprueba, programa y confirma. Si cambia el contexto, pausa, corrige y vuelve a aprobar.</figcaption>
+  <a class="guide-download" href="/images/guides/figma/social-infographic-es.png" download>Descargar infografía (PNG) <span aria-hidden="true">↓</span></a>
+  <a class="guide-download" href="/images/guides/figma/social-infographic-es.svg" download>Descargar vector editable (SVG) <span aria-hidden="true">↓</span></a>
 </figure>
