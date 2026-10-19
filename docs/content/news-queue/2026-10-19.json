@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-19",
+  "generatedAt": "2026-10-19T10:32:16.697Z",
+  "candidates": [
+    {
+      "titulo": "AI researchers stranded Claude on a virtual desert island. It started to “play.”",
+      "url": "https://www.technologyreview.com/2026/10/19/1147095/ai-stranded-claude-virtual-desert-island-play/",
+      "fecha": "2026-10-19T09:08:05.000Z",
+      "resumen": "What do AI agents do if you don’t tell them to do anything? The answer looks a lot like play. Researchers repeatedly stranded them alone on a virtual desert island for 30 hours in an experiment reminiscent of the movies Cast Away or Home Alone. The agents—copies of Claude Opus 4.7 nicknamed Eko—were able to…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "ai-researchers-stranded-claude-on-a-virtual-desert-island-it",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.9610208564814815,
+        "authority": 0.95
+      },
+      "score": 0.4392
+    }
+  ]
+}
