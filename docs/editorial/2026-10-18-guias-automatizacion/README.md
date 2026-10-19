@@ -36,4 +36,14 @@ python3 -m http.server 4358 --bind 127.0.0.1 --directory site
 
 Abrir `http://127.0.0.1:4358/_review/`. Usar HTTP local para que las rutas absolutas, tipografías y estilos funcionen. Es una maqueta estática; los servicios de backend y el envío de formularios no se incluyen en esta copia. Los enlaces públicos de fuentes conservan su destino externo.
 
-Los archivos fuente del proyecto están en `/tmp/agentesva-editorial-20261018`. El checkout original y su trabajo previo se han conservado. No se ha hecho push, PR, merge ni despliegue.
+Los archivos fuente del proyecto están en `/Users/fernandoangulo/Sitios web/05-agentesva/.worktrees/editorial-local`. El checkout original y su trabajo previo se han conservado. No se ha hecho push, PR, merge ni despliegue.
+
+## Código editable instalado en local
+
+Este checkout es independiente de las carpetas temporales; conserva el historial y las dependencias instaladas. No se han modificado los cambios previos del checkout principal.
+
+```sh
+npm run dev -- --host 127.0.0.1 --port 4359
+```
+
+Guías en desarrollo: http://127.0.0.1:4359/guias/ y http://127.0.0.1:4359/guides/. Los cambios en los archivos fuente se reflejan mediante el servidor de desarrollo.
