@@ -34,7 +34,7 @@ const ogImage = customOgImage ?? (noindex ? `${SITE}${lang === "en" ? "/brand/og
 const alternate = alternatePath(Astro.url.pathname);
 const enHref = lang === "en" ? canonical : alternate ? new URL(alternate, SITE).href : undefined;
 const esHref = lang === "es" ? canonical : alternate ? new URL(alternate, SITE).href : undefined;
-const graph = { ...entityGraph, "@graph": entityGraph["@graph"].map(entity => entity["@type"] === "WebSite" ? {...entity, inLanguage:["en","es"]} : entity["@type"] === "Organization" ? {...entity, logo:{"@type":"ImageObject",url:`${SITE}/brand/mark.svg`},description:lang === "en" ? "AI automation and practical resources for small businesses." : entity.description} : entity) };
+const graph = { ...entityGraph, "@graph": entityGraph["@graph"].map(entity => entity["@type"] === "Organization" ? {...entity,description:lang === "en" ? "AI automation and practical resources for small businesses." : entity.description} : entity) };
 ---
 
 <!doctype html>
@@ -51,7 +51,7 @@ const graph = { ...entityGraph, "@graph": entityGraph["@graph"].map(entity => en
       noindex ? (
         <meta name="robots" content="noindex, nofollow" />
       ) : (
-        <meta name="robots" content="index, follow" />
+        <meta name="robots" content={ogType === 'article' ? 'index, follow, max-image-preview:large' : 'index, follow'} />
       )
     }
     <link rel="canonical" href={canonical} />

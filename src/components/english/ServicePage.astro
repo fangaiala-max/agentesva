@@ -48,5 +48,4 @@ const tracking={'data-track-event':'service_cta_click','data-track-page-type':se
 {!pricing&&<FitGuide/>}<section class="en-section en-shell en-faq"><div><p class="en-kicker">{t("Before you decide")}</p><h2>{t("Good questions.")}<br/>{t("Straight answers.")}</h2></div><div>{faqs.map(([q,a])=><details><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>)}</div></section>
 <ConversionBanner service={service?.service}/>
 </main><SiteFooter hideNewsletter />
-<script type="application/ld+json" set:html={JSON.stringify({'@context':'https://schema.org','@type':'WebPage',name:title,description,inLanguage:locale,url:Astro.url.href.replace(Astro.url.origin,'https://agentesva.com')}).replace(/</g,'\\u003c')} />
 </BaseLayout>
