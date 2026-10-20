@@ -24,7 +24,7 @@ const series = { processes: en ? '01 / Workflows' : '01 / Procesos', claude: '02
 const schema = {
   '@context': 'https://schema.org',
   '@graph': [
-    { '@type': 'Article', headline: d.titulo, description: d.descripcion, inLanguage: lang, datePublished: d.fecha.toISOString(), dateModified: d.actualizado.toISOString(), author: person, publisher: organization, mainEntityOfPage: canonical, url: canonical, image: `${SITE}${socialImagePath(Astro.url.pathname, d.seoTitulo ?? d.titulo)}`, citation: d.fuentes.map(f => ({ '@type': 'CreativeWork', name: f.titulo, url: f.url })) },
+    { '@type': 'Article', headline: d.titulo, description: d.descripcion, inLanguage: lang, datePublished: d.fecha.toISOString(), dateModified: d.actualizado.toISOString(), author: person, publisher: organization, mainEntityOfPage: canonical, url: canonical, image: [...(d.portada ? [`${SITE}${d.portada.src}`] : []), `${SITE}${socialImagePath(Astro.url.pathname, d.seoTitulo ?? d.titulo)}`], citation: d.fuentes.map(f => ({ '@type': 'CreativeWork', name: f.titulo, url: f.url })) },
     { '@type': 'FAQPage', mainEntity: d.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
     { '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: en ? 'Home' : 'Inicio', item: `${SITE}${en ? '/' : '/es/'}` },
