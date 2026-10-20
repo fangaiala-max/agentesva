@@ -3,7 +3,7 @@ import editorial from './editorial.json';
 import courseCopy from './courses.json';
 export const catalogSections = ['courses','resources','guides','research','news'] as const;
 export type Section = typeof catalogSections[number];
-export interface CatalogItem { id:string; title:string; description:string; category:string; original:string; body?:string; points?:string[]; href?:string; action?:string; language?:string; date?:string; sources?:{label:string;href:string}[]; overview?:boolean; }
+export interface CatalogItem { id:string; title:string; description:string; category:string; original:string; body?:string; points?:string[]; href?:string; action?:string; language?:string; date?:string; sources?:{label:string;href:string}[]; overview?:boolean; provider?:string; }
 export const sectionCopy:Record<Section,{title:string;headline:string;description:string}> = {
  courses:{title:'AI courses',headline:'Learn something you can put to work.',description:'Explore practical courses for decision-makers, creators, and developers. Check the teaching language and provider before enrolling.'},
  resources:{title:'Resources',headline:'A useful place to start.',description:'Practical templates, prompts, and learning materials. Resource languages and access conditions are shown before you continue.'},
@@ -14,7 +14,7 @@ export const sectionCopy:Record<Section,{title:string;headline:string;descriptio
 export const categoryLabels:Record<string,string> = {'Fundamentos de IA':'AI foundations','IA para tu negocio':'AI for business','Prompts y chatbots':'Prompts','Prompt engineering':'Prompt engineering','Imagen generativa':'Image generation','Imagen y generativa':'Image generation','Prompts e ingeniería de prompts':'Prompt engineering','Desarrollo con IA':'AI development','Automatización y agentes':'Automation and agents','Productividad':'Productivity','Atención al cliente':'Customer support','Desarrollo IA':'AI development','Contenido':'Content','Ventas y marketing':'Sales and marketing'};
 export async function getCatalog(section:Section):Promise<CatalogItem[]> {
  if(section==='courses') return (await getCollection('cursos')).sort((a,b)=>a.data.orden-b.data.orden).map(c=>{
-  const copy=courseCopy[c.id as keyof typeof courseCopy];return {id:c.id,...copy,category:categoryLabels[c.data.categoria]??'AI learning',original:`/curso/${c.id}/`,href:c.data.officialUrl,action:'Visit the course provider'};
+  const copy=courseCopy[c.id as keyof typeof courseCopy];return {id:c.id,...copy,category:categoryLabels[c.data.categoria]??'AI learning',original:`/curso/${c.id}/`,href:c.data.officialUrl,provider:c.data.proveedor,action:'Visit the course provider'};
  });
  if(section==='resources') {
  const copy:Record<string,{title:string;description:string;body:string;href?:string;action:string}>={

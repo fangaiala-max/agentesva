@@ -55,4 +55,6 @@ Las seis guías visuales se verifican también en el HTML compilado: cuerpos com
 
 `npm run build` now runs `scripts/verify-built-seo.mjs` against generated HTML. It checks descriptive tool/service titles, visible FAQ/schema consistency, four-level tool breadcrumbs, unique indexable category descriptions, empty-category sitemap exclusion and static skip-link targets.
 
+`scripts/verify-built-search-appearance.mjs` also runs in `postbuild`, checking Product images and source prices, mixed-library collection markup, distinct prompt descriptions, course providers, connected page/service entities, free builders and guide imagery. After a build, rerun it with `node scripts/verify-built-search-appearance.mjs`. These local checks do not establish Google eligibility, indexing or rich-result display; see [the implementation and validation record](docs/search-appearance-2026-10-19.md).
+
 `npm run build` also generates page-specific social cards and runs `scripts/verify-social-images.mjs` to validate their dimensions, existence and OG/Twitter/article consistency, plus favicon export sizes. See `docs/social-images.md`.

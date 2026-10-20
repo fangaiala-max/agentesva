@@ -12,7 +12,7 @@ for(const file of walk(root).filter(f=>f.endsWith('.html'))){
  const og=d.querySelector('meta[property="og:image"]').content;assert.equal(d.querySelector('meta[name="twitter:image"]').content,og,file);
  const image=path.join(root,new URL(og).pathname);assert(fs.existsSync(image),file+' OG image missing');
  const meta=await sharp(image).metadata();assert.equal(meta.width,1200,file);assert.equal(meta.height,630,file);assert(d.querySelector('meta[property="og:image:alt"]')?.content,file+' missing alt');
- for(const script of d.querySelectorAll('script[type="application/ld+json"]')){const json=JSON.parse(script.textContent);for(const item of json['@graph']??[json]){if(['Article','NewsArticle','CreativeWork'].includes(item['@type'])&&item.image)assert.equal(item.image,og,file+' article image mismatch');}}
+ for(const script of d.querySelectorAll('script[type="application/ld+json"]')){const json=JSON.parse(script.textContent);for(const item of json['@graph']??[json]){if(['Article','NewsArticle','CreativeWork'].includes(item['@type'])&&item.image){const images=Array.isArray(item.image)?item.image:[item.image];assert(images.includes(og),file+' article image mismatch');for(const url of images){assert(fs.existsSync(path.join(root,new URL(url).pathname)),file+' article image missing '+url);}}}}
  await w.happyDOM.abort();w.close();count++;
 }
 for(const [name,size] of [['favicon.png',32],['apple-touch-icon.png',180]]){const meta=await sharp(path.join(root,name)).metadata();assert.equal(meta.width,size);assert.equal(meta.height,size);}

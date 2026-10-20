@@ -16,7 +16,7 @@ export const organization = {
   name: 'AgentesVA',
   alternateName: 'Agentes VA',
   url: SITE,
-  logo: { '@type': 'ImageObject', url: `${SITE}/brand/avatar.png` },
+  logo: { '@type': 'ImageObject', url: `${SITE}/brand/mark.svg` },
   description: 'Automatización con inteligencia artificial y recursos prácticos en español para negocios.',
   email: 'hola@agentesva.com',
   contactPoint: {
