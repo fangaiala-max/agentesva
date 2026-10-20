@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-20",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "A hacker broke into John Deere and SharkNinja with an army of AI agents",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1013643/ai-agents-hack-john-deere-shark-ninja-cummins",
+      "fecha": "2026-10-19T13:58:41.000Z",
+      "resumen": "A hacker broke into more than 100 websites using an army of AI agents that mostly operated on their own, according to findings from the AI security firm Norforge. Though Norforge doesn't name the targets, Reuters reports that the victims included companies like John Deere, SharkNinja, and Cummins.\nConcerns over AI-powered cybersecurity breaches have grown as the technology grows more advanced, wit",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "a-hacker-broke-into-john-deere-and-sharkninja-with-an-army-o",
+      "signals": {
+        "hn": 62,
+        "reddit": 0,
+        "social": 0.5450487349606155,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.4486525,
+        "authority": 0.9
+      },
+      "score": 0.5026,
+      "tema": "Automatización"
+    },
+    {
+      "titulo": "Hackers hit AI coding tool OpenCode, running up charges on users’ AI accounts",
+      "url": "https://techcrunch.com/2026/10/19/hackers-hit-ai-coding-tool-opencode-running-up-charges-on-users-ai-accounts/",
+      "fecha": "2026-10-19T19:28:34.000Z",
+      "resumen": "OpenCode is an open source AI coding agent that's become a popular alternative to Claude Code and Cursor. But hackers got into part of its online platform and stole some users’ API keys, and the AI tools it turned to for help kept refusing to look at the malicious code.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "hackers-hit-ai-coding-tool-opencode-running-up-charges-on-us",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.6013762654320988,
+        "authority": 0.9
+      },
+      "score": 0.4802,
+      "tema": "Código"
+    },
+    {
+      "titulo": "These startups hope “blended” food will cut our appetite for red meat",
+      "url": "https://www.technologyreview.com/2026/10/20/1145927/blended-meat-food-startups-building-bridge-to-ditch-red-meat/",
+      "fecha": "2026-10-20T09:00:00.000Z",
+      "resumen": "In the fall of 2025, Jeff Dodge set up a six-foot folding table in the cafeteria of Cane Bay High School in Summerville, South Carolina, to conduct a taste test. When the first rush of about 150 hungry students hit, he was waiting with slow cookers filled with steaming marinara sauce and meatballs.  Kids love…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "these-startups-hope-blended-food-will-cut-our-appetite-for-r",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.9770398456790124,
+        "authority": 0.95
+      },
+      "score": 0.4416,
+      "tema": "Actualidad"
+    },
+    {
+      "titulo": "AI researchers stranded Claude on a virtual desert island. It started to “play.”",
+      "url": "https://www.technologyreview.com/2026/10/19/1147095/ai-stranded-claude-virtual-desert-island-play/",
+      "fecha": "2026-10-19T09:08:05.000Z",
+      "resumen": "What do AI agents do if you don’t tell them to do anything? The answer looks a lot like play. Researchers repeatedly stranded them alone on a virtual desert island for 30 hours in an experiment reminiscent of the movies Cast Away or Home Alone. The agents—copies of Claude Opus 4.7 nicknamed Eko—were able to…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "ai-researchers-stranded-claude-on-a-virtual-desert-island-it",
+      "signals": {
+        "hn": 4,
+        "reddit": 0,
+        "social": 0.21172907860852444,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.3141154629629629,
+        "authority": 0.95
+      },
+      "score": 0.4374,
+      "tema": "Asistentes"
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "date": "2026-10-20",
+  "generatedAt": "2026-10-20T09:49:35.636Z",
+  "candidates": [
+    {
+      "titulo": "A hacker broke into John Deere and SharkNinja with an army of AI agents",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1013643/ai-agents-hack-john-deere-shark-ninja-cummins",
+      "fecha": "2026-10-19T13:58:41.000Z",
+      "resumen": "A hacker broke into more than 100 websites using an army of AI agents that mostly operated on their own, according to findings from the AI security firm Norforge. Though Norforge doesn't name the targets, Reuters reports that the victims included companies like John Deere, SharkNinja, and Cummins.\nConcerns over AI-powered cybersecurity breaches have grown as the technology grows more advanced, wit",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "a-hacker-broke-into-john-deere-and-sharkninja-with-an-army-o",
+      "signals": {
+        "hn": 62,
+        "reddit": 0,
+        "social": 0.5450487349606155,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.4486525,
+        "authority": 0.9
+      },
+      "score": 0.5026
+    },
+    {
+      "titulo": "Hackers hit AI coding tool OpenCode, running up charges on users’ AI accounts",
+      "url": "https://techcrunch.com/2026/10/19/hackers-hit-ai-coding-tool-opencode-running-up-charges-on-users-ai-accounts/",
+      "fecha": "2026-10-19T19:28:34.000Z",
+      "resumen": "OpenCode is an open source AI coding agent that's become a popular alternative to Claude Code and Cursor. But hackers got into part of its online platform and stole some users’ API keys, and the AI tools it turned to for help kept refusing to look at the malicious code.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "hackers-hit-ai-coding-tool-opencode-running-up-charges-on-us",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.6013762654320988,
+        "authority": 0.9
+      },
+      "score": 0.4802
+    },
+    {
+      "titulo": "People are using AI to make their smart TVs dumb again",
+      "url": "https://techcrunch.com/2026/10/19/people-are-using-ai-to-make-their-smart-tvs-dumb-again/",
+      "fecha": "2026-10-19T16:13:22.000Z",
+      "resumen": "Fed up with ads, tracking, and sluggish interfaces, some smart TV owners are turning to AI agents to strip away bloatware and take back control of their TVs.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "people-are-using-ai-to-make-their-smart-tvs-dumb-again",
+      "signals": {
+        "hn": 31,
+        "reddit": 0,
+        "social": 0.4559337540958509,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.5110058950617284,
+        "authority": 0.9
+      },
+      "score": 0.4718
+    },
+    {
+      "titulo": "Making the internet better for AI agents might make it worse for everyone else",
+      "url": "https://www.technologyreview.com/2026/10/19/1147186/making-the-internet-better-for-ai-agents-might-make-it-worse-for-everyone-else/",
+      "fecha": "2026-10-19T18:22:47.000Z",
+      "resumen": "This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. Until recently, you could divide internet users into just two categories: bots and people. Websites have long allowed bots to perform automated tasks, like capturing the content of web pages, but rules…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "making-the-internet-better-for-ai-agents-might-make-it-worse",
+      "signals": {
+        "hn": 2,
+        "reddit": 0,
+        "social": 0.1445275806109889,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5709210185185185,
+        "authority": 0.95
+      },
+      "score": 0.4457
+    },
+    {
+      "titulo": "These startups hope “blended” food will cut our appetite for red meat",
+      "url": "https://www.technologyreview.com/2026/10/20/1145927/blended-meat-food-startups-building-bridge-to-ditch-red-meat/",
+      "fecha": "2026-10-20T09:00:00.000Z",
+      "resumen": "In the fall of 2025, Jeff Dodge set up a six-foot folding table in the cafeteria of Cane Bay High School in Summerville, South Carolina, to conduct a taste test. When the first rush of about 150 hungry students hit, he was waiting with slow cookers filled with steaming marinara sauce and meatballs.  Kids love…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "these-startups-hope-blended-food-will-cut-our-appetite-for-r",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.9770398456790124,
+        "authority": 0.95
+      },
+      "score": 0.4416
+    },
+    {
+      "titulo": "AI researchers stranded Claude on a virtual desert island. It started to “play.”",
+      "url": "https://www.technologyreview.com/2026/10/19/1147095/ai-stranded-claude-virtual-desert-island-play/",
+      "fecha": "2026-10-19T09:08:05.000Z",
+      "resumen": "What do AI agents do if you don’t tell them to do anything? The answer looks a lot like play. Researchers repeatedly stranded them alone on a virtual desert island for 30 hours in an experiment reminiscent of the movies Cast Away or Home Alone. The agents—copies of Claude Opus 4.7 nicknamed Eko—were able to…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "ai-researchers-stranded-claude-on-a-virtual-desert-island-it",
+      "signals": {
+        "hn": 4,
+        "reddit": 0,
+        "social": 0.21172907860852444,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.3141154629629629,
+        "authority": 0.95
+      },
+      "score": 0.4374
+    },
+    {
+      "titulo": "Replika’s founder built the AI assistant she pitched at Disrupt 12 years ago",
+      "url": "https://techcrunch.com/2026/10/19/replikas-founder-built-the-ai-assistant-she-pitched-at-disrupt-12-years-ago/",
+      "fecha": "2026-10-19T18:49:04.000Z",
+      "resumen": "Eugenia Kuyda's newest startup Wabi is positioned to take advantage of an idea she had more than a decade ago. Wabi offers a personal AI assistant with a twist, free and downloadable to anyone today.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "replika-s-founder-built-the-ai-assistant-she-pitched-at-disr",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5830892283950617,
+        "authority": 0.9
+      },
+      "score": 0.3775
+    },
+    {
+      "titulo": "Nvidia launches new open models to run agents in the enterprise and on PCs",
+      "url": "https://techcrunch.com/2026/10/19/nvidia-launches-new-open-models-to-run-agents-in-the-enterprise-and-on-pcs/",
+      "fecha": "2026-10-19T15:37:09.000Z",
+      "resumen": "Nvidia is leaning hard into the trend of enterprise companies wanting to run their own open models in their own data centers and also trying to make on-device, private AI agents a thing.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "nvidia-launches-new-open-models-to-run-agents-in-the-enterpr",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.4942389197530864,
+        "authority": 0.9
+      },
+      "score": 0.3641
+    },
+    {
+      "titulo": "“We were looking at it wrong”: The explosive claim that’s upended the AI world",
+      "url": "https://www.technologyreview.com/2026/10/19/1147149/we-were-looking-at-it-wrong-the-explosive-claim-thats-upended-the-ai-world/",
+      "fecha": "2026-10-19T17:45:55.000Z",
+      "resumen": "“I think I have good news about the nature of neural networks.” With those simple words of optimism, Nick Cammarata, a researcher at the AI startup Goodfire, kicked off a 26,000-word blog post that has knocked the AI world on its head, sparking wild speculation as well as cautious (and not-so-cautious) celebration. Cammarata’s claim is…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "we-were-looking-at-it-wrong-the-explosive-claim-that-s-upend",
+      "signals": {
+        "hn": 3,
+        "reddit": 0,
+        "social": 0.18237350163834035,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.5538531172839506,
+        "authority": 0.95
+      },
+      "score": 0.3601
+    },
+    {
+      "titulo": "Laplace Intelligence red-teams robots and self-driving cars before they hit the real world",
+      "url": "https://techcrunch.com/2026/10/19/laplace-intelligence-red-teams-robots-and-self-driving-cars-before-they-hit-the-real-world/",
+      "fecha": "2026-10-19T12:30:00.000Z",
+      "resumen": "University of Michigan spinout Laplace Intelligence uses AI agents and interactive simulation to stress-test robots and self-driving vehicles before deployment. The profitable startup is competing in Startup Battlefield at TechCrunch Disrupt, October 13-15 in San Francisco.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "laplace-intelligence-red-teams-robots-and-self-driving-cars-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.40759540123456794,
+        "authority": 0.9
+      },
+      "score": 0.3511
+    }
+  ]
+}
