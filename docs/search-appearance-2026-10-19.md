@@ -1,6 +1,6 @@
 # Search appearance implementation — 19 October 2026
 
-Implementation branch: `fix/schema-priority`, based on main `a53cbc01d1ad30fbfe56385cb9dabc4ce671abf7`. This document records local implementation and validation. Production deployment, Google validation of the updated HTML, indexing and actual search-result appearance are separate steps.
+Implementation branch: `fix/schema-priority`, based on main `a53cbc01d1ad30fbfe56385cb9dabc4ce671abf7`. This document records implementation, local validation and Google's predeployment code validation completed on 20 October 2026. Production deployment, indexing and actual search-result appearance remain separate steps.
 
 ## Implemented in priority order
 
@@ -27,9 +27,23 @@ The resource cover reuses the existing branded 1200 × 630 artwork. Guide artwor
 - Browser review covered eight representative routes at 320, 390 and 1440 pixels. Resource images decoded, course-provider labels were visible, and the English builder produced the expected result with its Copy control enabled.
 - One existing 320-pixel library overflow remains: both production and local output measure 388 pixels. The library's counter/grid sizing causes it; it was not introduced by this patch.
 
-## Release checks still pending
+## Google Rich Results Test — 20 October 2026
 
-Google Rich Results Test code-mode validation of the updated four resource pages and one course page requires permission to submit the unpublished built HTML to Google. Automatic approval review blocked that export, and explicit approval has been requested. The original audit's Google results describe the pre-fix production pages and are not evidence that these changes passed Google validation.
+After explicit user approval, submitted the full updated built HTML for all four resource pages and one course page in **CODE** mode. All five returned valid detected items without critical errors. These results apply to built output from source commit `0722f79`; they are not production URL tests.
+
+| Page | Observed Google result | Test |
+| --- | --- | --- |
+| `/recurso/curso-seguridad-llm/` | Four valid items: Product snippets, Merchant listings, Breadcrumbs, Organization. Missing-image critical error and brand-type warning cleared. | [Google result](https://search.google.com/test/rich-results/result?id=ybHj1ZoAKRIqohZTNmxazQ) |
+| `/recurso/pack-30-prompts/` | Four valid items: Product snippets, Merchant listings, Breadcrumbs, Organization. Missing-image critical error and brand-type warning cleared. | [Google result](https://search.google.com/test/rich-results/result?id=9F3Omd92fNJ9Fz4cVXV40Q) |
+| `/recurso/skill-atencion-cliente/` | Four valid items: Product snippets, Merchant listings, Breadcrumbs, Organization. Missing-image critical error and brand-type warning cleared. | [Google result](https://search.google.com/test/rich-results/result?id=7mnlhdmhwHPzVULWJkIhyw) |
+| `/recurso/biblioteca-ia/` | Two valid items: Breadcrumbs and Organization; no Product/Merchant listing emitted. CollectionPage itself has no dedicated feature in this validator. | [Google result](https://search.google.com/test/rich-results/result?id=oEbvgPngxZvQ62pDX2EkAA) |
+| `/courses/ai-for-everyone/` | Three valid items: Breadcrumbs, Course list item, Organization. Provider warning cleared; details show DeepLearning.AI (Coursera). | [Google result](https://search.google.com/test/rich-results/result?id=eMY9qwoILrZxy5K5r9hqBQ) |
+
+Each retained Product still has optional `aggregateRating` and `review` warnings for Product snippets, plus optional `shippingDetails` and `hasMerchantReturnPolicy` warnings for Merchant listings. These fields remain unset because supporting reviews and applicable policies have not been established. The existing real offers remain 19 EUR for the course resource and 0 EUR for the two free resources.
+
+The original audit's Google results describe pre-fix production; the table above describes the approved predeployment tests. Result links can expire. [Recorded evidence](evidence/google-rich-results-2026-10-20.json) retains the observed results, field warnings and SHA-256 hashes of the submitted built HTML.
+
+## Release checks still pending
 
 After merge/deployment, verify the deployed HTML/images, rerun representative Google URL tests and inspect Search Console. Local validation establishes implemented output, not indexing, Merchant policy eligibility, rich-result display or CTR improvement.
 
