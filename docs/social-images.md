@@ -1,6 +1,6 @@
 # Social images and favicon
 
-The Gemini social identity uses a pale background for commercial pages and a midnight background for studies, guides and news. Every indexable static page has its own English or Spanish 1200×630 PNG, titled from the page metadata. Article images, Open Graph and Twitter share the same URL; article body illustrations remain unchanged.
+The Gemini social identity uses a pale background for commercial pages and a midnight background for studies, guides and news. Every indexable static page has its own English or Spanish 1200×630 PNG, titled from the page metadata. Open Graph and Twitter share the same URL. The six full buying guides also list their existing representative cover artwork first in Article.image, followed by the social rendition; article body illustrations remain unchanged.
 
 `src/lib/social-image.mjs` derives a URL from the normalized route, title and design version. Changing the title creates a new URL. Bump `SOCIAL_IMAGE_VERSION` when changing the template so shared previews request a new image.
 
@@ -11,3 +11,5 @@ The EN and ES home cards also refresh `public/brand/og-en.png` and `public/og.pn
 The favicon artwork was created with image generation and saved as `public/brand/social-mark.png`. Its exported sizes are `favicon.png` (32×32) and `apple-touch-icon.png` (180×180). `favicon.svg` embeds a 128×128 version of the same artwork. The icon URLs use `?v=gemini-2` to refresh browser caches. The header logo is unchanged; the heavier social monogram is intended for tiny icons and sharing previews.
 
 Validation does not force social platforms to invalidate an already cached preview. After deployment, inspect representative shared URLs in the platforms' preview tools when necessary.
+
+Individual resource pages display their existing generated covers and reference that same URL in Product.image. The mixed free/paid AI library is a CollectionPage without a page-wide zero-price offer. No product photos, ratings, prices, shipping or return policies are invented.

@@ -2,6 +2,16 @@
 
 Historial de releases de agentesva.com. Formato inspirado en [Keep a Changelog](https://keepachangelog.com/es/); versiones `MAYOR.MENOR.PARCHE.MICRO` (ver `VERSION`).
 
+## [0.10.2.0] - 2026-10-19
+
+### Fixed
+- Los recursos individuales muestran su portada y la incluyen en los datos de producto; la biblioteca mixta se describe como colección, sin presentar todos sus blueprints como gratuitos.
+- Cada categoría inglesa de prompts tiene una descripción propia y migas de navegación coherentes; los cursos ingleses muestran y declaran su proveedor real.
+- Las páginas comerciales declaran una sola página conectada con el servicio y la organización; el editor, el logotipo y las guías bilingües conservan datos consistentes.
+
+### Changed
+- El generador inglés declara su función de aplicación gratuita; las guías completas incluyen su portada editorial entre las imágenes del artículo y permiten vistas previas grandes.
+
 ## [0.10.1.0] - 2026-10-19
 
 ### Added
