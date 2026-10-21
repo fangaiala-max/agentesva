@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-21",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "ChatGPT now lets you lock your chats",
+      "url": "https://techcrunch.com/2026/10/20/chatgpt-now-lets-you-lock-your-chats/",
+      "fecha": "2026-10-20T18:36:53.000Z",
+      "resumen": "The company says the feature is designed for situations where users might be discussing something personal or planning a surprise and want to keep those conversations private when handing their device to friends or family to show them something in another chat.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "chatgpt-now-lets-you-lock-your-chats",
+      "signals": {
+        "hn": 1,
+        "reddit": 0,
+        "social": 0.09118675081917017,
+        "relevance": 1,
+        "freshness": 0.5768579243827161,
+        "authority": 0.9
+      },
+      "score": 0.5176,
+      "tema": "Asistentes"
+    },
+    {
+      "titulo": "Judge dismisses Sam Altman’s sister’s sexual abuse lawsuit",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1014976/sam-altman-ann-altman-lawsuit-dismissed",
+      "fecha": "2026-10-20T23:04:19.000Z",
+      "resumen": "On Tuesday, US District Judge Zachary Bluestone dismissed the lawsuit Ann Altman filed last year alleging that her brother, OpenAI CEO Sam Altman, had sexually abused her throughout her childhood. As reported earlier by The Guardian, the judge wrote that over the past year, Ann had failed to appear for an independent medical examination or meet other deadlines despite warnings that it would result",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "judge-dismisses-sam-altman-s-sister-s-sexual-abuse-lawsuit",
+      "signals": {
+        "hn": 6,
+        "reddit": 0,
+        "social": 0.2559935737386376,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.7006696527777778,
+        "authority": 0.9
+      },
+      "score": 0.4103,
+      "tema": "Actualidad"
+    },
+    {
+      "titulo": "Google has joined Amazon in attacking Nvidia’s stronghold with AI app developers",
+      "url": "https://techcrunch.com/2026/10/20/google-has-joined-amazon-in-attacking-nvidias-stronghold-with-ai-app-developers/",
+      "fecha": "2026-10-20T18:38:24.000Z",
+      "resumen": "Google has joined Amazon in releasing a developer tool that makes it easy for PyTorch users to move their apps off Nvidia GPUs.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "google-has-joined-amazon-in-attacking-nvidia-s-stronghold-wi",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5775600848765432,
+        "authority": 0.9
+      },
+      "score": 0.3766,
+      "tema": "Código"
+    },
+    {
+      "titulo": "Google’s more personalized Gemini AI is heading to your car",
+      "url": "https://www.theverge.com/tech/1014999/google-gemini-ai-cars-android-auto",
+      "fecha": "2026-10-20T22:11:34.000Z",
+      "resumen": "Google is bringing Personal Intelligence to Gemini AI in your car. With this update, Gemini in Android Auto and cars with Google built-in can tap into your information across Google apps, including Gmail, Calendar, Maps, Photos, YouTube, and Search.\nAs an example, Google says you can ask Gemini about your flight status if you're driving to the airport. The AI assistant can pull your flight details",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "google-s-more-personalized-gemini-ai-is-heading-to-your-car",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.6762483564814815,
+        "authority": 0.9
+      },
+      "score": 0.4914,
+      "tema": "Asistentes"
+    }
+  ]
+}
