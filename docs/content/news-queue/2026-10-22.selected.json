@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-22",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "Anthropic takes on Muse with Claude Duet, its new AI agent",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1015843/anthropic-claude-duet-ai-agent",
+      "fecha": "2026-10-21T19:53:20.000Z",
+      "resumen": "Anthropic just announced an AI agent competitor to Meta's Muse and OpenAI's Dots: Claude Duet. The new agent, designed for professionals and small business owners, is launching as a \"research preview,\" according to Anthropic, and it's available as a standalone app on iOS and Android and through Claude on the web.\nThe AI agent is built around Claude Opus 5.5. Here's Anthropic's description of what ",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "anthropic-takes-on-muse-with-claude-duet-its-new-ai-agent",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.6119160802469136,
+        "authority": 0.9
+      },
+      "score": 0.4818,
+      "tema": "Asistentes"
+    },
+    {
+      "titulo": "Meta says Muse has over 10M users, with shopping a top activity",
+      "url": "https://techcrunch.com/2026/10/21/meta-says-muse-has-over-10m-users-with-shopping-a-top-activity/",
+      "fecha": "2026-10-21T21:14:19.000Z",
+      "resumen": "Meta Muse users are adopting the app for shopping and personal productivity, the company said during its Q3 earnings call. The AI app now has over 10M users.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "meta-says-muse-has-over-10m-users-with-shopping-a-top-activi",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.6494083641975308,
+        "authority": 0.9
+      },
+      "score": 0.3874,
+      "tema": "Actualidad"
+    },
+    {
+      "titulo": "Recursive launches Flint, a laptop coding model it says was largely built by AI",
+      "url": "https://techcrunch.com/2026/10/21/recursive-launches-flint-a-laptop-coding-model-it-says-was-largely-built-by-ai/",
+      "fecha": "2026-10-21T20:27:41.000Z",
+      "resumen": "Startup Recursive has released Flint, a free, laptop-sized coding model built largely by its own AI research system, as an early test of AI that improves itself.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "recursive-launches-flint-a-laptop-coding-model-it-says-was-l",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.6278188580246913,
+        "authority": 0.9
+      },
+      "score": 0.3842,
+      "tema": "Código"
+    },
+    {
+      "titulo": "While Amazon blocks AI agents, Walmart rolls out the welcome mat",
+      "url": "https://techcrunch.com/2026/10/21/while-amazon-blocks-ai-agents-walmart-rolls-out-the-welcome-mat/",
+      "fecha": "2026-10-21T19:30:00.000Z",
+      "resumen": "As Amazon blocks AI agents from shopping on its site, Walmart is taking the opposite approach, introducing new technology that lets AI agents make purchases on customers' behalf, with controls over spending and transaction approvals.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "while-amazon-blocks-ai-agents-walmart-rolls-out-the-welcome-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.6011136111111111,
+        "authority": 0.9
+      },
+      "score": 0.3802,
+      "tema": "Automatización"
+    }
+  ]
+}
