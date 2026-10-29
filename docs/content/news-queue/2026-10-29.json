@@ -1,0 +1,146 @@
+{
+  "date": "2026-10-29",
+  "generatedAt": "2026-10-29T11:19:06.797Z",
+  "candidates": [
+    {
+      "titulo": "Creating AI value with enterprise context",
+      "url": "https://www.technologyreview.com/2026/10/28/1147709/creating-ai-value-with-enterprise-context/",
+      "fecha": "2026-10-28T20:32:02.000Z",
+      "resumen": "Across a business, any number of AI platforms, systems, and tools may be at work simultaneously—for example, AI-powered customer platforms, conversational assistants, and workflow and process automation tools. Each one is sophisticated, advanced, and quick to respond. But, when set to work, the outcomes and actions that emerge may be wrong, confused, or lacking a…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "creating-ai-value-with-enterprise-context",
+      "signals": {
+        "hn": 4,
+        "reddit": 0,
+        "social": 0.21172907860852444,
+        "relevance": 1,
+        "freshness": 0.5893148379629629,
+        "authority": 0.95
+      },
+      "score": 0.5787
+    },
+    {
+      "titulo": "Google launches Gemini 4 Carbon with a ‘significant leap’ in cybersecurity",
+      "url": "https://www.theverge.com/tech/1021339/google-gemini-4-carbon-cybersecurity-frontier",
+      "fecha": "2026-10-28T20:03:00.000Z",
+      "resumen": "Google has released its latest frontier model, Gemini 4 Carbon, offering \"significant gains\" in coding, agentic tasks, and cybersecurity. In an announcement on Wednesday, Google highlights Carbon's top spot on the Artificial Analysis Intelligence Index (v5.0) benchmark, with Claude Opus 5.5 and GPT-6 Astra trailing behind.\nThe new Gemini 4 Carbon model offers improvements over Argon, which Google ",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "google-launches-gemini-4-carbon-with-a-significant-leap-in-c",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5758734799382716,
+        "authority": 0.9
+      },
+      "score": 0.4764
+    },
+    {
+      "titulo": "Microsoft is ending Copilot support on smart TVs",
+      "url": "https://www.theverge.com/tech/1021143/microsoft-lg-samsung-copilot-ai-assistant-smart-tvs-ending",
+      "fecha": "2026-10-28T18:36:26.000Z",
+      "resumen": "Nearly two years after LG and Samsung announced at CES 2025 that their latest smart TVs would include access to Microsoft's Copilot, the company is ending support for the AI assistant's functionality on all TVs this year, according to a report by Windows Central.\nThe news comes not from an official announcement from LG, Samsung, or Microsoft, but from an on-screen notification that appeared on Win",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "microsoft-is-ending-copilot-support-on-smart-tvs",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5357963194444444,
+        "authority": 0.9
+      },
+      "score": 0.4704
+    },
+    {
+      "titulo": "As AI agents reshape the web, Google opens Gemini and Search to more apps",
+      "url": "https://techcrunch.com/2026/10/28/as-ai-agents-reshape-the-web-google-opens-gemini-and-search-to-more-apps/",
+      "fecha": "2026-10-28T17:00:00.000Z",
+      "resumen": "A new developer platform will let businesses bring their services to Google's AI experiences, potentially changing how consumers discover and use apps.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "as-ai-agents-reshape-the-web-google-opens-gemini-and-search-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.4911512577160494,
+        "authority": 0.9
+      },
+      "score": 0.4637
+    },
+    {
+      "titulo": "Adam Mosseri says negativity around AI is ‘going to get worse’",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1021644/adam-mosseri-instagram-ai-negativity",
+      "fecha": "2026-10-28T23:05:39.000Z",
+      "resumen": "Asked about AI and the trend of college students booing tech CEOs at graduation ceremonies, Instagram head Adam Mosseri acknowledged in an interview that a lot of people really don't like AI, and it's not just young people and creatives. Appearing on the Colin and Samir podcast to talk about the launch of widescreen and long-form video for Instagram, Mosseri said he thinks there's a trend of \"more",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "adam-mosseri-says-negativity-around-ai-is-going-to-get-worse",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.6604336651234568,
+        "authority": 0.9
+      },
+      "score": 0.3891
+    },
+    {
+      "titulo": "Anthropic just launched tools to show companies what their AI spending is buying",
+      "url": "https://techcrunch.com/2026/10/28/anthropic-just-launched-tools-to-show-companies-what-their-ai-spending-is-buying/",
+      "fecha": "2026-10-28T19:19:58.000Z",
+      "resumen": "The frontier lab is lifting the curtain on how users spend money on its models ahead of a planned IPO.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "anthropic-just-launched-tools-to-show-companies-what-their-a",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5559506404320989,
+        "authority": 0.9
+      },
+      "score": 0.3734
+    },
+    {
+      "titulo": "Chrome’s enhanced autofill can now pull info from Gmail to help you fill out forms",
+      "url": "https://www.theverge.com/tech/1020626/chrome-enhanced-autofill-gmail-forms-gemini-personal-intelligence",
+      "fecha": "2026-10-28T17:00:00.000Z",
+      "resumen": "Following improvements made to Chrome's enhanced autofill last year that included your name, passport number, email address, and physical addresses sourced from your Google Accounts and services like Google Wallet, the feature is now expanding. Starting today, Chrome's enhanced autofill will use Gemini with Personal Intelligence to suggest information sourced from your Gmail, potentially saving yo",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "chrome-s-enhanced-autofill-can-now-pull-info-from-gmail-to-h",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.4911512577160494,
+        "authority": 0.9
+      },
+      "score": 0.3637
+    }
+  ]
+}

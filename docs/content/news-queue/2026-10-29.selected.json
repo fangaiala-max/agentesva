@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-29",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "Creating AI value with enterprise context",
+      "url": "https://www.technologyreview.com/2026/10/28/1147709/creating-ai-value-with-enterprise-context/",
+      "fecha": "2026-10-28T20:32:02.000Z",
+      "resumen": "Across a business, any number of AI platforms, systems, and tools may be at work simultaneously—for example, AI-powered customer platforms, conversational assistants, and workflow and process automation tools. Each one is sophisticated, advanced, and quick to respond. But, when set to work, the outcomes and actions that emerge may be wrong, confused, or lacking a…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "creating-ai-value-with-enterprise-context",
+      "signals": {
+        "hn": 4,
+        "reddit": 0,
+        "social": 0.21172907860852444,
+        "relevance": 1,
+        "freshness": 0.5893148379629629,
+        "authority": 0.95
+      },
+      "score": 0.5787,
+      "tema": "Asistentes"
+    },
+    {
+      "titulo": "Google launches Gemini 4 Carbon with a ‘significant leap’ in cybersecurity",
+      "url": "https://www.theverge.com/tech/1021339/google-gemini-4-carbon-cybersecurity-frontier",
+      "fecha": "2026-10-28T20:03:00.000Z",
+      "resumen": "Google has released its latest frontier model, Gemini 4 Carbon, offering \"significant gains\" in coding, agentic tasks, and cybersecurity. In an announcement on Wednesday, Google highlights Carbon's top spot on the Artificial Analysis Intelligence Index (v5.0) benchmark, with Claude Opus 5.5 and GPT-6 Astra trailing behind.\nThe new Gemini 4 Carbon model offers improvements over Argon, which Google ",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "google-launches-gemini-4-carbon-with-a-significant-leap-in-c",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5758734799382716,
+        "authority": 0.9
+      },
+      "score": 0.4764,
+      "tema": "Código"
+    },
+    {
+      "titulo": "Anthropic just launched tools to show companies what their AI spending is buying",
+      "url": "https://techcrunch.com/2026/10/28/anthropic-just-launched-tools-to-show-companies-what-their-ai-spending-is-buying/",
+      "fecha": "2026-10-28T19:19:58.000Z",
+      "resumen": "The frontier lab is lifting the curtain on how users spend money on its models ahead of a planned IPO.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "anthropic-just-launched-tools-to-show-companies-what-their-a",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5559506404320989,
+        "authority": 0.9
+      },
+      "score": 0.3734,
+      "tema": "Actualidad"
+    },
+    {
+      "titulo": "Microsoft is ending Copilot support on smart TVs",
+      "url": "https://www.theverge.com/tech/1021143/microsoft-lg-samsung-copilot-ai-assistant-smart-tvs-ending",
+      "fecha": "2026-10-28T18:36:26.000Z",
+      "resumen": "Nearly two years after LG and Samsung announced at CES 2025 that their latest smart TVs would include access to Microsoft's Copilot, the company is ending support for the AI assistant's functionality on all TVs this year, according to a report by Windows Central.\nThe news comes not from an official announcement from LG, Samsung, or Microsoft, but from an on-screen notification that appeared on Win",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "microsoft-is-ending-copilot-support-on-smart-tvs",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5357963194444444,
+        "authority": 0.9
+      },
+      "score": 0.4704,
+      "tema": "Asistentes"
+    }
+  ]
+}
