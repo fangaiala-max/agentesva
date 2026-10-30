@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-30",
+  "generatedAt": "2026-10-30T11:11:28.533Z",
+  "candidates": [
+    {
+      "titulo": "The NYT Cooking app is testing AI recipe modifications",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1022193/nyt-cooking-app-ai-recipe-modification-tool",
+      "fecha": "2026-10-29T14:39:37.000Z",
+      "resumen": "The AI tool provides recommendations and adjusts the recipe accordingly. | Image: The New York Times\t\n\nThe New York Times is testing a new AI feature for its Cooking app that helps users to modify recipes, and it has sparked some drama among users. Last Friday, NYT Cooking senior editor Genevieve Ko announced the feature, which can be used to recommend substitutions for ingredients and cooking equ",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "the-nyt-cooking-app-is-testing-ai-recipe-modifications",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.42969496141975305,
+        "authority": 0.9
+      },
+      "score": 0.4545
+    },
+    {
+      "titulo": "Meta quietly launches an AI fashion app called Style Sketch",
+      "url": "https://techcrunch.com/2026/10/29/meta-quietly-launches-an-ai-fashion-app-called-style-sketch/",
+      "fecha": "2026-10-29T19:14:36.000Z",
+      "resumen": "The app connects to Instagram to build a virtual closet from photos you’ve already shared, or lets you add items manually by snapping a photo, recording a quick video, or uploading images from your camera roll.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "meta-quietly-launches-an-ai-fashion-app-called-style-sketch",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5570020601851853,
+        "authority": 0.9
+      },
+      "score": 0.3736
+    },
+    {
+      "titulo": "Granola crunches up a dictation feature to compete with Wispr",
+      "url": "https://techcrunch.com/2026/10/29/granola-crunches-up-a-dictation-feature-to-compete-with-wispr/",
+      "fecha": "2026-10-29T17:54:38.000Z",
+      "resumen": "Uno reverse! After Wispr added meeting notes to its dictation app, Granola is adding dictation to its meeting notetaker. The voice AI wars are getting interesting.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "granola-crunches-up-a-dictation-feature-to-compete-with-wisp",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5199804552469136,
+        "authority": 0.9
+      },
+      "score": 0.368
+    },
+    {
+      "titulo": "Wabi, the AI agent that builds mini apps, now valued at $1.25B after latest round",
+      "url": "https://techcrunch.com/2026/10/29/wabi-the-ai-agent-that-builds-mini-apps-now-valued-at-1-25b-after-latest-round/",
+      "fecha": "2026-10-29T14:35:26.000Z",
+      "resumen": "On Thursday, AI app Wabi, now describing itself as a \"personal agent,\" said it has raised $55 million at a $1.25 billion valuation.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "wabi-the-ai-agent-that-builds-mini-apps-now-valued-at-1-25b-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.4277582330246914,
+        "authority": 0.9
+      },
+      "score": 0.3542
+    }
+  ]
+}
