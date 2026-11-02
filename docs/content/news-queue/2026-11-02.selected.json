@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-02",
+  "count": 1,
+  "selected": [
+    {
+      "titulo": "The agentic web is here",
+      "url": "https://www.technologyreview.com/2026/11/02/1147846/the-agentic-web-is-here/",
+      "fecha": "2026-11-02T09:35:19.000Z",
+      "resumen": "In 2001, a decade after he invented the World Wide Web, Tim Berners-Lee articulated a new vision. Together with two colleagues, he published an article in the magazine Scientific American in which he outlined what he called the “Semantic Web”: an internet designed to be navigated by autonomous software agents that could address our every…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "the-agentic-web-is-here",
+      "signals": {
+        "hn": 21,
+        "reddit": 0,
+        "social": 0.4066410798038079,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.9010001543209877,
+        "authority": 0.95
+      },
+      "score": 0.5131,
+      "tema": "Código"
+    }
+  ]
+}
