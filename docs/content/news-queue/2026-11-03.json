@@ -1,0 +1,126 @@
+{
+  "date": "2026-11-03",
+  "generatedAt": "2026-11-03T12:38:10.749Z",
+  "candidates": [
+    {
+      "titulo": "How “reverse game theory” could keep AI agents in check",
+      "url": "https://www.technologyreview.com/2026/11/03/1147934/reverse-game-theory-mechanism-design-ai-alignment/",
+      "fecha": "2026-11-03T10:43:41.000Z",
+      "resumen": "A new approach known as “reverse game theory” aims to create incentives for powerful AI models that make following the rules the most rational choice. As AI models become more capable, safety researchers are scrambling to ensure they are “aligned” with human desires—to make sure, in other words, that rogue agents don’t break the law,…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "how-reverse-game-theory-could-keep-ai-agents-in-check",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.9469926774691358,
+        "authority": 0.95
+      },
+      "score": 0.437
+    },
+    {
+      "titulo": "The New York Times sues Brave web browser for AI scraping and bypassing paywalls",
+      "url": "https://www.theverge.com/tech/1024588/brave-lawsuit-ai-scraping-new-york-times",
+      "fecha": "2026-11-02T17:51:19.000Z",
+      "resumen": "The New York Times and a group of other publications have filed lawsuits against the company that makes the Brave web browser over alleged unlawful scraping to train AI and also letting users bypass their paywalls, as reported by Reuters.\nAccording to a complaint filed by the New York Daily News, the Chicago Tribune, and the Orlando Sentinel, Brave Software has monetized its index of scraped websi",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "the-new-york-times-sues-brave-web-browser-for-ai-scraping-an",
+      "signals": {
+        "hn": 16,
+        "reddit": 0,
+        "social": 0.372722455587712,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.47830440586419753,
+        "authority": 0.9
+      },
+      "score": 0.4295
+    },
+    {
+      "titulo": "Apple Watch’s AI features for rewinding and recapping conversations begin beta testing",
+      "url": "https://techcrunch.com/2026/11/02/apple-watchs-ai-features-for-rewinding-and-recapping-conversations-begin-beta-testing/",
+      "fecha": "2026-11-03T07:20:00.000Z",
+      "resumen": "Now in beta: Apple's new Audio Intelligence features can help you remember what someone said or take notes on conversations.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "apple-watch-s-ai-features-for-rewinding-and-recapping-conver",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.852694837962963,
+        "authority": 0.9
+      },
+      "score": 0.4179
+    },
+    {
+      "titulo": "Anthropic clamps down on Claude’s AI video game clones",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1024632/anthropic-claude-ai-video-game-clones",
+      "fecha": "2026-11-02T18:56:02.000Z",
+      "resumen": "Anthropic has updated Claude Code's system prompt to prevent the AI tool from being used to re-create existing video games, as reported by Tom's Hardware. Retro gaming is currently being overrun with AI-made decompilations, recompilations, and ports, but while Anthropic will still let people use Claude Code to make games, it doesn't want people to use it for direct clones.\nLast week, a user on X p",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "anthropic-clamps-down-on-claude-s-ai-video-game-clones",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5082658256172838,
+        "authority": 0.9
+      },
+      "score": 0.3662
+    },
+    {
+      "titulo": "New York Times and other outlets sue web browser Brave over alleged content scraping",
+      "url": "https://techcrunch.com/2026/11/02/new-york-times-and-other-outlets-sue-web-browser-brave-over-alleged-content-scraping/",
+      "fecha": "2026-11-02T19:19:17.000Z",
+      "resumen": "The New York Times is suing privacy-focused web browser company Brave for allegedly scraping the outlet’s copyrighted content and unlawfully distributing it to its own customers, like Anthropic and Perplexity.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "new-york-times-and-other-outlets-sue-web-browser-brave-over-",
+      "signals": {
+        "hn": 4,
+        "reddit": 0,
+        "social": 0.21172907860852444,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.5190297145061729,
+        "authority": 0.9
+      },
+      "score": 0.3631
+    },
+    {
+      "titulo": "Raising the quality of insights in agentic analytics",
+      "url": "https://www.technologyreview.com/2026/11/02/1147660/raising-the-quality-of-insights-in-agentic-analytics/",
+      "fecha": "2026-11-02T17:00:00.000Z",
+      "resumen": "In just a few years, generative AI has changed the face of enterprise analytics, notably by making analytics accessible to users across the organization. Agentic AI promises to do even more, by automating entire workflows and taking actions based on agent insights. But there is a problem: The quality of insights that agents currently generate…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "raising-the-quality-of-insights-in-agentic-analytics",
+      "signals": {
+        "hn": 4,
+        "reddit": 0,
+        "social": 0.21172907860852444,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.45454668981481483,
+        "authority": 0.95
+      },
+      "score": 0.3585
+    }
+  ]
+}
