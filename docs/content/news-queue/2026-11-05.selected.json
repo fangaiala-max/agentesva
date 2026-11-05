@@ -1,0 +1,90 @@
+{
+  "date": "2026-11-05",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "ChatGPT will now make you animated GIFs",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1026474/openai-chatgpt-animated-gifs-images-2-6",
+      "fecha": "2026-11-04T18:00:00.000Z",
+      "resumen": "ChatGPT can now create GIFs using a prompt or a photo uploaded to the AI chatbot. The update, which is rolling out alongside OpenAI's new Images 2.6 model, allows you to adjust the GIF's animation speed, edit individual frames, and share it with others.\nBefore this change, ChatGPT couldn't natively generate GIFs in a single step. An example shared by the company shows how ChatGPT can generate a GI",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "chatgpt-will-now-make-you-animated-gifs",
+      "signals": {
+        "hn": 10,
+        "reddit": 0,
+        "social": 0.3154543289846377,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.4736214274691357,
+        "authority": 0.9
+      },
+      "score": 0.503,
+      "tema": "Código"
+    },
+    {
+      "titulo": "Nothing teases a screen-free AI device ahead of launch next month",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1026586/nothing-screen-free-ai-device-carl-pei",
+      "fecha": "2026-11-04T18:26:07.000Z",
+      "resumen": "Nothing CEO Carl Pei said in a post on X that the company's launching its first AI device in December. That's just a little over a year after Pei announced plans for \"AI-native\" devices and an AI operating system. He didn't give away much about what exactly the new device is, only that one feature it won't have is a screen:\n\"Our first AI-native product ships next month. It's a tool, but one built ",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "nothing-teases-a-screen-free-ai-device-ahead-of-launch-next-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.4857124768518518,
+        "authority": 0.9
+      },
+      "score": 0.4629,
+      "tema": "Actualidad"
+    },
+    {
+      "titulo": "Securing the agentic enterprise with data lineage",
+      "url": "https://www.technologyreview.com/2026/11/04/1147596/securing-the-agentic-enterprise-with-data-lineage/",
+      "fecha": "2026-11-04T13:00:00.000Z",
+      "resumen": "A sales representative asks an AI agent for customer pricing, and the agent pulls data from multiple sources: restricted pricing systems, internal communications, and archived quotes. The output looks accurate to the agent, so a second agent uses the data to draft the proposal for the sales rep. No human checks either handoff. When it’s…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "securing-the-agentic-enterprise-with-data-lineage",
+      "signals": {
+        "hn": 1,
+        "reddit": 0,
+        "social": 0.09118675081917017,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.3347325385802469,
+        "authority": 0.95
+      },
+      "score": 0.3862,
+      "tema": "Automatización"
+    },
+    {
+      "titulo": "The Download: blended meat, restored sight, and the agentic web",
+      "url": "https://www.technologyreview.com/2026/11/04/1148001/the-download-blended-meat-sight-restoring-implant-agentic-web/",
+      "fecha": "2026-11-04T13:10:00.000Z",
+      "resumen": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. These startups hope “blended” food will cut our appetite for red meat  In the fall of 2025, Jeff Dodge served hungry students steaming marinara sauce and meatballs. The students loved them:…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "the-download-blended-meat-restored-sight-and-the-agentic-web",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.3393621682098765,
+        "authority": 0.95
+      },
+      "score": 0.4459,
+      "tema": "Código"
+    }
+  ]
+}
