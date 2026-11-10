@@ -1,0 +1,86 @@
+{
+  "date": "2026-11-10",
+  "generatedAt": "2026-11-10T13:15:57.152Z",
+  "candidates": [
+    {
+      "titulo": "Apple’s $50 Intelligence Usage Packs extend access to some AI features",
+      "url": "https://www.theverge.com/tech/1030084/apple-intelligence-usage-packs-ai-features-creator-studio-logic-pro",
+      "fecha": "2026-11-09T19:09:58.000Z",
+      "resumen": "After publishing a support article in early September outlining usage limits for some Apple Intelligence features, the company has updated Logic Pro with an option to \"Buy More Usage\" for a one-time purchase price of $49.99, as spotted by 9to5Mac.  It has a built-in AI assistant to do things like \"start a new song, set up a vocal track from a single prompt, or refine an active project.\"\nThese Inte",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "apple-s-50-intelligence-usage-packs-extend-access-to-some-ai",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.4972287654320987,
+        "authority": 0.9
+      },
+      "score": 0.4646
+    },
+    {
+      "titulo": "Meta releases Muse Ember, a new lightweight model for agent execution",
+      "url": "https://techcrunch.com/2026/11/09/meta-releases-muse-ember-a-new-lightweight-model-for-agent-execution/",
+      "fecha": "2026-11-09T18:00:00.000Z",
+      "resumen": "At 10 cents per million input tokens, Ember is significantly cheaper than frontier competitors like Haiku and Luna.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "meta-releases-muse-ember-a-new-lightweight-model-for-agent-e",
+      "signals": {
+        "hn": 10,
+        "reddit": 0,
+        "social": 0.3154543289846377,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.4648367901234568,
+        "authority": 0.9
+      },
+      "score": 0.4017
+    },
+    {
+      "titulo": "Automattic debuts a platform to deploy vibe-coding apps amid a changing internet",
+      "url": "https://techcrunch.com/2026/11/09/automattic-debuts-a-platform-to-deploy-vibe-coding-apps-amid-a-changing-internet/",
+      "fecha": "2026-11-09T14:00:00.000Z",
+      "resumen": "Automattic aims to compete with the likes of Lovable with Spacefast.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "automattic-debuts-a-platform-to-deploy-vibe-coding-apps-amid",
+      "signals": {
+        "hn": 10,
+        "reddit": 0,
+        "social": 0.3154543289846377,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.35372567901234564,
+        "authority": 0.9
+      },
+      "score": 0.385
+    },
+    {
+      "titulo": "Instagram’s Effect Builder makes new filters from AI prompts",
+      "url": "https://www.theverge.com/tech/1030061/instagram-ai-effect-builder-filters",
+      "fecha": "2026-11-09T18:07:23.000Z",
+      "resumen": "After expanding its Edits app to macOS last week, Instagram's next move is launching this Effect Builder that generates custom filters for your Stories posts with AI. Available now for US residents who are over 18, it has a prompt box for describing your filter idea to the chatbot, with an option to attach style reference images.\nThen you can upload your own photos to preview the AI-generating eff",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "instagram-s-effect-builder-makes-new-filters-from-ai-prompts",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.468255,
+        "authority": 0.9
+      },
+      "score": 0.3602
+    }
+  ]
+}
