@@ -1,0 +1,90 @@
+{
+  "date": "2026-11-11",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "ChatGPT is getting verified AI ‘Business Agents’",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1030552/openai-chatgpt-business-agents-hub",
+      "fecha": "2026-11-10T18:00:00.000Z",
+      "resumen": "ChatGPT is going to let you chat with verified \"Business Agents\" that represent a brand to help you with things like comparison shopping. The feature, available first to \"eligible\" e-commerce and online service businesses in the US, is launching as part of a suite of business-focused features in ChatGPT being announced today in beta.\nYou can start talking with a Business Agent if a business that h",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "chatgpt-is-getting-verified-ai-business-agents",
+      "signals": {
+        "hn": 6,
+        "reddit": 0,
+        "social": 0.2559935737386376,
+        "relevance": 1,
+        "freshness": 0.48735420524691364,
+        "authority": 0.9
+      },
+      "score": 0.5783,
+      "tema": "Asistentes"
+    },
+    {
+      "titulo": "Adobe brings AI agents and new creative tools to Photoshop, Premiere, and Firefly",
+      "url": "https://techcrunch.com/2026/11/10/adobe-adds-more-ai-to-its-products-and-launches-an-mcp/",
+      "fecha": "2026-11-10T14:05:10.000Z",
+      "resumen": "Adobe is taking on Figma with a new prototype builder tool in Firefly.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "adobe-brings-ai-agents-and-new-creative-tools-to-photoshop-p",
+      "signals": {
+        "hn": 1,
+        "reddit": 0,
+        "social": 0.09118675081917017,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.37863506944444447,
+        "authority": 0.9
+      },
+      "score": 0.3878,
+      "tema": "Automatización"
+    },
+    {
+      "titulo": "OpenAI acquires Odessia, travel startup created by Sonder founder",
+      "url": "https://techcrunch.com/2026/11/10/openai-acquires-odessia-travel-startup-created-by-sonder-founder/",
+      "fecha": "2026-11-10T21:08:52.000Z",
+      "resumen": "OpenAI has not yet said what its plans are for the future of travel. But Sonder founder Francis Davidson is a well-known figure in the travel industry.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "openai-acquires-odessia-travel-startup-created-by-sonder-fou",
+      "signals": {
+        "hn": 4,
+        "reddit": 0,
+        "social": 0.21172907860852444,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.5747924768518519,
+        "authority": 0.9
+      },
+      "score": 0.3715,
+      "tema": "Actualidad"
+    },
+    {
+      "titulo": "Anthropic has its own AI-powered office suite now",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1030709/anthropic-has-its-own-ai-powered-office-suite-now",
+      "fecha": "2026-11-10T17:30:00.000Z",
+      "resumen": "For years, Anthropic has been known for its focus on enterprise and coding tools that attract high-flying corporate clients, inspiring competing frontier labs - like OpenAI, SpaceXSI, and Meta - to copy its strategies. Earlier this year, Claude Code went through its own particular hype cycle. And now, Anthropic is trying to expand its footprint to other knowledge workers with an AI-powered suite o",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "anthropic-has-its-own-ai-powered-office-suite-now",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.4734653163580247,
+        "authority": 0.9
+      },
+      "score": 0.361,
+      "tema": "Código"
+    }
+  ]
+}

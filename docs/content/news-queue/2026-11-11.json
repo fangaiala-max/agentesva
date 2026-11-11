@@ -1,0 +1,206 @@
+{
+  "date": "2026-11-11",
+  "generatedAt": "2026-11-11T12:27:18.895Z",
+  "candidates": [
+    {
+      "titulo": "ChatGPT is getting verified AI ‘Business Agents’",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1030552/openai-chatgpt-business-agents-hub",
+      "fecha": "2026-11-10T18:00:00.000Z",
+      "resumen": "ChatGPT is going to let you chat with verified \"Business Agents\" that represent a brand to help you with things like comparison shopping. The feature, available first to \"eligible\" e-commerce and online service businesses in the US, is launching as part of a suite of business-focused features in ChatGPT being announced today in beta.\nYou can start talking with a Business Agent if a business that h",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "chatgpt-is-getting-verified-ai-business-agents",
+      "signals": {
+        "hn": 6,
+        "reddit": 0,
+        "social": 0.2559935737386376,
+        "relevance": 1,
+        "freshness": 0.48735420524691364,
+        "authority": 0.9
+      },
+      "score": 0.5783
+    },
+    {
+      "titulo": "Anthropic launches Claude Meetings to turn workplace discussions into plans and tasks",
+      "url": "https://techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks/",
+      "fecha": "2026-11-10T17:30:00.000Z",
+      "resumen": "As participants talk, Claude can draft the plan being discussed, map out a timeline on a whiteboard, answer questions in the meeting chat, and access connected work apps to retrieve information, such as last year's figures.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "anthropic-launches-claude-meetings-to-turn-workplace-discuss",
+      "signals": {
+        "hn": 4,
+        "reddit": 0,
+        "social": 0.21172907860852444,
+        "relevance": 1,
+        "freshness": 0.4734653163580247,
+        "authority": 0.9
+      },
+      "score": 0.5563
+    },
+    {
+      "titulo": "OpenAI rolls out new business profiles, making ChatGPT just a little bit more like Google",
+      "url": "https://techcrunch.com/2026/11/10/openai-rolls-out-new-business-profiles-making-chatgpt-just-a-little-bit-more-like-google/",
+      "fecha": "2026-11-10T18:49:52.000Z",
+      "resumen": "OpenAI is looking to make ChatGPT a more robust consumer discovery engine, and a host of new features seek to empower businesses to help it do that.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "openai-rolls-out-new-business-profiles-making-chatgpt-just-a",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.510440625,
+        "authority": 0.9
+      },
+      "score": 0.4666
+    },
+    {
+      "titulo": "Google releases Gemini 4 Carbon with agent ‘swarm’ feature",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1030787/google-gemini-4-carbon-public-rollout",
+      "fecha": "2026-11-10T16:00:00.000Z",
+      "resumen": "Google is rolling out its latest AI model, Gemini 4 Carbon, to the general public after releasing it to a select group of \"cybersecurity defenders\" two weeks ago. Google claims Carbon is its \"strongest model\" yet, and capable of competing with the very best systems from Anthropic and OpenAI.\nGoogle says Gemini 4 Carbon \"pushes the frontier even further\" than Argon, referring to the company's other",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "google-releases-gemini-4-carbon-with-agent-swarm-feature",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.43179864969135806,
+        "authority": 0.9
+      },
+      "score": 0.4548
+    },
+    {
+      "titulo": "Meta’s AI agent Muse lands on Apple Watch and Android Wear OS",
+      "url": "https://techcrunch.com/2026/11/10/metas-ai-agent-muse-lands-on-apple-watch-and-wear-os/",
+      "fecha": "2026-11-10T15:29:30.000Z",
+      "resumen": "Users can now interact with Meta’s AI assistant through voice calls, text messages, or dictation on their Apple Watch.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "meta-s-ai-agent-muse-lands-on-apple-watch-and-android-wear-o",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.41767827932098767,
+        "authority": 0.9
+      },
+      "score": 0.4527
+    },
+    {
+      "titulo": "Adobe is going all in on agentic AI",
+      "url": "https://www.theverge.com/tech/1030593/adobe-max-ai-agents-mcp-firefly-assistant-updates",
+      "fecha": "2026-11-10T14:00:00.000Z",
+      "resumen": "Adobe is committing itself to the notion that chatbots and AI agents could be your next design assistant, or even automate creative workflows and repetitive tasks on your behalf. Some of the tools and features announced today at Adobe's Max conference in Miami, Florida, include allowing your preferred third-party AI agents to access and change Creative Cloud projects, new capabilities for Adobe's ",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "adobe-is-going-all-in-on-agentic-ai",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.3762430941358025,
+        "authority": 0.9
+      },
+      "score": 0.4464
+    },
+    {
+      "titulo": "Adobe brings AI agents and new creative tools to Photoshop, Premiere, and Firefly",
+      "url": "https://techcrunch.com/2026/11/10/adobe-adds-more-ai-to-its-products-and-launches-an-mcp/",
+      "fecha": "2026-11-10T14:05:10.000Z",
+      "resumen": "Adobe is taking on Figma with a new prototype builder tool in Firefly.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "adobe-brings-ai-agents-and-new-creative-tools-to-photoshop-p",
+      "signals": {
+        "hn": 1,
+        "reddit": 0,
+        "social": 0.09118675081917017,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.37863506944444447,
+        "authority": 0.9
+      },
+      "score": 0.3878
+    },
+    {
+      "titulo": "OpenAI acquires Odessia, travel startup created by Sonder founder",
+      "url": "https://techcrunch.com/2026/11/10/openai-acquires-odessia-travel-startup-created-by-sonder-founder/",
+      "fecha": "2026-11-10T21:08:52.000Z",
+      "resumen": "OpenAI has not yet said what its plans are for the future of travel. But Sonder founder Francis Davidson is a well-known figure in the travel industry.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "openai-acquires-odessia-travel-startup-created-by-sonder-fou",
+      "signals": {
+        "hn": 4,
+        "reddit": 0,
+        "social": 0.21172907860852444,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.5747924768518519,
+        "authority": 0.9
+      },
+      "score": 0.3715
+    },
+    {
+      "titulo": "Anthropic has its own AI-powered office suite now",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1030709/anthropic-has-its-own-ai-powered-office-suite-now",
+      "fecha": "2026-11-10T17:30:00.000Z",
+      "resumen": "For years, Anthropic has been known for its focus on enterprise and coding tools that attract high-flying corporate clients, inspiring competing frontier labs - like OpenAI, SpaceXSI, and Meta - to copy its strategies. Earlier this year, Claude Code went through its own particular hype cycle. And now, Anthropic is trying to expand its footprint to other knowledge workers with an AI-powered suite o",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "anthropic-has-its-own-ai-powered-office-suite-now",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.4734653163580247,
+        "authority": 0.9
+      },
+      "score": 0.361
+    },
+    {
+      "titulo": "eBay appears to have shut the door on third-party AI agents",
+      "url": "https://www.theverge.com/tech/1030838/ebay-ai-agents-meta-muse-agentic-shopping",
+      "fecha": "2026-11-10T16:20:30.000Z",
+      "resumen": "eBay appears to have blocked AI agents, including Meta's Muse, from browsing on the platform - the latest speed bump in the AI agent race.\nA reader tells The Verge that for several weeks he's had his Muse agent browse and curate a daily digest of watches for sale on platforms like eBay, including a link to listings, price, shipping details, and relevant notes about condition or style. This weekend",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "ebay-appears-to-have-shut-the-door-on-third-party-ai-agents",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.4412893904320988,
+        "authority": 0.9
+      },
+      "score": 0.3562
+    }
+  ]
+}
