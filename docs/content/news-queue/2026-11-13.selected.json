@@ -1,0 +1,90 @@
+{
+  "date": "2026-11-13",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "No, AI agents did not discover a previously unknown Maya site",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1032125/ai-agents-maya-site-archeology-discovery",
+      "fecha": "2026-11-12T19:42:40.000Z",
+      "resumen": "“I woke up and checked the agents' reports. 'DAMN!' They had found lots of villages and other regular shapes that looked like structures or houses,“ Pietro Miotti wrote on his blog. | Image: Pietro Miotti\t\n\n Armed with a team of AI agents, Google researcher Pietro Miotti claimed earlier this week to have discovered a potentially unmapped Maya site in Mexico. There was just one problem: The site ha",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "no-ai-agents-did-not-discover-a-previously-unknown-maya-site",
+      "signals": {
+        "hn": 7,
+        "reddit": 0,
+        "social": 0.27356025245751053,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5231806558641975,
+        "authority": 0.9
+      },
+      "score": 0.4916,
+      "tema": "Automatización"
+    },
+    {
+      "titulo": "Google’s new Gemini model is better at understanding complicated questions",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1032505/google-search-ai-mode-gemini-4-hydrogen",
+      "fecha": "2026-11-12T21:55:32.000Z",
+      "resumen": "Google says its new Gemini 4 Hydrogen model can give more helpful answers to complex questions, including \"questions with multiple parts, hard-to-understand typos, or highly specific requests.\" The new model can break down your questions and address each part in its responses. It's available starting today in search, the Gemini app, all tiers of Google AI Studio, the Gemini API, Gemini for busines",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "google-s-new-gemini-model-is-better-at-understanding-complic",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5846930015432099,
+        "authority": 0.9
+      },
+      "score": 0.4777,
+      "tema": "Asistentes"
+    },
+    {
+      "titulo": "More game developers are starting to use generative AI",
+      "url": "https://www.theverge.com/games/1032085/gdc-festival-of-gaming-annual-survey-ai-layoffs",
+      "fecha": "2026-11-12T17:00:00.000Z",
+      "resumen": "A photo from the GDC Festival of Gaming 2026 event.\t\n\nMore video game developers are using generative AI tools in their jobs compared to last year, according to the GDC Festival of Gaming's latest annual industry survey. Forty percent of developers surveyed say they use it \"as part of their job,\" an increase from 36 percent in 2025. Usage was higher with game developers that work on free-to-play g",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "more-game-developers-are-starting-to-use-generative-ai",
+      "signals": {
+        "hn": 6,
+        "reddit": 0,
+        "social": 0.2559935737386376,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.447872013888889,
+        "authority": 0.9
+      },
+      "score": 0.3724,
+      "tema": "Código"
+    },
+    {
+      "titulo": "Nectar launches an AI agent to automate creator discovery and outreach for brands",
+      "url": "https://techcrunch.com/2026/11/12/nectar-launches-an-ai-agent-to-automate-creator-discovery-and-outreach-for-brands/",
+      "fecha": "2026-11-12T19:11:00.000Z",
+      "resumen": "Nectar's new AI agent automates influencer marketing, helping brands discover creators, manage outreach and partnerships, and track campaign results.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "nectar-launches-an-ai-agent-to-automate-creator-discovery-an",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5085201620370371,
+        "authority": 0.9
+      },
+      "score": 0.4663,
+      "tema": "Automatización"
+    }
+  ]
+}
