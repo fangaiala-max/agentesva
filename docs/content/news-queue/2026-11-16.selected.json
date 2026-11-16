@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-16",
+  "count": 2,
+  "selected": [
+    {
+      "titulo": "Apple launches new app to study how people use AI for health",
+      "url": "https://techcrunch.com/2026/11/15/apple-launches-new-app-to-study-how-people-use-ai-for-health/",
+      "fecha": "2026-11-16T01:30:00.000Z",
+      "resumen": "Apple's new app for a study will answer everyday medical questions",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "apple-launches-new-app-to-study-how-people-use-ai-for-health",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.6697635956790123,
+        "authority": 0.9
+      },
+      "score": 0.3905,
+      "tema": "Actualidad"
+    },
+    {
+      "titulo": "Apple’s new study looks to improve the effectiveness of AI health tools",
+      "url": "https://www.theverge.com/tech/1033355/apples-new-study-looks-to-improve-the-effectiveness-of-ai-health-tools",
+      "fecha": "2026-11-16T01:26:56.000Z",
+      "resumen": "Apple announced a new study today with the goal of better understanding how people interact with conversational AI health tools and how useful their responses actually are. The company is conducting the Apple Health AI Usage Study in collaboration with OpenEvidence, a clinical AI platform used by healthcare professionals that generates answers based on medical information from sources like The New",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "apple-s-new-study-looks-to-improve-the-effectiveness-of-ai-h",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.6683438425925925,
+        "authority": 0.9
+      },
+      "score": 0.3903,
+      "tema": "Código"
+    }
+  ]
+}
