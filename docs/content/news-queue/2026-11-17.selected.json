@@ -1,0 +1,90 @@
+{
+  "date": "2026-11-17",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "Google Maps can now create trip itineraries for you",
+      "url": "https://www.theverge.com/tech/1034110/google-ask-maps-ai-trip-planning",
+      "fecha": "2026-11-16T14:00:00.000Z",
+      "resumen": "Google is launching a new AI trip-planning feature for Maps that allows the app to create custom itineraries for you and provide real-time details about each stop. The update, which is rolling out to the Gemini-powered Ask Maps chatbot inside the app, lets you plan a one-day outing or a trip spanning several days.\nAs an example, Google says you can use Ask Maps to plan a day trip for holiday shopp",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "google-maps-can-now-create-trip-itineraries-for-you",
+      "signals": {
+        "hn": 17,
+        "reddit": 0,
+        "social": 0.38024191204114793,
+        "relevance": 1,
+        "freshness": 0.3295794444444444,
+        "authority": 0.9
+      },
+      "score": 0.6105,
+      "tema": "Código"
+    },
+    {
+      "titulo": "Building AI that can work across the enterprise",
+      "url": "https://www.technologyreview.com/2026/11/16/1146070/building-ai-that-can-work-across-the-enterprise/",
+      "fecha": "2026-11-16T13:00:00.000Z",
+      "resumen": "For years, enterprises have approached AI as a series of discrete experiments. Now, as AI agents begin to move into the workflows that run the business, that model is starting to look inadequate. Organizations moving from isolated pilots toward AI agents and autonomous workflows are confronting a deeper challenge: rethinking how data, business processes, governance,…",
+      "fuente": {
+        "nombre": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/"
+      },
+      "slugSugerido": "building-ai-that-can-work-across-the-enterprise",
+      "signals": {
+        "hn": 76,
+        "reddit": 0,
+        "social": 0.5714479027232754,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.30180166666666663,
+        "authority": 0.95
+      },
+      "score": 0.5974,
+      "tema": "Automatización"
+    },
+    {
+      "titulo": "FBI says Artex AI open source hacking tool used to breach networks in ‘under three hours’",
+      "url": "https://techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours/",
+      "fecha": "2026-11-16T17:36:43.000Z",
+      "resumen": "The FBI says that the open source hacking tool was used in cyberattacks targeting a U.S. IT giant and the South Korean financial industry.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-ne",
+      "signals": {
+        "hn": 57,
+        "reddit": 0,
+        "social": 0.5341702533061324,
+        "relevance": 0.3333333333333333,
+        "freshness": 0.42991123456790126,
+        "authority": 0.9
+      },
+      "score": 0.4949,
+      "tema": "Actualidad"
+    },
+    {
+      "titulo": "OpenAI releases a new image classifier and ChatGPT warnings to combat CSAM",
+      "url": "https://techcrunch.com/2026/11/16/openai-releases-a-new-image-classifier-and-chatgpt-warnings-to-combat-csam/",
+      "fecha": "2026-11-16T17:00:00.000Z",
+      "resumen": "ChatGPT will ban an account trying to access CSAM content for 24 hours as a warning.",
+      "fuente": {
+        "nombre": "TechCrunch",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "slugSugerido": "openai-releases-a-new-image-classifier-and-chatgpt-warnings-",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.4129127777777778,
+        "authority": 0.9
+      },
+      "score": 0.3519,
+      "tema": "Asistentes"
+    }
+  ]
+}
