@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-18",
+  "generatedAt": "2026-11-18T13:40:49.588Z",
+  "candidates": [
+    {
+      "titulo": "Google’s Spark AI agent becomes ‘Tasks’ — and now it’s free",
+      "url": "https://www.theverge.com/tech/1035756/google-spark-ai-tasks-free",
+      "fecha": "2026-11-17T18:58:01.000Z",
+      "resumen": "You can now switch from the “Chat” toggle to “Tasks.” | Image: Google\t\n\nGoogle is rebranding its Spark AI agent as \"Tasks\" and making it free to use. The feature, which is powered by Google's new Gemini 4 Hydrogen AI model, can do things like create meal plans, manage your calendar, and dig through your emails to find recurring expenses you might not need.\nUsers in the US will get access to a few ",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "google-s-spark-ai-agent-becomes-tasks-and-now-it-s-free",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.4801806481481481,
+        "authority": 0.9
+      },
+      "score": 0.462
+    }
+  ]
+}
