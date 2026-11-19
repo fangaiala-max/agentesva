@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-19",
+  "generatedAt": "2026-11-19T14:08:30.910Z",
+  "candidates": [
+    {
+      "titulo": "Canva adds an AI ‘off’ button",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1037126/canva-ai-features-off-button",
+      "fecha": "2026-11-19T12:30:00.000Z",
+      "resumen": "Canva will now allow you to turn off its generative AI features. With this change, you can disable the graphic design platform's array of AI tools, such as its AI photo-extending Magic Expand feature, as well as turn off the ability to generate images with its Canva chatbot.\nThis toggle doesn't turn off every AI-powered feature on Canva, however. That includes Canva's background remover and its Ma",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "canva-adds-an-ai-off-button",
+      "signals": {
+        "hn": 282,
+        "reddit": 0,
+        "social": 0.7426849216964112,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.9543911265432099,
+        "authority": 0.9
+      },
+      "score": 0.7674
+    },
+    {
+      "titulo": "The nation’s largest school districts consider ditching Google Search",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1037151/school-districts-ditching-google",
+      "fecha": "2026-11-18T23:18:35.000Z",
+      "resumen": "New York, Los Angeles, and Chicago schools are considering Google alternatives after the company said it will disable Search for schools that opt out of its AI features, according to The New York Times. Starting next year, schools will not have the option to disable Gemini-powered features without also disabling Search. Chris Phillips, Google's vice president of education, told the Times that, \"Se",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "the-nation-s-largest-school-districts-consider-ditching-goog",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.5879945216049383,
+        "authority": 0.9
+      },
+      "score": 0.3782
+    }
+  ]
+}
