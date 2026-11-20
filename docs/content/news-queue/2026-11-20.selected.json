@@ -1,0 +1,90 @@
+{
+  "date": "2026-11-20",
+  "count": 4,
+  "selected": [
+    {
+      "titulo": "Signal is blocking Gemini and Siri AI from reading your screen",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1038390/signal-blocking-ai-agent-screenshots-mobile-app",
+      "fecha": "2026-11-20T12:30:47.000Z",
+      "resumen": "Signal users on iOS will see this option to toggle blocking screenshots and preventing Siri AI from scanning on-screen content. | Image: Signal\t\n\nSignal is restricting the ability to take screenshots on Android and iOS devices in an effort to prevent AI agents from reading users' messages and other data. The agentic AI capabilities built into operating systems that analyze on-screen information to",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "signal-is-blocking-gemini-and-siri-ai-from-reading-your-scre",
+      "signals": {
+        "hn": 5,
+        "reddit": 0,
+        "social": 0.23571433143015907,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.9627386728395062,
+        "authority": 0.9
+      },
+      "score": 0.5405,
+      "tema": "Asistentes"
+    },
+    {
+      "titulo": "Gemini on Mac can now use your computer",
+      "url": "https://www.theverge.com/tech/1037902/google-gemini-macos-ai-computer-use",
+      "fecha": "2026-11-19T18:21:13.000Z",
+      "resumen": "Google's Gemini app for macOS now has computer use, meaning it can help you \"get multi-step tasks done across your local files, desktop apps, and the web,\" the company says. Google suggests the feature might be useful for things like speeding up workflows, filling in forms, making presentations, and listing items for sale.\nUsers will be able to decide which of your apps Gemini can access, and be a",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "gemini-on-mac-can-now-use-your-computer",
+      "signals": {
+        "hn": 1,
+        "reddit": 0,
+        "social": 0.09118675081917017,
+        "relevance": 1,
+        "freshness": 0.45830966049382715,
+        "authority": 0.9
+      },
+      "score": 0.4998,
+      "tema": "Código"
+    },
+    {
+      "titulo": "Apple is hiring engineers to build its own AI agent",
+      "url": "https://www.theverge.com/tech/1038227/apple-ai-agent-engineer-job-listing",
+      "fecha": "2026-11-19T22:31:41.000Z",
+      "resumen": "Apple is working on its own AI agent that can perform a range of tasks for you, including browsing the web, working across apps, writing code, and calling services. That's according to a job listing spotted by Bloomberg, which says Apple is looking for an engineer to lead the creation of an agentic AI assistant.\nAn AI agent from Apple would put the iPhone maker in the running to compete with the l",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "apple-is-hiring-engineers-to-build-its-own-ai-agent",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.5742664506172839,
+        "authority": 0.9
+      },
+      "score": 0.4761,
+      "tema": "Código"
+    },
+    {
+      "titulo": "ChatGPT can transcribe as you speak now with Live Dictation",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1037634/openai-chatgpt-live-dictation",
+      "fecha": "2026-11-19T15:16:45.000Z",
+      "resumen": "ChatGPT can receive  audio prompts from your microphone faster now with a Live Dictation feature that transcribes as you speak, rather than waiting until you finish recording. It's rolling out now globally on all ChatGPT plans on the web, desktop app, and iOS and Android apps. While using dictation in ChatGPT, you can tap or click the audio waveform to show the live text transcript the AI is gener",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "chatgpt-can-transcribe-as-you-speak-now-with-live-dictation",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.3729084259259259,
+        "authority": 0.9
+      },
+      "score": 0.4459,
+      "tema": "Asistentes"
+    }
+  ]
+}
