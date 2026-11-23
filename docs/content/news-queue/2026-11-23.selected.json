@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-23",
+  "count": 1,
+  "selected": [
+    {
+      "titulo": "Meta Muse can do your Black Friday shopping at Walmart",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1039874/walmart-agent-gateway-meta-muse-black-friday",
+      "fecha": "2026-11-23T11:00:00.000Z",
+      "resumen": "Muse can find Walmart’s Black Friday deals so that you don’t have to. | Image: Walmart\t\n\nWalmart will now let Meta's Muse shop on your behalf, allowing the AI agent to find and purchase Black Friday deals via Walmart's Sparky AI assistant. The retail giant is rolling out a live implementation of the Agent Gateway it announced last month, which helps AI agents find relevant products for you without",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "meta-muse-can-do-your-black-friday-shopping-at-walmart",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.8691322299382715,
+        "authority": 0.9
+      },
+      "score": 0.4204,
+      "tema": "Asistentes"
+    }
+  ]
+}
