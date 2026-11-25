@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-25",
+  "count": 2,
+  "selected": [
+    {
+      "titulo": "Has vibe coding made open source the new normal for synths?",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1040081/vibe-coding-open-source-music-firmware",
+      "fecha": "2026-11-25T13:00:00.000Z",
+      "resumen": "The emergence of powerful vibe-coding agents and tools like Reverse Engineer Anything has caused chaos in the music gear world, leaving companies scrambling to figure out how to respond. While some, like Roland, have remained silent for now, others have embraced the modding community. In the last several weeks, as it's become clear that no piece of music gear is safe from Claude and a subreddit fu",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "has-vibe-coding-made-open-source-the-new-normal-for-synths",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.9358049922839506,
+        "authority": 0.9
+      },
+      "score": 0.5304,
+      "tema": "Código"
+    },
+    {
+      "titulo": "The New York Times warns photographers not to update Photoshop over AI features",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features",
+      "fecha": "2026-11-24T16:09:23.000Z",
+      "resumen": "The New York Times is asking freelance photographers not to use the newest version of Adobe Photoshop because features in the 2027 update use AI \"in ways that may not be apparent to users.\" In an email seen by The Verge and posted on Threads, two of the Times' photography leaders, Meaghan Looram and Josh Haner, write that the use of these features \"can result in metadata identifying photographs as",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "the-new-york-times-warns-photographers-not-to-update-photosh",
+      "signals": {
+        "hn": 5,
+        "reddit": 0,
+        "social": 0.23571433143015907,
+        "relevance": 0.6666666666666666,
+        "freshness": 0.35681579475308645,
+        "authority": 0.9
+      },
+      "score": 0.4496,
+      "tema": "Código"
+    }
+  ]
+}
