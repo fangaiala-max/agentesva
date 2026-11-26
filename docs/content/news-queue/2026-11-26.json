@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-26",
+  "generatedAt": "2026-11-26T14:44:48.486Z",
+  "candidates": [
+    {
+      "titulo": "Has vibe coding made open source the new normal for synths?",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1040081/vibe-coding-open-source-music-firmware",
+      "fecha": "2026-11-25T13:00:00.000Z",
+      "resumen": "The emergence of powerful vibe-coding agents and tools like Reverse Engineer Anything has caused chaos in the music gear world, leaving companies scrambling to figure out how to respond. While some, like Roland, have remained silent for now, others have embraced the modding community. In the last several weeks, as it's become clear that no piece of music gear is safe from Claude and a subreddit fu",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+      },
+      "slugSugerido": "has-vibe-coding-made-open-source-the-new-normal-for-synths",
+      "signals": {
+        "hn": 0,
+        "reddit": 0,
+        "social": 0,
+        "relevance": 1,
+        "freshness": 0.2848110648148148,
+        "authority": 0.9
+      },
+      "score": 0.4327
+    }
+  ]
+}
